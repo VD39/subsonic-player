@@ -1,0 +1,63 @@
+:root {
+  /* default */
+  --black-color: #000;
+  --white-color: #fff;
+  --body-color: #e5e7eb;
+
+  /* theme colours */
+  --theme-color: #8051d4;
+
+  /* snack colours */
+  --success-color: #008756;
+  --error-color: #ed0000;
+  --info-color: #4493f8;
+
+  /* border colour */
+  --border-color: rgb(120 130 140 / 20%);
+}
+
+.light {
+  /* Light colours */
+
+  /* font colours */
+  --header-font-color: var(--black-color);
+  --body-font-color: rgb(0 0 0 / 70%);
+  --secondary-font-color: #888;
+
+  /* background */
+  --body-background-color: #f7f8f9;
+  --background-color: var(--white-color);
+  --secondary-background-color: var(--background-color);
+  --invert-background-color: var(--black-color);
+  --track-background-color: var(--background-color);
+  --track-hover-background-color: #fafbfb;
+  --modal-background-color: var(--background-color);
+
+  /* box shadow */
+  --box-shadow-large: 0 0 32px rgb(0 0 0 / 20%);
+  --box-shadow-medium: 1px 1px 15px 0 rgb(0 0 0 / 20%);
+  --box-shadow-small: 0 0 2px 0 rgb(0 0 0 / 20%);
+}
+
+.dark {
+  /* Dark colours */
+
+  /* font colours */
+  --header-font-color: var(--white-color);
+  --body-font-color: rgb(255 255 255 / 70%);
+  --secondary-font-color: #aaa;
+
+  /* background */
+  --body-background-color: #020409;
+  --background-color: #0f1117;
+  --secondary-background-color: #222;
+  --invert-background-color: var(--white-color);
+  --track-background-color: var(--background-color);
+  --track-hover-background-color: #181b22;
+  --modal-background-color: var(--background-color);
+
+  /* box shadow */
+  --box-shadow-large: 0 0 32px rgb(255 255 255 / 20%);
+  --box-shadow-medium: 1px 1px 15px 0 rgb(255 255 255 / 20%);
+  --box-shadow-small: 0 0 2px 0 rgb(255 255 255 / 20%);
+}

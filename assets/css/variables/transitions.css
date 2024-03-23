@@ -1,0 +1,5 @@
+:root {
+  --transition: 0.25s ease-in-out;
+  --loop-max-width: 100%;
+  --loop-grid-gap: 1.5rem;
+}

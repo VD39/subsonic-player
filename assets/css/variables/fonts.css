@@ -1,0 +1,19 @@
+:root {
+  /* Desktop font size */
+  --h1-font-size: clamp(2.5rem, 2.46rem + 0.71vw, 3rem);
+  --h2-font-size: clamp(2rem, 1.93rem + 0.58vw, 2.5rem);
+  --h3-font-size: clamp(1.5rem, 1.52rem + 0.45vw, 2rem);
+  --h4-font-size: clamp(1.25rem, 1.16rem + 0.39vw, 1.5rem);
+  --body-font-size: clamp(1rem, 0.94rem + 0.26vw, 1.25rem);
+  --small-font-size: clamp(0.5rem, 0.94rem + 0.26vw, 1rem);
+
+  /* line height */
+  --line-height: 1.5;
+
+  /* letter spacing */
+  --letter-spacing: 0.025rem;
+  --letter-spacing-normal: normal;
+
+  /* font family */
+  --font-family: 'Barlow', sans-serif;
+}

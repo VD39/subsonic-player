@@ -1,0 +1,10 @@
+:root {
+  /* inner gap.  */
+  --inner-gap: 6vw;
+
+  /* Max screen size width. */
+  --max-width: 80rem;
+
+  /* Header height. */
+  --header-height: 4rem;
+}

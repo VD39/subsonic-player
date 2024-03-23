@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { defineNuxtConfig } from 'nuxt/config';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -11,9 +12,30 @@ export default defineNuxtConfig({
     ],
   },
   compatibilityDate: '2024-04-03',
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    '@/assets/css/main.css',
+  ],
   devtools: {
     enabled: true,
   },
   modules: ['@nuxt/eslint'],
+  postcss: {
+    plugins: {
+      '@csstools/postcss-global-data': {
+        files: [resolve(__dirname, 'assets/css/breakpoints.css')],
+      },
+      'postcss-custom-media': {},
+      'postcss-mixins': {
+        mixinsFiles: [resolve(__dirname, 'assets/css/mixins/**')],
+      },
+      'postcss-preset-env': {
+        stage: 0,
+      },
+      'postcss-pxtorem': {
+        propList: ['*'],
+        replace: true,
+      },
+    },
+  },
 });

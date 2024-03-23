@@ -1,0 +1,19 @@
+:root {
+  --space-unit: 6px;
+
+  /* Spacing. */
+  --space-2: calc(0.25 * var(--space-unit));
+  --space-4: calc(0.5 * var(--space-unit));
+  --space-8: calc(1 * var(--space-unit));
+  --space-12: calc(1.5 * var(--space-unit));
+  --space-16: calc(2 * var(--space-unit));
+  --space-24: calc(3 * var(--space-unit));
+  --space-32: calc(4 * var(--space-unit));
+  --space-40: calc(5 * var(--space-unit));
+}
+
+@media (--tablet-up) {
+  :root {
+    --space-unit: 8px;
+  }
+}

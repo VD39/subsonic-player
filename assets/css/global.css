@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  color: var(--body-font-color);
+  background-color: var(--body-background-color);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: text-bottom;
+  border-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input[type='reset'],
+input[type='submit'],
+input[type='button'] {
+  @mixin align-center;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+input {
+  outline: none;
+}
+
+.visually-hidden {
+  @mixin visually-hidden;
+}
