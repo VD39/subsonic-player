@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/test-utils/module', '@nuxt/eslint'],
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {
@@ -37,5 +37,9 @@ export default defineNuxtConfig({
         replace: true,
       },
     },
+  },
+  typescript: {
+    strict: true,
+    typeCheck: true,
   },
 });

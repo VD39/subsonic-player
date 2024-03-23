@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ThemeSwitcher > matches the snapshot 1`] = `
+"<button class="iconButton" type="button" title="Activate dark mode">
+  <font-awesome-icon-stub aria-hidden="true" icon="fas,moon" size="lg"></font-awesome-icon-stub><span class="visually-hidden">Activate dark mode</span>
+</button>"
+`;
+
+exports[`ThemeSwitcher > when button is clicked > matches the snapshot 1`] = `
+"<button class="iconButton" type="button" title="Activate light mode">
+  <font-awesome-icon-stub aria-hidden="true" size="lg" icon="fas,sun"></font-awesome-icon-stub><span class="visually-hidden">Activate light mode</span>
+</button>"
+`;

@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IconButton > matches the snapshot 1`] = `
+"<button class="iconButton" type="button">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</button>"
+`;
+
+exports[`IconButton > when disabled prop is set as true > matches the snapshot 1`] = `
+"<button class="iconButton disabled" disabled="" type="button">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</button>"
+`;
+
+exports[`IconButton > when icon prop is set > matches the snapshot 1`] = `
+"<button class="iconButton" type="button">
+  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="lg"></font-awesome-icon-stub><span class="visually-hidden">Text</span>
+</button>"
+`;
+
+exports[`IconButton > when icon prop is set > when iconPosition prop is set to right > matches the snapshot 1`] = `
+"<button class="iconButton alignRight" type="button">
+  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="lg"></font-awesome-icon-stub><span class="visually-hidden">Text</span>
+</button>"
+`;
+
+exports[`IconButton > when is prop is a > matches the snapshot 1`] = `
+"<a class="iconButton">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</a>"
+`;
+
+exports[`IconButton > when is prop is div > matches the snapshot 1`] = `
+"<div class="iconButton">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</div>"
+`;
+
+exports[`IconButton > when is prop is nuxt-link > matches the snapshot 1`] = `
+"<a class="iconButton">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</a>"
+`;
+
+exports[`IconButton > when is prop is undefined > matches the snapshot 1`] = `
+"<button class="iconButton" type="button">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</button>"
+`;
+
+exports[`IconButton > when showText prop is set to true > matches the snapshot 1`] = `
+"<button class="iconButton" type="button">
+  <!--v-if--><span class="">Text</span>
+</button>"
+`;

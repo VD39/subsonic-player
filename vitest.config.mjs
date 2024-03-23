@@ -4,18 +4,19 @@ export default defineVitestConfig({
   test: {
     globals: true,
     environment: 'nuxt',
-    environmentOptions: {
-      nuxt: {
-        mock: {
-          intersectionObserver: true,
-        },
-        // domEnvironment: 'jsdom',
-      },
-    },
-    // setupFiles: [path.resolve(__dirname, '/tests/vitest-setup.ts')],
     css: {
       modules: {
         classNameStrategy: 'non-scoped',
+      },
+    },
+    coverage: {
+      enabled: false,
+      provider: 'istanbul',
+      include: ['**/*.ts', '**/*.vue'],
+      thresholds: {
+        branches: 90,
+        functions: 90,
+        lines: 90,
       },
     },
   },
