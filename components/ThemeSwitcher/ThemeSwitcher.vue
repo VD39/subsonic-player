@@ -11,11 +11,13 @@ const text = computed(() => {
 </script>
 
 <template>
-  <icon-button
-    :icon="isDarkTheme ? 'sun' : 'moon'"
-    :title="text"
-    @click="toggleTheme"
-  >
-    {{ text }}
-  </icon-button>
+  <client-only>
+    <IconButton
+      :icon="isDarkTheme ? 'sun' : 'moon'"
+      :title="text"
+      @click="toggleTheme"
+    >
+      {{ text }}
+    </IconButton>
+  </client-only>
 </template>

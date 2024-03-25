@@ -21,7 +21,7 @@ export default withNuxt(
       '@typescript-eslint/no-unused-vars': 'error',
       'no-undef': 'error',
       'prefer-const': 'error',
-      'vue/no-multiple-template-root': 'off',
+      'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     },
   },
   {

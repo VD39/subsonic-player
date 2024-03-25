@@ -3,6 +3,16 @@ import { defineNuxtConfig } from 'nuxt/config';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      meta: [
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+        },
+      ],
+    },
+  },
   build: {
     transpile: [
       '@fortawesome/fontawesome-svg-core',
@@ -19,7 +29,7 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: ['@nuxt/test-utils/module', '@nuxt/eslint'],
+  modules: ['@nuxt/eslint'],
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {

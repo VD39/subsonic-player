@@ -30,11 +30,15 @@ h4 {
 }
 
 a,
+p {
+  margin-bottom: var(--space-4);
+}
+
+a,
 p,
 label,
 input,
 button {
-  margin-bottom: var(--space-4);
   font-size: var(--body-font-size);
   letter-spacing: var(--letter-spacing-normal);
 }

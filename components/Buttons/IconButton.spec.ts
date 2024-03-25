@@ -135,7 +135,7 @@ describe('IconButton', () => {
   });
 
   describe('when showText prop is not set', () => {
-    it('adds the visually-hidden class', () => {
+    it('adds the visually-hidden class to text', () => {
       expect(wrapper.find({ ref: 'text' }).classes()).toContain(
         'visually-hidden',
       );
@@ -153,7 +153,7 @@ describe('IconButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not add the visually-hidden class', () => {
+    it('does not add the visually-hidden class to text', () => {
       expect(wrapper.find({ ref: 'text' }).classes()).not.toContain(
         'visually-hidden',
       );

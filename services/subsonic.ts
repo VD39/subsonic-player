@@ -4,9 +4,9 @@ import type { SubsonicResponse } from './types';
 
 function getConfigParams() {
   return toQueryString({
-    v: config.version,
     c: config.clientApplication,
     f: config.format,
+    v: config.version,
   });
 }
 

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MessageBar > when type prop is error > matches the snapshot 1`] = `"<div class="error messageBar">Text</div>"`;
+
+exports[`MessageBar > when type prop is info > matches the snapshot 1`] = `"<div class="info messageBar">Text</div>"`;
+
+exports[`MessageBar > when type prop is success > matches the snapshot 1`] = `"<div class="success messageBar">Text</div>"`;
