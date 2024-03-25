@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { config } from '@/config';
 import { createForm, validateInputs } from './utils';
 import MassageBar from '@/components/MessageBar/MessageBar.vue';
 import InputField from '@/components/FormFields/InputField.vue';
 import LoadingButton from '@/components/Buttons/LoadingButton.vue';
+
+const config = useRuntimeConfig();
+const { SERVER_URL } = config.public;
 
 defineProps<{
   isLoading?: boolean;
@@ -14,11 +16,13 @@ const emit = defineEmits(['submit']);
 
 const formInputs = {
   server: {
-    value: config.serverUrl,
-    validationRules: {
-      required: true,
-      isUrl: true,
-    },
+    value: SERVER_URL,
+    validationRules: !SERVER_URL
+      ? {
+          required: true,
+          isUrl: true,
+        }
+      : {},
   },
   username: {
     validationRules: {
@@ -55,7 +59,7 @@ async function submitForm() {
   <form novalidate @submit.stop.prevent="submitForm">
     <div :class="$style.fields">
       <InputField
-        v-if="!config.serverUrl"
+        v-if="!SERVER_URL"
         :id="form.fields.server.id"
         ref="serverUrl"
         v-model="form.fields.server.value.value"

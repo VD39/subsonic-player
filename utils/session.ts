@@ -1,11 +1,10 @@
-import { config } from '@/config';
 import { getLocalStorage, setLocalStorage } from './storage';
 
 export function loadSession() {
   return {
     hash: getLocalStorage('hash'),
     salt: getLocalStorage('salt'),
-    server: config.serverUrl || getLocalStorage('server'),
+    server: getLocalStorage('server'),
     username: getLocalStorage('username'),
   };
 }

@@ -1,17 +1,18 @@
 import type { VueWrapper } from '@vue/test-utils';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 import MassageBar from '@/components/MessageBar/MessageBar.vue';
 import LoginForm from './LoginForm.vue';
 
 const { config } = vi.hoisted(() => ({
   config: {
-    serverUrl: '',
+    public: {
+      SERVER_URL: '',
+    },
   },
 }));
 
-vi.mock('@/config', () => ({
-  config,
-}));
+mockNuxtImport('useRuntimeConfig', () => () => config);
 
 function factory(props = {}) {
   return mount(LoginForm, {
@@ -62,7 +63,7 @@ describe('LoginForm', () => {
 
   describe('when serverUrl in config is defined', () => {
     beforeEach(() => {
-      config.serverUrl = 'serverUrl';
+      config.public.SERVER_URL = 'https://www.test.com';
       wrapper = factory();
     });
 
@@ -87,7 +88,7 @@ describe('LoginForm', () => {
 
   describe('when form is valid', () => {
     beforeEach(async () => {
-      config.serverUrl = '';
+      config.public.SERVER_URL = '';
       wrapper = factory();
 
       wrapper

@@ -7,10 +7,11 @@ export default defineNuxtConfig({
     head: {
       meta: [
         {
-          name: 'viewport',
           content: 'width=device-width, initial-scale=1',
+          name: 'viewport',
         },
       ],
+      title: process.env.MAIN_APP_TITLE || 'Music App',
     },
   },
   build: {
@@ -46,6 +47,12 @@ export default defineNuxtConfig({
         propList: ['*'],
         replace: true,
       },
+    },
+  },
+  runtimeConfig: {
+    public: {
+      SERVER_URL: process.env.SERVER_URL || '',
+      MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',
     },
   },
   typescript: {

@@ -25,6 +25,10 @@ defineProps<{
   > * {
     font-size: var(--small-font-size);
     color: var(--white-color);
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 }
 

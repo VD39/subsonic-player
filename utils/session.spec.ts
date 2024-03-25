@@ -1,15 +1,5 @@
 import { loadSession, saveSession } from './session';
 
-const { config } = vi.hoisted(() => ({
-  config: {
-    serverUrl: '',
-  },
-}));
-
-vi.mock('@/config', () => ({
-  config,
-}));
-
 const setLocalStorageMock = vi.fn();
 
 vi.mock('./storage', () => ({
@@ -18,29 +8,12 @@ vi.mock('./storage', () => ({
 }));
 
 describe('loadSession', () => {
-  describe('when serverUrl is not defined', () => {
-    it('returns correct value', async () => {
-      expect(loadSession()).toEqual({
-        hash: 'localStorage',
-        salt: 'localStorage',
-        server: 'localStorage',
-        username: 'localStorage',
-      });
-    });
-  });
-
-  describe('when serverUrl is defined', () => {
-    beforeEach(() => {
-      config.serverUrl = 'serverUrl';
-    });
-
-    it('returns correct value', () => {
-      expect(loadSession()).toEqual({
-        hash: 'localStorage',
-        salt: 'localStorage',
-        server: 'serverUrl',
-        username: 'localStorage',
-      });
+  it('returns correct value', async () => {
+    expect(loadSession()).toEqual({
+      hash: 'localStorage',
+      salt: 'localStorage',
+      server: 'localStorage',
+      username: 'localStorage',
     });
   });
 });

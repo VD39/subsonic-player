@@ -1,12 +1,11 @@
-import { config } from '@/config';
 import { toQueryString } from '@/utils';
 import type { SubsonicResponse } from './types';
 
 function getConfigParams() {
   return toQueryString({
-    c: config.clientApplication,
-    f: config.format,
-    v: config.version,
+    c: 'web',
+    f: 'json',
+    v: '1.15.0',
   });
 }
 
