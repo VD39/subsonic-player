@@ -1,6 +1,3 @@
-import { useAuth } from '@/composables/useAuth';
-import { useTheme } from '@/composables/useTheme';
-
 export default defineNuxtRouteMiddleware(async (to) => {
   const { setDefaultTheme } = useTheme();
   const { autoLogin, authenticated } = useAuth();

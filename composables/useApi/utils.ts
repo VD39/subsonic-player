@@ -1,5 +1,3 @@
-import { parseQueryString } from '@/utils';
-
 /* istanbul ignore next -- @preserve */
 export function getConfigParams() {
   return {

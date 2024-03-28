@@ -1,5 +1,3 @@
-import { setLocalStorage, getLocalStorage } from '@/utils';
-
 export function useTheme() {
   const isDarkTheme = useState('theme', () => false);
 

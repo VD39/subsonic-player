@@ -8,11 +8,9 @@ mockNuxtImport('navigateTo', () => navigateToMock);
 
 const authenticated = ref(false);
 
-vi.mock('@/composables/useAuth', () => ({
-  useAuth: vi.fn(() => ({
-    autoLogin: vi.fn(),
-    authenticated,
-  })),
+mockNuxtImport('useAuth', () => () => ({
+  authenticated,
+  autoLogin: vi.fn(),
 }));
 
 describe('check-out-redirection', () => {

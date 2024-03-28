@@ -1,9 +1,3 @@
-import {
-  getAuthParams,
-  getConfigParams,
-  loadSession,
-} from '@/composables/useApi/utils';
-
 export default defineNuxtPlugin(() => {
   const authParams = useCookie('auth-params');
   const params = loadSession(authParams.value!);

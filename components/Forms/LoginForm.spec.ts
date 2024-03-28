@@ -4,11 +4,9 @@ import { mount } from '@vue/test-utils';
 import MassageBar from '@/components/MessageBar/MessageBar.vue';
 import LoginForm from './LoginForm.vue';
 
-const { config } = vi.hoisted(() => ({
-  config: {
-    public: {
-      SERVER_URL: '',
-    },
+const config = vi.hoisted(() => ({
+  public: {
+    SERVER_URL: '',
   },
 }));
 

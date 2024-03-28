@@ -1,9 +1,4 @@
 import MD5 from 'crypto-js/md5';
-import { convertToQueryString, generateRandomString } from '@/utils';
-import type { Auth } from './types';
-import { useAPI } from '../useApi';
-import { loadSession } from '../useApi/utils';
-import { useUser } from '../useUser';
 
 export function useAuth() {
   const user = useUser();

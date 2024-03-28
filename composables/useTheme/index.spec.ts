@@ -1,3 +1,4 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { useTheme } from './index';
 
 const matches = ref(false);
@@ -9,13 +10,11 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-const setLocalStorageMock = vi.fn();
-const getLocalStorageMock = vi.fn();
+const setLocalStorageMock = vi.hoisted(() => vi.fn());
+const getLocalStorageMock = vi.hoisted(() => vi.fn());
 
-vi.mock('@/utils', () => ({
-  setLocalStorage: (...args: unknown[]) => setLocalStorageMock(...args),
-  getLocalStorage: () => getLocalStorageMock(),
-}));
+mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
+mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
 
 const { isDarkTheme, toggleTheme, setDefaultTheme } = useTheme();
 

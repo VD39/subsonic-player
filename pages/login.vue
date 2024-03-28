@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useAuth } from '@/composables/useAuth';
 import LoginForm from '@/components/Forms/LoginForm.vue';
-import type { LoginFields } from '@/components/Forms/types';
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher.vue';
 
 definePageMeta({

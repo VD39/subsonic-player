@@ -1,4 +1,3 @@
-import { convertToQueryString } from '@/utils';
 import type { SubsonicResponse } from './types';
 
 function getConfigParams() {

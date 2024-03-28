@@ -1,6 +1,3 @@
-import { splitCamelCase } from '@/utils';
-import type { Fields, Inputs } from './types';
-
 export function createForm<T extends Inputs>(formInputs: T) {
   const fields = Object.entries(formInputs).reduce(
     (previous, [name, { validationRules, options, value = '' }]) => {

@@ -1,5 +1,3 @@
-import type { Fields, Form, FormField } from './types';
-
 function checkFormIsInvalid<T extends Fields<T>>(formFields: T) {
   return Object.values<FormField>(formFields).every(
     (field) => field.isValid.value,

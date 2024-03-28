@@ -12,11 +12,6 @@ mockNuxtImport('callOnce', () => {
   };
 });
 
-vi.mock('@/utils', async () => ({
-  ...(await vi.importActual('@/utils')),
-  generateRandomString: vi.fn().mockReturnValue('randomString'),
-}));
-
 vi.mock('crypto-js/md5', () => ({
   default: vi.fn().mockReturnValue('MD5'),
 }));

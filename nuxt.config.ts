@@ -30,6 +30,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  imports: {
+    dirs: ['components/**', 'composables/**', 'utils/**'],
+  },
   modules: ['@nuxt/eslint'],
   postcss: {
     plugins: {

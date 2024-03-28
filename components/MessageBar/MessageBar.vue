@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { SnackType } from './types';
-
 defineProps<{
   type: SnackType;
 }>();

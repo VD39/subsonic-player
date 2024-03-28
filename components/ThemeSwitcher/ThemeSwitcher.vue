@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import IconButton from '@/components/Buttons/IconButton.vue';
-import { useTheme } from '@/composables/useTheme';
-
 const { isDarkTheme, toggleTheme } = useTheme();
 
 const text = computed(() => {

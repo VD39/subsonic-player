@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { IconName, SizeProp } from '@fortawesome/fontawesome-svg-core';
-import type { ButtonType, IconPosition } from './types';
 
 const props = withDefaults(
   defineProps<{

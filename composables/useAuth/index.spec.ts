@@ -6,16 +6,14 @@ const useCookieMock = ref<null | string>(null);
 
 mockNuxtImport('useCookie', () => () => useCookieMock);
 
-const { useAPI } = vi.hoisted(() => ({
-  useAPI: vi.fn(() => ({
+const { useAPIMock } = vi.hoisted(() => ({
+  useAPIMock: vi.fn(() => ({
     data: ref<null | Record<string, string>>({}),
     error: ref<null | Error>(null),
   })),
 }));
 
-vi.mock('../useApi', () => ({
-  useAPI,
-}));
+mockNuxtImport('useAPI', () => useAPIMock);
 
 const user = ref();
 
@@ -29,6 +27,8 @@ mockNuxtImport('useState', () => {
     return ref(init());
   };
 });
+
+mockNuxtImport('generateRandomString', () => () => 'randomString');
 
 describe('useAuth', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>;
@@ -99,7 +99,7 @@ describe('useAuth', () => {
 
         describe('when queryWithError is not successful', () => {
           beforeEach(() => {
-            useAPI.mockResolvedValue({
+            useAPIMock.mockResolvedValue({
               data: ref(null),
               error: ref(new Error('Error message.')),
             });
@@ -117,7 +117,7 @@ describe('useAuth', () => {
   describe('when login is called', () => {
     describe('when queryWithError is successful', () => {
       beforeEach(() => {
-        useAPI.mockResolvedValue({
+        useAPIMock.mockResolvedValue({
           data: ref({}),
           error: ref(null),
         });
@@ -155,7 +155,7 @@ describe('useAuth', () => {
 
     describe('when queryWithError is not successful', () => {
       beforeEach(() => {
-        useAPI.mockResolvedValue({
+        useAPIMock.mockResolvedValue({
           data: ref(null),
           error: ref(new Error('Error message.')),
         });
