@@ -8,8 +8,8 @@ const config = useRuntimeConfig();
 const { SERVER_URL } = config.public;
 
 defineProps<{
-  isLoading?: boolean;
-  errorMessage?: string;
+  loading?: boolean;
+  error?: string | null;
 }>();
 
 const emit = defineEmits(['submit']);
@@ -67,8 +67,7 @@ async function submitForm() {
         :label="form.fields.server.label"
         placeholder="Enter your server URL"
         required
-        :has-error="!form.fields.server.isValid.value"
-        :error-message="form.fields.server.errorMessage.value"
+        :error="form.fields.server.error.value"
       />
 
       <InputField
@@ -79,8 +78,7 @@ async function submitForm() {
         :label="form.fields.username.label"
         placeholder="Enter your username"
         required
-        :has-error="!form.fields.username.isValid.value"
-        :error-message="form.fields.username.errorMessage.value"
+        :error="form.fields.username.error.value"
       />
 
       <InputField
@@ -92,20 +90,23 @@ async function submitForm() {
         :label="form.fields.password.label"
         placeholder="Enter your password"
         required
-        :has-error="!form.fields.password.isValid.value"
-        :error-message="form.fields.password.errorMessage.value"
+        :error="form.fields.password.error.value"
       />
     </div>
 
-    <MassageBar v-if="errorMessage" :class="$style.messageBar" type="error">
-      <p>{{ errorMessage }}</p>
+    <MassageBar
+      v-if="form.isValid.value && error"
+      :class="$style.messageBar"
+      type="error"
+    >
+      <p>{{ error }}</p>
     </MassageBar>
 
     <LoadingButton
       :class="$style.button"
-      :disabled="isLoading"
-      :is-loading="isLoading"
-      is-full-width
+      :disabled="loading"
+      :loading="loading"
+      full-width
     >
       Login
     </LoadingButton>

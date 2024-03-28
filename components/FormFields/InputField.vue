@@ -1,8 +1,7 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    errorMessage?: string;
-    hasError?: boolean;
+    error?: string;
     hideLabel?: boolean;
     id: string;
     label: string;
@@ -12,7 +11,7 @@ withDefaults(
     type?: string;
   }>(),
   {
-    errorMessage: undefined,
+    error: undefined,
     placeholder: undefined,
     type: 'text',
   },
@@ -29,7 +28,7 @@ function updateModel(event: Event) {
     :class="[
       $style.inputField,
       {
-        [$style.error]: hasError,
+        [$style.error]: error,
       },
     ]"
   >
@@ -59,11 +58,9 @@ function updateModel(event: Event) {
       @input="updateModel"
     />
 
-    <div v-if="hasError && errorMessage" ref="errorMessage">
-      <p :class="$style.errorMessage">
-        {{ errorMessage }}
-      </p>
-    </div>
+    <p v-if="error" ref="error" :class="$style.error">
+      {{ error }}
+    </p>
   </div>
 </template>
 
@@ -109,7 +106,7 @@ function updateModel(event: Event) {
   color: var(--error-color);
 }
 
-.errorMessage {
+.error {
   margin-top: var(--space-2);
   font-size: var(--small-font-size);
   color: var(--error-color);

@@ -7,7 +7,7 @@ export interface Auth {
 }
 
 export interface AuthData {
-  hash: CryptoJS.lib.WordArray;
+  token: CryptoJS.lib.WordArray;
   salt: string;
   server: string;
   username: string;

@@ -1,8 +1,8 @@
-import { toQueryString } from '@/utils';
+import { convertToQueryString } from '@/utils';
 import type { SubsonicResponse } from './types';
 
 function getConfigParams() {
-  return toQueryString({
+  return convertToQueryString({
     c: 'web',
     f: 'json',
     v: '1.15.0',
@@ -10,21 +10,21 @@ function getConfigParams() {
 }
 
 function getAuthParams(params: Record<string, string>) {
-  return toQueryString({
+  return convertToQueryString({
     s: params.salt,
-    t: params.hash,
+    t: params.token,
     u: params.username,
   });
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getUrl(path: string, params: Record<string, any>) {
-  const { salt, hash, username, server, ...rest } = params;
+  const { salt, token, username, server, ...rest } = params;
 
-  const authParams = getAuthParams({ salt, hash, username });
+  const authParams = getAuthParams({ salt, token, username });
   const configParams = getConfigParams();
 
-  return `${server}/rest/${path}?${authParams}&${configParams}&${toQueryString(rest)}`;
+  return `${server}/rest/${path}?${authParams}&${configParams}&${convertToQueryString(rest)}`;
 }
 
 export function getCoverArtUrl(id?: string, size = 500) {

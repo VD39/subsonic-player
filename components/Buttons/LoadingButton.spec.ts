@@ -25,16 +25,16 @@ describe('IconButton', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isFullWidth prop is not set', () => {
+  describe('when fullWidth prop is not set', () => {
     it('does not add the fullWidth class', () => {
       expect(wrapper.classes()).not.toContain('fullWidth');
     });
   });
 
-  describe('when isFullWidth prop is set to true', () => {
+  describe('when fullWidth prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
-        isFullWidth: true,
+        fullWidth: true,
       });
     });
 
@@ -47,16 +47,16 @@ describe('IconButton', () => {
     });
   });
 
-  describe('when isLoading prop is not set', () => {
+  describe('when loading prop is not set', () => {
     it('does not show the ButtonLoader component', () => {
       expect(wrapper.findComponent(ButtonLoader).exists()).toBe(false);
     });
   });
 
-  describe('when isLoading prop is set to true', () => {
+  describe('when loading prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
-        isLoading: true,
+        loading: true,
       });
     });
 

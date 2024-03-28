@@ -1,79 +1,91 @@
 import MD5 from 'crypto-js/md5';
-import {
-  deleteLocalStorage,
-  generateRandomString,
-  loadSession,
-  saveSession,
-} from '@/utils';
-import { queryWithError } from '@/services';
+import { convertToQueryString, generateRandomString } from '@/utils';
 import type { Auth } from './types';
+import { useAPI } from '../useApi';
+import { loadSession } from '../useApi/utils';
+import { useUser } from '../useUser';
 
 export function useAuth() {
-  const isLoading = ref(false);
-  const errorMessage = ref('');
-  const isLoggedIn = useState('is-logged-in', () => false);
-  const userDetails = useState('user-details', () => loadSession());
+  const user = useUser();
+  const authParams = useCookie('auth-params', {
+    sameSite: true,
+  });
+
+  const loading = ref(false);
+  const error = ref<string | null>(null);
+  const authenticated = useState('authenticated', () => false);
+  user.value = loadSession(authParams.value!);
 
   async function logout() {
-    deleteLocalStorage();
-    isLoggedIn.value = false;
+    authParams.value = null;
+    authenticated.value = false;
   }
 
   async function autoLogin() {
-    if (!userDetails.value.server) {
+    if (!user.value?.server) {
+      return;
+    }
+
+    const { data: loggedIn, error: loginError } = await useAPI('/ping');
+
+    if (loginError.value?.message) {
       logout();
       return;
     }
 
-    await queryWithError('ping', userDetails.value)
-      .then(() => {
-        isLoggedIn.value = true;
-      })
-      .catch(() => {
-        logout();
-      });
+    if (loggedIn.value) {
+      authenticated.value = true;
+    }
   }
 
   async function login(auth: Auth) {
-    isLoading.value = true;
+    loading.value = true;
+    error.value = null;
 
     const { password, server, username } = auth;
-
-    errorMessage.value = '';
 
     const saltValue = generateRandomString();
     const hashValue = MD5(`${password}${saltValue}`).toString();
 
     const params = {
-      hash: hashValue,
+      token: hashValue,
       salt: saltValue,
       server,
       username,
     };
 
-    await queryWithError('ping', params)
-      .then(() => {
-        saveSession(params);
+    const { data: loggedIn, error: loginError } = await useAPI('/rest/ping', {
+      baseURL: server,
+      query: {
+        s: params.salt,
+        t: params.token,
+        u: params.username,
+      },
+    });
 
-        userDetails.value = loadSession();
-        isLoggedIn.value = true;
-      })
-      .catch((error: Error) => {
-        errorMessage.value = error.message;
-        isLoggedIn.value = false;
-      })
-      .finally(() => {
-        isLoading.value = false;
-      });
+    if (loginError.value?.message) {
+      error.value = loginError.value.message;
+      loading.value = false;
+
+      return;
+    }
+
+    if (loggedIn.value) {
+      authParams.value = convertToQueryString(params);
+      user.value = loadSession(authParams.value);
+      authenticated.value = true;
+    }
+
+    loading.value = false;
   }
 
   return {
     autoLogin,
-    errorMessage,
-    isLoading,
-    isLoggedIn,
+    error,
+    authenticated,
+    loading,
     login,
     logout,
-    userDetails,
+    user,
   };
 }

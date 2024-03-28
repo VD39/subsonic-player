@@ -3,8 +3,8 @@ import ButtonLoader from '@/components/Loaders/ButtonLoader.vue';
 
 defineProps<{
   disabled?: boolean;
-  isFullWidth?: boolean;
-  isLoading?: boolean;
+  fullWidth?: boolean;
+  loading?: boolean;
 }>();
 </script>
 
@@ -14,7 +14,7 @@ defineProps<{
       $style.submitButton,
       {
         [$style.disabled]: disabled,
-        [$style.fullWidth]: isFullWidth,
+        [$style.fullWidth]: fullWidth,
       },
     ]"
     :disabled="disabled"
@@ -23,7 +23,7 @@ defineProps<{
     <span :class="$style.content">
       <slot />
 
-      <ButtonLoader v-if="isLoading" :class="$style.loader" />
+      <ButtonLoader v-if="loading" :class="$style.loader" />
     </span>
   </button>
 </template>

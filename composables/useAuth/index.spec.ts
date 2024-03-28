@@ -1,100 +1,101 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { withSetup } from '@/test/withSetup';
 import { useAuth } from './index';
 
-const utilsMock = vi.hoisted(() => ({
-  deleteLocalStorage: vi.fn(),
-  generateRandomString: vi.fn().mockReturnValue('randomString'),
-  loadSession: vi.fn().mockReturnValue({
-    server: '',
-    username: '',
-    anotherValue: '',
-  }),
-  saveSession: vi.fn(),
+const useCookieMock = ref<null | string>(null);
+
+mockNuxtImport('useCookie', () => () => useCookieMock);
+
+const { useAPI } = vi.hoisted(() => ({
+  useAPI: vi.fn(() => ({
+    data: ref<null | Record<string, string>>({}),
+    error: ref<null | Error>(null),
+  })),
 }));
 
-vi.mock('@/utils', () => utilsMock);
-
-const servicesMock = vi.hoisted(() => ({
-  queryWithError: vi.fn(),
+vi.mock('../useApi', () => ({
+  useAPI,
 }));
 
-vi.mock('@/services', () => servicesMock);
-
-vi.mock('crypto-js/md5', () => ({
-  default: vi.fn().mockReturnValue('MD5'),
-}));
-
-describe('useTheme', () => {
+describe('useAuth', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>;
 
-  beforeEach(() => {
-    result = withSetup(useAuth);
-  });
-
   afterEach(() => {
+    useCookieMock.value = null;
     vi.clearAllMocks();
   });
 
-  it('sets the userDetails value bases on loadSession', () => {
-    expect(result.userDetails.value).toEqual({
-      server: '',
-      username: '',
-      anotherValue: '',
+  describe('when cookie is undefined', () => {
+    beforeEach(() => {
+      result = withSetup(useAuth);
     });
-  });
 
-  describe('when autoLogin is called', () => {
-    describe('when server is undefined', () => {
+    it('sets the user value bases on cookie', () => {
+      expect(result.user.value).toEqual({
+        salt: null,
+        server: null,
+        token: null,
+        username: null,
+      });
+    });
+
+    describe('when autoLogin is called', () => {
       beforeEach(() => {
         result.autoLogin();
       });
 
-      it('calls the deleteLocalStorage function', () => {
-        expect(utilsMock.deleteLocalStorage).toHaveBeenCalled();
+      it('does not call the useAPI function', () => {
+        expect(useAPI).not.toHaveBeenCalled();
       });
 
-      it('sets the isLoggedIn value to false', () => {
-        expect(result.isLoggedIn.value).toBe(false);
+      it('sets the authenticated value to false', () => {
+        expect(result.authenticated.value).toBe(false);
       });
     });
 
-    describe('when server is defined', () => {
+    describe('when cookie is defined', () => {
       beforeEach(() => {
-        utilsMock.loadSession.mockReturnValue({
+        useCookieMock.value =
+          'token=token&salt=salt&server=server&username=username';
+        result = withSetup(useAuth);
+      });
+
+      it('sets the user value bases on cookie', () => {
+        expect(result.user.value).toEqual({
+          salt: 'salt',
           server: 'server',
+          token: 'token',
           username: 'username',
         });
       });
 
-      describe('when queryWithError is successful', () => {
+      describe('when autoLogin is called', () => {
         beforeEach(() => {
-          servicesMock.queryWithError.mockResolvedValue('');
-          result = withSetup(useAuth);
           result.autoLogin();
         });
 
-        it('does not call the deleteLocalStorage function', () => {
-          expect(utilsMock.deleteLocalStorage).not.toHaveBeenCalled();
+        it('calls the useAPI function', () => {
+          expect(useAPI).toHaveBeenCalled();
         });
 
-        it('sets the correct isLoggedIn value', () => {
-          expect(result.isLoggedIn.value).toBe(true);
-        });
-      });
-
-      describe('when queryWithError is not successful', () => {
-        beforeEach(() => {
-          servicesMock.queryWithError.mockRejectedValue('');
-          result = withSetup(useAuth);
-          result.autoLogin();
+        describe('when queryWithError is successful', () => {
+          it('sets the correct authenticated value', () => {
+            expect(result.authenticated.value).toBe(true);
+          });
         });
 
-        it('calls the deleteLocalStorage function', () => {
-          expect(utilsMock.deleteLocalStorage).toHaveBeenCalled();
-        });
+        describe('when queryWithError is not successful', () => {
+          beforeEach(() => {
+            useAPI.mockResolvedValue({
+              data: ref(null),
+              error: ref(new Error('Error message.')),
+            });
+            result.autoLogin();
+          });
 
-        it('sets the correct isLoggedIn value', () => {
-          expect(result.isLoggedIn.value).toBe(false);
+          it('sets the correct authenticated value', () => {
+            expect(result.authenticated.value).toBe(false);
+          });
         });
       });
     });
@@ -103,7 +104,10 @@ describe('useTheme', () => {
   describe('when login is called', () => {
     describe('when queryWithError is successful', () => {
       beforeEach(() => {
-        servicesMock.queryWithError.mockResolvedValue('');
+        useAPI.mockResolvedValue({
+          data: ref({}),
+          error: ref(null),
+        });
         result = withSetup(useAuth);
         result.login({
           password: 'password',
@@ -112,28 +116,35 @@ describe('useTheme', () => {
         });
       });
 
-      it('calls the saveSession function', () => {
-        expect(utilsMock.saveSession).toHaveBeenCalledWith({
-          hash: 'MD5',
+      it('sets the correct useCookie value', () => {
+        expect(useCookieMock.value).toBe(
+          'token=MD5&salt=randomString&server=server&username=username',
+        );
+      });
+
+      it('sets the correct user value', () => {
+        expect(result.user.value).toEqual({
           salt: 'randomString',
           server: 'server',
+          token: 'MD5',
           username: 'username',
         });
       });
 
-      it('sets the correct isLoggedIn value', () => {
-        expect(result.isLoggedIn.value).toBe(true);
+      it('sets the correct authenticated value', () => {
+        expect(result.authenticated.value).toBe(true);
       });
 
-      it('sets the correct errorMessage value', () => {
-        expect(result.errorMessage.value).toBe('');
+      it('sets the correct error value', () => {
+        expect(result.error.value).toBe(null);
       });
     });
 
     describe('when queryWithError is not successful', () => {
       beforeEach(() => {
-        servicesMock.queryWithError.mockRejectedValue({
-          message: 'Error message.',
+        useAPI.mockResolvedValue({
+          data: ref(null),
+          error: ref(new Error('Error message.')),
         });
         result = withSetup(useAuth);
         result.login({
@@ -143,16 +154,16 @@ describe('useTheme', () => {
         });
       });
 
-      it('does not call the saveSession function', () => {
-        expect(utilsMock.saveSession).not.toHaveBeenCalled();
+      it('sets the correct useCookie value', () => {
+        expect(useCookieMock.value).toBe(null);
       });
 
-      it('sets the correct errorMessage value', () => {
-        expect(result.errorMessage.value).toBe('Error message.');
+      it('sets the correct error value', () => {
+        expect(result.error.value).toBe('Error message.');
       });
 
-      it('sets the correct isLoggedIn value', () => {
-        expect(result.isLoggedIn.value).toBe(false);
+      it('sets the correct authenticated value', () => {
+        expect(result.authenticated.value).toBe(false);
       });
     });
   });
@@ -162,12 +173,12 @@ describe('useTheme', () => {
       result.logout();
     });
 
-    it('calls the deleteLocalStorage function', () => {
-      expect(utilsMock.deleteLocalStorage).toHaveBeenCalled();
+    it('sets the correct useCookie value', () => {
+      expect(useCookieMock.value).toBe(null);
     });
 
-    it('sets the correct isLoggedIn value', () => {
-      expect(result.isLoggedIn.value).toBe(false);
+    it('sets the correct authenticated value', () => {
+      expect(result.authenticated.value).toBe(false);
     });
   });
 });

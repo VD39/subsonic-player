@@ -10,10 +10,10 @@ definePageMeta({
 
 const route = useRoute();
 
-const { login, isLoading, isLoggedIn, errorMessage } = useAuth();
+const { authenticated, error, loading, login } = useAuth();
 
 async function checkLogin() {
-  if (isLoggedIn.value) {
+  if (authenticated.value) {
     const redirect = route.query.redirect?.toString();
 
     await navigateTo(redirect ?? '/');
@@ -41,11 +41,7 @@ async function submitForm(fields: LoginFields) {
       <ThemeSwitcher :class="$style.themeSwitcher" />
     </div>
 
-    <LoginForm
-      :is-loading="isLoading"
-      :error-message="errorMessage"
-      @submit="submitForm"
-    />
+    <LoginForm :loading="loading" :error="error" @submit="submitForm" />
   </div>
 </template>
 

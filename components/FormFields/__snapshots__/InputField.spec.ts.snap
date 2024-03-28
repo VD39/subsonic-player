@@ -1,20 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InputField > when hasError prop is set to true > matches the snapshot 1`] = `
+exports[`InputField > when error prop is set > matches the snapshot 1`] = `
 "<div class="inputField error"><label class="label" for="id">label
     <!--v-if-->
   </label><input id="id" type="text" autocomplete="off" class="input" value="">
-  <!--v-if-->
-</div>"
-`;
-
-exports[`InputField > when hasError prop is set to true > when errorMessage prop is set > matches the snapshot 1`] = `
-"<div class="inputField error"><label class="label" for="id">label
-    <!--v-if-->
-  </label><input id="id" type="text" autocomplete="off" class="input" value="">
-  <div>
-    <p class="errorMessage">Error message.</p>
-  </div>
+  <p class="error">Error message.</p>
 </div>"
 `;
 

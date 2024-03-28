@@ -10,7 +10,7 @@ export function createForm<T extends Inputs>(formInputs: T) {
         label: splitCamelCase(name),
         value: ref(options ? [] : value),
         isValid: ref(true),
-        errorMessage: ref(''),
+        error: ref(''),
         validationRules,
         required: !!validationRules?.required,
         options,

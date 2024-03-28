@@ -47,16 +47,20 @@ describe('InputField', () => {
     });
   });
 
-  describe('when hasError prop is not set', () => {
+  describe('when error prop is not set', () => {
     it('does not add the error class to wrapper', () => {
       expect(wrapper.classes()).not.toContain('error');
     });
+
+    it('does not show the error element', () => {
+      expect(wrapper.find({ ref: 'error' }).exists()).toBe(false);
+    });
   });
 
-  describe('when hasError prop is set to true', () => {
+  describe('when error prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
-        hasError: true,
+        error: 'Error message.',
       });
     });
 
@@ -68,27 +72,8 @@ describe('InputField', () => {
       expect(wrapper.classes()).toContain('error');
     });
 
-    describe('when errorMessage prop is not set', () => {
-      it('does not show the errorMessage element', () => {
-        expect(wrapper.find({ ref: 'errorMessage' }).exists()).toBe(false);
-      });
-    });
-
-    describe('when errorMessage prop is set', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          hasError: true,
-          errorMessage: 'Error message.',
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('shows the errorMessage element', () => {
-        expect(wrapper.find({ ref: 'errorMessage' }).exists()).toBe(true);
-      });
+    it('shows the error element', () => {
+      expect(wrapper.find({ ref: 'error' }).exists()).toBe(true);
     });
   });
 

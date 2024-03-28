@@ -13,7 +13,7 @@ function setFormFields(
         label: 'input',
         value: ref(fieldValue),
         isValid: ref(true),
-        errorMessage: ref(''),
+        error: ref(''),
         validationRules,
         required: true,
         options: undefined,
@@ -33,7 +33,7 @@ describe('validateInputs', () => {
       it('sets the input as valid', () => {
         const field = setFormFields('');
         expect(field.fields.input.isValid.value).toEqual(true);
-        expect(field.fields.input.errorMessage.value).toEqual('');
+        expect(field.fields.input.error.value).toEqual('');
         expect(field.isValid.value).toEqual(true);
       });
     });
@@ -46,9 +46,7 @@ describe('validateInputs', () => {
               required: true,
             });
             expect(field.fields.input.isValid.value).toEqual(false);
-            expect(field.fields.input.errorMessage.value).toEqual(
-              'input is required',
-            );
+            expect(field.fields.input.error.value).toEqual('input is required');
             expect(field.isValid.value).toEqual(false);
           });
         });
@@ -59,7 +57,7 @@ describe('validateInputs', () => {
               required: true,
             });
             expect(field.fields.input.isValid.value).toEqual(true);
-            expect(field.fields.input.errorMessage.value).toEqual('');
+            expect(field.fields.input.error.value).toEqual('');
             expect(field.isValid.value).toEqual(true);
           });
         });
@@ -72,7 +70,7 @@ describe('validateInputs', () => {
               isUrl: true,
             });
             expect(field.fields.input.isValid.value).toEqual(false);
-            expect(field.fields.input.errorMessage.value).toEqual(
+            expect(field.fields.input.error.value).toEqual(
               'input is not a valid URL.',
             );
             expect(field.isValid.value).toEqual(false);
@@ -85,7 +83,7 @@ describe('validateInputs', () => {
               isUrl: true,
             });
             expect(field.fields.input.isValid.value).toEqual(true);
-            expect(field.fields.input.errorMessage.value).toEqual('');
+            expect(field.fields.input.error.value).toEqual('');
             expect(field.isValid.value).toEqual(true);
           });
         });
@@ -98,7 +96,7 @@ describe('validateInputs', () => {
       it('sets the input as valid', () => {
         const field = setFormFields([]);
         expect(field.fields.input.isValid.value).toEqual(true);
-        expect(field.fields.input.errorMessage.value).toEqual('');
+        expect(field.fields.input.error.value).toEqual('');
         expect(field.isValid.value).toEqual(true);
       });
     });
@@ -110,9 +108,7 @@ describe('validateInputs', () => {
             required: true,
           });
           expect(field.fields.input.isValid.value).toEqual(false);
-          expect(field.fields.input.errorMessage.value).toEqual(
-            'input is required',
-          );
+          expect(field.fields.input.error.value).toEqual('input is required');
           expect(field.isValid.value).toEqual(false);
         });
       });
@@ -123,7 +119,7 @@ describe('validateInputs', () => {
             required: true,
           });
           expect(field.fields.input.isValid.value).toEqual(true);
-          expect(field.fields.input.errorMessage.value).toEqual('');
+          expect(field.fields.input.error.value).toEqual('');
           expect(field.isValid.value).toEqual(true);
         });
       });

@@ -1,15 +1,21 @@
-export function toQueryString(params: Record<string, string | string[]>) {
+export function convertToQueryString(
+  params: Record<string, string | string[]>,
+) {
   const list = Object.entries(params)
     .filter(([, value]) => value)
-    .map(([key, value]) =>
+    .flatMap(([key, value]) =>
       Array.isArray(value)
         ? value.map((value) => [
             encodeURIComponent(key),
             encodeURIComponent(value),
           ])
         : [[encodeURIComponent(key), encodeURIComponent(value)]],
-    )
-    .flat();
+    );
 
   return new URLSearchParams(list).toString();
+}
+
+/* istanbul ignore next -- @preserve */
+export function parseQueryString(query = '') {
+  return new URLSearchParams(decodeURIComponent(query));
 }

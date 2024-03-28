@@ -25,7 +25,7 @@ export default withNuxt(
     },
   },
   {
-    files: ['**/*.spec.ts'],
+    files: ['vitest.setup.ts', '**/*.spec.ts'],
     plugins: {
       vitest,
     },

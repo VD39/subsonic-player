@@ -6,23 +6,23 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const isLoggedIn = ref(false);
+const authenticated = ref(false);
 
 vi.mock('@/composables/useAuth', () => ({
   useAuth: vi.fn(() => ({
     autoLogin: vi.fn(),
-    isLoggedIn,
+    authenticated,
   })),
 }));
 
 describe('check-out-redirection', () => {
   afterEach(() => {
-    isLoggedIn.value = false;
+    authenticated.value = false;
     vi.clearAllMocks();
   });
 
   describe('when route name is login', () => {
-    describe('when isLoggedIn is false', () => {
+    describe('when authenticated is false', () => {
       beforeEach(() => {
         appGlobalMiddleware(
           {
@@ -38,9 +38,9 @@ describe('check-out-redirection', () => {
       });
     });
 
-    describe('when isLoggedIn is true', () => {
+    describe('when authenticated is true', () => {
       beforeEach(() => {
-        isLoggedIn.value = true;
+        authenticated.value = true;
         appGlobalMiddleware(
           {
             ...route,
@@ -57,9 +57,9 @@ describe('check-out-redirection', () => {
   });
 
   describe('when route name is not login', () => {
-    describe('when isLoggedIn is true', () => {
+    describe('when authenticated is true', () => {
       beforeEach(() => {
-        isLoggedIn.value = true;
+        authenticated.value = true;
         appGlobalMiddleware(
           {
             ...route,
@@ -74,7 +74,7 @@ describe('check-out-redirection', () => {
       });
     });
 
-    describe('when isLoggedIn is false', () => {
+    describe('when authenticated is false', () => {
       beforeEach(() => {
         appGlobalMiddleware(
           {

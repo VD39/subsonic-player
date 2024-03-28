@@ -16,14 +16,12 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const isLoggedIn = ref(false);
+const authenticated = ref(false);
 const loginMock = vi.fn();
 
 vi.mock('@/composables/useAuth', () => ({
   useAuth: vi.fn(() => ({
-    errorMessage: ref(''),
-    isLoading: ref(false),
-    isLoggedIn,
+    authenticated,
     login: loginMock,
   })),
 }));
@@ -66,15 +64,15 @@ describe('Login', () => {
       });
     });
 
-    describe('when isLoggedIn returns false', () => {
+    describe('when authenticated returns false', () => {
       it('does not call the navigateTo function', () => {
         expect(navigateToMock).not.toHaveBeenCalled();
       });
     });
 
-    describe('when isLoggedIn returns true', () => {
+    describe('when authenticated returns true', () => {
       beforeEach(() => {
-        isLoggedIn.value = true;
+        authenticated.value = true;
 
         wrapper = factory();
         wrapper.findComponent(LoginForm).vm.$emit('submit', {

@@ -17,25 +17,6 @@ exports[`LoginForm > matches the snapshot 1`] = `
 </form>"
 `;
 
-exports[`LoginForm > when errorMessage prop is set as true > matches the snapshot 1`] = `
-"<form novalidate="">
-  <div class="fields">
-    <div class="inputField field"><label class="label" for="server">server <span class="required">*</span></label><input id="server" type="text" autocomplete="off" required="" placeholder="Enter your server URL" class="input" value="">
-      <!--v-if-->
-    </div>
-    <div class="inputField field"><label class="label" for="username">username <span class="required">*</span></label><input id="username" type="text" autocomplete="off" required="" placeholder="Enter your username" class="input" value="">
-      <!--v-if-->
-    </div>
-    <div class="inputField field"><label class="label" for="password">password <span class="required">*</span></label><input id="password" type="password" autocomplete="off" required="" placeholder="Enter your password" class="input" value="">
-      <!--v-if-->
-    </div>
-  </div>
-  <div class="error messageBar messageBar">
-    <p>Error message</p>
-  </div><button class="submitButton fullWidth button" type="submit"><span class="content"> Login <!--v-if--></span></button>
-</form>"
-`;
-
 exports[`LoginForm > when form is valid > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="fields">
@@ -50,6 +31,25 @@ exports[`LoginForm > when form is valid > matches the snapshot 1`] = `
     </div>
   </div>
   <!--v-if--><button class="submitButton fullWidth button" type="submit"><span class="content"> Login <!--v-if--></span></button>
+</form>"
+`;
+
+exports[`LoginForm > when form is valid > when error prop is set > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="fields">
+    <div class="inputField field"><label class="label" for="server">server <span class="required">*</span></label><input id="server" type="text" autocomplete="off" required="" placeholder="Enter your server URL" class="input" value="https://www.test.com">
+      <!--v-if-->
+    </div>
+    <div class="inputField field"><label class="label" for="username">username <span class="required">*</span></label><input id="username" type="text" autocomplete="off" required="" placeholder="Enter your username" class="input" value="username">
+      <!--v-if-->
+    </div>
+    <div class="inputField field"><label class="label" for="password">password <span class="required">*</span></label><input id="password" type="password" autocomplete="off" required="" placeholder="Enter your password" class="input" value="password">
+      <!--v-if-->
+    </div>
+  </div>
+  <div class="error messageBar messageBar">
+    <p>Error message</p>
+  </div><button class="submitButton fullWidth button" type="submit"><span class="content"> Login <!--v-if--></span></button>
 </form>"
 `;
 

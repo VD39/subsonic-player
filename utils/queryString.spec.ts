@@ -1,9 +1,9 @@
-import { toQueryString } from './toQueryString';
+import { convertToQueryString } from './queryString';
 
-describe('toQueryString', () => {
+describe('convertToQueryString', () => {
   describe('when params is an empty object', () => {
     it('returns correct value', () => {
-      expect(toQueryString({})).toBe('');
+      expect(convertToQueryString({})).toBe('');
     });
   });
 
@@ -11,7 +11,7 @@ describe('toQueryString', () => {
     describe('when params has a key that is an empty string', () => {
       it('returns correct value', () => {
         expect(
-          toQueryString({
+          convertToQueryString({
             param: '',
           }),
         ).toBe('');
@@ -21,17 +21,18 @@ describe('toQueryString', () => {
     describe('when params has a key that is a string', () => {
       it('returns correct value', () => {
         expect(
-          toQueryString({
+          convertToQueryString({
             param: 'Param',
+            param1: 'Param 1',
           }),
-        ).toBe('param=Param');
+        ).toBe('param=Param&param1=Param%25201');
       });
     });
 
     describe('when params has a key that is an array', () => {
       it('returns correct value', () => {
         expect(
-          toQueryString({
+          convertToQueryString({
             param: ['Param', 'Param1'],
           }),
         ).toBe('param=Param&param=Param1');
@@ -41,11 +42,14 @@ describe('toQueryString', () => {
     describe('when params has a multiple values', () => {
       it('returns correct value', () => {
         expect(
-          toQueryString({
+          convertToQueryString({
             param: 'Param',
-            param1: ['Param', 'Param1'],
+            param1: ['Param', 'Param 1'],
+            param2: 'Param 12',
           }),
-        ).toBe('param=Param&param1=Param&param1=Param1');
+        ).toBe(
+          'param=Param&param1=Param&param1=Param%25201&param2=Param%252012',
+        );
       });
     });
   });

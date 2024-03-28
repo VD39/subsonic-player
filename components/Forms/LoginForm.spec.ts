@@ -33,28 +33,6 @@ describe('LoginForm', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when errorMessage prop is not set', () => {
-    it('does not show the MassageBar component', () => {
-      expect(wrapper.findComponent(MassageBar).exists()).toBe(false);
-    });
-  });
-
-  describe('when errorMessage prop is set as true', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        errorMessage: 'Error message',
-      });
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('shows the MassageBar component', () => {
-      expect(wrapper.findComponent(MassageBar).exists()).toBe(true);
-    });
-  });
-
   describe('when serverUrl in config is not defined', () => {
     it('shows the InputField component for server URL', () => {
       expect(wrapper.findComponent({ ref: 'serverUrl' }).exists()).toBe(true);
@@ -117,6 +95,40 @@ describe('LoginForm', () => {
           },
         ],
       ]);
+    });
+
+    describe('when error prop is not set', () => {
+      it('does not show the MassageBar component', () => {
+        expect(wrapper.findComponent(MassageBar).exists()).toBe(false);
+      });
+    });
+
+    describe('when error prop is set', () => {
+      beforeEach(async () => {
+        config.public.SERVER_URL = '';
+        wrapper = factory({
+          error: 'Error message',
+        });
+
+        wrapper
+          .findComponent({ ref: 'serverUrl' })
+          .vm.$emit('update:modelValue', 'https://www.test.com');
+        wrapper
+          .findComponent({ ref: 'username' })
+          .vm.$emit('update:modelValue', 'username');
+        wrapper
+          .findComponent({ ref: 'password' })
+          .vm.$emit('update:modelValue', 'password');
+        await wrapper.trigger('submit');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('shows the MassageBar component', () => {
+        expect(wrapper.findComponent(MassageBar).exists()).toBe(true);
+      });
     });
   });
 });

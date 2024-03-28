@@ -12,7 +12,7 @@ export interface FormField {
   required: boolean;
   value: Ref<string | string[]>;
   isValid: Ref<boolean>;
-  errorMessage: Ref<string>;
+  error: Ref<string>;
   validationRules?: ValidationRules;
   options?: any[];
 }

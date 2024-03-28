@@ -2,23 +2,22 @@ import { useAuth } from '@/composables/useAuth';
 import { useTheme } from '@/composables/useTheme';
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  if (import.meta.server) {
-    return;
-  }
-
   const { setDefaultTheme } = useTheme();
-  const { autoLogin, isLoggedIn } = useAuth();
+  const { autoLogin, authenticated } = useAuth();
 
   await callOnce(async () => {
     await autoLogin();
-    setDefaultTheme();
+
+    if (import.meta.client) {
+      setDefaultTheme();
+    }
   });
 
-  if (to.name === 'login' && isLoggedIn.value) {
+  if (to.name === 'login' && authenticated.value) {
     return await navigateTo('/');
   }
 
-  if (to.name !== 'login' && !isLoggedIn.value) {
+  if (to.name !== 'login' && !authenticated.value) {
     return await navigateTo({
       path: '/login',
       query: {

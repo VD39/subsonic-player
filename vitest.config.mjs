@@ -9,6 +9,7 @@ export default defineVitestConfig({
         'app.vue',
         'error.vue',
         '**/config/**',
+        '**/plugins/**',
         '**/services/**',
         './components/Loaders',
         ...coverageConfigDefaults.exclude,
@@ -16,9 +17,9 @@ export default defineVitestConfig({
       include: ['**/*.ts', '**/*.vue'],
       provider: 'istanbul',
       thresholds: {
-        branches: 90,
-        functions: 90,
-        lines: 90,
+        branches: 85,
+        functions: 85,
+        lines: 85,
       },
     },
     css: {

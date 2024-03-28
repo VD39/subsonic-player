@@ -21,13 +21,13 @@ export function validateInputs<T extends Form<any>>(form: T) {
 
       if (field.validationRules?.required && !value) {
         field.isValid.value = false;
-        field.errorMessage.value = `${field.label} is required`;
+        field.error.value = `${field.label} is required`;
         return;
       }
 
       if (field.validationRules?.isUrl && !isValidUrl(value)) {
         field.isValid.value = false;
-        field.errorMessage.value = `${field.label} is not a valid URL.`;
+        field.error.value = `${field.label} is not a valid URL.`;
         return;
       }
     }
@@ -35,13 +35,13 @@ export function validateInputs<T extends Form<any>>(form: T) {
     if (Array.isArray(value)) {
       if (field.validationRules?.required && !value.length) {
         field.isValid.value = false;
-        field.errorMessage.value = `${field.label} is required`;
+        field.error.value = `${field.label} is required`;
         return;
       }
     }
 
     field.isValid.value = true;
-    field.errorMessage.value = '';
+    field.error.value = '';
   });
 
   form.isValid.value = checkFormIsInvalid(form.fields);
