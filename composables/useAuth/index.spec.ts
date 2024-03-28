@@ -17,6 +17,19 @@ vi.mock('../useApi', () => ({
   useAPI,
 }));
 
+const user = ref();
+
+mockNuxtImport('useState', () => {
+  return <T>(key: string, init: () => T) => {
+    if (key === 'user') {
+      user.value = init();
+      return user;
+    }
+
+    return ref(init());
+  };
+});
+
 describe('useAuth', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>;
 
@@ -31,7 +44,7 @@ describe('useAuth', () => {
     });
 
     it('sets the user value bases on cookie', () => {
-      expect(result.user.value).toEqual({
+      expect(user.value).toEqual({
         salt: null,
         server: null,
         token: null,
@@ -61,7 +74,7 @@ describe('useAuth', () => {
       });
 
       it('sets the user value bases on cookie', () => {
-        expect(result.user.value).toEqual({
+        expect(user.value).toEqual({
           salt: 'salt',
           server: 'server',
           token: 'token',
@@ -123,7 +136,7 @@ describe('useAuth', () => {
       });
 
       it('sets the correct user value', () => {
-        expect(result.user.value).toEqual({
+        expect(user.value).toEqual({
           salt: 'randomString',
           server: 'server',
           token: 'MD5',
