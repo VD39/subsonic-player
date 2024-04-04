@@ -14,7 +14,7 @@ function factory(props = {}) {
   });
 }
 
-describe('IconButton', () => {
+describe('LoadingButton', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {

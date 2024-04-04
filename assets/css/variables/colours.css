@@ -1,63 +1,60 @@
 :root {
-  /* default */
+  /* Default.. */
   --black-color: #000;
   --white-color: #fff;
-  --body-color: #e5e7eb;
 
-  /* theme colours */
+  /* Theme colours. */
   --theme-color: #8051d4;
 
-  /* snack colours */
-  --success-color: #008756;
-  --error-color: #ed0000;
-  --info-color: #4493f8;
+  /* Snack colours. */
+  --success-color: rgb(28 130 38 / 90%);
+  --error-color: rgb(237 0 0 / 90%);
+  --info-color: rgb(61 115 238 / 90%);
 
-  /* border colour */
-  --border-color: rgb(120 130 140 / 20%);
-}
+  /* Border colour. */
+  --border-color: rgb(141 149 157 / 25%);
 
-.light {
-  /* Light colours */
+  /* Box shadow. */
+  --box-shadow-large: 0 0 3px rgb(0 0 0 / 5%), 0 12px 24px rgb(0 0 0 / 10%);
+  --box-shadow-medium: 0 0 2px rgb(0 0 0 / 5%), 0 8px 16px rgb(0 0 0 / 10%);
+  --box-shadow-small: 0 0 1px rgb(0 0 0 / 5%), 0 4px 8px rgb(0 0 0 / 10%);
 
-  /* font colours */
+  /* Text shadow. */
+  --text-shadow: 1px 1px 2px rgb(0 0 0 / 10%);
+
+  /* Light colours. */
+
+  /* Font colours. */
   --header-font-color: var(--black-color);
-  --body-font-color: rgb(0 0 0 / 70%);
+  --body-font-color: rgb(0 0 0 / 85%);
   --secondary-font-color: #888;
 
-  /* background */
-  --body-background-color: #f7f8f9;
+  /* Background. */
+  --body-background-color: #f9f9f9;
   --background-color: var(--white-color);
-  --secondary-background-color: var(--background-color);
+  --secondary-background-color: #f2f2f2;
+  --hover-selected-color: var(--secondary-background-color);
   --invert-background-color: var(--black-color);
   --track-background-color: var(--background-color);
   --track-hover-background-color: #fafbfb;
   --modal-background-color: var(--background-color);
-
-  /* box shadow */
-  --box-shadow-large: 0 0 32px rgb(0 0 0 / 20%);
-  --box-shadow-medium: 1px 1px 15px 0 rgb(0 0 0 / 20%);
-  --box-shadow-small: 0 0 2px 0 rgb(0 0 0 / 20%);
 }
 
 .dark {
-  /* Dark colours */
+  /* Dark colours. */
 
-  /* font colours */
+  /* Font colours. */
   --header-font-color: var(--white-color);
-  --body-font-color: rgb(255 255 255 / 70%);
+  --body-font-color: rgb(255 255 255 / 85%);
   --secondary-font-color: #aaa;
 
-  /* background */
-  --body-background-color: #020409;
-  --background-color: #0f1117;
-  --secondary-background-color: #222;
+  /* Background. */
+  --body-background-color: #212121;
+  --background-color: #181818;
+  --secondary-background-color: #292929;
+  --hover-selected-color: var(--secondary-background-color);
   --invert-background-color: var(--white-color);
   --track-background-color: var(--background-color);
   --track-hover-background-color: #181b22;
   --modal-background-color: var(--background-color);
-
-  /* box shadow */
-  --box-shadow-large: 0 0 32px rgb(255 255 255 / 20%);
-  --box-shadow-medium: 1px 1px 15px 0 rgb(255 255 255 / 20%);
-  --box-shadow-small: 0 0 2px 0 rgb(255 255 255 / 20%);
 }

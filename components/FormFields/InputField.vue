@@ -98,7 +98,7 @@ function updateModel(event: Event) {
   }
 
   &::placeholder {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 

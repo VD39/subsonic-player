@@ -12,15 +12,21 @@ exports[`IconButton > when disabled prop is set as true > matches the snapshot 1
 </button>"
 `;
 
+exports[`IconButton > when fullWidth prop is set to true > matches the snapshot 1`] = `
+"<button class="iconButton fullWidth" type="button">
+  <!--v-if--><span class="visually-hidden">Text</span>
+</button>"
+`;
+
 exports[`IconButton > when icon prop is set > matches the snapshot 1`] = `
 "<button class="iconButton" type="button">
-  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="lg"></font-awesome-icon-stub><span class="visually-hidden">Text</span>
+  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when icon prop is set > when iconPosition prop is set to right > matches the snapshot 1`] = `
 "<button class="iconButton alignRight" type="button">
-  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="lg"></font-awesome-icon-stub><span class="visually-hidden">Text</span>
+  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Text</span>
 </button>"
 `;
 

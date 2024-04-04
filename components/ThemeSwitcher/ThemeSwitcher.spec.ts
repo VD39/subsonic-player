@@ -8,11 +8,6 @@ function factory(props = {}) {
     props: {
       ...props,
     },
-    global: {
-      stubs: {
-        'font-awesome-icon': true,
-      },
-    },
   });
 }
 

@@ -27,13 +27,7 @@ vi.mock('@/composables/useAuth', () => ({
 }));
 
 function factory() {
-  return mount(Login, {
-    global: {
-      stubs: {
-        'font-awesome-icon': true,
-      },
-    },
-  });
+  return mount(Login);
 }
 
 describe('Login', () => {

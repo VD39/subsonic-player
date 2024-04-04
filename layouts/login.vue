@@ -14,13 +14,12 @@
 
   &::before {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0 auto auto 0;
     width: 50%;
     height: 100vh;
     content: '';
     background-color: var(--theme-color);
-    opacity: 0.05;
+    opacity: 0.1;
   }
 }
 </style>

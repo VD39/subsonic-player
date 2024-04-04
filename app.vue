@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const { isDarkTheme } = useTheme();
+const { collapsed } = useSidebar();
 
 useHead({
   htmlAttrs: {
     class: {
       dark: () => isDarkTheme.value,
-      light: () => !isDarkTheme.value,
+      collapsed: () => collapsed.value,
     },
   },
 });

@@ -4,11 +4,13 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
   await callOnce(async () => {
     await autoLogin();
-
-    if (import.meta.client) {
-      setDefaultTheme();
-    }
   });
+
+  if (import.meta.client) {
+    await callOnce(async () => {
+      setDefaultTheme();
+    });
+  }
 
   if (to.name === 'login' && authenticated.value) {
     return await navigateTo('/');

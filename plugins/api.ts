@@ -1,5 +1,7 @@
 export default defineNuxtPlugin(() => {
   const authParams = useCookie('auth-params');
+  const loading = useLoading();
+
   const params = loadSession(authParams.value!);
 
   const api = $fetch.create({
@@ -8,6 +10,8 @@ export default defineNuxtPlugin(() => {
       Accept: 'application/json',
     },
     onRequest({ options }) {
+      loading.value = true;
+
       options.query = {
         ...getAuthParams(params),
         ...getConfigParams(),
@@ -29,6 +33,14 @@ export default defineNuxtPlugin(() => {
           ...subsonicResponse,
         };
       }
+
+      loading.value = false;
+    },
+    onResponseError() {
+      loading.value = false;
+    },
+    onRequestError() {
+      loading.value = false;
     },
   });
 

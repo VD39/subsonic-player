@@ -33,7 +33,7 @@ export function useAuth() {
     }
   }
 
-  async function login(auth: Auth) {
+  async function login(auth: AuthData) {
     loading.value = true;
     error.value = null;
 

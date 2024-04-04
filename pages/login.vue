@@ -18,7 +18,7 @@ async function checkLogin() {
   }
 }
 
-async function submitForm(fields: LoginFields) {
+async function submitForm(fields: AuthData) {
   const { server, username, password } = fields;
 
   await login({
@@ -51,6 +51,7 @@ async function submitForm(fields: LoginFields) {
   max-width: 500px;
   padding: var(--space-40);
   background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius-l);
   box-shadow: var(--box-shadow-large);
 }

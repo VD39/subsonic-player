@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`IconButton > matches the snapshot 1`] = `"<button class="submitButton" type="submit"><span class="content">Text<!--v-if--></span></button>"`;
+exports[`LoadingButton > matches the snapshot 1`] = `"<button class="submitButton" type="submit"><span class="content">Text<!--v-if--></span></button>"`;
 
-exports[`IconButton > when disabled prop is set as true > matches the snapshot 1`] = `"<button class="submitButton disabled" disabled="" type="submit"><span class="content">Text<!--v-if--></span></button>"`;
+exports[`LoadingButton > when disabled prop is set as true > matches the snapshot 1`] = `"<button class="submitButton disabled" disabled="" type="submit"><span class="content">Text<!--v-if--></span></button>"`;
 
-exports[`IconButton > when fullWidth prop is set to true > matches the snapshot 1`] = `"<button class="submitButton fullWidth" type="submit"><span class="content">Text<!--v-if--></span></button>"`;
+exports[`LoadingButton > when fullWidth prop is set to true > matches the snapshot 1`] = `"<button class="submitButton fullWidth" type="submit"><span class="content">Text<!--v-if--></span></button>"`;
 
-exports[`IconButton > when loading prop is set to true > matches the snapshot 1`] = `"<button class="submitButton" type="submit"><span class="content">Text<span class="loader"><span class="loader"></span><span class="visually-hidden">Loading data</span></span></span></button>"`;
+exports[`LoadingButton > when loading prop is set to true > matches the snapshot 1`] = `"<button class="submitButton" type="submit"><span class="content">Text<span class="loader"><span class="loader"></span><span class="visually-hidden">Loading data</span></span></span></button>"`;

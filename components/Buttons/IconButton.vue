@@ -4,6 +4,7 @@ import type { IconName, SizeProp } from '@fortawesome/fontawesome-svg-core';
 const props = withDefaults(
   defineProps<{
     disabled?: boolean;
+    fullWidth?: boolean;
     icon?: IconName;
     iconPosition?: IconPosition;
     iconSize?: SizeProp;
@@ -15,7 +16,7 @@ const props = withDefaults(
     disabled: undefined,
     icon: undefined,
     iconPosition: 'left',
-    iconSize: 'lg',
+    iconSize: 'sm',
     is: 'button',
     type: 'button',
   },
@@ -34,6 +35,7 @@ const isComponent =
       {
         [$style.alignRight]: icon && iconPosition === 'right',
         [$style.disabled]: disabled,
+        [$style.fullWidth]: fullWidth,
       },
     ]"
     :disabled="disabled"
@@ -42,9 +44,11 @@ const isComponent =
   >
     <font-awesome-icon
       v-if="icon"
+      ref="icon"
       aria-hidden="true"
       :icon="['fas', icon]"
       :size="iconSize"
+      fixed-width
     />
 
     <span
@@ -72,6 +76,10 @@ const isComponent =
 
 .alignRight {
   flex-direction: row-reverse;
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 .disabled {

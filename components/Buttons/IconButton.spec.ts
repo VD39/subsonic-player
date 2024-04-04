@@ -10,12 +10,6 @@ function factory(props = {}) {
     slots: {
       default: 'Text',
     },
-    global: {
-      stubs: {
-        RouterLink: true,
-        'font-awesome-icon': true,
-      },
-    },
   });
 }
 
@@ -55,11 +49,31 @@ describe('IconButton', () => {
     });
   });
 
+  describe('when fullWidth prop is not set', () => {
+    it('does not add the fullWidth class', () => {
+      expect(wrapper.classes()).not.toContain('fullWidth');
+    });
+  });
+
+  describe('when fullWidth prop is set to true', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        fullWidth: true,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('adds the fullWidth class', () => {
+      expect(wrapper.classes()).toContain('fullWidth');
+    });
+  });
+
   describe('when icon prop is not set', () => {
     it('does not show the icon component', () => {
-      expect(wrapper.findComponent('font-awesome-icon-stub').exists()).toBe(
-        false,
-      );
+      expect(wrapper.findComponent({ ref: 'icon' }).exists()).toBe(false);
     });
   });
 
@@ -75,9 +89,7 @@ describe('IconButton', () => {
     });
 
     it('shows the icon component', () => {
-      expect(wrapper.findComponent('font-awesome-icon-stub').exists()).toBe(
-        true,
-      );
+      expect(wrapper.findComponent({ ref: 'icon' }).exists()).toBe(true);
     });
 
     describe('when iconPosition prop is not set', () => {

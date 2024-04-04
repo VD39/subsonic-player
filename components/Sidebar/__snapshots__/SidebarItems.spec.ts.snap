@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SidebarItems > matches the snapshot 1`] = `
+"<li class="sidebarItem">
+  <!--v-if-->
+  <!--v-if-->
+</li>"
+`;
+
+exports[`SidebarItems > when items prop is set to true > matches the snapshot 1`] = `
+"<li class="sidebarItem">
+  <!--v-if-->
+  <ul>
+    <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="title">
+        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">name</span>
+      </a></li>
+    <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="title">
+        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">name</span>
+      </a></li>
+  </ul>
+</li>"
+`;
+
+exports[`SidebarItems > when title prop is set to true > matches the snapshot 1`] = `
+"<li class="sidebarItem">
+  <h4 class="title">title</h4>
+  <!--v-if-->
+</li>"
+`;
