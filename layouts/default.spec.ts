@@ -42,18 +42,6 @@ describe('Default', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('sets the style on the header element', () => {
-    expect(wrapper.find('header').attributes('style')).toBe(
-      'margin-left: 16rem;',
-    );
-  });
-
-  it('sets the style on the main element', () => {
-    expect(wrapper.find('main').attributes('style')).toBe(
-      'margin-left: 16rem;',
-    );
-  });
-
   describe('when user is not defined', () => {
     it('does not show the user section', () => {
       expect(wrapper.find({ ref: 'userDetails' }).exists()).toBe(false);

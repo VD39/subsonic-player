@@ -1,29 +1,27 @@
 <script setup lang="ts">
 import SidebarItems from '@/components/Sidebar/SidebarItems.vue';
 import IconButton from '@/components/Buttons/IconButton.vue';
+import MusicLogo from '@/components/Logo/MusicLogo.vue';
 
-const { collapsed, navigation, toggle, width } = useSidebar();
+const { collapsed, navigation, toggle } = useSidebar();
 
 const buttonProps = computed<ButtonProps>(() =>
   collapsed.value
-    ? { icon: 'angles-right', text: 'Open Navigation' }
-    : { icon: 'angles-left', text: 'Close Navigation' },
+    ? {
+        icon: 'angles-right',
+        text: 'Open Navigation',
+      }
+    : {
+        icon: 'angles-left',
+        text: 'Close Navigation',
+      },
 );
 </script>
 
 <template>
-  <div :class="$style.sideBar" :style="{ width: width }">
+  <div :class="$style.sideBar">
     <div :class="$style.header">
-      <IconButton
-        is="nuxt-link"
-        icon="wave-square"
-        title="Home"
-        icon-size="xl"
-        :class="$style.logo"
-        to="/"
-      >
-        Home
-      </IconButton>
+      <MusicLogo :class="$style.logo" />
 
       <IconButton
         ref="toggleButton"
@@ -35,12 +33,14 @@ const buttonProps = computed<ButtonProps>(() =>
       </IconButton>
     </div>
 
-    <nav>
+    <nav :class="$style.navigationWrapper">
       <ul :class="$style.navigation">
         <SidebarItems
           v-for="(item, index) in navigation"
           :key="`navigation-${index}`"
           :title="item.title"
+          :title-icon="item.icon"
+          :title-to="item.to"
           :items="item.items"
         />
       </ul>
@@ -50,28 +50,45 @@ const buttonProps = computed<ButtonProps>(() =>
 
 <style module>
 .sideBar {
+  @mixin align-center;
+
   position: fixed;
-  inset: 0 auto 0 0;
-  z-index: 2;
-  min-height: 100vh;
+  inset: auto 0 0;
+  z-index: 1;
+  width: 100%;
+  height: var(--header-height);
   padding-top: 0;
-  overflow-x: auto;
   background-color: var(--background-color);
-  border-right: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
   transition: width var(--transition);
+
+  @media (--tablet-up) {
+    inset: 0 auto 0 0;
+    display: unset;
+    width: var(--sidebar-width);
+    height: auto;
+    min-height: 100vh;
+    overflow-x: auto;
+    border-top: none;
+    border-right: 1px solid var(--border-color);
+  }
 }
 
 .header {
-  @mixin align-center;
+  display: none;
 
-  justify-content: space-between;
-  min-height: var(--header-height);
-  padding: 0 var(--space-16) 0 var(--space-24);
-  margin-bottom: var(--space-16);
+  @media (--tablet-up) {
+    @mixin align-center;
 
-  :global(.collapsed) & {
-    justify-content: center;
-    padding: 0 var(--space-24);
+    justify-content: space-between;
+    min-height: var(--header-height);
+    padding: 0 var(--space-16) 0 var(--space-24);
+    margin-bottom: var(--space-16);
+
+    :global(.collapsed) & {
+      justify-content: center;
+      padding: 0 var(--space-24);
+    }
   }
 }
 
@@ -81,8 +98,18 @@ const buttonProps = computed<ButtonProps>(() =>
   }
 }
 
+.navigationWrapper {
+  width: 100%;
+}
+
 .navigation {
-  display: flex;
-  flex-direction: column;
+  @media (--mobile-down) {
+    @mixin inner;
+
+    display: flex;
+    gap: var(--space-40);
+    justify-content: space-between;
+    font-size: var(--small-font-size);
+  }
 }
 </style>

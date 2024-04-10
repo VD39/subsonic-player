@@ -1,32 +1,25 @@
 export const SIDEBAR_NAVIGATION = [
   {
-    title: '',
+    title: 'Browse',
+    icon: 'compass',
+    to: '/browse',
     items: [
       {
-        name: 'Discover',
         title: 'Discover',
         to: '/discover',
-        icon: 'compact-disc',
+        icon: 'magnifying-glass',
       },
-    ],
-  },
-  {
-    title: 'Browse',
-    items: [
       {
-        name: 'Music',
         title: 'Music',
         to: '/music',
         icon: 'headphones',
       },
       {
-        name: 'Radio Stations',
         title: 'Radio Stations',
         to: 'radio-stations',
         icon: 'radio',
       },
       {
-        name: 'Podcasts',
         title: 'Podcasts',
         to: '/podcasts',
         icon: 'podcast',
@@ -34,34 +27,31 @@ export const SIDEBAR_NAVIGATION = [
     ],
   },
   {
-    title: 'Music',
+    title: 'Your library',
+    icon: 'music',
+    to: '/library',
     items: [
       {
-        name: 'Albums',
         title: 'Albums',
         to: '/albums',
         icon: 'compact-disc',
       },
       {
-        name: 'Artists',
         title: 'Artists',
         to: '/artists',
         icon: 'users',
       },
       {
-        name: 'Playlists',
         title: 'Playlists',
         to: '/playlists',
         icon: 'list',
       },
       {
-        name: 'Favourites',
         title: 'Favourites',
         to: '/favourites',
         icon: 'heart',
       },
       {
-        name: 'Genres',
         title: 'Genres',
         to: '/genres',
         icon: 'music',
@@ -70,10 +60,11 @@ export const SIDEBAR_NAVIGATION = [
   },
   {
     title: 'Playlists',
+    icon: 'list',
+    to: '/playlist',
     items: [
       {
-        name: 'Random',
-        title: 'Random Playlist',
+        title: 'Random',
         to: '/playlist/random',
         icon: 'list',
       },

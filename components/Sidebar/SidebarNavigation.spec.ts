@@ -21,10 +21,6 @@ describe('SidebarNavigation', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('sets the correct width to wrapper', () => {
-    expect(wrapper.attributes('style')).toBe('width: 16rem;');
-  });
-
   it('sets the correct icon on toggle button', () => {
     expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
       'angles-left',
@@ -45,10 +41,6 @@ describe('SidebarNavigation', () => {
 
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('sets the correct width to wrapper', () => {
-      expect(wrapper.attributes('style')).toBe('width: 5rem;');
     });
 
     it('sets the correct icon on toggle button', () => {

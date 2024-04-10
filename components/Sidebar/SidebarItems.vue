@@ -1,27 +1,49 @@
 <script setup lang="ts">
+import type { IconName } from '@fortawesome/fontawesome-svg-core';
 import IconButton from '@/components/Buttons/IconButton.vue';
 
 const { collapsed } = useSidebar();
 
 withDefaults(
   defineProps<{
-    items?: SidebarItem[];
+    items?: Navigation[];
     title?: string;
+    titleIcon?: IconName;
+    titleTo?: string;
   }>(),
   {
-    title: undefined,
     items: () => [],
+    title: undefined,
+    titleIcon: undefined,
+    titleTo: undefined,
   },
 );
 </script>
 
 <template>
   <li :class="$style.sidebarItem">
-    <h4 v-if="title" ref="title" :class="$style.title">
-      {{ title }}
-    </h4>
+    <NuxtLink
+      v-if="title"
+      ref="rootTitle"
+      :to="titleTo"
+      :class="$style.titleLink"
+      :title="title"
+    >
+      <font-awesome-icon
+        v-if="titleIcon"
+        :class="$style.titleIcon"
+        aria-hidden="true"
+        :icon="['fas', titleIcon]"
+        size="xl"
+        fixed-width
+      />
 
-    <ul v-if="items.length" ref="items">
+      <h4 :class="$style.title">
+        {{ title }}
+      </h4>
+    </NuxtLink>
+
+    <ul v-if="items.length" ref="items" :class="$style.items">
       <li
         v-for="(item, index) in items"
         :key="`item-${index}`"
@@ -36,7 +58,7 @@ withDefaults(
           :show-text="!collapsed"
           :title="item.title"
         >
-          {{ item.name }}
+          {{ item.title }}
         </IconButton>
       </li>
     </ul>
@@ -45,18 +67,54 @@ withDefaults(
 
 <style module>
 .sidebarItem {
-  margin-bottom: var(--space-16);
+  @media (--tablet-up) {
+    margin-bottom: var(--space-16);
 
-  :global(.collapsed) & {
-    margin-bottom: auto;
+    :global(.collapsed) & {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.titleLink {
+  @mixin align-center;
+
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+
+  @media (--tablet-up) {
+    display: unset;
+    pointer-events: none;
+  }
+}
+
+.titleIcon {
+  @media (--tablet-up) {
+    display: none;
   }
 }
 
 .title {
-  padding-left: var(--space-24);
+  @media (--mobile-down) {
+    margin-bottom: 0;
+    font-size: var(--small-font-size);
+  }
 
-  :global(.collapsed) & {
-    @mixin visually-hidden;
+  @media (--tablet-up) {
+    padding-left: var(--space-24);
+
+    :global(.collapsed) & {
+      @mixin visually-hidden;
+    }
+  }
+}
+
+.items {
+  display: none;
+
+  @media (--tablet-up) {
+    display: block;
   }
 }
 
@@ -65,6 +123,7 @@ withDefaults(
 
   position: relative;
   padding: var(--space-8) var(--space-32);
+  margin-bottom: 0;
   white-space: nowrap;
 
   &:hover {

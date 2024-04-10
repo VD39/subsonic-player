@@ -61,6 +61,6 @@ async function submitForm() {
 }
 
 .button {
-  margin-left: calc(var(--space-40) * -2);
+  margin-left: calc(var(--space-40) * -1);
 }
 </style>

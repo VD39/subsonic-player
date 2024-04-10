@@ -77,8 +77,8 @@ function handleClickOutside(event: MouseEvent) {
 
 .dropdownMenu {
   position: fixed;
-  inset: auto var(--space-12) var(--space-12);
-  z-index: 9;
+  inset: auto var(--space-12) calc(var(--header-height) + var(--space-12));
+  z-index: 2;
   min-width: 180px;
   padding: var(--space-4) 0;
   background-color: var(--background-color);

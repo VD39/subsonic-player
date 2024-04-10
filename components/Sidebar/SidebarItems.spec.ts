@@ -23,7 +23,7 @@ describe('SidebarItems', () => {
 
   describe('when title prop is not set', () => {
     it('does not show the title', () => {
-      expect(wrapper.find({ ref: 'title' }).exists()).toBe(false);
+      expect(wrapper.findComponent({ ref: 'rootTitle' }).exists()).toBe(false);
     });
   });
 
@@ -39,7 +39,7 @@ describe('SidebarItems', () => {
     });
 
     it('shows the title', () => {
-      expect(wrapper.find({ ref: 'title' }).exists()).toBe(true);
+      expect(wrapper.findComponent({ ref: 'rootTitle' }).exists()).toBe(true);
     });
   });
 

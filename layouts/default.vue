@@ -5,11 +5,11 @@ import DropdownMenu from '@/components/Dropdown/DropdownMenu.vue';
 import DropdownItem from '@/components/Dropdown/DropdownItem.vue';
 import DropdownDivider from '@/components/Dropdown/DropdownDivider.vue';
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher.vue';
+import MusicLogo from '@/components/Logo/MusicLogo.vue';
 import MainLoader from '@/components/Loaders/MainLoader.vue';
 
 const user = useUser();
 const { logout } = useAuth();
-const { width } = useSidebar();
 const loading = useLoading();
 
 function logoutAndRedirect() {
@@ -20,8 +20,10 @@ function logoutAndRedirect() {
 
 <template>
   <div :class="$style.mainLayout">
-    <header :class="$style.header" :style="{ marginLeft: width }">
+    <header :class="$style.header">
       <div :class="$style.innerHeader">
+        <MusicLogo :class="$style.logo" />
+
         <div :class="$style.search">
           <SearchForm />
         </div>
@@ -60,7 +62,7 @@ function logoutAndRedirect() {
       <SidebarNavigation />
     </aside>
 
-    <main :class="$style.mainContent" :style="{ marginLeft: width }">
+    <main :class="$style.mainContent">
       <div v-show="loading" ref="mainLoader">
         <MainLoader />
       </div>
@@ -82,11 +84,15 @@ function logoutAndRedirect() {
 
   position: fixed;
   inset: 0 0 auto;
-  z-index: 1;
+  z-index: 2;
   min-height: var(--header-height);
   background-color: var(--background-color);
   border-bottom: 1px solid var(--border-color);
   box-shadow: var(--box-shadow-medium);
+
+  @media (--tablet-up) {
+    margin-left: var(--sidebar-width);
+  }
 }
 
 .innerHeader {
@@ -94,17 +100,29 @@ function logoutAndRedirect() {
   @mixin inner;
 
   position: relative;
+  gap: var(--space-24);
   justify-content: space-between;
 }
 
+.logo {
+  @media (--tablet-up) {
+    display: none;
+  }
+}
+
 .search {
-  width: 50%;
+  width: 65%;
+
+  @media (--tablet-up) {
+    width: 50%;
+  }
 }
 
 .secondary {
   @mixin align-center;
 
   gap: var(--space-12);
+  margin-right: calc(var(--space-8) * -2);
 }
 
 .mainContent {
@@ -112,13 +130,20 @@ function logoutAndRedirect() {
   display: flex;
   flex: 1;
   min-height: 100vh;
+
+  @media (--tablet-up) {
+    margin-left: var(--sidebar-width);
+  }
 }
 
 .mainContentInner {
   @mixin inner;
 
-  padding-top: calc(var(--header-height) + var(--space-32));
-  padding-bottom: var(--space-40);
+  padding: calc(var(--header-height) + var(--space-32)) 0;
+
+  @media (--tablet-up) {
+    padding-bottom: var(--space-32);
+  }
 }
 
 /* stylelint-disable selector-class-pattern */

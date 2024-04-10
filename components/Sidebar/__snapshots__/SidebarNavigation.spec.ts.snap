@@ -1,25 +1,22 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SidebarNavigation > matches the snapshot 1`] = `
-"<div class="sideBar" style="width: 16rem;">
+"<div class="sideBar">
   <div class="header"><a class="iconButton logo logo" title="Home">
       <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
     </a><button class="iconButton" type="button" title="Close Navigation">
       <font-awesome-icon-stub aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Close Navigation</span>
     </button></div>
-  <nav>
+  <nav class="navigationWrapper">
     <ul class="navigation">
-      <li class="sidebarItem">
-        <!--v-if-->
-        <ul>
+      <li class="sidebarItem"><a class="titleLink" title="Browse">
+          <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+          <h4 class="title">Browse</h4>
+        </a>
+        <ul class="items">
           <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
+              <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
             </a></li>
-        </ul>
-      </li>
-      <li class="sidebarItem">
-        <h4 class="title">Browse</h4>
-        <ul>
           <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
               <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
             </a></li>
@@ -31,9 +28,11 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
             </a></li>
         </ul>
       </li>
-      <li class="sidebarItem">
-        <h4 class="title">Music</h4>
-        <ul>
+      <li class="sidebarItem"><a class="titleLink" title="Your library">
+          <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+          <h4 class="title">Your library</h4>
+        </a>
+        <ul class="items">
           <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
               <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
             </a></li>
@@ -51,10 +50,12 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
             </a></li>
         </ul>
       </li>
-      <li class="sidebarItem">
-        <h4 class="title">Playlists</h4>
-        <ul>
-          <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random Playlist">
+      <li class="sidebarItem"><a class="titleLink" title="Playlists">
+          <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+          <h4 class="title">Playlists</h4>
+        </a>
+        <ul class="items">
+          <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
               <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
             </a></li>
         </ul>
@@ -65,25 +66,22 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
 `;
 
 exports[`SidebarNavigation > when toggle button is clicked > matches the snapshot 1`] = `
-"<div class="sideBar" style="width: 5rem;">
+"<div class="sideBar">
   <div class="header"><a class="iconButton logo logo" title="Home">
       <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
     </a><button class="iconButton" type="button" title="Open Navigation">
       <font-awesome-icon-stub aria-hidden="true" size="sm" fixed-width="" icon="fas,angles-right"></font-awesome-icon-stub><span class="visually-hidden">Open Navigation</span>
     </button></div>
-  <nav>
+  <nav class="navigationWrapper">
     <ul class="navigation">
-      <li class="sidebarItem">
-        <!--v-if-->
-        <ul>
+      <li class="sidebarItem"><a class="titleLink" title="Browse">
+          <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+          <h4 class="title">Browse</h4>
+        </a>
+        <ul class="items">
           <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
+              <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
             </a></li>
-        </ul>
-      </li>
-      <li class="sidebarItem">
-        <h4 class="title">Browse</h4>
-        <ul>
           <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
               <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
             </a></li>
@@ -95,9 +93,11 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
             </a></li>
         </ul>
       </li>
-      <li class="sidebarItem">
-        <h4 class="title">Music</h4>
-        <ul>
+      <li class="sidebarItem"><a class="titleLink" title="Your library">
+          <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+          <h4 class="title">Your library</h4>
+        </a>
+        <ul class="items">
           <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
               <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
             </a></li>
@@ -115,10 +115,12 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
             </a></li>
         </ul>
       </li>
-      <li class="sidebarItem">
-        <h4 class="title">Playlists</h4>
-        <ul>
-          <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random Playlist">
+      <li class="sidebarItem"><a class="titleLink" title="Playlists">
+          <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+          <h4 class="title">Playlists</h4>
+        </a>
+        <ul class="items">
+          <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
               <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
             </a></li>
         </ul>

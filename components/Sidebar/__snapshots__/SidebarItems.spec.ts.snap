@@ -10,20 +10,22 @@ exports[`SidebarItems > matches the snapshot 1`] = `
 exports[`SidebarItems > when items prop is set to true > matches the snapshot 1`] = `
 "<li class="sidebarItem">
   <!--v-if-->
-  <ul>
+  <ul class="items">
     <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="title">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">name</span>
+        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">title</span>
       </a></li>
     <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="title">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">name</span>
+        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">title</span>
       </a></li>
   </ul>
 </li>"
 `;
 
 exports[`SidebarItems > when title prop is set to true > matches the snapshot 1`] = `
-"<li class="sidebarItem">
-  <h4 class="title">title</h4>
+"<li class="sidebarItem"><a class="titleLink" title="title">
+    <!--v-if-->
+    <h4 class="title">title</h4>
+  </a>
   <!--v-if-->
 </li>"
 `;
