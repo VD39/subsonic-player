@@ -1,14 +1,13 @@
-export interface Artist {
+export interface ResponseArtist {
   id: string;
   name: string;
   albumCount?: number;
   starred?: string;
   coverArt?: string;
-  album?: Album[];
+  album?: ResponseAlbum[];
 }
 
-// Artist information
-export interface ArtistInfo2 {
+export interface ResponseArtistInfo2 {
   biography: string;
   musicBrainzId: string;
   lastFmUrl: string;
@@ -16,20 +15,20 @@ export interface ArtistInfo2 {
   mediumImageUrl: string;
   largeImageUrl: string;
   artistImageUrl: string;
-  similarArtist: Artist[];
+  similarArtist: ResponseArtist[];
 }
 
 export interface Index {
   name: string;
-  artist: Artist[];
+  artist: ResponseArtist[];
 }
 
-export interface Artists {
+export interface ResponseArtists {
   ignoredArticles: string;
   index: Index[];
 }
 
-export interface Genre {
+export interface ResponseGenre {
   name: string;
   value?: string;
   songCount?: number;
@@ -41,17 +40,17 @@ export interface ReplayGain {
   albumPeak: number;
 }
 
-export interface AlbumArtist {
+export interface ResponseAlbumArtist {
   id: string;
   name: string;
 }
 
-export interface Album {
+export interface ResponseAlbum {
   id: string;
   created: string;
   artistId: string;
   artist: string;
-  artists: Artist[];
+  artists: ResponseArtist[];
   displayArtist: string;
   title: string;
   album: string;
@@ -63,19 +62,19 @@ export interface Album {
   year?: number;
   starred?: string;
   genre?: string;
-  genres?: Genre[];
-  song?: Song[];
+  genres?: ResponseGenre[];
+  song?: ResponseSong[];
 }
 
-export interface Song {
+export interface ResponseSong {
   id: string;
   album: string;
-  albumId: string;
+  albumId?: string;
   artist: string;
-  artistId: string;
-  artists: Artist[];
+  artistId?: string;
+  artists: ResponseArtist[] | null;
   displayArtist: string;
-  albumArtists: AlbumArtist[];
+  albumArtists: ResponseAlbumArtist[] | null;
   displayAlbumArtist: string;
   bitRate: number;
   contentType: string;
@@ -94,7 +93,7 @@ export interface Song {
   type: string;
   year: number;
   musicBrainzId: string;
-  starred: string;
+  starred?: string;
   genre?: string;
   playCount?: number;
   userRating?: number;
@@ -104,23 +103,23 @@ export interface Song {
   comment?: string;
   sortName?: string;
   mediaType?: string;
-  genres?: Genre[];
-  replayGain?: ReplayGain;
+  genres?: ResponseGenre[] | null;
+  replayGain?: ReplayGain | null;
 }
 
-export interface AlbumList2 {
-  album: Album[];
+export interface ResponseAlbumList2 {
+  album: ResponseAlbum[];
 }
 
-interface Genres {
-  genre: Genre[];
+interface ResponseGenres {
+  genre: ResponseGenre[];
 }
 
-export interface Songs {
-  song: Song[];
+export interface ResponseSongs {
+  song: ResponseSong[];
 }
 
-export interface Playlist {
+export interface ResponsePlaylist {
   id: string;
   name: string;
   comment: string;
@@ -130,14 +129,14 @@ export interface Playlist {
   changed: string;
   duration: number;
   public?: boolean;
-  entry?: Song[];
+  entry?: ResponseSong[];
 }
 
-export interface Playlists {
-  playlist: Playlist[];
+export interface ResponsePlaylists {
+  playlist: ResponsePlaylist[];
 }
 
-export interface Episode {
+export interface ResponseEpisode {
   id: string;
   streamId: string;
   channelId: string;
@@ -149,7 +148,7 @@ export interface Episode {
   isDir: boolean;
   year: number;
   genre?: string;
-  genres?: Genre[];
+  genres?: ResponseGenre[];
   coverArt: string;
   size: number;
   contentType: string;
@@ -159,7 +158,7 @@ export interface Episode {
   path: string;
 }
 
-export interface Channel {
+export interface ResponseChannel {
   id: string;
   url: string;
   title: string;
@@ -167,28 +166,28 @@ export interface Channel {
   coverArt: string;
   originalImageUrl: string;
   status: string;
-  episode: Episode[];
+  episode: ResponseEpisode[];
   date: string;
 }
 
-interface Podcasts {
-  channel: Channel[];
+interface ResponsePodcasts {
+  channel: ResponseChannel[];
 }
 
-export interface InternetRadioStation {
+export interface ResponseInternetRadioStation {
   id: string;
   name: string;
   streamUrl: string;
   homepageUrl: string;
 }
 
-export interface InternetRadioStations {
-  internetRadioStation: InternetRadioStation[];
+export interface ResponseInternetRadioStations {
+  internetRadioStation: ResponseInternetRadioStation[];
 }
-export interface AllMedia {
-  artist?: Artist[];
-  album?: Album[];
-  song?: Song[];
+export interface ResponseAllMedia {
+  artist?: ResponseArtist[];
+  album?: ResponseAlbum[];
+  song?: ResponseSong[];
 }
 
 export interface SubsonicResponse {
@@ -197,29 +196,29 @@ export interface SubsonicResponse {
   type: string;
   serverVersion: string;
   openSubsonic: boolean;
-  // fav
-  starred2?: AllMedia;
-  // genre
-  genres?: Genres;
-  songsByGenre?: Songs;
-  // music
-  artists?: Artists;
-  artist?: Artist;
-  artistInfo2?: ArtistInfo2;
-  album?: Album;
-  topSongs?: Songs;
-  // Genre and music
-  albumList2?: AlbumList2;
+  // Favourites
+  starred2: ResponseAllMedia;
+  // Genre
+  genres: ResponseGenres;
+  songsByGenre: ResponseSongs;
+  // Music
+  artists: ResponseArtists;
+  artist: ResponseArtist;
+  artistInfo2: ResponseArtistInfo2;
+  album: ResponseAlbum;
+  topSongs: ResponseSongs;
+  // Genre and Music
+  albumList2: ResponseAlbumList2;
   // Playlists
-  playlists?: Playlists;
-  randomSongs?: Songs;
-  playlist?: Playlist;
+  playlist: ResponsePlaylist;
+  playlists: ResponsePlaylists;
+  randomSongs: ResponseSongs;
   // Podcast
-  podcasts?: Podcasts;
-  // radio station
-  internetRadioStations?: InternetRadioStations;
-  // Search results
-  searchResult3?: AllMedia;
+  podcasts: ResponsePodcasts;
+  // Radio Stations
+  internetRadioStations: ResponseInternetRadioStations;
+  // Search Results
+  searchResult3: ResponseAllMedia;
 
   error?: Error;
 }

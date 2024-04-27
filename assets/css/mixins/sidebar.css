@@ -1,0 +1,21 @@
+@define-mixin sidebar-link {
+  padding: var(--space-8) var(--space-32);
+
+  &:hover {
+    background-color: var(--hover-selected-color);
+  }
+}
+
+@define-mixin sidebar-current-link {
+  font-weight: var(--font-weight-bold);
+  background-color: var(--hover-selected-color);
+
+  &::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    display: inline-block;
+    width: 5px;
+    content: '';
+    background-color: var(--theme-color);
+  }
+}

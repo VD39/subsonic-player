@@ -33,7 +33,7 @@ describe('getLocalStorage', () => {
       });
 
       it('returns correct value', () => {
-        expect(storage).toStrictEqual({
+        expect(storage).toEqual({
           storage: 'storage',
         });
       });

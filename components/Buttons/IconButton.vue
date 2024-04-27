@@ -45,6 +45,7 @@ const isComponent =
     <font-awesome-icon
       v-if="icon"
       ref="icon"
+      :class="$style.icon"
       aria-hidden="true"
       :icon="['fas', icon]"
       :size="iconSize"
@@ -54,6 +55,7 @@ const isComponent =
     <span
       ref="text"
       :class="[
+        $style.text,
         {
           'visually-hidden': !showText,
         },
@@ -72,6 +74,7 @@ const isComponent =
   gap: var(--space-8);
   padding: var(--space-8);
   margin: 0;
+  white-space: nowrap;
 }
 
 .alignRight {
@@ -85,5 +88,16 @@ const isComponent =
 .disabled {
   pointer-events: none;
   opacity: 0.25;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>

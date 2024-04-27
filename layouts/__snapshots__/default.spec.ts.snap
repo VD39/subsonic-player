@@ -4,7 +4,7 @@ exports[`Default > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -12,7 +12,7 @@ exports[`Default > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Login </span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
@@ -23,9 +23,9 @@ exports[`Default > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Close Navigation</span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -34,18 +34,26 @@ exports[`Default > matches the snapshot 1`] = `
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Radio Stations</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Podcasts</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
@@ -53,21 +61,31 @@ exports[`Default > matches the snapshot 1`] = `
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Artists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Playlists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Favourites</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Genres</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
@@ -75,9 +93,20 @@ exports[`Default > matches the snapshot 1`] = `
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                </button>
+              </li>
             </ul>
           </li>
         </ul>
@@ -97,7 +126,7 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -105,18 +134,18 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Login </span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Activate dark mode</span>
+            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class=""></span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
             </button>
             <!--v-if-->
           </div>
@@ -127,9 +156,9 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Close Navigation</span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -138,18 +167,26 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Radio Stations</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Podcasts</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
@@ -157,21 +194,31 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Artists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Playlists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Favourites</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Genres</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
@@ -179,9 +226,20 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                </button>
+              </li>
             </ul>
           </li>
         </ul>
@@ -201,7 +259,7 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -209,18 +267,18 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Login </span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Activate dark mode</span>
+            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class=""></span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
             </button>
             <!--v-if-->
           </div>
@@ -231,9 +289,9 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Close Navigation</span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -242,18 +300,26 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Radio Stations</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Podcasts</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
@@ -261,21 +327,31 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Artists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Playlists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Favourites</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Genres</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
@@ -283,9 +359,20 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                </button>
+              </li>
             </ul>
           </li>
         </ul>
@@ -293,8 +380,8 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
     </div>
   </aside>
   <main class="mainContent">
-    <div><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner" style="display: none;">
+    <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
+    <div class="mainContentInner">
       <div></div>
     </div>
   </main>
@@ -305,7 +392,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -313,18 +400,18 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Login </span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Activate dark mode</span>
+            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class=""></span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
             </button>
             <!--v-if-->
           </div>
@@ -335,9 +422,9 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Close Navigation</span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -346,18 +433,26 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Radio Stations</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Podcasts</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
@@ -365,21 +460,31 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Artists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Playlists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Favourites</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Genres</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
@@ -387,9 +492,20 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                </button>
+              </li>
             </ul>
           </li>
         </ul>
@@ -409,7 +525,7 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -417,30 +533,30 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Login </span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Activate dark mode</span>
+            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class=""></span>
+              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
             </button>
             <div class="dropdownMenu">
               <ul class="menu">
                 <li class="dropdownItem" to="/user-profile"><a class="iconButton fullWidth action action">
-                    <!--v-if--><span class="">Profile</span>
+                    <!--v-if--><span class="text">Profile</span>
                   </a></li>
                 <li class="dropdownItem" target="_blank"><a class="iconButton fullWidth action action" target="_blank">
-                    <!--v-if--><span class=""> Server </span>
+                    <!--v-if--><span class="text"> Server </span>
                   </a></li>
                 <li class="divider" aria-hidden="true"></li>
                 <li class="dropdownItem" icon="right-from-bracket"><button class="iconButton alignRight fullWidth action action" type="button">
-                    <font-awesome-icon-stub aria-hidden="true" icon="fas,right-from-bracket" size="sm" fixed-width=""></font-awesome-icon-stub><span class=""> Log out </span>
+                    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,right-from-bracket" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Log out </span>
                   </button></li>
               </ul>
             </div>
@@ -452,9 +568,9 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden"> Home </span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Close Navigation</span>
+          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -463,18 +579,26 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,magnifying-glass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Discover</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Music</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Radio Stations</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Podcasts</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
@@ -482,21 +606,31 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Albums</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Artists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Playlists</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Favourites</span>
-                </a></li>
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Genres</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
@@ -504,9 +638,20 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
-              <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">Random</span>
-                </a></li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                </button>
+              </li>
             </ul>
           </li>
         </ul>

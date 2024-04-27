@@ -2,6 +2,6 @@
 
 exports[`DropdownItem > matches the snapshot 1`] = `
 "<li class="dropdownItem"><a class="iconButton fullWidth action action">
-    <!--v-if--><span class=""></span>
+    <!--v-if--><span class="text"></span>
   </a></li>"
 `;

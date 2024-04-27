@@ -1,5 +1,5 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { route } from '@/test/fixtures';
+import { routeMock } from '@/test/fixtures';
 import appGlobalMiddleware from './app.global';
 
 const navigateToMock = vi.hoisted(() => vi.fn());
@@ -13,10 +13,24 @@ mockNuxtImport('useAuth', () => () => ({
   autoLogin: vi.fn(),
 }));
 
+const clearAllSnackMock = vi.fn();
+
+mockNuxtImport('useSnack', () => () => ({
+  clearAllSnack: clearAllSnackMock,
+}));
+
 describe('check-out-redirection', () => {
+  beforeEach(() => {
+    appGlobalMiddleware(routeMock, routeMock);
+  });
+
   afterEach(() => {
     authenticated.value = false;
     vi.clearAllMocks();
+  });
+
+  it('calls the clearAllSnack function', () => {
+    expect(clearAllSnackMock).toHaveBeenCalled();
   });
 
   describe('when route name is login', () => {
@@ -24,10 +38,10 @@ describe('check-out-redirection', () => {
       beforeEach(() => {
         appGlobalMiddleware(
           {
-            ...route,
+            ...routeMock,
             name: 'login',
           },
-          route,
+          routeMock,
         );
       });
 
@@ -41,10 +55,10 @@ describe('check-out-redirection', () => {
         authenticated.value = true;
         appGlobalMiddleware(
           {
-            ...route,
+            ...routeMock,
             name: 'login',
           },
-          route,
+          routeMock,
         );
       });
 
@@ -60,10 +74,10 @@ describe('check-out-redirection', () => {
         authenticated.value = true;
         appGlobalMiddleware(
           {
-            ...route,
+            ...routeMock,
             name: 'about',
           },
-          route,
+          routeMock,
         );
       });
 
@@ -76,11 +90,11 @@ describe('check-out-redirection', () => {
       beforeEach(() => {
         appGlobalMiddleware(
           {
-            ...route,
+            ...routeMock,
             name: 'about',
             fullPath: 'about',
           },
-          route,
+          routeMock,
         );
       });
 

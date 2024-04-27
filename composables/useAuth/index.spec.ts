@@ -6,22 +6,22 @@ const useCookieMock = ref<null | string>(null);
 
 mockNuxtImport('useCookie', () => () => useCookieMock);
 
-const { useAPIMock } = vi.hoisted(() => ({
-  useAPIMock: vi.fn(() => ({
-    data: ref<null | Record<string, string>>({}),
-    error: ref<null | Error>(null),
-  })),
+const fetchDataMock = vi.fn(() => ({
+  data: ref<null | Record<string, string>>({}),
+  error: ref<null | Error>(null),
 }));
 
-mockNuxtImport('useAPI', () => useAPIMock);
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: fetchDataMock,
+}));
 
-const user = ref();
+const userMock = ref();
 
 mockNuxtImport('useState', () => {
   return <T>(key: string, init: () => T) => {
     if (key === 'user') {
-      user.value = init();
-      return user;
+      userMock.value = init();
+      return userMock;
     }
 
     return ref(init());
@@ -44,7 +44,7 @@ describe('useAuth', () => {
     });
 
     it('sets the user value bases on cookie', () => {
-      expect(user.value).toEqual({
+      expect(userMock.value).toEqual({
         salt: null,
         server: null,
         token: null,
@@ -52,13 +52,13 @@ describe('useAuth', () => {
       });
     });
 
-    describe('when autoLogin is called', () => {
+    describe('when the autoLogin function is called', () => {
       beforeEach(() => {
         result.autoLogin();
       });
 
-      it('does not call the useAPI function', () => {
-        expect(useAPI).not.toHaveBeenCalled();
+      it('does not call the fetchData function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalled();
       });
 
       it('sets the authenticated value to false', () => {
@@ -74,7 +74,7 @@ describe('useAuth', () => {
       });
 
       it('sets the user value bases on cookie', () => {
-        expect(user.value).toEqual({
+        expect(userMock.value).toEqual({
           salt: 'salt',
           server: 'server',
           token: 'token',
@@ -82,24 +82,24 @@ describe('useAuth', () => {
         });
       });
 
-      describe('when autoLogin is called', () => {
+      describe('when the autoLogin function is called', () => {
         beforeEach(() => {
           result.autoLogin();
         });
 
-        it('calls the useAPI function', () => {
-          expect(useAPI).toHaveBeenCalled();
+        it('calls the fetchData function', () => {
+          expect(fetchDataMock).toHaveBeenCalled();
         });
 
-        describe('when queryWithError is successful', () => {
+        describe('when fetchData response is successful', () => {
           it('sets the correct authenticated value', () => {
             expect(result.authenticated.value).toBe(true);
           });
         });
 
-        describe('when queryWithError is not successful', () => {
+        describe('when fetchData response is not successful', () => {
           beforeEach(() => {
-            useAPIMock.mockResolvedValue({
+            fetchDataMock.mockResolvedValue({
               data: ref(null),
               error: ref(new Error('Error message.')),
             });
@@ -114,13 +114,14 @@ describe('useAuth', () => {
     });
   });
 
-  describe('when login is called', () => {
-    describe('when queryWithError is successful', () => {
+  describe('when the login function is called', () => {
+    describe('when fetchData response is successful', () => {
       beforeEach(() => {
-        useAPIMock.mockResolvedValue({
+        fetchDataMock.mockResolvedValue({
           data: ref({}),
           error: ref(null),
         });
+
         result = withSetup(useAuth);
         result.login({
           password: 'password',
@@ -136,7 +137,7 @@ describe('useAuth', () => {
       });
 
       it('sets the correct user value', () => {
-        expect(user.value).toEqual({
+        expect(userMock.value).toEqual({
           salt: 'randomString',
           server: 'server',
           token: 'MD5',
@@ -153,12 +154,13 @@ describe('useAuth', () => {
       });
     });
 
-    describe('when queryWithError is not successful', () => {
+    describe('when fetchData response is not successful', () => {
       beforeEach(() => {
-        useAPIMock.mockResolvedValue({
+        fetchDataMock.mockResolvedValue({
           data: ref(null),
           error: ref(new Error('Error message.')),
         });
+
         result = withSetup(useAuth);
         result.login({
           password: 'password',
@@ -181,7 +183,7 @@ describe('useAuth', () => {
     });
   });
 
-  describe('when logout is called', () => {
+  describe('when the logout function is called', () => {
     beforeEach(() => {
       result.logout();
     });

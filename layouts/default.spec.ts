@@ -15,9 +15,9 @@ const userMock = vi.hoisted(() => vi.fn(() => ref<null | User>(null)));
 
 mockNuxtImport('useUser', () => userMock);
 
-const loadingMock = ref(false);
+const loadingMock = vi.hoisted(() => vi.fn(() => ref(false)));
 
-mockNuxtImport('useLoading', () => () => loadingMock);
+mockNuxtImport('useLoading', () => loadingMock);
 
 function factory(props = {}) {
   return mount(DefaultLayout, {
@@ -115,7 +115,7 @@ describe('Default', () => {
 
   describe('when loading is true', () => {
     beforeEach(() => {
-      loadingMock.value = true;
+      loadingMock.mockReturnValue(ref(true));
     });
 
     it('matches the snapshot', () => {

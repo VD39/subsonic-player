@@ -1,3 +1,6 @@
+import AddNewPlaylist from '@/components/Playlists/AddNewPlaylist.vue';
+import CurrentPlaylists from '@/components/Playlists/CurrentPlaylists.vue';
+
 export const SIDEBAR_NAVIGATION = [
   {
     title: 'Browse',
@@ -7,7 +10,7 @@ export const SIDEBAR_NAVIGATION = [
       {
         title: 'Discover',
         to: '/discover',
-        icon: 'magnifying-glass',
+        icon: 'compass',
       },
       {
         title: 'Music',
@@ -61,12 +64,18 @@ export const SIDEBAR_NAVIGATION = [
   {
     title: 'Playlists',
     icon: 'list',
-    to: '/playlist',
+    to: '/playlists',
     items: [
       {
         title: 'Random',
         to: '/playlist/random',
         icon: 'list',
+      },
+      {
+        component: markRaw(CurrentPlaylists),
+      },
+      {
+        component: markRaw(AddNewPlaylist),
       },
     ],
   },

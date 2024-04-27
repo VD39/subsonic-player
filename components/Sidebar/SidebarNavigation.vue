@@ -3,7 +3,7 @@ import SidebarItems from '@/components/Sidebar/SidebarItems.vue';
 import IconButton from '@/components/Buttons/IconButton.vue';
 import MusicLogo from '@/components/Logo/MusicLogo.vue';
 
-const { collapsed, navigation, toggle } = useSidebar();
+const { collapsed, toggle } = useSidebar();
 
 const buttonProps = computed<ButtonProps>(() =>
   collapsed.value
@@ -36,7 +36,7 @@ const buttonProps = computed<ButtonProps>(() =>
     <nav :class="$style.navigationWrapper">
       <ul :class="$style.navigation">
         <SidebarItems
-          v-for="(item, index) in navigation"
+          v-for="(item, index) in SIDEBAR_NAVIGATION"
           :key="`navigation-${index}`"
           :title="item.title"
           :title-icon="item.icon"
@@ -103,7 +103,7 @@ const buttonProps = computed<ButtonProps>(() =>
 }
 
 .navigation {
-  @media (--mobile-down) {
+  @media (--mobile-only) {
     @mixin inner;
 
     display: flex;

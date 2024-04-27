@@ -18,9 +18,10 @@ withDefaults(
 const isOpen = ref(false);
 const dropdown = ref<HTMLElement | null>(null);
 
-function keydownHandler(e: KeyboardEvent) {
-  if (e.key === 'Escape') {
+function keydownHandler(event: KeyboardEvent) {
+  if (event.key === 'Escape') {
     isOpen.value = false;
+    document.removeEventListener('keydown', keydownHandler);
   }
 }
 

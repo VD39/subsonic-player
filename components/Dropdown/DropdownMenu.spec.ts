@@ -37,7 +37,7 @@ describe('DropdownMenu', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when IconButton is clicked', () => {
+  describe('when the IconButton component is clicked', () => {
     beforeEach(async () => {
       wrapper.findComponent(IconButton).vm.$emit('click');
       await wrapper.vm.$nextTick();
@@ -59,7 +59,7 @@ describe('DropdownMenu', () => {
       expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(true);
     });
 
-    describe('when IconButton is clicked again', () => {
+    describe('when the IconButton component is clicked again', () => {
       beforeEach(async () => {
         wrapper.findComponent(IconButton).vm.$emit('click');
         await wrapper.vm.$nextTick();

@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModalWindow > when modal values are not set > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <transition-stub name="modal-fade" appear="false" persisted="false" css="true">
+    <!--v-if-->
+  </transition-stub>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <transition-stub name="modal-fade" appear="false" persisted="false" css="true">
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="modalContainer">
+      <div class="modalContent" role="document">
+        <div class="header">
+          <!--v-if--><button class="iconButton" type="button" title="Close modal">
+            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="lg" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Close modal </span>
+          </button>
+        </div>
+        <div class="body">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when modal container is clicked > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <transition-stub name="modal-fade" appear="false" persisted="false" css="true">
+    <!--v-if-->
+  </transition-stub>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when modal content is clicked > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <transition-stub name="modal-fade" appear="false" persisted="false" css="true">
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="modalContainer">
+      <div class="modalContent" role="document">
+        <div class="header">
+          <!--v-if--><button class="iconButton" type="button" title="Close modal">
+            <font-awesome-icon-stub class="icon" aria-hidden="true" size="lg" fixed-width="" icon="fas,xmark"></font-awesome-icon-stub><span class="text visually-hidden"> Close modal </span>
+          </button>
+        </div>
+        <div class="body">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when the IconButton component is clicked > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <transition-stub name="modal-fade" appear="false" persisted="false" css="true">
+    <!--v-if-->
+  </transition-stub>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when title is set > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <transition-stub name="modal-fade" appear="false" persisted="false" css="true">
+    <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="modalContainer">
+      <div class="modalContent" role="document">
+        <div class="header">
+          <h4 class="title">Title</h4><button class="iconButton" type="button" title="Close modal">
+            <font-awesome-icon-stub class="icon" aria-hidden="true" size="lg" fixed-width="" icon="fas,xmark"></font-awesome-icon-stub><span class="text visually-hidden"> Close modal </span>
+          </button>
+        </div>
+        <div class="body">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</teleport-stub>"
+`;

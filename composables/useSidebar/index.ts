@@ -14,7 +14,6 @@ export function useSidebar() {
 
   return {
     collapsed,
-    navigation: SIDEBAR_NAVIGATION,
     toggle,
     width,
   };

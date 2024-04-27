@@ -1,6 +1,7 @@
 import MD5 from 'crypto-js/md5';
 
 export function useAuth() {
+  const { fetchData } = useAPI();
   const user = useUser();
   const authParams = useCookie('auth-params', {
     sameSite: true,
@@ -21,7 +22,7 @@ export function useAuth() {
       return;
     }
 
-    const { data: loggedIn, error: loginError } = await useAPI('/ping');
+    const { data: loggedIn, error: loginError } = await fetchData('/ping');
 
     if (loginError.value?.message) {
       logout();
@@ -49,14 +50,17 @@ export function useAuth() {
       username,
     };
 
-    const { data: loggedIn, error: loginError } = await useAPI('/rest/ping', {
-      baseURL: server,
-      query: {
-        s: params.salt,
-        t: params.token,
-        u: params.username,
+    const { data: loggedIn, error: loginError } = await fetchData(
+      '/rest/ping',
+      {
+        baseURL: server,
+        query: {
+          s: params.salt,
+          t: params.token,
+          u: params.username,
+        },
       },
-    });
+    );
 
     if (loginError.value?.message) {
       error.value = loginError.value.message;

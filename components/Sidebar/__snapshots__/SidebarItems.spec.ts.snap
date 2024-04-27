@@ -7,16 +7,46 @@ exports[`SidebarItems > matches the snapshot 1`] = `
 </li>"
 `;
 
-exports[`SidebarItems > when items prop is set to true > matches the snapshot 1`] = `
+exports[`SidebarItems > when items prop is set > matches the snapshot 1`] = `
 "<li class="sidebarItem">
   <!--v-if-->
   <ul class="items">
-    <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="title">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">title</span>
-      </a></li>
-    <li data-test-id="item"><a exactactiveclass="current" class="iconButton link link" title="title">
-        <font-awesome-icon-stub aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="">title</span>
-      </a></li>
+    <li><a exactactiveclass="current" class="iconButton link link" title="title">
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">title</span>
+      </a>
+      <!--v-if-->
+    </li>
+    <li><a exactactiveclass="current" class="iconButton link link" title="title">
+        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,icon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">title</span>
+      </a>
+      <!--v-if-->
+    </li>
+    <li>
+      <!--v-if-->
+      <div data-test-id="item-component"></div>
+    </li>
+  </ul>
+</li>"
+`;
+
+exports[`SidebarItems > when items prop is set > when collapsed value is true > matches the snapshot 1`] = `
+"<li class="sidebarItem">
+  <!--v-if-->
+  <ul class="items">
+    <li><a exactactiveclass="current" class="iconButton link link" title="title">
+        <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,icon"></font-awesome-icon-stub><span class="text visually-hidden">title</span>
+      </a>
+      <!--v-if-->
+    </li>
+    <li><a exactactiveclass="current" class="iconButton link link" title="title">
+        <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,icon"></font-awesome-icon-stub><span class="text visually-hidden">title</span>
+      </a>
+      <!--v-if-->
+    </li>
+    <li>
+      <!--v-if-->
+      <div data-test-id="item-component"></div>
+    </li>
   </ul>
 </li>"
 `;

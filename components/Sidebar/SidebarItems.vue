@@ -44,13 +44,10 @@ withDefaults(
     </NuxtLink>
 
     <ul v-if="items.length" ref="items" :class="$style.items">
-      <li
-        v-for="(item, index) in items"
-        :key="`item-${index}`"
-        data-test-id="item"
-      >
+      <li v-for="(item, index) in items" :key="`item-${index}`">
         <IconButton
           is="nuxt-link"
+          v-if="!item.component"
           :to="item.to"
           :icon="item.icon"
           :class="$style.link"
@@ -60,6 +57,12 @@ withDefaults(
         >
           {{ item.title }}
         </IconButton>
+
+        <component
+          :is="item.component"
+          v-if="item.component"
+          data-test-id="item-component"
+        />
       </li>
     </ul>
   </li>
@@ -96,7 +99,7 @@ withDefaults(
 }
 
 .title {
-  @media (--mobile-down) {
+  @media (--mobile-only) {
     margin-bottom: 0;
     font-size: var(--small-font-size);
   }
@@ -119,33 +122,10 @@ withDefaults(
 }
 
 .link {
-  @mixin align-center;
-
-  position: relative;
-  padding: var(--space-8) var(--space-32);
-  margin-bottom: 0;
-  white-space: nowrap;
-
-  &:hover {
-    background-color: var(--hover-selected-color);
-  }
-
-  :global(.collapsed) & {
-    justify-content: center;
-  }
+  @mixin sidebar-link;
 }
 
 .current {
-  font-weight: var(--font-weight-bold);
-  background-color: var(--hover-selected-color);
-
-  &::before {
-    position: absolute;
-    inset: 0 auto 0 0;
-    display: inline-block;
-    width: 5px;
-    content: '';
-    background-color: var(--theme-color);
-  }
+  @mixin sidebar-current-link;
 }
 </style>

@@ -1,13 +1,16 @@
 export default defineNuxtRouteMiddleware(async (to) => {
   const { setDefaultTheme } = useTheme();
   const { autoLogin, authenticated } = useAuth();
+  const { clearAllSnack } = useSnack();
+
+  clearAllSnack();
 
   await callOnce(async () => {
     await autoLogin();
   });
 
   if (import.meta.client) {
-    await callOnce(async () => {
+    await callOnce(() => {
       setDefaultTheme();
     });
   }

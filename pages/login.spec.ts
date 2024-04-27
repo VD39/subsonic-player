@@ -4,26 +4,24 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import LoginForm from '@/components/Forms/LoginForm.vue';
 import Login from './login.vue';
 
-const { mockRoute } = vi.hoisted(() => ({
-  mockRoute: vi.fn().mockReturnValue({
+const { routeMock } = vi.hoisted(() => ({
+  routeMock: vi.fn().mockReturnValue({
     query: {},
   }),
 }));
 
-mockNuxtImport('useRoute', () => mockRoute);
+mockNuxtImport('useRoute', () => routeMock);
 
 const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const authenticated = ref(false);
+const authenticatedMock = ref(false);
 const loginMock = vi.fn();
 
-vi.mock('@/composables/useAuth', () => ({
-  useAuth: vi.fn(() => ({
-    authenticated,
-    login: loginMock,
-  })),
+mockNuxtImport('useAuth', () => () => ({
+  authenticated: authenticatedMock,
+  login: loginMock,
 }));
 
 function factory() {
@@ -66,7 +64,7 @@ describe('Login', () => {
 
     describe('when authenticated returns true', () => {
       beforeEach(() => {
-        authenticated.value = true;
+        authenticatedMock.value = true;
 
         wrapper = factory();
         wrapper.findComponent(LoginForm).vm.$emit('submit', {
@@ -84,7 +82,7 @@ describe('Login', () => {
 
       describe('when route has a query value', () => {
         beforeEach(() => {
-          mockRoute.mockReturnValue({
+          routeMock.mockReturnValue({
             query: {
               redirect: '/about',
             },

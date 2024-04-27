@@ -2,60 +2,60 @@
 
 exports[`IconButton > matches the snapshot 1`] = `
 "<button class="iconButton" type="button">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when disabled prop is set as true > matches the snapshot 1`] = `
 "<button class="iconButton disabled" disabled="" type="button">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when fullWidth prop is set to true > matches the snapshot 1`] = `
 "<button class="iconButton fullWidth" type="button">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when icon prop is set > matches the snapshot 1`] = `
 "<button class="iconButton" type="button">
-  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Text</span>
+  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,sun" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when icon prop is set > when iconPosition prop is set to right > matches the snapshot 1`] = `
 "<button class="iconButton alignRight" type="button">
-  <font-awesome-icon-stub aria-hidden="true" icon="fas,sun" size="sm" fixed-width=""></font-awesome-icon-stub><span class="visually-hidden">Text</span>
+  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,sun" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when is prop is a > matches the snapshot 1`] = `
 "<a class="iconButton">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </a>"
 `;
 
 exports[`IconButton > when is prop is div > matches the snapshot 1`] = `
 "<div class="iconButton">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </div>"
 `;
 
 exports[`IconButton > when is prop is nuxt-link > matches the snapshot 1`] = `
 "<a class="iconButton">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </a>"
 `;
 
 exports[`IconButton > when is prop is undefined > matches the snapshot 1`] = `
 "<button class="iconButton" type="button">
-  <!--v-if--><span class="visually-hidden">Text</span>
+  <!--v-if--><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when showText prop is set to true > matches the snapshot 1`] = `
 "<button class="iconButton" type="button">
-  <!--v-if--><span class="">Text</span>
+  <!--v-if--><span class="text">Text</span>
 </button>"
 `;

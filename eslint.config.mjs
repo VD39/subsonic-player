@@ -22,6 +22,7 @@ export default withNuxt(
       'no-undef': 'error',
       'prefer-const': 'error',
       'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+      'vue/no-multiple-template-root': 'off',
     },
   },
   {

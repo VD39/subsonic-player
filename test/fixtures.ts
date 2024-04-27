@@ -1,4 +1,4 @@
-export const route = {
+export const routeMock = {
   token: '',
   matched: [],
   path: 'login',
@@ -13,3 +13,53 @@ export const route = {
   name: 'login',
   meta: {},
 };
+
+export const songMock = {
+  id: 'id',
+  album: 'album',
+  artist: 'artist',
+  artists: [
+    {
+      id: 'id',
+      name: 'name',
+    },
+    {
+      id: 'id1',
+      name: 'name1',
+    },
+  ],
+  displayArtist: '',
+  albumArtists: null,
+  displayAlbumArtist: '',
+  bitRate: 1,
+  contentType: 'contentType',
+  coverArt: 'coverArt',
+  created: '2023',
+  duration: 1,
+  isDir: false,
+  isVideo: false,
+  parent: 'parent',
+  path: 'path',
+  size: 1,
+  suffix: 'suffix',
+  title: 'title',
+  track: 1,
+  discNumber: 1,
+  type: 'type',
+  year: 2024,
+  musicBrainzId: '',
+  replayGain: null,
+} as ResponseSong;
+
+export const playlistMock = {
+  id: 'id',
+  name: 'name',
+  comment: '',
+  owner: 'owner',
+  songCount: 1,
+  created: '2024',
+  changed: '2024',
+  duration: 1,
+  public: true,
+  entry: [songMock],
+} as ResponsePlaylist;

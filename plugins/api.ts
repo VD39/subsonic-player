@@ -1,22 +1,12 @@
 export default defineNuxtPlugin(() => {
-  const authParams = useCookie('auth-params');
   const loading = useLoading();
 
-  const params = loadSession(authParams.value!);
-
   const api = $fetch.create({
-    baseURL: `${decodeURIComponent(params.server!)}/rest`,
     headers: {
       Accept: 'application/json',
     },
-    onRequest({ options }) {
+    onRequest() {
       loading.value = true;
-
-      options.query = {
-        ...getAuthParams(params),
-        ...getConfigParams(),
-        ...options.query,
-      };
     },
     onResponse({ response }) {
       const subsonicResponse = response._data['subsonic-response'];

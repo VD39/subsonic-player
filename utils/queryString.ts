@@ -1,6 +1,5 @@
-export function convertToQueryString(
-  params: Record<string, string | string[]>,
-) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function convertToQueryString(params: Record<string, any>) {
   const list = Object.entries(params)
     .filter(([, value]) => value)
     .flatMap(([key, value]) =>

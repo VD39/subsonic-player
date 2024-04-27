@@ -1,12 +1,8 @@
 import { useSidebar } from './index';
 
-const { collapsed, navigation, toggle, width } = useSidebar();
+const { collapsed, toggle, width } = useSidebar();
 
 describe('useSidebar', () => {
-  it('sets the navigation', () => {
-    expect(navigation).toEqual(SIDEBAR_NAVIGATION);
-  });
-
   it('sets the default collapsed value', () => {
     expect(collapsed.value).toBe(false);
   });
