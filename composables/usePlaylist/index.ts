@@ -1,31 +1,30 @@
 export function usePlaylist() {
+  const config = useRuntimeConfig();
+  const { LOAD_SIZE } = config.public;
+
   const { fetchData } = useAPI();
-  const { addErrorSnack, addSuccessSnack } = useSnack();
+  const { addSuccessSnack } = useSnack();
 
   const playlist = useState<Playlist | null>('playlist', () => null);
   const playlists = useState<Playlist[]>('playlists', () => []);
 
   async function getPlaylists() {
-    const { data: playlistsData, error } = await fetchData('/getPlaylists', {
+    const { data: playlistsData } = await fetchData('/getPlaylists', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.playlists.playlist || [])
           .map(formatPlaylist)
           .sort((a, b) => b.songCount - a.songCount),
     });
 
-    if (error.value?.message) {
-      return addErrorSnack(error.value.message);
-    }
-
-    if (Array.isArray(playlistsData.value)) {
-      playlists.value = playlistsData.value;
+    if (Array.isArray(playlistsData)) {
+      playlists.value = playlistsData;
     }
   }
 
-  async function getRandomSongs() {
-    const { data: playlistData, error } = await fetchData('/getRandomSongs', {
+  async function getRandomTracks() {
+    const { data: playlistData } = await fetchData('/getRandomSongs', {
       params: {
-        size: 50,
+        size: Number(LOAD_SIZE),
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => {
         const playlistRes = {
@@ -33,29 +32,22 @@ export function usePlaylist() {
           id: 'Random',
           name: 'Random',
           comment: '',
-          entry: response.randomSongs?.song || [],
-          owner: 'string',
-          songCount: response.randomSongs?.song?.length || 0,
-          created: '',
-          changed: '',
-          duration: 0,
-          public: false,
+          entry: response.randomSongs.song || [],
+          songCount: response.randomSongs.song?.length || 0,
+          created: new Date(),
+          changed: new Date(),
+          duration: getRandomTracksDuration(response.randomSongs.song),
         };
 
         return formatPlaylist(playlistRes);
       },
     });
 
-    if (error.value?.message) {
-      playlist.value = null;
-      return addErrorSnack(error.value.message);
-    }
-
-    playlist.value = playlistData.value;
+    playlist.value = playlistData;
   }
 
-  async function getPlaylist(id: string) {
-    const { data: playlistData, error } = await fetchData('/getPlaylist', {
+  async function getPlaylistTracks(id: string) {
+    const { data: playlistData } = await fetchData('/getPlaylist', {
       params: {
         id,
       },
@@ -63,24 +55,19 @@ export function usePlaylist() {
         formatPlaylist(response.playlist),
     });
 
-    if (error.value?.message) {
-      playlist.value = null;
-      return addErrorSnack(error.value.message);
-    }
-
-    playlist.value = playlistData.value;
+    playlist.value = playlistData;
   }
 
-  async function getPlaylistById(id = 'random') {
+  async function getPlaylistTracksById(id = 'random') {
     if (id === 'random') {
-      await getRandomSongs();
+      await getRandomTracks();
     } else {
-      await getPlaylist(id);
+      await getPlaylistTracks(id);
     }
   }
 
   async function createPlaylist(name: string) {
-    const { data: playlistData, error } = await fetchData('/createPlaylist', {
+    const { data: playlistData } = await fetchData('/createPlaylist', {
       method: 'POST',
       params: {
         name,
@@ -89,24 +76,58 @@ export function usePlaylist() {
         formatPlaylist(response.playlist),
     });
 
-    if (error.value?.message) {
-      return addErrorSnack(error.value.message);
+    if (playlistData) {
+      playlists.value.unshift(playlistData);
+      addSuccessSnack(`Successfully added playlist ${playlistData.name}.`);
     }
+  }
 
-    if (!playlistData.value) {
-      return addErrorSnack();
+  async function updatePlaylist(
+    params: PlaylistParam,
+    successMessage = 'Successfully updated playlist.',
+  ) {
+    const { data: playlistData } = await fetchData('/updatePlaylist', {
+      method: 'POST',
+      params,
+    });
+
+    if (playlistData) {
+      addSuccessSnack(successMessage);
     }
+  }
 
-    playlists.value.unshift(playlistData.value);
+  async function deletePlaylist(id: string) {
+    const { data: playlistData } = await fetchData('/updatePlaylist', {
+      method: 'DELETE',
+      params: {
+        id,
+      },
+    });
 
-    addSuccessSnack(`Successfully added playlist ${playlistData.value?.name}`);
+    if (playlistData) {
+      addSuccessSnack('Successfully deleted playlist.');
+    }
+  }
+
+  /* istanbul ignore next -- @preserve */
+  async function addToPlaylist(params: PlaylistParam) {
+    await updatePlaylist(params, 'Successfully added to playlist.');
+  }
+
+  /* istanbul ignore next -- @preserve */
+  async function removeFromPlaylist(params: PlaylistParam) {
+    await updatePlaylist(params, 'Successfully removed from playlist.');
   }
 
   return {
+    addToPlaylist,
     createPlaylist,
-    getPlaylistById,
+    deletePlaylist,
     getPlaylists,
+    getPlaylistTracksById,
     playlist,
     playlists,
+    removeFromPlaylist,
+    updatePlaylist,
   };
 }

@@ -5,13 +5,17 @@ export default defineNuxtPlugin(() => {
     headers: {
       Accept: 'application/json',
     },
-    onRequest() {
-      loading.value = true;
+    onRequest({ options }) {
+      if (!options.params?.noLoading) {
+        loading.value = true;
+      }
     },
     onResponse({ response }) {
       const subsonicResponse = response._data['subsonic-response'];
 
       if (!subsonicResponse || subsonicResponse.status !== 'ok') {
+        loading.value = false;
+
         throw new Error(
           subsonicResponse?.error?.message ||
             'Sorry, something went wrong. Please try again.',

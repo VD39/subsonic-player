@@ -1,14 +1,15 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { withSetup } from '@/test/withSetup';
+import type { DataMock } from '@/test/types';
 import { useAuth } from './index';
 
 const useCookieMock = ref<null | string>(null);
 
 mockNuxtImport('useCookie', () => () => useCookieMock);
 
-const fetchDataMock = vi.fn(() => ({
-  data: ref<null | Record<string, string>>({}),
-  error: ref<null | Error>(null),
+const fetchDataMock = vi.fn<() => DataMock>(() => ({
+  data: {},
+  error: null,
 }));
 
 mockNuxtImport('useAPI', () => () => ({
@@ -54,7 +55,7 @@ describe('useAuth', () => {
 
     describe('when the autoLogin function is called', () => {
       beforeEach(() => {
-        result.autoLogin();
+        result.composable.autoLogin();
       });
 
       it('does not call the fetchData function', () => {
@@ -62,7 +63,7 @@ describe('useAuth', () => {
       });
 
       it('sets the authenticated value to false', () => {
-        expect(result.authenticated.value).toBe(false);
+        expect(result.composable.authenticated.value).toBe(false);
       });
     });
 
@@ -84,30 +85,30 @@ describe('useAuth', () => {
 
       describe('when the autoLogin function is called', () => {
         beforeEach(() => {
-          result.autoLogin();
+          result.composable.autoLogin();
         });
 
         it('calls the fetchData function', () => {
           expect(fetchDataMock).toHaveBeenCalled();
         });
 
-        describe('when fetchData response is successful', () => {
+        describe('when fetchData response returns is successful', () => {
           it('sets the correct authenticated value', () => {
-            expect(result.authenticated.value).toBe(true);
+            expect(result.composable.authenticated.value).toBe(true);
           });
         });
 
-        describe('when fetchData response is not successful', () => {
+        describe('when fetchData response returns is not successful', () => {
           beforeEach(() => {
             fetchDataMock.mockResolvedValue({
-              data: ref(null),
-              error: ref(new Error('Error message.')),
+              data: null,
+              error: new Error('Error message.'),
             });
-            result.autoLogin();
+            result.composable.autoLogin();
           });
 
           it('sets the correct authenticated value', () => {
-            expect(result.authenticated.value).toBe(false);
+            expect(result.composable.authenticated.value).toBe(false);
           });
         });
       });
@@ -115,15 +116,15 @@ describe('useAuth', () => {
   });
 
   describe('when the login function is called', () => {
-    describe('when fetchData response is successful', () => {
+    describe('when fetchData response returns is successful', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
-          data: ref({}),
-          error: ref(null),
+          data: {},
+          error: null,
         });
 
         result = withSetup(useAuth);
-        result.login({
+        result.composable.login({
           password: 'password',
           server: 'server',
           username: 'username',
@@ -146,23 +147,23 @@ describe('useAuth', () => {
       });
 
       it('sets the correct authenticated value', () => {
-        expect(result.authenticated.value).toBe(true);
+        expect(result.composable.authenticated.value).toBe(true);
       });
 
       it('sets the correct error value', () => {
-        expect(result.error.value).toBe(null);
+        expect(result.composable.error.value).toBe(null);
       });
     });
 
-    describe('when fetchData response is not successful', () => {
+    describe('when fetchData response returns is not successful', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
-          data: ref(null),
-          error: ref(new Error('Error message.')),
+          data: null,
+          error: new Error('Error message.'),
         });
 
         result = withSetup(useAuth);
-        result.login({
+        result.composable.login({
           password: 'password',
           server: 'server',
           username: 'username',
@@ -174,18 +175,18 @@ describe('useAuth', () => {
       });
 
       it('sets the correct error value', () => {
-        expect(result.error.value).toBe('Error message.');
+        expect(result.composable.error.value).toBe('Error message.');
       });
 
       it('sets the correct authenticated value', () => {
-        expect(result.authenticated.value).toBe(false);
+        expect(result.composable.authenticated.value).toBe(false);
       });
     });
   });
 
   describe('when the logout function is called', () => {
     beforeEach(() => {
-      result.logout();
+      result.composable.logout();
     });
 
     it('sets the correct useCookie value', () => {
@@ -193,7 +194,7 @@ describe('useAuth', () => {
     });
 
     it('sets the correct authenticated value', () => {
-      expect(result.authenticated.value).toBe(false);
+      expect(result.composable.authenticated.value).toBe(false);
     });
   });
 });

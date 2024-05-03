@@ -1,11 +1,13 @@
 import type { UseFetchOptions } from 'nuxt/app';
 
 export function useAPI() {
+  const { addErrorSnack } = useSnack();
+
   const authParams = useCookie('auth-params');
   const params = loadSession(authParams.value!);
 
   const baseURL = `${decodeURIComponent(params.server!)}/rest`;
-  const baseQuery = {
+  const baseParams = {
     ...getAuthParams(params),
     ...getConfigParams(),
   };
@@ -13,7 +15,7 @@ export function useAPI() {
   function getUrl(path: string, param: Record<string, string | number>) {
     const url = new URL(`${baseURL}/${path}`);
     url.search = convertToQueryString({
-      ...baseQuery,
+      ...baseParams,
       ...param,
     });
 
@@ -41,20 +43,28 @@ export function useAPI() {
     });
   }
 
-  /* istanbul ignore next -- @preserve */
-  function fetchData<DataT>(
+  async function fetchData<DataT = SubsonicResponse>(
     url: string | (() => string),
     options: UseFetchOptions<SubsonicResponse, DataT> = {},
   ) {
-    return useFetch(url, {
+    const { data, error } = await useFetch(url, {
       ...options,
-      query: {
-        ...baseQuery,
-        ...options.query,
+      params: {
+        ...baseParams,
+        ...options.params,
       },
       baseURL: options.baseURL ?? baseURL,
       $fetch: useNuxtApp().$api,
     });
+
+    if (error.value?.message || !data.value) {
+      addErrorSnack(error.value?.message);
+    }
+
+    return {
+      data: data.value,
+      error: error.value,
+    };
   }
 
   return {

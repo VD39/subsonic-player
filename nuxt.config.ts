@@ -56,6 +56,7 @@ export default defineNuxtConfig({
     public: {
       SERVER_URL: process.env.SERVER_URL || '',
       MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',
+      LOAD_SIZE: process.env.LOAD_SIZE || '50',
     },
   },
   typescript: {

@@ -24,12 +24,12 @@ export function useAuth() {
 
     const { data: loggedIn, error: loginError } = await fetchData('/ping');
 
-    if (loginError.value?.message) {
+    if (loginError?.message) {
       logout();
       return;
     }
 
-    if (loggedIn.value) {
+    if (loggedIn) {
       authenticated.value = true;
     }
   }
@@ -54,7 +54,7 @@ export function useAuth() {
       '/rest/ping',
       {
         baseURL: server,
-        query: {
+        params: {
           s: params.salt,
           t: params.token,
           u: params.username,
@@ -62,14 +62,14 @@ export function useAuth() {
       },
     );
 
-    if (loginError.value?.message) {
-      error.value = loginError.value.message;
+    if (loginError?.message) {
+      error.value = loginError.message;
       loading.value = false;
 
       return;
     }
 
-    if (loggedIn.value) {
+    if (loggedIn) {
       authParams.value = convertToQueryString(params);
       user.value = loadSession(authParams.value);
       authenticated.value = true;
