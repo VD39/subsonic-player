@@ -22,21 +22,42 @@ describe('useSnack', () => {
   });
 
   describe('when addErrorSnack function is called', () => {
-    beforeEach(() => {
-      addErrorSnack('Content');
+    describe('when message is not set', () => {
+      beforeEach(() => {
+        addErrorSnack();
+      });
+
+      it('adds to the snacks value with correct values', () => {
+        expect(snacks.value).toEqual(
+          expect.arrayContaining([
+            {
+              timer: expect.any(Object),
+              content: 'Sorry, something went wrong. Please try again.',
+              id: 'randomString',
+              type: 'error',
+            },
+          ]),
+        );
+      });
     });
 
-    it('adds to the snacks value', () => {
-      expect(snacks.value).toEqual(
-        expect.arrayContaining([
-          {
-            timer: expect.any(Object),
-            content: 'Content',
-            id: 'randomString',
-            type: 'error',
-          },
-        ]),
-      );
+    describe('when message is set', () => {
+      beforeEach(() => {
+        addErrorSnack('Content');
+      });
+
+      it('adds to the snacks value with correct values', () => {
+        expect(snacks.value).toEqual(
+          expect.arrayContaining([
+            {
+              timer: expect.any(Object),
+              content: 'Content',
+              id: 'randomString',
+              type: 'error',
+            },
+          ]),
+        );
+      });
     });
   });
 
@@ -89,6 +110,12 @@ describe('useSnack', () => {
       expect(snacks.value).toEqual([
         {
           timer: expect.any(Object),
+          content: 'Sorry, something went wrong. Please try again.',
+          id: 'randomString',
+          type: 'error',
+        },
+        {
+          timer: expect.any(Object),
           content: 'Content',
           id: 'randomString',
           type: 'error',
@@ -131,7 +158,7 @@ describe('useSnack', () => {
 
     describe('when 5 seconds have passed', () => {
       beforeEach(() => {
-        vi.advanceTimersByTime(5000);
+        vi.advanceTimersByTime(10000);
       });
 
       it('clears the snacks value', () => {

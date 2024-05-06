@@ -62,7 +62,9 @@ const { snacks, removeSnack } = useSnack();
 .content {
   margin-bottom: 0;
   font-size: var(--small-font-size);
-  word-break: break-all;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* stylelint-disable selector-class-pattern */

@@ -12,9 +12,13 @@ const user = useUser();
 const { logout } = useAuth();
 const loading = useLoading();
 
-function logoutAndRedirect() {
-  logout();
-  navigateTo('/login');
+async function logoutAndRedirect() {
+  await logout();
+  await navigateTo('/login');
+}
+
+async function search(term: string) {
+  await navigateTo(`/search/albums/${term}`);
 }
 </script>
 
@@ -25,7 +29,7 @@ function logoutAndRedirect() {
         <MusicLogo :class="$style.logo" />
 
         <div :class="$style.search">
-          <SearchForm />
+          <SearchForm @submit="search" />
         </div>
 
         <div v-if="user" ref="userDetails" :class="$style.secondary">

@@ -5,7 +5,7 @@ export const SIDEBAR_NAVIGATION = [
   {
     title: 'Browse',
     icon: 'compass',
-    to: '/browse',
+    to: '/discover',
     items: [
       {
         title: 'Discover',
@@ -19,7 +19,7 @@ export const SIDEBAR_NAVIGATION = [
       },
       {
         title: 'Radio Stations',
-        to: 'radio-stations',
+        to: '/radio-stations',
         icon: 'radio',
       },
       {

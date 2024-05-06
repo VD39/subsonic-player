@@ -5,6 +5,7 @@ import IconButton from '@/components/Buttons/IconButton.vue';
 import DropdownMenu from '@/components/Dropdown/DropdownMenu.vue';
 import DropdownItem from '@/components/Dropdown/DropdownItem.vue';
 import MainLoader from '@/components/Loaders/MainLoader.vue';
+import SearchForm from '@/components/Forms/SearchForm.vue';
 import DefaultLayout from './default.vue';
 
 const navigateToMock = vi.hoisted(() => vi.fn());
@@ -36,6 +37,10 @@ describe('Default', () => {
 
   beforeEach(() => {
     wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it('matches the snapshot', () => {
@@ -128,6 +133,17 @@ describe('Default', () => {
 
     it('does not show the main content', () => {
       expect(wrapper.find({ ref: 'mainContent' }).isVisible()).toBe(false);
+    });
+  });
+
+  describe('when SearchForm component emits search events', () => {
+    beforeEach(async () => {
+      wrapper.findComponent(SearchForm).vm.$emit('submit', 'query');
+      await wrapper.vm.$nextTick();
+    });
+
+    it('calls the navigateTo function', () => {
+      expect(navigateToMock).toHaveBeenCalledWith('/search/albums/query');
     });
   });
 });

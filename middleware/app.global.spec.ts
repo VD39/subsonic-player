@@ -19,7 +19,7 @@ mockNuxtImport('useSnack', () => () => ({
   clearAllSnack: clearAllSnackMock,
 }));
 
-describe('check-out-redirection', () => {
+describe('app-global-middleware', () => {
   beforeEach(() => {
     appGlobalMiddleware(routeMock, routeMock);
   });

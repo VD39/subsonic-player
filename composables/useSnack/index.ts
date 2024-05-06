@@ -1,4 +1,4 @@
-const DURATION = 5000;
+const DURATION = 10000;
 
 export function useSnack() {
   const snacks = useState<Snack[]>('snack', () => []);

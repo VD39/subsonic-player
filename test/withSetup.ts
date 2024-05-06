@@ -1,6 +1,12 @@
+import type { App } from 'vue';
 import { createApp } from 'vue';
 
-export function withSetup<T>(composable: () => T): T {
+interface WithSetup<T> {
+  composable: T;
+  app: App<Element>;
+}
+
+export function withSetup<T>(composable: () => T): WithSetup<T> {
   let result!: T;
 
   const app = createApp({
@@ -12,5 +18,8 @@ export function withSetup<T>(composable: () => T): T {
 
   app.mount(document.createElement('div'));
 
-  return result;
+  return {
+    app,
+    composable: result,
+  };
 }
