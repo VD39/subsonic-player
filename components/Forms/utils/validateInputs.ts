@@ -23,7 +23,7 @@ export function validateInputs<T extends Form<any>>(form: T) {
         return;
       }
 
-      if (field.validationRules?.isUrl && !isValidUrl(value)) {
+      if (value && field.validationRules?.isUrl && !isValidUrl(value)) {
         field.isValid.value = false;
         field.error.value = `${field.label} is not a valid URL.`;
         return;

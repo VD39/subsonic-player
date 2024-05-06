@@ -8,7 +8,7 @@ const modalMock = ref({});
 
 mockNuxtImport('useModal', () => () => ({
   modal: modalMock,
-  close: vi.fn(() => (modalMock.value = {})),
+  closeModal: vi.fn(() => (modalMock.value = {})),
 }));
 
 function factory(props = {}) {

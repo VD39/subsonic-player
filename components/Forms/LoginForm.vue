@@ -101,12 +101,7 @@ async function submitForm() {
       <p>{{ error }}</p>
     </MassageBar>
 
-    <LoadingButton
-      :class="$style.button"
-      :disabled="loading"
-      :loading="loading"
-      full-width
-    >
+    <LoadingButton :class="$style.button" :loading="loading" full-width>
       Login
     </LoadingButton>
   </form>

@@ -1,12 +1,14 @@
 import type { ModalProps } from './types';
-import PlaylistForm from '@/components/Forms/PlaylistForm.vue';
+import AddPlaylistForm from '@/components/Forms/AddPlaylistForm.vue';
+import AddRadioStationForm from '@/components/Forms/AddRadioStationForm.vue';
+import AddPodcastForm from '@/components/Forms/AddPodcastForm.vue';
 
 export function useModal() {
   const modal = useState<ModalProps>('modal-state', () => DEFAULT_STATE);
 
   function keydownHandler(event: KeyboardEvent) {
-    if (modal.value.component && event.key === 'Escape') {
-      close();
+    if (event.key === 'Escape') {
+      closeModal();
     }
   }
 
@@ -14,24 +16,56 @@ export function useModal() {
     document.addEventListener('keydown', keydownHandler);
   }
 
-  function openAddPlaylistModal(attrs = {}) {
+  function openAddPlaylistModal(attrs: ModalProps['attrs']) {
     modal.value = {
-      component: markRaw(PlaylistForm),
+      component: markRaw(AddPlaylistForm),
       title: 'Add playlist',
       attrs,
     };
-
-    addEventListener();
   }
 
-  function close() {
+  function openAddPodcastModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      component: markRaw(AddPodcastForm),
+      title: 'Add podcast',
+      attrs,
+    };
+  }
+
+  function openAddRadioStationModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      component: markRaw(AddRadioStationForm),
+      title: 'Add radio station',
+      attrs,
+    };
+  }
+
+  function openModal(modalType: ModalType, attrs = {}) {
+    switch (modalType) {
+      case 'addPlaylistModal':
+        openAddPlaylistModal(attrs);
+        break;
+      case 'addPodcastModal':
+        openAddPodcastModal(attrs);
+        break;
+      case 'addRadioStationModal':
+        openAddRadioStationModal(attrs);
+        break;
+    }
+
+    if (modal.value.component) {
+      addEventListener();
+    }
+  }
+
+  function closeModal() {
     modal.value = DEFAULT_STATE;
     document.removeEventListener('keydown', keydownHandler);
   }
 
   return {
-    close,
+    closeModal,
     modal,
-    openAddPlaylistModal,
+    openModal,
   };
 }

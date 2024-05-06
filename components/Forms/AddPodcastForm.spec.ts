@@ -1,17 +1,17 @@
 import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import InputField from '@/components/FormFields/InputField.vue';
-import SearchForm from './SearchForm.vue';
+import AddPodcastForm from './AddPodcastForm.vue';
 
 function factory(props = {}) {
-  return mount(SearchForm, {
+  return mount(AddPodcastForm, {
     props: {
       ...props,
     },
   });
 }
 
-describe('SearchForm', () => {
+describe('AddPodcastForm', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -24,6 +24,9 @@ describe('SearchForm', () => {
 
   describe('when form is invalid', () => {
     beforeEach(async () => {
+      wrapper
+        .findComponent(InputField)
+        .vm.$emit('update:modelValue', 'test.com');
       await wrapper.trigger('submit');
     });
 
@@ -34,7 +37,9 @@ describe('SearchForm', () => {
 
   describe('when form is valid', () => {
     beforeEach(async () => {
-      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'query');
+      wrapper
+        .findComponent(InputField)
+        .vm.$emit('update:modelValue', 'https://www.test.com');
       await wrapper.trigger('submit');
     });
 
@@ -43,7 +48,7 @@ describe('SearchForm', () => {
     });
 
     it('emits submit event with form values', () => {
-      expect(wrapper.emitted('submit')).toEqual([['query']]);
+      expect(wrapper.emitted('submit')).toEqual([['https://www.test.com']]);
     });
   });
 });

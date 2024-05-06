@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IconButton from '@/components/Buttons/IconButton.vue';
 
-const { modal, close } = useModal();
+const { modal, closeModal } = useModal();
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const { modal, close } = useModal();
         aria-modal="true"
         aria-labelledby="modal-title"
         :class="[$style.modalContainer]"
-        @click.self="close"
+        @click.self="closeModal"
       >
         <div
           ref="modalContent"
@@ -31,7 +31,7 @@ const { modal, close } = useModal();
               icon="xmark"
               title="Close modal"
               icon-size="lg"
-              @click="close"
+              @click="closeModal"
             >
               Close modal
             </IconButton>

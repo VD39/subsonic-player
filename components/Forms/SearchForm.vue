@@ -21,9 +21,13 @@ async function submitForm() {
     return;
   }
 
-  emit('submit', {
-    query: form.fields.query.value.value,
-  });
+  const query = replaceSpacesWithCharacter(
+    form.fields.query.value.value as string,
+  ).toLowerCase();
+
+  form.fields.query.value.value = '';
+
+  emit('submit', query);
 }
 </script>
 

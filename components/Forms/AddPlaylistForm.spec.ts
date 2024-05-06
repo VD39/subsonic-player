@@ -1,17 +1,17 @@
 import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import InputField from '@/components/FormFields/InputField.vue';
-import SearchForm from './SearchForm.vue';
+import AddPlaylistForm from './AddPlaylistForm.vue';
 
 function factory(props = {}) {
-  return mount(SearchForm, {
+  return mount(AddPlaylistForm, {
     props: {
       ...props,
     },
   });
 }
 
-describe('SearchForm', () => {
+describe('AddPlaylistForm', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -34,7 +34,9 @@ describe('SearchForm', () => {
 
   describe('when form is valid', () => {
     beforeEach(async () => {
-      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'query');
+      wrapper
+        .findComponent(InputField)
+        .vm.$emit('update:modelValue', 'Playlist');
       await wrapper.trigger('submit');
     });
 
@@ -43,7 +45,7 @@ describe('SearchForm', () => {
     });
 
     it('emits submit event with form values', () => {
-      expect(wrapper.emitted('submit')).toEqual([['query']]);
+      expect(wrapper.emitted('submit')).toEqual([['Playlist']]);
     });
   });
 });

@@ -1,17 +1,16 @@
 import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
-import InputField from '@/components/FormFields/InputField.vue';
-import PlaylistForm from './PlaylistForm.vue';
+import AddRadioStationForm from './AddRadioStationForm.vue';
 
 function factory(props = {}) {
-  return mount(PlaylistForm, {
+  return mount(AddRadioStationForm, {
     props: {
       ...props,
     },
   });
 }
 
-describe('PlaylistForm', () => {
+describe('AddRadioStationForm', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -24,6 +23,12 @@ describe('PlaylistForm', () => {
 
   describe('when form is invalid', () => {
     beforeEach(async () => {
+      wrapper
+        .findComponent({ ref: 'streamUrl' })
+        .vm.$emit('update:modelValue', 'test.com');
+      wrapper
+        .findComponent({ ref: 'homepageUrl' })
+        .vm.$emit('update:modelValue', 'https://www.test.com');
       await wrapper.trigger('submit');
     });
 
@@ -34,9 +39,13 @@ describe('PlaylistForm', () => {
 
   describe('when form is valid', () => {
     beforeEach(async () => {
+      wrapper = factory();
       wrapper
-        .findComponent(InputField)
-        .vm.$emit('update:modelValue', 'Playlist');
+        .findComponent({ ref: 'name' })
+        .vm.$emit('update:modelValue', 'name');
+      wrapper
+        .findComponent({ ref: 'streamUrl' })
+        .vm.$emit('update:modelValue', 'https://www.test.com');
       await wrapper.trigger('submit');
     });
 
@@ -45,7 +54,15 @@ describe('PlaylistForm', () => {
     });
 
     it('emits submit event with form values', () => {
-      expect(wrapper.emitted('submit')).toEqual([['Playlist']]);
+      expect(wrapper.emitted('submit')).toEqual([
+        [
+          {
+            homepageUrl: '',
+            name: 'name',
+            streamUrl: 'https://www.test.com',
+          },
+        ],
+      ]);
     });
   });
 });

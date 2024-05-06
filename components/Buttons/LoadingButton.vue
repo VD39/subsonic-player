@@ -2,7 +2,6 @@
 import ButtonLoader from '@/components/Loaders/ButtonLoader.vue';
 
 defineProps<{
-  disabled?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
 }>();
@@ -13,11 +12,11 @@ defineProps<{
     :class="[
       $style.submitButton,
       {
-        [$style.disabled]: disabled,
+        [$style.disabled]: loading,
         [$style.fullWidth]: fullWidth,
       },
     ]"
-    :disabled="disabled"
+    :disabled="loading"
     type="submit"
   >
     <span :class="$style.content">

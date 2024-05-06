@@ -4,11 +4,11 @@ import { mount } from '@vue/test-utils';
 import IconButton from '@/components/Buttons/IconButton.vue';
 import AddNewPlaylist from './AddNewPlaylist.vue';
 
-const openAddPlaylistModalMock = vi.fn();
+const openModalMock = vi.fn();
 
 mockNuxtImport('useModal', () => () => ({
-  openAddPlaylistModal: openAddPlaylistModalMock,
-  close: vi.fn(),
+  openModal: openModalMock,
+  closeModal: vi.fn(),
 }));
 
 const collapsedMock = ref(false);
@@ -61,8 +61,8 @@ describe('AddNewPlaylist', () => {
       wrapper.findComponent(IconButton).vm.$emit('click');
     });
 
-    it('calls the openAddPlaylistModal function', () => {
-      expect(openAddPlaylistModalMock).toHaveBeenCalled();
+    it('calls the openModal function', () => {
+      expect(openModalMock).toHaveBeenCalled();
     });
   });
 });

@@ -3,14 +3,14 @@ import IconButton from '@/components/Buttons/IconButton.vue';
 
 const { collapsed } = useSidebar();
 const { createPlaylist } = usePlaylist();
-const { openAddPlaylistModal, close } = useModal();
+const { closeModal, openModal } = useModal();
 
 function addPlaylistModal() {
-  openAddPlaylistModal({
+  openModal('addPlaylistModal', {
     /* istanbul ignore next -- @preserve */
     async onSubmit(playlistName: string) {
       await createPlaylist(playlistName);
-      close();
+      closeModal();
     },
   });
 }

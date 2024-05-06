@@ -24,6 +24,7 @@ async function submitForm() {
   }
 
   loading.value = true;
+
   emit('submit', form.fields.name.value.value);
 }
 </script>

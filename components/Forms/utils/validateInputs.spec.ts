@@ -28,9 +28,9 @@ function setFormFields(
 }
 
 describe('validateInputs', () => {
-  describe('when value is a string value', () => {
-    describe('when value has no validations rules', () => {
-      it('sets the input as valid', () => {
+  describe('when field input value is a string value', () => {
+    describe('when field input value has no validations rules', () => {
+      it('sets the field input as valid', () => {
         const field = setFormFields('');
         expect(field.fields.input.isValid.value).toEqual(true);
         expect(field.fields.input.error.value).toEqual('');
@@ -38,10 +38,10 @@ describe('validateInputs', () => {
       });
     });
 
-    describe('when value has validations rules', () => {
-      describe('when value should be required', () => {
-        describe('when value is not defined', () => {
-          it('sets the input as valid', () => {
+    describe('when field input value has validations rules', () => {
+      describe('when field input value should be required', () => {
+        describe('when field input value is not defined', () => {
+          it('sets the field input as valid', () => {
             const field = setFormFields('', {
               required: true,
             });
@@ -51,8 +51,8 @@ describe('validateInputs', () => {
           });
         });
 
-        describe('when value is defined', () => {
-          it('sets the input as valid', () => {
+        describe('when field input value is defined', () => {
+          it('sets the field input as valid', () => {
             const field = setFormFields('value', {
               required: true,
             });
@@ -63,9 +63,20 @@ describe('validateInputs', () => {
         });
       });
 
-      describe('when value should be an email', () => {
-        describe('when value is not an email', () => {
-          it('sets the input as valid', () => {
+      describe('when field input value should be an email', () => {
+        describe('when field input value is not defined', () => {
+          it('sets the field input as valid', () => {
+            const field = setFormFields('', {
+              isUrl: true,
+            });
+            expect(field.fields.input.isValid.value).toEqual(true);
+            expect(field.fields.input.error.value).toEqual('');
+            expect(field.isValid.value).toEqual(true);
+          });
+        });
+
+        describe('when field input value is not an email', () => {
+          it('sets the field input as valid', () => {
             const field = setFormFields('value', {
               isUrl: true,
             });
@@ -77,8 +88,8 @@ describe('validateInputs', () => {
           });
         });
 
-        describe('when value is an email', () => {
-          it('sets the input as valid', () => {
+        describe('when field input value is an email', () => {
+          it('sets the field input as valid', () => {
             const field = setFormFields('https://www.test.com', {
               isUrl: true,
             });
@@ -91,9 +102,9 @@ describe('validateInputs', () => {
     });
   });
 
-  describe('when value is an array value', () => {
-    describe('when value has no validations rules', () => {
-      it('sets the input as valid', () => {
+  describe('when field input value is an array value', () => {
+    describe('when field input value has no validations rules', () => {
+      it('sets the field input as valid', () => {
         const field = setFormFields([]);
         expect(field.fields.input.isValid.value).toEqual(true);
         expect(field.fields.input.error.value).toEqual('');
@@ -101,9 +112,9 @@ describe('validateInputs', () => {
       });
     });
 
-    describe('when value should be required', () => {
-      describe('when value is not defined', () => {
-        it('sets the input as valid', () => {
+    describe('when field input value should be required', () => {
+      describe('when field input value is not defined', () => {
+        it('sets the field input as valid', () => {
           const field = setFormFields([], {
             required: true,
           });
@@ -113,8 +124,8 @@ describe('validateInputs', () => {
         });
       });
 
-      describe('when value is defined', () => {
-        it('sets the input as valid', () => {
+      describe('when field input value is defined', () => {
+        it('sets the field input as valid', () => {
           const field = setFormFields(['value'], {
             required: true,
           });

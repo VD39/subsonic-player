@@ -7,77 +7,109 @@ document.addEventListener = vi.fn((event, cb) => {
   events[event] = cb;
 });
 
-const { close, modal, openAddPlaylistModal } = useModal();
+document.removeEventListener = vi.fn();
+
+const { modal, closeModal, openModal } = useModal();
 
 describe('useModal', () => {
   it('sets the default modal value', () => {
     expect(modal.value).toEqual(DEFAULT_STATE);
   });
 
-  describe('when openAddPlaylistModal function is called', () => {
-    beforeEach(() => {
-      openAddPlaylistModal();
+  describe.each([
+    [
+      'addPlaylistModal',
+      'Add playlist',
+      {
+        attrs: 'attrs',
+      },
+    ],
+    [
+      'addPodcastModal',
+      'Add podcast',
+      {
+        attrs: 'attrs',
+      },
+    ],
+    [
+      'addRadioStationModal',
+      'Add radio station',
+      {
+        attrs: 'attrs',
+      },
+    ],
+  ])('when openModal function is called with %s', (modalType, title, attrs) => {
+    beforeAll(() => {
+      openModal(modalType as ModalType);
     });
 
     describe('when attrs are not set', () => {
       it('sets the correct modal value', () => {
         expect(modal.value).toEqual({
           component: expect.any(Object),
-          title: 'Add playlist',
+          title,
           attrs: {},
         });
       });
     });
 
     describe('when attrs are set', () => {
-      beforeEach(() => {
-        openAddPlaylistModal({
-          attrs: 'attrs',
-        });
+      beforeAll(() => {
+        openModal(modalType as ModalType, attrs);
       });
 
       it('sets the correct modal value', () => {
         expect(modal.value).toEqual({
           component: expect.any(Object),
-          title: 'Add playlist',
-          attrs: {
-            attrs: 'attrs',
-          },
+          title,
+          attrs,
         });
       });
+    });
 
-      describe('when a non esc key is pressed', () => {
-        beforeEach(() => {
-          events.keydown({ key: 'Shift' });
-        });
-
-        it('does not reset the modal value', () => {
-          expect(modal.value).toEqual({
-            component: expect.any(Object),
-            title: 'Add playlist',
-            attrs: {
-              attrs: 'attrs',
-            },
-          });
-        });
+    describe('when a non esc key is pressed', () => {
+      beforeEach(() => {
+        events.keydown({ key: 'Shift' });
       });
 
-      describe('when esc key is pressed', () => {
-        beforeEach(() => {
-          events.keydown({ key: 'Escape' });
+      it('does not reset the modal value', () => {
+        expect(modal.value).toEqual({
+          component: expect.any(Object),
+          title,
+          attrs,
         });
+      });
+    });
 
-        it('resets modal value to default state', () => {
-          expect(modal.value).toEqual(DEFAULT_STATE);
-        });
+    describe('when esc key is pressed', () => {
+      beforeEach(() => {
+        events.keydown({ key: 'Escape' });
+      });
+
+      it('resets modal value to default state', () => {
+        expect(modal.value).toEqual(DEFAULT_STATE);
       });
     });
   });
 
-  describe('when close function is called', () => {
+  describe('when openModal function is called with an model type undefined', () => {
+    beforeAll(() => {
+      openModal('unKnown' as ModalType);
+    });
+
+    it('does not set the modal value', () => {
+      expect(modal.value).toEqual(DEFAULT_STATE);
+    });
+  });
+
+  describe('when closeModal function is called', () => {
     beforeEach(() => {
-      openAddPlaylistModal();
-      close();
+      openModal('addPlaylistModal');
+      closeModal();
+    });
+
+    it('calls the document.removeEventListener function', () => {
+      expect(document.removeEventListener).toHaveBeenCalled();
     });
 
     it('resets modal value to default state', () => {

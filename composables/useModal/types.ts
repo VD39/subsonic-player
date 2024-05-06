@@ -5,3 +5,8 @@ export interface ModalProps {
   title?: string | null;
   attrs?: Record<string, unknown>;
 }
+
+export type ModalType =
+  | 'addPlaylistModal'
+  | 'addPodcastModal'
+  | 'addRadioStationModal';

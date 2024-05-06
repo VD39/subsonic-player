@@ -51,6 +51,14 @@ describe('LoadingButton', () => {
     it('does not show the ButtonLoader component', () => {
       expect(wrapper.findComponent(ButtonLoader).exists()).toBe(false);
     });
+
+    it('does not add the disabled class', () => {
+      expect(wrapper.classes()).not.toContain('disabled');
+    });
+
+    it('sets the correct disabled attribute', async () => {
+      expect(wrapper.attributes('disabled')).not.toBeDefined();
+    });
   });
 
   describe('when loading prop is set to true', () => {
@@ -66,28 +74,6 @@ describe('LoadingButton', () => {
 
     it('shows the ButtonLoader component', () => {
       expect(wrapper.findComponent(ButtonLoader).exists()).toBe(true);
-    });
-  });
-
-  describe('when disabled prop is not set', () => {
-    it('does not add the disabled class', () => {
-      expect(wrapper.classes()).not.toContain('disabled');
-    });
-
-    it('sets the correct disabled attribute', async () => {
-      expect(wrapper.attributes('disabled')).not.toBeDefined();
-    });
-  });
-
-  describe('when disabled prop is set as true', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        disabled: true,
-      });
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('adds the disabled class', () => {
