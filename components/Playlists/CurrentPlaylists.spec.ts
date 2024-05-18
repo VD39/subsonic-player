@@ -1,6 +1,7 @@
 import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { getFormattedPlaylistsMock } from '@/test/helpers';
 import IconButton from '@/components/Buttons/IconButton.vue';
 import CurrentPlaylists from './CurrentPlaylists.vue';
 
@@ -49,15 +50,7 @@ describe('CurrentPlaylists', () => {
 
   describe('when playlist value returns playlists', () => {
     beforeEach(() => {
-      playlistsMock.value = Array(2)
-        .fill('')
-        .map(
-          (_item, index) =>
-            ({
-              id: `playlist-${index}`,
-              name: `playlist-${index}`,
-            }) as Playlist,
-        );
+      playlistsMock.value = getFormattedPlaylistsMock(2);
     });
 
     it('matches the snapshot', () => {
@@ -76,15 +69,7 @@ describe('CurrentPlaylists', () => {
 
     describe('when playlist value returned is more than 5', () => {
       beforeEach(() => {
-        playlistsMock.value = Array(10)
-          .fill('')
-          .map(
-            (_item, index) =>
-              ({
-                id: `playlist-${index}`,
-                name: `playlist-${index}`,
-              }) as Playlist,
-          );
+        playlistsMock.value = getFormattedPlaylistsMock(10);
       });
 
       it('matches the snapshot', () => {

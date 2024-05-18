@@ -275,7 +275,10 @@ describe('usePlaylist', () => {
 
       describe('when success message is set', () => {
         beforeEach(() => {
-          result.composable.updatePlaylist({} as PlaylistParam, 'Success message');
+          result.composable.updatePlaylist(
+            {} as PlaylistParam,
+            'Success message',
+          );
         });
 
         it('calls the addSuccessSnackMock function', () => {

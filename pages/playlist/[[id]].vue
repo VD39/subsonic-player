@@ -1,19 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: [
-    function (to) {
-      if (!to.params.id) {
-        return navigateTo('/playlist/random');
-      }
-    },
-  ],
+  middleware: ['playlist'],
 });
 
 const route = useRoute();
 const { getImageUrl } = useAPI();
-const { playlist, getPlaylistById } = usePlaylist();
+const { playlist, getPlaylistTracksById } = usePlaylist();
 
-getPlaylistById(route.params.id as string);
+getPlaylistTracksById(route.params.id as string);
 </script>
 
 <template>
