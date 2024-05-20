@@ -1,25 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AddPlaylistForm > matches the snapshot 1`] = `
-"<form novalidate="">
-  <div class="fields">
-    <div class="inputField"><label class="label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input" value="">
-      <!--v-if-->
-    </div>
-  </div><button class="submitButton button" type="submit"><span class="content"> Add playlist <!--v-if--></span></button>
-</form>"
-`;
-
-exports[`AddPlaylistForm > when form is valid > matches the snapshot 1`] = `
-"<form novalidate="">
-  <div class="fields">
-    <div class="inputField"><label class="label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input" value="Playlist">
-      <!--v-if-->
-    </div>
-  </div><button type="submit" class="submitButton disabled button" disabled=""><span class="content"> Add playlist <span class="loader"><span class="loader"></span><span class="visually-hidden">Loading data</span></span></span></button>
-</form>"
-`;
-
 exports[`AddRadioStationForm > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="fields">
