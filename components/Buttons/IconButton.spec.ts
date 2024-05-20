@@ -73,14 +73,14 @@ describe('IconButton', () => {
 
   describe('when icon prop is not set', () => {
     it('does not show the icon component', () => {
-      expect(wrapper.findComponent({ ref: 'icon' }).exists()).toBe(false);
+      expect(wrapper.find({ ref: 'phIcon' }).exists()).toBe(false);
     });
   });
 
   describe('when icon prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
-        icon: 'sun',
+        icon: 'PhSun',
       });
     });
 
@@ -89,7 +89,7 @@ describe('IconButton', () => {
     });
 
     it('shows the icon component', () => {
-      expect(wrapper.findComponent({ ref: 'icon' }).exists()).toBe(true);
+      expect(wrapper.find({ ref: 'phIcon' }).exists()).toBe(true);
     });
 
     describe('when iconPosition prop is not set', () => {
@@ -101,7 +101,7 @@ describe('IconButton', () => {
     describe('when iconPosition prop is set to right', () => {
       beforeEach(() => {
         wrapper = factory({
-          icon: 'sun',
+          icon: 'PhSun',
           iconPosition: 'right',
         });
       });

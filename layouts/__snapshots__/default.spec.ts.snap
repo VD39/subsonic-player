@@ -4,7 +4,7 @@ exports[`Default > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -12,7 +12,7 @@ exports[`Default > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
@@ -23,78 +23,78 @@ exports[`Default > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
           <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -104,7 +104,7 @@ exports[`Default > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -126,7 +126,7 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -134,18 +134,18 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
             </button>
             <!--v-if-->
           </div>
@@ -156,78 +156,78 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
           <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -237,7 +237,7 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -259,7 +259,7 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -267,18 +267,18 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
             </button>
             <!--v-if-->
           </div>
@@ -289,78 +289,78 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
           <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -370,7 +370,7 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -392,7 +392,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -400,18 +400,18 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
             </button>
             <!--v-if-->
           </div>
@@ -422,78 +422,78 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
           <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -503,7 +503,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -525,7 +525,7 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
 "<div class="mainLayout">
   <header class="header">
     <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
@@ -533,18 +533,18 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
             </button>
             <div class="dropdownMenu">
               <ul class="menu">
@@ -555,8 +555,8 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
                     <!--v-if--><span class="text"> Server </span>
                   </a></li>
                 <li class="divider" aria-hidden="true"></li>
-                <li class="dropdownItem" icon="right-from-bracket"><button class="iconButton alignRight fullWidth action action" type="button">
-                    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,right-from-bracket" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Log out </span>
+                <li class="dropdownItem" icon="PhSignOut"><button class="iconButton alignRight fullWidth action action" type="button">
+                    <phsignout class="icon" aria-hidden="true" size="20" weight="duotone"></phsignout><span class="text"> Log out </span>
                   </button></li>
               </ul>
             </div>
@@ -568,78 +568,78 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
   <aside class="sidebarNavigation">
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,wave-square" size="xl" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Home </span>
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,angles-left" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
           <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,compass" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
               <h4 class="title">Browse</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compass" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,headphones" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,radio" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,podcast" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,music" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
               <h4 class="title">Your library</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,compact-disc" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,users" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,heart" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,music" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
             </ul>
           </li>
           <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <font-awesome-icon-stub class="titleIcon" aria-hidden="true" icon="fas,list" size="xl" fixed-width=""></font-awesome-icon-stub>
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
               <h4 class="title">Playlists</h4>
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -649,7 +649,7 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>

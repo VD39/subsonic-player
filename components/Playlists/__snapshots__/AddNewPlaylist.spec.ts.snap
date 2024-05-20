@@ -2,12 +2,12 @@
 
 exports[`AddNewPlaylist > matches the snapshot 1`] = `
 "<button class="iconButton fullWidth link link" type="button" title="Add playlist">
-  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,plus-circle" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text"> Add playlist </span>
+  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
 </button>"
 `;
 
 exports[`AddNewPlaylist > when collapsed value is true > matches the snapshot 1`] = `
 "<button class="iconButton fullWidth link link" type="button" title="Add playlist">
-  <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,plus-circle"></font-awesome-icon-stub><span class="text visually-hidden"> Add playlist </span>
+  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text visually-hidden"> Add playlist </span>
 </button>"
 `;

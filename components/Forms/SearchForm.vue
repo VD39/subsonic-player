@@ -44,7 +44,7 @@ async function submitForm() {
         hide-label
       />
 
-      <IconButton type="submit" :class="$style.button" icon="search">
+      <IconButton type="submit" :class="$style.button" icon="PhMagnifyingGlass">
         Login
       </IconButton>
     </div>

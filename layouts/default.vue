@@ -51,7 +51,7 @@ async function search(term: string) {
               <DropdownItem
                 is="button"
                 ref="logoutButton"
-                icon="right-from-bracket"
+                icon="PhSignOut"
                 @click="logoutAndRedirect"
               >
                 Log out

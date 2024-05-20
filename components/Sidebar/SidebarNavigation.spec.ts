@@ -23,7 +23,7 @@ describe('SidebarNavigation', () => {
 
   it('sets the correct icon on toggle button', () => {
     expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
-      'angles-left',
+      'PhTextOutdent',
     );
   });
 
@@ -45,7 +45,7 @@ describe('SidebarNavigation', () => {
 
     it('sets the correct icon on toggle button', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
-        'angles-right',
+        'PhTextIndent',
       );
     });
 

@@ -18,6 +18,12 @@ const config = {
       },
     ],
     'selector-max-id': 0,
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global'],
+      },
+    ],
   },
 };
 

@@ -18,4 +18,3 @@ vi.mock('crypto-js/md5', () => ({
 }));
 
 config.global.stubs['RouterLink'] = RouterLinkStub;
-config.global.stubs['font-awesome-icon'] = true;

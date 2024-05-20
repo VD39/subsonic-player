@@ -28,9 +28,9 @@ const { modal, closeModal } = useModal();
             </h4>
 
             <IconButton
-              icon="xmark"
+              icon="PhX"
               title="Close modal"
-              icon-size="lg"
+              :icon-size="32"
               @click="closeModal"
             >
               Close modal

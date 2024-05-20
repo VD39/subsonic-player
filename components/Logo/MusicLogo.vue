@@ -5,9 +5,9 @@ import IconButton from '@/components/Buttons/IconButton.vue';
 <template>
   <IconButton
     is="nuxt-link"
-    icon="wave-square"
+    icon="PhWaveSine"
     title="Home"
-    icon-size="xl"
+    :icon-size="32"
     to="/"
   >
     Home

@@ -23,7 +23,7 @@ describe('ThemeSwitcher', () => {
   });
 
   it('shows the correct icon prop', () => {
-    expect(wrapper.findComponent(IconButton).props('icon')).toBe('moon');
+    expect(wrapper.findComponent(IconButton).props('icon')).toBe('PhMoon');
   });
 
   it('shows the correct title prop', () => {
@@ -47,7 +47,7 @@ describe('ThemeSwitcher', () => {
     });
 
     it('shows the correct icon prop', () => {
-      expect(wrapper.findComponent(IconButton).props('icon')).toBe('sun');
+      expect(wrapper.findComponent(IconButton).props('icon')).toBe('PhSun');
     });
 
     it('shows the correct title prop', () => {

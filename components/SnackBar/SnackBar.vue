@@ -17,7 +17,7 @@ const { snacks, removeSnack } = useSnack();
               {{ snack.content }}
             </p>
 
-            <IconButton icon="xmark" @click="removeSnack(snack.id)">
+            <IconButton icon="PhXCircle" @click="removeSnack(snack.id)">
               Clear snack
             </IconButton>
           </div>

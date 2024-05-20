@@ -2,7 +2,7 @@
 
 exports[`DropdownMenu > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <!--v-if-->
 </div>"
@@ -10,7 +10,7 @@ exports[`DropdownMenu > matches the snapshot 1`] = `
 
 exports[`DropdownMenu > when the IconButton component is clicked > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <div class="dropdownMenu">
     <ul class="menu">Slot content</ul>
@@ -20,7 +20,7 @@ exports[`DropdownMenu > when the IconButton component is clicked > matches the s
 
 exports[`DropdownMenu > when the IconButton component is clicked > when a non esc key is pressed > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <div class="dropdownMenu">
     <ul class="menu">Slot content</ul>
@@ -30,7 +30,7 @@ exports[`DropdownMenu > when the IconButton component is clicked > when a non es
 
 exports[`DropdownMenu > when the IconButton component is clicked > when document is clicked > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <!--v-if-->
 </div>"
@@ -38,7 +38,7 @@ exports[`DropdownMenu > when the IconButton component is clicked > when document
 
 exports[`DropdownMenu > when the IconButton component is clicked > when dropdownMenu is clicked > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <div class="dropdownMenu">
     <ul class="menu">Slot content</ul>
@@ -48,7 +48,7 @@ exports[`DropdownMenu > when the IconButton component is clicked > when dropdown
 
 exports[`DropdownMenu > when the IconButton component is clicked > when esc key is pressed > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <!--v-if-->
 </div>"
@@ -56,7 +56,7 @@ exports[`DropdownMenu > when the IconButton component is clicked > when esc key 
 
 exports[`DropdownMenu > when the IconButton component is clicked > when the IconButton component is clicked again > matches the snapshot 1`] = `
 "<div class="dropdown"><button class="iconButton alignRight button button" type="button" title="More">
-    <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,ellipsis-vertical" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">More</span>
+    <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
   </button>
   <!--v-if-->
 </div>"

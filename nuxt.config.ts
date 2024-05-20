@@ -14,19 +14,11 @@ export default defineNuxtConfig({
       title: process.env.MAIN_APP_TITLE || 'Music App',
     },
   },
-  build: {
-    transpile: [
-      '@fortawesome/fontawesome-svg-core',
-      '@fortawesome/free-solid-svg-icons',
-      '@fortawesome/free-regular-svg-icons',
-      '@fortawesome/vue-fontawesome',
-    ],
-  },
+  // build: {
+  //   transpile: ['@phosphor-icons/vue'],
+  // },
   compatibilityDate: '2024-04-03',
-  css: [
-    '@fortawesome/fontawesome-svg-core/styles.css',
-    '@/assets/css/main.css',
-  ],
+  css: ['@/assets/css/main.css'],
   devtools: {
     enabled: true,
   },

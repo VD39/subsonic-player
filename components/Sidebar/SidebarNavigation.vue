@@ -8,11 +8,11 @@ const { collapsed, toggle } = useSidebar();
 const buttonProps = computed<ButtonProps>(() =>
   collapsed.value
     ? {
-        icon: 'angles-right',
+        icon: 'PhTextIndent',
         text: 'Open Navigation',
       }
     : {
-        icon: 'angles-left',
+        icon: 'PhTextOutdent',
         text: 'Close Navigation',
       },
 );

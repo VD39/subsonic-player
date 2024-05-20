@@ -4,72 +4,72 @@ import CurrentPlaylists from '@/components/Playlists/CurrentPlaylists.vue';
 export const SIDEBAR_NAVIGATION = [
   {
     title: 'Browse',
-    icon: 'compass',
+    icon: 'PhCompass',
     to: '/discover',
     items: [
       {
         title: 'Discover',
         to: '/discover',
-        icon: 'compass',
+        icon: 'PhCompass',
       },
       {
         title: 'Music',
         to: '/music',
-        icon: 'headphones',
+        icon: 'PhMusicNotes',
       },
       {
         title: 'Radio Stations',
         to: '/radio-stations',
-        icon: 'radio',
+        icon: 'PhRadio',
       },
       {
         title: 'Podcasts',
         to: '/podcasts',
-        icon: 'podcast',
+        icon: 'PhApplePodcastsLogo',
       },
     ],
   },
   {
     title: 'Your library',
-    icon: 'music',
+    icon: 'PhMusicNotes',
     to: '/library',
     items: [
       {
         title: 'Albums',
         to: '/albums',
-        icon: 'compact-disc',
+        icon: 'PhVinylRecord',
       },
       {
         title: 'Artists',
         to: '/artists',
-        icon: 'users',
+        icon: 'PhUsersThree',
       },
       {
         title: 'Playlists',
         to: '/playlists',
-        icon: 'list',
+        icon: 'PhPlaylist',
       },
       {
         title: 'Favourites',
         to: '/favourites',
-        icon: 'heart',
+        icon: 'PhHeart',
       },
       {
         title: 'Genres',
         to: '/genres',
-        icon: 'music',
+        icon: 'PhWaveform',
       },
     ],
   },
   {
     title: 'Playlists',
-    icon: 'list',
+    icon: 'PhPlaylist',
     to: '/playlists',
     items: [
       {
         title: 'Random',
         to: '/playlist/random',
-        icon: 'list',
+        icon: 'PhQueue',
       },
       {
         component: markRaw(CurrentPlaylists),

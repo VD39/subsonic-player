@@ -5,10 +5,10 @@ exports[`CurrentPlaylists > matches the snapshot 1`] = `"<!--v-if-->"`;
 exports[`CurrentPlaylists > when playlist value returns playlists > matches the snapshot 1`] = `
 "<ul>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-0 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">playlist-0</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-0</span>
     </a></li>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-1 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">playlist-1</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-1</span>
     </a></li>
 </ul>"
 `;
@@ -16,10 +16,10 @@ exports[`CurrentPlaylists > when playlist value returns playlists > matches the 
 exports[`CurrentPlaylists > when playlist value returns playlists > when collapsed value is true > matches the snapshot 1`] = `
 "<ul>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-0 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,list"></font-awesome-icon-stub><span class="text visually-hidden">playlist-0</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text visually-hidden">playlist-0</span>
     </a></li>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-1 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,list"></font-awesome-icon-stub><span class="text visually-hidden">playlist-1</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text visually-hidden">playlist-1</span>
     </a></li>
 </ul>"
 `;
@@ -27,19 +27,19 @@ exports[`CurrentPlaylists > when playlist value returns playlists > when collaps
 exports[`CurrentPlaylists > when playlist value returns playlists > when playlist value returned is more than 5 > matches the snapshot 1`] = `
 "<ul>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-0 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,list"></font-awesome-icon-stub><span class="text">playlist-0</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-0</span>
     </a></li>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-1 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,list"></font-awesome-icon-stub><span class="text">playlist-1</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-1</span>
     </a></li>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-2 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">playlist-2</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-2</span>
     </a></li>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-3 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">playlist-3</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-3</span>
     </a></li>
   <li><a exactactiveclass="current" class="iconButton link link" title="playlist-4 Playlist">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,list" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text">playlist-4</span>
+      <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">playlist-4</span>
     </a></li>
 </ul>"
 `;

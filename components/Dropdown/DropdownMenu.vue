@@ -52,7 +52,7 @@ function handleClickOutside(event: MouseEvent) {
 <template>
   <div ref="dropdown" :class="$style.dropdown">
     <IconButton
-      icon="ellipsis-vertical"
+      icon="PhDotsThreeVertical"
       :class="$style.button"
       :show-text="showText"
       icon-position="right"

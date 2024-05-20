@@ -11,7 +11,7 @@ const text = computed(() => {
 <template>
   <client-only>
     <IconButton
-      :icon="isDarkTheme ? 'sun' : 'moon'"
+      :icon="isDarkTheme ? 'PhSun' : 'PhMoon'"
       :title="text"
       @click="toggleTheme"
     >

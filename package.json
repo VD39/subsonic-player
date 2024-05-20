@@ -22,10 +22,7 @@
     "test:once": "yarn test --run"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-regular-svg-icons": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@phosphor-icons/vue": "^2.2.1",
     "crypto-js": "^4.2.0",
     "nuxt": "^3.12.3",
     "vue": "latest"

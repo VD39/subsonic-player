@@ -13,7 +13,7 @@ getPlaylists();
       <IconButton
         is="nuxt-link"
         :to="`/playlist/${playlist.id}`"
-        icon="list"
+        icon="PhQueue"
         :class="$style.link"
         :exact-active-class="$style.current"
         :show-text="!collapsed"

@@ -2,12 +2,12 @@
 
 exports[`ThemeSwitcher > matches the snapshot 1`] = `
 "<button class="iconButton" type="button" title="Activate dark mode">
-  <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,moon" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden">Activate dark mode</span>
+  <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
 </button>"
 `;
 
 exports[`ThemeSwitcher > when button is clicked > matches the snapshot 1`] = `
 "<button class="iconButton" type="button" title="Activate light mode">
-  <font-awesome-icon-stub class="icon" aria-hidden="true" size="sm" fixed-width="" icon="fas,sun"></font-awesome-icon-stub><span class="text visually-hidden">Activate light mode</span>
+  <phsun class="icon" aria-hidden="true" size="20" weight="duotone"></phsun><span class="text visually-hidden">Activate light mode</span>
 </button>"
 `;

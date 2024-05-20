@@ -1,8 +1,14 @@
 @define-mixin sidebar-link {
+  @mixin align-center;
+
   padding: var(--space-8) var(--space-32);
 
   &:hover {
     background-color: var(--hover-selected-color);
+  }
+
+  :global(.collapsed) & {
+    justify-content: center;
   }
 }
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { IconName } from '@fortawesome/fontawesome-svg-core';
 import IconButton from '@/components/Buttons/IconButton.vue';
 
 const { collapsed } = useSidebar();
@@ -8,7 +7,7 @@ withDefaults(
   defineProps<{
     items?: Navigation[];
     title?: string;
-    titleIcon?: IconName;
+    titleIcon?: string;
     titleTo?: string;
   }>(),
   {
@@ -29,13 +28,13 @@ withDefaults(
       :class="$style.titleLink"
       :title="title"
     >
-      <font-awesome-icon
+      <component
+        :is="titleIcon"
         v-if="titleIcon"
         :class="$style.titleIcon"
         aria-hidden="true"
-        :icon="['fas', titleIcon]"
-        size="xl"
-        fixed-width
+        weight="duotone"
+        :size="32"
       />
 
       <h4 :class="$style.title">

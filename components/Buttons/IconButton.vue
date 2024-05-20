@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { IconName, SizeProp } from '@fortawesome/fontawesome-svg-core';
-
 const props = withDefaults(
   defineProps<{
     disabled?: boolean;
     fullWidth?: boolean;
-    icon?: IconName;
+    icon?: string;
     iconPosition?: IconPosition;
-    iconSize?: SizeProp;
+    iconSize?: number;
     is?: ButtonType;
     showText?: boolean;
     type?: string;
@@ -16,7 +14,7 @@ const props = withDefaults(
     disabled: undefined,
     icon: undefined,
     iconPosition: 'left',
-    iconSize: 'sm',
+    iconSize: 20,
     is: 'button',
     type: 'button',
   },
@@ -42,14 +40,14 @@ const isComponent =
     :type="type"
     v-bind="$attrs"
   >
-    <font-awesome-icon
+    <component
+      :is="icon"
       v-if="icon"
-      ref="icon"
+      ref="phIcon"
       :class="$style.icon"
       aria-hidden="true"
-      :icon="['fas', icon]"
       :size="iconSize"
-      fixed-width
+      weight="duotone"
     />
 
     <span
@@ -91,11 +89,17 @@ const isComponent =
 }
 
 .icon {
-  flex-shrink: 0;
+  fill: var(--body-font-color);
+
+  [opacity='0.2'] {
+    opacity: 0.4;
+    fill: var(--secondary-font-color);
+  }
 }
 
 .text {
   display: block;
+  margin-bottom: 1px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

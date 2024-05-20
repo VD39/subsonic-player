@@ -6,7 +6,7 @@ exports[`SearchForm > matches the snapshot 1`] = `
     <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
       <!--v-if-->
     </div><button class="iconButton button button" type="submit">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+      <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
     </button>
   </div>
 </form>"
@@ -18,7 +18,7 @@ exports[`SearchForm > when form is valid > matches the snapshot 1`] = `
     <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
       <!--v-if-->
     </div><button class="iconButton button button" type="submit">
-      <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,search" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Login </span>
+      <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
     </button>
   </div>
 </form>"

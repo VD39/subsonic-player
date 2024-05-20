@@ -13,28 +13,28 @@ exports[`SnackBar > when snacks values are set > when snacks values are more tha
       <div>
         <div data-test-id="content-wrapper" class="error snackbar">
           <p data-test-id="content" class="content">content-0</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>
       <div>
         <div data-test-id="content-wrapper" class="error snackbar">
           <p data-test-id="content" class="content">content-1</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>
       <div>
         <div data-test-id="content-wrapper" class="error snackbar">
           <p data-test-id="content" class="content">content-2</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>
       <div>
         <div data-test-id="content-wrapper" class="error snackbar">
           <p data-test-id="content" class="content">content-3</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>
@@ -50,7 +50,7 @@ exports[`SnackBar > when snacks values are set > when value is { id: 'id', conte
       <div>
         <div data-test-id="content-wrapper" class="error snackbar">
           <p data-test-id="content" class="content">content</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>
@@ -66,7 +66,7 @@ exports[`SnackBar > when snacks values are set > when value is { id: 'id', conte
       <div>
         <div data-test-id="content-wrapper" class="info snackbar">
           <p data-test-id="content" class="content">content</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>
@@ -82,7 +82,7 @@ exports[`SnackBar > when snacks values are set > when value is { id: 'id', conte
       <div>
         <div data-test-id="content-wrapper" class="success snackbar">
           <p data-test-id="content" class="content">content</p><button class="iconButton" type="button">
-            <font-awesome-icon-stub class="icon" aria-hidden="true" icon="fas,xmark" size="sm" fixed-width=""></font-awesome-icon-stub><span class="text visually-hidden"> Clear snack </span>
+            <phxcircle class="icon" aria-hidden="true" size="20" weight="duotone"></phxcircle><span class="text visually-hidden"> Clear snack </span>
           </button>
         </div>
       </div>

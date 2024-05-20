@@ -18,7 +18,7 @@ function addPlaylistModal() {
 
 <template>
   <IconButton
-    icon="plus-circle"
+    icon="PhListPlus"
     :class="$style.link"
     :show-text="!collapsed"
     title="Add playlist"
