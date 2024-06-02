@@ -1,6 +1,6 @@
 import { getPlaylistsMock } from '@/test/helpers';
+import { withSetup } from '@/test/withSetup';
 import { useInfinityLoading } from './index';
-import { withSetup } from '~/test/withSetup';
 
 const mockData = {
   playlist55: getPlaylistsMock(55),

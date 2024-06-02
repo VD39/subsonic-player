@@ -28,7 +28,7 @@ describe('formatAlbum', () => {
       favourite: true,
       genres: expect.any(Array),
       id: 'id',
-      image: 'coverArt',
+      imageId: 'coverArt',
       information: {
         playCount: 1,
       },
@@ -36,6 +36,7 @@ describe('formatAlbum', () => {
       size: 16,
       songCount: 4,
       tracks: expect.any(Array),
+      type: 'album',
       year: 2024,
     });
   });
@@ -157,7 +158,7 @@ describe('formatArtist', () => {
           favourite: true,
           genres: expect.any(Array),
           id: 'id',
-          image: 'coverArt',
+          imageId: 'coverArt',
           information: {
             playCount: 1,
           },
@@ -165,6 +166,7 @@ describe('formatArtist', () => {
           size: 16,
           songCount: 4,
           tracks: expect.any(Array),
+          type: 'album',
           year: 2024,
         },
       ],
@@ -172,12 +174,13 @@ describe('formatArtist', () => {
       favourite: true,
       genresList: expect.any(Array),
       id: 'id',
-      image: 'coverArt',
+      imageId: 'coverArt',
       lastFmUrl: undefined,
       musicBrainzUrl: undefined,
       name: 'name',
       totalAlbums: 0,
       totalTracks: 4,
+      type: 'artist',
     });
   });
 
@@ -259,7 +262,7 @@ describe('formatArtist', () => {
     it('returns the correct values', () => {
       expect(formatArtist(artistMock)).toEqual(
         expect.objectContaining({
-          image: 'coverArt',
+          imageId: 'coverArt',
         }),
       );
     });
@@ -275,7 +278,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            image: 'artistImageUrl',
+            imageId: 'artistImageUrl',
           }),
         );
       });
@@ -291,7 +294,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            image: undefined,
+            imageId: undefined,
           }),
         );
       });
@@ -336,9 +339,9 @@ describe('formatPodcast', () => {
           downloaded: true,
           genres: [],
           image: 'image',
-          isPodcast: true,
           publishDate: DATE,
           streamId: 'streamId',
+          type: 'podcastEpisode',
         },
       ],
       id: 'id',
@@ -346,6 +349,7 @@ describe('formatPodcast', () => {
       lastUpdated: '01 Jan 2000',
       title: 'title',
       totalEpisodes: 1,
+      type: 'podcast',
       url: 'url',
     });
   });
@@ -397,7 +401,7 @@ describe('formatPodcast', () => {
           expect.objectContaining({
             episodes: [
               expect.objectContaining({
-                streamId: null,
+                streamId: undefined,
               }),
             ],
           }),
@@ -428,22 +432,38 @@ describe('formatPodcast', () => {
         );
       });
     });
-
-    // streamId: downloaded && episode.streamId ? episode.streamId : null,
   });
 
   describe('when originalImageUrl is undefined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatPodcast({
-          ...podcastMock,
-          originalImageUrl: undefined,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          image: 'https://placehold.co/500x500',
-        }),
-      );
+    describe('when coverArt is defined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatPodcast({
+            ...podcastMock,
+            originalImageUrl: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            image: 'image',
+          }),
+        );
+      });
+    });
+
+    describe('when coverArt is undefined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatPodcast({
+            ...podcastMock,
+            originalImageUrl: undefined,
+            coverArt: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            image: undefined,
+          }),
+        );
+      });
     });
   });
 });
@@ -455,9 +475,9 @@ describe('formatRadioStation', () => {
       id: 'id',
       image:
         'https://besticon-demo.herokuapp.com/icon?url=homepageUrl&size=80..250..500',
-      isRadioStation: true,
       name: 'name',
       streamUrl: 'streamUrl',
+      type: 'radioStation',
     });
   });
 
@@ -468,15 +488,13 @@ describe('formatRadioStation', () => {
           ...radioStationMock,
           homePageUrl: 'homepageValue',
         }),
-      ).toEqual({
-        homePageUrl: 'homepageValue',
-        id: 'id',
-        image:
-          'https://besticon-demo.herokuapp.com/icon?url=homepageValue&size=80..250..500',
-        isRadioStation: true,
-        name: 'name',
-        streamUrl: 'streamUrl',
-      });
+      ).toEqual(
+        expect.objectContaining({
+          homePageUrl: 'homepageValue',
+          image:
+            'https://besticon-demo.herokuapp.com/icon?url=homepageValue&size=80..250..500',
+        }),
+      );
     });
   });
 
@@ -486,16 +504,13 @@ describe('formatRadioStation', () => {
         formatRadioStation({
           ...radioStationMock,
           homepageUrl: undefined,
-          homePageUrl: undefined,
         }),
-      ).toEqual({
-        homePageUrl: undefined,
-        id: 'id',
-        image: 'https://placehold.co/500x500',
-        isRadioStation: true,
-        name: 'name',
-        streamUrl: 'streamUrl',
-      });
+      ).toEqual(
+        expect.objectContaining({
+          homePageUrl: undefined,
+          image: 'https://placehold.co/500x500',
+        }),
+      );
     });
   });
 });
@@ -504,14 +519,14 @@ describe('formatTracks', () => {
   it('returns the correct values', () => {
     expect(formatTracks(trackMock)).toEqual({
       album: 'album',
-      albumId: undefined,
+      albumId: 'albumId',
       artists: expect.any(Array),
       discNumber: 1,
       duration: 19,
       favourite: false,
       genres: [],
       id: 'id',
-      image: 'coverArt',
+      imageId: 'coverArt',
       information: {
         bitRate: 15,
         contentType: 'contentType',
@@ -526,6 +541,7 @@ describe('formatTracks', () => {
       streamId: 'id',
       title: 'title',
       track: 1,
+      type: 'track',
       year: 2024,
     });
   });
@@ -577,6 +593,7 @@ describe('formatPlaylist', () => {
       name: 'name',
       songCount: 1,
       tracks: expect.any(Array),
+      type: 'playlist',
     });
   });
 

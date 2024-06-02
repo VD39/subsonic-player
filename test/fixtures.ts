@@ -17,21 +17,22 @@ export const routeMock = {
 };
 
 export const genreMock = {
-  value: 'genre',
-  songCount: 0,
   albumCount: 0,
+  songCount: 0,
+  value: 'genre',
 };
 
 export const radioStationMock = {
+  homepageUrl: 'homepageUrl',
   id: 'id',
   name: 'name',
   streamUrl: 'streamUrl',
-  homepageUrl: 'homepageUrl',
 };
 
 export const trackMock = {
   album: 'album',
   albumArtists: null,
+  albumId: 'albumId',
   artist: 'artist',
   artists: [
     {
@@ -99,10 +100,10 @@ export const albumMock = {
   id: 'id',
   name: 'name',
   playCount: 1,
+  song: [trackMock],
   songCount: 4,
   starred: DATE,
   year: 2024,
-  song: [trackMock],
 } as AlbumID3;
 
 export const artistMock = {
@@ -142,28 +143,73 @@ export const podcastEpisodeMock = {
 } as ResponsePodcastEpisode;
 
 export const podcastMock = {
-  description: 'description',
-  id: 'id',
-  url: 'url',
   coverArt: 'image',
+  description: 'description',
+  episode: [podcastEpisodeMock],
+  id: 'id',
   originalImageUrl: 'image',
   status: 'completed',
   title: 'title',
-  episode: [podcastEpisodeMock],
+  url: 'url',
 } as PodcastChannel;
 
+export const formattedTrackMock = {
+  album: 'album',
+  albumId: 'albumId',
+  artists: [
+    {
+      id: 'id',
+      name: 'name',
+    },
+    {
+      id: 'id1',
+      name: 'name1',
+    },
+  ],
+  description: 'Description',
+  discNumber: 1,
+  duration: 19,
+  favourite: false,
+  genres: [
+    {
+      name: 'name',
+    },
+    {
+      name: 'name1',
+    },
+  ],
+  id: 'id',
+  imageId: 'coverArt',
+  information: {
+    bitRate: 15,
+    contentType: 'contentType',
+    path: 'path',
+    playCount: 1,
+    suffix: 'suffix',
+    transcodedContentType: 'transcodedContentType',
+    transcodedSuffix: 'transcodedSuffix',
+  },
+  size: 16,
+  streamId: 'streamId',
+  title: 'title',
+  track: 1,
+  type: 'track',
+  year: 2024,
+} as Track;
+
 export const formattedPlaylistMock = {
-  changed: DATE,
-  comment: '',
-  created: DATE,
   duration: 1,
-  entry: [trackMock],
   id: 'id',
   images: [],
-  information: {},
+  information: {
+    changed: DATE,
+    comment: '',
+    created: DATE,
+    owner: 'owner',
+    public: true,
+  },
   name: 'name',
-  owner: 'owner',
-  public: true,
   songCount: 1,
-  tracks: [],
+  tracks: [formattedTrackMock],
+  type: 'playlist',
 } as Playlist;

@@ -1,3 +1,12 @@
+export type MediaType =
+  | 'album'
+  | 'artist'
+  | 'playlist'
+  | 'radioStation'
+  | 'podcast'
+  | 'podcastEpisode'
+  | 'track';
+
 export interface Genre {
   name: string;
 }
@@ -14,7 +23,7 @@ interface TrackInformation {
 }
 
 export interface Track {
-  id?: string;
+  id: string;
   album?: string;
   albumId?: string;
   artists: BaseArtist[];
@@ -22,12 +31,13 @@ export interface Track {
   duration?: number;
   favourite: boolean;
   genres: Genre[];
-  image?: string;
+  imageId?: string;
   information: TrackInformation;
   size?: number;
-  streamId: string;
+  streamId?: string;
   title: string;
   track?: number;
+  type: MediaType;
   year?: number;
 }
 
@@ -42,12 +52,13 @@ export interface Album {
   favourite: boolean;
   genres: Genre[];
   id: string;
-  image?: string;
+  imageId?: string;
   information: AlbumTrack;
   name: string;
   size: number;
   songCount: number;
   tracks: Track[];
+  type: MediaType;
   year?: number;
 }
 
@@ -60,11 +71,12 @@ export interface Artist extends BaseArtist {
   biography?: string;
   favourite: boolean;
   genresList: string[];
-  image?: string;
+  imageId?: string;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
   totalAlbums: number;
   totalTracks: number;
+  type: MediaType;
 }
 
 interface PlaylistInformation {
@@ -83,15 +95,16 @@ export interface Playlist {
   name: string;
   songCount: number;
   tracks: Track[];
+  type: MediaType;
 }
 
 export interface RadioStation {
-  image: string;
-  isRadioStation: boolean;
+  image?: string;
   id: string;
   name: string;
   streamUrl: string;
   homePageUrl?: string;
+  type: MediaType;
 }
 
 export interface AllMedia {
@@ -105,10 +118,10 @@ export interface PodcastEpisode {
   description?: string;
   downloaded: boolean;
   genres: Genre[];
-  image: string;
-  isPodcast: boolean;
+  image?: string;
   publishDate?: Date;
-  streamId: string | null;
+  streamId?: string;
+  type: MediaType;
 }
 
 export interface Podcast {
@@ -116,9 +129,10 @@ export interface Podcast {
   downloadedEpisodes: number;
   episodes: PodcastEpisode[];
   id: string;
-  image: string;
+  image?: string;
   lastUpdated: string;
   title: string;
   totalEpisodes: number;
+  type: MediaType;
   url: string;
 }

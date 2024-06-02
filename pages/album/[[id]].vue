@@ -15,7 +15,7 @@ getAlbum(route.params.id as string);
     {{ album.name }}
   </h1>
 
-  <img :src="getImageUrl(album?.image)" alt="" />
+  <img :src="getImageUrl(album?.imageId)" alt="" />
 
   <pre>{{ album }}</pre>
 </template>

@@ -22,6 +22,7 @@ describe('generateRandomString', () => {
 
 describe('replaceCharactersWithSpace', () => {
   describe.each([
+    ['ab-cd', undefined, 'ab cd'],
     ['abcd', 'c', 'ab d'],
     ['abcd-efgh-ijkl', '-', 'abcd efgh ijkl'],
     ['abcd_efgh_ijkl', '_', 'abcd efgh ijkl'],
@@ -38,6 +39,7 @@ describe('replaceCharactersWithSpace', () => {
 
 describe('replaceSpacesWithCharacter', () => {
   describe.each([
+    ['ab cd', undefined, 'ab-cd'],
     ['ab d', 'c', 'abcd'],
     ['abcd efgh ijkl', '-', 'abcd-efgh-ijkl'],
     ['abcd efgh ijkl', '_', 'abcd_efgh_ijkl'],

@@ -1,6 +1,7 @@
 import {
   albumMock,
   formattedPlaylistMock,
+  formattedTrackMock,
   playlistMock,
   podcastEpisodeMock,
   trackMock,
@@ -9,7 +10,7 @@ import {
 export function getTracksMock(length = 1, params = {} as Partial<Base>) {
   return Array(length)
     .fill('')
-    .map((_item, index) => ({
+    .map((_, index) => ({
       ...trackMock,
       ...params,
       id: `tracks-${index}`,
@@ -20,7 +21,7 @@ export function getTracksMock(length = 1, params = {} as Partial<Base>) {
 export function getAlbumsMock(length = 1, params = {} as Partial<AlbumID3>) {
   return Array(length)
     .fill('')
-    .map((_item, index) => ({
+    .map((_, index) => ({
       ...albumMock,
       ...params,
       id: `album-${index}`,
@@ -33,7 +34,7 @@ export function getPlaylistsMock(
 ) {
   return Array(length)
     .fill('')
-    .map((_item, index) => ({
+    .map((_, index) => ({
       ...playlistMock,
       ...params,
       id: `playlist-${index}`,
@@ -46,7 +47,7 @@ export function getPodcastEpisodesMock(
 ) {
   return Array(length)
     .fill('')
-    .map((_item, index) => ({
+    .map((_, index) => ({
       ...podcastEpisodeMock,
       ...params,
       id: `podcast-${index}`,
@@ -59,10 +60,24 @@ export function getFormattedPlaylistsMock(
 ) {
   return Array(length)
     .fill('')
-    .map((_item, index) => ({
+    .map((_, index) => ({
       ...formattedPlaylistMock,
       ...params,
       id: `playlist-${index}`,
       name: `playlist-${index}`,
+    }));
+}
+
+export function getFormattedTracksMock(
+  length = 1,
+  params = {} as Partial<Track>,
+) {
+  return Array(length)
+    .fill('')
+    .map((_, index) => ({
+      ...formattedTrackMock,
+      ...params,
+      id: `track-${index}`,
+      name: `track-${index}`,
     }));
 }
