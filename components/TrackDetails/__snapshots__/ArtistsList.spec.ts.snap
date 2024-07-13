@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ArtistsList > matches the snapshot 1`] = `
+"<ul class="meta list">
+  <li class="listItem" data-test-id="artist-list-item"><a>name</a></li>
+  <li class="listItem" data-test-id="artist-list-item"><a>name1</a></li>
+</ul>"
+`;

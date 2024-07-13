@@ -4,6 +4,7 @@ import SnackBar from '@/components/SnackBar/SnackBar.vue';
 
 const { isDarkTheme } = useTheme();
 const { collapsed, width } = useSidebar();
+const { showMediaPlayer } = useAudioPlayer();
 
 useHead({
   htmlAttrs: {
@@ -15,6 +16,8 @@ useHead({
   bodyAttrs: {
     style: {
       '--sidebar-width': width,
+      '--sidebar-bottom': () =>
+        showMediaPlayer.value ? 'var(--media-player-height)' : '0',
     },
   },
 });

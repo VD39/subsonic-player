@@ -1,11 +1,13 @@
 import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import IconButton from '@/components/Buttons/IconButton.vue';
 import DropdownMenu from '@/components/Dropdown/DropdownMenu.vue';
 import DropdownItem from '@/components/Dropdown/DropdownItem.vue';
 import MainLoader from '@/components/Loaders/MainLoader.vue';
 import SearchForm from '@/components/Forms/SearchForm.vue';
+import MusicPlayer from '@/components/Player/MusicPlayer.vue';
 import DefaultLayout from './default.vue';
 
 const navigateToMock = vi.hoisted(() => vi.fn());
@@ -20,6 +22,14 @@ const loadingMock = vi.hoisted(() => vi.fn(() => ref(false)));
 
 mockNuxtImport('useLoading', () => loadingMock);
 
+const logoutMock = vi.fn();
+
+mockNuxtImport('useAuth', () => () => ({
+  logout: logoutMock,
+}));
+
+const { showMediaPlayerMock } = useAudioPlayerMock();
+
 function factory(props = {}) {
   return mount(DefaultLayout, {
     props: {
@@ -27,6 +37,11 @@ function factory(props = {}) {
     },
     slots: {
       default: '<div></div>',
+    },
+    global: {
+      stubs: {
+        MusicPlayer: true,
+      },
     },
     attachTo: document.body,
   });
@@ -97,6 +112,10 @@ describe('Default', () => {
           await wrapper.vm.$nextTick();
         });
 
+        it('calls the logoutMock function', () => {
+          expect(logoutMock).toHaveBeenCalled();
+        });
+
         it('calls the navigateTo function', () => {
           expect(navigateToMock).toHaveBeenCalled();
         });
@@ -133,6 +152,31 @@ describe('Default', () => {
 
     it('does not show the main content', () => {
       expect(wrapper.find({ ref: 'mainContent' }).isVisible()).toBe(false);
+    });
+  });
+
+  describe('when showMediaPlayer is false', () => {
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the MusicPlayer component', () => {
+      expect(wrapper.findComponent(MusicPlayer).exists()).toBe(false);
+    });
+  });
+
+  describe('when showMediaPlayer is true', () => {
+    beforeEach(async () => {
+      showMediaPlayerMock.value = true;
+      await wrapper.vm.$nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the MusicPlayer component', () => {
+      expect(wrapper.findComponent(MusicPlayer).exists()).toBe(true);
     });
   });
 

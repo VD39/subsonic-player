@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Default > when image has finished loading > matches the snapshot 1`] = `
+"<div class="preloadImage">
+  <div style="display: none;"><span class="placeholder"></span><span><span class="loader"></span><span class="visually-hidden">Loading image</span></span></div><img src="src" alt="alt">
+</div>"
+`;
+
+exports[`Default > when image is loading > matches the snapshot 1`] = `
+"<div class="preloadImage">
+  <div><span class="placeholder"></span><span><span class="loader"></span><span class="visually-hidden">Loading image</span></span></div><img src="src" alt="alt" style="display: none;">
+</div>"
+`;

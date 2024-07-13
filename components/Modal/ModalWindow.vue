@@ -6,7 +6,7 @@ const { modal, closeModal } = useModal();
 
 <template>
   <Teleport to="#teleports">
-    <transition name="modal-fade">
+    <transition name="fade">
       <div
         v-if="modal.component"
         ref="modalContainer"
@@ -31,13 +31,14 @@ const { modal, closeModal } = useModal();
               icon="PhX"
               title="Close modal"
               :icon-size="32"
+              icon-weight="bold"
               @click="closeModal"
             >
               Close modal
             </IconButton>
           </div>
 
-          <div :class="$style.body">
+          <div :class="['main', $style.body]">
             <component
               :is="modal.component"
               ref="component"
@@ -91,25 +92,9 @@ const { modal, closeModal } = useModal();
   padding: var(--space-16) var(--space-16) 0;
 }
 
-.title {
-  margin-bottom: 0;
-}
-
 .body {
-  padding: var(--space-16);
+  max-height: 80vh;
+  padding: var(--space-16) var(--space-16) var(--space-24);
+  overflow-y: auto;
 }
-
-/* stylelint-disable selector-class-pattern */
-:global {
-  .modal-fade-enter-active,
-  .modal-fade-leave-active {
-    transition: opacity 0.5s ease;
-  }
-
-  .modal-fade-enter,
-  .modal-fade-leave-to {
-    opacity: 0;
-  }
-}
-/* stylelint-enable selector-class-pattern */
 </style>

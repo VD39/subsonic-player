@@ -1,0 +1,121 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VolumeControl > matches the snapshot 1`] = `
+"<div class="volumeControl"><button class="iconButton" type="button" title="Mute">
+    <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
+  </button>
+  <div>
+    <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
+      <div class="slider">
+        <div class="progressWrapper">
+          <div class="process" style="width: 0px;"></div>
+          <!--v-if-->
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    <p class="visually-hidden"> Volume at 100% </p>
+  </div>
+</div>"
+`;
+
+exports[`VolumeControl > when isMuted is true > matches the snapshot 1`] = `
+"<div class="volumeControl"><button class="iconButton" type="button" title="Unmute">
+    <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Unmute</span>
+  </button>
+  <div>
+    <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
+      <div class="slider">
+        <div class="progressWrapper">
+          <div class="process" style="width: 0px;"></div>
+          <!--v-if-->
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    <p class="visually-hidden"> Volume at 100% </p>
+  </div>
+</div>"
+`;
+
+exports[`VolumeControl > when volume is 0 > matches the snapshot 1`] = `
+"<div class="volumeControl"><button class="iconButton" type="button" title="Unmute">
+    <phspeakerx class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerx><span class="text visually-hidden">Unmute</span>
+  </button>
+  <div>
+    <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="0 of 1">
+      <div class="slider">
+        <div class="progressWrapper">
+          <div class="process" style="width: 0px;"></div>
+          <!--v-if-->
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    <p class="visually-hidden"> Volume at 0% </p>
+  </div>
+</div>"
+`;
+
+exports[`VolumeControl > when volume is 0.1 > matches the snapshot 1`] = `
+"<div class="volumeControl"><button class="iconButton" type="button" title="Unmute">
+    <phspeakernone class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakernone><span class="text visually-hidden">Unmute</span>
+  </button>
+  <div>
+    <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="0.1 of 1">
+      <div class="slider">
+        <div class="progressWrapper">
+          <div class="process" style="width: 0px;"></div>
+          <!--v-if-->
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    <p class="visually-hidden"> Volume at 10% </p>
+  </div>
+</div>"
+`;
+
+exports[`VolumeControl > when volume is 0.3 > matches the snapshot 1`] = `
+"<div class="volumeControl"><button class="iconButton" type="button" title="Unmute">
+    <phspeakerlow class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerlow><span class="text visually-hidden">Unmute</span>
+  </button>
+  <div>
+    <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="0.3 of 1">
+      <div class="slider">
+        <div class="progressWrapper">
+          <div class="process" style="width: 0px;"></div>
+          <!--v-if-->
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    <p class="visually-hidden"> Volume at 30% </p>
+  </div>
+</div>"
+`;
+
+exports[`VolumeControl > when volume is 0.6 > matches the snapshot 1`] = `
+"<div class="volumeControl"><button class="iconButton" type="button" title="Unmute">
+    <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Unmute</span>
+  </button>
+  <div>
+    <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="0.6 of 1">
+      <div class="slider">
+        <div class="progressWrapper">
+          <div class="process" style="width: 0px;"></div>
+          <!--v-if-->
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+    </div>
+    <p class="visually-hidden"> Volume at 60% </p>
+  </div>
+</div>"
+`;

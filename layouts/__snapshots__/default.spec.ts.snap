@@ -12,7 +12,7 @@ exports[`Default > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
@@ -20,12 +20,12 @@ exports[`Default > matches the snapshot 1`] = `
       <!--v-if-->
     </div>
   </header>
-  <aside class="sidebarNavigation">
+  <aside>
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
           <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -35,22 +35,22 @@ exports[`Default > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -62,27 +62,27 @@ exports[`Default > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -94,7 +94,7 @@ exports[`Default > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -104,7 +104,7 @@ exports[`Default > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -113,12 +113,17 @@ exports[`Default > matches the snapshot 1`] = `
       </nav>
     </div>
   </aside>
-  <main class="mainContent">
+  <main class="main mainContent">
     <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
     <div class="mainContentInner">
       <div></div>
     </div>
   </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </footer>
 </div>"
 `;
 
@@ -134,31 +139,33 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
             </button>
-            <!--v-if-->
+            <transition-stub name="fade" appear="false" persisted="false" css="true">
+              <!--v-if-->
+            </transition-stub>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <aside class="sidebarNavigation">
+  <aside>
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
           <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -168,22 +175,22 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -195,27 +202,27 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -227,7 +234,7 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -237,7 +244,7 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -246,12 +253,17 @@ exports[`Default > when loading is false > matches the snapshot 1`] = `
       </nav>
     </div>
   </aside>
-  <main class="mainContent">
+  <main class="main mainContent">
     <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
     <div class="mainContentInner">
       <div></div>
     </div>
   </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </footer>
 </div>"
 `;
 
@@ -267,31 +279,33 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
             </button>
-            <!--v-if-->
+            <transition-stub name="fade" appear="false" persisted="false" css="true">
+              <!--v-if-->
+            </transition-stub>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <aside class="sidebarNavigation">
+  <aside>
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
           <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -301,22 +315,22 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -328,27 +342,27 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -360,7 +374,7 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -370,7 +384,7 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -379,12 +393,297 @@ exports[`Default > when loading is true > matches the snapshot 1`] = `
       </nav>
     </div>
   </aside>
-  <main class="mainContent">
+  <main class="main mainContent">
     <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
     <div class="mainContentInner">
       <div></div>
     </div>
   </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </footer>
+</div>"
+`;
+
+exports[`Default > when showMediaPlayer is false > matches the snapshot 1`] = `
+"<div class="mainLayout">
+  <header class="header">
+    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+      </a>
+      <div class="search">
+        <form novalidate="">
+          <div class="inner">
+            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+              <!--v-if-->
+            </div><button class="iconButton button button" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="secondary">
+        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+          </button></div>
+        <div class="secondaryItem">
+          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+            </button>
+            <transition-stub name="fade" appear="false" persisted="false" css="true">
+              <!--v-if-->
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div class="sideBar">
+      <div class="header"><a class="iconButton logo logo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+        </a><button class="iconButton" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+        </button></div>
+      <nav class="navigationWrapper">
+        <ul class="navigation">
+          <li class="sidebarItem"><a class="titleLink" title="Browse">
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
+              <h4 class="title">Browse</h4>
+            </a>
+            <ul class="items">
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
+            </ul>
+          </li>
+          <li class="sidebarItem"><a class="titleLink" title="Your library">
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
+              <h4 class="title">Your library</h4>
+            </a>
+            <ul class="items">
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
+            </ul>
+          </li>
+          <li class="sidebarItem"><a class="titleLink" title="Playlists">
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
+              <h4 class="title">Playlists</h4>
+            </a>
+            <ul class="items">
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <main class="main mainContent">
+    <div><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
+    <div class="mainContentInner" style="display: none;">
+      <div></div>
+    </div>
+  </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </footer>
+</div>"
+`;
+
+exports[`Default > when showMediaPlayer is true > matches the snapshot 1`] = `
+"<div class="mainLayout">
+  <header class="header">
+    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+      </a>
+      <div class="search">
+        <form novalidate="">
+          <div class="inner">
+            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+              <!--v-if-->
+            </div><button class="iconButton button button" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="secondary">
+        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+          </button></div>
+        <div class="secondaryItem">
+          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+            </button>
+            <transition-stub name="fade" appear="false" persisted="false" css="true">
+              <!--v-if-->
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div class="sideBar">
+      <div class="header"><a class="iconButton logo logo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+        </a><button class="iconButton" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+        </button></div>
+      <nav class="navigationWrapper">
+        <ul class="navigation">
+          <li class="sidebarItem"><a class="titleLink" title="Browse">
+              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
+              <h4 class="title">Browse</h4>
+            </a>
+            <ul class="items">
+              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                </a>
+                <!--v-if-->
+              </li>
+            </ul>
+          </li>
+          <li class="sidebarItem"><a class="titleLink" title="Your library">
+              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
+              <h4 class="title">Your library</h4>
+            </a>
+            <ul class="items">
+              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
+                </a>
+                <!--v-if-->
+              </li>
+            </ul>
+          </li>
+          <li class="sidebarItem"><a class="titleLink" title="Playlists">
+              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
+              <h4 class="title">Playlists</h4>
+            </a>
+            <ul class="items">
+              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
+                </a>
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if-->
+                <!--v-if-->
+              </li>
+              <li>
+                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                </button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <main class="main mainContent">
+    <div><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
+    <div class="mainContentInner" style="display: none;">
+      <div></div>
+    </div>
+  </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <music-player-stub></music-player-stub>
+    </transition-stub>
+  </footer>
 </div>"
 `;
 
@@ -400,31 +699,33 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
             </button>
-            <!--v-if-->
+            <transition-stub name="fade" appear="false" persisted="false" css="true">
+              <!--v-if-->
+            </transition-stub>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <aside class="sidebarNavigation">
+  <aside>
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
           <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -434,22 +735,22 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -461,27 +762,27 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -493,7 +794,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -503,7 +804,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -512,12 +813,17 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
       </nav>
     </div>
   </aside>
-  <main class="mainContent">
+  <main class="main mainContent">
     <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
     <div class="mainContentInner">
       <div></div>
     </div>
   </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </footer>
 </div>"
 `;
 
@@ -533,44 +839,46 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
             <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
             </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="20" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="secondary">
         <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="20" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
           <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="20" weight="duotone"></phdotsthreevertical><span class="text"></span>
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
             </button>
-            <div class="dropdownMenu">
-              <ul class="menu">
-                <li class="dropdownItem" to="/user-profile"><a class="iconButton fullWidth action action">
-                    <!--v-if--><span class="text">Profile</span>
-                  </a></li>
-                <li class="dropdownItem" target="_blank"><a class="iconButton fullWidth action action" target="_blank">
-                    <!--v-if--><span class="text"> Server </span>
-                  </a></li>
-                <li class="divider" aria-hidden="true"></li>
-                <li class="dropdownItem" icon="PhSignOut"><button class="iconButton alignRight fullWidth action action" type="button">
-                    <phsignout class="icon" aria-hidden="true" size="20" weight="duotone"></phsignout><span class="text"> Log out </span>
-                  </button></li>
-              </ul>
-            </div>
+            <transition-stub name="fade" appear="false" persisted="false" css="true">
+              <div class="dropdownMenu">
+                <ul class="menu">
+                  <li class="dropdownItem" to="/user-profile"><a class="iconButton fullWidth action action">
+                      <!--v-if--><span class="text"> Profile </span>
+                    </a></li>
+                  <li class="dropdownItem" href="server" target="_blank"><a class="iconButton fullWidth action action" href="server" target="_blank">
+                      <!--v-if--><span class="text"> Server </span>
+                    </a></li>
+                  <li class="divider" aria-hidden="true"></li>
+                  <li class="dropdownItem" icon="PhSignOut"><button class="iconButton alignRight fullWidth action action" type="button">
+                      <phsignout class="icon" aria-hidden="true" size="24" weight="duotone"></phsignout><span class="text"> Log out </span>
+                    </button></li>
+                </ul>
+              </div>
+            </transition-stub>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <aside class="sidebarNavigation">
+  <aside>
     <div class="sideBar">
       <div class="header"><a class="iconButton logo logo" title="Home">
           <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
         </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
         <ul class="navigation">
@@ -580,22 +888,22 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -607,27 +915,27 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
                 </a>
                 <!--v-if-->
               </li>
               <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -639,7 +947,7 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
             </a>
             <ul class="items">
               <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
                 </a>
                 <!--v-if-->
               </li>
@@ -649,7 +957,7 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
               </li>
               <li>
                 <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
                 </button>
               </li>
             </ul>
@@ -658,11 +966,16 @@ exports[`Default > when user is defined > when DropdownMenu button is clicked > 
       </nav>
     </div>
   </aside>
-  <main class="mainContent">
+  <main class="main mainContent">
     <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
     <div class="mainContentInner">
       <div></div>
     </div>
   </main>
+  <footer>
+    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+      <!--v-if-->
+    </transition-stub>
+  </footer>
 </div>"
 `;

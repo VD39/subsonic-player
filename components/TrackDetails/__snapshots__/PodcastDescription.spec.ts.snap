@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PodcastDescription > matches the snapshot 1`] = `
+"<!-- eslint-disable-next-line vue/no-v-html -->
+<div>
+  <p><a href="#">Link</a> Description</p>
+</div>"
+`;

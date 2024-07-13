@@ -1,23 +1,29 @@
 <script setup lang="ts">
 import IconButton from '@/components/Buttons/IconButton.vue';
 
-defineEmits(['click']);
-
 withDefaults(
   defineProps<{
     is?: ButtonType;
+    selected?: boolean;
   }>(),
   {
-    is: 'nuxt-link',
+    is: undefined,
   },
 );
+
+defineEmits(['click']);
 </script>
 
 <template>
   <li :class="$style.dropdownItem">
     <IconButton
       :is="is"
-      :class="$style.action"
+      :class="[
+        $style.action,
+        {
+          [$style.selected]: selected,
+        },
+      ]"
       show-text
       icon-position="right"
       full-width
@@ -36,10 +42,14 @@ withDefaults(
 
 .action {
   justify-content: space-between;
-  padding: var(--space-8) var(--space-12);
+  padding: var(--button-spacing);
 
   &:hover {
     background-color: var(--hover-selected-color);
   }
+}
+
+.selected {
+  background-color: var(--hover-selected-color);
 }
 </style>

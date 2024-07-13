@@ -1,5 +1,5 @@
 :root {
-  /* Default.. */
+  /* Default. */
   --black-color: #000;
   --white-color: #fff;
 
@@ -7,9 +7,9 @@
   --theme-color: #8051d4;
 
   /* Snack colours. */
-  --success-color: rgb(28 130 38 / 90%);
-  --error-color: rgb(237 0 0 / 90%);
-  --info-color: rgb(61 115 238 / 90%);
+  --success-color: rgb(28 130 38);
+  --error-color: rgb(237 0 0);
+  --info-color: rgb(61 115 238);
 
   /* Border colour. */
   --border-color: rgb(141 149 157 / 25%);
@@ -24,8 +24,10 @@
 
   /* Light colours. */
 
+  --invert-color: var(--black-color);
+
   /* Font colours. */
-  --header-font-color: var(--black-color);
+  --header-font-color: var(--invert-color);
   --body-font-color: rgb(0 0 0 / 85%);
   --secondary-font-color: #888;
 
@@ -43,8 +45,10 @@
 .dark {
   /* Dark colours. */
 
+  --invert-color: var(--white-color);
+
   /* Font colours. */
-  --header-font-color: var(--white-color);
+  --header-font-color: var(--invert-color);
   --body-font-color: rgb(255 255 255 / 85%);
   --secondary-font-color: #aaa;
 

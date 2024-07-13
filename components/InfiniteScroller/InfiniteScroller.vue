@@ -9,19 +9,19 @@ const { loading, hasMore } = useInfinityLoading();
 
 const title = computed(() => (loading.value ? 'Loading data' : 'Load more'));
 
-const container = ref<HTMLElement | null>(null);
+const containerRef = ref<HTMLElement | null>(null);
 
 function handleScroll() {
   if (
     !loading.value &&
-    container.value!.getBoundingClientRect().bottom < window.innerHeight
+    containerRef.value!.getBoundingClientRect().bottom < window.innerHeight
   ) {
     emit('loadMore');
   }
 }
 
 onMounted(() => {
-  if (container.value) {
+  if (containerRef.value) {
     window.addEventListener('scroll', handleScroll);
   }
 });
@@ -31,13 +31,12 @@ onUnmounted(() => {
 });
 
 function loadMore() {
-  console.log('loadMore');
   emit('loadMore');
 }
 </script>
 
 <template>
-  <div ref="container">
+  <div ref="containerRef">
     <button
       v-if="hasMore"
       ref="button"
@@ -61,7 +60,7 @@ function loadMore() {
   justify-content: center;
   width: 150px;
   height: 50px;
-  padding: var(--space-8) var(--space-12);
+  padding: var(--button-spacing);
   margin: var(--space-32) auto;
   cursor: pointer;
   background-color: var(--dark-background-color);

@@ -49,19 +49,19 @@
   border-radius: var(--border-radius-l);
   animation: main-loader 0.8s infinite;
 
-  &:nth-child(2) {
+  &:nth-child(1) {
     animation-delay: 0.1s;
   }
 
-  &:nth-child(3) {
+  &:nth-child(2) {
     animation-delay: 0.2s;
   }
 
-  &:nth-child(4) {
+  &:nth-child(3) {
     animation-delay: 0.3s;
   }
 
-  &:nth-child(5) {
+  &:nth-child(4) {
     animation-delay: 0.4s;
   }
 }

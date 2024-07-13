@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShuffleButton > when shuffle is set to false > matches the snapshot 1`] = `
+"<button class="iconButton" type="button" title="Switch shuffle off">
+  <phshuffle class="icon" aria-hidden="true" size="24" weight="duotone" color="currentColor"></phshuffle><span class="text visually-hidden">Switch shuffle off</span>
+</button>"
+`;
+
+exports[`ShuffleButton > when shuffle is set to true > matches the snapshot 1`] = `
+"<button class="iconButton" type="button" title="Switch shuffle on">
+  <phshuffle class="icon" aria-hidden="true" size="24" weight="fill" color="var(--theme-color)"></phshuffle><span class="text visually-hidden">Switch shuffle on</span>
+</button>"
+`;

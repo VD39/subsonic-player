@@ -5,17 +5,10 @@ import MusicLogo from '@/components/Logo/MusicLogo.vue';
 
 const { collapsed, toggle } = useSidebar();
 
-const buttonProps = computed<ButtonProps>(() =>
-  collapsed.value
-    ? {
-        icon: 'PhTextIndent',
-        text: 'Open Navigation',
-      }
-    : {
-        icon: 'PhTextOutdent',
-        text: 'Close Navigation',
-      },
-);
+const buttonProps = computed<SidebarButtonProps>(() => ({
+  icon: collapsed.value ? 'PhTextIndent' : 'PhTextOutdent',
+  text: collapsed.value ? 'Open Navigation' : 'Close Navigation',
+}));
 </script>
 
 <template>
@@ -60,14 +53,13 @@ const buttonProps = computed<ButtonProps>(() =>
   padding-top: 0;
   background-color: var(--background-color);
   border-top: 1px solid var(--border-color);
-  transition: width var(--transition);
+  transition: width 0.25s ease-in-out;
 
   @media (--tablet-up) {
-    inset: 0 auto 0 0;
-    display: unset;
+    inset: 0 auto var(--sidebar-bottom) 0;
+    flex-flow: column nowrap;
     width: var(--sidebar-width);
     height: auto;
-    min-height: 100vh;
     overflow-x: auto;
     border-top: none;
     border-right: 1px solid var(--border-color);
@@ -81,6 +73,7 @@ const buttonProps = computed<ButtonProps>(() =>
     @mixin align-center;
 
     justify-content: space-between;
+    width: 100%;
     min-height: var(--header-height);
     padding: 0 var(--space-16) 0 var(--space-24);
     margin-bottom: var(--space-16);

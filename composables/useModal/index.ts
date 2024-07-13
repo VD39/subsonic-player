@@ -1,7 +1,8 @@
-import type { ModalProps } from './types';
 import AddPlaylistForm from '@/components/Forms/AddPlaylistForm.vue';
 import AddRadioStationForm from '@/components/Forms/AddRadioStationForm.vue';
 import AddPodcastForm from '@/components/Forms/AddPodcastForm.vue';
+import PodcastDescription from '@/components/TrackDetails/PodcastDescription.vue';
+import TrackDetails from '~/components/TrackDetails/TrackInformation.vue';
 
 export function useModal() {
   const modal = useState<ModalProps>('modal-state', () => DEFAULT_STATE);
@@ -40,6 +41,22 @@ export function useModal() {
     };
   }
 
+  function openPodcastDescriptionModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      component: markRaw(PodcastDescription),
+      title: 'Episode Description',
+      attrs,
+    };
+  }
+
+  function openTrackDetailsModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      component: markRaw(TrackDetails),
+      title: 'Track Details',
+      attrs,
+    };
+  }
+
   function openModal(modalType: ModalType, attrs = {}) {
     switch (modalType) {
       case 'addPlaylistModal':
@@ -50,6 +67,12 @@ export function useModal() {
         break;
       case 'addRadioStationModal':
         openAddRadioStationModal(attrs);
+        break;
+      case 'podcastDescriptionModal':
+        openPodcastDescriptionModal(attrs);
+        break;
+      case 'trackDetailsModal':
+        openTrackDetailsModal(attrs);
         break;
     }
 

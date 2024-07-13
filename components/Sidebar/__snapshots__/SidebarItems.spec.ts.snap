@@ -12,12 +12,12 @@ exports[`SidebarItems > when items prop is set > matches the snapshot 1`] = `
   <!--v-if-->
   <ul class="items">
     <li><a exactactiveclass="current" class="iconButton link link" title="title">
-        <icon class="icon" aria-hidden="true" size="20" weight="duotone"></icon><span class="text">title</span>
+        <icon class="icon" aria-hidden="true" size="24" weight="duotone"></icon><span class="text">title</span>
       </a>
       <!--v-if-->
     </li>
     <li><a exactactiveclass="current" class="iconButton link link" title="title">
-        <icon class="icon" aria-hidden="true" size="20" weight="duotone"></icon><span class="text">title</span>
+        <icon class="icon" aria-hidden="true" size="24" weight="duotone"></icon><span class="text">title</span>
       </a>
       <!--v-if-->
     </li>
@@ -34,12 +34,12 @@ exports[`SidebarItems > when items prop is set > when collapsed value is true > 
   <!--v-if-->
   <ul class="items">
     <li><a exactactiveclass="current" class="iconButton link link" title="title">
-        <icon class="icon" aria-hidden="true" size="20" weight="duotone"></icon><span class="text visually-hidden">title</span>
+        <icon class="icon" aria-hidden="true" size="24" weight="duotone"></icon><span class="text visually-hidden">title</span>
       </a>
       <!--v-if-->
     </li>
     <li><a exactactiveclass="current" class="iconButton link link" title="title">
-        <icon class="icon" aria-hidden="true" size="20" weight="duotone"></icon><span class="text visually-hidden">title</span>
+        <icon class="icon" aria-hidden="true" size="24" weight="duotone"></icon><span class="text visually-hidden">title</span>
       </a>
       <!--v-if-->
     </li>

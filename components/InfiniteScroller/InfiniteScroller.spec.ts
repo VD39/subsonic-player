@@ -3,7 +3,8 @@ import { mount } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import InfiniteScroller from './InfiniteScroller.vue';
 
-window.removeEventListener = vi.fn();
+const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
+const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
 
 const loadingMock = ref(false);
 const hasMoreMock = ref(false);
@@ -39,6 +40,13 @@ describe('InfiniteScroller', () => {
 
   it('emits the loadMore event', () => {
     expect(wrapper.emitted('loadMore')).toEqual([[]]);
+  });
+
+  it('adds the scroll event listener function', () => {
+    expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
+      'scroll',
+      expect.any(Function),
+    );
   });
 
   describe('when hasMore value is false', () => {
@@ -140,13 +148,16 @@ describe('InfiniteScroller', () => {
       });
     });
 
-    describe('when component is unmounted', () => {
+    describe('when component unmounts', () => {
       beforeEach(() => {
         wrapper.unmount();
       });
 
-      it('calls the window.removeEventListener function', () => {
-        expect(window.removeEventListener).toHaveBeenCalled();
+      it('removes the scroll event listeners function', () => {
+        expect(removeEventListenerSpy).toHaveBeenCalledWith(
+          'scroll',
+          expect.any(Function),
+        );
       });
     });
   });

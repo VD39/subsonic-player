@@ -28,7 +28,7 @@ describe('DropdownItem', () => {
     });
 
     it('emits the click event', () => {
-      expect(wrapper.emitted('click')).toHaveLength(1);
+      expect(wrapper.emitted('click')).toEqual([[]]);
     });
   });
 });

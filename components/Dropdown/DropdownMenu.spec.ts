@@ -6,13 +6,17 @@ import DropdownMenu from './DropdownMenu.vue';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const events: any = {};
 
-document.addEventListener = vi.fn((event, cb) => {
-  events[event] = cb;
-});
-
-window.removeEventListener = vi.fn((event) => {
-  events[event] = () => ({});
-});
+const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+const documentAddEventListenerSpy = vi
+  .spyOn(document, 'addEventListener')
+  .mockImplementation((event, cb) => {
+    events[event] = cb;
+  });
+const documentRemoveEventListenerSpy = vi.spyOn(
+  document,
+  'removeEventListener',
+);
 
 function factory(props = {}) {
   return mount(DropdownMenu, {
@@ -33,6 +37,10 @@ describe('DropdownMenu', () => {
     wrapper = factory();
   });
 
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -43,20 +51,79 @@ describe('DropdownMenu', () => {
       await wrapper.vm.$nextTick();
     });
 
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('emits the opened event', () => {
+    it('emits the opened event again', () => {
       expect(wrapper.emitted('opened')).toEqual([[]]);
     });
 
-    it('does not emit the closed event', () => {
-      expect(wrapper.emitted('closed')).toEqual(undefined);
+    it('does not emits the closed event', () => {
+      expect(wrapper.emitted('closed')).toBe(undefined);
     });
 
-    it('shows the dropdown menu', () => {
-      expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(true);
+    it('adds the click event listener function', () => {
+      expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
+        'click',
+        expect.any(Function),
+      );
+    });
+
+    it('adds the keydown event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'keydown',
+        expect.any(Function),
+      );
+    });
+
+    describe('when dropdown height is not less than window height', () => {
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('emits the opened event', () => {
+        expect(wrapper.emitted('opened')).toEqual([[]]);
+      });
+
+      it('does not emit the closed event', () => {
+        expect(wrapper.emitted('closed')).toEqual(undefined);
+      });
+
+      it('shows the dropdown menu', () => {
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(true);
+      });
+
+      it('does not add the above class to dropdown menu', () => {
+        expect(
+          wrapper.find({ ref: 'dropdownMenuRef' }).classes(),
+        ).not.toContain('above');
+      });
+    });
+
+    describe('when dropdown height is less than window height', () => {
+      beforeEach(async () => {
+        global.window.innerHeight = 10;
+        Object.defineProperties(HTMLElement.prototype, {
+          clientHeight: {
+            get: () => 500,
+            configurable: true,
+          },
+        });
+        Element.prototype.getBoundingClientRect = vi.fn(
+          () =>
+            ({
+              top: 5,
+            }) as DOMRect,
+        );
+
+        wrapper.findComponent(IconButton).vm.$emit('click');
+        await wrapper.vm.$nextTick();
+        wrapper.findComponent(IconButton).vm.$emit('click');
+        await wrapper.vm.$nextTick();
+      });
+
+      it('adds the above class to dropdown menu', () => {
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).classes()).toContain(
+          'above',
+        );
+      });
     });
 
     describe('when the IconButton component is clicked again', () => {
@@ -78,7 +145,7 @@ describe('DropdownMenu', () => {
       });
 
       it('removes the dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(false);
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
       });
     });
 
@@ -93,14 +160,28 @@ describe('DropdownMenu', () => {
       });
 
       it('removes the dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(false);
-        expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(false);
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
+      });
+
+      it('removes the click event listener function', () => {
+        expect(windowRemoveEventListenerSpy).toHaveBeenCalledWith(
+          'click',
+          expect.any(Function),
+        );
+      });
+
+      it('removes the keydown event listener function', () => {
+        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
+          'keydown',
+          expect.any(Function),
+        );
       });
     });
 
-    describe('when dropdownMenu is clicked', () => {
+    describe('when dropdownMenuRef is clicked', () => {
       beforeEach(async () => {
-        await wrapper.find({ ref: 'dropdownMenu' }).trigger('click');
+        await wrapper.find({ ref: 'dropdownMenuRef' }).trigger('click');
       });
 
       it('matches the snapshot', () => {
@@ -108,7 +189,7 @@ describe('DropdownMenu', () => {
       });
 
       it('does not remove the the dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(true);
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(true);
       });
     });
 
@@ -122,7 +203,7 @@ describe('DropdownMenu', () => {
       });
 
       it('does not remove the the dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(true);
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(true);
       });
     });
 
@@ -136,7 +217,21 @@ describe('DropdownMenu', () => {
       });
 
       it('removes the dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownMenu' }).exists()).toBe(false);
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
+      });
+
+      it('removes the click event listener function', () => {
+        expect(windowRemoveEventListenerSpy).toHaveBeenCalledWith(
+          'click',
+          expect.any(Function),
+        );
+      });
+
+      it('removes the keydown event listener function', () => {
+        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
+          'keydown',
+          expect.any(Function),
+        );
       });
     });
   });

@@ -6,5 +6,9 @@
   --max-width: 80rem;
 
   /* Header height. */
-  --header-height: 4rem;
+  --header-height: 65px;
+
+  /* Media Player. */
+  --media-player-height: 75px;
+  --queue-image-width-height: 45px;
 }

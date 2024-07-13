@@ -7,10 +7,12 @@ import DropdownDivider from '@/components/Dropdown/DropdownDivider.vue';
 import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher.vue';
 import MusicLogo from '@/components/Logo/MusicLogo.vue';
 import MainLoader from '@/components/Loaders/MainLoader.vue';
+import MusicPlayer from '@/components/Player/MusicPlayer.vue';
 
 const user = useUser();
 const { logout } = useAuth();
 const loading = useLoading();
+const { showMediaPlayer } = useAudioPlayer();
 
 async function logoutAndRedirect() {
   await logout();
@@ -43,13 +45,14 @@ async function search(term: string) {
               :text="user.username!"
               title="View account details"
             >
-              <DropdownItem to="/user-profile">Profile</DropdownItem>
+              <DropdownItem is="nuxt-link" to="/user-profile">
+                Profile
+              </DropdownItem>
               <DropdownItem is="a" :href="user.server" target="_blank">
                 Server
               </DropdownItem>
               <DropdownDivider />
               <DropdownItem
-                is="button"
                 ref="logoutButton"
                 icon="PhSignOut"
                 @click="logoutAndRedirect"
@@ -62,11 +65,11 @@ async function search(term: string) {
       </div>
     </header>
 
-    <aside :class="$style.sidebarNavigation">
+    <aside>
       <SidebarNavigation />
     </aside>
 
-    <main :class="$style.mainContent">
+    <main :class="['main', $style.mainContent]">
       <div v-show="loading" ref="mainLoader">
         <MainLoader />
       </div>
@@ -75,6 +78,12 @@ async function search(term: string) {
         <slot />
       </div>
     </main>
+
+    <footer>
+      <transition name="slide-up-down">
+        <MusicPlayer v-if="showMediaPlayer" />
+      </transition>
+    </footer>
   </div>
 </template>
 
@@ -149,18 +158,4 @@ async function search(term: string) {
     padding-bottom: var(--space-32);
   }
 }
-
-/* stylelint-disable selector-class-pattern */
-:global {
-  .slide-enter-active,
-  .slide-leave-active {
-    transition: transform 0.35s ease;
-  }
-
-  .slide-enter-from,
-  .slide-leave-to {
-    transform: translateY(100%);
-  }
-}
-/* stylelint-enable selector-class-pattern */
 </style>

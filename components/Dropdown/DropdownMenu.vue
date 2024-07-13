@@ -1,38 +1,59 @@
 <script setup lang="ts">
 import IconButton from '@/components/Buttons/IconButton.vue';
 
-const emit = defineEmits(['opened', 'closed']);
-
 withDefaults(
   defineProps<{
+    icon?: string;
     text?: string;
     title?: string;
     showText?: boolean;
   }>(),
   {
+    icon: 'PhDotsThreeVertical',
     text: 'More',
     title: 'More',
   },
 );
 
+const emit = defineEmits(['opened', 'closed']);
+
 const isOpen = ref(false);
-const dropdown = ref<HTMLElement | null>(null);
+const showAbove = ref(false);
+const dropdownRef = ref<HTMLElement | null>(null);
+const dropdownMenuRef = ref<HTMLElement | null>(null);
 
 function keydownHandler(event: KeyboardEvent) {
   if (event.key === 'Escape') {
     isOpen.value = false;
+
+    window.removeEventListener('click', handleClickOutside);
     document.removeEventListener('keydown', keydownHandler);
   }
 }
 
-function toggleDropdown() {
+function checkIfOutsideScreen() {
+  if (dropdownMenuRef.value) {
+    const dropdownHeight = dropdownMenuRef.value.clientHeight;
+    const windowHeight = window.innerHeight;
+    const dropdownTop = dropdownMenuRef.value.getBoundingClientRect().top;
+
+    showAbove.value = windowHeight - dropdownTop < dropdownHeight;
+  }
+}
+
+async function toggleDropdown() {
+  showAbove.value = false;
   isOpen.value = !isOpen.value;
+
+  await nextTick();
 
   if (isOpen.value) {
     emit('opened');
 
     window.addEventListener('click', handleClickOutside);
     document.addEventListener('keydown', keydownHandler);
+
+    checkIfOutsideScreen();
     return;
   }
 
@@ -40,8 +61,10 @@ function toggleDropdown() {
 }
 
 function handleClickOutside(event: MouseEvent) {
-  if (!dropdown.value?.contains(event.target as Node)) {
+  if (!dropdownRef.value?.contains(event.target as Node)) {
     isOpen.value = false;
+
+    emit('closed');
 
     window.removeEventListener('click', handleClickOutside);
     document.removeEventListener('keydown', keydownHandler);
@@ -50,9 +73,9 @@ function handleClickOutside(event: MouseEvent) {
 </script>
 
 <template>
-  <div ref="dropdown" :class="$style.dropdown">
+  <div ref="dropdownRef" :class="$style.dropdown">
     <IconButton
-      icon="PhDotsThreeVertical"
+      :icon="icon"
       :class="$style.button"
       :show-text="showText"
       icon-position="right"
@@ -62,24 +85,36 @@ function handleClickOutside(event: MouseEvent) {
       {{ text }}
     </IconButton>
 
-    <div v-if="isOpen" ref="dropdownMenu" :class="$style.dropdownMenu">
-      <ul :class="$style.menu">
-        <slot />
-      </ul>
-    </div>
+    <transition name="fade">
+      <div
+        v-if="isOpen"
+        ref="dropdownMenuRef"
+        :class="[
+          $style.dropdownMenu,
+          {
+            [$style.above]: showAbove,
+          },
+        ]"
+      >
+        <ul :class="$style.menu">
+          <slot />
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
 <style module>
 .dropdown {
+  @mixin align-center;
+
   position: relative;
-  display: inline-flex;
 }
 
 .dropdownMenu {
   position: fixed;
   inset: auto var(--space-12) calc(var(--header-height) + var(--space-12));
-  z-index: 2;
+  z-index: 10;
   min-width: 180px;
   padding: var(--space-4) 0;
   background-color: var(--background-color);
@@ -90,6 +125,10 @@ function handleClickOutside(event: MouseEvent) {
   @media screen and (--tablet-up) {
     position: absolute;
     inset: 100% 0 auto auto;
+
+    &.above {
+      inset: auto 0 100% auto;
+    }
   }
 }
 

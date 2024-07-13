@@ -11,28 +11,19 @@ body {
 }
 
 h1 {
-  margin-bottom: var(--space-12);
   font-size: var(--h1-font-size);
 }
 
 h2 {
-  margin-bottom: var(--space-12);
   font-size: var(--h2-font-size);
 }
 
 h3 {
-  margin-bottom: var(--space-8);
   font-size: var(--h3-font-size);
 }
 
 h4 {
-  margin-bottom: var(--space-8);
   font-size: var(--h4-font-size);
-}
-
-a,
-p {
-  margin-bottom: var(--space-4);
 }
 
 a,
@@ -40,7 +31,6 @@ p,
 label,
 input,
 button {
-  font-size: var(--body-font-size);
   letter-spacing: var(--letter-spacing-normal);
 }
 
@@ -51,13 +41,25 @@ h4 {
   font-weight: var(--font-weight-bold);
   color: var(--header-font-color);
   letter-spacing: var(--letter-spacing);
-
-  a {
-    font-size: inherit;
-    letter-spacing: inherit;
-  }
 }
 
 .strong {
   font-weight: var(--font-weight-bold);
+}
+
+.main {
+  h1,
+  h2 {
+    margin-bottom: var(--space-12);
+  }
+
+  h3,
+  h4 {
+    margin-bottom: var(--space-8);
+  }
+
+  a,
+  p {
+    margin-bottom: var(--space-4);
+  }
 }

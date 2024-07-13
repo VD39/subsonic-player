@@ -5,26 +5,28 @@ const { snacks, removeSnack } = useSnack();
 </script>
 
 <template>
-  <transition name="snackbar">
-    <div v-if="snacks.length" ref="snackbarWrapper" :class="$style.wrapper">
-      <transition-group name="snackbar">
-        <div v-for="snack in snacks" :key="snack.id">
-          <div
-            data-test-id="content-wrapper"
-            :class="[$style[snack.type], $style.snackbar]"
-          >
-            <p data-test-id="content" :class="$style.content">
-              {{ snack.content }}
-            </p>
+  <Teleport to="#teleports">
+    <transition name="slide-left-right">
+      <div v-if="snacks.length" ref="snackbarWrapper" :class="$style.wrapper">
+        <transition-group name="slide-left-right">
+          <div v-for="snack in snacks" :key="snack.id">
+            <div
+              data-test-id="content-wrapper"
+              :class="[$style[snack.type], $style.snackbar]"
+            >
+              <p data-test-id="content" :class="$style.content">
+                {{ snack.content }}
+              </p>
 
-            <IconButton icon="PhXCircle" @click="removeSnack(snack.id)">
-              Clear snack
-            </IconButton>
+              <IconButton icon="PhX" @click="removeSnack(snack.id)">
+                Clear snack
+              </IconButton>
+            </div>
           </div>
-        </div>
-      </transition-group>
-    </div>
-  </transition>
+        </transition-group>
+      </div>
+    </transition>
+  </Teleport>
 </template>
 
 <style module>
@@ -60,24 +62,9 @@ const { snacks, removeSnack } = useSnack();
 }
 
 .content {
-  margin-bottom: 0;
   font-size: var(--small-font-size);
   word-break: break-word;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
-
-/* stylelint-disable selector-class-pattern */
-:global {
-  .snackbar-enter-active,
-  .snackbar-leave-active {
-    transition: transform 0.5s ease;
-  }
-
-  .snackbar-enter-from,
-  .snackbar-leave-to {
-    transform: translateX(100%);
-  }
-}
-/* stylelint-enable selector-class-pattern */
 </style>

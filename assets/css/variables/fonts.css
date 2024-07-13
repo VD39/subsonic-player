@@ -1,5 +1,6 @@
 :root {
   /* Desktop font size. */
+
   --h1-font-size: clamp(2.5rem, 2.46rem + 0.71vw, 3rem);
   --h2-font-size: clamp(2rem, 1.93rem + 0.58vw, 2.5rem);
   --h3-font-size: clamp(1.5rem, 1.52rem + 0.45vw, 2rem);

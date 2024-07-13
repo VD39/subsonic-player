@@ -81,3 +81,21 @@ export function getFormattedTracksMock(
       name: `track-${index}`,
     }));
 }
+
+export function getFormattedQueueTracksMock(
+  length = 1,
+  params = {} as Partial<QueueTrack>,
+) {
+  return Array(length)
+    .fill('')
+    .map(
+      (_, index) =>
+        ({
+          ...formattedTrackMock,
+          ...params,
+          id: `queue-track-${index}`,
+          name: `queue-track-${index}`,
+          streamId: `queue-streamId${index}`,
+        }) as QueueTrack,
+    );
+}

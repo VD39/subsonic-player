@@ -20,13 +20,13 @@ exports[`IconButton > when fullWidth prop is set to true > matches the snapshot 
 
 exports[`IconButton > when icon prop is set > matches the snapshot 1`] = `
 "<button class="iconButton" type="button">
-  <phsun class="icon" aria-hidden="true" size="20" weight="duotone"></phsun><span class="text visually-hidden">Text</span>
+  <phsun class="icon" aria-hidden="true" size="24" weight="duotone"></phsun><span class="text visually-hidden">Text</span>
 </button>"
 `;
 
 exports[`IconButton > when icon prop is set > when iconPosition prop is set to right > matches the snapshot 1`] = `
 "<button class="iconButton alignRight" type="button">
-  <phsun class="icon" aria-hidden="true" size="20" weight="duotone"></phsun><span class="text visually-hidden">Text</span>
+  <phsun class="icon" aria-hidden="true" size="24" weight="duotone"></phsun><span class="text visually-hidden">Text</span>
 </button>"
 `;
 

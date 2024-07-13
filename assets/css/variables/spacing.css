@@ -10,6 +10,12 @@
   --space-24: calc(3 * var(--space-unit));
   --space-32: calc(4 * var(--space-unit));
   --space-40: calc(5 * var(--space-unit));
+
+  /* Button spacing. */
+  --button-spacing: var(--space-8) var(--space-12);
+
+  /* Media spacing. */
+  --media-player-spacing: var(--space-8);
 }
 
 @media (--tablet-up) {

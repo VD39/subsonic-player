@@ -2,9 +2,9 @@
 import InputField from '@/components/FormFields/InputField.vue';
 import LoadingButton from '@/components/Buttons/LoadingButton.vue';
 
-const loading = ref(false);
-
 const emit = defineEmits(['submit']);
+
+const loading = ref(false);
 
 const formInputs = {
   feedUrl: {

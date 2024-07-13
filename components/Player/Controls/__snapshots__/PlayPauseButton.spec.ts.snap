@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlayPauseButton > when trackCanPlay is false > matches the snapshot 1`] = `"<div class="playPauseButton"><span><span class="loader"></span><span class="visually-hidden">Loading data</span></span></div>"`;
+
+exports[`PlayPauseButton > when trackCanPlay is true > matches the snapshot 1`] = `
+"<div class="playPauseButton"><button class="iconButton" type="button" title="Play current track.">
+    <phplay class="icon" aria-hidden="true" size="30" weight="duotone"></phplay><span class="text visually-hidden">Play current track.</span>
+  </button></div>"
+`;
+
+exports[`PlayPauseButton > when trackCanPlay is true > when shuffle is set to false > matches the snapshot 1`] = `
+"<div class="playPauseButton"><button class="iconButton" type="button" title="Play current track.">
+    <phplay class="icon" aria-hidden="true" size="30" weight="duotone"></phplay><span class="text visually-hidden">Play current track.</span>
+  </button></div>"
+`;
+
+exports[`PlayPauseButton > when trackCanPlay is true > when shuffle is set to true > matches the snapshot 1`] = `
+"<div class="playPauseButton"><button class="iconButton" type="button" title="Pause current track.">
+    <phpause class="icon" aria-hidden="true" size="30" weight="duotone"></phpause><span class="text visually-hidden">Pause current track.</span>
+  </button></div>"
+`;

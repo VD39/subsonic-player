@@ -5,7 +5,7 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
   <div class="header"><a class="iconButton logo logo" title="Home">
       <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
     </a><button class="iconButton" type="button" title="Close Navigation">
-      <phtextoutdent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+      <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
     </button></div>
   <nav class="navigationWrapper">
     <ul class="navigation">
@@ -15,22 +15,22 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
         </a>
         <ul class="items">
           <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-              <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+              <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-              <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+              <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-              <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+              <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-              <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+              <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
             </a>
             <!--v-if-->
           </li>
@@ -42,27 +42,27 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
         </a>
         <ul class="items">
           <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-              <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+              <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-              <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+              <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-              <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+              <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-              <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+              <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-              <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+              <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
             </a>
             <!--v-if-->
           </li>
@@ -74,7 +74,7 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
         </a>
         <ul class="items">
           <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-              <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+              <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
             </a>
             <!--v-if-->
           </li>
@@ -84,7 +84,7 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
           </li>
           <li>
             <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-              <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
             </button>
           </li>
         </ul>
@@ -99,7 +99,7 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
   <div class="header"><a class="iconButton logo logo" title="Home">
       <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
     </a><button class="iconButton" type="button" title="Open Navigation">
-      <phtextindent class="icon" aria-hidden="true" size="20" weight="duotone"></phtextindent><span class="text visually-hidden">Open Navigation</span>
+      <phtextindent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextindent><span class="text visually-hidden">Open Navigation</span>
     </button></div>
   <nav class="navigationWrapper">
     <ul class="navigation">
@@ -109,22 +109,22 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
         </a>
         <ul class="items">
           <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-              <phcompass class="icon" aria-hidden="true" size="20" weight="duotone"></phcompass><span class="text">Discover</span>
+              <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-              <phmusicnotes class="icon" aria-hidden="true" size="20" weight="duotone"></phmusicnotes><span class="text">Music</span>
+              <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-              <phradio class="icon" aria-hidden="true" size="20" weight="duotone"></phradio><span class="text">Radio Stations</span>
+              <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-              <phapplepodcastslogo class="icon" aria-hidden="true" size="20" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
+              <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
             </a>
             <!--v-if-->
           </li>
@@ -136,27 +136,27 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
         </a>
         <ul class="items">
           <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-              <phvinylrecord class="icon" aria-hidden="true" size="20" weight="duotone"></phvinylrecord><span class="text">Albums</span>
+              <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-              <phusersthree class="icon" aria-hidden="true" size="20" weight="duotone"></phusersthree><span class="text">Artists</span>
+              <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-              <phplaylist class="icon" aria-hidden="true" size="20" weight="duotone"></phplaylist><span class="text">Playlists</span>
+              <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-              <phheart class="icon" aria-hidden="true" size="20" weight="duotone"></phheart><span class="text">Favourites</span>
+              <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
             </a>
             <!--v-if-->
           </li>
           <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-              <phwaveform class="icon" aria-hidden="true" size="20" weight="duotone"></phwaveform><span class="text">Genres</span>
+              <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
             </a>
             <!--v-if-->
           </li>
@@ -168,7 +168,7 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
         </a>
         <ul class="items">
           <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-              <phqueue class="icon" aria-hidden="true" size="20" weight="duotone"></phqueue><span class="text">Random</span>
+              <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
             </a>
             <!--v-if-->
           </li>
@@ -178,7 +178,7 @@ exports[`SidebarNavigation > when toggle button is clicked > matches the snapsho
           </li>
           <li>
             <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-              <phlistplus class="icon" aria-hidden="true" size="20" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
             </button>
           </li>
         </ul>

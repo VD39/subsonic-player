@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import IconButton from '@/components/Buttons/IconButton.vue';
 
-const { collapsed } = useSidebar();
-
 withDefaults(
   defineProps<{
     items?: Navigation[];
@@ -17,6 +15,8 @@ withDefaults(
     titleTo: undefined,
   },
 );
+
+const { collapsed } = useSidebar();
 </script>
 
 <template>
@@ -83,7 +83,6 @@ withDefaults(
 
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 0;
 
   @media (--tablet-up) {
     display: unset;
@@ -105,6 +104,7 @@ withDefaults(
 
   @media (--tablet-up) {
     padding-left: var(--space-24);
+    margin-bottom: var(--space-8);
 
     :global(.collapsed) & {
       @mixin visually-hidden;

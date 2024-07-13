@@ -4,8 +4,10 @@ const props = withDefaults(
     disabled?: boolean;
     fullWidth?: boolean;
     icon?: string;
+    iconColor?: string;
     iconPosition?: IconPosition;
     iconSize?: number;
+    iconWeight?: IconWeight;
     is?: ButtonType;
     showText?: boolean;
     type?: string;
@@ -13,8 +15,10 @@ const props = withDefaults(
   {
     disabled: undefined,
     icon: undefined,
+    iconColor: undefined,
     iconPosition: 'left',
-    iconSize: 20,
+    iconSize: 24,
+    iconWeight: 'duotone',
     is: 'button',
     type: 'button',
   },
@@ -47,7 +51,8 @@ const isComponent =
       :class="$style.icon"
       aria-hidden="true"
       :size="iconSize"
-      weight="duotone"
+      :weight="iconWeight"
+      :color="iconColor"
     />
 
     <span
@@ -70,7 +75,7 @@ const isComponent =
 
   position: relative;
   gap: var(--space-8);
-  padding: var(--space-8);
+  padding: var(--button-spacing);
   margin: 0;
   white-space: nowrap;
 }
@@ -89,7 +94,7 @@ const isComponent =
 }
 
 .icon {
-  fill: var(--body-font-color);
+  flex-shrink: 0;
 
   [opacity='0.2'] {
     opacity: 0.4;
@@ -98,10 +103,9 @@ const isComponent =
 }
 
 .text {
+  @mixin ellipsis-overflow;
+
   display: block;
   margin-bottom: 1px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 </style>

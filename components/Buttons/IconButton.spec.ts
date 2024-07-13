@@ -178,7 +178,7 @@ describe('IconButton', () => {
     });
 
     it('emits the click event', () => {
-      expect(wrapper.emitted('click')).toHaveLength(1);
+      expect(wrapper.emitted('click')).toEqual([[]]);
     });
   });
 
@@ -188,7 +188,7 @@ describe('IconButton', () => {
     });
 
     it('emits the keypress event', () => {
-      expect(wrapper.emitted('keydown.down')).toHaveLength(1);
+      expect(wrapper.emitted('keydown.down')).toEqual([[]]);
     });
   });
 });
