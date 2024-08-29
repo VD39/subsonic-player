@@ -74,6 +74,7 @@ const isComponent =
   @mixin align-center;
 
   position: relative;
+  display: inline-flex;
   gap: var(--space-8);
   padding: var(--button-spacing);
   margin: 0;

@@ -2,12 +2,14 @@ export function useArtist() {
   const { fetchData } = useAPI();
 
   const artist = ref<Artist | null>(null);
-  const artists = useState<ArtistID3[]>('artists', () => []);
+  const artists = useState<Artist[]>('artists', () => []);
 
   async function getArtists() {
     const { data: artistsData } = await fetchData('/getArtists', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        (response.artists.index || []).flatMap((artist) => artist.artist!),
+        (response.artists.index || [])
+          .flatMap((artist) => artist.artist!)
+          .map(formatArtist),
     });
 
     if (Array.isArray(artistsData)) {

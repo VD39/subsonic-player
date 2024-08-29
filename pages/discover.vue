@@ -1,49 +1,52 @@
 <script setup lang="ts">
+import HeaderSeeAllLink from '@/components/Header/HeaderSeeAllLink.vue';
+import AlbumItem from '@/components/MediaLists/AlbumItem.vue';
+import CarouselSwiper from '@/components/Carousel/CarouselSwiper.vue';
+
 const { getAlbums } = useAlbum();
 
 const [newestAlbums, frequentAlbums, recentAlbums] = await Promise.all([
   getAlbums({
     type: 'newest',
-    size: 10,
+    size: 12,
   }),
   getAlbums({
     type: 'frequent',
-    size: 10,
+    size: 12,
   }),
   getAlbums({
     type: 'recent',
-    size: 10,
+    size: 12,
   }),
 ]);
 </script>
 
 <template>
-  <div>Hello Discover Page</div>
-  <h1>newestAlbums</h1>
+  <HeaderSeeAllLink to="/albums/recently-added">Newest albums</HeaderSeeAllLink>
 
-  <div v-if="newestAlbums?.length">
-    <div v-for="item in newestAlbums" :key="item.name">
-      <NuxtLink :to="`/album/${item.id}`">
-        <pre>{{ item.name }}</pre>
-      </NuxtLink>
-    </div>
-  </div>
-  <h1>frequentAlbums</h1>
+  <CarouselSwiper v-if="newestAlbums?.length">
+    <swiper-slide v-for="album in newestAlbums" :key="album.name">
+      <AlbumItem :album="album" />
+    </swiper-slide>
+  </CarouselSwiper>
 
-  <div v-if="frequentAlbums?.length">
-    <div v-for="item in frequentAlbums" :key="item.name">
-      <NuxtLink :to="`/album/${item.id}`">
-        <pre>{{ item.name }}</pre>
-      </NuxtLink>
-    </div>
-  </div>
-  <h1>recentAlbums</h1>
+  <HeaderSeeAllLink to="/albums/recently-played">
+    Recently Played albums
+  </HeaderSeeAllLink>
 
-  <div v-if="recentAlbums?.length">
-    <div v-for="item in recentAlbums" :key="item.name">
-      <NuxtLink :to="`/album/${item.id}`">
-        <pre>{{ item.name }}</pre>
-      </NuxtLink>
-    </div>
-  </div>
+  <CarouselSwiper v-if="recentAlbums?.length">
+    <swiper-slide v-for="album in recentAlbums" :key="album.name">
+      <AlbumItem :album="album" />
+    </swiper-slide>
+  </CarouselSwiper>
+
+  <HeaderSeeAllLink to="/albums/most-played"
+    >Most played albums</HeaderSeeAllLink
+  >
+
+  <CarouselSwiper v-if="frequentAlbums?.length">
+    <swiper-slide v-for="album in frequentAlbums" :key="album.name">
+      <AlbumItem :album="album" />
+    </swiper-slide>
+  </CarouselSwiper>
 </template>

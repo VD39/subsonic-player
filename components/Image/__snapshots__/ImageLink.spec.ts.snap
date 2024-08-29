@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ImageLink > matches the snapshot 1`] = `
+"<figure class="figure"><a title="Go to title">
+    <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  </a></figure>"
+`;

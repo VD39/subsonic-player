@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NoMediaMessage > matches the snapshot 1`] = `
+"<div class="noMediaMessage">
+  <div class="content">
+    <phplaylist size="50"></phplaylist>
+    <p>Message</p>
+  </div>
+</div>"
+`;

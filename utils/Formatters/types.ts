@@ -28,15 +28,15 @@ export interface Track {
   albumId?: string;
   artists: BaseArtist[];
   discNumber?: number;
-  duration?: number;
+  duration: string;
   favourite: boolean;
   genres: Genre[];
-  imageId?: string;
+  image: string;
   information: TrackInformation;
-  size?: number;
-  streamId?: string;
-  title: string;
-  track?: number;
+  size: string;
+  streamUrl: string;
+  name: string;
+  trackNumber?: number;
   type: MediaType;
   year?: number;
 }
@@ -48,14 +48,14 @@ interface AlbumTrack {
 export interface Album {
   artists: BaseArtist[];
   created: string;
-  duration: number;
+  duration: string;
   favourite: boolean;
   genres: Genre[];
   id: string;
-  imageId?: string;
+  image: string;
   information: AlbumTrack;
   name: string;
-  size: number;
+  size: string;
   songCount: number;
   tracks: Track[];
   type: MediaType;
@@ -70,8 +70,8 @@ export interface Artist extends BaseArtist {
   albums: Album[];
   biography?: string;
   favourite: boolean;
-  genresList: string[];
-  imageId?: string;
+  genres: Genre[];
+  image: string;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
   totalAlbums: number;
@@ -88,7 +88,7 @@ interface PlaylistInformation {
 }
 
 export interface Playlist {
-  duration: number;
+  duration: string;
   id: string;
   images: string[];
   information: PlaylistInformation;
@@ -99,7 +99,8 @@ export interface Playlist {
 }
 
 export interface RadioStation {
-  image?: string;
+  duration: string;
+  image: string;
   id: string;
   name: string;
   streamUrl: string;
@@ -108,19 +109,21 @@ export interface RadioStation {
 }
 
 export interface AllMedia {
-  artists: ArtistID3[];
   albums: Album[];
+  artists: Artist[];
   tracks: Track[];
 }
 
 export interface PodcastEpisode {
-  channelId: string;
   description?: string;
   downloaded: boolean;
+  duration: string;
   genres: Genre[];
-  image?: string;
-  publishDate?: Date;
-  streamId?: string;
+  id: string;
+  image: string;
+  publishDate: Date | string;
+  streamUrl?: string;
+  name: string;
   type: MediaType;
 }
 
@@ -129,9 +132,9 @@ export interface Podcast {
   downloadedEpisodes: number;
   episodes: PodcastEpisode[];
   id: string;
-  image?: string;
+  image: string;
   lastUpdated: string;
-  title: string;
+  name: string;
   totalEpisodes: number;
   type: MediaType;
   url: string;

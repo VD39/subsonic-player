@@ -12,10 +12,16 @@ export function sanitiseString(str: string) {
   return str.replace(/\W|_/g, ' ').replace(/ +/g, ' ').trim();
 }
 
-export function replaceSpacesWithCharacter(str: string, character = '-') {
-  return sanitiseString(str).replace(/ +/g, character);
+export function replaceSpacesWithCharacter(
+  str: string,
+  replaceCharacter = '-',
+) {
+  return sanitiseString(str).replace(/ +/g, replaceCharacter);
 }
 
-export function replaceCharactersWithSpace(str: string, character = '-') {
-  return sanitiseString(str).replace(new RegExp(character, 'g'), ' ');
+export function replaceCharactersWithSpace(
+  str: string,
+  replaceCharacter = '-',
+) {
+  return sanitiseString(str).replace(new RegExp(replaceCharacter, 'g'), ' ');
 }

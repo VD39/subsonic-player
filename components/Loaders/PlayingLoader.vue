@@ -16,12 +16,10 @@
 }
 
 .loading {
-  @mixin align-center;
-
+  display: flex;
   gap: var(--space-2);
   align-items: flex-end;
-  width: 20px;
-  height: 20px;
+  justify-content: center;
 }
 
 .bar {

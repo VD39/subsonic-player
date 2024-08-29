@@ -66,26 +66,25 @@ export class AudioPlayer {
   }
 
   private fadeIn() {
-    clearTimeout(this.fadeTimer);
-
-    if (this.audio.volume < this.currentVolume - VOLUME_INCREASE) {
-      this.audio.volume += VOLUME_INCREASE;
-      this.fadeTimer = setTimeout(() => this.fadeIn(), 10);
-    } else {
-      this.audio.volume = this.currentVolume;
-    }
+    // clearTimeout(this.fadeTimer);
+    // if (this.audio.volume < this.currentVolume - VOLUME_INCREASE) {
+    //   this.audio.volume += VOLUME_INCREASE;
+    //   this.fadeTimer = setTimeout(() => this.fadeIn(), 10);
+    // } else {
+    //   this.audio.volume = this.currentVolume;
+    // }
   }
 
   private fadeOut() {
-    clearTimeout(this.fadeTimer);
+    // clearTimeout(this.fadeTimer);
 
-    if (this.audio.volume > VOLUME_INCREASE) {
-      this.audio.volume -= VOLUME_INCREASE;
-      this.fadeTimer = setTimeout(() => this.fadeOut(), 10);
-    } else {
-      this.audio.volume = 0;
-      this.audio.pause();
-    }
+    // if (this.audio.volume > VOLUME_INCREASE) {
+    //   this.audio.volume -= VOLUME_INCREASE;
+    //   this.fadeTimer = setTimeout(() => this.fadeOut(), 10);
+    // } else {
+    //   this.audio.volume = 0;
+    this.audio.pause();
+    // }
   }
 
   onTimeupdate(callback: (currentTime: number) => void) {
@@ -114,8 +113,8 @@ export class AudioPlayer {
 
   async play() {
     await this.audio.play();
-    this.audio.volume = 0;
-    this.fadeIn();
+    // this.audio.volume = 0;
+    // this.fadeIn();
   }
 
   pause() {
@@ -134,10 +133,10 @@ export class AudioPlayer {
   }
 
   setCurrentTime(time: number) {
-    this.fadeOut();
-    this.audio.volume = 0.0;
+    // this.fadeOut();
+    // this.audio.volume = 0;
     this.audio.currentTime = time;
-    this.fadeIn();
+    // this.fadeIn();
   }
 
   setVolume(volume: number) {

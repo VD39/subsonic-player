@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import ImageLoader from '@/components/Loaders/ImageLoader.vue';
+import DefaultImage from './DefaultImage.vue';
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
-    src: string;
+    image: string;
     alt?: string;
   }>(),
   {
@@ -11,42 +12,59 @@ withDefaults(
   },
 );
 
+const { getImageUrl } = useAPI();
+
 const isLoading = ref(true);
 
 function onImageLoad() {
   isLoading.value = false;
 }
+
+const imageSrc = computed(() => {
+  if (DEFAULT_IMAGE_ICONS.includes(props.image)) {
+    return null;
+  }
+
+  if (isUrl(props.image)) {
+    return props.image;
+  }
+
+  return getImageUrl(props.image);
+});
 </script>
 
 <template>
   <div :class="$style.preloadImage">
-    <div v-show="isLoading" ref="placeholder">
-      <span :class="$style.placeholder" />
+    <template v-if="imageSrc">
+      <ImageLoader v-show="isLoading" />
 
-      <ImageLoader />
-    </div>
-
-    <img
-      v-show="!isLoading"
-      ref="img"
-      :src="src"
-      :alt="alt"
-      @load="onImageLoad"
-    />
+      <img
+        v-show="!isLoading"
+        ref="img"
+        :class="$style.image"
+        :src="imageSrc"
+        :alt="alt"
+        @load="onImageLoad"
+      />
+    </template>
+    <DefaultImage v-else :icon="image" />
   </div>
 </template>
 
 <style module>
 .preloadImage {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
   overflow: hidden;
-  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--box-shadow-medium);
 }
 
-.placeholder {
-  display: block;
-  width: 1000px;
-  height: 1000px;
+.image {
+  height: 100%;
+  object-fit: cover;
 }
 </style>

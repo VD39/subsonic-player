@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import PageNavigation from '@/components/Navigation/PageNavigation.vue';
+import AlbumsList from '@/components/MediaLists/AlbumsList.vue';
+import TrackListWithPreview from '@/components/MediaLists/TrackListWithPreview.vue';
 import InfiniteScroller from '@/components/InfiniteScroller/InfiniteScroller.vue';
 
 definePageMeta({
@@ -24,11 +27,14 @@ function fetchData() {
 <template>
   <h1>Genre</h1>
 
-  <div v-if="items.length">
-    <div v-for="item in items" :key="item.name">
-      <pre>{{ item.name }}</pre>
-    </div>
-  </div>
+  <PageNavigation :navigation="GENRE_NAVIGATION" />
+
+  <AlbumsList v-if="route.params.mediaType === 'albums'" :albums="items" />
+
+  <TrackListWithPreview
+    v-if="route.params.mediaType === 'tracks'"
+    :tracks="items"
+  />
 
   <InfiniteScroller @load-more="fetchData" />
 </template>

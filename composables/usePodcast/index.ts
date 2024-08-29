@@ -39,11 +39,13 @@ export function usePodcast() {
       retry: 0,
       params: {
         url,
+        noLoading: true,
       },
     });
 
     if (podcastData) {
       addSuccessSnack('Successfully added podcast.');
+      await getPodcasts(true);
     }
   }
 
@@ -52,11 +54,13 @@ export function usePodcast() {
       method: 'DELETE',
       params: {
         id,
+        noLoading: true,
       },
     });
 
     if (podcastData) {
       addSuccessSnack('Successfully deleted podcast.');
+      await getPodcasts(true);
     }
   }
 
@@ -64,11 +68,13 @@ export function usePodcast() {
     const { data: podcastData } = await fetchData('/deletePodcastEpisode', {
       params: {
         id,
+        noLoading: true,
       },
     });
 
     if (podcastData) {
       addSuccessSnack('Successfully deleted podcast episode.');
+      await getPodcasts(true);
     }
   }
 
@@ -76,6 +82,7 @@ export function usePodcast() {
     const { data: podcastData } = await fetchData('/downloadPodcastEpisode', {
       params: {
         id,
+        noLoading: true,
       },
     });
 

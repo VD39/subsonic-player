@@ -23,9 +23,9 @@ const { modal, closeModal } = useModal();
           @click.stop
         >
           <div :class="$style.header">
-            <h4 v-if="modal.title" ref="title" :class="$style.title">
+            <h3 v-if="modal.title" ref="title" :class="$style.title">
               {{ modal.title }}
-            </h4>
+            </h3>
 
             <IconButton
               icon="PhX"
@@ -77,7 +77,7 @@ const { modal, closeModal } = useModal();
   width: 80%;
   background-color: var(--modal-background-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-m);
+  border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-medium);
 
   @media (--tablet-up) {

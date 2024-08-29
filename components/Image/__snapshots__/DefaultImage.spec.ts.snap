@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DefaultImage > matches the snapshot 1`] = `
+"<div class="defaultImage">
+  <icon class="icon"></icon>
+</div>"
+`;

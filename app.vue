@@ -17,7 +17,7 @@ useHead({
     style: {
       '--sidebar-width': width,
       '--sidebar-bottom': () =>
-        showMediaPlayer.value ? 'var(--media-player-height)' : '0',
+        showMediaPlayer.value ? 'var(--media-player-height)' : '0px',
     },
   },
 });

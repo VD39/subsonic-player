@@ -83,7 +83,7 @@ describe('useRadioStation', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
       it('does not add to the radioStations value', () => {
@@ -121,7 +121,7 @@ describe('useRadioStation', () => {
 
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully added playlist radio-station-name.',
+          'Successfully added radio station radio-station-name.',
         );
       });
 
@@ -154,7 +154,7 @@ describe('useRadioStation', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
       it('does not add to the radioStations value', () => {
@@ -192,7 +192,7 @@ describe('useRadioStation', () => {
 
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully updated playlist radio-station-update-name.',
+          'Successfully updated radio station radio-station-update-name.',
         );
       });
 
@@ -225,7 +225,7 @@ describe('useRadioStation', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
       it('does not add to the radioStations value', () => {
@@ -257,7 +257,7 @@ describe('useRadioStation', () => {
 
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully deleted playlist.',
+          'Successfully deleted radio station.',
         );
       });
 

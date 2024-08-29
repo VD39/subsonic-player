@@ -3,8 +3,11 @@ export function useFavourite() {
 
   const favourites = useState<AllMedia>('favourites', () => DEFAULT_ALL_MEDIA);
 
-  async function getFavourites() {
+  async function getFavourites(noLoading = false) {
     const { data: favouritesData } = await fetchData('/getStarred2', {
+      params: {
+        noLoading,
+      },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         formatAllMedia(response.starred2),
     });
@@ -23,6 +26,8 @@ export function useFavourite() {
         noLoading: true,
       },
     });
+
+    getFavourites(true);
   }
 
   /* istanbul ignore next -- @preserve */
@@ -34,6 +39,8 @@ export function useFavourite() {
         noLoading: true,
       },
     });
+
+    getFavourites(true);
   }
 
   return {

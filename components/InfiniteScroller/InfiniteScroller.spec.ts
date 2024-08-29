@@ -53,6 +53,10 @@ describe('InfiniteScroller', () => {
     it('does not show the button element', () => {
       expect(wrapper.find({ ref: 'button' }).exists()).toBe(false);
     });
+
+    it('shows the no more content message', () => {
+      expect(wrapper.find({ ref: 'message' }).exists()).toBe(true);
+    });
   });
 
   describe('when hasMore value is true', () => {
@@ -66,6 +70,10 @@ describe('InfiniteScroller', () => {
 
     it('shows the button element', () => {
       expect(wrapper.find({ ref: 'button' }).exists()).toBe(true);
+    });
+
+    it('does not show the no more content message', () => {
+      expect(wrapper.find({ ref: 'message' }).exists()).toBe(false);
     });
 
     describe('when loading value is false', () => {

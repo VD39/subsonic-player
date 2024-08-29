@@ -21,7 +21,7 @@ const { startScan } = useMediaLibrary();
 describe('useMediaLibrary', () => {
   describe('when the startScan function is called', () => {
     describe('when fetchData response returns null', () => {
-      beforeEach(() => {
+      beforeAll(() => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
@@ -30,12 +30,12 @@ describe('useMediaLibrary', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
+      beforeAll(() => {
         fetchDataMock.mockResolvedValue({
           data: {
             name: 'name',

@@ -1,6 +1,9 @@
 import type { UseFetchOptions } from 'nuxt/app';
 
 export function useAPI() {
+  const config = useRuntimeConfig();
+  const { IMAGE_SIZE } = config.public;
+
   const { addErrorSnack } = useSnack();
 
   const authParams = useCookie('auth-params');
@@ -22,24 +25,20 @@ export function useAPI() {
     return url.toString();
   }
 
-  function getImageUrl(id?: string, size = 500) {
-    if (!id) {
-      return `https://placehold.co/${size}x${size}`;
-    }
-
+  function getImageUrl(image: string) {
     return getUrl('getCoverArt', {
-      id,
-      size,
+      id: image,
+      size: IMAGE_SIZE,
     });
   }
 
-  function getStreamUrl(id?: string) {
-    if (!id) {
-      return '';
+  function getStreamUrl(streamUrl: string) {
+    if (isUrl(streamUrl)) {
+      return streamUrl;
     }
 
     return getUrl('stream', {
-      id,
+      id: streamUrl,
     });
   }
 

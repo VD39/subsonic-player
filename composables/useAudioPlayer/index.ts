@@ -46,11 +46,17 @@ export function useAudioPlayer() {
 
   const isTrack = computed(() => currentTrack.value.type === 'track');
 
-  const isPodcast = computed(() => currentTrack.value.type === 'podcast');
+  const isPodcast = computed(
+    () => currentTrack.value.type === 'podcastEpisode',
+  );
 
   const isRadioStation = computed(
     () => currentTrack.value.type === 'radioStation',
   );
+
+  function isCurrentTrack(id: string) {
+    return currentTrack.value.id === id;
+  }
 
   // Play/Pause actions.
   async function playTrack() {
@@ -72,7 +78,7 @@ export function useAudioPlayer() {
   }
 
   async function changeTrack(track: QueueTrack) {
-    const url = track.streamId ? getStreamUrl(track.streamId) : track.streamUrl;
+    const url = getStreamUrl(track.streamUrl!);
     audioPlayer.value?.load(url);
     await playTrack();
   }
@@ -165,25 +171,31 @@ export function useAudioPlayer() {
     shuffle.value = !shuffle.value;
 
     if (shuffle.value) {
-      shuffleTracks();
+      shuffleQueueTracks();
     } else {
-      resetTracks();
+      resetQueueTracks();
     }
   }
 
-  function resetTracks() {
+  function resetQueueTracks() {
     const tempCurrentTrackId = currentTrack.value.id;
     queueList.value = [...JSON.parse(queueOriginal.value)];
     const index = getIndex(queueList.value, tempCurrentTrackId);
     currentQueueIndex.value = index;
   }
 
-  function shuffleTracks() {
+  function shuffleQueueTracks() {
     const queueClone = [...queueList.value];
     queueOriginal.value = JSON.stringify(queueClone);
     const index = getIndex(queueList.value, currentTrack.value.id);
     queueList.value = shuffleArray(queueClone, index);
     currentQueueIndex.value = 0;
+  }
+
+  async function shuffleTracks(tracks: QueueTrack[]) {
+    const queueIndex = Math.floor(Math.random() * tracks.length) - 1;
+    playTracks(tracks, queueIndex);
+    toggleShuffle();
   }
 
   // Volume actions.
@@ -241,18 +253,22 @@ export function useAudioPlayer() {
     }
   }
 
-  function addTrackToQueue(tracks: QueueTrack) {
+  async function addTrackToQueue(tracks: QueueTrack) {
     queueList.value.push(tracks);
+
+    if (queueList.value.length === 1) {
+      await playNextTrack();
+    }
   }
 
   function addTracksToQueue(tracks: QueueTrack[]) {
     queueList.value.push(...tracks);
   }
 
-  async function playTracks(tracks: QueueTrack[]) {
+  async function playTracks(tracks: QueueTrack[], queueIndex = -1) {
     clearQueueList();
     addTracksToQueue(tracks);
-    currentQueueIndex.value = -1;
+    currentQueueIndex.value = queueIndex;
     await playNextTrack();
   }
 
@@ -331,6 +347,7 @@ export function useAudioPlayer() {
     fastForwardTrack,
     hasNextTrack,
     hasPreviousTrack,
+    isCurrentTrack,
     isMuted,
     isPodcast,
     isRadioStation,
@@ -338,7 +355,6 @@ export function useAudioPlayer() {
     playBackRate,
     playCurrentTrack,
     playNextTrack,
-    togglePlay,
     playPreviousTrack,
     playTracks,
     queueList,
@@ -351,6 +367,8 @@ export function useAudioPlayer() {
     setVolume,
     showMediaPlayer,
     shuffle,
+    shuffleTracks,
+    togglePlay,
     toggleShuffle,
     toggleVolume,
     trackCanPlay,

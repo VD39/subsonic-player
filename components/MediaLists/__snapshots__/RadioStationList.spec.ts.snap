@@ -1,0 +1,119 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioStationList > matches the snapshot 1`] = `
+"<div class="noMediaMessage">
+  <div class="content">
+    <phradio size="50"></phradio>
+    <p>No radio stations found.</p>
+  </div>
+</div>"
+`;
+
+exports[`RadioStationList > when radioStations prop is not an empty array > matches the snapshot 1`] = `
+"<div>
+  <div class="trackHeader">
+    <div class="trackPlay">#</div>
+    <div class="trackDetails">
+      <p>Station</p>
+    </div>
+  </div>
+  <ol>
+    <li class="trackItem" data-test-id="radio-station">
+      <div class="trackPlay">
+        <div class="trackImage"><button class="iconButton itemLink playButton itemLink playButton" type="button" title="Play track">
+            <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="text visually-hidden"> Play track </span>
+          </button></div>
+      </div>
+      <div class="trackDetails"><a href="homepageUrl" target="_blank" class="clamp name">radio-station-0</a>
+        <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+          </button>
+          <transition-stub name="fade" appear="false" persisted="false" css="true">
+            <div class="dropdownMenu">
+              <ul class="menu">
+                <li class="dropdownItem" data-test-id="edit-radio-station"><button class="iconButton fullWidth action action" type="button" data-test-id="edit-radio-station">
+                    <!--v-if--><span class="text"> Edit station </span>
+                  </button></li>
+                <li class="dropdownItem" data-test-id="delete-radio-station"><button class="iconButton fullWidth action action" type="button" data-test-id="delete-radio-station">
+                    <!--v-if--><span class="text"> Delete station </span>
+                  </button></li>
+                <li class="divider" aria-hidden="true"></li>
+                <li class="dropdownItem" data-test-id="add-to-queue"><button class="iconButton fullWidth action action" type="button" data-test-id="add-to-queue">
+                    <!--v-if--><span class="text"> Add to queue </span>
+                  </button></li>
+                <li class="dropdownItem" data-test-id="play-station"><button class="iconButton fullWidth action action" type="button" data-test-id="play-station">
+                    <!--v-if--><span class="text"> Play station </span>
+                  </button></li>
+              </ul>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </li>
+    <li class="trackItem" data-test-id="radio-station">
+      <div class="trackPlay">
+        <div class="trackImage"><button class="iconButton itemLink playButton itemLink playButton" type="button" title="Play track">
+            <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="text visually-hidden"> Play track </span>
+          </button></div>
+      </div>
+      <div class="trackDetails"><a href="homepageUrl" target="_blank" class="clamp name">radio-station-1</a>
+        <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+          </button>
+          <transition-stub name="fade" appear="false" persisted="false" css="true">
+            <!--v-if-->
+          </transition-stub>
+        </div>
+      </div>
+    </li>
+    <li class="trackItem" data-test-id="radio-station">
+      <div class="trackPlay">
+        <div class="trackImage"><button class="iconButton itemLink playButton itemLink playButton" type="button" title="Play track">
+            <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="text visually-hidden"> Play track </span>
+          </button></div>
+      </div>
+      <div class="trackDetails"><a href="homepageUrl" target="_blank" class="clamp name">radio-station-2</a>
+        <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+          </button>
+          <transition-stub name="fade" appear="false" persisted="false" css="true">
+            <!--v-if-->
+          </transition-stub>
+        </div>
+      </div>
+    </li>
+    <li class="trackItem" data-test-id="radio-station">
+      <div class="trackPlay">
+        <div class="trackImage"><button class="iconButton itemLink playButton itemLink playButton" type="button" title="Play track">
+            <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="text visually-hidden"> Play track </span>
+          </button></div>
+      </div>
+      <div class="trackDetails"><a href="homepageUrl" target="_blank" class="clamp name">radio-station-3</a>
+        <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+          </button>
+          <transition-stub name="fade" appear="false" persisted="false" css="true">
+            <!--v-if-->
+          </transition-stub>
+        </div>
+      </div>
+    </li>
+    <li class="trackItem" data-test-id="radio-station">
+      <div class="trackPlay">
+        <div class="trackImage"><button class="iconButton itemLink playButton itemLink playButton" type="button" title="Play track">
+            <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="text visually-hidden"> Play track </span>
+          </button></div>
+      </div>
+      <div class="trackDetails"><a href="homepageUrl" target="_blank" class="clamp name">radio-station-4</a>
+        <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+          </button>
+          <transition-stub name="fade" appear="false" persisted="false" css="true">
+            <!--v-if-->
+          </transition-stub>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>"
+`;

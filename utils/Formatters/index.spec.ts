@@ -24,16 +24,16 @@ describe('formatAlbum', () => {
     expect(formatAlbum(albumMock)).toEqual({
       artists: expect.any(Array),
       created: 'id',
-      duration: 12345,
+      duration: '03:25:45',
       favourite: true,
       genres: expect.any(Array),
       id: 'id',
-      imageId: 'coverArt',
+      image: 'coverArt',
       information: {
         playCount: 1,
       },
       name: 'name',
-      size: 16,
+      size: '0.02 KB',
       songCount: 4,
       tracks: expect.any(Array),
       type: 'album',
@@ -154,16 +154,16 @@ describe('formatArtist', () => {
         {
           artists: expect.any(Array),
           created: 'id',
-          duration: 12345,
+          duration: '03:25:45',
           favourite: true,
           genres: expect.any(Array),
           id: 'id',
-          imageId: 'coverArt',
+          image: 'coverArt',
           information: {
             playCount: 1,
           },
           name: 'name',
-          size: 16,
+          size: '0.02 KB',
           songCount: 4,
           tracks: expect.any(Array),
           type: 'album',
@@ -172,9 +172,9 @@ describe('formatArtist', () => {
       ],
       biography: undefined,
       favourite: true,
-      genresList: expect.any(Array),
+      genres: expect.any(Array),
       id: 'id',
-      imageId: 'coverArt',
+      image: 'coverArt',
       lastFmUrl: undefined,
       musicBrainzUrl: undefined,
       name: 'name',
@@ -262,7 +262,7 @@ describe('formatArtist', () => {
     it('returns the correct values', () => {
       expect(formatArtist(artistMock)).toEqual(
         expect.objectContaining({
-          imageId: 'coverArt',
+          image: 'coverArt',
         }),
       );
     });
@@ -278,7 +278,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            imageId: 'artistImageUrl',
+            image: 'artistImageUrl',
           }),
         );
       });
@@ -294,7 +294,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            imageId: undefined,
+            image: 'PhUsersThree',
           }),
         );
       });
@@ -334,20 +334,22 @@ describe('formatPodcast', () => {
       downloadedEpisodes: 1,
       episodes: [
         {
-          channelId: 'channelId',
           description: 'description',
+          duration: '00:19',
           downloaded: true,
           genres: [],
+          id: 'id',
           image: 'image',
-          publishDate: DATE,
-          streamId: 'streamId',
+          name: 'title',
+          publishDate: '01 Jan 2000',
+          streamUrl: 'streamUrl',
           type: 'podcastEpisode',
         },
       ],
       id: 'id',
       image: 'image',
       lastUpdated: '01 Jan 2000',
-      title: 'title',
+      name: 'title',
       totalEpisodes: 1,
       type: 'podcast',
       url: 'url',
@@ -363,7 +365,7 @@ describe('formatPodcast', () => {
         }),
       ).toEqual(
         expect.objectContaining({
-          title: 'Podcast',
+          name: 'Podcast',
         }),
       );
     });
@@ -393,7 +395,7 @@ describe('formatPodcast', () => {
             episode: [
               {
                 status: 'downloading',
-                streamId: undefined,
+                streamUrl: undefined,
               } as ResponsePodcastEpisode,
             ],
           }),
@@ -401,7 +403,7 @@ describe('formatPodcast', () => {
           expect.objectContaining({
             episodes: [
               expect.objectContaining({
-                streamId: undefined,
+                streamUrl: undefined,
               }),
             ],
           }),
@@ -417,7 +419,7 @@ describe('formatPodcast', () => {
             episode: [
               {
                 status: 'completed',
-                streamId: 'streamId',
+                streamUrl: 'streamUrl',
               } as ResponsePodcastEpisode,
             ],
           }),
@@ -425,7 +427,7 @@ describe('formatPodcast', () => {
           expect.objectContaining({
             episodes: [
               expect.objectContaining({
-                streamId: 'streamId',
+                streamUrl: 'streamUrl',
               }),
             ],
           }),
@@ -460,7 +462,7 @@ describe('formatPodcast', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            image: undefined,
+            image: 'PhApplePodcastsLogo',
           }),
         );
       });
@@ -471,6 +473,7 @@ describe('formatPodcast', () => {
 describe('formatRadioStation', () => {
   it('returns the correct values', () => {
     expect(formatRadioStation(radioStationMock)).toEqual({
+      duration: '',
       homePageUrl: 'homepageUrl',
       id: 'id',
       image:
@@ -508,7 +511,7 @@ describe('formatRadioStation', () => {
       ).toEqual(
         expect.objectContaining({
           homePageUrl: undefined,
-          image: 'https://placehold.co/500x500',
+          image: 'PhRadio',
         }),
       );
     });
@@ -522,11 +525,11 @@ describe('formatTracks', () => {
       albumId: 'albumId',
       artists: expect.any(Array),
       discNumber: 1,
-      duration: 19,
+      duration: '00:19',
       favourite: false,
       genres: [],
       id: 'id',
-      imageId: 'coverArt',
+      image: 'coverArt',
       information: {
         bitRate: 15,
         contentType: 'contentType',
@@ -537,10 +540,10 @@ describe('formatTracks', () => {
         transcodedContentType: undefined,
         transcodedSuffix: undefined,
       },
-      size: 16,
-      streamId: 'id',
-      title: 'title',
-      track: 1,
+      size: '0.02 KB',
+      streamUrl: 'id',
+      name: 'title',
+      trackNumber: 1,
       type: 'track',
       year: 2024,
     });
@@ -580,7 +583,7 @@ describe('formatTracks', () => {
 describe('formatPlaylist', () => {
   it('returns the correct values', () => {
     expect(formatPlaylist(playlistMock)).toEqual({
-      duration: 1,
+      duration: '00:01',
       id: 'id',
       images: ['coverArt'],
       information: {

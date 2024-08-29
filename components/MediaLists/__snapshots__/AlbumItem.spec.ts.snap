@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AlbumItem > matches the snapshot 1`] = `
+"<article>
+  <figure class="figure"><a title="Go to name">
+      <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="name" style="display: none;"></div>
+    </a></figure>
+  <p class="clamp clamp2"><a title="Go to album name">name</a></p>
+  <ul class="commaList clamp clamp2">
+    <li data-test-id="artist-list-item"><a>name</a></li>
+    <li data-test-id="artist-list-item"><a>name1</a></li>
+  </ul>
+</article>"
+`;
+
+exports[`AlbumItem > when album artist is an empty array > matches the snapshot 1`] = `
+"<article>
+  <figure class="figure"><a title="Go to name">
+      <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="name" style="display: none;"></div>
+    </a></figure>
+  <p class="clamp clamp2"><a title="Go to album name">name</a></p>
+  <!--v-if-->
+</article>"
+`;

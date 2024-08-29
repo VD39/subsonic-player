@@ -3,7 +3,6 @@ import FavouriteButton from '@/components/Buttons/FavouriteButton.vue';
 import VolumeControl from './Controls/VolumeControl.vue';
 import PlaybackRateButton from './Controls/PlaybackRateButton.vue';
 import MediaInformation from './Controls/MediaInformation.vue';
-import QueueControl from './Controls/QueueControl.vue';
 
 const {
   currentTime,
@@ -28,13 +27,11 @@ const {
     <MediaInformation v-if="isTrack || isPodcast" />
 
     <FavouriteButton
-      v-if="isTrack"
+      v-if="'favourite' in currentTrack"
       :id="currentTrack.id"
       :favourite="currentTrack.favourite"
       :type="currentTrack.type"
     />
-
-    <QueueControl />
   </div>
 </template>
 
@@ -48,6 +45,7 @@ const {
 
 .time {
   flex-shrink: 0;
+  margin-right: var(--space-8);
   font-size: var(--small-font-size);
 }
 </style>

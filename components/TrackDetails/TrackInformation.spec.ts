@@ -5,7 +5,7 @@ import ArtistsList from '@/components/TrackDetails/ArtistsList.vue';
 import GenreList from '@/components/TrackDetails/GenreList.vue';
 import TrackInformation from './TrackInformation.vue';
 
-const queueTrackMock = getFormattedQueueTracksMock()[0];
+const queueTrackMock = getFormattedQueueTracksMock()[0] as Track;
 
 function factory(props = {}) {
   return mount(TrackInformation, {
@@ -123,7 +123,7 @@ describe('TrackInformation', () => {
       wrapper = factory({
         track: {
           ...queueTrackMock,
-          title: undefined,
+          name: undefined,
         },
       });
     });

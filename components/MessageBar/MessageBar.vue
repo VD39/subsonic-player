@@ -18,7 +18,7 @@ defineProps<{
   justify-content: space-between;
   width: 100%;
   padding: var(--space-8);
-  border-radius: var(--border-radius-s);
+  border-radius: var(--border-radius-small);
 
   > * {
     font-size: var(--small-font-size);

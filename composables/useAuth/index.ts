@@ -3,18 +3,18 @@ import MD5 from 'crypto-js/md5';
 export function useAuth() {
   const { fetchData } = useAPI();
   const user = useUser();
-  const authParams = useCookie('auth-params', {
+  const authCookie = useCookie('auth-params', {
     sameSite: true,
   });
 
   const loading = ref(false);
   const error = ref<string | null>(null);
   const authenticated = useState('authenticated', () => false);
-  user.value = loadSession(authParams.value!);
+  user.value = loadSession(authCookie.value!);
 
   async function logout() {
-    authParams.value = null;
-    authenticated.value = false;
+    authCookie.value = null;
+    clearNuxtState();
   }
 
   async function autoLogin() {
@@ -65,13 +65,14 @@ export function useAuth() {
     if (loginError?.message) {
       error.value = loginError.message;
       loading.value = false;
+      authenticated.value = false;
 
       return;
     }
 
     if (loggedIn) {
-      authParams.value = convertToQueryString(params);
-      user.value = loadSession(authParams.value);
+      authCookie.value = convertToQueryString(params);
+      user.value = loadSession(authCookie.value);
       authenticated.value = true;
     }
 

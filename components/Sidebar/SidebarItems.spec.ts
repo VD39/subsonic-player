@@ -88,11 +88,11 @@ describe('SidebarItems', () => {
       expect(wrapper.find({ ref: 'items' }).exists()).toBe(true);
     });
 
-    it('shows the correct amount of item', () => {
+    it('shows the correct number of item', () => {
       expect(wrapper.findAllComponents(IconButton).length).toBe(2);
     });
 
-    it('shows the correct amount of components', () => {
+    it('shows the correct number of components', () => {
       expect(wrapper.findAll('[data-test-id="item-component"]').length).toBe(1);
     });
 

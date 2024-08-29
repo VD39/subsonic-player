@@ -4,7 +4,7 @@ import IconButton from '@/components/Buttons/IconButton.vue';
 const { openModal } = useModal();
 const { currentTrack } = useAudioPlayer();
 
-function addPlaylistModal() {
+function openTrackInformationModal() {
   switch (currentTrack.value.type) {
     case 'track':
       openModal('trackDetailsModal', {
@@ -12,8 +12,8 @@ function addPlaylistModal() {
       });
       break;
     case 'podcast':
-      openModal('podcastDescriptionModal', {
-        description: currentTrack.value.description,
+      openModal('podcastEpisodeDescriptionModal', {
+        description: (currentTrack.value as PodcastEpisode).description,
       });
       break;
   }
@@ -24,7 +24,7 @@ function addPlaylistModal() {
   <IconButton
     icon="PhInfo"
     title="Episode information"
-    @click="addPlaylistModal"
+    @click="openTrackInformationModal"
   >
     Episode information
   </IconButton>

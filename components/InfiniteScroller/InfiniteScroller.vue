@@ -50,22 +50,27 @@ function loadMore() {
 
       <ScrollerLoader v-if="loading" />
     </button>
+    <p v-else ref="message" :class="$style.message">-- No more content --</p>
   </div>
 </template>
 
 <style module>
-.button {
+.button,
+.message {
   @mixin align-center;
 
   justify-content: center;
+  margin: var(--space-40) auto 0;
+}
+
+.button {
   width: 150px;
   height: 50px;
   padding: var(--button-spacing);
-  margin: var(--space-32) auto;
   cursor: pointer;
   background-color: var(--dark-background-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-m);
+  border-radius: var(--border-radius-medium);
 
   &:disabled {
     pointer-events: none;

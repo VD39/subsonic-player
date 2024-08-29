@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EntryHeader > matches the snapshot 1`] = `
+"<div class="background">
+  <div class="preloadImage backgroundImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  <div class="blur"></div>
+</div>
+<section class="content">
+  <figure class="figure">
+    <div class="preloadImage image" data-test-id="image"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  </figure>
+  <div>
+    <h1>title</h1>Default slot
+  </div>
+</section>"
+`;
+
+exports[`EntryHeader > when there are three images > matches the snapshot 1`] = `
+"<div class="background">
+  <div class="preloadImage backgroundImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  <div class="blur"></div>
+</div>
+<section class="content">
+  <figure class="figure">
+    <div class="preloadImage image" data-test-id="image"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+    <div class="preloadImage image" data-test-id="image"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image1" alt="title" style="display: none;"></div>
+    <div class="preloadImage image" data-test-id="image"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="image2" alt="title" style="display: none;"></div>
+  </figure>
+  <div>
+    <h1>title</h1>Default slot
+  </div>
+</section>"
+`;

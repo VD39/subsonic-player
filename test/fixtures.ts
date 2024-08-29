@@ -1,3 +1,25 @@
+const artists = [
+  {
+    albumCount: 12,
+    id: 'id',
+    name: 'name',
+  },
+  {
+    albumCount: 12,
+    id: 'id1',
+    name: 'name1',
+  },
+];
+
+const genres = [
+  {
+    name: 'genre',
+  },
+  {
+    name: 'genre1',
+  },
+];
+
 export const DATE = new Date(2000, 0, 1);
 
 export const routeMock = {
@@ -29,23 +51,13 @@ export const radioStationMock = {
   streamUrl: 'streamUrl',
 };
 
+// Update to make artist and genres a const.
 export const trackMock = {
   album: 'album',
   albumArtists: null,
   albumId: 'albumId',
   artist: 'artist',
-  artists: [
-    {
-      albumCount: 12,
-      id: 'id',
-      name: 'name',
-    },
-    {
-      albumCount: 12,
-      id: 'id1',
-      name: 'name1',
-    },
-  ],
+  artists,
   bitRate: 15,
   contentType: 'contentType',
   coverArt: 'coverArt',
@@ -73,30 +85,12 @@ export const albumMock = {
   album: 'album',
   artist: 'artist',
   artistId: 'id2',
-  artists: [
-    {
-      albumCount: 12,
-      id: 'id',
-      name: 'name',
-    },
-    {
-      albumCount: 12,
-      id: 'id1',
-      name: 'name1',
-    },
-  ],
+  artists,
   coverArt: 'coverArt',
   created: DATE,
   duration: 12345,
   genre: 'genre',
-  genres: [
-    {
-      name: 'genre',
-    },
-    {
-      name: 'genre1',
-    },
-  ],
+  genres,
   id: 'id',
   name: 'name',
   playCount: 1,
@@ -130,15 +124,16 @@ export const playlistMock = {
 } as ResponsePlaylist;
 
 export const podcastEpisodeMock = {
-  channelId: 'channelId',
-  description: 'description',
   id: 'id',
+  description: 'description',
+  duration: 19,
+  channelId: 'channelId',
   image: 'image',
   isDir: false,
   name: 'name',
   publishDate: DATE,
   status: 'completed',
-  streamId: 'streamId',
+  streamUrl: 'streamUrl',
   title: 'title',
 } as ResponsePodcastEpisode;
 
@@ -156,30 +151,14 @@ export const podcastMock = {
 export const formattedTrackMock = {
   album: 'album',
   albumId: 'albumId',
-  artists: [
-    {
-      id: 'id',
-      name: 'name',
-    },
-    {
-      id: 'id1',
-      name: 'name1',
-    },
-  ],
+  artists,
   description: 'Description',
   discNumber: 1,
-  duration: 19,
+  duration: '00:19',
   favourite: false,
-  genres: [
-    {
-      name: 'name',
-    },
-    {
-      name: 'name1',
-    },
-  ],
+  genres,
   id: 'id',
-  imageId: 'coverArt',
+  image: 'coverArt',
   information: {
     bitRate: 15,
     contentType: 'contentType',
@@ -189,16 +168,16 @@ export const formattedTrackMock = {
     transcodedContentType: 'transcodedContentType',
     transcodedSuffix: 'transcodedSuffix',
   },
-  size: 16,
-  streamId: 'streamId',
-  title: 'title',
+  size: '0.02 KB',
+  streamUrl: 'streamUrl',
+  name: 'name',
   track: 1,
   type: 'track',
   year: 2024,
 } as Track;
 
 export const formattedPlaylistMock = {
-  duration: 1,
+  duration: '00:01',
   id: 'id',
   images: [],
   information: {
@@ -213,3 +192,72 @@ export const formattedPlaylistMock = {
   tracks: [formattedTrackMock],
   type: 'playlist',
 } as Playlist;
+
+export const formattedAlbumMock = {
+  artists,
+  created: 'id',
+  duration: '03:25:45',
+  favourite: true,
+  genres,
+  id: 'id',
+  image: 'coverArt',
+  information: {
+    playCount: 1,
+  },
+  name: 'name',
+  size: '0.02 KB',
+  songCount: 4,
+  tracks: [formattedTrackMock],
+  type: 'album',
+  year: 2024,
+} as Album;
+
+export const formattedArtistMock = {
+  albums: [formattedAlbumMock],
+  biography: undefined,
+  favourite: true,
+  genres,
+  id: 'id',
+  image: 'coverArt',
+  lastFmUrl: undefined,
+  musicBrainzUrl: undefined,
+  name: 'name',
+  totalAlbums: 0,
+  totalTracks: 4,
+  type: 'artist',
+} as Artist;
+
+export const formattedPodcastEpisodeMock = {
+  description: 'description',
+  duration: '00:19',
+  downloaded: true,
+  genres: [],
+  id: 'id',
+  image: 'image',
+  name: 'title',
+  publishDate: DATE,
+  streamUrl: 'streamUrl',
+  type: 'podcastEpisode',
+};
+
+export const formattedPodcastMock = {
+  description: 'description',
+  downloadedEpisodes: 1,
+  episodes: [formattedPodcastEpisodeMock],
+  id: 'id',
+  image: 'image',
+  lastUpdated: '01 Jan 2000',
+  name: 'title',
+  totalEpisodes: 1,
+  type: 'podcast',
+  url: 'url',
+} as Podcast;
+
+export const formattedRadioStationMock = {
+  homePageUrl: 'homepageUrl',
+  id: 'id',
+  image: 'coverArt',
+  name: 'name',
+  streamUrl: 'streamUrl',
+  type: 'radioStation',
+} as RadioStation;

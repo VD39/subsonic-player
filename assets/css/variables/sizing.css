@@ -3,12 +3,23 @@
   --inner-gap: 6vw;
 
   /* Max screen size width. */
-  --max-width: 80rem;
+  --max-width: 85rem;
 
   /* Header height. */
   --header-height: 65px;
 
-  /* Media Player. */
-  --media-player-height: 75px;
-  --queue-image-width-height: 45px;
+  /* Media player. */
+  --media-player-height: 80px;
+
+  /* Track images. */
+  --track-image-size-small: 45px;
+  --track-image-size-medium: var(--media-player-height);
+  --track-image-size-large: 100px;
+  --track-image-size-extra-large: 130px;
+
+  /* Loader size. */
+  --loader-size-small: calc(var(--track-image-size-small) * 0.4);
+  --loader-size-medium: calc(var(--track-image-size-medium) * 0.3);
+  --loader-size-large: calc(var(--track-image-size-large) * 0.3);
+  --loader-size-extra-large: calc(var(--track-image-size-extra-large) * 0.3);
 }

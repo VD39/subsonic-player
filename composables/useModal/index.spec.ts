@@ -1,8 +1,8 @@
 import AddPlaylistForm from '@/components/Forms/AddPlaylistForm.vue';
-import AddRadioStationForm from '@/components/Forms/AddRadioStationForm.vue';
+import AddRadioStationForm from '@/components/Forms/AddUpdateRadioStationForm.vue';
 import AddPodcastForm from '@/components/Forms/AddPodcastForm.vue';
-import PodcastDescription from '@/components/TrackDetails/PodcastDescription.vue';
-import TrackDetails from '~/components/TrackDetails/TrackInformation.vue';
+import MediaDescription from '@/components/TrackDetails/MediaDescription.vue';
+import TrackDetails from '@/components/TrackDetails/TrackInformation.vue';
 import { useModal } from './index';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,7 +43,7 @@ describe('useModal', () => {
       },
     ],
     [
-      'addRadioStationModal',
+      'addUpdateRadioStationModal',
       AddRadioStationForm,
       'Add radio station',
       {
@@ -52,8 +52,24 @@ describe('useModal', () => {
     ],
     [
       'podcastDescriptionModal',
-      PodcastDescription,
+      MediaDescription,
+      'Podcast Description',
+      {
+        attrs: 'attrs',
+      },
+    ],
+    [
+      'podcastEpisodeDescriptionModal',
+      MediaDescription,
       'Episode Description',
+      {
+        attrs: 'attrs',
+      },
+    ],
+    [
+      'artistBiographyModal',
+      MediaDescription,
+      'Artist Biography',
       {
         attrs: 'attrs',
       },

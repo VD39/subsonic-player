@@ -25,6 +25,7 @@
   /* Light colours. */
 
   --invert-color: var(--black-color);
+  --invert-color-clear: rgb(18 18 18 / 20%);
 
   /* Font colours. */
   --header-font-color: var(--invert-color);
@@ -40,12 +41,21 @@
   --track-background-color: var(--background-color);
   --track-hover-background-color: #fafbfb;
   --modal-background-color: var(--background-color);
+
+  /* Blur. */
+  --image-blur: linear-gradient(
+    to bottom,
+    rgb(18 18 18 / 30%),
+    rgb(255 255 255 / 20%),
+    var(--body-background-color)
+  );
 }
 
 .dark {
   /* Dark colours. */
 
   --invert-color: var(--white-color);
+  --invert-color-clear: rgb(255 255 255 / 40%);
 
   /* Font colours. */
   --header-font-color: var(--invert-color);
@@ -61,4 +71,12 @@
   --track-background-color: var(--background-color);
   --track-hover-background-color: #181b22;
   --modal-background-color: var(--background-color);
+
+  /* Blur. */
+  --image-blur: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 40%),
+    rgb(18 18 18 / 30%),
+    var(--body-background-color)
+  );
 }

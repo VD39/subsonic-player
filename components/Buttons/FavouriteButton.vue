@@ -22,9 +22,11 @@ const buttonProps = computed<FavouriteButtonProps>(() => {
 });
 
 async function toggleFavourite() {
-  const action = isFavourite.value ? removeFavourite : addFavourite;
-
-  await action(props);
+  if (isFavourite.value) {
+    await removeFavourite(props);
+  } else {
+    await addFavourite(props);
+  }
 
   isFavourite.value = !isFavourite.value;
 }

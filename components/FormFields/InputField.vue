@@ -23,6 +23,7 @@ function updateModel(event: Event) {
   emit('update:modelValue', (event.target as HTMLInputElement).value);
 }
 </script>
+
 <template>
   <div
     :class="[
@@ -87,7 +88,7 @@ function updateModel(event: Event) {
   color: var(--body-font-color);
   background-color: var(--secondary-background-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-s);
+  border-radius: var(--border-radius-small);
 
   .error & {
     border-color: var(--error-color);

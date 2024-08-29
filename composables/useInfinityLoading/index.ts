@@ -7,8 +7,8 @@ export function useInfinityLoading<T>() {
   const loading = useState('infinity-loader', () => false);
   const hasMore = useState('infinity-has-more', () => false);
 
-  async function fetchMoreData(
-    dataToFetch: (offset: number) => Promise<unknown>,
+  async function fetchMoreData<T>(
+    dataToFetch: (offset: number) => Promise<T> | T,
   ) {
     loading.value = true;
 
@@ -42,6 +42,7 @@ export function useInfinityLoading<T>() {
     fetchMoreData,
     hasMore,
     items,
+    LOAD_SIZE: Number(LOAD_SIZE),
     loading,
     resetToDefaults,
   };

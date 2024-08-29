@@ -6,8 +6,8 @@ defineProps<{
   track: Track;
 }>();
 
-function setDefault(value?: string | number) {
-  return value || '-';
+function setDefault(value: string | number = '-') {
+  return value;
 }
 </script>
 
@@ -15,7 +15,7 @@ function setDefault(value?: string | number) {
   <ul :class="$style.trackDetails">
     <li :class="$style.detail">
       <p :class="['strong', $style.title]">Title</p>
-      <p ref="title" :class="$style.content">{{ setDefault(track.title) }}</p>
+      <p ref="title" :class="$style.content">{{ setDefault(track.name) }}</p>
     </li>
 
     <li :class="$style.detail">
@@ -44,14 +44,14 @@ function setDefault(value?: string | number) {
 
     <li :class="$style.detail">
       <p :class="['strong', $style.title]">Track</p>
-      <p :class="$style.content">{{ setDefault(track.track) }}</p>
+      <p :class="$style.content">{{ setDefault(track.trackNumber) }}</p>
     </li>
 
     <li :class="$style.detail">
       <p :class="['strong', $style.title]">Duration</p>
-      <p :class="$style.content">
-        {{ setDefault(secondsToHHMMSS(track.duration)) }}
-      </p>
+      <time :class="$style.content">
+        {{ setDefault(track.duration) }}
+      </time>
     </li>
 
     <li :class="$style.detail">

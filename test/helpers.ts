@@ -1,6 +1,9 @@
 import {
   albumMock,
+  formattedAlbumMock,
+  formattedArtistMock,
   formattedPlaylistMock,
+  formattedRadioStationMock,
   formattedTrackMock,
   playlistMock,
   podcastEpisodeMock,
@@ -82,6 +85,48 @@ export function getFormattedTracksMock(
     }));
 }
 
+export function getFormattedAlbumsMock(
+  length = 1,
+  params = {} as Partial<Album>,
+) {
+  return Array(length)
+    .fill('')
+    .map((_, index) => ({
+      ...formattedAlbumMock,
+      ...params,
+      id: `album-${index}`,
+      name: `album-${index}`,
+    }));
+}
+
+export function getFormattedArtistsMock(
+  length = 1,
+  params = {} as Partial<Artist>,
+) {
+  return Array(length)
+    .fill('')
+    .map((_, index) => ({
+      ...formattedArtistMock,
+      ...params,
+      id: `artist-${index}`,
+      name: `artist-${index}`,
+    }));
+}
+
+export function getFormattedRadioStationMock(
+  length = 1,
+  params = {} as Partial<RadioStation>,
+) {
+  return Array(length)
+    .fill('')
+    .map((_, index) => ({
+      ...formattedRadioStationMock,
+      ...params,
+      id: `radio-station-${index}`,
+      name: `radio-station-${index}`,
+    }));
+}
+
 export function getFormattedQueueTracksMock(
   length = 1,
   params = {} as Partial<QueueTrack>,
@@ -95,7 +140,7 @@ export function getFormattedQueueTracksMock(
           ...params,
           id: `queue-track-${index}`,
           name: `queue-track-${index}`,
-          streamId: `queue-streamId${index}`,
+          streamUrl: `queue-streamUrl${index}`,
         }) as QueueTrack,
     );
 }

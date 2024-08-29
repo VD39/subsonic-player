@@ -12,7 +12,7 @@ const config = {
       },
     ],
     'selector-class-pattern': [
-      /^[a-z][a-zA-Z0-9]+$|visually-hidden/,
+      /^[a-z][a-zA-Z0-9]+$/,
       {
         message: 'Expected class to be camelCase',
       },

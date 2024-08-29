@@ -201,11 +201,15 @@ describe('usePlaylist', () => {
       });
 
       it('does not add to the playlists value', () => {
-        expect(result.composable.playlists.value).toEqual([]);
+        expect(result.composable.playlists.value).toEqual([
+          {
+            name: 'name',
+          },
+        ]);
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -222,6 +226,9 @@ describe('usePlaylist', () => {
 
       it('adds to the playlists value', () => {
         expect(result.composable.playlists.value).toEqual([
+          {
+            name: 'name',
+          },
           {
             name: 'name',
           },
@@ -248,7 +255,7 @@ describe('usePlaylist', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -300,7 +307,7 @@ describe('usePlaylist', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 

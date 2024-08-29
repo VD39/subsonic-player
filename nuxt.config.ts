@@ -14,18 +14,15 @@ export default defineNuxtConfig({
       title: process.env.MAIN_APP_TITLE || 'Music App',
     },
   },
-  // build: {
-  //   transpile: ['@phosphor-icons/vue'],
-  // },
   compatibilityDate: '2024-04-03',
   css: ['@/assets/css/main.css'],
   devtools: {
     enabled: true,
   },
   imports: {
-    dirs: ['components/**', 'composables/**', 'utils/**'],
+    dirs: ['components/**', 'composables/**', 'utils/**', 'navigations/**'],
   },
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', 'nuxt-swiper'],
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {
@@ -49,6 +46,7 @@ export default defineNuxtConfig({
       SERVER_URL: process.env.SERVER_URL || '',
       MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',
       LOAD_SIZE: process.env.LOAD_SIZE || '50',
+      IMAGE_SIZE: process.env.IMAGE_SIZE || '500',
     },
   },
   typescript: {

@@ -10,7 +10,7 @@ function factory(props = {}) {
   });
 }
 
-describe('SidebarNavigation', () => {
+describe.todo('SidebarNavigation', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {

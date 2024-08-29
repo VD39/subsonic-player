@@ -12,11 +12,11 @@ export function formatTracks(track: Base): Track {
     albumId: track.albumId,
     artists: getArtists(track),
     discNumber: track.discNumber,
-    duration: track.duration,
+    duration: secondsToHHMMSS(track.duration),
     favourite: !!track.starred,
     genres: getGenres(track),
     id: track.id,
-    imageId: track.coverArt,
+    image: track.coverArt || 'PhMusicNotes',
     information: {
       bitRate: track.bitRate,
       contentType: track.contentType,
@@ -27,10 +27,10 @@ export function formatTracks(track: Base): Track {
       transcodedContentType: track.transcodedContentType,
       transcodedSuffix: track.transcodedSuffix,
     },
-    size: track.size,
-    streamId: track.id,
-    title: track.title,
-    track: track.track,
+    name: track.title,
+    size: bytesToMB(track.size),
+    streamUrl: track.id,
+    trackNumber: track.track,
     type: 'track',
     year: track.year,
   };
@@ -40,16 +40,16 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
   return {
     artists: getArtists(album),
     created: album.id,
-    duration: album.duration,
+    duration: secondsToHHMMSS(album.duration),
     favourite: !!album.starred,
     genres: getGenres(album as unknown as Base),
     id: album.id,
-    imageId: album.coverArt,
+    image: album.coverArt || 'PhVinylRecord',
     information: {
       playCount: album.playCount,
     },
     name: album.name,
-    size: getAlbumSize(album.song),
+    size: bytesToMB(getAlbumSize(album.song)),
     songCount: album.songCount,
     tracks: (album.song || []).map(formatTracks),
     type: 'album',
@@ -64,11 +64,9 @@ export function formatArtist(
     albums: (artistData.album || []).map(formatAlbum),
     biography: artistData.biography,
     favourite: !!artistData.starred,
-    genresList: getUniqueGenres(artistData.album),
+    genres: getUniqueGenres(artistData.album),
     id: artistData.id!,
-    imageId: artistData.coverArt
-      ? artistData.coverArt
-      : artistData.artistImageUrl,
+    image: artistData.coverArt || artistData.artistImageUrl || 'PhUsersThree',
     lastFmUrl: artistData.lastFmUrl,
     musicBrainzUrl: artistData.musicBrainzId
       ? `https://musicbrainz.org/artist/${artistData.musicBrainzId}`
@@ -82,7 +80,7 @@ export function formatArtist(
 
 export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
   return {
-    duration: playlist.duration,
+    duration: secondsToHHMMSS(playlist.duration),
     id: playlist.id,
     images: getUniqueImages(playlist.entry),
     information: {
@@ -105,11 +103,12 @@ export function formatRadioStation(
   const homePageUrl = station.homePageUrl || station.homepageUrl;
 
   return {
+    duration: '',
     homePageUrl,
     id: station.id,
     image: homePageUrl
       ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
-      : 'https://placehold.co/500x500',
+      : 'PhRadio',
     name: station.name,
     streamUrl: station.streamUrl,
     type: 'radioStation',
@@ -121,23 +120,26 @@ export function formatAllMedia(favourites: Starred2): AllMedia {
 
   return {
     albums: (album || []).map(formatAlbum),
-    artists: artist || [],
+    artists: (artist || []).map(formatArtist),
     tracks: (song || []).map(formatTracks),
   };
 }
 
-function formatPodcastEpisode(image?: string) {
+function formatPodcastEpisode(image: string) {
   return function (episode: ResponsePodcastEpisode): PodcastEpisode {
     const downloaded = episode.status === 'completed';
 
     return {
-      channelId: episode.channelId,
       description: episode.description,
       downloaded,
+      duration: secondsToHHMMSS(episode.duration),
       genres: getGenres(episode),
+      id: episode.id,
       image,
-      publishDate: episode.publishDate,
-      streamId: downloaded && episode.streamId ? episode.streamId : undefined,
+      name: episode.title,
+      publishDate: formatDate(episode.publishDate),
+      streamUrl:
+        downloaded && episode.streamUrl ? episode.streamUrl : undefined,
       type: 'podcastEpisode',
     };
   };
@@ -146,10 +148,9 @@ function formatPodcastEpisode(image?: string) {
 export function formatPodcast(podcast: PodcastChannel): Podcast {
   const { episode = [], originalImageUrl, coverArt } = podcast;
 
-  const lastUpdated = getEarliestDate(episode);
+  const lastUpdated = formatDate(getEarliestDate(episode));
   const downloadedEpisodes = getDownloadedEpisodesLength(episode);
-
-  const image = originalImageUrl || coverArt;
+  const image = originalImageUrl || coverArt || 'PhApplePodcastsLogo';
 
   return {
     description: podcast.description,
@@ -158,7 +159,7 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
     id: podcast.id,
     image,
     lastUpdated,
-    title: podcast.title || 'Podcast',
+    name: podcast.title || 'Podcast',
     totalEpisodes: episode.length,
     type: 'podcast',
     url: podcast.url,

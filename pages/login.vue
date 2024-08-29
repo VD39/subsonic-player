@@ -52,7 +52,7 @@ async function submitForm(fields: AuthData) {
   padding: var(--space-40);
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-l);
+  border-radius: var(--border-radius-large);
   box-shadow: var(--box-shadow-large);
 }
 

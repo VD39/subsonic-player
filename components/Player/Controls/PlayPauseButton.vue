@@ -15,7 +15,6 @@ const buttonProps = computed<PlayPauseButtonProps>(() => ({
     <IconButton
       v-if="trackCanPlay"
       :icon="buttonProps.icon"
-      :icon-size="30"
       :title="buttonProps.text"
       @click="togglePlay"
     >

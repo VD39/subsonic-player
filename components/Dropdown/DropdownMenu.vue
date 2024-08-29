@@ -26,19 +26,21 @@ function keydownHandler(event: KeyboardEvent) {
   if (event.key === 'Escape') {
     isOpen.value = false;
 
-    window.removeEventListener('click', handleClickOutside);
+    window.removeEventListener('click', handleClick);
     document.removeEventListener('keydown', keydownHandler);
   }
 }
 
 function checkIfOutsideScreen() {
-  if (dropdownMenuRef.value) {
-    const dropdownHeight = dropdownMenuRef.value.clientHeight;
-    const windowHeight = window.innerHeight;
-    const dropdownTop = dropdownMenuRef.value.getBoundingClientRect().top;
-
-    showAbove.value = windowHeight - dropdownTop < dropdownHeight;
+  if (!dropdownMenuRef.value) {
+    return;
   }
+
+  const dropdownHeight = dropdownMenuRef.value.clientHeight;
+  const windowHeight = window.innerHeight;
+  const dropdownTop = dropdownMenuRef.value.getBoundingClientRect().top;
+
+  showAbove.value = windowHeight - dropdownTop < dropdownHeight;
 }
 
 async function toggleDropdown() {
@@ -50,7 +52,7 @@ async function toggleDropdown() {
   if (isOpen.value) {
     emit('opened');
 
-    window.addEventListener('click', handleClickOutside);
+    window.addEventListener('click', handleClick);
     document.addEventListener('keydown', keydownHandler);
 
     checkIfOutsideScreen();
@@ -60,13 +62,16 @@ async function toggleDropdown() {
   emit('closed');
 }
 
-function handleClickOutside(event: MouseEvent) {
-  if (!dropdownRef.value?.contains(event.target as Node)) {
+function handleClick(event: MouseEvent) {
+  if (
+    !dropdownRef.value?.contains(event.target as Node) ||
+    dropdownMenuRef.value?.contains(event.target as Node)
+  ) {
     isOpen.value = false;
 
     emit('closed');
 
-    window.removeEventListener('click', handleClickOutside);
+    window.removeEventListener('click', handleClick);
     document.removeEventListener('keydown', keydownHandler);
   }
 }
@@ -106,9 +111,9 @@ function handleClickOutside(event: MouseEvent) {
 
 <style module>
 .dropdown {
-  @mixin align-center;
-
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .dropdownMenu {
@@ -119,10 +124,10 @@ function handleClickOutside(event: MouseEvent) {
   padding: var(--space-4) 0;
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-m);
+  border-radius: var(--border-radius-medium);
   box-shadow: var(--dark-box-shadow-medium);
 
-  @media screen and (--tablet-up) {
+  @media (--tablet-up) {
     position: absolute;
     inset: 100% 0 auto auto;
 
@@ -133,9 +138,6 @@ function handleClickOutside(event: MouseEvent) {
 }
 
 .button {
-  @mixin align-center;
-
-  position: relative;
   text-transform: uppercase;
 }
 

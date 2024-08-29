@@ -9,6 +9,6 @@
   @mixin align-center;
 
   width: 100%;
-  padding: var(--button-spacing);
+  padding: var(--dropdown-spacing);
 }
 </style>

@@ -2,7 +2,7 @@
 
 exports[`InfiniteScroller > matches the snapshot 1`] = `
 "<div>
-  <!--v-if-->
+  <p class="message">-- No more content --</p>
 </div>"
 `;
 

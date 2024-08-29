@@ -150,12 +150,17 @@ async function search(term: string) {
 }
 
 .mainContentInner {
+  --default-padding: calc(var(--sidebar-bottom) + var(--space-40));
+
   @mixin inner;
 
-  padding: calc(var(--header-height) + var(--space-32)) 0;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: calc(var(--header-height) + var(--space-40)) 0
+    calc(var(--header-height) + var(--default-padding));
 
   @media (--tablet-up) {
-    padding-bottom: var(--space-32);
+    padding-bottom: var(--default-padding);
   }
 }
 </style>

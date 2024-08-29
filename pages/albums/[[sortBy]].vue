@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import PageNavigation from '@/components/Navigation/PageNavigation.vue';
+import AlbumsList from '@/components/MediaLists/AlbumsList.vue';
 import InfiniteScroller from '@/components/InfiniteScroller/InfiniteScroller.vue';
 
 definePageMeta({
@@ -23,20 +25,15 @@ function fetchData() {
 <template>
   <h1>Albums</h1>
 
-  <NuxtLink :to="`/album/al-457`"> al-457 </NuxtLink>
+  <PageNavigation :navigation="ALBUMS_NAVIGATION" />
 
-  <NuxtLink :to="`/album/unknown`"> unknown </NuxtLink>
-
-  <br />
-  <br />
-
-  <div v-if="items.length">
-    <div v-for="item in items" :key="item.name">
-      <NuxtLink :to="`/album/${item.id}`">
-        <pre>{{ item.year }}</pre>
-      </NuxtLink>
-    </div>
-  </div>
+  <AlbumsList :albums="items" />
 
   <InfiniteScroller @load-more="fetchData" />
 </template>
+
+<style module>
+.figure {
+  margin-bottom: var(--space-8);
+}
+</style>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ArtistsList from '@/components/MediaLists/ArtistsList.vue';
+
 const { artists, getArtists } = useArtist();
 
 if (!artists.value.length) {
@@ -9,9 +11,5 @@ if (!artists.value.length) {
 <template>
   <h1>Artists</h1>
 
-  <div v-for="artist in artists" :key="artist.id">
-    <NuxtLink :to="`/artist/${artist.id}`">
-      {{ artist.name }}
-    </NuxtLink>
-  </div>
+  <ArtistsList :artists="artists" />
 </template>

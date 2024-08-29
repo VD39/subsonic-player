@@ -24,7 +24,7 @@ function factory(props = {}) {
 describe('MediaInformation', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = factory();
   });
 
@@ -42,13 +42,13 @@ describe('MediaInformation', () => {
     ],
     [
       'podcast',
-      'podcastDescriptionModal',
+      'podcastEpisodeDescriptionModal',
       {
-        description: currentTrackMock.value.description,
+        description: (currentTrackMock.value as PodcastEpisode).description,
       },
     ],
   ])('when currentTrack type is %s', (type, name, value) => {
-    beforeEach(() => {
+    beforeAll(() => {
       currentTrackMock.value = {
         ...currentTrackMock.value,
         type: type as MediaType,
@@ -56,7 +56,7 @@ describe('MediaInformation', () => {
     });
 
     describe('when the media information button is clicked', () => {
-      beforeEach(() => {
+      beforeAll(() => {
         wrapper.findComponent(IconButton).vm.$emit('click');
       });
 

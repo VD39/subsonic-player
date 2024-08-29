@@ -106,7 +106,7 @@ describe('getGenres', () => {
 describe('getUniqueImages', () => {
   describe('when tracks is undefined', () => {
     it('returns the correct values', () => {
-      expect(getUniqueImages()).toEqual([]);
+      expect(getUniqueImages()).toEqual(['PhPlaylist']);
     });
   });
 
@@ -171,7 +171,14 @@ describe('getUniqueGenres', () => {
 
     describe('when genres contains different values', () => {
       it('returns the correct values', () => {
-        expect(getUniqueGenres(getAlbumsMock(5))).toEqual(['genre', 'genre1']);
+        expect(getUniqueGenres(getAlbumsMock(5))).toEqual([
+          {
+            name: 'genre',
+          },
+          {
+            name: 'genre1',
+          },
+        ]);
       });
     });
 
@@ -200,7 +207,14 @@ describe('getUniqueGenres', () => {
               ],
             }),
           ]),
-        ).toEqual(['genre', 'another-genre']);
+        ).toEqual([
+          {
+            name: 'genre',
+          },
+          {
+            name: 'another-genre',
+          },
+        ]);
       });
     });
   });
@@ -251,14 +265,14 @@ describe('getTracksTotal', () => {
 describe('getEarliestDate', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct values', () => {
-      expect(getEarliestDate()).toEqual('');
+      expect(getEarliestDate()).toEqual(undefined);
     });
   });
 
   describe('when podcast episodes is defined', () => {
     describe('when podcast episodes is an empty array', () => {
       it('returns the correct values', () => {
-        expect(getEarliestDate([])).toEqual('');
+        expect(getEarliestDate([])).toEqual(undefined);
       });
     });
 
@@ -271,7 +285,7 @@ describe('getEarliestDate', () => {
                 publishDate: undefined,
               }),
             ]),
-          ).toEqual('');
+          ).toEqual(undefined);
         });
       });
 
@@ -292,7 +306,7 @@ describe('getEarliestDate', () => {
                 publishDate: new Date(2023, 0, 3),
               }),
             ]),
-          ).toEqual('03 Jan 2024');
+          ).toEqual(new Date(2024, 0, 3));
         });
       });
     });

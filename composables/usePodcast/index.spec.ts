@@ -103,9 +103,20 @@ describe('usePodcast', () => {
       it('calls the fetchData function', () => {
         expect(fetchDataMock).toHaveBeenCalled();
       });
+
+      it('sets the correct podcast value', () => {
+        expect(podcast.value).toEqual({
+          id: 'id',
+          episodes: [{}],
+        });
+      });
     });
 
     describe('when podcasts value is not an empty array', () => {
+      it('does not call the fetchData function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalled();
+      });
+
       describe('when id is not found in podcasts value', () => {
         beforeEach(() => {
           getPodcast('no-found-id');
@@ -142,7 +153,7 @@ describe('usePodcast', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -162,6 +173,15 @@ describe('usePodcast', () => {
           'Successfully added podcast.',
         );
       });
+
+      it('calls the getPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getPodcasts', {
+          params: {
+            noLoading: true,
+          },
+          transform: expect.any(Function),
+        });
+      });
     });
   });
 
@@ -176,7 +196,7 @@ describe('usePodcast', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -196,6 +216,15 @@ describe('usePodcast', () => {
           'Successfully deleted podcast.',
         );
       });
+
+      it('calls the getPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getPodcasts', {
+          params: {
+            noLoading: true,
+          },
+          transform: expect.any(Function),
+        });
+      });
     });
   });
 
@@ -210,7 +239,7 @@ describe('usePodcast', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -230,6 +259,15 @@ describe('usePodcast', () => {
           'Successfully deleted podcast episode.',
         );
       });
+
+      it('calls the getPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getPodcasts', {
+          params: {
+            noLoading: true,
+          },
+          transform: expect.any(Function),
+        });
+      });
     });
   });
 
@@ -244,7 +282,7 @@ describe('usePodcast', () => {
       });
 
       it('does not call the addSuccessSnackMock function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalledWith();
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 

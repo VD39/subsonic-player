@@ -21,7 +21,7 @@ function factory(props = {}) {
 describe('GenreList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = factory();
   });
 
@@ -29,7 +29,7 @@ describe('GenreList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('shows the correct amount of genre content', () => {
+  it('shows the correct number of genre content', () => {
     expect(wrapper.findAll('[data-test-id="genre-list-item"]').length).toBe(2);
   });
 });

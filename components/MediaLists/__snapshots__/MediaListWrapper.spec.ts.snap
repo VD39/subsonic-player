@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MediaListWrapper > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows: 5;"></section>"`;
+
+exports[`MediaListWrapper > when rows prop is set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows: 2;"></section>"`;

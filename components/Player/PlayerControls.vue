@@ -45,7 +45,7 @@ const rewindFastForwardTitle = {
       {{ rewindFastForwardTitle.rewind }}
     </IconButton>
 
-    <PlayPauseButton />
+    <PlayPauseButton :class="$style.playPauseButton" />
 
     <IconButton
       v-if="isPodcast"
@@ -76,5 +76,9 @@ const rewindFastForwardTitle = {
   @mixin align-center;
 
   gap: var(--media-player-spacing);
+}
+
+.playPauseButton {
+  transform: scale(150%);
 }
 </style>

@@ -46,7 +46,7 @@
   width: 2px;
   margin: 0 var(--space-2);
   background-color: var(--invert-background-color);
-  border-radius: var(--border-radius-l);
+  border-radius: var(--border-radius-large);
   animation: main-loader 0.8s infinite;
 
   &:nth-child(1) {

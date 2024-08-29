@@ -23,7 +23,7 @@ function factory(props = {}) {
 describe('ArtistsList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = factory();
   });
 
@@ -31,7 +31,7 @@ describe('ArtistsList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('shows the correct amount of artist content', () => {
+  it('shows the correct number of artist content', () => {
     expect(wrapper.findAll('[data-test-id="artist-list-item"]').length).toBe(2);
   });
 });

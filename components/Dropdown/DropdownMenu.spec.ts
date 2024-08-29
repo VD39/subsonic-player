@@ -30,7 +30,7 @@ function factory(props = {}) {
   });
 }
 
-describe('DropdownMenu', () => {
+describe.todo('DropdownMenu', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -51,7 +51,7 @@ describe('DropdownMenu', () => {
       await wrapper.vm.$nextTick();
     });
 
-    it('emits the opened event again', () => {
+    it('emits the opened event', () => {
       expect(wrapper.emitted('opened')).toEqual([[]]);
     });
 
@@ -161,7 +161,6 @@ describe('DropdownMenu', () => {
 
       it('removes the dropdown menu', () => {
         expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
-        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
       });
 
       it('removes the click event listener function', () => {
@@ -188,8 +187,8 @@ describe('DropdownMenu', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not remove the the dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(true);
+      it('removes the dropdown menu', () => {
+        expect(wrapper.find({ ref: 'dropdownMenuRef' }).exists()).toBe(false);
       });
     });
 

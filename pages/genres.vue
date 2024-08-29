@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MediaListWrapper from '@/components/MediaLists/MediaListWrapper.vue';
+
 const { genres, getGenres } = useGenre();
 
 if (!genres.value?.length) {
@@ -9,15 +11,14 @@ if (!genres.value?.length) {
 <template>
   <h1>Genres</h1>
 
-  <div v-if="genres.length">
-    <div v-for="genre in genres" :key="genre.name">
-      <RouterLink :to="`/genre/albums/${genre.name}`">
-        albums: {{ genre.name }}
-      </RouterLink>
-      <br />
-      <RouterLink :to="`/genre/tracks/${genre.name}`">
-        tracks: {{ genre.name }}
-      </RouterLink>
-    </div>
-  </div>
+  <MediaListWrapper>
+    <NuxtLink
+      v-for="genre in genres"
+      :key="genre.name"
+      :to="`/genre/albums/${genre.name}`"
+      class="tileLink"
+    >
+      {{ genre.name }}
+    </NuxtLink>
+  </MediaListWrapper>
 </template>

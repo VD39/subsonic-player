@@ -6,7 +6,34 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
   <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
       <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
     </button>
-    <div>
+    <div class="volumeInputWrapper">
+      <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p class="visually-hidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><button class="iconButton" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text visually-hidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when currentTrack does not have a favourite key > matches the snapshot 1`] = `
+"<div class="playerOptions">
+  <!--v-if-->
+  <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
+    </button>
+    <div class="volumeInputWrapper">
       <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="slider">
           <div class="progressWrapper">
@@ -22,14 +49,7 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
   </div>
   <!--v-if-->
   <!--v-if-->
-  <!--v-if--><button class="iconButton" type="button" title="Queue">
-    <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text visually-hidden"> Queue </span>
-  </button>
-  <teleport-stub to="#teleports">
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
-  </teleport-stub>
+  <!--v-if-->
 </div>"
 `;
 
@@ -39,7 +59,7 @@ exports[`PlayerOptions > when isPodcast and isTrack are false > matches the snap
   <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
       <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
     </button>
-    <div>
+    <div class="volumeInputWrapper">
       <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="slider">
           <div class="progressWrapper">
@@ -54,15 +74,9 @@ exports[`PlayerOptions > when isPodcast and isTrack are false > matches the snap
     </div>
   </div>
   <!--v-if-->
-  <!--v-if-->
-  <!--v-if--><button class="iconButton" type="button" title="Queue">
-    <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text visually-hidden"> Queue </span>
+  <!--v-if--><button class="iconButton" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text visually-hidden">Like track</span>
   </button>
-  <teleport-stub to="#teleports">
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
-  </teleport-stub>
 </div>"
 `;
 
@@ -72,80 +86,7 @@ exports[`PlayerOptions > when isPodcast is true > matches the snapshot 1`] = `
   <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
       <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
     </button>
-    <div>
-      <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
-        <div class="slider">
-          <div class="progressWrapper">
-            <div class="process" style="width: 0px;"></div>
-            <!--v-if-->
-          </div>
-          <!--v-if-->
-          <!--v-if-->
-        </div>
-      </div>
-      <p class="visually-hidden"> Volume at 100% </p>
-    </div>
-  </div>
-  <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="Playback speed">
-      <phgear class="icon" aria-hidden="true" size="24" weight="duotone"></phgear><span class="text visually-hidden">More</span>
-    </button>
-    <transition-stub name="fade" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
-  </div><button class="iconButton" type="button" title="Episode information">
-    <phinfo class="icon" aria-hidden="true" size="24" weight="duotone"></phinfo><span class="text visually-hidden"> Episode information </span>
-  </button>
-  <!--v-if--><button class="iconButton" type="button" title="Queue">
-    <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text visually-hidden"> Queue </span>
-  </button>
-  <teleport-stub to="#teleports">
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
-  </teleport-stub>
-</div>"
-`;
-
-exports[`PlayerOptions > when isRadioStation is true > matches the snapshot 1`] = `
-"<div class="playerOptions">
-  <!--v-if-->
-  <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
-      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
-    </button>
-    <div>
-      <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
-        <div class="slider">
-          <div class="progressWrapper">
-            <div class="process" style="width: 0px;"></div>
-            <!--v-if-->
-          </div>
-          <!--v-if-->
-          <!--v-if-->
-        </div>
-      </div>
-      <p class="visually-hidden"> Volume at 100% </p>
-    </div>
-  </div>
-  <!--v-if-->
-  <!--v-if-->
-  <!--v-if--><button class="iconButton" type="button" title="Queue">
-    <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text visually-hidden"> Queue </span>
-  </button>
-  <teleport-stub to="#teleports">
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
-  </teleport-stub>
-</div>"
-`;
-
-exports[`PlayerOptions > when isTrack is true > matches the snapshot 1`] = `
-"<div class="playerOptions">
-  <!--v-if-->
-  <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
-      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
-    </button>
-    <div>
+    <div class="volumeInputWrapper">
       <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="slider">
           <div class="progressWrapper">
@@ -169,13 +110,67 @@ exports[`PlayerOptions > when isTrack is true > matches the snapshot 1`] = `
     <phinfo class="icon" aria-hidden="true" size="24" weight="duotone"></phinfo><span class="text visually-hidden"> Episode information </span>
   </button><button class="iconButton" type="button" title="Like track">
     <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text visually-hidden">Like track</span>
-  </button><button class="iconButton" type="button" title="Queue">
-    <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text visually-hidden"> Queue </span>
   </button>
-  <teleport-stub to="#teleports">
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
+</div>"
+`;
+
+exports[`PlayerOptions > when isRadioStation is true > matches the snapshot 1`] = `
+"<div class="playerOptions">
+  <!--v-if-->
+  <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
+    </button>
+    <div class="volumeInputWrapper">
+      <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p class="visually-hidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><button class="iconButton" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text visually-hidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when isTrack is true > matches the snapshot 1`] = `
+"<div class="playerOptions">
+  <!--v-if-->
+  <div class="volumeControl"><button class="iconButton" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="text visually-hidden">Mute</span>
+    </button>
+    <div class="volumeInputWrapper">
+      <div class="sliderWrapper volumeInput volumeInput" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p class="visually-hidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="Playback speed">
+      <phgear class="icon" aria-hidden="true" size="24" weight="duotone"></phgear><span class="text visually-hidden">More</span>
+    </button>
+    <transition-stub name="fade" appear="false" persisted="false" css="true">
       <!--v-if-->
     </transition-stub>
-  </teleport-stub>
+  </div><button class="iconButton" type="button" title="Episode information">
+    <phinfo class="icon" aria-hidden="true" size="24" weight="duotone"></phinfo><span class="text visually-hidden"> Episode information </span>
+  </button><button class="iconButton" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text visually-hidden">Like track</span>
+  </button>
 </div>"
 `;

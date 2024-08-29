@@ -10,6 +10,8 @@ export default defineVitestConfig({
         'error.vue',
         '**/config/**',
         '**/plugins/**',
+        'navigations',
+        'pages',
         'components/Loaders',
         'composables/useAudioPlayer/player.ts',
         ...coverageConfigDefaults.exclude,

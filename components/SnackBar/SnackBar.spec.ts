@@ -111,7 +111,7 @@ describe('SnackBar', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('shows the correct amount of snack content', () => {
+      it('shows the correct number of snack content', () => {
         expect(wrapper.findAll('[data-test-id="content-wrapper"]').length).toBe(
           4,
         );
@@ -122,7 +122,7 @@ describe('SnackBar', () => {
           wrapper.findAllComponents(IconButton)[0].vm.$emit('click');
         });
 
-        it('shows the correct amount of snack content', () => {
+        it('shows the correct number of snack content', () => {
           expect(
             wrapper.findAll('[data-test-id="content-wrapper"]').length,
           ).toBe(3);

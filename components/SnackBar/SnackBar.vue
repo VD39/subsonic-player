@@ -46,7 +46,7 @@ const { snacks, removeSnack } = useSnack();
   padding: var(--space-16);
   margin-bottom: var(--space-8);
   font-weight: 600;
-  border-radius: var(--border-radius-m);
+  border-radius: var(--border-radius-medium);
 }
 
 .success {

@@ -37,7 +37,13 @@ export function getGenres(media: Base): Genre[] {
 
 export function getUniqueImages(tracks: Base[] = []) {
   const coverArtIds = tracks.map((track) => track.coverArt!);
-  return [...new Set(coverArtIds)].splice(0, 4);
+  const images = [...new Set(coverArtIds)].splice(0, 4);
+
+  if (!images.length) {
+    return ['PhPlaylist'];
+  }
+
+  return images;
 }
 
 export function getRandomTracksDuration(tracks: Base[] = []) {
@@ -60,16 +66,10 @@ export function getEarliestDate(episodes: ResponsePodcastEpisode[] = []) {
     .filter((episode) => episode);
 
   if (!dates.length) {
-    return '';
+    return;
   }
 
-  const earliestDate = new Date(Math.max(...dates));
-
-  return earliestDate.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
+  return new Date(Math.max(...dates));
 }
 
 export function getDownloadedEpisodesLength(
@@ -78,12 +78,14 @@ export function getDownloadedEpisodesLength(
   return episodes.filter((episode) => episode.status === 'completed').length;
 }
 
-export function getUniqueGenres(albums: AlbumID3[] = []) {
+export function getUniqueGenres(albums: AlbumID3[] = []): Genre[] {
   const genresNames = albums.flatMap((album) =>
     (album.genres || []).map((genre) => genre.name),
   );
 
-  return [...new Set(genresNames)];
+  return [...new Set(genresNames)].map((genre) => ({
+    name: genre,
+  }));
 }
 
 export function getTracksTotal(albums: AlbumID3[] = []) {

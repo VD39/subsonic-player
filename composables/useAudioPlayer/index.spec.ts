@@ -4,6 +4,7 @@ import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayer } from './index';
 
 const queueTracks = getFormattedQueueTracksMock(3);
+const queueTracksMore = getFormattedQueueTracksMock(15);
 const queueTrack = queueTracks[0];
 
 type CB = (...args: unknown[]) => void;
@@ -128,7 +129,7 @@ describe('useAudioPlayer', () => {
 
   describe.each([
     ['track', true, false, false],
-    ['podcast', false, true, false],
+    ['podcastEpisode', false, true, false],
     ['radioStation', false, false, true],
   ])('when track type is %s', (type, isTrack, isPodcast, isRadioStation) => {
     beforeAll(() => {
@@ -259,7 +260,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('calls the audio load function', () => {
-          expect(loadMock).toHaveBeenCalledWith(queueTracks[2].streamId);
+          expect(loadMock).toHaveBeenCalledWith(queueTracks[2].streamUrl);
         });
 
         it('calls the audio play function', () => {
@@ -403,7 +404,7 @@ describe('useAudioPlayer', () => {
 
   describe('when toggleShuffle function is called', () => {
     beforeAll(() => {
-      result.composable.queueList.value = queueTracks;
+      result.composable.queueList.value = queueTracksMore;
       result.composable.toggleShuffle();
     });
 
@@ -416,7 +417,7 @@ describe('useAudioPlayer', () => {
     });
 
     it('shuffles the queueList value', () => {
-      expect(result.composable.queueList.value).not.toEqual(queueTracks);
+      expect(result.composable.queueList.value).not.toEqual(queueTracksMore);
     });
 
     describe('when toggleShuffle function is called again', () => {
@@ -429,8 +430,38 @@ describe('useAudioPlayer', () => {
       });
 
       it('sets the original queueList value', () => {
-        expect(result.composable.queueList.value).toEqual(queueTracks);
+        expect(result.composable.queueList.value).toEqual(queueTracksMore);
       });
+    });
+  });
+
+  describe('when shuffleTracks function is called', () => {
+    beforeAll(() => {
+      result.composable.shuffleTracks(queueTracksMore);
+    });
+
+    afterAll(() => {
+      result.composable.queueList.value = [];
+    });
+
+    it('calls the audio unload function', () => {
+      expect(unloadMock).toHaveBeenCalled();
+    });
+
+    it('calls the audio load function', () => {
+      expect(loadMock).toHaveBeenCalled();
+    });
+
+    it('calls the audio play function', () => {
+      expect(playMock).toHaveBeenCalled();
+    });
+
+    it('sets the the shuffle value', () => {
+      expect(result.composable.shuffle.value).toBe(true);
+    });
+
+    it('shuffles the queueList value', () => {
+      expect(result.composable.queueList.value).not.toEqual(queueTracksMore);
     });
   });
 
@@ -513,7 +544,7 @@ describe('useAudioPlayer', () => {
     });
 
     it('calls the audio load function', () => {
-      expect(loadMock).toHaveBeenCalledWith('queue-streamId0');
+      expect(loadMock).toHaveBeenCalledWith('queue-streamUrl0');
     });
 
     it('calls the audio play function', () => {
@@ -522,46 +553,21 @@ describe('useAudioPlayer', () => {
   });
 
   describe('when playCurrentTrack function is called', () => {
-    describe('when track has a streamId', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        result.composable.playCurrentTrack(queueTrack);
-      });
-
-      afterAll(() => {
-        result.composable.queueList.value = [];
-      });
-
-      it('calls the audio load function', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTrack.streamId);
-      });
-
-      it('calls the audio play function', () => {
-        expect(playMock).toHaveBeenCalled();
-      });
+    beforeAll(() => {
+      vi.clearAllMocks();
+      result.composable.playCurrentTrack(queueTrack);
     });
 
-    describe('when track has a streamUrl', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        result.composable.playCurrentTrack({
-          ...queueTrack,
-          streamId: undefined,
-          streamUrl: 'streamUrl',
-        });
-      });
+    afterAll(() => {
+      result.composable.queueList.value = [];
+    });
 
-      afterAll(() => {
-        result.composable.queueList.value = [];
-      });
+    it('calls the audio load function', () => {
+      expect(loadMock).toHaveBeenCalledWith(queueTrack.streamUrl);
+    });
 
-      it('calls the audio load function', () => {
-        expect(loadMock).toHaveBeenCalledWith('streamUrl');
-      });
-
-      it('calls the audio play function', () => {
-        expect(playMock).toHaveBeenCalled();
-      });
+    it('calls the audio play function', () => {
+      expect(playMock).toHaveBeenCalled();
     });
   });
 
@@ -687,7 +693,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the audio load function', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamId);
+        expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamUrl);
       });
 
       it('calls the audio play function', () => {
@@ -704,7 +710,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the audio load function with the first track', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamId);
+        expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamUrl);
       });
 
       it('calls the audio play function', () => {
@@ -721,7 +727,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the audio load function with the first track', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTracks[2].streamId);
+        expect(loadMock).toHaveBeenCalledWith(queueTracks[2].streamUrl);
       });
 
       it('calls the audio play function', () => {
@@ -736,11 +742,25 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the audio load function with the first track', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamId);
+        expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamUrl);
       });
 
       it('calls the audio play function', () => {
         expect(playMock).toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when isCurrentTrack function is called', () => {
+    describe('when current track id is the same as the id', () => {
+      it('returns the correct value', () => {
+        expect(result.composable.isCurrentTrack('queue-track-1')).toBe(true);
+      });
+    });
+
+    describe('when current track id is not the same as the id', () => {
+      it('returns the correct value', () => {
+        expect(result.composable.isCurrentTrack('no-id')).toBe(false);
       });
     });
   });
@@ -808,7 +828,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('calls the audio load function with the first track', () => {
-          expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamId);
+          expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamUrl);
         });
 
         it('calls the audio play function', () => {
@@ -823,7 +843,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('calls the audio load function with next track', () => {
-          expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamId);
+          expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamUrl);
         });
 
         it('calls the audio play function', () => {
@@ -838,7 +858,7 @@ describe('useAudioPlayer', () => {
           });
 
           it('calls the audio load function with the first track', () => {
-            expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamId);
+            expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamUrl);
           });
 
           it('calls the audio play function', () => {
@@ -857,7 +877,7 @@ describe('useAudioPlayer', () => {
           onEndedCb();
         });
         it('calls the audio load function with next track', () => {
-          expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamId);
+          expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamUrl);
         });
 
         it('calls the audio play function', () => {
@@ -872,7 +892,7 @@ describe('useAudioPlayer', () => {
           });
 
           it('calls the audio load function with the first track', () => {
-            expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamId);
+            expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamUrl);
           });
 
           it('calls the audio play function', () => {

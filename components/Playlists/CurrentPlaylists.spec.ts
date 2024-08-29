@@ -62,7 +62,7 @@ describe('CurrentPlaylists', () => {
     });
 
     describe('when playlist value returned is less than 5', () => {
-      it('shows the correct amount of the IconButton component', () => {
+      it('shows the correct number of the IconButton component', () => {
         expect(wrapper.findAllComponents(IconButton).length).toBe(2);
       });
     });
@@ -76,7 +76,7 @@ describe('CurrentPlaylists', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('shows the correct amount of the IconButton component', () => {
+      it('shows the correct number of the IconButton component', () => {
         expect(wrapper.findAllComponents(IconButton).length).toBe(5);
       });
     });

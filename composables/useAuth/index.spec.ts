@@ -16,18 +16,9 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const userMock = ref();
+const useUserMock = ref();
 
-mockNuxtImport('useState', () => {
-  return <T>(key: string, init: () => T) => {
-    if (key === 'user') {
-      userMock.value = init();
-      return userMock;
-    }
-
-    return ref(init());
-  };
-});
+mockNuxtImport('useUser', () => () => useUserMock);
 
 mockNuxtImport('generateRandomString', () => () => 'randomString');
 
@@ -45,7 +36,7 @@ describe('useAuth', () => {
     });
 
     it('sets the user value bases on cookie', () => {
-      expect(userMock.value).toEqual({
+      expect(useUserMock.value).toEqual({
         salt: null,
         server: null,
         token: null,
@@ -75,7 +66,7 @@ describe('useAuth', () => {
       });
 
       it('sets the user value bases on cookie', () => {
-        expect(userMock.value).toEqual({
+        expect(useUserMock.value).toEqual({
           salt: 'salt',
           server: 'server',
           token: 'token',
@@ -108,7 +99,7 @@ describe('useAuth', () => {
           });
 
           it('sets the correct authenticated value', () => {
-            expect(result.composable.authenticated.value).toBe(false);
+            expect(result.composable.authenticated.value).toBe(undefined);
           });
         });
       });
@@ -138,7 +129,7 @@ describe('useAuth', () => {
       });
 
       it('sets the correct user value', () => {
-        expect(userMock.value).toEqual({
+        expect(useUserMock.value).toEqual({
           salt: 'randomString',
           server: 'server',
           token: 'MD5',
@@ -194,7 +185,7 @@ describe('useAuth', () => {
     });
 
     it('sets the correct authenticated value', () => {
-      expect(result.composable.authenticated.value).toBe(false);
+      expect(result.composable.authenticated.value).toBe(undefined);
     });
   });
 });

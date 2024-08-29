@@ -12,10 +12,15 @@
   --space-40: calc(5 * var(--space-unit));
 
   /* Button spacing. */
-  --button-spacing: var(--space-8) var(--space-12);
+  --button-spacing: var(--space-8);
+  --dropdown-spacing: var(--space-8) var(--space-12);
 
   /* Media spacing. */
   --media-player-spacing: var(--space-8);
+
+  /* Grid spacing. */
+  --loop-max-width: 100%;
+  --loop-grid-gap: var(--space-24);
 }
 
 @media (--tablet-up) {

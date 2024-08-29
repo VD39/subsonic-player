@@ -1,6 +1,5 @@
 <template>
-  <span>
-    <span :class="$style.loader" />
+  <span :class="$style.loader">
     <span class="visually-hidden">Loading image</span>
   </span>
 </template>

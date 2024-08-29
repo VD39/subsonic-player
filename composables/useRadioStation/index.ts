@@ -30,7 +30,7 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      addSuccessSnack(`Successfully added playlist ${params.name}.`);
+      addSuccessSnack(`Successfully added radio station ${params.name}.`);
       await getRadioStations();
     }
   }
@@ -45,7 +45,7 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      addSuccessSnack(`Successfully updated playlist ${params.name}.`);
+      addSuccessSnack(`Successfully updated radio station ${params.name}.`);
       await getRadioStations();
     }
   }
@@ -62,7 +62,7 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      addSuccessSnack('Successfully deleted playlist.');
+      addSuccessSnack('Successfully deleted radio station.');
       await getRadioStations();
     }
   }

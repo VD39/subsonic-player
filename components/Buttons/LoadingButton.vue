@@ -36,7 +36,7 @@ defineProps<{
   padding: var(--space-8);
   background-color: var(--body-background-color);
   border: 1px solid var(--theme-color);
-  border-radius: var(--border-radius-m);
+  border-radius: var(--border-radius-medium);
 
   &:hover {
     background-color: var(--hover-selected-color);

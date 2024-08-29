@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ArtistsList > matches the snapshot 1`] = `
+"<div class="noMediaMessage">
+  <div class="content">
+    <phusersthree size="50"></phusersthree>
+    <p>No artists found.</p>
+  </div>
+</div>"
+`;
+
+exports[`ArtistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
+"<section class="mediaListWrapper" style="--loop-rows: 5;">
+  <article>
+    <figure class="figure"><a title="Go to artist-0">
+        <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="artist-0" style="display: none;"></div>
+      </a></figure>
+    <p class="clamp clamp2"><a title="Go to artist artist-0">artist-0</a></p>
+  </article>
+  <article>
+    <figure class="figure"><a title="Go to artist-1">
+        <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="artist-1" style="display: none;"></div>
+      </a></figure>
+    <p class="clamp clamp2"><a title="Go to artist artist-1">artist-1</a></p>
+  </article>
+  <article>
+    <figure class="figure"><a title="Go to artist-2">
+        <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="artist-2" style="display: none;"></div>
+      </a></figure>
+    <p class="clamp clamp2"><a title="Go to artist artist-2">artist-2</a></p>
+  </article>
+  <article>
+    <figure class="figure"><a title="Go to artist-3">
+        <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="artist-3" style="display: none;"></div>
+      </a></figure>
+    <p class="clamp clamp2"><a title="Go to artist artist-3">artist-3</a></p>
+  </article>
+  <article>
+    <figure class="figure"><a title="Go to artist-4">
+        <div class="preloadImage"><span class="loader"><span class="visually-hidden">Loading image</span></span><img class="image" src="coverArt" alt="artist-4" style="display: none;"></div>
+      </a></figure>
+    <p class="clamp clamp2"><a title="Go to artist artist-4">artist-4</a></p>
+  </article>
+</section>"
+`;

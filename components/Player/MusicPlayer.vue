@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import TrackDetails from '@/components/Queue/TrackDetail.vue';
+import ImageLink from '@/components/Image/ImageLink.vue';
+import PreloadImage from '@/components/Image/PreloadImage.vue';
+import ArtistsList from '@/components/TrackDetails/ArtistsList.vue';
 import TrackSeeker from './Controls/TrackSeeker.vue';
 import PlayerControls from './PlayerControls.vue';
 import PlayerOptions from './PlayerOptions.vue';
-import PlayPauseButton from './Controls/PlayPauseButton.vue';
+// import PlayPauseButton from './Controls/PlayPauseButton.vue';
 
-const { currentTrack } = useAudioPlayer();
+const { currentTrack, isTrack } = useAudioPlayer();
 </script>
 
 <template>
@@ -13,10 +15,28 @@ const { currentTrack } = useAudioPlayer();
     <TrackSeeker :class="$style.seeker" />
 
     <div :class="$style.inner">
-      <TrackDetails :track="currentTrack" in-media-player />
+      <div :class="$style.trackDetails">
+        <ImageLink
+          v-if="isTrack"
+          :to="`/album/${currentTrack.id}`"
+          :title="currentTrack.name"
+          :image="currentTrack.image"
+          :class="$style.imageLink"
+        />
+        <PreloadImage
+          v-else
+          :image="currentTrack.image"
+          :class="$style.imageLink"
+        />
 
-      <div :class="$style.mobile">
-        <PlayPauseButton />
+        <div>
+          <p class="strong">{{ currentTrack.name }}</p>
+
+          <ArtistsList
+            v-if="'artists' in currentTrack && currentTrack.artists.length"
+            :artists="currentTrack.artists"
+          />
+        </div>
       </div>
 
       <PlayerControls :class="$style.playerControls" />
@@ -37,7 +57,7 @@ const { currentTrack } = useAudioPlayer();
   border-top: 1px solid var(--border-color);
   box-shadow: var(--dark-box-shadow-medium);
 
-  @media screen and (--tablet-up) {
+  @media (--tablet-up) {
     bottom: 0;
   }
 }
@@ -56,32 +76,35 @@ const { currentTrack } = useAudioPlayer();
   justify-content: space-between;
   padding-right: var(--media-player-spacing);
 
-  @media screen and (--tablet-up) {
+  @media (--tablet-up) {
     display: grid;
     grid-template-columns: 25% auto 25%;
     gap: calc(var(--media-player-spacing) * 2);
   }
 }
 
-.mobile {
-  display: flex;
+.trackDetails {
+  @mixin align-center;
 
-  @media screen and (--tablet-up) {
-    display: none;
-  }
+  gap: var(--media-player-spacing);
+}
+
+.imageLink {
+  flex-shrink: 0;
+  width: var(--media-player-height);
+  height: var(--media-player-height);
 }
 
 .playerControls {
   justify-content: center;
-
-  @media screen and (--mobile-only) {
-    display: none;
-  }
 }
 
 .playerOptions {
   justify-content: flex-end;
+}
 
+.playerControls,
+.playerOptions {
   @media screen and (--mobile-only) {
     display: none;
   }

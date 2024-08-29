@@ -1,1 +1,1 @@
-export interface QueueTrack extends Track, PodcastEpisode, RadioStation {}
+export type QueueTrack = Track | PodcastEpisode | RadioStation;

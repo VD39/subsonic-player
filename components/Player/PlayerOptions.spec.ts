@@ -6,7 +6,8 @@ import PlaybackRateButton from './Controls/PlaybackRateButton.vue';
 import MediaInformation from './Controls/MediaInformation.vue';
 import PlayerOptions from './PlayerOptions.vue';
 
-const { isPodcastMock, isRadioStationMock, isTrackMock } = useAudioPlayerMock();
+const { currentTrackMock, isPodcastMock, isRadioStationMock, isTrackMock } =
+  useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(PlayerOptions, {
@@ -76,12 +77,6 @@ describe('PlayerOptions', () => {
     });
   });
 
-  describe('when isTrack is false', () => {
-    it('does not show the FavouriteButton component', () => {
-      expect(wrapper.findComponent(FavouriteButton).exists()).toBe(false);
-    });
-  });
-
   describe('when isTrack is true', () => {
     beforeEach(() => {
       isTrackMock.value = true;
@@ -89,10 +84,6 @@ describe('PlayerOptions', () => {
 
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('shows the FavouriteButton component', () => {
-      expect(wrapper.findComponent(FavouriteButton).exists()).toBe(true);
     });
 
     it('shows the MediaInformation component', () => {
@@ -112,6 +103,26 @@ describe('PlayerOptions', () => {
 
     it('does not show the MediaInformation component', () => {
       expect(wrapper.findComponent(MediaInformation).exists()).toBe(false);
+    });
+  });
+
+  describe('when currentTrack does have a favourite key', () => {
+    it('shows the FavouriteButton component', () => {
+      expect(wrapper.findComponent(FavouriteButton).exists()).toBe(true);
+    });
+  });
+
+  describe('when currentTrack does not have a favourite key', () => {
+    beforeEach(() => {
+      currentTrackMock.value = {} as QueueTrack;
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the FavouriteButton component', () => {
+      expect(wrapper.findComponent(FavouriteButton).exists()).toBe(false);
     });
   });
 });

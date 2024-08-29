@@ -68,7 +68,7 @@ exports[`ModalWindow > when modal values are set > when title is set > matches t
     <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="modalContainer">
       <div class="modalContent" role="document">
         <div class="header">
-          <h4 class="title">Title</h4><button class="iconButton" type="button" title="Close modal">
+          <h3 class="title">Title</h3><button class="iconButton" type="button" title="Close modal">
             <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="text visually-hidden"> Close modal </span>
           </button>
         </div>

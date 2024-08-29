@@ -44,7 +44,7 @@ function toggleAudioVolume() {
       {{ volumeTitle }}
     </IconButton>
 
-    <div>
+    <div :class="$style.volumeInputWrapper">
       <InputRange
         v-model="volume"
         :min="0"
@@ -56,8 +56,10 @@ function toggleAudioVolume() {
         @change="changeAudioVolume"
       />
 
-      <p ref="currentVolume" class="visually-hidden">
-        Volume at {{ volume * 100 }}%
+      <p ref="currentVolume" :class="$style.currentVolume">
+        <span class="visually-hidden">Volume at </span>
+        {{ Math.floor(volume * 100) }}
+        <span class="visually-hidden">%</span>
       </p>
     </div>
   </div>
@@ -67,10 +69,42 @@ function toggleAudioVolume() {
 .volumeControl {
   @mixin align-center;
 
-  padding-right: var(--media-player-spacing);
+  position: relative;
+
+  &:hover {
+    .volumeInputWrapper {
+      visibility: visible;
+    }
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.volumeInputWrapper {
+  @mixin align-center;
+
+  position: absolute;
+  top: calc(var(--space-12) * -3);
+  left: 50%;
+  z-index: 5;
+  gap: var(--space-8);
+  width: 200px;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--small-font-size);
+  visibility: hidden;
+  background: var(--secondary-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-large);
+  transition: visibility 0.5s ease-in-out;
+  transform: translateX(-50%);
 }
 
 .volumeInput {
-  width: 50px;
+  width: 100%;
+}
+
+.currentVolume {
+  width: 20px;
+  text-align: center;
 }
 </style>

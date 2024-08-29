@@ -1,0 +1,149 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaylistsList > matches the snapshot 1`] = `
+"<div class="noMediaMessage">
+  <div class="content">
+    <phplaylist size="50"></phplaylist>
+    <p>No playlists found.</p>
+  </div>
+</div>"
+`;
+
+exports[`PlaylistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
+"<section class="mediaListWrapper" style="--loop-rows: 5;">
+  <article class="playlist" data-test-id="playlist">
+    <figure class="figure image"><a title="Go to Go to playlist playlist-0">
+        <div class="preloadImage">
+          <div class="defaultImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="playlistOptions">
+      <div class="playlistDetails">
+        <p><a title="Go to playlist playlist-0" class="itemLink">playlist-0</a></p>
+        <ul class="bulletList">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+        </button>
+        <transition-stub name="fade" appear="false" persisted="false" css="true">
+          <div class="dropdownMenu">
+            <ul class="menu">
+              <li class="dropdownItem" data-test-id="delete-playlist"><button class="iconButton fullWidth action action" type="button" data-test-id="delete-playlist">
+                  <!--v-if--><span class="text"> Delete playlist </span>
+                </button></li>
+              <li class="dropdownItem" data-test-id="edit-playlist"><button class="iconButton fullWidth action action" type="button" data-test-id="edit-playlist">
+                  <!--v-if--><span class="text"> Edit playlist </span>
+                </button></li>
+            </ul>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+  </article>
+  <article class="playlist" data-test-id="playlist">
+    <figure class="figure image"><a title="Go to Go to playlist playlist-1">
+        <div class="preloadImage">
+          <div class="defaultImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="playlistOptions">
+      <div class="playlistDetails">
+        <p><a title="Go to playlist playlist-1" class="itemLink">playlist-1</a></p>
+        <ul class="bulletList">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+        </button>
+        <transition-stub name="fade" appear="false" persisted="false" css="true">
+          <!--v-if-->
+        </transition-stub>
+      </div>
+    </div>
+  </article>
+  <article class="playlist" data-test-id="playlist">
+    <figure class="figure image"><a title="Go to Go to playlist playlist-2">
+        <div class="preloadImage">
+          <div class="defaultImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="playlistOptions">
+      <div class="playlistDetails">
+        <p><a title="Go to playlist playlist-2" class="itemLink">playlist-2</a></p>
+        <ul class="bulletList">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+        </button>
+        <transition-stub name="fade" appear="false" persisted="false" css="true">
+          <!--v-if-->
+        </transition-stub>
+      </div>
+    </div>
+  </article>
+  <article class="playlist" data-test-id="playlist">
+    <figure class="figure image"><a title="Go to Go to playlist playlist-3">
+        <div class="preloadImage">
+          <div class="defaultImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="playlistOptions">
+      <div class="playlistDetails">
+        <p><a title="Go to playlist playlist-3" class="itemLink">playlist-3</a></p>
+        <ul class="bulletList">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+        </button>
+        <transition-stub name="fade" appear="false" persisted="false" css="true">
+          <!--v-if-->
+        </transition-stub>
+      </div>
+    </div>
+  </article>
+  <article class="playlist" data-test-id="playlist">
+    <figure class="figure image"><a title="Go to Go to playlist playlist-4">
+        <div class="preloadImage">
+          <div class="defaultImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="playlistOptions">
+      <div class="playlistDetails">
+        <p><a title="Go to playlist playlist-4" class="itemLink">playlist-4</a></p>
+        <ul class="bulletList">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="dropdown" data-test-id="dropdown-menu"><button class="iconButton alignRight button button" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text visually-hidden">More</span>
+        </button>
+        <transition-stub name="fade" appear="false" persisted="false" css="true">
+          <!--v-if-->
+        </transition-stub>
+      </div>
+    </div>
+  </article>
+</section>"
+`;

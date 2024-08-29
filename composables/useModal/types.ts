@@ -9,6 +9,8 @@ export interface ModalProps {
 export type ModalType =
   | 'addPlaylistModal'
   | 'addPodcastModal'
-  | 'addRadioStationModal'
+  | 'addUpdateRadioStationModal'
   | 'podcastDescriptionModal'
-  | 'trackDetailsModal';
+  | 'podcastEpisodeDescriptionModal'
+  | 'trackDetailsModal'
+  | 'artistBiographyModal';

@@ -1,8 +1,8 @@
 import AddPlaylistForm from '@/components/Forms/AddPlaylistForm.vue';
-import AddRadioStationForm from '@/components/Forms/AddRadioStationForm.vue';
+import AddRadioStationForm from '@/components/Forms/AddUpdateRadioStationForm.vue';
 import AddPodcastForm from '@/components/Forms/AddPodcastForm.vue';
-import PodcastDescription from '@/components/TrackDetails/PodcastDescription.vue';
-import TrackDetails from '~/components/TrackDetails/TrackInformation.vue';
+import MediaDescription from '@/components/TrackDetails/MediaDescription.vue';
+import TrackDetails from '@/components/TrackDetails/TrackInformation.vue';
 
 export function useModal() {
   const modal = useState<ModalProps>('modal-state', () => DEFAULT_STATE);
@@ -43,8 +43,24 @@ export function useModal() {
 
   function openPodcastDescriptionModal(attrs: ModalProps['attrs']) {
     modal.value = {
-      component: markRaw(PodcastDescription),
+      component: markRaw(MediaDescription),
+      title: 'Podcast Description',
+      attrs,
+    };
+  }
+
+  function openPodcastEpisodeDescriptionModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      component: markRaw(MediaDescription),
       title: 'Episode Description',
+      attrs,
+    };
+  }
+
+  function openArtistBiographyModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      component: markRaw(MediaDescription),
+      title: 'Artist Biography',
       attrs,
     };
   }
@@ -65,11 +81,17 @@ export function useModal() {
       case 'addPodcastModal':
         openAddPodcastModal(attrs);
         break;
-      case 'addRadioStationModal':
+      case 'addUpdateRadioStationModal':
         openAddRadioStationModal(attrs);
         break;
       case 'podcastDescriptionModal':
         openPodcastDescriptionModal(attrs);
+        break;
+      case 'podcastEpisodeDescriptionModal':
+        openPodcastEpisodeDescriptionModal(attrs);
+        break;
+      case 'artistBiographyModal':
+        openArtistBiographyModal(attrs);
         break;
       case 'trackDetailsModal':
         openTrackDetailsModal(attrs);

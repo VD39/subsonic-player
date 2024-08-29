@@ -264,7 +264,7 @@ export interface Lyrics {
 }
 
 export interface ResponsePodcastEpisode extends Base {
-  streamId?: string;
+  streamUrl?: string;
   channelId: string;
   description?: string;
   status: PodcastStatus;

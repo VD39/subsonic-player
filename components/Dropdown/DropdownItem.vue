@@ -42,7 +42,7 @@ defineEmits(['click']);
 
 .action {
   justify-content: space-between;
-  padding: var(--button-spacing);
+  padding: var(--dropdown-spacing);
 
   &:hover {
     background-color: var(--hover-selected-color);
