@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IconImage > matches the snapshot 1`] = `
+"<div class="iconImage">
+  <phpluscircle class="icon"></phpluscircle>
+</div>"
+`;

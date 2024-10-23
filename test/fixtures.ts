@@ -20,7 +20,7 @@ const genres = [
   },
 ];
 
-export const DATE = new Date(2000, 0, 1);
+export const API_DATE = new Date(2000, 0, 1);
 
 export const routeMock = {
   fullPath: 'login?param=param&param1=param1',
@@ -51,7 +51,6 @@ export const radioStationMock = {
   streamUrl: 'streamUrl',
 };
 
-// Update to make artist and genres a const.
 export const trackMock = {
   album: 'album',
   albumArtists: null,
@@ -61,7 +60,7 @@ export const trackMock = {
   bitRate: 15,
   contentType: 'contentType',
   coverArt: 'coverArt',
-  created: DATE,
+  created: API_DATE,
   discNumber: 1,
   displayAlbumArtist: 'displayAlbumArtist',
   displayArtist: 'displayArtist',
@@ -72,11 +71,15 @@ export const trackMock = {
   musicBrainzId: '',
   parent: 'parent',
   path: 'path',
+  playCount: 0,
   replayGain: null,
   size: 16,
+  starred: API_DATE,
   suffix: 'suffix',
   title: 'title',
   track: 1,
+  transcodedContentType: 'transcodedContentType',
+  transcodedSuffix: 'transcodedSuffix',
   type: 'music',
   year: 2024,
 } as Base;
@@ -87,7 +90,7 @@ export const albumMock = {
   artistId: 'id2',
   artists,
   coverArt: 'coverArt',
-  created: DATE,
+  created: API_DATE,
   duration: 12345,
   genre: 'genre',
   genres,
@@ -96,7 +99,7 @@ export const albumMock = {
   playCount: 1,
   song: [trackMock],
   songCount: 4,
-  starred: DATE,
+  starred: API_DATE,
   year: 2024,
 } as AlbumID3;
 
@@ -107,13 +110,13 @@ export const artistMock = {
   coverArt: 'coverArt',
   id: 'id',
   name: 'name',
-  starred: DATE,
+  starred: API_DATE,
 } as ArtistWithAlbumsID3;
 
 export const playlistMock = {
-  changed: DATE,
+  changed: API_DATE,
   comment: '',
-  created: DATE,
+  created: API_DATE,
   duration: 1,
   entry: [trackMock],
   id: 'id',
@@ -124,14 +127,14 @@ export const playlistMock = {
 } as ResponsePlaylist;
 
 export const podcastEpisodeMock = {
-  id: 'id',
+  channelId: 'channelId',
+  coverArt: 'coverArt',
   description: 'description',
   duration: 19,
-  channelId: 'channelId',
-  image: 'image',
+  id: 'id',
   isDir: false,
   name: 'name',
-  publishDate: DATE,
+  publishDate: API_DATE,
   status: 'completed',
   streamUrl: 'streamUrl',
   title: 'title',
@@ -158,57 +161,58 @@ export const formattedTrackMock = {
   favourite: false,
   genres,
   id: 'id',
-  image: 'coverArt',
+  image: 'image',
   information: {
-    bitRate: 15,
+    bitRate: '15 kbps',
     contentType: 'contentType',
+    created: 'created',
     path: 'path',
     playCount: 1,
     suffix: 'suffix',
     transcodedContentType: 'transcodedContentType',
     transcodedSuffix: 'transcodedSuffix',
   },
+  name: 'name',
   size: '0.02 KB',
   streamUrl: 'streamUrl',
-  name: 'name',
-  track: 1,
-  type: 'track',
+  trackNumber: 1,
+  type: MEDIA_TYPE.track,
   year: 2024,
 } as Track;
 
 export const formattedPlaylistMock = {
   duration: '00:01',
   id: 'id',
-  images: [],
+  images: ['image'],
   information: {
-    changed: DATE,
+    changed: '01 January 2000',
     comment: '',
-    created: DATE,
+    created: '01 January 2000',
     owner: 'owner',
     public: true,
   },
   name: 'name',
-  songCount: 1,
+  trackCount: 1,
   tracks: [formattedTrackMock],
-  type: 'playlist',
+  type: MEDIA_TYPE.playlist,
 } as Playlist;
 
 export const formattedAlbumMock = {
   artists,
-  created: 'id',
+  created: '01 January 2000',
   duration: '03:25:45',
   favourite: true,
   genres,
   id: 'id',
-  image: 'coverArt',
+  image: 'image',
   information: {
     playCount: 1,
   },
   name: 'name',
   size: '0.02 KB',
-  songCount: 4,
+  trackCount: 4,
   tracks: [formattedTrackMock],
-  type: 'album',
+  type: MEDIA_TYPE.album,
   year: 2024,
 } as Album;
 
@@ -218,27 +222,27 @@ export const formattedArtistMock = {
   favourite: true,
   genres,
   id: 'id',
-  image: 'coverArt',
+  image: 'image',
   lastFmUrl: undefined,
   musicBrainzUrl: undefined,
   name: 'name',
   totalAlbums: 0,
   totalTracks: 4,
-  type: 'artist',
+  type: MEDIA_TYPE.artist,
 } as Artist;
 
 export const formattedPodcastEpisodeMock = {
   description: 'description',
-  duration: '00:19',
   downloaded: true,
+  duration: '00:19',
   genres: [],
   id: 'id',
   image: 'image',
   name: 'title',
-  publishDate: DATE,
+  publishDate: '01/01/2000',
   streamUrl: 'streamUrl',
-  type: 'podcastEpisode',
-};
+  type: MEDIA_TYPE.podcastEpisode,
+} as PodcastEpisode;
 
 export const formattedPodcastMock = {
   description: 'description',
@@ -246,18 +250,33 @@ export const formattedPodcastMock = {
   episodes: [formattedPodcastEpisodeMock],
   id: 'id',
   image: 'image',
-  lastUpdated: '01 Jan 2000',
+  lastUpdated: '01 January 2000',
   name: 'title',
   totalEpisodes: 1,
-  type: 'podcast',
+  type: MEDIA_TYPE.podcast,
   url: 'url',
 } as Podcast;
 
 export const formattedRadioStationMock = {
   homePageUrl: 'homepageUrl',
   id: 'id',
-  image: 'coverArt',
+  image: 'image',
   name: 'name',
   streamUrl: 'streamUrl',
-  type: 'radioStation',
+  type: MEDIA_TYPE.radioStation,
 } as RadioStation;
+
+export const usePodcastPodcastValueMock = [
+  {
+    lastUpdated: new Date(2000, 0, 5).toString(),
+    name: 'Z',
+  },
+  {
+    lastUpdated: new Date(2000, 0, 10).toString(),
+    name: 'H',
+  },
+  {
+    lastUpdated: new Date(2000, 0, 1).toString(),
+    name: 'A',
+  },
+] as Podcast[];

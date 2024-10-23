@@ -1,5 +1,17 @@
 export const DEFAULT_STATE = {
+  attrs: {},
   component: null,
   title: null,
-  attrs: {},
 };
+
+export const MODAL_TYPE = {
+  addPlaylistModal: 'addPlaylistModal',
+  addPodcastModal: 'addPodcastModal',
+  addRadioStationModal: 'addRadioStationModal',
+  artistBiographyModal: 'artistBiographyModal',
+  podcastDescriptionModal: 'podcastDescriptionModal',
+  podcastEpisodeDescriptionModal: 'podcastEpisodeDescriptionModal',
+  trackDetailsModal: 'trackDetailsModal',
+  updatePlaylistModal: 'updatePlaylistModal',
+  updateRadioStationModal: 'updateRadioStationModal',
+} as const;

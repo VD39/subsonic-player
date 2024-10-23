@@ -1,5 +1,6 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { routeMock } from '@/test/fixtures';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import genreMiddleware from './genre';
 
 const navigateToMock = vi.hoisted(() => vi.fn());
@@ -7,60 +8,53 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 mockNuxtImport('navigateTo', () => navigateToMock);
 
 describe('genre-middleware', () => {
-  beforeEach(() => {
-    genreMiddleware(routeMock, routeMock);
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   describe('when to.params.mediaType and to.params.genre are not defined', () => {
+    beforeEach(() => {
+      genreMiddleware(routeMock, routeMock);
+    });
+
     it('calls the navigateTo function', () => {
       expect(navigateToMock).toBeCalledWith('/genres');
     });
   });
 
   describe('when to.params.mediaType and to.params.genre are defined', () => {
-    describe('when to.params.mediaType is not albums', () => {
-      it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/genres');
-      });
-    });
-
-    describe('when to.params.mediaType is not tracks', () => {
-      it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/genres');
-      });
-    });
-
-    describe('when to.params.mediaType is albums', () => {
+    describe('when to.params.mediaType is not albums/artists/tracks', () => {
       beforeEach(() => {
-        vi.clearAllMocks();
         genreMiddleware(
           {
             ...routeMock,
             params: {
               ...routeMock.params,
-              mediaType: 'albums',
               genre: 'genre',
+              mediaType: 'podcast',
             },
           },
           routeMock,
         );
       });
 
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toBeCalled();
+      it('calls the navigateTo function', () => {
+        expect(navigateToMock).toBeCalledWith('/genres');
       });
     });
 
-    describe('when to.params.mediaType is tracks', () => {
+    describe.each([
+      ROUTE_MEDIA_TYPE_PARAMS.Albums,
+      ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+    ])('when when to.params.mediaType is %s', (mediaType) => {
       beforeEach(() => {
-        vi.clearAllMocks();
         genreMiddleware(
           {
             ...routeMock,
             params: {
               ...routeMock.params,
-              mediaType: 'tracks',
               genre: 'genre',
+              mediaType,
             },
           },
           routeMock,

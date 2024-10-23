@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TrackPlayPause > matches the snapshot 1`] = `
+"<div class="overlapWrapper trackPlayPause">
+  <p class="overlap trackNumber">1</p>
+  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+      <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+    </button></div>
+</div>"
+`;
+
+exports[`TrackPlayPause > when image prop is set > matches the snapshot 1`] = `
+"<div class="overlapWrapper trackPlayPause withImage">
+  <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+      <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+    </button></div>
+</div>"
+`;
+
+exports[`TrackPlayPause > when isCurrentTrack value is true > matches the snapshot 1`] = `
+"<div class="overlapWrapper trackPlayPause currentTrack">
+  <p class="overlap trackNumber">1</p>
+  <div class="overlap playPauseWrapper buffering playing"><span class="centerAll playingLoader playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><ph-circle-notch-stub size="20" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span></div>
+</div>"
+`;
+
+exports[`TrackPlayPause > when large prop is true > matches the snapshot 1`] = `
+"<div class="overlapWrapper trackPlayPause large">
+  <p class="overlap trackNumber">1</p>
+  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+      <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+    </button></div>
+</div>"
+`;
+
+exports[`TrackPlayPause > when trackIsBuffering value is true > matches the snapshot 1`] = `
+"<div class="overlapWrapper trackPlayPause">
+  <p class="overlap trackNumber">1</p>
+  <div class="overlap playPauseWrapper buffering"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+      <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+    </button></div>
+</div>"
+`;
+
+exports[`TrackPlayPause > when trackIsPlaying value is true > matches the snapshot 1`] = `
+"<div class="overlapWrapper trackPlayPause">
+  <p class="overlap trackNumber">1</p>
+  <div class="overlap playPauseWrapper buffering playing"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+      <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+    </button></div>
+</div>"
+`;

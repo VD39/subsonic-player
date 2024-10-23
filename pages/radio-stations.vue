@@ -1,79 +1,50 @@
 <script setup lang="ts">
-import IconButton from '@/components/Buttons/IconButton.vue';
-import RadioStationList from '@/components/MediaLists/RadioStationList.vue';
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
+import LoadingData from '@/components/Molecules/LoadingData.vue';
+import RadioStationList from '@/components/Organisms/RadioStationList.vue';
 
 const {
-  addRadioStation,
+  addRadioStationModal,
   deleteRadioStation,
   getRadioStations,
   radioStations,
-  updateRadioStation,
+  updateRadioStationModal,
 } = useRadioStation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { closeModal, openModal } = useModal();
-
-function addRadioStationModal() {
-  openModal('addUpdateRadioStationModal', {
-    /* istanbul ignore next -- @preserve */
-    async onSubmit(radioStation: RadioStation) {
-      await addRadioStation(radioStation);
-      closeModal();
-    },
-  });
-}
-
-function updateRadioStationModal(radioStation: RadioStation) {
-  openModal('addUpdateRadioStationModal', {
-    radioStation,
-    /* istanbul ignore next -- @preserve */
-    async onSubmit(newRadioStation: RadioStation) {
-      await updateRadioStation({
-        ...newRadioStation,
-        id: radioStation.id,
-      });
-
-      closeModal();
-    },
-  });
-}
 
 function playRadioStation(station: RadioStation) {
   playTracks([station]);
 }
 
-if (!radioStations.value?.length) {
-  getRadioStations();
-}
+onBeforeMount(async () => {
+  if (!radioStations.value.length) {
+    getRadioStations();
+  }
+});
 </script>
 
 <template>
-  <div :class="$style.header">
-    <h1>Radio Stations</h1>
+  <LoadingData>
+    <HeaderWithAction>
+      <h1>Radio Stations</h1>
 
-    <IconButton
-      :icon-size="35"
-      icon="PhPlusCircle"
-      title="Add radio station"
-      @click="addRadioStationModal"
-    >
-      Add radio station
-    </IconButton>
-  </div>
+      <ButtonLink
+        :icon-size="35"
+        :icon="ICONS.add"
+        title="Add radio station"
+        @click="addRadioStationModal"
+      >
+        Add radio station
+      </ButtonLink>
+    </HeaderWithAction>
 
-  <RadioStationList
-    :radio-stations="radioStations"
-    @add-to-queue="addTrackToQueue"
-    @delete-station="deleteRadioStation"
-    @edit-station="updateRadioStationModal"
-    @play-station="playRadioStation"
-  />
+    <RadioStationList
+      :radio-stations="radioStations"
+      @add-to-queue="addTrackToQueue"
+      @delete-radio-station="deleteRadioStation"
+      @edit-radio-station="updateRadioStationModal"
+      @play-radio-station="playRadioStation"
+    />
+  </LoadingData>
 </template>
-
-<style module>
-.header {
-  @mixin align-center;
-
-  justify-content: space-between;
-  width: 100%;
-}
-</style>

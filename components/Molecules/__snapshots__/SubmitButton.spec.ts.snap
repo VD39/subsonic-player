@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SubmitButton > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink submitButton submitButton" type="submit">
+  <!--v-if--><span class="clamp text">Default slot content.</span>
+</button>"
+`;
+
+exports[`SubmitButton > when fullWidth prop is set to true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink centerAll fullWidth submitButton submitButton" type="submit">
+  <!--v-if--><span class="clamp text">Default slot content.</span>
+</button>"
+`;
+
+exports[`SubmitButton > when loading prop is set to true > matches the snapshot 1`] = `"<button class="centerItems buttonLink alignRight disabled submitButton submitButton" disabled="" type="submit"><span class="centerItems spinningLoader icon" aria-hidden="true" size="24" weight="duotone"><ph-circle-notch-stub size="20" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Default slot content.</span></button>"`;

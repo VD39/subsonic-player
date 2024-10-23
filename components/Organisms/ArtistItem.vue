@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import ImageLink from '@/components/Organisms/ImageLink.vue';
+
+const props = defineProps<{
+  artist: Artist;
+}>();
+
+const toLink = `/artist/${props.artist.id}`;
+</script>
+
+<template>
+  <article>
+    <ImageLink
+      :to="toLink"
+      :title="artist.name"
+      :image="artist.image"
+      class="mBS"
+    />
+
+    <p class="mBXS strong smallFont clamp2">
+      <NuxtLink
+        :to="toLink"
+        class="link"
+        :title="`Go to artist ${artist.name}`"
+      >
+        {{ artist.name }}
+      </NuxtLink>
+    </p>
+  </article>
+</template>

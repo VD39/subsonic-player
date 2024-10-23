@@ -1,100 +1,112 @@
-import AddPlaylistForm from '@/components/Forms/AddPlaylistForm.vue';
-import AddRadioStationForm from '@/components/Forms/AddUpdateRadioStationForm.vue';
-import AddPodcastForm from '@/components/Forms/AddPodcastForm.vue';
-import MediaDescription from '@/components/TrackDetails/MediaDescription.vue';
-import TrackDetails from '@/components/TrackDetails/TrackInformation.vue';
+import MediaDescription from '@/components/Atoms/MediaDescription.vue';
+import TrackDetails from '@/components/Molecules/TrackInformation.vue';
+import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
+import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
+import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
 
 export function useModal() {
-  const modal = useState<ModalProps>('modal-state', () => DEFAULT_STATE);
+  const modal = useState<ModalProps>(STATE_NAMES.modal, () => DEFAULT_STATE);
 
-  function keydownHandler(event: KeyboardEvent) {
+  function onKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
       closeModal();
     }
   }
 
   function addEventListener() {
-    document.addEventListener('keydown', keydownHandler);
+    document.addEventListener('keydown', onKeydown);
   }
 
-  function openAddPlaylistModal(attrs: ModalProps['attrs']) {
+  function openAddUpdatePlaylistModal(
+    attrs: ModalProps['attrs'],
+    update = false,
+  ) {
     modal.value = {
-      component: markRaw(AddPlaylistForm),
-      title: 'Add playlist',
       attrs,
+      component: markRaw(AddUpdatePlaylistForm),
+      title: `${update ? 'Update' : 'Add'} playlist`,
     };
   }
 
   function openAddPodcastModal(attrs: ModalProps['attrs']) {
     modal.value = {
+      attrs,
       component: markRaw(AddPodcastForm),
       title: 'Add podcast',
-      attrs,
     };
   }
 
-  function openAddRadioStationModal(attrs: ModalProps['attrs']) {
+  function openAddRadioStationModal(
+    attrs: ModalProps['attrs'],
+    update = false,
+  ) {
     modal.value = {
-      component: markRaw(AddRadioStationForm),
-      title: 'Add radio station',
       attrs,
+      component: markRaw(AddRadioStationForm),
+      title: `${update ? 'Update' : 'Add'} radio station`,
     };
   }
 
   function openPodcastDescriptionModal(attrs: ModalProps['attrs']) {
     modal.value = {
+      attrs,
       component: markRaw(MediaDescription),
       title: 'Podcast Description',
-      attrs,
     };
   }
 
   function openPodcastEpisodeDescriptionModal(attrs: ModalProps['attrs']) {
     modal.value = {
+      attrs,
       component: markRaw(MediaDescription),
       title: 'Episode Description',
-      attrs,
     };
   }
 
   function openArtistBiographyModal(attrs: ModalProps['attrs']) {
     modal.value = {
+      attrs,
       component: markRaw(MediaDescription),
       title: 'Artist Biography',
-      attrs,
     };
   }
 
   function openTrackDetailsModal(attrs: ModalProps['attrs']) {
     modal.value = {
+      attrs,
       component: markRaw(TrackDetails),
       title: 'Track Details',
-      attrs,
     };
   }
 
   function openModal(modalType: ModalType, attrs = {}) {
     switch (modalType) {
-      case 'addPlaylistModal':
-        openAddPlaylistModal(attrs);
+      case MODAL_TYPE.addPlaylistModal:
+        openAddUpdatePlaylistModal(attrs);
         break;
-      case 'addPodcastModal':
+      case MODAL_TYPE.addPodcastModal:
         openAddPodcastModal(attrs);
         break;
-      case 'addUpdateRadioStationModal':
+      case MODAL_TYPE.addRadioStationModal:
         openAddRadioStationModal(attrs);
         break;
-      case 'podcastDescriptionModal':
-        openPodcastDescriptionModal(attrs);
-        break;
-      case 'podcastEpisodeDescriptionModal':
-        openPodcastEpisodeDescriptionModal(attrs);
-        break;
-      case 'artistBiographyModal':
+      case MODAL_TYPE.artistBiographyModal:
         openArtistBiographyModal(attrs);
         break;
-      case 'trackDetailsModal':
+      case MODAL_TYPE.podcastDescriptionModal:
+        openPodcastDescriptionModal(attrs);
+        break;
+      case MODAL_TYPE.podcastEpisodeDescriptionModal:
+        openPodcastEpisodeDescriptionModal(attrs);
+        break;
+      case MODAL_TYPE.trackDetailsModal:
         openTrackDetailsModal(attrs);
+        break;
+      case MODAL_TYPE.updatePlaylistModal:
+        openAddUpdatePlaylistModal(attrs, true);
+        break;
+      case MODAL_TYPE.updateRadioStationModal:
+        openAddRadioStationModal(attrs, true);
         break;
     }
 
@@ -105,7 +117,7 @@ export function useModal() {
 
   function closeModal() {
     modal.value = DEFAULT_STATE;
-    document.removeEventListener('keydown', keydownHandler);
+    document.removeEventListener('keydown', onKeydown);
   }
 
   return {

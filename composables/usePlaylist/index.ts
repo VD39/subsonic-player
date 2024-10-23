@@ -1,22 +1,22 @@
 export function usePlaylist() {
-  const config = useRuntimeConfig();
-  const { LOAD_SIZE } = config.public;
-
   const { fetchData } = useAPI();
   const { addSuccessSnack } = useSnack();
+  const { closeModal, openModal } = useModal();
 
-  const playlist = useState<Playlist | null>('playlist', () => null);
-  const playlists = useState<Playlist[]>('playlists', () => []);
+  const playlist = useState<null | Playlist>(STATE_NAMES.playlist, () => null);
+  const playlists = useState<Playlist[]>(STATE_NAMES.playlists, () => []);
 
   async function getPlaylists() {
     const { data: playlistsData } = await fetchData('/getPlaylists', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.playlists.playlist || [])
           .map(formatPlaylist)
-          .sort((a, b) => b.songCount - a.songCount),
+          .sort((a, b) => b.trackCount - a.trackCount),
     });
 
     if (Array.isArray(playlistsData)) {
+      playlistsData.unshift(RANDOM_PLAYLIST as unknown as Playlist);
+
       playlists.value = playlistsData;
     }
   }
@@ -24,19 +24,15 @@ export function usePlaylist() {
   async function getRandomTracks() {
     const { data: playlistData } = await fetchData('/getRandomSongs', {
       params: {
-        size: Number(LOAD_SIZE),
+        size: RANDOM_SIZE,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => {
         const playlistRes = {
           ...response.randomSongs,
-          id: 'Random',
-          name: 'Random',
-          comment: '',
+          ...RANDOM_PLAYLIST,
+          duration: getRandomTracksDuration(response.randomSongs.song),
           entry: response.randomSongs.song || [],
           songCount: response.randomSongs.song?.length || 0,
-          created: new Date(),
-          changed: new Date(),
-          duration: getRandomTracksDuration(response.randomSongs.song),
         };
 
         return formatPlaylist(playlistRes);
@@ -52,7 +48,7 @@ export function usePlaylist() {
         id,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        formatPlaylist(response.playlist),
+        response?.playlist && formatPlaylist(response.playlist),
     });
 
     playlist.value = playlistData;
@@ -66,7 +62,7 @@ export function usePlaylist() {
     }
   }
 
-  async function createPlaylist(name: string) {
+  async function addPlaylist(name: string) {
     const { data: playlistData } = await fetchData('/createPlaylist', {
       method: 'POST',
       params: {
@@ -77,7 +73,7 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      playlists.value.unshift(playlistData);
+      playlists.value.splice(1, 0, playlistData);
       addSuccessSnack(`Successfully added playlist ${playlistData.name}.`);
     }
   }
@@ -97,8 +93,7 @@ export function usePlaylist() {
   }
 
   async function deletePlaylist(id: string) {
-    const { data: playlistData } = await fetchData('/updatePlaylist', {
-      method: 'DELETE',
+    const { data: playlistData } = await fetchData('/deletePlaylist', {
       params: {
         id,
       },
@@ -119,9 +114,37 @@ export function usePlaylist() {
     await updatePlaylist(params, 'Successfully removed from playlist.');
   }
 
+  /* istanbul ignore next -- @preserve */
+  function addPlaylistModal() {
+    openModal(MODAL_TYPE.addPlaylistModal, {
+      /* istanbul ignore next -- @preserve */
+      async onSubmit(playlistName: string) {
+        await addPlaylist(playlistName);
+        closeModal();
+      },
+    });
+  }
+
+  /* istanbul ignore next -- @preserve */
+  function updatePlaylistModal(playlist: Playlist) {
+    openModal(MODAL_TYPE.updatePlaylistModal, {
+      /* istanbul ignore next -- @preserve */
+      async onSubmit(newPlaylist: Playlist) {
+        await updatePlaylist({
+          ...newPlaylist,
+          playlistId: playlist.id,
+        });
+
+        closeModal();
+      },
+      playlist,
+    });
+  }
+
   return {
+    addPlaylist,
+    addPlaylistModal,
     addToPlaylist,
-    createPlaylist,
     deletePlaylist,
     getPlaylists,
     getPlaylistTracksById,
@@ -129,5 +152,6 @@ export function usePlaylist() {
     playlists,
     removeFromPlaylist,
     updatePlaylist,
+    updatePlaylistModal,
   };
 }

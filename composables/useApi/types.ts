@@ -1,11 +1,11 @@
-type MediaType = 'music' | 'podcast' | 'audiobook' | 'video';
-type ResponseStatus = 'ok' | 'failed';
+type MediaType = 'audiobook' | 'music' | 'podcast' | 'video';
+type ResponseStatus = 'failed' | 'ok';
 type PodcastStatus =
-  | 'new'
-  | 'downloading'
   | 'completed'
-  | 'error'
   | 'deleted'
+  | 'downloading'
+  | 'error'
+  | 'new'
   | 'skipped';
 
 export interface MusicFolders {
@@ -18,26 +18,26 @@ export interface MusicFolder {
 }
 
 export interface Indexes {
-  lastModified: number;
-  ignoredArticles: string;
-  shortcut?: ResponseArtist[];
-  index?: Index[];
   child?: Base[];
+  ignoredArticles: string;
+  index?: Index[];
+  lastModified: number;
+  shortcut?: ResponseArtist[];
 }
 
 export interface Index {
-  name: string;
   artist?: ResponseArtist[];
   artists?: ResponseArtist[];
+  name: string;
 }
 
 export interface ResponseArtist extends ArtistID3 {
+  artistImageUrl?: string;
+  averageRating?: number;
   id: string;
   name: string;
-  artistImageUrl?: string;
   starred?: Date;
   userRating?: number;
-  averageRating?: number;
 }
 
 export interface AlbumBaseGenre {
@@ -45,10 +45,10 @@ export interface AlbumBaseGenre {
 }
 
 export interface ResponseGenre {
-  name?: string;
-  value: string;
-  songCount: number;
   albumCount: number;
+  name?: string;
+  songCount: number;
+  value: string;
 }
 
 export interface Genres {
@@ -61,16 +61,16 @@ export interface ArtistsID3 {
 }
 
 export interface IndexID3 {
-  name: string;
   artist?: ArtistID3[];
+  name: string;
 }
 
 export interface ArtistID3 {
+  albumCount: number;
+  artistImageUrl?: string;
+  coverArt?: string;
   id: string;
   name: string;
-  coverArt?: string;
-  artistImageUrl?: string;
-  albumCount: number;
   starred?: Date;
 }
 
@@ -79,20 +79,20 @@ export interface ArtistWithAlbumsID3 extends ArtistID3 {
 }
 
 export interface AlbumID3 {
-  id: string;
-  name: string;
   artist?: string;
-  artists?: ResponseArtist[];
   artistId?: string;
+  artists?: ResponseArtist[];
   coverArt?: string;
-  songCount: number;
-  duration: number;
-  playCount?: number;
   created: Date;
-  starred?: Date;
-  year?: number;
+  duration: number;
   genre?: string;
   genres?: AlbumBaseGenre[];
+  id: string;
+  name: string;
+  playCount?: number;
+  songCount: number;
+  starred?: Date;
+  year?: number;
 }
 
 export interface AlbumWithSongsID3 extends AlbumID3 {
@@ -104,10 +104,10 @@ export interface Videos {
 }
 
 export interface VideoInfo {
-  id: string;
-  captions?: Captions[];
   audioTrack?: AudioTrack[];
+  captions?: Captions[];
   conversion?: VideoConversion[];
+  id: string;
 }
 
 export interface Captions {
@@ -117,61 +117,61 @@ export interface Captions {
 
 export interface AudioTrack {
   id: string;
-  name?: string;
   languageCode?: string;
+  name?: string;
 }
 
 export interface VideoConversion {
-  id: string;
-  bitRate?: number;
   audioTrackId?: number;
+  bitRate?: number;
+  id: string;
 }
 
 export interface Directory {
+  averageRating?: number;
+  child?: Base[];
   id: string;
-  parent?: string;
   name: string;
+  parent?: string;
+  playCount?: number;
   starred?: Date;
   userRating?: number;
-  averageRating?: number;
-  playCount?: number;
-  child?: Base[];
 }
 
 export interface Base {
-  id: string;
-  parent?: string;
-  isDir: boolean;
-  title: string;
   album?: string;
+  albumId?: string;
   artist?: string;
+  artistId?: string;
   artists?: ResponseArtist[];
-  track?: number;
-  year?: number;
+  averageRating?: number;
+  bitRate?: number;
+  bookmarkPosition?: number;
+  contentType?: string;
+  coverArt?: string;
+  created?: Date;
+  discNumber?: number;
+  duration?: number;
   genre?: string;
   genres?: AlbumBaseGenre[];
-  coverArt?: string;
+  id: string;
+  isDir: boolean;
+  isVideo?: boolean;
+  originalHeight?: number;
+  originalWidth?: number;
+  parent?: string;
+  path?: string;
+  playCount?: number;
   size?: number;
-  contentType?: string;
+  starred?: Date;
   suffix?: string;
+  title: string;
+  track?: number;
   transcodedContentType?: string;
   transcodedSuffix?: string;
-  duration?: number;
-  bitRate?: number;
-  path?: string;
-  isVideo?: boolean;
-  userRating?: number;
-  averageRating?: number;
-  playCount?: number;
-  discNumber?: number;
-  created?: Date;
-  starred?: Date;
-  albumId?: string;
-  artistId?: string;
   type?: MediaType;
-  bookmarkPosition?: number;
-  originalWidth?: number;
-  originalHeight?: number;
+  userRating?: number;
+  year?: number;
 }
 
 export interface NowPlaying {
@@ -179,27 +179,27 @@ export interface NowPlaying {
 }
 
 export interface NowPlayingEntry extends Base {
-  username: string;
   minutesAgo: number;
   playerId: number;
   playerName?: string;
+  username: string;
 }
 
 export interface SearchResult {
+  match?: Base[];
   offset: number;
   totalHits: number;
-  match?: Base[];
 }
 
 export interface SearchResult2 {
-  artist?: ResponseArtist[];
   album?: Base[];
+  artist?: ResponseArtist[];
   song?: Base[];
 }
 
 export interface SearchResult3 {
-  artist?: ArtistID3[];
   album?: AlbumID3[];
+  artist?: ArtistID3[];
   song?: Base[];
 }
 
@@ -208,17 +208,17 @@ export interface Playlists {
 }
 
 export interface ResponsePlaylist {
+  allowedUser?: string[];
+  changed: Date;
+  comment?: string;
+  coverArt?: string;
+  created: Date;
+  duration: number;
   id: string;
   name: string;
-  comment?: string;
   owner?: string;
   public?: boolean;
   songCount: number;
-  duration: number;
-  created: Date;
-  changed: Date;
-  coverArt?: string;
-  allowedUser?: string[];
 }
 
 export interface PlaylistWithSongs extends ResponsePlaylist {
@@ -227,8 +227,8 @@ export interface PlaylistWithSongs extends ResponsePlaylist {
 
 export interface JukeboxStatus {
   currentIndex: number;
-  playing: boolean;
   gain: number;
+  playing: boolean;
   position?: number;
 }
 
@@ -241,9 +241,9 @@ export interface ChatMessages {
 }
 
 export interface ChatMessage {
-  username: string;
-  time: number;
   message: string;
+  time: number;
+  username: string;
 }
 
 export interface AlbumList {
@@ -264,23 +264,23 @@ export interface Lyrics {
 }
 
 export interface ResponsePodcastEpisode extends Base {
-  streamUrl?: string;
   channelId: string;
   description?: string;
-  status: PodcastStatus;
   publishDate?: Date;
+  status: PodcastStatus;
+  streamUrl?: string;
 }
 
 export interface PodcastChannel {
-  id: string;
-  url: string;
-  title?: string;
-  description?: string;
   coverArt?: string;
+  description?: string;
+  episode?: ResponsePodcastEpisode[];
+  errorMessage?: string;
+  id: string;
   originalImageUrl?: string;
   status: PodcastStatus;
-  errorMessage?: string;
-  episode?: ResponsePodcastEpisode[];
+  title?: string;
+  url: string;
 }
 
 export interface NewestPodcasts {
@@ -296,11 +296,11 @@ export interface InternetRadioStations {
 }
 
 export interface InternetRadioStation {
+  homePageUrl?: string;
+  homepageUrl?: string;
   id: string;
   name: string;
   streamUrl: string;
-  homePageUrl?: string;
-  homepageUrl?: string;
 }
 
 export interface Bookmarks {
@@ -308,21 +308,21 @@ export interface Bookmarks {
 }
 
 export interface Bookmark {
-  position: number;
-  username: string;
+  changed: Date;
   comment?: string;
   created: Date;
-  changed: Date;
   entry: Base;
+  position: number;
+  username: string;
 }
 
 export interface PlayQueue {
-  current?: number;
-  position?: number;
-  username: string;
   changed: Date;
   changedBy: string;
+  current?: number;
   entry?: Base[];
+  position?: number;
+  username: string;
 }
 
 export interface Shares {
@@ -330,39 +330,39 @@ export interface Shares {
 }
 
 export interface Share {
-  id: string;
-  url: string;
-  description?: string;
-  username: string;
   created: Date;
-  expires?: string;
-  lastVisited?: string;
-  visitCount: number;
+  description?: string;
   entry?: Base[];
+  expires?: string;
+  id: string;
+  lastVisited?: string;
+  url: string;
+  username: string;
+  visitCount: number;
 }
 
 export interface Starred {
-  artist?: ResponseArtist[];
   album?: Base[];
+  artist?: ResponseArtist[];
   song?: Base[];
 }
 
 export interface AlbumInfo {
-  notes?: string;
-  musicBrainzId?: string;
-  lastFmUrl?: string;
-  smallImageUrl?: string;
-  mediumImageUrl?: string;
   largeImageUrl?: string;
+  lastFmUrl?: string;
+  mediumImageUrl?: string;
+  musicBrainzId?: string;
+  notes?: string;
+  smallImageUrl?: string;
 }
 
 export interface ArtistInfoBase {
   biography?: string;
-  musicBrainzId?: string;
-  lastFmUrl?: string;
-  smallImageUrl?: string;
-  mediumImageUrl?: string;
   largeImageUrl?: string;
+  lastFmUrl?: string;
+  mediumImageUrl?: string;
+  musicBrainzId?: string;
+  smallImageUrl?: string;
 }
 
 export interface ArtistInfo extends ArtistInfoBase {
@@ -386,21 +386,21 @@ export interface TopSongs {
 }
 
 export interface Starred2 {
-  artist?: ArtistID3[];
   album?: AlbumID3[];
+  artist?: ArtistID3[];
   song?: Base[];
 }
 
 export interface License {
-  valid: boolean;
   email?: string;
   licenseExpires?: string;
   trialExpires?: string;
+  valid: boolean;
 }
 
 export interface ScanStatus {
-  scanning: boolean;
   count?: number;
+  scanning: boolean;
 }
 
 export interface Users {
@@ -408,24 +408,24 @@ export interface Users {
 }
 
 export interface CurrentUser {
-  username: string;
-  email?: string;
-  scrobblingEnabled: boolean;
-  maxBitRate?: number;
   adminRole: boolean;
-  settingsRole: boolean;
-  downloadRole: boolean;
-  uploadRole: boolean;
-  playlistRole: boolean;
-  coverArtRole: boolean;
-  commentRole: boolean;
-  podcastRole: boolean;
-  streamRole: boolean;
-  jukeboxRole: boolean;
-  shareRole: boolean;
-  videoConversionRole: boolean;
   avatarLastchanged: Date;
+  commentRole: boolean;
+  coverArtRole: boolean;
+  downloadRole: boolean;
+  email?: string;
   folder?: number[];
+  jukeboxRole: boolean;
+  maxBitRate?: number;
+  playlistRole: boolean;
+  podcastRole: boolean;
+  scrobblingEnabled: boolean;
+  settingsRole: boolean;
+  shareRole: boolean;
+  streamRole: boolean;
+  uploadRole: boolean;
+  username: string;
+  videoConversionRole: boolean;
 }
 
 export interface Error {
@@ -434,54 +434,54 @@ export interface Error {
 }
 
 export interface SubsonicResponse {
-  // Base Subsonic Response.
-  status: ResponseStatus;
-  version: string;
-  type: string;
-  serverVersion: string;
-  openSubsonic: boolean;
+  album: AlbumWithSongsID3;
+  albumInfo: AlbumInfo;
+  albumList: AlbumList;
+  albumList2: AlbumList2;
+  artist: ArtistWithAlbumsID3;
+  artistInfo: ArtistInfo;
+  artistInfo2: ArtistInfo2;
+  artists: ArtistsID3;
+  bookmarks: Bookmarks;
+  chatMessages: ChatMessages;
+  directory: Directory;
+  error: Error;
+  genres: Genres;
+  indexes: Indexes;
+  internetRadioStations: InternetRadioStations;
+  jukeboxPlaylist: JukeboxPlaylist;
+  jukeboxStatus: JukeboxStatus;
+  license: License;
+  lyrics: Lyrics;
   // API response.
   musicFolders: MusicFolders;
-  indexes: Indexes;
-  directory: Directory;
-  genres: Genres;
-  artists: ArtistsID3;
-  artist: ArtistWithAlbumsID3;
-  album: AlbumWithSongsID3;
-  song: Base;
-  videos: Videos;
-  videoInfo: VideoInfo;
+  newestPodcasts: NewestPodcasts;
   nowPlaying: NowPlaying;
+  openSubsonic: boolean;
+  playlist: PlaylistWithSongs;
+  playlists: Playlists;
+  playQueue: PlayQueue;
+  podcasts: Podcasts;
+  randomSongs: Songs;
+  scanStatus: ScanStatus;
   searchResult: SearchResult;
   searchResult2: SearchResult2;
   searchResult3: SearchResult3;
-  playlists: Playlists;
-  playlist: PlaylistWithSongs;
-  jukeboxStatus: JukeboxStatus;
-  jukeboxPlaylist: JukeboxPlaylist;
-  license: License;
-  users: Users;
-  user: CurrentUser;
-  chatMessages: ChatMessages;
-  albumList: AlbumList;
-  albumList2: AlbumList2;
-  randomSongs: Songs;
-  songsByGenre: Songs;
-  lyrics: Lyrics;
-  podcasts: Podcasts;
-  newestPodcasts: NewestPodcasts;
-  internetRadioStations: InternetRadioStations;
-  bookmarks: Bookmarks;
-  playQueue: PlayQueue;
+  serverVersion: string;
   shares: Shares;
-  starred: Starred;
-  starred2: Starred2;
-  albumInfo: AlbumInfo;
-  artistInfo: ArtistInfo;
-  artistInfo2: ArtistInfo2;
   similarSongs: SimilarSongs;
   similarSongs2: SimilarSongs2;
+  song: Base;
+  songsByGenre: Songs;
+  starred: Starred;
+  starred2: Starred2;
+  // Base Subsonic Response.
+  status: ResponseStatus;
   topSongs: TopSongs;
-  scanStatus: ScanStatus;
-  error: Error;
+  type: string;
+  user: CurrentUser;
+  users: Users;
+  version: string;
+  videoInfo: VideoInfo;
+  videos: Videos;
 }

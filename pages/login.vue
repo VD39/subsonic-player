@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import LoginForm from '@/components/Forms/LoginForm.vue';
-import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher.vue';
+import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
+import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
+import LoginForm from '@/components/Organisms/LoginForm.vue';
 
 definePageMeta({
   layout: 'login',
@@ -19,7 +20,7 @@ async function checkLogin() {
 }
 
 async function submitForm(fields: AuthData) {
-  const { server, username, password } = fields;
+  const { password, server, username } = fields;
 
   await login({
     password,
@@ -32,37 +33,25 @@ async function submitForm(fields: AuthData) {
 </script>
 
 <template>
-  <div :class="$style.loginView">
-    <div :class="$style.header">
+  <div :class="['mBAllM', 'inner', $style.login]">
+    <HeaderWithAction>
       <h3>Login</h3>
 
-      <ThemeSwitcher :class="$style.themeSwitcher" />
-    </div>
+      <ThemeSwitcher />
+    </HeaderWithAction>
 
     <LoginForm :loading="loading" :error="error" @submit="submitForm" />
   </div>
 </template>
 
 <style module>
-.loginView {
+.login {
   position: relative;
-  display: block;
-  width: 95%;
   max-width: 500px;
   padding: var(--space-40);
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-large);
   box-shadow: var(--box-shadow-large);
-}
-
-.header {
-  @mixin align-center;
-
-  justify-content: space-between;
-}
-
-.themeSwitcher {
-  margin-left: auto;
 }
 </style>

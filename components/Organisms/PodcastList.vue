@@ -1,0 +1,177 @@
+<script setup lang="ts">
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
+import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
+import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
+import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+
+defineProps<{
+  podcastEpisodes: PodcastEpisode[];
+}>();
+
+defineEmits([
+  'addToPlaylist',
+  'addToQueue',
+  'deleteEpisode',
+  'downloadEpisode',
+  'playEpisode',
+  'showEpisodeDescription',
+]);
+</script>
+
+<template>
+  <div v-if="podcastEpisodes.length" ref="tracksWrapper" class="trackTable">
+    <div class="trackHeader">
+      <div class="trackCell">Episodes</div>
+      <div class="trackCell" />
+    </div>
+
+    <div
+      v-for="(episode, index) in podcastEpisodes"
+      :key="episode.id"
+      data-test-id="track"
+      class="trackRow trackBorder spaceBetween"
+    >
+      <div
+        :class="['trackCell', 'trackPodcastEpisode', 'column', $style.column]"
+      >
+        <div>
+          <DownloadPodcastEpisode
+            v-if="!episode.downloaded"
+            :image="episode.image"
+            @download-episode="$emit('downloadEpisode', episode)"
+          />
+
+          <TrackPlayPause
+            v-else
+            :track-id="episode.id"
+            :image="episode.image"
+            :track-number="index + 1"
+            large
+            @play-track="$emit('playEpisode', episode)"
+          />
+
+          <div :class="$style.column">
+            <h4 class="strong clamp mBM">
+              {{ episode.name }}
+            </h4>
+
+            <p v-if="episode.description" ref="description" class="clamp2">
+              {{ episode.description }}
+            </p>
+          </div>
+        </div>
+
+        <div :class="['centerItems', $style.podcastOptions]">
+          <div class="centerItems">
+            <ButtonLink
+              v-if="!episode.downloaded"
+              ref="downloadEpisodeButton"
+              :icon="ICONS.download"
+              title="Download episode"
+              @click="$emit('downloadEpisode', episode)"
+            >
+              Download episode
+            </ButtonLink>
+
+            <div
+              v-else
+              ref="downloaded"
+              :class="['centerItems', $style.downloaded]"
+              title="Downloaded"
+            >
+              <PhCheckCircle size="24" />
+            </div>
+
+            <ButtonLink
+              v-if="episode.description"
+              ref="showEpisodeDescriptionButton"
+              :icon="ICONS.information"
+              title="Episode information"
+              @click="$emit('showEpisodeDescription', episode)"
+            >
+              Episode information
+            </ButtonLink>
+          </div>
+
+          <ul class="list bulletList">
+            <li>
+              <span class="visually-hidden">Published: </span>
+              {{ episode.publishDate }}
+            </li>
+            <li>
+              <span class="visually-hidden">Duration: </span>
+              <time>{{ episode.duration }}</time>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="trackCell trackPodcastEpisode">
+        <DropdownMenu ref="dropdownMenu">
+          <DropdownItem
+            v-if="episode.downloaded"
+            ref="deleteEpisode"
+            @click="$emit('deleteEpisode', episode.id)"
+          >
+            Delete episode
+          </DropdownItem>
+          <DropdownItem
+            v-else
+            ref="downloadEpisodeDropdownItem"
+            @click="$emit('downloadEpisode', episode)"
+          >
+            Download episode
+          </DropdownItem>
+          <DropdownItem
+            v-if="episode.description"
+            ref="showEpisodeDescriptionDropdownItem"
+            @click="$emit('showEpisodeDescription', episode)"
+          >
+            Episode description
+          </DropdownItem>
+          <DropdownItem
+            ref="addToPlaylist"
+            @click="$emit('addToPlaylist', episode)"
+          >
+            Add to playlist
+          </DropdownItem>
+          <DropdownDivider />
+          <DropdownItem ref="addToQueue" @click="$emit('addToQueue', episode)">
+            Add to queue
+          </DropdownItem>
+          <DropdownItem
+            ref="playEpisode"
+            @click="$emit('playEpisode', episode.id)"
+          >
+            Play Episode
+          </DropdownItem>
+        </DropdownMenu>
+      </div>
+    </div>
+  </div>
+
+  <NoMediaMessage
+    v-else
+    :icon="IMAGE_DEFAULT_BY_TYPE.podcast"
+    message="No episodes found."
+  />
+</template>
+
+<style module>
+.column {
+  display: grid;
+  align-self: start;
+}
+
+.podcastOptions {
+  margin-top: var(--default-space);
+}
+
+.downloaded {
+  flex-shrink: 0;
+  padding: var(--default-space);
+}
+</style>

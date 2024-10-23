@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginForm > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="formFields">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="server">server <span class="required">*</span></label><input id="server" type="text" autocomplete="off" required="" placeholder="Enter your server URL" class="input" value="">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="username">username <span class="required">*</span></label><input id="username" type="text" autocomplete="off" required="" placeholder="Enter your username" class="input" value="">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="password">password <span class="required">*</span></label><input id="password" type="password" autocomplete="off" required="" placeholder="Enter your password" class="input" value="">
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+    <!--v-if--><span class="clamp text"> Login </span>
+  </button>
+</form>"
+`;
+
+exports[`LoginForm > when form is valid > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="formFields">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="server">server <span class="required">*</span></label><input id="server" type="text" autocomplete="off" required="" placeholder="Enter your server URL" class="input" value="https://www.test.com">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="username">username <span class="required">*</span></label><input id="username" type="text" autocomplete="off" required="" placeholder="Enter your username" class="input" value="username">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="password">password <span class="required">*</span></label><input id="password" type="password" autocomplete="off" required="" placeholder="Enter your password" class="input" value="password">
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+    <!--v-if--><span class="clamp text"> Login </span>
+  </button>
+</form>"
+`;
+
+exports[`LoginForm > when form is valid > when error prop is set > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="formFields">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="server">server <span class="required">*</span></label><input id="server" type="text" autocomplete="off" required="" placeholder="Enter your server URL" class="input" value="https://www.test.com">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="username">username <span class="required">*</span></label><input id="username" type="text" autocomplete="off" required="" placeholder="Enter your username" class="input" value="username">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="password">password <span class="required">*</span></label><input id="password" type="password" autocomplete="off" required="" placeholder="Enter your password" class="input" value="password">
+      <!--v-if-->
+    </div>
+  </div>
+  <div class="strong smallFont centerItems spaceBetween error messageBar mBM">
+    <p class="sentenceCase">Error message</p>
+  </div><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+    <!--v-if--><span class="clamp text"> Login </span>
+  </button>
+</form>"
+`;
+
+exports[`LoginForm > when serverUrl in config is defined > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="formFields">
+    <!--v-if-->
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="username">username <span class="required">*</span></label><input id="username" type="text" autocomplete="off" required="" placeholder="Enter your username" class="input" value="">
+      <!--v-if-->
+    </div>
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="password">password <span class="required">*</span></label><input id="password" type="password" autocomplete="off" required="" placeholder="Enter your password" class="input" value="">
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+    <!--v-if--><span class="clamp text"> Login </span>
+  </button>
+</form>"
+`;

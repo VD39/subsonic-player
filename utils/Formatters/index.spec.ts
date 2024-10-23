@@ -1,13 +1,14 @@
 import {
   albumMock,
   artistMock,
-  DATE,
   genreMock,
   playlistMock,
+  podcastEpisodeMock,
   podcastMock,
   radioStationMock,
   trackMock,
 } from '@/test/fixtures';
+
 import {
   formatAlbum,
   formatAllMedia,
@@ -15,6 +16,7 @@ import {
   formatGenre,
   formatPlaylist,
   formatPodcast,
+  formatPodcastEpisode,
   formatRadioStation,
   formatTracks,
 } from './index';
@@ -23,7 +25,7 @@ describe('formatAlbum', () => {
   it('returns the correct values', () => {
     expect(formatAlbum(albumMock)).toEqual({
       artists: expect.any(Array),
-      created: 'id',
+      created: '01 January 2000',
       duration: '03:25:45',
       favourite: true,
       genres: expect.any(Array),
@@ -34,75 +36,60 @@ describe('formatAlbum', () => {
       },
       name: 'name',
       size: '0.02 KB',
-      songCount: 4,
+      trackCount: 4,
       tracks: expect.any(Array),
       type: 'album',
       year: 2024,
     });
   });
 
-  describe('when starred is not undefined', () => {
+  describe.each([
+    [
+      'coverArt',
+      {
+        image: 'PhVinylRecord',
+      },
+    ],
+    [
+      'playCount',
+      {
+        information: expect.objectContaining({
+          playCount: 0,
+        }),
+      },
+    ],
+    [
+      'starred',
+      {
+        favourite: false,
+      },
+    ],
+    [
+      'song',
+      {
+        tracks: [],
+      },
+    ],
+    [
+      'year',
+      {
+        year: '--',
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatAlbum({
           ...albumMock,
-          starred: undefined,
+          [key]: undefined,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          favourite: false,
-        }),
-      );
-    });
-  });
-
-  describe('when starred is not defined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatAlbum({
-          ...albumMock,
-          starred: DATE,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          favourite: true,
-        }),
-      );
-    });
-  });
-
-  describe('when song is undefined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatAlbum({
-          ...albumMock,
-          song: undefined,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          tracks: [],
-        }),
-      );
-    });
-  });
-
-  describe('when song is defined', () => {
-    it('returns the correct values', () => {
-      expect(formatAlbum(albumMock)).toEqual(
-        expect.objectContaining({
-          tracks: [
-            expect.objectContaining({
-              id: 'id',
-            }),
-          ],
-        }),
-      );
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 });
 
 describe('formatAllMedia', () => {
-  describe('when values are undefined', () => {
+  describe('when values are defined', () => {
     it('returns the correct values', () => {
       expect(
         formatAllMedia({
@@ -130,7 +117,7 @@ describe('formatAllMedia', () => {
     });
   });
 
-  describe('when values are defined', () => {
+  describe('when values are undefined', () => {
     it('returns the correct values', () => {
       expect(
         formatAllMedia({
@@ -153,7 +140,7 @@ describe('formatArtist', () => {
       albums: [
         {
           artists: expect.any(Array),
-          created: 'id',
+          created: '01 January 2000',
           duration: '03:25:45',
           favourite: true,
           genres: expect.any(Array),
@@ -164,7 +151,7 @@ describe('formatArtist', () => {
           },
           name: 'name',
           size: '0.02 KB',
-          songCount: 4,
+          trackCount: 4,
           tracks: expect.any(Array),
           type: 'album',
           year: 2024,
@@ -174,7 +161,7 @@ describe('formatArtist', () => {
       favourite: true,
       genres: expect.any(Array),
       id: 'id',
-      image: 'coverArt',
+      image: 'artistImageUrl',
       lastFmUrl: undefined,
       musicBrainzUrl: undefined,
       name: 'name',
@@ -184,62 +171,39 @@ describe('formatArtist', () => {
     });
   });
 
-  describe('when starred is not undefined', () => {
+  describe.each([
+    [
+      'album',
+      {
+        albums: [],
+      },
+    ],
+    [
+      'albumCount',
+      {
+        totalAlbums: 0,
+      },
+    ],
+    [
+      'name',
+      {
+        name: '--',
+      },
+    ],
+    [
+      'starred',
+      {
+        favourite: false,
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatArtist({
           ...artistMock,
-          starred: undefined,
+          [key]: undefined,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          favourite: false,
-        }),
-      );
-    });
-  });
-
-  describe('when starred is not defined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatArtist({
-          ...artistMock,
-          starred: DATE,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          favourite: true,
-        }),
-      );
-    });
-  });
-
-  describe('when album is undefined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatArtist({
-          ...artistMock,
-          album: undefined,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          albums: [],
-        }),
-      );
-    });
-  });
-
-  describe('when album is defined', () => {
-    it('returns the correct values', () => {
-      expect(formatArtist(artistMock)).toEqual(
-        expect.objectContaining({
-          albums: [
-            expect.objectContaining({
-              id: 'id',
-            }),
-          ],
-        }),
-      );
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 
@@ -258,39 +222,45 @@ describe('formatArtist', () => {
     });
   });
 
-  describe('when coverArt is defined', () => {
+  describe('when albumCount is defined', () => {
     it('returns the correct values', () => {
-      expect(formatArtist(artistMock)).toEqual(
+      expect(
+        formatArtist({
+          ...artistMock,
+          albumCount: undefined,
+        }),
+      ).toEqual(
         expect.objectContaining({
-          image: 'coverArt',
+          totalAlbums: 0,
         }),
       );
     });
   });
 
-  describe('when coverArt is undefined', () => {
-    describe('when artistImageUrl is defined', () => {
+  describe('when artistImageUrl is undefined', () => {
+    describe('when coverArt is defined', () => {
       it('returns the correct values', () => {
         expect(
           formatArtist({
             ...artistMock,
-            coverArt: undefined,
+            artistImageUrl: undefined,
+            coverArt: 'coverArt',
           }),
         ).toEqual(
           expect.objectContaining({
-            image: 'artistImageUrl',
+            image: 'coverArt',
           }),
         );
       });
     });
 
-    describe('when artistImageUrl is undefined', () => {
+    describe('when coverArt is undefined', () => {
       it('returns the correct values', () => {
         expect(
           formatArtist({
             ...artistMock,
-            coverArt: undefined,
             artistImageUrl: undefined,
+            coverArt: undefined,
           }),
         ).toEqual(
           expect.objectContaining({
@@ -305,9 +275,9 @@ describe('formatArtist', () => {
 describe('formatGenre', () => {
   it('returns the correct values', () => {
     expect(formatGenre(genreMock)).toEqual({
-      name: 'genre',
-      songCount: 0,
       albumCount: 0,
+      name: 'genre',
+      trackCount: 0,
     });
   });
 
@@ -319,9 +289,97 @@ describe('formatGenre', () => {
           name: 'nameGenre',
         }),
       ).toEqual({
-        name: 'nameGenre',
-        songCount: 0,
         albumCount: 0,
+        name: 'nameGenre',
+        trackCount: 0,
+      });
+    });
+  });
+});
+
+describe('formatPodcastEpisode', () => {
+  it('returns the correct values', () => {
+    expect(formatPodcastEpisode('podcastImage')(podcastEpisodeMock)).toEqual({
+      description: 'description',
+      downloaded: true,
+      duration: '00:19',
+      genres: [],
+      id: 'id',
+      image: 'podcastImage',
+      name: 'title',
+      publishDate: '01/01/2000',
+      streamUrl: 'streamUrl',
+      type: 'podcastEpisode',
+    });
+  });
+
+  describe('when podcastImage is not defined', () => {
+    describe('when coverArt is defined', () => {
+      it('returns the correct values', () => {
+        expect(formatPodcastEpisode('')(podcastEpisodeMock)).toEqual(
+          expect.objectContaining({
+            image: 'coverArt',
+          }),
+        );
+      });
+    });
+
+    describe('when coverArt is undefined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatPodcastEpisode('')({
+            ...podcastEpisodeMock,
+            coverArt: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            image: 'PhApplePodcastsLogo',
+          }),
+        );
+      });
+    });
+  });
+
+  describe('when status is not completed', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatPodcastEpisode('podcastImage')({
+          ...podcastEpisodeMock,
+          status: 'skipped',
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          streamUrl: undefined,
+        }),
+      );
+    });
+  });
+
+  describe('when status is completed', () => {
+    describe('when streamUrl is undefined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatPodcastEpisode('podcastImage')({
+            ...podcastEpisodeMock,
+            streamUrl: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            streamUrl: undefined,
+          }),
+        );
+      });
+    });
+
+    describe('when streamUrl is defined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatPodcastEpisode('podcastImage')(podcastEpisodeMock),
+        ).toEqual(
+          expect.objectContaining({
+            streamUrl: 'streamUrl',
+          }),
+        );
       });
     });
   });
@@ -335,20 +393,20 @@ describe('formatPodcast', () => {
       episodes: [
         {
           description: 'description',
-          duration: '00:19',
           downloaded: true,
+          duration: '00:19',
           genres: [],
           id: 'id',
           image: 'image',
           name: 'title',
-          publishDate: '01 Jan 2000',
+          publishDate: '01/01/2000',
           streamUrl: 'streamUrl',
           type: 'podcastEpisode',
         },
       ],
       id: 'id',
       image: 'image',
-      lastUpdated: '01 Jan 2000',
+      lastUpdated: '01 January 2000',
       name: 'title',
       totalEpisodes: 1,
       type: 'podcast',
@@ -356,83 +414,27 @@ describe('formatPodcast', () => {
     });
   });
 
-  describe('when title is undefined', () => {
+  describe.each([
+    [
+      'episode',
+      {
+        episodes: [],
+      },
+    ],
+    [
+      'title',
+      {
+        name: 'Podcast',
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatPodcast({
           ...podcastMock,
-          title: undefined,
+          [key]: undefined,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          name: 'Podcast',
-        }),
-      );
-    });
-  });
-
-  describe('when episode is undefined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatPodcast({
-          ...podcastMock,
-          episode: undefined,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          episodes: [],
-        }),
-      );
-    });
-  });
-
-  describe('when episode is defined', () => {
-    describe('when episode is not downloaded and has no a streamID', () => {
-      it('returns the correct values', () => {
-        expect(
-          formatPodcast({
-            ...podcastMock,
-            episode: [
-              {
-                status: 'downloading',
-                streamUrl: undefined,
-              } as ResponsePodcastEpisode,
-            ],
-          }),
-        ).toEqual(
-          expect.objectContaining({
-            episodes: [
-              expect.objectContaining({
-                streamUrl: undefined,
-              }),
-            ],
-          }),
-        );
-      });
-    });
-
-    describe('when episode is downloaded and has a streamID', () => {
-      it('returns the correct values', () => {
-        expect(
-          formatPodcast({
-            ...podcastMock,
-            episode: [
-              {
-                status: 'completed',
-                streamUrl: 'streamUrl',
-              } as ResponsePodcastEpisode,
-            ],
-          }),
-        ).toEqual(
-          expect.objectContaining({
-            episodes: [
-              expect.objectContaining({
-                streamUrl: 'streamUrl',
-              }),
-            ],
-          }),
-        );
-      });
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 
@@ -457,8 +459,8 @@ describe('formatPodcast', () => {
         expect(
           formatPodcast({
             ...podcastMock,
-            originalImageUrl: undefined,
             coverArt: undefined,
+            originalImageUrl: undefined,
           }),
         ).toEqual(
           expect.objectContaining({
@@ -489,13 +491,13 @@ describe('formatRadioStation', () => {
       expect(
         formatRadioStation({
           ...radioStationMock,
-          homePageUrl: 'homepageValue',
+          homePageUrl: 'homePageValue',
         }),
       ).toEqual(
         expect.objectContaining({
-          homePageUrl: 'homepageValue',
+          homePageUrl: 'homePageValue',
           image:
-            'https://besticon-demo.herokuapp.com/icon?url=homepageValue&size=80..250..500',
+            'https://besticon-demo.herokuapp.com/icon?url=homePageValue&size=80..250..500',
         }),
       );
     });
@@ -526,56 +528,130 @@ describe('formatTracks', () => {
       artists: expect.any(Array),
       discNumber: 1,
       duration: '00:19',
-      favourite: false,
+      favourite: true,
       genres: [],
       id: 'id',
       image: 'coverArt',
       information: {
-        bitRate: 15,
+        bitRate: '15 kbps',
         contentType: 'contentType',
-        created: DATE,
+        created: '01 January 2000',
         path: 'path',
-        playCount: undefined,
+        playCount: 0,
         suffix: 'suffix',
-        transcodedContentType: undefined,
-        transcodedSuffix: undefined,
+        transcodedContentType: 'transcodedContentType',
+        transcodedSuffix: 'transcodedSuffix',
       },
+      name: 'title',
       size: '0.02 KB',
       streamUrl: 'id',
-      name: 'title',
       trackNumber: 1,
       type: 'track',
       year: 2024,
     });
   });
 
-  describe('when starred is not undefined', () => {
+  describe.each([
+    [
+      'album',
+      {
+        album: '--',
+      },
+    ],
+    [
+      'bitRate',
+      {
+        information: expect.objectContaining({
+          bitRate: '0 kbps',
+        }),
+      },
+    ],
+    [
+      'contentType',
+      {
+        information: expect.objectContaining({
+          contentType: '--',
+        }),
+      },
+    ],
+    [
+      'coverArt',
+      {
+        image: 'PhMusicNotes',
+      },
+    ],
+    [
+      'discNumber',
+      {
+        discNumber: '--',
+      },
+    ],
+    [
+      'path',
+      {
+        information: expect.objectContaining({
+          path: '--',
+        }),
+      },
+    ],
+    [
+      'playCount',
+      {
+        information: expect.objectContaining({
+          playCount: 0,
+        }),
+      },
+    ],
+    [
+      'size',
+      {
+        size: '--',
+      },
+    ],
+    [
+      'suffix',
+      {
+        information: expect.objectContaining({
+          suffix: '--',
+        }),
+      },
+    ],
+    [
+      'track',
+      {
+        trackNumber: '--',
+      },
+    ],
+    [
+      'transcodedContentType',
+      {
+        information: expect.objectContaining({
+          transcodedContentType: '--',
+        }),
+      },
+    ],
+    [
+      'transcodedSuffix',
+      {
+        information: expect.objectContaining({
+          transcodedSuffix: '--',
+        }),
+      },
+    ],
+    [
+      'year',
+      {
+        year: '--',
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatTracks({
           ...trackMock,
-          starred: undefined,
+          [key]: undefined,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          favourite: false,
-        }),
-      );
-    });
-  });
-
-  describe('when starred is not defined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatTracks({
-          ...trackMock,
-          starred: DATE,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          favourite: true,
-        }),
-      );
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 });
@@ -583,64 +659,60 @@ describe('formatTracks', () => {
 describe('formatPlaylist', () => {
   it('returns the correct values', () => {
     expect(formatPlaylist(playlistMock)).toEqual({
-      duration: '00:01',
+      duration: '1s',
       id: 'id',
       images: ['coverArt'],
       information: {
-        changed: DATE,
+        changed: '01 January 2000',
         comment: '',
-        created: DATE,
+        created: '01 January 2000',
         owner: 'owner',
         public: true,
       },
       name: 'name',
-      songCount: 1,
+      trackCount: 1,
       tracks: expect.any(Array),
       type: 'playlist',
     });
   });
 
-  describe('when name is not defined', () => {
+  describe.each([
+    [
+      'name',
+      {
+        name: '(Unnamed)',
+      },
+    ],
+    [
+      'entry',
+      {
+        tracks: [],
+      },
+    ],
+    [
+      'owner',
+      {
+        information: expect.objectContaining({
+          owner: '--',
+        }),
+      },
+    ],
+    [
+      'public',
+      {
+        information: expect.objectContaining({
+          public: false,
+        }),
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatPlaylist({
           ...playlistMock,
-          name: '',
+          [key]: undefined,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          name: '(Unnamed)',
-        }),
-      );
-    });
-  });
-
-  describe('when entry is undefined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatPlaylist({
-          ...playlistMock,
-          entry: undefined,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          tracks: [],
-        }),
-      );
-    });
-  });
-
-  describe('when entry is defined', () => {
-    it('returns the correct values', () => {
-      expect(formatPlaylist(playlistMock)).toEqual(
-        expect.objectContaining({
-          tracks: [
-            expect.objectContaining({
-              id: 'id',
-            }),
-          ],
-        }),
-      );
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 });

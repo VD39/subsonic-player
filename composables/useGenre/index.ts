@@ -5,7 +5,7 @@ export function useGenre() {
   const { fetchData } = useAPI();
   const { getAlbums } = useAlbum();
 
-  const genres = useState<Genre[]>('genres', () => []);
+  const genres = useState<Genre[]>(STATE_NAMES.genres, () => []);
 
   async function getGenres() {
     const { data: genresData } = await fetchData('/getGenres', {
@@ -44,9 +44,9 @@ export function useGenre() {
 
   async function getMediaByGenre(params: MediaByGenreParams) {
     switch (params.mediaType) {
-      case 'albums':
+      case ROUTE_MEDIA_TYPE_PARAMS.Albums:
         return getAlbumsByGenre(params);
-      case 'tracks':
+      case ROUTE_MEDIA_TYPE_PARAMS.Tracks:
         return getTracksByGenre(params);
       default:
         return [];

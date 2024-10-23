@@ -6,7 +6,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--body-font-size);
   font-weight: var(--font-weight-normal);
-  line-height: var(--line-height);
+  line-height: var(--line-height-normal);
   text-shadow: var(--text-shadow);
 }
 
@@ -39,29 +39,23 @@ h2,
 h3,
 h4 {
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height);
   color: var(--header-font-color);
   letter-spacing: var(--letter-spacing);
+}
+
+.smallFont {
+  font-size: var(--small-font-size);
 }
 
 .strong {
   font-weight: var(--font-weight-bold);
 }
 
-.main {
-  h1,
-  h2 {
-    margin-bottom: var(--space-12);
-  }
+.link {
+  position: relative;
 
-  h3,
-  h4,
-  p {
-    margin-bottom: var(--space-8);
-  }
-
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }

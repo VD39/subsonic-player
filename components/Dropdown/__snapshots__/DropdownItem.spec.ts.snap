@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`DropdownItem > matches the snapshot 1`] = `
-"<li class="dropdownItem"><button class="iconButton fullWidth action action" type="button">
-    <!--v-if--><span class="text"></span>
-  </button></li>"
-`;

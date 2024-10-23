@@ -7,7 +7,7 @@ export function useSearch() {
   const searchResults = ref<AllMedia>(DEFAULT_ALL_MEDIA);
 
   async function search(params: SearchParams) {
-    const { query, offset } = params;
+    const { offset, query } = params;
 
     const { data: searchData } = await fetchData('/search3', {
       params: {

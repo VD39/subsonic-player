@@ -19,4 +19,10 @@ mockNuxtImport('useAPI', () => () => ({
   getStreamUrl: vi.fn((path) => path),
 }));
 
-config.global.stubs['RouterLink'] = RouterLinkStub;
+config.global.stubs = {
+  PhCaretDoubleRight: true,
+  PhCheckCircle: true,
+  PhCircleNotch: true,
+  RouterLink: RouterLinkStub,
+  teleport: true,
+};

@@ -1,11 +1,12 @@
 import { getPlaylistsMock } from '@/test/helpers';
 import { withSetup } from '@/test/withSetup';
+
 import { useInfinityLoading } from './index';
 
 const mockData = {
-  playlist55: getPlaylistsMock(55),
-  playlist50: getPlaylistsMock(50),
   playlist25: getPlaylistsMock(25),
+  playlist50: getPlaylistsMock(50),
+  playlist55: getPlaylistsMock(55),
 };
 
 describe('useInfinityLoading', () => {
@@ -105,7 +106,7 @@ describe('useInfinityLoading', () => {
   });
 
   describe('when resetToDefaults function is called', () => {
-    beforeAll(() => {
+    beforeEach(() => {
       result.composable.resetToDefaults();
     });
 
@@ -123,7 +124,7 @@ describe('useInfinityLoading', () => {
   });
 
   describe('when the onBeforeUnmount is called', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
       result = withSetup(useInfinityLoading);
       await result.composable.fetchMoreData(() =>
         Promise.resolve(mockData.playlist55),

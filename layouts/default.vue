@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import SidebarNavigation from '@/components/Sidebar/SidebarNavigation.vue';
-import SearchForm from '@/components/Forms/SearchForm.vue';
-import DropdownMenu from '@/components/Dropdown/DropdownMenu.vue';
-import DropdownItem from '@/components/Dropdown/DropdownItem.vue';
-import DropdownDivider from '@/components/Dropdown/DropdownDivider.vue';
-import ThemeSwitcher from '@/components/ThemeSwitcher/ThemeSwitcher.vue';
-import MusicLogo from '@/components/Logo/MusicLogo.vue';
-import MainLoader from '@/components/Loaders/MainLoader.vue';
-import MusicPlayer from '@/components/Player/MusicPlayer.vue';
+import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
+import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import MobileNavigation from '@/components/Molecules/MobileNavigation.vue';
+import MusicLogo from '@/components/Molecules/MusicLogo.vue';
+import PageNavigation from '@/components/Molecules/PageNavigation.vue';
+import SearchForm from '@/components/Molecules/SearchForm.vue';
+import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
+import MusicPlayer from '@/components/Organisms/MusicPlayer/MusicPlayer.vue';
+import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
 
 const user = useUser();
 const { logout } = useAuth();
-const loading = useLoading();
+const { startScan } = useMediaLibrary();
 const { showMediaPlayer } = useAudioPlayer();
 
 async function logoutAndRedirect() {
@@ -22,19 +23,29 @@ async function logoutAndRedirect() {
 async function search(term: string) {
   await navigateTo(`/search/albums/${term}`);
 }
+
+const route = useRoute();
+
+const showPageNavigation = computed(() =>
+  PAGE_NAVIGATION_ROUTES.includes(route.name as string),
+);
 </script>
 
 <template>
   <div :class="$style.mainLayout">
-    <header :class="$style.header">
-      <div :class="$style.innerHeader">
-        <MusicLogo :class="$style.logo" />
+    <header :class="['centerItems', $style.header]">
+      <div class="spaceBetween inner centerItems">
+        <MusicLogo class="hideDesktop" />
 
         <div :class="$style.search">
           <SearchForm @submit="search" />
         </div>
 
-        <div v-if="user" ref="userDetails" :class="$style.secondary">
+        <div
+          v-if="user"
+          ref="userDetails"
+          :class="['centerItems', $style.secondary]"
+        >
           <div :class="$style.secondaryItem">
             <ThemeSwitcher />
           </div>
@@ -51,10 +62,11 @@ async function search(term: string) {
               <DropdownItem is="a" :href="user.server" target="_blank">
                 Server
               </DropdownItem>
+              <DropdownItem ref="scan" @click="startScan">Scan</DropdownItem>
               <DropdownDivider />
               <DropdownItem
                 ref="logoutButton"
-                icon="PhSignOut"
+                :icon="ICONS.signOut"
                 @click="logoutAndRedirect"
               >
                 Log out
@@ -66,16 +78,30 @@ async function search(term: string) {
     </header>
 
     <aside>
-      <SidebarNavigation />
+      <SidebarNavigation class="hideMobile" />
+
+      <MobileNavigation class="hideDesktop" />
     </aside>
 
     <main :class="['main', $style.mainContent]">
-      <div v-show="loading" ref="mainLoader">
-        <MainLoader />
-      </div>
+      <div
+        :class="[
+          'column',
+          $style.mainContentInner,
+          {
+            [$style.noPaddingTop]: showPageNavigation,
+          },
+        ]"
+      >
+        <PageNavigation
+          v-if="showPageNavigation"
+          :navigation="MOBILE_PAGE_NAVIGATION"
+          class="hideDesktop mBL"
+        />
 
-      <div v-show="!loading" ref="mainContent" :class="$style.mainContentInner">
-        <slot />
+        <div class="inner mBAllL">
+          <slot />
+        </div>
       </div>
     </main>
 
@@ -93,8 +119,6 @@ async function search(term: string) {
 }
 
 .header {
-  @mixin align-center;
-
   position: fixed;
   inset: 0 0 auto;
   z-index: 2;
@@ -108,34 +132,19 @@ async function search(term: string) {
   }
 }
 
-.innerHeader {
-  @mixin align-center;
-  @mixin inner;
-
-  position: relative;
-  gap: var(--space-24);
-  justify-content: space-between;
-}
-
-.logo {
-  @media (--tablet-up) {
-    display: none;
-  }
-}
-
 .search {
-  width: 65%;
+  --search-width: 65%;
+
+  width: var(--search-width);
 
   @media (--tablet-up) {
-    width: 50%;
+    --search-width: 50%;
   }
 }
 
 .secondary {
-  @mixin align-center;
-
-  gap: var(--space-12);
-  margin-right: calc(var(--space-8) * -2);
+  gap: var(--default-space);
+  margin-right: calc(var(--default-space) * -2);
 }
 
 .mainContent {
@@ -143,6 +152,7 @@ async function search(term: string) {
   display: flex;
   flex: 1;
   min-height: 100vh;
+  overflow: hidden;
 
   @media (--tablet-up) {
     margin-left: var(--sidebar-width);
@@ -150,17 +160,24 @@ async function search(term: string) {
 }
 
 .mainContentInner {
-  --default-padding: calc(var(--sidebar-bottom) + var(--space-40));
+  --main-width: 100vw;
+  --main-padding-top: calc(var(--header-height) + var(--space-40));
+  --main-padding-bottom: calc(
+    var(--sidebar-bottom) + var(--space-40) + var(--header-height)
+  );
 
-  @mixin inner;
-
-  display: flex;
-  flex-flow: column nowrap;
-  padding: calc(var(--header-height) + var(--space-40)) 0
-    calc(var(--header-height) + var(--default-padding));
+  width: var(--main-width);
+  padding: var(--main-padding-top) 0 var(--main-padding-bottom);
 
   @media (--tablet-up) {
-    padding-bottom: var(--default-padding);
+    --main-width: calc(100vw - var(--sidebar-width));
+    --main-padding-bottom: calc(var(--sidebar-bottom) + var(--space-40));
+  }
+}
+
+.noPaddingTop {
+  @media (--mobile-only) {
+    --main-padding-top: var(--header-height);
   }
 }
 </style>

@@ -1,7 +1,7 @@
 export interface PlaylistParam {
-  playlistId: string;
-  name?: string;
   comment?: string;
+  name?: string;
+  playlistId: string;
   public?: boolean;
   songIdToAdd?: string;
   songIndexToRemove?: string;

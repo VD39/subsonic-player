@@ -1,4 +1,5 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useAPI } from './index';
 
 vi.unmock('./index');
@@ -6,7 +7,7 @@ vi.unmock('./index');
 const { useFetchMock } = vi.hoisted(() => ({
   useFetchMock: vi.fn(() => ({
     data: ref<unknown>(null),
-    error: ref<null | Error>(null),
+    error: ref<Error | null>(null),
   })),
 }));
 

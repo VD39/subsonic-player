@@ -1,5 +1,7 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useFavourite } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -40,12 +42,12 @@ describe('useFavourite', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: {
-            artist: [
+            album: [
               {
                 id: 'album',
               },
             ],
-            album: [
+            artist: [
               {
                 id: 'album',
               },
@@ -63,12 +65,12 @@ describe('useFavourite', () => {
 
       it('adds to the favourites value', () => {
         expect(favourites.value).toEqual({
-          artist: [
+          album: [
             {
               id: 'album',
             },
           ],
-          album: [
+          artist: [
             {
               id: 'album',
             },

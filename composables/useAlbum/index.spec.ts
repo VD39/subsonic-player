@@ -1,16 +1,32 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useAlbum } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
+  data: {
+    name: 'name',
+  },
 }));
 
 mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { album, getAlbum, getAlbums } = useAlbum();
+const {
+  album,
+  frequentAlbums,
+  getAlbum,
+  getAlbums,
+  getFrequentAlbums,
+  getNewestAlbums,
+  getRandomAlbums,
+  getRecentAlbums,
+  newestAlbums,
+  randomAlbums,
+  recentAlbums,
+} = useAlbum();
 
 describe('useAlbum', () => {
   afterEach(() => {
@@ -162,7 +178,7 @@ describe('useAlbum', () => {
 
     describe('when type is set', () => {
       describe.each([
-        ...Object.entries(SORT_BY_TYPES),
+        ...Object.entries(ALBUMS_SORT_BY),
         ['sort-type-value', 'sort-type-value'],
       ])('when type is %s', (type, paramType) => {
         beforeEach(() => {
@@ -213,7 +229,7 @@ describe('useAlbum', () => {
       });
 
       it('returns the correct value', async () => {
-        expect(await getAlbums({} as AlbumsParams)).toEqual(null);
+        expect(await getAlbums({} as AlbumsParams)).toEqual([]);
       });
     });
 
@@ -262,6 +278,62 @@ describe('useAlbum', () => {
 
       it('sets the correct album value', () => {
         expect(album.value).toEqual({
+          name: 'name',
+        });
+      });
+    });
+  });
+
+  describe('when the getFrequentAlbums function is called', () => {
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        getFrequentAlbums();
+      });
+
+      it('sets the correct frequentAlbums value', () => {
+        expect(frequentAlbums.value).toEqual({
+          name: 'name',
+        });
+      });
+    });
+  });
+
+  describe('when the getNewestAlbums function is called', () => {
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        getNewestAlbums();
+      });
+
+      it('sets the correct newestAlbums value', () => {
+        expect(newestAlbums.value).toEqual({
+          name: 'name',
+        });
+      });
+    });
+  });
+
+  describe('when the getRecentAlbums function is called', () => {
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        getRecentAlbums();
+      });
+
+      it('sets the correct recentAlbums value', () => {
+        expect(recentAlbums.value).toEqual({
+          name: 'name',
+        });
+      });
+    });
+  });
+
+  describe('when the getRandomAlbums function is called', () => {
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        getRandomAlbums();
+      });
+
+      it('sets the correct randomAlbums value', () => {
+        expect(randomAlbums.value).toEqual({
           name: 'name',
         });
       });

@@ -1,8 +1,12 @@
 export function useRadioStation() {
   const { fetchData } = useAPI();
   const { addSuccessSnack } = useSnack();
+  const { closeModal, openModal } = useModal();
 
-  const radioStations = useState<RadioStation[]>('radio-stations', () => []);
+  const radioStations = useState<RadioStation[]>(
+    STATE_NAMES.radioStations,
+    () => [],
+  );
 
   async function getRadioStations() {
     const { data: radioStationsData } = await fetchData(
@@ -54,7 +58,6 @@ export function useRadioStation() {
     const { data: radioStationData } = await fetchData(
       '/deleteInternetRadioStation',
       {
-        method: 'DELETE',
         params: {
           id,
         },
@@ -67,11 +70,38 @@ export function useRadioStation() {
     }
   }
 
+  /* istanbul ignore next -- @preserve */
+  function addRadioStationModal() {
+    openModal(MODAL_TYPE.addRadioStationModal, {
+      async onSubmit(radioStation: RadioStation) {
+        await addRadioStation(radioStation);
+        closeModal();
+      },
+    });
+  }
+
+  /* istanbul ignore next -- @preserve */
+  function updateRadioStationModal(radioStation: RadioStation) {
+    openModal(MODAL_TYPE.updateRadioStationModal, {
+      async onSubmit(newRadioStation: RadioStation) {
+        await updateRadioStation({
+          ...newRadioStation,
+          id: radioStation.id,
+        });
+
+        closeModal();
+      },
+      radioStation,
+    });
+  }
+
   return {
     addRadioStation,
+    addRadioStationModal,
     deleteRadioStation,
     getRadioStations,
     radioStations,
     updateRadioStation,
+    updateRadioStationModal,
   };
 }

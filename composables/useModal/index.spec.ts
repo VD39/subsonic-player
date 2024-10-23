@@ -1,8 +1,9 @@
-import AddPlaylistForm from '@/components/Forms/AddPlaylistForm.vue';
-import AddRadioStationForm from '@/components/Forms/AddUpdateRadioStationForm.vue';
-import AddPodcastForm from '@/components/Forms/AddPodcastForm.vue';
-import MediaDescription from '@/components/TrackDetails/MediaDescription.vue';
-import TrackDetails from '@/components/TrackDetails/TrackInformation.vue';
+import MediaDescription from '@/components/Atoms/MediaDescription.vue';
+import TrackDetails from '@/components/Molecules/TrackInformation.vue';
+import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
+import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
+import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
+
 import { useModal } from './index';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,111 +19,129 @@ const documentRemoveEventListenerSpy = vi.spyOn(
   'removeEventListener',
 );
 
-const { modal, closeModal, openModal } = useModal();
+const { closeModal, modal, openModal } = useModal();
 
 describe('useModal', () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('sets the default modal value', () => {
     expect(modal.value).toEqual(DEFAULT_STATE);
   });
 
-  describe.each([
-    [
-      'addPlaylistModal',
-      AddPlaylistForm,
-      'Add playlist',
-      {
-        attrs: 'attrs',
-      },
-    ],
-    [
-      'addPodcastModal',
-      AddPodcastForm,
-      'Add podcast',
-      {
-        attrs: 'attrs',
-      },
-    ],
-    [
-      'addUpdateRadioStationModal',
-      AddRadioStationForm,
-      'Add radio station',
-      {
-        attrs: 'attrs',
-      },
-    ],
-    [
-      'podcastDescriptionModal',
-      MediaDescription,
-      'Podcast Description',
-      {
-        attrs: 'attrs',
-      },
-    ],
-    [
-      'podcastEpisodeDescriptionModal',
-      MediaDescription,
-      'Episode Description',
-      {
-        attrs: 'attrs',
-      },
-    ],
-    [
-      'artistBiographyModal',
-      MediaDescription,
-      'Artist Biography',
-      {
-        attrs: 'attrs',
-      },
-    ],
-    [
-      'trackDetailsModal',
-      TrackDetails,
-      'Track Details',
-      {
-        attrs: 'attrs',
-      },
-    ],
-  ])(
-    'when openModal function is called with %s',
-    (modalType, component, title, attrs) => {
+  describe('when openModal function is called', () => {
+    describe.each([
+      [
+        MODAL_TYPE.addPlaylistModal,
+        AddUpdatePlaylistForm,
+        'Add playlist',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.updatePlaylistModal,
+        AddUpdatePlaylistForm,
+        'Update playlist',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.addPodcastModal,
+        AddPodcastForm,
+        'Add podcast',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.addRadioStationModal,
+        AddRadioStationForm,
+        'Add radio station',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.updateRadioStationModal,
+        AddRadioStationForm,
+        'Update radio station',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.podcastDescriptionModal,
+        MediaDescription,
+        'Podcast Description',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.podcastEpisodeDescriptionModal,
+        MediaDescription,
+        'Episode Description',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.artistBiographyModal,
+        MediaDescription,
+        'Artist Biography',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.trackDetailsModal,
+        TrackDetails,
+        'Track Details',
+        {
+          attrs: 'attrs',
+        },
+      ],
+    ])('when modalType is %s', (modalType, component, title, attrs) => {
       beforeAll(() => {
-        openModal(modalType as ModalType);
+        openModal(modalType);
+      });
+
+      it('adds the keydown event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'keydown',
+          expect.any(Function),
+        );
       });
 
       describe('when attrs are not set', () => {
         it('sets the correct modal value', () => {
           expect(modal.value).toEqual({
+            attrs: {},
             component: markRaw(component),
             title,
-            attrs: {},
           });
         });
       });
 
       describe('when attrs are set', () => {
         beforeAll(() => {
-          vi.clearAllMocks();
-          openModal(modalType as ModalType, attrs);
+          openModal(modalType, attrs);
         });
 
         it('sets the correct modal value', () => {
           expect(modal.value).toEqual({
+            attrs,
             component: markRaw(component),
             title,
-            attrs,
           });
-        });
-
-        it('adds the keydown event listener function', () => {
-          expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-            'keydown',
-            expect.any(Function),
-          );
         });
       });
 
       describe('when a non esc key is pressed', () => {
-        beforeEach(() => {
+        beforeAll(() => {
           events.keydown({ key: 'Shift' });
         });
 
@@ -132,15 +151,15 @@ describe('useModal', () => {
 
         it('does not reset the modal value', () => {
           expect(modal.value).toEqual({
+            attrs,
             component: markRaw(component),
             title,
-            attrs,
           });
         });
       });
 
       describe('when esc key is pressed', () => {
-        beforeEach(() => {
+        beforeAll(() => {
           events.keydown({ key: 'Escape' });
         });
 
@@ -155,11 +174,11 @@ describe('useModal', () => {
           expect(modal.value).toEqual(DEFAULT_STATE);
         });
       });
-    },
-  );
+    });
+  });
 
   describe('when openModal function is called with an model type undefined', () => {
-    beforeAll(() => {
+    beforeEach(() => {
       openModal('unKnown' as ModalType);
     });
 
@@ -170,7 +189,7 @@ describe('useModal', () => {
 
   describe('when closeModal function is called', () => {
     beforeEach(() => {
-      openModal('addPlaylistModal');
+      openModal(MODAL_TYPE.updatePlaylistModal);
       closeModal();
     });
 

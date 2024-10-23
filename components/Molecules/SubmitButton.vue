@@ -1,0 +1,39 @@
+<script setup lang="ts">
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
+
+const props = defineProps<{
+  fullWidth?: boolean;
+  loading?: boolean;
+}>();
+
+const icon = computed(() => (props.loading ? SpinningLoader : undefined));
+</script>
+
+<template>
+  <ButtonLink
+    :disabled="loading"
+    type="submit"
+    show-text
+    :full-width="fullWidth"
+    icon-position="right"
+    :icon="icon"
+    :class="$style.submitButton"
+  >
+    <slot />
+  </ButtonLink>
+</template>
+
+<style module>
+.submitButton {
+  --button-hover-color: var(--body-background-color);
+
+  background-color: var(--button-hover-color);
+  border: 1px solid var(--theme-color);
+  border-radius: var(--border-radius-medium);
+
+  &:hover {
+    --button-hover-color: var(--hover-selected-color);
+  }
+}
+</style>

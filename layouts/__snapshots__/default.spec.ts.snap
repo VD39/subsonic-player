@@ -2,17 +2,17 @@
 
 exports[`Default > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
@@ -21,961 +21,1042 @@ exports[`Default > matches the snapshot 1`] = `
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner">
-      <div></div>
+    <div class="column mainContentInner">
+      <!--v-if-->
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
+    <!--v-if-->
   </footer>
 </div>"
 `;
 
-exports[`Default > when loading is false > matches the snapshot 1`] = `
+exports[`Default > when route name is index > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
-      <div class="secondary">
-        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <transition-stub name="fade" appear="false" persisted="false" css="true">
-              <!--v-if-->
-            </transition-stub>
+            <!--v-if-->
           </div>
         </div>
       </div>
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner">
-      <div></div>
+    <div class="column mainContentInner noPaddingTop">
+      <nav class="pageNavigation hideDesktop mBL">
+        <ul class="centerItems navigation">
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Discover</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Podcasts</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Radio Stations</span>
+            </a></li>
+        </ul>
+      </nav>
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
+    <music-player-stub></music-player-stub>
   </footer>
 </div>"
 `;
 
-exports[`Default > when loading is true > matches the snapshot 1`] = `
+exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
-      <div class="secondary">
-        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <transition-stub name="fade" appear="false" persisted="false" css="true">
-              <!--v-if-->
-            </transition-stub>
+            <!--v-if-->
           </div>
         </div>
       </div>
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner">
-      <div></div>
+    <div class="column mainContentInner noPaddingTop">
+      <nav class="pageNavigation hideDesktop mBL">
+        <ul class="centerItems navigation">
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Discover</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Podcasts</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Radio Stations</span>
+            </a></li>
+        </ul>
+      </nav>
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
+    <music-player-stub></music-player-stub>
   </footer>
 </div>"
 `;
 
-exports[`Default > when showMediaPlayer is false > matches the snapshot 1`] = `
+exports[`Default > when route name is podcasts-sortBy > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
-      <div class="secondary">
-        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <transition-stub name="fade" appear="false" persisted="false" css="true">
-              <!--v-if-->
-            </transition-stub>
+            <!--v-if-->
           </div>
         </div>
       </div>
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner" style="display: none;">
-      <div></div>
+    <div class="column mainContentInner noPaddingTop">
+      <nav class="pageNavigation hideDesktop mBL">
+        <ul class="centerItems navigation">
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Discover</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Podcasts</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Radio Stations</span>
+            </a></li>
+        </ul>
+      </nav>
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
+    <music-player-stub></music-player-stub>
   </footer>
 </div>"
 `;
 
-exports[`Default > when showMediaPlayer is true > matches the snapshot 1`] = `
+exports[`Default > when route name is radio-stations > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
-      <div class="secondary">
-        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <transition-stub name="fade" appear="false" persisted="false" css="true">
-              <!--v-if-->
-            </transition-stub>
+            <!--v-if-->
           </div>
         </div>
       </div>
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner" style="display: none;">
-      <div></div>
+    <div class="column mainContentInner noPaddingTop">
+      <nav class="pageNavigation hideDesktop mBL">
+        <ul class="centerItems navigation">
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Discover</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Podcasts</span>
+            </a></li>
+          <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <!--v-if--><span class="clamp text">Radio Stations</span>
+            </a></li>
+        </ul>
+      </nav>
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <music-player-stub></music-player-stub>
-    </transition-stub>
+    <music-player-stub></music-player-stub>
+  </footer>
+</div>"
+`;
+
+exports[`Default > when showMediaPlayer value is false > matches the snapshot 1`] = `
+"<div class="mainLayout">
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+      </a>
+      <div class="search">
+        <form novalidate="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+              <!--v-if-->
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
+          </button></div>
+        <div class="secondaryItem">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
+        </button></div>
+      <nav class="navigationWrapper">
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
+            </ul>
+          </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main mainContent">
+    <div class="column mainContentInner">
+      <!--v-if-->
+      <div class="inner mBAllL">Default slot content.</div>
+    </div>
+  </main>
+  <footer>
+    <!--v-if-->
+  </footer>
+</div>"
+`;
+
+exports[`Default > when showMediaPlayer value is true > matches the snapshot 1`] = `
+"<div class="mainLayout">
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+      </a>
+      <div class="search">
+        <form novalidate="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+              <!--v-if-->
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
+          </button></div>
+        <div class="secondaryItem">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
+        </button></div>
+      <nav class="navigationWrapper">
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
+            </ul>
+          </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
+      </nav>
+    </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main mainContent">
+    <div class="column mainContentInner">
+      <!--v-if-->
+      <div class="inner mBAllL">Default slot content.</div>
+    </div>
+  </main>
+  <footer>
+    <music-player-stub class="slide-up-down-enter-from slide-up-down-enter-active"></music-player-stub>
   </footer>
 </div>"
 `;
 
 exports[`Default > when user is defined > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
-      <div class="secondary">
-        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <transition-stub name="fade" appear="false" persisted="false" css="true">
-              <!--v-if-->
-            </transition-stub>
+            <!--v-if-->
           </div>
         </div>
       </div>
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner">
-      <div></div>
+    <div class="column mainContentInner">
+      <!--v-if-->
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
+    <!--v-if-->
   </footer>
 </div>"
 `;
 
-exports[`Default > when user is defined > when DropdownMenu button is clicked > matches the snapshot 1`] = `
+exports[`Default > when user is defined > when the DropdownMenu component emits a click event > matches the snapshot 1`] = `
 "<div class="mainLayout">
-  <header class="header">
-    <div class="innerHeader"><a class="iconButton logo logo" title="Home">
-        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
+  <header class="centerItems header">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink hideDesktop hideDesktop" title="Home">
+        <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
         <form novalidate="">
-          <div class="inner">
-            <div class="inputField input"><label class="label visually-hidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+          <div class="centerItems">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
               <!--v-if-->
-            </div><button class="iconButton button button" type="submit">
-              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="text visually-hidden"> Login </span>
+            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+              <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="duotone"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
-      <div class="secondary">
-        <div class="secondaryItem"><button class="iconButton" type="button" title="Activate dark mode">
-            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="text visually-hidden">Activate dark mode</span>
+      <div class="centerItems secondary">
+        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+            <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="dropdown"><button class="iconButton alignRight button button" type="button" title="View account details">
-              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="text">username</span>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+              <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <transition-stub name="fade" appear="false" persisted="false" css="true">
-              <div class="dropdownMenu">
-                <ul class="menu">
-                  <li class="dropdownItem" to="/user-profile"><a class="iconButton fullWidth action action">
-                      <!--v-if--><span class="text"> Profile </span>
-                    </a></li>
-                  <li class="dropdownItem" href="server" target="_blank"><a class="iconButton fullWidth action action" href="server" target="_blank">
-                      <!--v-if--><span class="text"> Server </span>
-                    </a></li>
-                  <li class="divider" aria-hidden="true"></li>
-                  <li class="dropdownItem" icon="PhSignOut"><button class="iconButton alignRight fullWidth action action" type="button">
-                      <phsignout class="icon" aria-hidden="true" size="24" weight="duotone"></phsignout><span class="text"> Log out </span>
-                    </button></li>
-                </ul>
-              </div>
-            </transition-stub>
+            <div class="dropdown fade-enter-from fade-enter-active">
+              <ul>
+                <li class="dropdownItem" to="/user-profile"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink">
+                    <!--v-if--><span class="clamp text"> Profile </span>
+                  </a></li>
+                <li class="dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" href="server" target="_blank">
+                    <!--v-if--><span class="clamp text"> Server </span>
+                  </a></li>
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                    <!--v-if--><span class="clamp text">Scan</span>
+                  </button></li>
+                <li class="divider" aria-hidden="true"></li>
+                <li class="dropdownItem" icon="PhSignOut"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                    <phsignout class="icon" aria-hidden="true" size="24" weight="duotone"></phsignout><span class="clamp text"> Log out </span>
+                  </button></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </header>
   <aside>
-    <div class="sideBar">
-      <div class="header"><a class="iconButton logo logo" title="Home">
-          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="text visually-hidden"> Home </span>
-        </a><button class="iconButton" type="button" title="Close Navigation">
-          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="text visually-hidden">Close Navigation</span>
+    <div class="centerItems column sidebarNavigation hideMobile">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+          <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+          <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="navigationWrapper">
-        <ul class="navigation">
-          <li class="sidebarItem"><a class="titleLink" title="Browse">
-              <phcompass class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phcompass>
-              <h4 class="title">Browse</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Discover">
-                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="text">Discover</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Music">
-                  <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="text">Music</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Radio Stations">
-                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="text">Radio Stations</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Podcasts">
-                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="text">Podcasts</span>
-                </a>
-                <!--v-if-->
-              </li>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+                  <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+                  <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+                  <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
             </ul>
           </li>
-          <li class="sidebarItem"><a class="titleLink" title="Your library">
-              <phmusicnotes class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phmusicnotes>
-              <h4 class="title">Your library</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Albums">
-                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="text">Albums</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Artists">
-                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="text">Artists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Playlists">
-                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="text">Playlists</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Favourites">
-                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="text">Favourites</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li><a exactactiveclass="current" class="iconButton link link" title="Genres">
-                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="text">Genres</span>
-                </a>
-                <!--v-if-->
-              </li>
-            </ul>
-          </li>
-          <li class="sidebarItem"><a class="titleLink" title="Playlists">
-              <phplaylist class="titleIcon" aria-hidden="true" weight="duotone" size="32"></phplaylist>
-              <h4 class="title">Playlists</h4>
-            </a>
-            <ul class="items">
-              <li><a exactactiveclass="current" class="iconButton link link" title="Random">
-                  <phqueue class="icon" aria-hidden="true" size="24" weight="duotone"></phqueue><span class="text">Random</span>
-                </a>
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if-->
-                <!--v-if-->
-              </li>
-              <li>
-                <!--v-if--><button class="iconButton fullWidth link link" type="button" title="Add playlist" data-test-id="item-component">
-                  <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="text"> Add playlist </span>
-                </button>
-              </li>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <ul class="mBM">
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+                  <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+                  <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+                  <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+                  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+                  <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+                </a></li>
             </ul>
           </li>
         </ul>
+        <ul>
+          <li>
+            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <ul class="mBM"></ul>
+          </li>
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+              <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+            </button></li>
+        </ul>
       </nav>
     </div>
+    <nav class="hideDesktop">
+      <ul class="inner centerAll spaceBetween mobileNavigation">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+            <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Browse</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+            <phmusicnotes class="icon" aria-hidden="true" size="24" weight="duotone"></phmusicnotes><span class="clamp text">Your library</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+            <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+      </ul>
+    </nav>
   </aside>
   <main class="main mainContent">
-    <div style="display: none;"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" width="75"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Loading data</span></div>
-    <div class="mainContentInner">
-      <div></div>
+    <div class="column mainContentInner">
+      <!--v-if-->
+      <div class="inner mBAllL">Default slot content.</div>
     </div>
   </main>
   <footer>
-    <transition-stub name="slide-up-down" appear="false" persisted="false" css="true">
-      <!--v-if-->
-    </transition-stub>
+    <!--v-if-->
   </footer>
 </div>"
 `;

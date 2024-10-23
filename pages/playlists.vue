@@ -1,15 +1,43 @@
 <script setup lang="ts">
-import PlaylistsList from '@/components/MediaLists/PlaylistsList.vue';
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
+import LoadingData from '@/components/Molecules/LoadingData.vue';
+import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
 
-const { playlists, getPlaylists } = usePlaylist();
+const {
+  addPlaylistModal,
+  deletePlaylist,
+  getPlaylists,
+  playlists,
+  updatePlaylistModal,
+} = usePlaylist();
 
-if (!playlists.value?.length) {
-  getPlaylists();
-}
+onBeforeMount(async () => {
+  if (!playlists.value.length) {
+    await getPlaylists();
+  }
+});
 </script>
 
 <template>
-  <h1>Playlists</h1>
+  <LoadingData>
+    <HeaderWithAction>
+      <h1>Playlists</h1>
 
-  <PlaylistsList :playlists="playlists" rows="2" />
+      <ButtonLink
+        :icon-size="35"
+        :icon="ICONS.add"
+        title="Add playlist"
+        @click="addPlaylistModal"
+      >
+        Add playlist
+      </ButtonLink>
+    </HeaderWithAction>
+
+    <PlaylistsList
+      :playlists="playlists"
+      @delete-playlist="deletePlaylist"
+      @edit-playlist="updatePlaylistModal"
+    />
+  </LoadingData>
 </template>

@@ -1,7 +1,9 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { withSetup } from '@/test/withSetup';
-import { usePlaylist } from './index';
 import type { DataMock } from '@/test/types';
+
+import { withSetup } from '@/test/withSetup';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import { usePlaylist } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
@@ -82,6 +84,7 @@ describe('usePlaylist', () => {
 
         it('adds to the playlists value', () => {
           expect(result.composable.playlists.value).toEqual([
+            RANDOM_PLAYLIST,
             {
               name: 'name',
             },
@@ -189,7 +192,7 @@ describe('usePlaylist', () => {
     });
   });
 
-  describe('when the createPlaylist function is called', () => {
+  describe('when the addPlaylist function is called', () => {
     describe('when fetchData response returns null', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
@@ -197,11 +200,12 @@ describe('usePlaylist', () => {
         });
 
         result = withSetup(usePlaylist);
-        result.composable.createPlaylist('name');
+        result.composable.addPlaylist('name');
       });
 
       it('does not add to the playlists value', () => {
         expect(result.composable.playlists.value).toEqual([
+          RANDOM_PLAYLIST,
           {
             name: 'name',
           },
@@ -221,11 +225,12 @@ describe('usePlaylist', () => {
           },
         });
 
-        result.composable.createPlaylist('name');
+        result.composable.addPlaylist('name');
       });
 
       it('adds to the playlists value', () => {
         expect(result.composable.playlists.value).toEqual([
+          RANDOM_PLAYLIST,
           {
             name: 'name',
           },

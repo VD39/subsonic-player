@@ -1,5 +1,6 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { routeMock } from '@/test/fixtures';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import favouritesMiddleware from './favourites';
 
 const navigateToMock = vi.hoisted(() => vi.fn());
@@ -7,87 +8,52 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 mockNuxtImport('navigateTo', () => navigateToMock);
 
 describe('favourites-middleware', () => {
-  beforeEach(() => {
-    favouritesMiddleware(routeMock, routeMock);
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
-  describe('when to.params.mediaType and to.params.genre are not defined', () => {
+  describe('when to.params.mediaType are not defined', () => {
+    beforeEach(() => {
+      favouritesMiddleware(routeMock, routeMock);
+    });
+
     it('calls the navigateTo function', () => {
       expect(navigateToMock).toBeCalledWith('/favourites/albums');
     });
   });
 
-  describe('when to.params.mediaType and to.params.genre are defined', () => {
-    describe('when to.params.mediaType is not albums', () => {
-      it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/favourites/albums');
-      });
-    });
-
-    describe('when to.params.mediaType is not tracks', () => {
-      it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/favourites/albums');
-      });
-    });
-
-    describe('when to.params.mediaType is not artists', () => {
-      it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/favourites/albums');
-      });
-    });
-
-    describe('when to.params.mediaType is albums', () => {
+  describe('when to.params.mediaType is defined', () => {
+    describe('when to.params.mediaType is not albums/artists/tracks', () => {
       beforeEach(() => {
-        vi.clearAllMocks();
         favouritesMiddleware(
           {
             ...routeMock,
             params: {
               ...routeMock.params,
-              mediaType: 'albums',
-              query: 'query',
+              mediaType: 'podcast',
             },
           },
           routeMock,
         );
       });
 
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toBeCalled();
+      it('calls the navigateTo function', () => {
+        expect(navigateToMock).toBeCalledWith('/favourites/albums');
       });
     });
 
-    describe('when to.params.mediaType is tracks', () => {
+    describe.each([
+      ROUTE_MEDIA_TYPE_PARAMS.Albums,
+      ROUTE_MEDIA_TYPE_PARAMS.Artists,
+      ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+    ])('when when to.params.mediaType is %s', (mediaType) => {
       beforeEach(() => {
-        vi.clearAllMocks();
         favouritesMiddleware(
           {
             ...routeMock,
             params: {
               ...routeMock.params,
-              mediaType: 'tracks',
-              query: 'query',
-            },
-          },
-          routeMock,
-        );
-      });
-
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toBeCalled();
-      });
-    });
-
-    describe('when to.params.mediaType is artists', () => {
-      beforeEach(() => {
-        vi.clearAllMocks();
-        favouritesMiddleware(
-          {
-            ...routeMock,
-            params: {
-              ...routeMock.params,
-              mediaType: 'artists',
-              query: 'query',
+              mediaType,
             },
           },
           routeMock,

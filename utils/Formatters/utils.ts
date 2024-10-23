@@ -40,7 +40,7 @@ export function getUniqueImages(tracks: Base[] = []) {
   const images = [...new Set(coverArtIds)].splice(0, 4);
 
   if (!images.length) {
-    return ['PhPlaylist'];
+    return [IMAGE_DEFAULT_BY_TYPE.playlist];
   }
 
   return images;

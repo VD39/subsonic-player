@@ -2,7 +2,7 @@ export function bytesToMB(bytes: number | string = '') {
   const sizeInBytes = Number(bytes);
 
   if (!bytes || isNaN(sizeInBytes)) {
-    return '';
+    return DEFAULT_VALUE;
   }
 
   const KB = sizeInBytes / 1024;

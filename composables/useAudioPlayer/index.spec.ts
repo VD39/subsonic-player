@@ -1,6 +1,7 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { withSetup } from '@/test/withSetup';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
+import { withSetup } from '@/test/withSetup';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useAudioPlayer } from './index';
 
 const queueTracks = getFormattedQueueTracksMock(3);
@@ -51,12 +52,12 @@ mockNuxtImport('AudioPlayer', () =>
 describe('useAudioPlayer', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>;
 
-  beforeAll(() => {
+  beforeEach(() => {
     result = withSetup(useAudioPlayer);
   });
 
-  it('sets the default trackCanPlay value', () => {
-    expect(result.composable.trackCanPlay.value).toBe(false);
+  it('sets the default trackIsBuffering value', () => {
+    expect(result.composable.trackIsBuffering.value).toBe(false);
   });
 
   it('sets the default currentTime value', () => {
@@ -128,21 +129,21 @@ describe('useAudioPlayer', () => {
   });
 
   describe.each([
-    ['track', true, false, false],
-    ['podcastEpisode', false, true, false],
-    ['radioStation', false, false, true],
+    [MEDIA_TYPE.track, true, false, false],
+    [MEDIA_TYPE.podcastEpisode, false, true, false],
+    [MEDIA_TYPE.radioStation, false, false, true],
   ])('when track type is %s', (type, isTrack, isPodcast, isRadioStation) => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.playTracks([
         {
           ...queueTrack,
-          type: type as MediaType,
+          type,
         },
       ]);
     });
 
     afterAll(() => {
+      vi.clearAllMocks();
       result.composable.queueList.value = [];
     });
 
@@ -350,7 +351,6 @@ describe('useAudioPlayer', () => {
 
   describe('when setVolume function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.setVolume(0.23);
     });
 
@@ -365,7 +365,6 @@ describe('useAudioPlayer', () => {
 
   describe('when setCurrentTime function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.setCurrentTime(23);
     });
 
@@ -376,7 +375,6 @@ describe('useAudioPlayer', () => {
 
   describe('when setPlaybackRate function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.setPlaybackRate(0.5);
     });
 
@@ -408,10 +406,6 @@ describe('useAudioPlayer', () => {
       result.composable.toggleShuffle();
     });
 
-    afterAll(() => {
-      result.composable.queueList.value = [];
-    });
-
     it('sets the the shuffle value', () => {
       expect(result.composable.shuffle.value).toBe(true);
     });
@@ -440,10 +434,6 @@ describe('useAudioPlayer', () => {
       result.composable.shuffleTracks(queueTracksMore);
     });
 
-    afterAll(() => {
-      result.composable.queueList.value = [];
-    });
-
     it('calls the audio unload function', () => {
       expect(unloadMock).toHaveBeenCalled();
     });
@@ -467,7 +457,6 @@ describe('useAudioPlayer', () => {
 
   describe('when toggleVolume function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.toggleVolume(0.5);
     });
 
@@ -486,7 +475,6 @@ describe('useAudioPlayer', () => {
     describe('when toggleVolume function is called again', () => {
       describe('when volume is greater than 0', () => {
         beforeAll(() => {
-          vi.clearAllMocks();
           result.composable.toggleVolume(0.5);
         });
 
@@ -505,7 +493,6 @@ describe('useAudioPlayer', () => {
 
       describe('when volume is 0', () => {
         beforeAll(() => {
-          vi.clearAllMocks();
           result.composable.volume.value = 0;
           result.composable.toggleVolume(0);
         });
@@ -527,11 +514,11 @@ describe('useAudioPlayer', () => {
 
   describe('when playTracks function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.playTracks(queueTracks);
     });
 
     afterAll(() => {
+      vi.clearAllMocks();
       result.composable.queueList.value = [];
     });
 
@@ -554,12 +541,11 @@ describe('useAudioPlayer', () => {
 
   describe('when playCurrentTrack function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.playCurrentTrack(queueTrack);
     });
 
     afterAll(() => {
-      result.composable.queueList.value = [];
+      vi.clearAllMocks();
     });
 
     it('calls the audio load function', () => {
@@ -573,7 +559,6 @@ describe('useAudioPlayer', () => {
 
   describe('when togglePlay function is called', () => {
     beforeAll(() => {
-      vi.clearAllMocks();
       result.composable.togglePlay();
     });
 
@@ -587,7 +572,6 @@ describe('useAudioPlayer', () => {
 
     describe('when togglePlay function is called again', () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.togglePlay();
       });
 
@@ -604,7 +588,6 @@ describe('useAudioPlayer', () => {
   describe('when rewindTrack function is called', () => {
     describe(`when currentTime is greater than ${REWIND_TRACK_TIME}`, () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.duration.value = 120;
         result.composable.currentTime.value = REWIND_TRACK_TIME + 1;
         result.composable.rewindTrack();
@@ -629,7 +612,6 @@ describe('useAudioPlayer', () => {
 
     describe(`when currentTime is equal to ${REWIND_TRACK_TIME}`, () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.currentTime.value = REWIND_TRACK_TIME;
         result.composable.rewindTrack();
       });
@@ -645,7 +627,6 @@ describe('useAudioPlayer', () => {
 
     describe(`when currentTime is less than the duration - ${FAST_FORWARD_TRACK_TIME}`, () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.duration.value = duration;
         result.composable.currentTime.value =
           duration - FAST_FORWARD_TRACK_TIME - 1;
@@ -672,7 +653,6 @@ describe('useAudioPlayer', () => {
 
     describe(`when currentTime is equal to the duration - ${FAST_FORWARD_TRACK_TIME}`, () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.currentTime.value =
           duration - FAST_FORWARD_TRACK_TIME;
         result.composable.fastForwardTrack();
@@ -687,7 +667,6 @@ describe('useAudioPlayer', () => {
   describe('when playNextTrack function is called', () => {
     describe('when track is not the last track in queueList', () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.queueList.value = queueTracks;
         result.composable.playNextTrack();
       });
@@ -722,7 +701,6 @@ describe('useAudioPlayer', () => {
   describe('when playPreviousTrack function is called', () => {
     describe('when track is the first track in queueList', () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.playPreviousTrack();
       });
 
@@ -737,7 +715,6 @@ describe('useAudioPlayer', () => {
 
     describe('when track is not first track in queueList', () => {
       beforeAll(() => {
-        vi.clearAllMocks();
         result.composable.playPreviousTrack();
       });
 
@@ -781,8 +758,8 @@ describe('useAudioPlayer', () => {
         onWaitingCb();
       });
 
-      it('sets the correct trackCanPlay value', () => {
-        expect(result.composable.trackCanPlay.value).toBe(false);
+      it('sets the correct trackIsBuffering value', () => {
+        expect(result.composable.trackIsBuffering.value).toBe(false);
       });
     });
 
@@ -791,8 +768,8 @@ describe('useAudioPlayer', () => {
         onCanPlayCb();
       });
 
-      it('sets the correct trackCanPlay value', () => {
-        expect(result.composable.trackCanPlay.value).toBe(true);
+      it('sets the correct trackIsBuffering value', () => {
+        expect(result.composable.trackIsBuffering.value).toBe(true);
       });
     });
 

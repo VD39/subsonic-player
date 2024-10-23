@@ -1,3 +1,3 @@
-export function getSortType(sortBy: SortByType) {
-  return SORT_BY_TYPES[sortBy];
+export function getSortType(sortBy: AlbumSortBy) {
+  return ALBUMS_SORT_BY[sortBy];
 }

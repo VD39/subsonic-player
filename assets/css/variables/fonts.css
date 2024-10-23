@@ -1,7 +1,4 @@
 :root {
-  /* Desktop font size. */
-
-  /* : clamp(2.5rem, 2.46rem + 0.71vw, 3rem); */
   --h1-font-size: clamp(1.875rem, 1.6142rem + 0.9934vw, 2.25rem);
   --h2-font-size: clamp(1.5rem, 1.2392rem + 0.9934vw, 1.875rem);
   --h3-font-size: clamp(1.25rem, 1.0762rem + 0.6623vw, 1.5rem);
@@ -14,7 +11,8 @@
   --font-weight-bold: 500;
 
   /* Line height. */
-  --line-height: 1.5;
+  --line-height: 1;
+  --line-height-medium: 1.5;
 
   /* Letter spacing. */
   --letter-spacing: 0.025rem;

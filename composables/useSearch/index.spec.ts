@@ -1,5 +1,7 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useSearch } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -50,8 +52,8 @@ describe('useSearch', () => {
       describe('when offset is 0', () => {
         beforeEach(() => {
           search({
-            query: 'query',
             offset: 0,
+            query: 'query',
           } as SearchParams);
         });
 
@@ -75,8 +77,8 @@ describe('useSearch', () => {
       describe('when offset is greater than 0', () => {
         beforeEach(() => {
           search({
-            query: 'query',
             offset: 1,
+            query: 'query',
           } as SearchParams);
         });
 
@@ -116,12 +118,12 @@ describe('useSearch', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: {
-            artist: [
+            album: [
               {
                 id: 'album',
               },
             ],
-            album: [
+            artist: [
               {
                 id: 'album',
               },
@@ -139,12 +141,12 @@ describe('useSearch', () => {
 
       it('adds to the searchResults value', () => {
         expect(searchResults.value).toEqual({
-          artist: [
+          album: [
             {
               id: 'album',
             },
           ],
-          album: [
+          artist: [
             {
               id: 'album',
             },

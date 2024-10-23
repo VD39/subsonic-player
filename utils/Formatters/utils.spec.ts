@@ -3,6 +3,7 @@ import {
   getPodcastEpisodesMock,
   getTracksMock,
 } from '@/test/helpers';
+
 import {
   getAlbumSize,
   getArtists,
@@ -106,7 +107,7 @@ describe('getGenres', () => {
 describe('getUniqueImages', () => {
   describe('when tracks is undefined', () => {
     it('returns the correct values', () => {
-      expect(getUniqueImages()).toEqual(['PhPlaylist']);
+      expect(getUniqueImages()).toEqual([ICONS.playlist]);
     });
   });
 

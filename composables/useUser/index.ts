@@ -1,4 +1,4 @@
 /* istanbul ignore next -- @preserve */
 export function useUser() {
-  return useState<null | User>('user', () => null);
+  return useState<null | User>(STATE_NAMES.currentUser, () => null);
 }

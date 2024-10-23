@@ -1,16 +1,9 @@
 import type { Raw } from 'vue';
 
 export interface ModalProps {
-  component: null | Raw<unknown>;
-  title?: string | null;
   attrs?: Record<string, unknown>;
+  component: null | Raw<unknown>;
+  title?: null | string;
 }
 
-export type ModalType =
-  | 'addPlaylistModal'
-  | 'addPodcastModal'
-  | 'addUpdateRadioStationModal'
-  | 'podcastDescriptionModal'
-  | 'podcastEpisodeDescriptionModal'
-  | 'trackDetailsModal'
-  | 'artistBiographyModal';
+export type ModalType = keyof typeof MODAL_TYPE;

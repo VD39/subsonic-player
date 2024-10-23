@@ -15,10 +15,10 @@ describe('getAuthParams', () => {
     it('returns correct value', () => {
       expect(
         getAuthParams({
-          salt: 'salt',
           param: 'param',
-          token: 'token',
           param1: 'param1',
+          salt: 'salt',
+          token: 'token',
           username: 'username',
         }),
       ).toEqual({

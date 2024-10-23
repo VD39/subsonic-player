@@ -1,5 +1,7 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useGenre } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -69,10 +71,10 @@ describe('useGenre', () => {
     let results: Awaited<ReturnType<typeof getMediaByGenre>>;
 
     describe('when mediaType is albums', () => {
-      beforeAll(async () => {
+      beforeEach(async () => {
         results = await getMediaByGenre({
-          mediaType: 'albums',
           genre: 'soundtrack',
+          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
         });
       });
 
@@ -92,8 +94,8 @@ describe('useGenre', () => {
         });
 
         results = await getMediaByGenre({
-          mediaType: 'tracks',
           genre: 'soundtrack',
+          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
         });
       });
 
@@ -120,8 +122,8 @@ describe('useGenre', () => {
         describe('when offset is 0', () => {
           beforeEach(() => {
             getMediaByGenre({
-              mediaType: 'tracks',
               genre: 'soundtrack',
+              mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
               offset: 0,
             });
           });
@@ -143,8 +145,8 @@ describe('useGenre', () => {
         describe('when offset is greater than 0', () => {
           beforeEach(() => {
             getMediaByGenre({
-              mediaType: 'tracks',
               genre: 'soundtrack',
+              mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
               offset: 1,
             });
           });

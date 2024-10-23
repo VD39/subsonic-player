@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/MediaLists/ArtistsList.vue';
+import LoadingData from '@/components/Molecules/LoadingData.vue';
+import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 
 const { artists, getArtists } = useArtist();
 
-if (!artists.value.length) {
-  getArtists();
-}
+onBeforeMount(async () => {
+  if (!artists.value.length) {
+    await getArtists();
+  }
+});
 </script>
 
 <template>
-  <h1>Artists</h1>
+  <LoadingData>
+    <h1>Artists</h1>
 
-  <ArtistsList :artists="artists" />
+    <ArtistsList :artists="artists" />
+  </LoadingData>
 </template>

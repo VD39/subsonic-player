@@ -1,7 +1,7 @@
 const DURATION = 10000;
 
 export function useSnack() {
-  const snacks = useState<Snack[]>('snack', () => []);
+  const snacks = useState<Snack[]>(STATE_NAMES.snacks, () => []);
 
   function addSnack(snackData: Omit<Snack, 'id'>) {
     let timer = null;
@@ -15,9 +15,9 @@ export function useSnack() {
 
     snacks.value.push({
       content: snackData.content,
-      type: snackData.type,
-      timer,
       id,
+      timer,
+      type: snackData.type,
     });
   }
 
@@ -41,25 +41,25 @@ export function useSnack() {
     auto = true,
   ) {
     addSnack({
+      auto,
       content: message,
       type: 'error',
-      auto,
     });
   }
 
   function addSuccessSnack(message: string, auto = true) {
     addSnack({
+      auto,
       content: message,
       type: 'success',
-      auto,
     });
   }
 
   function addInfoSnack(message: string, auto = true) {
     addSnack({
+      auto,
       content: message,
       type: 'info',
-      auto,
     });
   }
 

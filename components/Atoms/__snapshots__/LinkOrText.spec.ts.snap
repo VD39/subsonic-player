@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LinkOrText > matches the snapshot 1`] = `"<a data-test-id="link" class="link">text</a>"`;
+
+exports[`LinkOrText > when isLink prop is false > matches the snapshot 1`] = `"<p>text</p>"`;
+
+exports[`LinkOrText > when isLink prop is true > when is prop is a > matches the snapshot 1`] = `"<a data-test-id="link" href="to" class="link">text</a>"`;
+
+exports[`LinkOrText > when isLink prop is true > when is prop is nuxt-link > matches the snapshot 1`] = `"<a data-test-id="link" class="link">text</a>"`;
+
+exports[`LinkOrText > when isLink prop is true > when is prop is undefined > matches the snapshot 1`] = `"<a data-test-id="link" class="link">text</a>"`;

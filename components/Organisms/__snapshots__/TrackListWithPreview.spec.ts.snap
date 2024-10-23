@@ -1,0 +1,687 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TrackListWithPreview > matches the snapshot 1`] = `
+"<div class="noMediaMessage">
+  <div class="column centerItems content">
+    <phmusicnotes size="50"></phmusicnotes>
+    <p>No tracks found.</p>
+  </div>
+</div>"
+`;
+
+exports[`TrackListWithPreview > when radioStations prop is not an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album</div>
+    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary trackFixed">Time</div>
+    <div class="trackCell"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-0</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="divider" aria-hidden="true"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-1</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-2</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-3</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-4</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackListWithPreview > when radioStations prop is not an empty array > when inPlaylist prop is false > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album</div>
+    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary trackFixed">Time</div>
+    <div class="trackCell"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-0</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="divider" aria-hidden="true"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-1</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-2</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-3</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-4</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackListWithPreview > when radioStations prop is not an empty array > when inPlaylist prop is true > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album</div>
+    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary trackFixed">Time</div>
+    <div class="trackCell"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-0</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove from Playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="divider" aria-hidden="true"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-1</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-2</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-3</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-4</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <ul class="commaList clamp">
+        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+      </ul>
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackListWithPreview > when radioStations prop is not an empty array > when track.artists is an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album</div>
+    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary trackFixed">Time</div>
+    <div class="trackCell"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-0</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <!--v-if-->
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="divider" aria-hidden="true"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-1</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <!--v-if-->
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-2</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <!--v-if-->
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-3</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <!--v-if-->
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <p class="clamp">track-4</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary"><a data-test-id="link" class="link itemLink clamp">album</a></div>
+    <div class="trackCell trackSecondary">
+      <!--v-if-->
+    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
+    <div class="trackCell">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+</div>"
+`;

@@ -1,7 +1,8 @@
 export default defineNuxtRouteMiddleware(async (to) => {
   const { setDefaultTheme } = useTheme();
-  const { autoLogin, authenticated } = useAuth();
+  const { authenticated, autoLogin } = useAuth();
   const { clearAllSnack } = useSnack();
+  const { getPlaylists, playlists } = usePlaylist();
 
   clearAllSnack();
 
@@ -13,6 +14,10 @@ export default defineNuxtRouteMiddleware(async (to) => {
     await callOnce(() => {
       setDefaultTheme();
     });
+  }
+
+  if (authenticated.value && !playlists.value.length) {
+    await getPlaylists();
   }
 
   if (to.name === 'login' && authenticated.value) {

@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ButtonLink > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when disabled prop is set as true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink disabled" disabled="" type="button">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when fullWidth prop is set to true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink centerAll fullWidth" type="button">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when icon prop is set > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button">
+  <phpluscircle class="icon" aria-hidden="true" size="24" weight="duotone"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when icon prop is set > when iconPosition prop is set to right > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink alignRight" type="button">
+  <phpluscircle class="icon" aria-hidden="true" size="24" weight="duotone"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when is prop is a > matches the snapshot 1`] = `
+"<a class="centerItems buttonLink">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</a>"
+`;
+
+exports[`ButtonLink > when is prop is nuxt-link > matches the snapshot 1`] = `
+"<a class="centerItems buttonLink">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</a>"
+`;
+
+exports[`ButtonLink > when is prop is undefined > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when showText prop is set to true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button">
+  <!--v-if--><span class="clamp text">Default slot content.</span>
+</button>"
+`;

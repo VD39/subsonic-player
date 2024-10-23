@@ -1,4 +1,5 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useSnack } from './index';
 
 vi.useFakeTimers();
@@ -23,7 +24,7 @@ describe('useSnack', () => {
 
   describe('when addErrorSnack function is called', () => {
     describe('when message is not set', () => {
-      beforeEach(() => {
+      beforeAll(() => {
         addErrorSnack();
       });
 
@@ -31,9 +32,9 @@ describe('useSnack', () => {
         expect(snacks.value).toEqual(
           expect.arrayContaining([
             {
-              timer: expect.any(Object),
               content: 'Sorry, something went wrong. Please try again.',
               id: 'randomString',
+              timer: expect.any(Object),
               type: 'error',
             },
           ]),
@@ -42,7 +43,7 @@ describe('useSnack', () => {
     });
 
     describe('when message is set', () => {
-      beforeEach(() => {
+      beforeAll(() => {
         addErrorSnack('Content');
       });
 
@@ -50,9 +51,9 @@ describe('useSnack', () => {
         expect(snacks.value).toEqual(
           expect.arrayContaining([
             {
-              timer: expect.any(Object),
               content: 'Content',
               id: 'randomString',
+              timer: expect.any(Object),
               type: 'error',
             },
           ]),
@@ -62,7 +63,7 @@ describe('useSnack', () => {
   });
 
   describe('when addInfoSnack function is called', () => {
-    beforeEach(() => {
+    beforeAll(() => {
       randomStringMock.value = 'randomString1';
       addInfoSnack('Content');
     });
@@ -71,9 +72,9 @@ describe('useSnack', () => {
       expect(snacks.value).toEqual(
         expect.arrayContaining([
           {
-            timer: expect.any(Object),
             content: 'Content',
             id: 'randomString1',
+            timer: expect.any(Object),
             type: 'info',
           },
         ]),
@@ -82,7 +83,7 @@ describe('useSnack', () => {
   });
 
   describe('when addSuccessSnack function is called', () => {
-    beforeEach(() => {
+    beforeAll(() => {
       randomStringMock.value = 'randomString2';
       addSuccessSnack('Content');
     });
@@ -91,9 +92,9 @@ describe('useSnack', () => {
       expect(snacks.value).toEqual(
         expect.arrayContaining([
           {
-            timer: expect.any(Object),
             content: 'Content',
             id: 'randomString2',
+            timer: expect.any(Object),
             type: 'success',
           },
         ]),
@@ -109,21 +110,21 @@ describe('useSnack', () => {
     it('removes from snack from the snacks value', () => {
       expect(snacks.value).toEqual([
         {
-          timer: expect.any(Object),
           content: 'Sorry, something went wrong. Please try again.',
           id: 'randomString',
+          timer: expect.any(Object),
           type: 'error',
         },
         {
-          timer: expect.any(Object),
           content: 'Content',
           id: 'randomString',
+          timer: expect.any(Object),
           type: 'error',
         },
         {
-          timer: expect.any(Object),
           content: 'Content',
           id: 'randomString2',
+          timer: expect.any(Object),
           type: 'success',
         },
       ]);
@@ -148,9 +149,9 @@ describe('useSnack', () => {
     it('adds to the snacks value', () => {
       expect(snacks.value).toEqual([
         {
-          timer: expect.any(Object),
           content: 'Content',
           id: 'randomString2',
+          timer: expect.any(Object),
           type: 'error',
         },
       ]);
@@ -175,9 +176,9 @@ describe('useSnack', () => {
     it('adds to the snacks value', () => {
       expect(snacks.value).toEqual([
         {
-          timer: expect.any(Object),
           content: 'Content',
           id: 'randomString2',
+          timer: expect.any(Object),
           type: 'error',
         },
       ]);
@@ -191,9 +192,9 @@ describe('useSnack', () => {
       it('does not clears the snacks value', () => {
         expect(snacks.value).toEqual([
           {
-            timer: null,
             content: 'Content',
             id: 'randomString2',
+            timer: null,
             type: 'error',
           },
         ]);

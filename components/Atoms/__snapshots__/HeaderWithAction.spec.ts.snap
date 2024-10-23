@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderWithAction > matches the snapshot 1`] = `"<div class="centerItems spaceBetween">Default slot content.</div>"`;

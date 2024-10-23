@@ -1,6 +1,6 @@
 export interface User {
-  token: string | null;
-  salt: string | null;
-  server: string | null;
-  username: string | null;
+  salt: null | string;
+  server: null | string;
+  token: null | string;
+  username: null | string;
 }

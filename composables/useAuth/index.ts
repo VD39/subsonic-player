@@ -3,18 +3,21 @@ import MD5 from 'crypto-js/md5';
 export function useAuth() {
   const { fetchData } = useAPI();
   const user = useUser();
-  const authCookie = useCookie('auth-params', {
+  const authCookie = useCookie(COOKIE_NAMES.auth, {
     sameSite: true,
   });
 
   const loading = ref(false);
-  const error = ref<string | null>(null);
-  const authenticated = useState('authenticated', () => false);
+  const error = ref<null | string>(null);
+  const authenticated = useState(STATE_NAMES.userAuthenticated, () => false);
   user.value = loadSession(authCookie.value!);
 
   async function logout() {
+    const { resetAudio } = useAudioPlayer();
+
     authCookie.value = null;
-    clearNuxtState();
+    resetAudio();
+    clearNuxtState(STATE_NAMES.userAuthenticated);
   }
 
   async function autoLogin() {
@@ -44,9 +47,9 @@ export function useAuth() {
     const hashValue = MD5(`${password}${saltValue}`).toString();
 
     const params = {
-      token: hashValue,
       salt: saltValue,
       server,
+      token: hashValue,
       username,
     };
 
@@ -80,9 +83,9 @@ export function useAuth() {
   }
 
   return {
+    authenticated,
     autoLogin,
     error,
-    authenticated,
     loading,
     login,
     logout,

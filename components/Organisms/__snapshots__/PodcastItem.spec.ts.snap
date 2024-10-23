@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PodcastItem > matches the snapshot 1`] = `
+"<article>
+  <figure><a title="Go to title">
+      <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+    </a></figure>
+</article>"
+`;

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropdownItem > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+    <!--v-if--><span class="clamp text"></span>
+  </button></li>"
+`;

@@ -1,5 +1,6 @@
-import { vi } from 'vitest';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { vi } from 'vitest';
+
 import { getFormattedQueueTracksMock } from './helpers';
 
 const queueTrack = getFormattedQueueTracksMock();
@@ -8,12 +9,13 @@ const addTrackToQueueMock = vi.fn();
 const addTracksToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
 const clearQueueListMock = vi.fn();
-const currentTimeMock = ref(5);
+const currentTimeMock = ref(0);
 const currentTrackMock = ref(queueTrack[0]);
-const durationMock = ref(10);
+const durationMock = ref(0);
 const fastForwardTrackMock = vi.fn();
 const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
+const isCurrentTrackMock = vi.fn(() => false);
 const isMutedMock = ref(false);
 const isPodcastMock = ref(false);
 const isRadioStationMock = ref(false);
@@ -37,7 +39,7 @@ const shuffleMock = ref(false);
 const toggleShuffleMock = vi.fn();
 const toggleVolumeMock = vi.fn();
 const trackIsPlayingMock = ref(false);
-const trackCanPlayMock = ref(false);
+const trackIsBufferingMock = ref(false);
 const volumeMock = ref(1);
 
 export function useAudioPlayerMock() {
@@ -52,6 +54,7 @@ export function useAudioPlayerMock() {
     fastForwardTrack: fastForwardTrackMock,
     hasNextTrack: hasNextTrackMock,
     hasPreviousTrack: hasPreviousTrackMock,
+    isCurrentTrack: isCurrentTrackMock,
     isMuted: isMutedMock,
     isPodcast: isPodcastMock,
     isRadioStation: isRadioStationMock,
@@ -74,7 +77,7 @@ export function useAudioPlayerMock() {
     togglePlay: togglePlayMock,
     toggleShuffle: toggleShuffleMock,
     toggleVolume: toggleVolumeMock,
-    trackCanPlay: trackCanPlayMock,
+    trackIsBuffering: trackIsBufferingMock,
     trackIsPlaying: trackIsPlayingMock,
     volume: volumeMock,
   }));
@@ -90,6 +93,7 @@ export function useAudioPlayerMock() {
     fastForwardTrackMock,
     hasNextTrackMock,
     hasPreviousTrackMock,
+    isCurrentTrackMock,
     isMutedMock,
     isPodcastMock,
     isRadioStationMock,
@@ -112,7 +116,7 @@ export function useAudioPlayerMock() {
     togglePlayMock,
     toggleShuffleMock,
     toggleVolumeMock,
-    trackCanPlayMock,
+    trackIsBufferingMock,
     trackIsPlayingMock,
     volumeMock,
   };

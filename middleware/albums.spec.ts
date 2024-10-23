@@ -1,5 +1,6 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { routeMock } from '@/test/fixtures';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import albumsMiddleware from './albums';
 
 const navigateToMock = vi.hoisted(() => vi.fn());
@@ -7,20 +8,23 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 mockNuxtImport('navigateTo', () => navigateToMock);
 
 describe('albums-middleware', () => {
-  beforeEach(() => {
-    albumsMiddleware(routeMock, routeMock);
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   describe('when to.params.sortBy is not defined', () => {
+    beforeEach(() => {
+      albumsMiddleware(routeMock, routeMock);
+    });
+
     it('calls the navigateTo function', () => {
       expect(navigateToMock).toBeCalledWith('/albums/a-z');
     });
   });
 
   describe('when to.params.sortBy is defined', () => {
-    describe('when to.params.sortBy is not key of SORT_BY_TYPES', () => {
+    describe('when to.params.sortBy is not key of ALBUMS_SORT_BY', () => {
       beforeEach(() => {
-        vi.clearAllMocks();
         albumsMiddleware(
           {
             ...routeMock,
@@ -38,11 +42,10 @@ describe('albums-middleware', () => {
       });
     });
 
-    describe.each([...Object.keys(SORT_BY_TYPES)])(
+    describe.each([...Object.keys(ALBUMS_SORT_BY)])(
       'when when to.params.sortBy is %s',
       (sortBy) => {
         beforeEach(() => {
-          vi.clearAllMocks();
           albumsMiddleware(
             {
               ...routeMock,

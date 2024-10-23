@@ -1,167 +1,266 @@
 export function formatGenre(genre: ResponseGenre) {
+  const { albumCount, name, songCount: trackCount, value } = genre;
+
   return {
-    albumCount: genre.albumCount,
-    name: genre.name || genre.value,
-    songCount: genre.songCount,
+    albumCount,
+    name: name || value,
+    trackCount,
   };
 }
 
 export function formatTracks(track: Base): Track {
+  const {
+    album = DEFAULT_VALUE,
+    albumId,
+    bitRate = 0,
+    contentType = DEFAULT_VALUE,
+    coverArt: image = IMAGE_DEFAULT_BY_TYPE.track,
+    created,
+    discNumber = DEFAULT_VALUE,
+    duration,
+    id,
+    path = DEFAULT_VALUE,
+    playCount = 0,
+    size = 0,
+    starred,
+    suffix = DEFAULT_VALUE,
+    title: name,
+    track: trackNumber = DEFAULT_VALUE,
+    transcodedContentType = DEFAULT_VALUE,
+    transcodedSuffix = DEFAULT_VALUE,
+    year = DEFAULT_VALUE,
+  } = track;
+
   return {
-    album: track.album,
-    albumId: track.albumId,
+    album,
+    albumId,
     artists: getArtists(track),
-    discNumber: track.discNumber,
-    duration: secondsToHHMMSS(track.duration),
-    favourite: !!track.starred,
+    discNumber,
+    duration: secondsToHHMMSS(duration),
+    favourite: !!starred,
     genres: getGenres(track),
-    id: track.id,
-    image: track.coverArt || 'PhMusicNotes',
+    id,
+    image,
     information: {
-      bitRate: track.bitRate,
-      contentType: track.contentType,
-      created: track.created,
-      path: track.path,
-      playCount: track.playCount,
-      suffix: track.suffix,
-      transcodedContentType: track.transcodedContentType,
-      transcodedSuffix: track.transcodedSuffix,
+      bitRate: `${bitRate} kbps`,
+      contentType,
+      created: formatDate(created),
+      path,
+      playCount,
+      suffix,
+      transcodedContentType,
+      transcodedSuffix,
     },
-    name: track.title,
-    size: bytesToMB(track.size),
-    streamUrl: track.id,
-    trackNumber: track.track,
-    type: 'track',
-    year: track.year,
+    name,
+    size: bytesToMB(size),
+    streamUrl: id,
+    trackNumber,
+    type: MEDIA_TYPE.track,
+    year,
   };
 }
 
 export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
+  const {
+    coverArt: image = IMAGE_DEFAULT_BY_TYPE.album,
+    created,
+    duration,
+    id,
+    name,
+    playCount = 0,
+    song = [],
+    songCount: trackCount,
+    starred,
+    year = DEFAULT_VALUE,
+  } = album;
+
   return {
     artists: getArtists(album),
-    created: album.id,
-    duration: secondsToHHMMSS(album.duration),
-    favourite: !!album.starred,
+    created: formatDate(created),
+    duration: secondsToHHMMSS(duration),
+    favourite: !!starred,
     genres: getGenres(album as unknown as Base),
-    id: album.id,
-    image: album.coverArt || 'PhVinylRecord',
+    id,
+    image,
     information: {
-      playCount: album.playCount,
+      playCount,
     },
-    name: album.name,
-    size: bytesToMB(getAlbumSize(album.song)),
-    songCount: album.songCount,
-    tracks: (album.song || []).map(formatTracks),
-    type: 'album',
-    year: album.year,
+    name,
+    size: bytesToMB(getAlbumSize(song)),
+    trackCount,
+    tracks: song.map(formatTracks),
+    type: MEDIA_TYPE.album,
+    year,
   };
 }
 
 export function formatArtist(
   artistData: Partial<ArtistInfo2 & ArtistWithAlbumsID3>,
 ): Artist {
+  const {
+    album = [],
+    albumCount: totalAlbums = 0,
+    artistImageUrl,
+    biography,
+    coverArt = IMAGE_DEFAULT_BY_TYPE.artist,
+    id,
+    lastFmUrl,
+    musicBrainzId,
+    name = DEFAULT_VALUE,
+    starred,
+  } = artistData;
+
+  const image = artistImageUrl || coverArt;
+  const musicBrainzUrl = musicBrainzId
+    ? `https://musicbrainz.org/artist/${musicBrainzId}`
+    : undefined;
+
   return {
-    albums: (artistData.album || []).map(formatAlbum),
-    biography: artistData.biography,
-    favourite: !!artistData.starred,
-    genres: getUniqueGenres(artistData.album),
-    id: artistData.id!,
-    image: artistData.coverArt || artistData.artistImageUrl || 'PhUsersThree',
-    lastFmUrl: artistData.lastFmUrl,
-    musicBrainzUrl: artistData.musicBrainzId
-      ? `https://musicbrainz.org/artist/${artistData.musicBrainzId}`
-      : undefined,
-    name: artistData.name!,
-    totalAlbums: artistData.albumCount || 0,
-    totalTracks: getTracksTotal(artistData.album),
-    type: 'artist',
+    albums: album.map(formatAlbum),
+    biography,
+    favourite: !!starred,
+    genres: getUniqueGenres(album),
+    id: id!,
+    image,
+    lastFmUrl,
+    musicBrainzUrl,
+    name,
+    totalAlbums,
+    totalTracks: getTracksTotal(album),
+    type: MEDIA_TYPE.artist,
   };
 }
 
 export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
+  const {
+    changed,
+    comment,
+    created,
+    duration,
+    entry = [],
+    id,
+    name: playlistName,
+    owner = DEFAULT_VALUE,
+    public: playlistPublic = false,
+    songCount: trackCount,
+  } = playlist;
+
+  const name = playlistName || '(Unnamed)';
+
   return {
-    duration: secondsToHHMMSS(playlist.duration),
-    id: playlist.id,
-    images: getUniqueImages(playlist.entry),
+    duration: secondsToTimeFormat(duration),
+    id,
+    images: getUniqueImages(entry),
     information: {
-      changed: playlist.changed,
-      comment: playlist.comment,
-      created: playlist.created,
-      owner: playlist.owner,
-      public: playlist.public,
+      changed: formatDate(changed),
+      comment,
+      created: formatDate(created),
+      owner,
+      public: playlistPublic,
     },
-    name: playlist.name || '(Unnamed)',
-    songCount: playlist.songCount,
-    tracks: (playlist.entry || []).map(formatTracks),
-    type: 'playlist',
+    name,
+    trackCount,
+    tracks: entry.map(formatTracks),
+    type: MEDIA_TYPE.playlist,
   };
 }
 
 export function formatRadioStation(
   station: InternetRadioStation,
 ): RadioStation {
-  const homePageUrl = station.homePageUrl || station.homepageUrl;
+  const {
+    homePageUrl: radioStationHomePageUrl,
+    homepageUrl: radioStationHomepageUrl,
+    id,
+    name,
+    streamUrl,
+  } = station;
+
+  const homePageUrl = radioStationHomePageUrl || radioStationHomepageUrl;
+  const image = homePageUrl
+    ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
+    : IMAGE_DEFAULT_BY_TYPE.radioStation;
 
   return {
     duration: '',
     homePageUrl,
-    id: station.id,
-    image: homePageUrl
-      ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
-      : 'PhRadio',
-    name: station.name,
-    streamUrl: station.streamUrl,
-    type: 'radioStation',
+    id,
+    image,
+    name,
+    streamUrl,
+    type: MEDIA_TYPE.radioStation,
   };
 }
 
 export function formatAllMedia(favourites: Starred2): AllMedia {
-  const { artist, album, song } = favourites;
+  const { album = [], artist = [], song = [] } = favourites;
 
   return {
-    albums: (album || []).map(formatAlbum),
-    artists: (artist || []).map(formatArtist),
-    tracks: (song || []).map(formatTracks),
+    albums: album.map(formatAlbum),
+    artists: artist.map(formatArtist),
+    tracks: song.map(formatTracks),
   };
 }
 
-function formatPodcastEpisode(image: string) {
+export function formatPodcastEpisode(podcastImage: string) {
   return function (episode: ResponsePodcastEpisode): PodcastEpisode {
-    const downloaded = episode.status === 'completed';
+    const {
+      coverArt = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
+      description,
+      duration,
+      id,
+      publishDate,
+      status,
+      streamUrl: episodeStreamUrl,
+      title: name,
+    } = episode;
+
+    const downloaded = status === 'completed';
+    const image = podcastImage || coverArt;
+    const streamUrl =
+      downloaded && episodeStreamUrl ? episodeStreamUrl : undefined;
 
     return {
-      description: episode.description,
+      description,
       downloaded,
-      duration: secondsToHHMMSS(episode.duration),
+      duration: secondsToHHMMSS(duration),
       genres: getGenres(episode),
-      id: episode.id,
+      id,
       image,
-      name: episode.title,
-      publishDate: formatDate(episode.publishDate),
-      streamUrl:
-        downloaded && episode.streamUrl ? episode.streamUrl : undefined,
-      type: 'podcastEpisode',
+      name,
+      publishDate: formatDate(publishDate, {}),
+      streamUrl,
+      type: MEDIA_TYPE.podcastEpisode,
     };
   };
 }
 
 export function formatPodcast(podcast: PodcastChannel): Podcast {
-  const { episode = [], originalImageUrl, coverArt } = podcast;
+  const {
+    coverArt = IMAGE_DEFAULT_BY_TYPE.podcast,
+    description,
+    episode = [],
+    id,
+    originalImageUrl,
+    title: name = 'Podcast',
+    url,
+  } = podcast;
 
   const lastUpdated = formatDate(getEarliestDate(episode));
   const downloadedEpisodes = getDownloadedEpisodesLength(episode);
-  const image = originalImageUrl || coverArt || 'PhApplePodcastsLogo';
+  const image = originalImageUrl || coverArt;
+  const totalEpisodes = episode.length;
 
   return {
-    description: podcast.description,
+    description,
     downloadedEpisodes,
     episodes: episode.map(formatPodcastEpisode(image)),
-    id: podcast.id,
+    id,
     image,
     lastUpdated,
-    name: podcast.title || 'Podcast',
-    totalEpisodes: episode.length,
-    type: 'podcast',
-    url: podcast.url,
+    name,
+    totalEpisodes,
+    type: MEDIA_TYPE.podcast,
+    url,
   };
 }

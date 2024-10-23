@@ -1,20 +1,20 @@
-export type SortByType =
-  | 'random'
-  | 'newest'
-  | 'frequent'
-  | 'recent'
-  | 'starred'
-  | 'alphabeticalByName'
+export type AlbumSortBy =
   | 'alphabeticalByArtist'
+  | 'alphabeticalByName'
+  | 'byGenre'
   | 'byYear'
-  | 'byGenre';
+  | 'frequent'
+  | 'newest'
+  | 'random'
+  | 'recent'
+  | 'starred';
 
 export interface AlbumsParams {
-  type: SortByType;
-  size?: number;
-  offset?: number;
   fromYear?: string;
-  toYear?: string;
   genre?: string;
   musicFolderId?: string;
+  offset?: number;
+  size?: number;
+  toYear?: string;
+  type: AlbumSortBy;
 }

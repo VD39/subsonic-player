@@ -8,7 +8,20 @@ const config = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['mixin', 'mixin-content', 'define-mixin', 'composes'],
+        ignoreAtRules: [
+          'mixin',
+          'mixin-content',
+          'define-mixin',
+          'composes',
+          'extend',
+        ],
+      },
+    ],
+    'no-descending-specificity': null,
+    'property-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['composes'],
       },
     ],
     'selector-class-pattern': [

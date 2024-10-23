@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PageNavigation > matches the snapshot 1`] = `
+"<nav class="pageNavigation">
+  <ul class="centerItems navigation">
+    <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+        <!--v-if--><span class="clamp text">title</span>
+      </a></li>
+    <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+        <!--v-if--><span class="clamp text">title1</span>
+      </a></li>
+  </ul>
+</nav>"
+`;
+
+exports[`PageNavigation > when param is undefined > matches the snapshot 1`] = `
+"<nav class="pageNavigation">
+  <ul class="centerItems navigation">
+    <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+        <!--v-if--><span class="clamp text">title</span>
+      </a></li>
+    <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+        <!--v-if--><span class="clamp text">title1</span>
+      </a></li>
+  </ul>
+</nav>"
+`;

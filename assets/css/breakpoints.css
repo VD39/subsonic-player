@@ -1,5 +1,2 @@
-@custom-media --mobile-up (min-width: 412px);
 @custom-media --mobile-only (max-width: 768px);
 @custom-media --tablet-up (min-width: 769px);
-@custom-media --desktop-up (min-width: 1024px);
-@custom-media --desktop-large-up (min-width: 1440px);

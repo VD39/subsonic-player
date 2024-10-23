@@ -1,13 +1,14 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useTheme } from './index';
 
-const matches = ref(false);
+const matchesMock = ref(false);
 
 Object.defineProperty(window, 'matchMedia', {
-  writable: true,
   value: vi.fn(() => ({
-    matches: matches.value,
+    matches: matchesMock.value,
   })),
+  writable: true,
 });
 
 const setLocalStorageMock = vi.hoisted(() => vi.fn());
@@ -16,9 +17,13 @@ const getLocalStorageMock = vi.hoisted(() => vi.fn());
 mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
 mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
 
-const { isDarkTheme, toggleTheme, setDefaultTheme } = useTheme();
+const { isDarkTheme, setDefaultTheme, toggleTheme } = useTheme();
 
 describe('useTheme', () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('sets the default theme', () => {
     expect(isDarkTheme.value).toBe(false);
   });
@@ -33,7 +38,10 @@ describe('useTheme', () => {
       });
 
       it('calls the localStorage.setItem with correct parameters', () => {
-        expect(setLocalStorageMock).toBeCalledWith('theme', stringify);
+        expect(setLocalStorageMock).toBeCalledWith(
+          STATE_NAMES.theme,
+          stringify,
+        );
       });
 
       it('sets the correct theme theme', () => {
@@ -56,7 +64,7 @@ describe('useTheme', () => {
 
     describe('when theme in local storage is not set and system preference is set', () => {
       beforeEach(() => {
-        matches.value = true;
+        matchesMock.value = true;
         setDefaultTheme();
       });
 

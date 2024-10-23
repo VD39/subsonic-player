@@ -1,37 +1,46 @@
 export function useAudioPlayer() {
   const { getStreamUrl } = useAPI();
 
-  const audioPlayer = useState<null | InstanceType<typeof AudioPlayer>>(
-    'audio-player',
+  const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
+    STATE_NAMES.playerAudioPlayer,
     () => null,
   );
 
   // Ready state.
-  const trackCanPlay = useState('player-play-loading', () => false);
+  const trackIsBuffering = useState(STATE_NAMES.playerPlayLoading, () => false);
 
   // Audio time state.
-  const currentTime = useState('player-current-time', () => 0);
-  const bufferedDuration = useState('player-buffered-length', () => 0);
-  const duration = useState('player-duration', () => 0);
+  const currentTime = useState(STATE_NAMES.playerCurrentTime, () => 0);
+  const bufferedDuration = useState(STATE_NAMES.playerBufferedLength, () => 0);
+  const duration = useState(STATE_NAMES.playerDuration, () => 0);
 
   // Play/Pause state.
-  const trackIsPlaying = useState('player-is-playing', () => false);
+  const trackIsPlaying = useState(
+    STATE_NAMES.playerTrackIsPlaying,
+    () => false,
+  );
 
   // Playback rate state.
-  const playBackRate = useState('player-playback-rate', () => 1);
+  const playBackRate = useState(STATE_NAMES.playerPlaybackRate, () => 1);
 
   // Volume state.
-  const volume = useState('player-volume', () => 1);
+  const volume = useState(STATE_NAMES.playerVolume, () => 1);
   const isMuted = computed(() => !volume.value);
 
   // Queue state.
-  const queueList = useState<QueueTrack[]>('player-queue-list', () => []);
-  const queueOriginal = useState('player-queue-original', () => '');
-  const currentQueueIndex = useState('player-current-queue-index', () => -1);
+  const queueList = useState<QueueTrack[]>(
+    STATE_NAMES.playerQueueList,
+    () => [],
+  );
+  const queueOriginal = useState(STATE_NAMES.playerQueueOriginal, () => '');
+  const currentQueueIndex = useState(
+    STATE_NAMES.playerCurrentQueueIndex,
+    () => -1,
+  );
 
   // Repeat/Shuffle state.
-  const repeat = useState('player-repeat', () => -1);
-  const shuffle = useState('player-shuffle', () => false);
+  const repeat = useState(STATE_NAMES.playerRepeat, () => -1);
+  const shuffle = useState(STATE_NAMES.playerShuffle, () => false);
 
   const showMediaPlayer = computed(() => !!queueList.value.length);
 
@@ -44,14 +53,14 @@ export function useAudioPlayer() {
     () => currentQueueIndex.value === queueList.value.length - 1,
   );
 
-  const isTrack = computed(() => currentTrack.value.type === 'track');
+  const isTrack = computed(() => currentTrack.value.type === MEDIA_TYPE.track);
 
   const isPodcast = computed(
-    () => currentTrack.value.type === 'podcastEpisode',
+    () => currentTrack.value.type === MEDIA_TYPE.podcastEpisode,
   );
 
   const isRadioStation = computed(
-    () => currentTrack.value.type === 'radioStation',
+    () => currentTrack.value.type === MEDIA_TYPE.radioStation,
   );
 
   function isCurrentTrack(id: string) {
@@ -278,6 +287,12 @@ export function useAudioPlayer() {
     duration.value = 0;
   }
 
+  /* istanbul ignore next -- @preserve */
+  function resetAudio() {
+    pauseTrack();
+    clearQueueList();
+  }
+
   function setAudioPlayer() {
     audioPlayer.value = new AudioPlayer();
 
@@ -287,7 +302,7 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onCanPlay(() => {
-      trackCanPlay.value = true;
+      trackIsBuffering.value = true;
     });
 
     audioPlayer.value.onLoadedMetadata((newDuration: number) => {
@@ -299,7 +314,7 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onWaiting(() => {
-      trackCanPlay.value = false;
+      trackIsBuffering.value = false;
     });
 
     audioPlayer.value.onEnded(async () => {
@@ -360,6 +375,7 @@ export function useAudioPlayer() {
     queueList,
     removeTrackFromQueueList,
     repeat,
+    resetAudio,
     rewindTrack,
     setCurrentTime,
     setPlaybackRate,
@@ -371,7 +387,7 @@ export function useAudioPlayer() {
     togglePlay,
     toggleShuffle,
     toggleVolume,
-    trackCanPlay,
+    trackIsBuffering,
     trackIsPlaying,
     volume,
   };

@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`MediaInformation > matches the snapshot 1`] = `
-"<button class="iconButton" type="button" title="Episode information">
-  <phinfo class="icon" aria-hidden="true" size="24" weight="duotone"></phinfo><span class="text visually-hidden"> Episode information </span>
-</button>"
-`;

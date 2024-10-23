@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeaderSeeAllLink > matches the snapshot 1`] = `
+"<div class="headerMoreLink">
+  <h2 class="header"><a>Default slot<phcaretdoubleright class="more" size="20" weight="regular"></phcaretdoubleright></a></h2><a class="seeAll">See all</a>
+</div>"
+`;

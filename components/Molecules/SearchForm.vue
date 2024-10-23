@@ -1,0 +1,64 @@
+<script setup lang="ts">
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import InputField from '@/components/Atoms/InputField.vue';
+
+const emit = defineEmits(['submit']);
+
+const formInputs = {
+  query: {
+    validationRules: {
+      required: true,
+    },
+  },
+};
+
+const form = createForm(formInputs);
+
+async function submitForm() {
+  validateInputs(form);
+
+  if (!form.isValid.value) {
+    return;
+  }
+
+  const query = replaceSpacesWithCharacter(
+    form.fields.query.value.value as string,
+  ).toLowerCase();
+
+  form.fields.query.value.value = '';
+
+  emit('submit', query);
+}
+</script>
+
+<template>
+  <form novalidate @submit.prevent="submitForm">
+    <div class="centerItems">
+      <InputField
+        :id="form.fields.query.id"
+        v-model="form.fields.query.value.value"
+        :class="$style.inputField"
+        :label="form.fields.query.label"
+        placeholder="Enter query"
+        :required="form.fields.query.required"
+        hide-label
+      />
+
+      <ButtonLink type="submit" :class="$style.buttonLink" :icon="ICONS.search">
+        Login
+      </ButtonLink>
+    </div>
+  </form>
+</template>
+
+<style module>
+.inputField {
+  input {
+    padding-right: calc(var(--space-24) * 2);
+  }
+}
+
+.buttonLink {
+  margin-left: calc(var(--space-24) * -2);
+}
+</style>

@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RepeatButton > when shuffle is set to -1 > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+  <phrepeat class="icon" aria-hidden="true" size="24" weight="duotone" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+</button>"
+`;
+
+exports[`RepeatButton > when shuffle is set to 1 > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Turn repeat off">
+  <phrepeatonce class="icon" aria-hidden="true" size="24" weight="fill" color="var(--theme-color)"></phrepeatonce><span class="clamp text visuallyHidden">Turn repeat off</span>
+</button>"
+`;
+
+exports[`RepeatButton > when shuffle is set to Infinity > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Turn on repeat one">
+  <phrepeat class="icon" aria-hidden="true" size="24" weight="fill" color="var(--theme-color)"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat one</span>
+</button>"
+`;

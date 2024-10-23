@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModalWindow > when modal values are not set > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <!--v-if-->
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="centerAll modalWindow fade-enter-from fade-enter-active">
+    <div class="modalContent" role="document">
+      <div class="centerItems spaceBetween headerWithAction">
+        <!--v-if--><button class="centerItems buttonLink" type="button" title="Close modal">
+          <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+        </button>
+      </div>
+      <div class="main body">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when modal container is clicked > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="centerAll modalWindow fade-leave-from fade-leave-active">
+    <div class="modalContent" role="document">
+      <div class="centerItems spaceBetween headerWithAction">
+        <!--v-if--><button class="centerItems buttonLink" type="button" title="Close modal">
+          <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+        </button>
+      </div>
+      <div class="main body">
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <!--v-if-->
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when modal content is clicked > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="centerAll modalWindow">
+    <div class="modalContent" role="document">
+      <div class="centerItems spaceBetween headerWithAction">
+        <!--v-if--><button class="centerItems buttonLink" type="button" title="Close modal">
+          <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+        </button>
+      </div>
+      <div class="main body">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when the ButtonLink component emits a click event > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="centerAll modalWindow fade-enter-from fade-leave-from fade-leave-active">
+    <div class="modalContent" role="document">
+      <div class="centerItems spaceBetween headerWithAction">
+        <!--v-if--><button class="centerItems buttonLink" type="button" title="Close modal">
+          <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+        </button>
+      </div>
+      <div class="main body">
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <!--v-if-->
+</teleport-stub>"
+`;
+
+exports[`ModalWindow > when modal values are set > when title is set > matches the snapshot 1`] = `
+"<teleport-stub to="#teleports">
+  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="centerAll modalWindow">
+    <div class="modalContent" role="document">
+      <div class="centerItems spaceBetween headerWithAction">
+        <h3 class="title">Title</h3><button class="centerItems buttonLink" type="button" title="Close modal">
+          <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+        </button>
+      </div>
+      <div class="main body">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</teleport-stub>"
+`;

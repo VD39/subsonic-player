@@ -1,5 +1,10 @@
 export default defineNuxtRouteMiddleware(async (to) => {
-  if (!Object.keys(SORT_BY_TYPES).includes(to.params.sortBy as string)) {
-    return navigateTo('/albums/a-z');
+  if (
+    !(
+      to.params.sortBy &&
+      Object.keys(ALBUMS_SORT_BY).includes(to.params.sortBy as string)
+    )
+  ) {
+    return navigateTo(`/albums/${ROUTE_ALBUMS_SORT_BY_PARAMS['A-Z']}`);
   }
 });

@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaylistItems > matches the snapshot 1`] = `
+"<ul>
+  <li>
+    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <ul class="mBM"></ul>
+  </li>
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+      <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+    </button></li>
+</ul>"
+`;
+
+exports[`PlaylistItems > when playlist value returns playlists > matches the snapshot 1`] = `
+"<ul>
+  <li>
+    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <ul class="mBM">
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-0">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-0</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-1">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-1</span>
+        </a></li>
+    </ul>
+  </li>
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+      <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+    </button></li>
+</ul>"
+`;
+
+exports[`PlaylistItems > when playlist value returns playlists > when playlist value returned is more than 5 > matches the snapshot 1`] = `
+"<ul>
+  <li>
+    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <ul class="mBM">
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-0">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-0</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-1">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-1</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-2">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-2</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-3">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-3</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-4">
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">playlist-4</span>
+        </a></li>
+    </ul>
+  </li>
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+      <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+    </button></li>
+</ul>"
+`;

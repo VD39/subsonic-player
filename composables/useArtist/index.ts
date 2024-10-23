@@ -2,7 +2,7 @@ export function useArtist() {
   const { fetchData } = useAPI();
 
   const artist = ref<Artist | null>(null);
-  const artists = useState<Artist[]>('artists', () => []);
+  const artists = useState<Artist[]>(STATE_NAMES.artists, () => []);
 
   async function getArtists() {
     const { data: artistsData } = await fetchData('/getArtists', {
@@ -18,18 +18,22 @@ export function useArtist() {
   }
 
   async function getArtist(id: string) {
-    const [{ data: artistInfoData }, { data: artistData }] = await Promise.all([
-      fetchData('/getArtistInfo2', {
-        params: {
-          id,
-        },
-      }),
-      fetchData('/getArtist', {
-        params: {
-          id,
-        },
-      }),
-    ]);
+    const { data: artistInfoData } = await fetchData('/getArtistInfo2', {
+      params: {
+        id,
+      },
+    });
+
+    const { data: artistData } = await fetchData('/getArtist', {
+      params: {
+        id,
+      },
+    });
+
+    if (!artistInfoData && !artistData) {
+      artist.value = null;
+      return;
+    }
 
     const mergedArtists = {
       ...artistInfoData?.artistInfo2,

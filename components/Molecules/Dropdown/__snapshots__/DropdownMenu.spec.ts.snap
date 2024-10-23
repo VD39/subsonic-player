@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropdownMenu > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`DropdownMenu > when the ButtonLink component emits a click event > when a non esc key is pressed > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown above fade-enter-from fade-enter-active">
+    <ul>Default slot content.</ul>
+  </div>
+</div>"
+`;
+
+exports[`DropdownMenu > when the ButtonLink component emits a click event > when document body is clicked > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
+    <ul>Default slot content.</ul>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`DropdownMenu > when the ButtonLink component emits a click event > when dropdown element is clicked > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
+    <ul>Default slot content.</ul>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`DropdownMenu > when the ButtonLink component emits a click event > when dropdown height is not less than window height > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown fade-enter-from fade-enter-active">
+    <ul>Default slot content.</ul>
+  </div>
+</div>"
+`;
+
+exports[`DropdownMenu > when the ButtonLink component emits a click event > when esc key is pressed > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
+    <ul>Default slot content.</ul>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`DropdownMenu > when the ButtonLink component emits a click event > when the ButtonLink component emits a click event again > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
+    <ul>Default slot content.</ul>
+  </div>
+  <!--v-if-->
+</div>"
+`;

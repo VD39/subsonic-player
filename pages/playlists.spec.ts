@@ -1,5 +1,7 @@
 import type { VueWrapper } from '@vue/test-utils';
+
 import { mount } from '@vue/test-utils';
+
 import Playlists from './playlists.vue';
 
 function factory(props = {}) {

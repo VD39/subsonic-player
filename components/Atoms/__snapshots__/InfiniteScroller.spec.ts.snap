@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InfiniteScroller > matches the snapshot 1`] = `
+"<div>
+  <p class="message">-- No more content --</p>
+</div>"
+`;
+
+exports[`InfiniteScroller > when hasMore value is true > matches the snapshot 1`] = `"<div><button class="button" type="button" title="Load more"><span>Load more</span><span><span class="loader"></span><span class="visuallyHidden">Loading data</span></span></button></div>"`;
+
+exports[`InfiniteScroller > when hasMore value is true > when loading value is true > matches the snapshot 1`] = `
+"<div><button class="button" type="button" title="Loading data" disabled="">
+    <!--v-if--><span><span class="loader"></span><span class="visuallyHidden">Loading data</span></span>
+  </button></div>"
+`;

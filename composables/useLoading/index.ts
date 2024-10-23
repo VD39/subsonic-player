@@ -1,4 +1,4 @@
 /* istanbul ignore next -- @preserve */
 export function useLoading() {
-  return useState('loading', () => false);
+  return useState(STATE_NAMES.globalLoading, () => false);
 }

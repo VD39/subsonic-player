@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaybackRateButton > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+    <phgear class="icon" aria-hidden="true" size="24" weight="duotone"></phgear><span class="clamp text visuallyHidden">More</span>
+  </button>
+  <div class="dropdown fade-enter-from fade-enter-active">
+    <ul>
+      <li class="centerItems dropdownTitle">
+        <p class="strong smallFont">Playback speed</p>
+      </li>
+      <li class="divider" aria-hidden="true"></li>
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+          <!--v-if--><span class="clamp text">0.5x</span>
+        </button></li>
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+          <!--v-if--><span class="clamp text">0.75x</span>
+        </button></li>
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink selected spaceBetween buttonLink selected" type="button">
+          <!--v-if--><span class="clamp text">Normal</span>
+        </button></li>
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+          <!--v-if--><span class="clamp text">1.5x</span>
+        </button></li>
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+          <!--v-if--><span class="clamp text">2x</span>
+        </button></li>
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+          <!--v-if--><span class="clamp text">2.5x</span>
+        </button></li>
+    </ul>
+  </div>
+</div>"
+`;

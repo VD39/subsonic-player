@@ -36,7 +36,6 @@ export function useMediaLibrary() {
   /* istanbul ignore next -- @preserve */
   async function deleteBookmark() {
     await fetchData('/deleteBookmark', {
-      method: 'DELETE',
       params: {
         noLoading: true,
       },

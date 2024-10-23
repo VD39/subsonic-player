@@ -1,82 +1,52 @@
-import AddNewPlaylist from '@/components/Playlists/AddNewPlaylist.vue';
-import CurrentPlaylists from '@/components/Playlists/CurrentPlaylists.vue';
-
-export const SIDEBAR_NAVIGATION = [
+export const SIDEBAR_DESKTOP_NAVIGATION = [
   {
-    title: 'Browse',
-    icon: 'PhCompass',
-    to: '/discover',
     items: [
       {
+        icon: ICONS.discover,
         title: 'Discover',
-        to: '/discover',
-        icon: 'PhCompass',
+        to: '/',
       },
       {
-        title: 'Music',
-        to: '/music',
-        icon: 'PhMusicNotes',
-      },
-      {
-        title: 'Radio Stations',
-        to: '/radio-stations',
-        icon: 'PhRadio',
-      },
-      {
+        icon: ICONS.podcast,
         title: 'Podcasts',
         to: '/podcasts',
-        icon: 'PhApplePodcastsLogo',
+      },
+      {
+        icon: ICONS.radioStation,
+        title: 'Radio Stations',
+        to: '/radio-stations',
       },
     ],
+    title: 'Browse',
   },
   {
-    title: 'Your library',
-    icon: 'PhMusicNotes',
-    to: '/library',
     items: [
       {
+        icon: ICONS.album,
         title: 'Albums',
         to: '/albums',
-        icon: 'PhVinylRecord',
       },
       {
+        icon: ICONS.artist,
         title: 'Artists',
         to: '/artists',
-        icon: 'PhUsersThree',
       },
       {
+        icon: ICONS.playlist,
         title: 'Playlists',
         to: '/playlists',
-        icon: 'PhPlaylist',
       },
       {
+        icon: ICONS.favourite,
         title: 'Favourites',
         to: '/favourites/albums',
-        icon: 'PhHeart',
       },
       {
+        icon: ICONS.genre,
         title: 'Genres',
         to: '/genres',
-        icon: 'PhWaveform',
       },
     ],
+    title: 'Your library',
   },
-  {
-    title: 'Playlists',
-    icon: 'PhPlaylist',
-    to: '/playlists',
-    items: [
-      {
-        title: 'Random',
-        to: '/playlist/random',
-        icon: 'PhQueue',
-      },
-      {
-        component: markRaw(CurrentPlaylists),
-      },
-      {
-        component: markRaw(AddNewPlaylist),
-      },
-    ],
-  },
-] as Navigation[];
+];

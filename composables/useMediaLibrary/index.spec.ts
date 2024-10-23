@@ -1,5 +1,7 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useMediaLibrary } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -21,7 +23,7 @@ const { startScan } = useMediaLibrary();
 describe('useMediaLibrary', () => {
   describe('when the startScan function is called', () => {
     describe('when fetchData response returns null', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
@@ -35,7 +37,7 @@ describe('useMediaLibrary', () => {
     });
 
     describe('when fetchData response returns a value', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: {
             name: 'name',

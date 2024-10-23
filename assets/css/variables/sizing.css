@@ -1,25 +1,21 @@
 :root {
-  /* Inner gap.  */
-  --inner-gap: 6vw;
-
-  /* Max screen size width. */
-  --max-width: 85rem;
-
   /* Header height. */
   --header-height: 65px;
 
   /* Media player. */
-  --media-player-height: 80px;
+  --media-player-height: 65px;
 
-  /* Track images. */
-  --track-image-size-small: 45px;
-  --track-image-size-medium: var(--media-player-height);
-  --track-image-size-large: 100px;
-  --track-image-size-extra-large: 130px;
+  /* 100% width/heights. */
+  --width-height-100: 100%;
 
-  /* Loader size. */
-  --loader-size-small: calc(var(--track-image-size-small) * 0.4);
-  --loader-size-medium: calc(var(--track-image-size-medium) * 0.3);
-  --loader-size-large: calc(var(--track-image-size-large) * 0.3);
-  --loader-size-extra-large: calc(var(--track-image-size-extra-large) * 0.3);
+  /* track play/pause. */
+  --track-width-height-default: 40px;
+  --track-width-height-large: 95px;
+}
+
+@media (--tablet-up) {
+  :root {
+    /* Media player. */
+    --media-player-height: 80px;
+  }
 }

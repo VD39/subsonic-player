@@ -10,6 +10,9 @@ export default defineNuxtPlugin(() => {
         loading.value = true;
       }
     },
+    onRequestError() {
+      loading.value = false;
+    },
     onResponse({ response }) {
       const subsonicResponse = response._data['subsonic-response'];
 
@@ -31,9 +34,6 @@ export default defineNuxtPlugin(() => {
       loading.value = false;
     },
     onResponseError() {
-      loading.value = false;
-    },
-    onRequestError() {
       loading.value = false;
     },
   });

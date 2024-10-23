@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FavouriteButton > when favourite prop is set to false > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Like album">
+  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like album</span>
+</button>"
+`;
+
+exports[`FavouriteButton > when favourite prop is set to false > when the ButtonLink component emits a click event > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Unlike album">
+  <phheart class="icon" aria-hidden="true" size="24" weight="fill" color="var(--error-color)"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+</button>"
+`;
+
+exports[`FavouriteButton > when favourite prop is set to true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Unlike album">
+  <phheart class="icon" aria-hidden="true" size="24" weight="fill" color="var(--error-color)"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+</button>"
+`;
+
+exports[`FavouriteButton > when favourite prop is set to true > when the ButtonLink component emits a click event > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Like album">
+  <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like album</span>
+</button>"
+`;

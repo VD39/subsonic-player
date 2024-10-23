@@ -1,0 +1,206 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlayerOptions > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <!--v-if-->
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><button class="centerItems buttonLink" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when currentTrack value does not have a favourite key > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <p class="smallFont time">00:00 / 00:10</p>
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`PlayerOptions > when isPodcast value and isTrack value are false > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <p class="smallFont time">00:00 / 00:10</p>
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><button class="centerItems buttonLink" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when isPodcast value is true > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <p class="smallFont time">00:00 / 00:10</p>
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <phgear class="icon" aria-hidden="true" size="24" weight="duotone"></phgear><span class="clamp text visuallyHidden">More</span>
+    </button>
+    <!--v-if-->
+  </div><button class="centerItems buttonLink" type="button" title="Media information">
+    <phinfo class="icon" aria-hidden="true" size="24" weight="duotone"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+  </button><button class="centerItems buttonLink" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when isRadioStation value is false > when duration value is greater than 0 > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <p class="smallFont time">00:00 / 00:10</p>
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><button class="centerItems buttonLink" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when isRadioStation value is true > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <!--v-if-->
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><button class="centerItems buttonLink" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+  </button>
+</div>"
+`;
+
+exports[`PlayerOptions > when isTrack value is true > matches the snapshot 1`] = `
+"<div class="centerItems playerOptions">
+  <p class="smallFont time">00:00 / 00:10</p>
+  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="duotone"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+    </button>
+    <div class="centerItems smallFont volumeInputWrapper">
+      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
+        <div class="centerItems slider">
+          <div class="progressWrapper">
+            <div class="process" style="width: 0px;"></div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+      <p aria-hidden="" class="currentVolume">100</p>
+      <p class="visuallyHidden"> Volume at 100% </p>
+    </div>
+  </div>
+  <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <phgear class="icon" aria-hidden="true" size="24" weight="duotone"></phgear><span class="clamp text visuallyHidden">More</span>
+    </button>
+    <!--v-if-->
+  </div><button class="centerItems buttonLink" type="button" title="Media information">
+    <phinfo class="icon" aria-hidden="true" size="24" weight="duotone"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+  </button><button class="centerItems buttonLink" type="button" title="Like track">
+    <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+  </button>
+</div>"
+`;

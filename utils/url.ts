@@ -20,5 +20,5 @@ export function parseQueryString(query = '') {
 }
 
 export function isUrl(url: string) {
-  return /^https?:\/\/\w/.test(url);
+  return /^https?:\/\/[^ "]+$/.test(url);
 }

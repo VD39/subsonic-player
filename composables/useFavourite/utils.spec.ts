@@ -5,7 +5,7 @@ describe('getParams', () => {
     [
       {
         id: 'id',
-        type: 'track',
+        type: MEDIA_TYPE.track,
       } as FavouriteParams,
       {
         albumId: undefined,
@@ -16,7 +16,7 @@ describe('getParams', () => {
     [
       {
         id: 'id',
-        type: 'album',
+        type: MEDIA_TYPE.album,
       } as FavouriteParams,
       {
         albumId: 'id',
@@ -27,7 +27,7 @@ describe('getParams', () => {
     [
       {
         id: 'id',
-        type: 'artist',
+        type: MEDIA_TYPE.artist,
       } as FavouriteParams,
       {
         albumId: undefined,
@@ -38,7 +38,7 @@ describe('getParams', () => {
     [
       {
         id: 'id',
-        type: 'podcast',
+        type: MEDIA_TYPE.podcast,
       } as FavouriteParams,
       {
         albumId: undefined,

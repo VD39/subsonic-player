@@ -1,24 +1,23 @@
 <script setup lang="ts">
-import MediaListWrapper from '@/components/MediaLists/MediaListWrapper.vue';
+import GenreLink from '@/components/Atoms/GenreLink.vue';
+import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import LoadingData from '@/components/Molecules/LoadingData.vue';
 
 const { genres, getGenres } = useGenre();
 
-if (!genres.value?.length) {
-  getGenres();
-}
+onBeforeMount(async () => {
+  if (!genres.value.length) {
+    await getGenres();
+  }
+});
 </script>
 
 <template>
-  <h1>Genres</h1>
+  <LoadingData>
+    <h1>Genres</h1>
 
-  <MediaListWrapper>
-    <NuxtLink
-      v-for="genre in genres"
-      :key="genre.name"
-      :to="`/genre/albums/${genre.name}`"
-      class="tileLink"
-    >
-      {{ genre.name }}
-    </NuxtLink>
-  </MediaListWrapper>
+    <MediaListWrapper>
+      <GenreLink v-for="genre in genres" :key="genre.name" :name="genre.name" />
+    </MediaListWrapper>
+  </LoadingData>
 </template>

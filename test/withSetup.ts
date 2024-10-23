@@ -1,9 +1,10 @@
 import type { App } from 'vue';
+
 import { createApp } from 'vue';
 
 interface WithSetup<T> {
-  composable: T;
   app: App<Element>;
+  composable: T;
 }
 
 export function withSetup<T>(composable: () => T): WithSetup<T> {

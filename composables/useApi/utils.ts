@@ -7,7 +7,7 @@ export function getConfigParams() {
   };
 }
 
-export function getAuthParams(params: Record<string, string | null>) {
+export function getAuthParams(params: Record<string, null | string>) {
   return {
     s: params.salt,
     t: params.token,
@@ -19,9 +19,9 @@ export function loadSession(token = '') {
   const query = parseQueryString(token);
 
   return {
-    token: query.get('token'),
     salt: query.get('salt'),
     server: query.get('server'),
+    token: query.get('token'),
     username: query.get('username'),
   };
 }

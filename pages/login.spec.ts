@@ -1,7 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils';
-import { mount } from '@vue/test-utils';
+
+import LoginForm from '@/components/Organisms/LoginForm.vue';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import LoginForm from '@/components/Forms/LoginForm.vue';
+import { mount } from '@vue/test-utils';
+
 import Login from './login.vue';
 
 const { routeMock } = vi.hoisted(() => ({
@@ -42,17 +44,17 @@ describe('Login', () => {
   describe('when the LoginForm emits the submit event', () => {
     beforeEach(() => {
       wrapper.findComponent(LoginForm).vm.$emit('submit', {
+        password: 'password',
         server: 'server',
         username: 'username',
-        password: 'password',
       });
     });
 
     it('calls the login function', () => {
       expect(loginMock).toHaveBeenCalledWith({
+        password: 'password',
         server: 'server',
         username: 'username',
-        password: 'password',
       });
     });
 
@@ -68,9 +70,9 @@ describe('Login', () => {
 
         wrapper = factory();
         wrapper.findComponent(LoginForm).vm.$emit('submit', {
+          password: 'password',
           server: 'server',
           username: 'username',
-          password: 'password',
         });
       });
 
@@ -90,9 +92,9 @@ describe('Login', () => {
 
           wrapper = factory();
           wrapper.findComponent(LoginForm).vm.$emit('submit', {
+            password: 'password',
             server: 'server',
             username: 'username',
-            password: 'password',
           });
         });
 

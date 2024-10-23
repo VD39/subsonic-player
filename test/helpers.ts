@@ -3,6 +3,7 @@ import {
   formattedAlbumMock,
   formattedArtistMock,
   formattedPlaylistMock,
+  formattedPodcastEpisodeMock,
   formattedRadioStationMock,
   formattedTrackMock,
   playlistMock,
@@ -16,8 +17,8 @@ export function getTracksMock(length = 1, params = {} as Partial<Base>) {
     .map((_, index) => ({
       ...trackMock,
       ...params,
-      id: `tracks-${index}`,
       coverArt: params.coverArt || `genre-${index}`,
+      id: `tracks-${index}`,
     }));
 }
 
@@ -124,6 +125,19 @@ export function getFormattedRadioStationMock(
       ...params,
       id: `radio-station-${index}`,
       name: `radio-station-${index}`,
+    }));
+}
+
+export function getFormattedPodcastEpisodesMock(
+  length = 1,
+  params = {} as Partial<PodcastEpisode>,
+) {
+  return Array(length)
+    .fill('')
+    .map((_, index) => ({
+      ...formattedPodcastEpisodeMock,
+      ...params,
+      id: `podcast-${index}`,
     }));
 }
 

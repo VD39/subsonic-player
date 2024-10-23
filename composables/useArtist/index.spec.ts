@@ -1,5 +1,7 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useArtist } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -64,7 +66,7 @@ describe('useArtist', () => {
   });
 
   describe('when the getArtist function is called', () => {
-    describe('when fetchData Promise.all response returns null', () => {
+    describe('when fetchData responses returns null', () => {
       beforeEach(() => {
         fetchDataMock
           .mockResolvedValueOnce({
@@ -78,16 +80,11 @@ describe('useArtist', () => {
       });
 
       it('does not add to the artists value', () => {
-        expect(artist.value).toEqual(
-          expect.objectContaining({
-            id: undefined,
-            name: undefined,
-          }),
-        );
+        expect(artist.value).toBe(null);
       });
     });
 
-    describe('when only one fetchData Promise.all response returns a value', () => {
+    describe('when only one fetchData responses returns a value', () => {
       beforeEach(() => {
         fetchDataMock
           .mockResolvedValueOnce({
@@ -96,6 +93,7 @@ describe('useArtist', () => {
           .mockResolvedValueOnce({
             data: {
               artist: {
+                id: 'id',
                 name: 'name',
               },
             },
@@ -107,20 +105,21 @@ describe('useArtist', () => {
       it('adds to the artist value', () => {
         expect(artist.value).toEqual(
           expect.objectContaining({
-            id: undefined,
-            name: 'name',
+            id: 'id',
             musicBrainzUrl: undefined,
+            name: 'name',
           }),
         );
       });
     });
 
-    describe('when both fetchData Promise.all response return a value', () => {
+    describe('when both fetchData responses return a value', () => {
       beforeEach(() => {
         fetchDataMock
           .mockResolvedValueOnce({
             data: {
               artistInfo2: {
+                id: 'id',
                 musicBrainzId: 'musicBrainzId',
               },
             },
@@ -128,6 +127,7 @@ describe('useArtist', () => {
           .mockResolvedValueOnce({
             data: {
               artist: {
+                id: 'id',
                 name: 'name',
               },
             },
@@ -139,9 +139,9 @@ describe('useArtist', () => {
       it('adds to the artist value', () => {
         expect(artist.value).toEqual(
           expect.objectContaining({
-            id: undefined,
-            name: 'name',
+            id: 'id',
             musicBrainzUrl: 'https://musicbrainz.org/artist/musicBrainzId',
+            name: 'name',
           }),
         );
       });

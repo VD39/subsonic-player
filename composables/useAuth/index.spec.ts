@@ -1,6 +1,8 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { withSetup } from '@/test/withSetup';
 import type { DataMock } from '@/test/types';
+
+import { withSetup } from '@/test/withSetup';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useAuth } from './index';
 
 const useCookieMock = ref<null | string>(null);
@@ -16,6 +18,12 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
+const resetAudioMock = vi.fn();
+
+mockNuxtImport('useAudioPlayer', () => () => ({
+  resetAudio: resetAudioMock,
+}));
+
 const useUserMock = ref();
 
 mockNuxtImport('useUser', () => () => useUserMock);
@@ -26,7 +34,6 @@ describe('useAuth', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>;
 
   afterEach(() => {
-    useCookieMock.value = null;
     vi.clearAllMocks();
   });
 
@@ -107,45 +114,6 @@ describe('useAuth', () => {
   });
 
   describe('when the login function is called', () => {
-    describe('when fetchData response returns is successful', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: {},
-          error: null,
-        });
-
-        result = withSetup(useAuth);
-        result.composable.login({
-          password: 'password',
-          server: 'server',
-          username: 'username',
-        });
-      });
-
-      it('sets the correct useCookie value', () => {
-        expect(useCookieMock.value).toBe(
-          'token=MD5&salt=randomString&server=server&username=username',
-        );
-      });
-
-      it('sets the correct user value', () => {
-        expect(useUserMock.value).toEqual({
-          salt: 'randomString',
-          server: 'server',
-          token: 'MD5',
-          username: 'username',
-        });
-      });
-
-      it('sets the correct authenticated value', () => {
-        expect(result.composable.authenticated.value).toBe(true);
-      });
-
-      it('sets the correct error value', () => {
-        expect(result.composable.error.value).toBe(null);
-      });
-    });
-
     describe('when fetchData response returns is not successful', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
@@ -173,6 +141,45 @@ describe('useAuth', () => {
         expect(result.composable.authenticated.value).toBe(false);
       });
     });
+
+    describe('when fetchData response returns is successful', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {},
+          error: null,
+        });
+
+        result = withSetup(useAuth);
+        result.composable.login({
+          password: 'password',
+          server: 'server',
+          username: 'username',
+        });
+      });
+
+      it('sets the correct useCookie value', () => {
+        expect(useCookieMock.value).toBe(
+          'salt=randomString&server=server&token=MD5&username=username',
+        );
+      });
+
+      it('sets the correct user value', () => {
+        expect(useUserMock.value).toEqual({
+          salt: 'randomString',
+          server: 'server',
+          token: 'MD5',
+          username: 'username',
+        });
+      });
+
+      it('sets the correct authenticated value', () => {
+        expect(result.composable.authenticated.value).toBe(true);
+      });
+
+      it('sets the correct error value', () => {
+        expect(result.composable.error.value).toBe(null);
+      });
+    });
   });
 
   describe('when the logout function is called', () => {
@@ -186,6 +193,10 @@ describe('useAuth', () => {
 
     it('sets the correct authenticated value', () => {
       expect(result.composable.authenticated.value).toBe(undefined);
+    });
+
+    it('calls the resetAudio function', () => {
+      expect(resetAudioMock).toHaveBeenCalled();
     });
   });
 });

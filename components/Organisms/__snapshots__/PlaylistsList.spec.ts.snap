@@ -1,0 +1,139 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaylistsList > matches the snapshot 1`] = `
+"<div class="noMediaMessage">
+  <div class="column centerItems content">
+    <phplaylist size="50"></phplaylist>
+    <p>No playlists found.</p>
+  </div>
+</div>"
+`;
+
+exports[`PlaylistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
+"<section class="mediaListWrapper" style="--loop-rows: 2;">
+  <article class="centerItems playlist" data-test-id="playlist">
+    <figure class="imageLink"><a title="Go to Go to playlist playlist-0">
+        <div class="centerAll preloadImage">
+          <div class="iconImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="spaceBetween">
+      <div>
+        <p class="mBS"><a title="Go to playlist playlist-0" class="itemLink link">playlist-0</a></p>
+        <ul class="bulletList smallFont">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Edit playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Delete playlist </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="centerItems playlist" data-test-id="playlist">
+    <figure class="imageLink"><a title="Go to Go to playlist playlist-1">
+        <div class="centerAll preloadImage">
+          <div class="iconImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="spaceBetween">
+      <div>
+        <p class="mBS"><a title="Go to playlist playlist-1" class="itemLink link">playlist-1</a></p>
+        <ul class="bulletList smallFont">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </article>
+  <article class="centerItems playlist" data-test-id="playlist">
+    <figure class="imageLink"><a title="Go to Go to playlist playlist-2">
+        <div class="centerAll preloadImage">
+          <div class="iconImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="spaceBetween">
+      <div>
+        <p class="mBS"><a title="Go to playlist playlist-2" class="itemLink link">playlist-2</a></p>
+        <ul class="bulletList smallFont">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </article>
+  <article class="centerItems playlist" data-test-id="playlist">
+    <figure class="imageLink"><a title="Go to Go to playlist playlist-3">
+        <div class="centerAll preloadImage">
+          <div class="iconImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="spaceBetween">
+      <div>
+        <p class="mBS"><a title="Go to playlist playlist-3" class="itemLink link">playlist-3</a></p>
+        <ul class="bulletList smallFont">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </article>
+  <article class="centerItems playlist" data-test-id="playlist">
+    <figure class="imageLink"><a title="Go to Go to playlist playlist-4">
+        <div class="centerAll preloadImage">
+          <div class="iconImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="spaceBetween">
+      <div>
+        <p class="mBS"><a title="Go to playlist playlist-4" class="itemLink link">playlist-4</a></p>
+        <ul class="bulletList smallFont">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </article>
+</section>"
+`;

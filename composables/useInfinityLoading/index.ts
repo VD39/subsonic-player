@@ -4,8 +4,8 @@ export function useInfinityLoading<T>() {
 
   const items = ref<T[]>([]);
   const offset = ref(0);
-  const loading = useState('infinity-loader', () => false);
-  const hasMore = useState('infinity-has-more', () => false);
+  const loading = useState(STATE_NAMES.infinityLoading, () => false);
+  const hasMore = useState(STATE_NAMES.infinityHasMore, () => false);
 
   async function fetchMoreData<T>(
     dataToFetch: (offset: number) => Promise<T> | T,

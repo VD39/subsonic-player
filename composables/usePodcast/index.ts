@@ -1,10 +1,21 @@
 export function usePodcast() {
   const { fetchData } = useAPI();
   const { addSuccessSnack } = useSnack();
+  const { closeModal, openModal } = useModal();
 
-  const podcast = useState<Podcast | null>('podcast', () => null);
-  const podcasts = useState<Podcast[]>('podcasts', () => []);
-  const latestPodcasts = useState<Podcast[]>('latest-podcasts', () => []);
+  const podcast = useState<Podcast | undefined>(
+    STATE_NAMES.podcast,
+    () => undefined,
+  );
+  const podcasts = useState<Podcast[]>(STATE_NAMES.podcasts, () => []);
+  const podcastEpisodes = useState<PodcastEpisode[]>(
+    STATE_NAMES.podcastEpisodes,
+    () => [],
+  );
+  const latestPodcasts = useState<PodcastEpisode[]>(
+    STATE_NAMES.latestPodcasts,
+    () => [],
+  );
 
   async function getPodcasts(noLoading = false) {
     const { data: podcastsData } = await fetchData('/getPodcasts', {
@@ -20,12 +31,19 @@ export function usePodcast() {
     }
   }
 
-  async function getPodcast(id: string) {
+  async function getPodcast(
+    id: string,
+    sortBy: PodcastSortByParam = ROUTE_PODCAST_SORT_BY_PARAMS.All,
+  ) {
     if (!podcasts.value.length) {
       await getPodcasts();
     }
 
-    podcast.value = podcasts.value.find((podcast) => podcast.id === id) || null;
+    podcast.value = podcasts.value.find((podcast) => podcast.id === id);
+
+    podcastEpisodes.value = podcast.value
+      ? sortPodcastEpisodes(podcast.value.episodes, sortBy)
+      : [];
   }
 
   /* istanbul ignore next -- @preserve */
@@ -36,11 +54,11 @@ export function usePodcast() {
   async function addPodcast(url: string) {
     const { data: podcastData } = await fetchData('/createPodcastChannel', {
       method: 'POST',
-      retry: 0,
       params: {
-        url,
         noLoading: true,
+        url,
       },
+      retry: 0,
     });
 
     if (podcastData) {
@@ -51,7 +69,6 @@ export function usePodcast() {
 
   async function deletePodcast(id: string) {
     const { data: podcastData } = await fetchData('/deletePodcastChannel', {
-      method: 'DELETE',
       params: {
         id,
         noLoading: true,
@@ -96,6 +113,8 @@ export function usePodcast() {
       params: {
         count: 10,
       },
+      transform: /* istanbul ignore next -- @preserve */ (response) =>
+        (response.newestPodcasts.episode || []).map(formatPodcastEpisode('')),
     });
 
     if (Array.isArray(latestPodcastsData)) {
@@ -103,8 +122,27 @@ export function usePodcast() {
     }
   }
 
+  /* istanbul ignore next -- @preserve */
+  function addPodcastModal() {
+    openModal(MODAL_TYPE.addPodcastModal, {
+      async onSubmit(podcastUrl: string) {
+        await addPodcast(podcastUrl);
+        closeModal();
+      },
+    });
+  }
+
+  function sortPodcasts(sortBy: PodcastsSortByParam) {
+    if (sortBy === ROUTE_PODCASTS_SORT_BY_PARAMS.Recent) {
+      podcasts.value = sortPodcastsByDate(podcasts.value);
+    } else {
+      podcasts.value = sortPodcastsByName(podcasts.value);
+    }
+  }
+
   return {
     addPodcast,
+    addPodcastModal,
     deletePodcast,
     deletePodcastEpisode,
     downloadPodcastEpisode,
@@ -113,7 +151,9 @@ export function usePodcast() {
     getPodcasts,
     latestPodcasts,
     podcast,
+    podcastEpisodes,
     podcasts,
     refreshPodcasts,
+    sortPodcasts,
   };
 }

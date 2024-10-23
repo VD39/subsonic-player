@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddPodcastForm > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="formFields">
+    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="feedUrl">feed Url <span class="required">*</span></label><input id="feedUrl" type="text" autocomplete="off" required="" placeholder="Enter RSS feed url" class="input" value="">
+      <!--v-if-->
+    </div>
+  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
+    <!--v-if--><span class="clamp text"> Add podcast </span>
+  </button>
+</form>"
+`;
+
+exports[`AddPodcastForm > when form is valid > matches the snapshot 1`] = `
+"<form novalidate="">
+  <div class="formFields">
+    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="feedUrl">feed Url <span class="required">*</span></label><input id="feedUrl" type="text" autocomplete="off" required="" placeholder="Enter RSS feed url" class="input" value="https://www.test.com">
+      <!--v-if-->
+    </div>
+  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" size="24" weight="duotone"><ph-circle-notch-stub size="20" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text"> Add podcast </span></button>
+</form>"
+`;

@@ -1,93 +1,113 @@
 <script setup lang="ts">
-import EntryHeader from '@/components/Header/EntryHeader.vue';
-import DropdownMenu from '@/components/Dropdown/DropdownMenu.vue';
-import DropdownItem from '@/components/Dropdown/DropdownItem.vue';
-import FavouriteButton from '@/components/Buttons/FavouriteButton.vue';
-import IconButton from '@/components/Buttons/IconButton.vue';
-import ArtistsList from '@/components/TrackDetails/ArtistsList.vue';
-import GenreList from '@/components/TrackDetails/GenreList.vue';
-import TrackList from '@/components/MediaLists/TrackList.vue';
+import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import GenreList from '@/components/Atoms/GenreList.vue';
+import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
+import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
+import LoadingData from '@/components/Molecules/LoadingData.vue';
+import EntryHeader from '@/components/Organisms/EntryHeader.vue';
+import TrackList from '@/components/Organisms/TrackList.vue';
 
 definePageMeta({
-  middleware: ['album'],
+  middleware: [MIDDLEWARE_NAMES.album],
 });
 
 const route = useRoute();
 const { album, getAlbum } = useAlbum();
-const { addTrackToQueue, addTracksToQueue, playTracks, shuffleTracks } =
+const { openTrackInformationModal } = useDescription();
+const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
-getAlbum(route.params.id as string);
-
-function playTrack(trackNumber: number) {
-  playTracks(album.value!.tracks, trackNumber - 1);
+function playTrack(index: number) {
+  playTracks(album.value!.tracks, index - 1);
 }
+
+function addToPlaylist() {
+  console.log('addToPlaylist');
+}
+
+onBeforeMount(async () => {
+  await getAlbum(route.params.id as string);
+});
 </script>
 
 <template>
-  <div v-if="album">
-    <EntryHeader :images="[album.image]" :title="album.name">
-      <ArtistsList v-if="album.artists.length" :artists="album.artists" />
+  <LoadingData>
+    <template v-if="album">
+      <EntryHeader :images="[album.image]" :title="album.name">
+        <ArtistsList v-if="album.artists.length" :artists="album.artists" />
 
-      <GenreList v-if="album.genres.length" :genres="album.genres" />
+        <GenreList v-if="album.genres.length" :genres="album.genres" />
 
-      <ul class="bulletList">
-        <li>
-          <span class="visually-hidden">Year: </span>
-          {{ album.year }}
-        </li>
-        <li>
-          <span class="strong">{{ album.songCount }}</span>
-          {{ album.songCount > 1 ? ' Tracks' : ' Track' }}
-        </li>
-        <li>
-          <span class="visually-hidden">Duration: </span>
-          <time>{{ album.duration }}</time>
-        </li>
-        <li>
-          <span class="visually-hidden">Size: </span>
-          {{ album.size }}
-        </li>
-      </ul>
+        <ul class="bulletList">
+          <li>
+            <span class="visuallyHidden">Year: </span>
+            {{ album.year }}
+          </li>
+          <li>
+            <span class="strong">{{ album.trackCount }}</span>
+            {{ album.trackCount > 1 ? ' Tracks' : ' Track' }}
+          </li>
+          <li>
+            <span class="visuallyHidden">Duration: </span>
+            <time>{{ album.duration }}</time>
+          </li>
+          <li>
+            <span class="visuallyHidden">Size: </span>
+            {{ album.size }}
+          </li>
+        </ul>
 
-      <div class="list">
-        <IconButton
-          icon="PhPlay"
-          title="Play tracks"
-          @click="playTracks(album.tracks)"
-        >
-          Play tracks
-        </IconButton>
+        <div class="list">
+          <ButtonLink
+            :icon="ICONS.play"
+            title="Play tracks"
+            class="largeThemeHoverButton"
+            @click="playTracks(album.tracks)"
+          >
+            Play tracks
+          </ButtonLink>
 
-        <IconButton
-          icon="PhShuffle"
-          title="Shuffle tracks"
-          @click="shuffleTracks(album.tracks)"
-        >
-          Shuffle tracks
-        </IconButton>
+          <ButtonLink
+            :icon="ICONS.shuffle"
+            title="Shuffle tracks"
+            @click="shuffleTracks(album.tracks)"
+          >
+            Shuffle tracks
+          </ButtonLink>
 
-        <FavouriteButton
-          :id="album.id"
-          type="album"
-          :favourite="album.favourite"
-        />
+          <FavouriteButton
+            :id="album.id"
+            type="album"
+            :favourite="album.favourite"
+          />
 
-        <DropdownMenu>
-          <DropdownItem @click="addTracksToQueue(album.tracks)">
-            Add to queue
-          </DropdownItem>
-          <DropdownItem @click="playTracks(album.tracks)">
-            Play Tracks
-          </DropdownItem>
-        </DropdownMenu>
-      </div>
-    </EntryHeader>
+          <DropdownMenu>
+            <DropdownItem @click="addTracksToQueue(album.tracks)">
+              Add to queue
+            </DropdownItem>
+            <DropdownItem @click="playTracks(album.tracks)">
+              Play Tracks
+            </DropdownItem>
+          </DropdownMenu>
+        </div>
+      </EntryHeader>
 
-    <TrackList
-      :tracks="album.tracks"
-      @play-track="playTrack"
-      @add-to-queue="addTrackToQueue"
+      <TrackList
+        :tracks="album.tracks"
+        @play-track="playTrack"
+        @add-to-queue="addTrackToQueue"
+        @add-to-playlist="addToPlaylist"
+        @media-information="openTrackInformationModal"
+      />
+    </template>
+
+    <NoMediaMessage
+      v-else
+      :icon="IMAGE_DEFAULT_BY_TYPE.album"
+      message="No album found."
     />
-  </div>
+  </LoadingData>
 </template>

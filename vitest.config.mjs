@@ -1,5 +1,5 @@
-import { coverageConfigDefaults } from 'vitest/config';
 import { defineVitestConfig } from '@nuxt/test-utils/config';
+import { coverageConfigDefaults } from 'vitest/config';
 
 export default defineVitestConfig({
   test: {
@@ -12,7 +12,7 @@ export default defineVitestConfig({
         '**/plugins/**',
         'navigations',
         'pages',
-        'components/Loaders',
+        'components/Molecules/CarouselSwiper.vue',
         'composables/useAudioPlayer/player.ts',
         ...coverageConfigDefaults.exclude,
       ],

@@ -1,7 +1,10 @@
 export function useFavourite() {
   const { fetchData } = useAPI();
 
-  const favourites = useState<AllMedia>('favourites', () => DEFAULT_ALL_MEDIA);
+  const favourites = useState<AllMedia>(
+    STATE_NAMES.favourites,
+    () => DEFAULT_ALL_MEDIA,
+  );
 
   async function getFavourites(noLoading = false) {
     const { data: favouritesData } = await fetchData('/getStarred2', {

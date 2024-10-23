@@ -1,15 +1,12 @@
 <template>
-  <main :class="$style.root">
+  <main :class="['centerAll', $style.login]">
     <slot />
   </main>
 </template>
 
 <style module>
-.root {
-  @mixin align-center;
-
+.login {
   flex-wrap: wrap;
-  justify-content: center;
   min-height: 100vh;
 
   &::before {

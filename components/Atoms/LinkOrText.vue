@@ -1,0 +1,31 @@
+<script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    is?: Link;
+    isLink: boolean;
+    text: string;
+    to: unknown;
+  }>(),
+  {
+    is: 'nuxt-link',
+  },
+);
+
+const isComponent =
+  props.is === 'nuxt-link' ? resolveComponent('NuxtLink') : props.is;
+const linkAttribute = props.is === 'nuxt-link' ? 'to' : 'href';
+</script>
+
+<template>
+  <component
+    :is="isComponent"
+    v-if="isLink"
+    data-test-id="link"
+    :[linkAttribute]="to"
+    class="link"
+  >
+    {{ text }}
+  </component>
+
+  <p v-else ref="noLink">{{ text }}</p>
+</template>

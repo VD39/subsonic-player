@@ -1,7 +1,7 @@
 import {
+  deleteLocalStorage,
   getLocalStorage,
   setLocalStorage,
-  deleteLocalStorage,
 } from './storage';
 
 const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});

@@ -6,7 +6,7 @@ export function useAPI() {
 
   const { addErrorSnack } = useSnack();
 
-  const authParams = useCookie('auth-params');
+  const authParams = useCookie(COOKIE_NAMES.auth);
   const params = loadSession(authParams.value!);
 
   const baseURL = `${decodeURIComponent(params.server!)}/rest`;
@@ -15,7 +15,7 @@ export function useAPI() {
     ...getConfigParams(),
   };
 
-  function getUrl(path: string, param: Record<string, string | number>) {
+  function getUrl(path: string, param: Record<string, number | string>) {
     const url = new URL(`${baseURL}/${path}`);
     url.search = convertToQueryString({
       ...baseParams,
@@ -43,17 +43,17 @@ export function useAPI() {
   }
 
   async function fetchData<DataT = SubsonicResponse>(
-    url: string | (() => string),
+    url: (() => string) | string,
     options: UseFetchOptions<SubsonicResponse, DataT> = {},
   ) {
     const { data, error } = await useFetch(url, {
       ...options,
+      $fetch: useNuxtApp().$api,
+      baseURL: options.baseURL ?? baseURL,
       params: {
         ...baseParams,
         ...options.params,
       },
-      baseURL: options.baseURL ?? baseURL,
-      $fetch: useNuxtApp().$api,
     });
 
     if (error.value?.message || !data.value) {

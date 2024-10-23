@@ -1,48 +1,42 @@
-export type MediaType =
-  | 'album'
-  | 'artist'
-  | 'playlist'
-  | 'radioStation'
-  | 'podcast'
-  | 'podcastEpisode'
-  | 'track';
+type TypeofMediaType = typeof MEDIA_TYPE;
+export type MediaType = TypeofMediaType[keyof TypeofMediaType];
 
 export interface Genre {
   name: string;
 }
 
 interface TrackInformation {
-  bitRate?: number;
-  contentType?: string;
-  created?: Date;
-  path?: string;
-  playCount?: number;
-  suffix?: string;
-  transcodedContentType?: string;
-  transcodedSuffix?: string;
+  bitRate: string;
+  contentType: string;
+  created: string;
+  path: string;
+  playCount: number;
+  suffix: string;
+  transcodedContentType: string;
+  transcodedSuffix: string;
 }
 
 export interface Track {
-  id: string;
-  album?: string;
+  album: string;
   albumId?: string;
   artists: BaseArtist[];
-  discNumber?: number;
+  discNumber: number | string;
   duration: string;
   favourite: boolean;
   genres: Genre[];
-  image: string;
+  id: string;
+  image: Image;
   information: TrackInformation;
+  name: string;
   size: string;
   streamUrl: string;
-  name: string;
-  trackNumber?: number;
+  trackNumber: number | string;
   type: MediaType;
-  year?: number;
+  year: number | string;
 }
 
 interface AlbumTrack {
-  playCount?: number;
+  playCount: number;
 }
 
 export interface Album {
@@ -52,26 +46,27 @@ export interface Album {
   favourite: boolean;
   genres: Genre[];
   id: string;
-  image: string;
+  image: Image;
   information: AlbumTrack;
   name: string;
   size: string;
-  songCount: number;
+  trackCount: number;
   tracks: Track[];
   type: MediaType;
-  year?: number;
+  year: number | string;
 }
 
 export interface BaseArtist {
   id: string;
   name: string;
 }
+
 export interface Artist extends BaseArtist {
   albums: Album[];
   biography?: string;
   favourite: boolean;
   genres: Genre[];
-  image: string;
+  image: Image;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
   totalAlbums: number;
@@ -80,11 +75,11 @@ export interface Artist extends BaseArtist {
 }
 
 interface PlaylistInformation {
-  changed?: Date;
+  changed: string;
   comment?: string;
-  created?: Date;
-  owner?: string;
-  public?: boolean;
+  created: string;
+  owner: string;
+  public: boolean;
 }
 
 export interface Playlist {
@@ -93,18 +88,18 @@ export interface Playlist {
   images: string[];
   information: PlaylistInformation;
   name: string;
-  songCount: number;
+  trackCount: number;
   tracks: Track[];
   type: MediaType;
 }
 
 export interface RadioStation {
   duration: string;
-  image: string;
+  homePageUrl?: string;
   id: string;
+  image: Image;
   name: string;
   streamUrl: string;
-  homePageUrl?: string;
   type: MediaType;
 }
 
@@ -120,10 +115,10 @@ export interface PodcastEpisode {
   duration: string;
   genres: Genre[];
   id: string;
-  image: string;
-  publishDate: Date | string;
-  streamUrl?: string;
+  image: Image;
   name: string;
+  publishDate: string;
+  streamUrl?: string;
   type: MediaType;
 }
 
@@ -132,7 +127,7 @@ export interface Podcast {
   downloadedEpisodes: number;
   episodes: PodcastEpisode[];
   id: string;
-  image: string;
+  image: Image;
   lastUpdated: string;
   name: string;
   totalEpisodes: number;
