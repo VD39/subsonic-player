@@ -2,52 +2,53 @@
 const props = defineProps<{
   buffer?: number;
   delay?: boolean;
-  hideThumb?: boolean;
   max: number;
   min: number;
-  modelValue: number;
 }>();
 
-const emit = defineEmits(['update:modelValue', 'change']);
+const emit = defineEmits(['change']);
 
-const value = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(newValue) {
-    emit('update:modelValue', newValue);
-  },
-});
+const internalModal = defineModel<number>();
 
 const sliderRef = ref<HTMLElement | null>(null);
 const thumbRef = ref<HTMLElement | null>(null);
 
 const isSeeking = ref(false);
 const isHovering = ref(false);
-const hoverValue = ref(props.modelValue);
-const pendingValue = ref(props.modelValue);
+const hoverValue = ref(internalModal.value);
+const pendingValue = ref(internalModal.value);
 
-const progress = ref(getProgress(props.modelValue));
+const progress = ref(getProgress(internalModal.value));
 const bufferProgress = ref(getProgress(props.buffer));
 
 const hoverProgress = computed(() => getProgress(hoverValue.value));
+const isStandard = computed(() => !props.max);
 
 function getProgress(newValue = 0) {
   if (!sliderRef.value) {
     return 0;
   }
 
-  return (newValue / props.max) * sliderRef.value.getBoundingClientRect().width;
+  const { width: sliderWidth } = sliderRef.value.getBoundingClientRect();
+
+  // If max is not set, set progress to be width of the slider.
+  if (isStandard.value) {
+    return sliderWidth;
+  }
+
+  return (newValue / props.max) * sliderWidth;
 }
 
-function handleModifyProgress(event: MouseEvent) {
+function handleModifyProgress(event: MouseEvent | TouchEvent) {
   if (!sliderRef.value) {
     return;
   }
 
   const { left, width } = sliderRef.value.getBoundingClientRect();
 
-  const processedValue = ((event.pageX - left) / width) * props.max;
+  const pageX = 'pageX' in event ? event.pageX : event.changedTouches[0].pageX;
+
+  const processedValue = ((pageX - left) / width) * props.max;
   const clippedValue = Math.min(Math.max(processedValue, props.min), props.max);
 
   hoverValue.value = clippedValue;
@@ -56,7 +57,7 @@ function handleModifyProgress(event: MouseEvent) {
     pendingValue.value = clippedValue;
     progress.value = getProgress(pendingValue.value);
 
-    // don't update value when scrolling.
+    // Don't update value when scrolling.
     if (!props.delay) {
       updateValue();
     }
@@ -64,11 +65,11 @@ function handleModifyProgress(event: MouseEvent) {
 }
 
 function updateValue() {
-  value.value = pendingValue.value;
+  internalModal.value = pendingValue.value;
   emit('change', pendingValue.value);
 }
 
-function onMouseMove(event: MouseEvent) {
+function onMouseMove(event: MouseEvent | TouchEvent) {
   isHovering.value = false;
   handleModifyProgress(event);
 }
@@ -77,15 +78,21 @@ function onMouseUp() {
   updateValue();
   document.removeEventListener('mouseup', onMouseUp);
   document.removeEventListener('mousemove', onMouseMove);
+
+  document.removeEventListener('touchend', onMouseUp);
+  document.removeEventListener('touchmove', onMouseMove);
   isSeeking.value = false;
 }
 
-function onSliderMouseDown(event: MouseEvent) {
+function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   isSeeking.value = true;
   handleModifyProgress(event);
 
   document.addEventListener('mouseup', onMouseUp);
   document.addEventListener('mousemove', onMouseMove);
+
+  document.addEventListener('touchend', onMouseUp);
+  document.addEventListener('touchmove', onMouseMove);
 }
 
 function onSliderMouseOver() {
@@ -101,7 +108,7 @@ function onSliderMouseMove(event: MouseEvent) {
 function updateProgress() {
   // Only update when user is not seeking.
   if (!isSeeking.value) {
-    progress.value = getProgress(props.modelValue);
+    progress.value = getProgress(internalModal.value);
   }
 
   if (props.buffer) {
@@ -109,7 +116,7 @@ function updateProgress() {
   }
 }
 
-watch(() => [props.buffer, props.modelValue], updateProgress, {
+watch(() => [props.buffer, internalModal.value], updateProgress, {
   immediate: true,
 });
 
@@ -134,6 +141,7 @@ onUnmounted(() => {
       $style.inputRange,
       {
         [$style.seeking]: isSeeking,
+        [$style.standard]: isStandard,
       },
     ]"
   >
@@ -143,6 +151,7 @@ onUnmounted(() => {
       @mousedown.stop.prevent="onSliderMouseDown"
       @mouseover="onSliderMouseOver"
       @mousemove="onSliderMouseMove"
+      @touchstart.stop="onSliderMouseDown"
     >
       <div :class="$style.progressWrapper">
         <div
@@ -160,15 +169,16 @@ onUnmounted(() => {
       </div>
 
       <div
-        v-if="!hideThumb"
+        v-if="!isStandard"
         ref="thumbRef"
         :class="$style.thumb"
         :style="{ left: `${progress - 6}px` }"
         @mousedown.stop.prevent="onSliderMouseDown"
+        @touchstart.stop="onSliderMouseDown"
       />
 
       <div
-        v-if="$slots.default"
+        v-if="$slots.default && !isStandard"
         ref="tooltip"
         :class="['mBS', 'strong', 'smallFont', $style.tooltip]"
         :style="{ left: `${hoverProgress}px` }"
@@ -181,24 +191,29 @@ onUnmounted(() => {
 
 <style module>
 .inputRange {
+  position: relative;
   width: var(--width-height-100);
   padding: var(--default-space) 0;
 
-  &.seeking,
-  &:hover,
-  &:focus-within {
-    .tooltip {
-      --tooltip-opacity: 1;
+  @media (hover: hover) {
+    &.seeking,
+    &:hover {
+      .tooltip {
+        --tooltip-opacity: 1;
+      }
     }
   }
 }
 
 .slider {
-  position: relative;
   width: var(--width-height-100);
   height: 6px;
   cursor: pointer;
   background-color: var(--invert-color);
+
+  .standard & {
+    cursor: unset;
+  }
 }
 
 .progressWrapper {
@@ -217,6 +232,27 @@ onUnmounted(() => {
   z-index: 1;
   height: var(--width-height-100);
   background-color: var(--theme-color);
+
+  .standard & {
+    --process-background-color: color-mix(
+      in oklab,
+      var(--body-font-color) 25%,
+      transparent
+    );
+
+    background-image: linear-gradient(
+      -45deg,
+      var(--process-background-color) 25%,
+      transparent 25%,
+      transparent 50%,
+      var(--process-background-color) 50%,
+      var(--process-background-color) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 50px 50px;
+    animation: stripes-move 5s linear infinite;
+  }
 }
 
 .buffer {
@@ -241,15 +277,16 @@ onUnmounted(() => {
 
 .tooltip {
   --tooltip-opacity: 0;
+  --tooltip-background-color: var(--body-background-color);
 
   position: absolute;
-  inset: auto auto var(--space-12) 50%;
+  inset: auto auto var(--space-32) 50%;
   z-index: 9;
   padding: var(--space-4);
-  color: var(--black-color);
+  color: var(--body-font-color);
   white-space: nowrap;
   pointer-events: none;
-  background-color: var(--white-color);
+  background-color: var(--tooltip-background-color);
   box-shadow: var(--box-shadow-large);
   opacity: var(--tooltip-opacity);
   transition:
@@ -259,18 +296,28 @@ onUnmounted(() => {
   transform-origin: 50% 100%;
 
   &::before {
-    --tooltip-before-width-height: 0;
-
     position: absolute;
-    inset: auto auto calc(var(--space-4) * -1) 50%;
-    z-index: 9;
-    width: var(--tooltip-before-width-height);
-    height: var(--tooltip-before-width-height);
+    inset: 100% auto auto 50%;
+    margin-left: -5px;
     content: '';
-    border-top: 4px solid var(--white-color);
-    border-right: 4px solid var(--black-color);
-    border-left: 4px solid var(--black-color);
-    transform: translateX(-50%);
+    border-color: var(--tooltip-background-color) transparent transparent
+      transparent;
+    border-style: solid;
+    border-width: 5px;
+  }
+
+  @media (--tablet-up) {
+    bottom: var(--space-24);
+  }
+}
+
+@keyframes stripes-move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
   }
 }
 </style>

@@ -6,16 +6,22 @@ import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import TrackListWithPreview from '@/components/Organisms/TrackListWithPreview.vue';
+import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.playlist],
 });
 
 const route = useRoute();
+const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useDescription();
-const { deletePlaylist, getPlaylistTracksById, playlist, updatePlaylistModal } =
-  usePlaylist();
+const {
+  deletePlaylist,
+  getPlaylistTracksById,
+  playlist,
+  removeFromPlaylist,
+  updatePlaylistModal,
+} = usePlaylist();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
@@ -23,20 +29,21 @@ function playTrack(index: number) {
   playTracks(playlist.value!.tracks, index - 1);
 }
 
-function removeFromPlaylist() {
-  console.log('removeFromPlaylist');
+function removeTrackFromPlaylist(songIndexToRemove: string) {
+  removeFromPlaylist({
+    playlistId: route.params.id as string,
+    songIndexToRemove,
+  });
 }
 
 const hasTracks = computed(() => !playlist.value?.tracks.length);
 
-onBeforeMount(async () => {
-  await getPlaylistTracksById(route.params.id as string);
-});
+getPlaylistTracksById(route.params.id as string);
 </script>
 
 <template>
   <LoadingData>
-    <template v-if="playlist">
+    <div v-if="playlist">
       <EntryHeader :images="playlist.images" :title="playlist.name">
         <ul class="bulletList">
           <li>Playlist</li>
@@ -91,15 +98,16 @@ onBeforeMount(async () => {
         </div>
       </EntryHeader>
 
-      <TrackListWithPreview
+      <TrackWithPreviewList
         :tracks="playlist.tracks"
         in-playlist
         @play-track="playTrack"
         @add-to-queue="addTrackToQueue"
-        @remove-from-playlist="removeFromPlaylist"
+        @remove-from-playlist="removeTrackFromPlaylist"
         @media-information="openTrackInformationModal"
+        @download-media="downloadMedia"
       />
-    </template>
+    </div>
 
     <NoMediaMessage
       v-else

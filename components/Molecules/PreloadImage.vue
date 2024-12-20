@@ -13,10 +13,10 @@ const props = withDefaults(
 
 const { getImageUrl } = useAPI();
 
-const isLoading = ref(true);
+const loading = ref(true);
 
 function onImageLoad() {
-  isLoading.value = false;
+  loading.value = false;
 }
 
 const imageSrc = computed(() => {
@@ -35,21 +35,23 @@ const imageSrc = computed(() => {
 <template>
   <div :class="['centerAll', $style.preloadImage]">
     <template v-if="imageSrc">
-      <span v-show="isLoading" ref="imageLoader" :class="$style.imageLoader">
+      <span v-show="loading" ref="imageLoader" :class="$style.imageLoader">
         <span class="visuallyHidden">Loading image</span>
       </span>
 
-      <img
-        v-show="!isLoading"
-        ref="img"
-        :class="$style.image"
-        :src="imageSrc"
-        :alt="alt"
-        @load="onImageLoad"
-      />
+      <ClientOnly>
+        <img
+          v-show="!loading"
+          ref="img"
+          :class="$style.image"
+          :src="imageSrc"
+          :alt="alt"
+          @load="onImageLoad"
+        />
+      </ClientOnly>
     </template>
 
-    <IconImage v-else :icon="image" />
+    <IconImage v-else :icon="image as Icon" />
   </div>
 </template>
 
@@ -58,6 +60,7 @@ const imageSrc = computed(() => {
   --preload-opacity: 1;
 
   position: relative;
+  flex-shrink: 0;
   aspect-ratio: 1;
   overflow: hidden;
   border: 1px solid var(--border-color);
@@ -65,8 +68,10 @@ const imageSrc = computed(() => {
   box-shadow: var(--box-shadow-medium);
   opacity: var(--preload-opacity);
 
-  &:hover {
-    --preload-opacity: 0.85;
+  @media (hover: hover) {
+    &:hover {
+      --preload-opacity: 0.85;
+    }
   }
 }
 

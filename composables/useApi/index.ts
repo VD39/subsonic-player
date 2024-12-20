@@ -6,8 +6,8 @@ export function useAPI() {
 
   const { addErrorSnack } = useSnack();
 
-  const authParams = useCookie(COOKIE_NAMES.auth);
-  const params = loadSession(authParams.value!);
+  const authCookie = useCookie(COOKIE_NAMES.auth);
+  const params = loadSession(authCookie.value!);
 
   const baseURL = `${decodeURIComponent(params.server!)}/rest`;
   const baseParams = {
@@ -32,13 +32,20 @@ export function useAPI() {
     });
   }
 
-  function getStreamUrl(streamUrl: string) {
-    if (isUrl(streamUrl)) {
-      return streamUrl;
+  function getStreamUrl(streamUrlId: string) {
+    // If radio station.
+    if (isUrl(streamUrlId)) {
+      return streamUrlId;
     }
 
     return getUrl('stream', {
-      id: streamUrl,
+      id: streamUrlId,
+    });
+  }
+
+  function getDownloadUrl(id: string) {
+    return getUrl('download', {
+      id,
     });
   }
 
@@ -68,6 +75,7 @@ export function useAPI() {
 
   return {
     fetchData,
+    getDownloadUrl,
     getImageUrl,
     getStreamUrl,
   };

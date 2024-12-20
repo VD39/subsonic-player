@@ -7,7 +7,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
     is="nuxt-link"
     :icon="ICONS.logo"
     title="Home"
-    :icon-size="32"
+    icon-size="large"
     to="/"
   >
     Home

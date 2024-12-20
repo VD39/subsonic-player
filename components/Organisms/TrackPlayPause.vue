@@ -60,12 +60,7 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
         v-else
         ref="play"
         :icon="ICONS.play"
-        :class="[
-          'itemLink',
-          'centerAll',
-          'themeHoverButton',
-          $style.buttonLink,
-        ]"
+        :class="['centerAll', 'themeHoverButton', $style.buttonLink]"
         @click="$emit('playTrack')"
       >
         Play track
@@ -124,6 +119,18 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
 
   .large & {
     --play-pause-width-height: calc(var(--track-width-height-default) * 1.25);
+  }
+}
+
+.buttonLink {
+  position: unset;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    cursor: pointer;
+    content: '';
   }
 }
 

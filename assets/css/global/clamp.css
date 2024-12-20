@@ -1,0 +1,17 @@
+.clamp {
+  display: -webkit-box !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  > * {
+    display: inline;
+  }
+}
+
+.clamp2 {
+  @extend .clamp;
+
+  -webkit-line-clamp: 2;
+}

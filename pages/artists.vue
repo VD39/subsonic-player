@@ -4,11 +4,9 @@ import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 
 const { artists, getArtists } = useArtist();
 
-onBeforeMount(async () => {
-  if (!artists.value.length) {
-    await getArtists();
-  }
-});
+if (!artists.value.length) {
+  getArtists();
+}
 </script>
 
 <template>

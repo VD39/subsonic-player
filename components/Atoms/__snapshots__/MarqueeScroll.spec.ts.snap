@@ -1,0 +1,50 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MarqueeScroll > matches the snapshot 1`] = `
+"<div class="marqueeScroll">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when marqueeContent element clientWidth is equal to the marqueeScroll element clientWidth > matches the snapshot 1`] = `
+"<div class="marqueeScroll animating">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+    <div class="content" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when marqueeContent element clientWidth is greater than the marqueeScroll element clientWidth > matches the snapshot 1`] = `
+"<div class="marqueeScroll animating">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+    <div class="content" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+    <div class="content" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when marqueeContent element clientWidth is less than the marqueeScroll element clientWidth > matches the snapshot 1`] = `
+"<div class="marqueeScroll">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;

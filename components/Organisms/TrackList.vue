@@ -1,17 +1,25 @@
 <script setup lang="ts">
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
+import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 
 defineProps<{
   tracks: Track[];
 }>();
 
-defineEmits(['addToPlaylist', 'addToQueue', 'playTrack', 'mediaInformation']);
+defineEmits([
+  'addToPlaylist',
+  'addToQueue',
+  'downloadMedia',
+  'playTrack',
+  'mediaInformation',
+]);
 </script>
 
 <template>
@@ -19,8 +27,8 @@ defineEmits(['addToPlaylist', 'addToQueue', 'playTrack', 'mediaInformation']);
     <div class="trackHeader">
       <div class="trackCell">Track</div>
       <div class="trackCell trackSecondary">Artist</div>
-      <div class="trackCell trackSecondary trackFixed">Time</div>
-      <div class="trackCell" />
+      <div class="trackCell trackTime">Time</div>
+      <div class="trackCell trackOptions" />
     </div>
 
     <div
@@ -37,36 +45,31 @@ defineEmits(['addToPlaylist', 'addToQueue', 'playTrack', 'mediaInformation']);
             @play-track="$emit('playTrack', index)"
           />
 
-          <p class="clamp">
-            {{ track.name }}
-          </p>
+          <TrackMeta :track="track" class="trackMeta" />
 
           <FavouriteButton
             :id="track.id"
-            type="track"
-            class="trackFavourite"
+            :type="track.type"
             :favourite="track.favourite"
           />
         </div>
       </div>
 
       <div class="trackCell trackSecondary">
-        <ArtistsList
-          v-if="track.artists.length"
-          :artists="track.artists"
-          class="clamp"
-        />
+        <MarqueeScroll v-if="track.artists.length">
+          <ArtistsList :artists="track.artists" />
+        </MarqueeScroll>
       </div>
 
-      <time class="trackCell trackSecondary trackFixed">
+      <time class="trackCell trackTime">
         {{ track.duration }}
       </time>
 
-      <div class="trackCell">
+      <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenu">
           <DropdownItem
             ref="addToPlaylist"
-            @click="$emit('addToPlaylist', track)"
+            @click="$emit('addToPlaylist', track.id)"
           >
             Add to playlist
           </DropdownItem>
@@ -75,6 +78,12 @@ defineEmits(['addToPlaylist', 'addToQueue', 'playTrack', 'mediaInformation']);
             @click="$emit('mediaInformation', track)"
           >
             Media information
+          </DropdownItem>
+          <DropdownItem
+            ref="downloadMedia"
+            @click="$emit('downloadMedia', track.id)"
+          >
+            Download track
           </DropdownItem>
           <DropdownDivider />
           <DropdownItem ref="addToQueue" @click="$emit('addToQueue', track)">

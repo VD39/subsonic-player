@@ -3,10 +3,10 @@ const props = withDefaults(
   defineProps<{
     disabled?: boolean;
     fullWidth?: boolean;
-    icon?: Component | string;
+    icon?: Component | Icon;
     iconColor?: string;
     iconPosition?: IconPosition;
-    iconSize?: number;
+    iconSize?: IconSize;
     iconWeight?: IconWeight;
     is?: ButtonLink;
     showText?: boolean;
@@ -17,8 +17,8 @@ const props = withDefaults(
     icon: undefined,
     iconColor: undefined,
     iconPosition: 'left',
-    iconSize: 24,
-    iconWeight: 'duotone',
+    iconSize: 'medium',
+    iconWeight: 'regular',
     is: 'button',
     type: 'button',
   },
@@ -38,7 +38,7 @@ const isComponent =
       {
         [$style.alignRight]: icon && iconPosition === 'right',
         [$style.disabled]: disabled,
-        [`centerAll ${$style.fullWidth}`]: fullWidth,
+        'centerAll fullWidth': fullWidth,
       },
     ]"
     :disabled="disabled"
@@ -51,7 +51,7 @@ const isComponent =
       ref="iconComponent"
       :class="$style.icon"
       aria-hidden="true"
-      :size="iconSize"
+      :size="ICON_SIZE[iconSize]"
       :weight="iconWeight"
       :color="iconColor"
     />
@@ -81,10 +81,6 @@ const isComponent =
 
 .alignRight {
   flex-direction: row-reverse;
-}
-
-.fullWidth {
-  width: var(--width-height-100);
 }
 
 .disabled {

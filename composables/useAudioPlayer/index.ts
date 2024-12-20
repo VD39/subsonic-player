@@ -1,5 +1,6 @@
 export function useAudioPlayer() {
   const { getStreamUrl } = useAPI();
+  const { resetQueueState } = useQueue();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -55,7 +56,7 @@ export function useAudioPlayer() {
 
   const isTrack = computed(() => currentTrack.value.type === MEDIA_TYPE.track);
 
-  const isPodcast = computed(
+  const isPodcastEpisode = computed(
     () => currentTrack.value.type === MEDIA_TYPE.podcastEpisode,
   );
 
@@ -75,7 +76,11 @@ export function useAudioPlayer() {
 
   function pauseTrack() {
     trackIsPlaying.value = false;
-    audioPlayer.value?.pause();
+    if (isRadioStation.value) {
+      audioPlayer.value?.stop();
+    } else {
+      audioPlayer.value?.pause();
+    }
   }
 
   async function togglePlay() {
@@ -87,7 +92,7 @@ export function useAudioPlayer() {
   }
 
   async function changeTrack(track: QueueTrack) {
-    const url = getStreamUrl(track.streamUrl!);
+    const url = getStreamUrl(track.streamUrlId!);
     audioPlayer.value?.load(url);
     await playTrack();
   }
@@ -237,6 +242,12 @@ export function useAudioPlayer() {
     resetAudioStates();
     currentQueueIndex.value = -1;
     queueList.value = [];
+    resetQueueState();
+  }
+
+  async function playTrackFromQueueList(index: number) {
+    currentQueueIndex.value = index - 1;
+    await playNextTrack();
   }
 
   async function removeTrackFromQueueList(id: string) {
@@ -364,13 +375,14 @@ export function useAudioPlayer() {
     hasPreviousTrack,
     isCurrentTrack,
     isMuted,
-    isPodcast,
+    isPodcastEpisode,
     isRadioStation,
     isTrack,
     playBackRate,
     playCurrentTrack,
     playNextTrack,
     playPreviousTrack,
+    playTrackFromQueueList,
     playTracks,
     queueList,
     removeTrackFromQueueList,

@@ -1,6 +1,7 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
@@ -76,10 +77,15 @@ describe('InfiniteScroller', () => {
     });
 
     describe('when loading value is false', () => {
-      it('sets the correct title value', () => {
+      it('sets the correct title attribute value', () => {
         expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
           'Load more',
         );
+      });
+
+      it('sets the correct slot data on the ButtonLink component', () => {
+        expect(wrapper.findComponent(SpinningLoader).exists()).toBe(false);
+        expect(wrapper.find({ ref: 'loadMore' }).exists()).toBe(true);
       });
     });
 
@@ -92,14 +98,19 @@ describe('InfiniteScroller', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct title value', () => {
+      it('sets the correct title attribute value', () => {
         expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
           'Loading data',
         );
       });
+
+      it('sets the correct slot data on the ButtonLink component', () => {
+        expect(wrapper.findComponent(SpinningLoader).exists()).toBe(true);
+        expect(wrapper.find({ ref: 'loadMore' }).exists()).toBe(false);
+      });
     });
 
-    describe('when ButtonLink component emits a click event', () => {
+    describe('when ButtonLink component is clicked', () => {
       beforeEach(async () => {
         await wrapper.findComponent(ButtonLink).trigger('click');
       });

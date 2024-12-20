@@ -16,6 +16,8 @@ definePageMeta({
 
 const route = useRoute();
 const { album, getAlbum } = useAlbum();
+const { downloadMedia } = useMediaLibrary();
+const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
@@ -24,18 +26,12 @@ function playTrack(index: number) {
   playTracks(album.value!.tracks, index - 1);
 }
 
-function addToPlaylist() {
-  console.log('addToPlaylist');
-}
-
-onBeforeMount(async () => {
-  await getAlbum(route.params.id as string);
-});
+getAlbum(route.params.id as string);
 </script>
 
 <template>
   <LoadingData>
-    <template v-if="album">
+    <div v-if="album">
       <EntryHeader :images="[album.image]" :title="album.name">
         <ArtistsList v-if="album.artists.length" :artists="album.artists" />
 
@@ -99,10 +95,11 @@ onBeforeMount(async () => {
         :tracks="album.tracks"
         @play-track="playTrack"
         @add-to-queue="addTrackToQueue"
-        @add-to-playlist="addToPlaylist"
+        @add-to-playlist="addToPlaylistModal"
         @media-information="openTrackInformationModal"
+        @download-media="downloadMedia"
       />
-    </template>
+    </div>
 
     <NoMediaMessage
       v-else

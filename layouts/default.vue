@@ -7,13 +7,13 @@ import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import SearchForm from '@/components/Molecules/SearchForm.vue';
 import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
-import MusicPlayer from '@/components/Organisms/MusicPlayer/MusicPlayer.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
+
+import MusicPlayerAndQueue from '~/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 
 const user = useUser();
 const { logout } = useAuth();
 const { startScan } = useMediaLibrary();
-const { showMediaPlayer } = useAudioPlayer();
 
 async function logoutAndRedirect() {
   await logout();
@@ -35,7 +35,7 @@ const showPageNavigation = computed(() =>
   <div :class="$style.mainLayout">
     <header :class="['centerItems', $style.header]">
       <div class="spaceBetween inner centerItems">
-        <MusicLogo class="hideDesktop" />
+        <MusicLogo class="mobileOnly" />
 
         <div :class="$style.search">
           <SearchForm @submit="search" />
@@ -78,9 +78,9 @@ const showPageNavigation = computed(() =>
     </header>
 
     <aside>
-      <SidebarNavigation class="hideMobile" />
+      <SidebarNavigation class="desktopOnly" />
 
-      <MobileNavigation class="hideDesktop" />
+      <MobileNavigation class="mobileOnly" />
     </aside>
 
     <main :class="['main', $style.mainContent]">
@@ -96,19 +96,17 @@ const showPageNavigation = computed(() =>
         <PageNavigation
           v-if="showPageNavigation"
           :navigation="MOBILE_PAGE_NAVIGATION"
-          class="hideDesktop mBL"
+          class="mobileOnly mBL"
         />
 
-        <div class="inner mBAllL">
+        <div class="column inner mBAllL">
           <slot />
         </div>
       </div>
     </main>
 
     <footer>
-      <transition name="slide-up-down">
-        <MusicPlayer v-if="showMediaPlayer" />
-      </transition>
+      <MusicPlayerAndQueue />
     </footer>
   </div>
 </template>
@@ -121,7 +119,7 @@ const showPageNavigation = computed(() =>
 .header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 2;
+  z-index: 10;
   min-height: var(--header-height);
   background-color: var(--background-color);
   border-bottom: 1px solid var(--border-color);

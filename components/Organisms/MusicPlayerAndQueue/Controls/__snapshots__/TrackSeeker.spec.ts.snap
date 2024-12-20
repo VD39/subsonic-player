@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TrackSeeker > matches the snapshot 1`] = `
+"<div class="inputRange" aria-label="Seek" aria-valuetext="00:02 of 00:10">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 0px;"></div>
+      <div class="buffer" style="width: 0px;"></div>
+    </div>
+    <div class="thumb" style="left: -6px;"></div>
+    <div class="mBS strong smallFont tooltip" style="left: 0px;">00:02</div>
+  </div>
+</div>"
+`;

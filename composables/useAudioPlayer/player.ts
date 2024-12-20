@@ -145,6 +145,10 @@ export class AudioPlayer {
     this.currentVolume = adjustedVolume;
   }
 
+  stop() {
+    this.stop();
+  }
+
   unload() {
     this.audio.pause();
     this.audio.removeAttribute('src');

@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OverflowShadow > matches the snapshot 1`] = `
+"<div class="overflowShadow">
+  <div class="content">
+    <div>Sample text.</div>
+  </div>
+</div>"
+`;
+
+exports[`OverflowShadow > when content is greater than wrapper element > matches the snapshot 1`] = `
+"<div class="overflowShadow end">
+  <div class="content">
+    <div>Sample text.</div>
+  </div>
+</div>"
+`;
+
+exports[`OverflowShadow > when content is greater than wrapper element > when content is scrolled > when content is scrolled before end of wrapper width > matches the snapshot 1`] = `
+"<div class="overflowShadow start end">
+  <div class="content">
+    <div>Sample text.</div>
+  </div>
+</div>"
+`;
+
+exports[`OverflowShadow > when content is greater than wrapper element > when content is scrolled > when content is scrolled to end of wrapper width > matches the snapshot 1`] = `
+"<div class="overflowShadow start">
+  <div class="content">
+    <div>Sample text.</div>
+  </div>
+</div>"
+`;

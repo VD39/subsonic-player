@@ -39,7 +39,7 @@ exports[`InputRange > when bufferLength prop is set to true > when buffer durati
 </div>"
 `;
 
-exports[`InputRange > when default slot is set > matches the snapshot 1`] = `
+exports[`InputRange > when default slot is set > when max prop greater than 0 > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -54,7 +54,7 @@ exports[`InputRange > when default slot is set > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`InputRange > when default slot is set > when the mousemove on slider is called > when the mouseover on slider is called before > matches the snapshot 1`] = `
+exports[`InputRange > when default slot is set > when max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is called before > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -69,7 +69,7 @@ exports[`InputRange > when default slot is set > when the mousemove on slider is
 </div>"
 `;
 
-exports[`InputRange > when default slot is set > when the mousemove on slider is called > when the mouseover on slider is not called before > matches the snapshot 1`] = `
+exports[`InputRange > when default slot is set > when max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is not called before > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -84,11 +84,11 @@ exports[`InputRange > when default slot is set > when the mousemove on slider is
 </div>"
 `;
 
-exports[`InputRange > when hideThumb prop is set to true > matches the snapshot 1`] = `
-"<div class="inputRange">
+exports[`InputRange > when max prop equal to 0 > matches the snapshot 1`] = `
+"<div class="inputRange standard">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="process" style="width: 100px;"></div>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -137,6 +137,45 @@ exports[`InputRange > when the mousedown on slider is called > when slider mouse
 `;
 
 exports[`InputRange > when the mousedown on slider is called > when the mouseup is called > matches the snapshot 1`] = `
+"<div class="inputRange">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 60px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 54px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the touchstart on slider is called > matches the snapshot 1`] = `
+"<div class="inputRange seeking">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 60px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 54px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the touchstart on slider is called > when slider mousemove is called > matches the snapshot 1`] = `
+"<div class="inputRange seeking">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 30px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 24px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the touchstart on slider is called > when the mouseup is called > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">

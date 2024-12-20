@@ -1,16 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ArtistsList > matches the snapshot 1`] = `
-"<div class="noMediaMessage">
-  <div class="column centerItems content">
-    <phusersthree size="50"></phusersthree>
-    <p>No artists found.</p>
-  </div>
+"<div class="column centerAll noMediaMessage">
+  <phusersthree size="50"></phusersthree>
+  <p>No artists found.</p>
 </div>"
 `;
 
 exports[`ArtistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
-"<section class="mediaListWrapper" style="--loop-rows: 5;">
+"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5;">
   <article>
     <figure class="mBS"><a title="Go to artist-0">
         <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="artist-0" style="display: none;"></div>

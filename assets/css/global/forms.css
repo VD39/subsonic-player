@@ -1,0 +1,15 @@
+.formFields {
+  margin-bottom: var(--space-24);
+}
+
+.formField {
+  margin-bottom: var(--space-12);
+}
+
+.formButton {
+  @media (--mobile-only) {
+    width: var(--width-height-100);
+  }
+
+  margin-left: auto;
+}

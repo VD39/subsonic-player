@@ -1,5 +1,5 @@
 export function useMediaLibrary() {
-  const { fetchData } = useAPI();
+  const { fetchData, getDownloadUrl } = useAPI();
   const { addSuccessSnack } = useSnack();
 
   async function startScan() {
@@ -12,6 +12,11 @@ export function useMediaLibrary() {
     if (startScanData) {
       addSuccessSnack('Scan started.');
     }
+  }
+
+  async function downloadMedia(id: string) {
+    const downloadURL = getDownloadUrl(id);
+    window.location.assign(downloadURL);
   }
 
   /* istanbul ignore next -- @preserve */
@@ -64,6 +69,7 @@ export function useMediaLibrary() {
   return {
     createBookmark,
     deleteBookmark,
+    downloadMedia,
     getBookmarks,
     getPlayQueue,
     savePlayQueue,

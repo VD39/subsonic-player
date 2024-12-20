@@ -173,7 +173,7 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when component emits a click event', () => {
+  describe('when component is clicked', () => {
     beforeEach(() => {
       wrapper.vm.$emit('click');
     });

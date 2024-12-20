@@ -21,11 +21,11 @@ function factory(props = {}) {
 const buttonProps = {
   false: {
     icon: ICONS.play,
-    title: 'Play current track',
+    text: 'Play current track',
   },
   true: {
     icon: ICONS.pause,
-    title: 'Pause current track',
+    text: 'Pause current track',
   },
 };
 
@@ -79,20 +79,25 @@ describe('PlayPauseButton', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct color on ButtonLink component', () => {
+      it('sets the correct color on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
           buttonProps.icon,
         );
       });
 
-      it('sets the correct title on ButtonLink component', () => {
-        const buttonLink = wrapper.findComponent(ButtonLink);
-
-        expect(buttonLink.attributes('title')).toBe(buttonProps.title);
-        expect(buttonLink.text()).toBe(buttonProps.title);
+      it('sets the correct title attribute on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+          buttonProps.text,
+        );
       });
 
-      describe('when the ButtonLink component emits a click event', () => {
+      it('sets the correct slot data on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).text()).toContain(
+          buttonProps.text,
+        );
+      });
+
+      describe('when the ButtonLink component is clicked', () => {
         beforeEach(() => {
           wrapper.findComponent(ButtonLink).vm.$emit('click');
         });

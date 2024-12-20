@@ -154,7 +154,7 @@ export function getFormattedQueueTracksMock(
           ...params,
           id: `queue-track-${index}`,
           name: `queue-track-${index}`,
-          streamUrl: `queue-streamUrl${index}`,
+          streamUrlId: `queue-streamUrlId${index}`,
         }) as QueueTrack,
     );
 }

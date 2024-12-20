@@ -1,0 +1,35 @@
+.mBXS {
+  margin-bottom: var(--space-4);
+}
+
+.mBS {
+  margin-bottom: var(--space-8);
+}
+
+.mBM {
+  margin-bottom: var(--space-16);
+}
+
+.mBL {
+  margin-bottom: var(--space-32);
+}
+
+.mBXL {
+  margin-bottom: var(--space-40);
+}
+
+.mBAllM {
+  height: 100%;
+
+  > *:not(:last-child) {
+    margin-bottom: var(--space-16);
+  }
+}
+
+.mBAllL {
+  height: 100%;
+
+  > *:not(:last-child) {
+    margin-bottom: var(--space-32);
+  }
+}

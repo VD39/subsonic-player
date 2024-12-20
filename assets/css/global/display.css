@@ -1,0 +1,20 @@
+.visuallyHidden {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.desktopOnly {
+  @media (--mobile-only) {
+    display: none !important;
+  }
+}
+
+.mobileOnly {
+  @media (--tablet-up) {
+    display: none !important;
+  }
+}

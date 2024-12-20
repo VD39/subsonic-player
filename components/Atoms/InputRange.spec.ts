@@ -114,22 +114,26 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when hideThumb prop is not set', () => {
+  describe('when max prop greater than 0', () => {
+    it('does not add the standard class to the wrapper element', () => {
+      expect(wrapper.classes()).not.toContain('standard');
+    });
+
     it('shows the thumb element', () => {
       expect(wrapper.find({ ref: 'thumbRef' }).exists()).toBe(true);
     });
 
-    it('sets the correct thumb style value', () => {
-      expect(wrapper.find({ ref: 'thumbRef' }).attributes('style')).toBe(
-        'left: 19px;',
+    it('sets the correct progress bar style value', () => {
+      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+        'width: 25px;',
       );
     });
   });
 
-  describe('when hideThumb prop is set to true', () => {
+  describe('when max prop equal to 0', () => {
     beforeEach(() => {
       wrapper = factory({
-        hideThumb: true,
+        max: 0,
       });
     });
 
@@ -137,8 +141,99 @@ describe('InputRange', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
+    it('adds the standard class to the wrapper element', () => {
+      expect(wrapper.classes()).toContain('standard');
+    });
+
     it('does not show the thumb element', () => {
       expect(wrapper.find({ ref: 'thumbRef' }).exists()).toBe(false);
+    });
+
+    it('sets the correct progress bar style value', () => {
+      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+        'width: 100px;',
+      );
+    });
+  });
+
+  describe('when default slot is not set', () => {
+    it('does not show the tooltip element', () => {
+      expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(false);
+    });
+  });
+
+  describe('when default slot is set', () => {
+    describe('when max prop equal to 0', () => {
+      beforeEach(() => {
+        wrapper = factory(
+          {
+            max: 0,
+          },
+          {
+            default: '<p>{{ pendingValue }}</p>',
+          },
+        );
+      });
+
+      it('does not show the tooltip element', () => {
+        expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(false);
+      });
+    });
+
+    describe('when max prop greater than 0', () => {
+      beforeEach(() => {
+        wrapper = factory(undefined, {
+          default: '<p>{{ pendingValue }}</p>',
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('shows the tooltip element', () => {
+        expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(true);
+      });
+
+      describe('when the mousemove on slider is called', () => {
+        describe('when the mouseover on slider is not called before', () => {
+          beforeEach(() => {
+            wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+              pageX: 80,
+            });
+          });
+
+          it('matches the snapshot', () => {
+            expect(wrapper.html()).toMatchSnapshot();
+          });
+
+          it('does not update the pending value', () => {
+            expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
+              'left: 25px;',
+            );
+          });
+        });
+
+        describe('when the mouseover on slider is called before', () => {
+          beforeEach(() => {
+            const slider = wrapper.find({ ref: 'sliderRef' });
+            slider.trigger('mouseover');
+            slider.trigger('mousemove', {
+              pageX: 80,
+            });
+          });
+
+          it('matches the snapshot', () => {
+            expect(wrapper.html()).toMatchSnapshot();
+          });
+
+          it('updates the pending value', () => {
+            expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
+              'left: 80px;',
+            );
+          });
+        });
+      });
     });
   });
 
@@ -254,16 +349,10 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when default slot is not set', () => {
-    it('does not show the tooltip element', () => {
-      expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(false);
-    });
-  });
-
-  describe('when default slot is set', () => {
+  describe('when the touchstart on slider is called', () => {
     beforeEach(() => {
-      wrapper = factory(undefined, {
-        default: '<p>{{ pendingValue }}</p>',
+      wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+        pageX: 60,
       });
     });
 
@@ -271,47 +360,103 @@ describe('InputRange', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('shows the tooltip element', () => {
-      expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(true);
+    it('adds the seeking class to wrapper element', () => {
+      expect(wrapper.classes()).toContain('seeking');
     });
 
-    describe('when the mousemove on slider is called', () => {
-      describe('when the mouseover on slider is not called before', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
-            pageX: 80,
-          });
-        });
+    it('adds the mouseup event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'mouseup',
+        expect.any(Function),
+      );
+    });
 
-        it('matches the snapshot', () => {
-          expect(wrapper.html()).toMatchSnapshot();
-        });
+    it('adds the mousemove event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'mousemove',
+        expect.any(Function),
+      );
+    });
 
-        it('does not update the pending value', () => {
-          expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
-            'left: 25px;',
-          );
+    describe('when slider mousemove is called', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+          pageX: 30,
         });
       });
 
-      describe('when the mouseover on slider is called before', () => {
-        beforeEach(() => {
-          const slider = wrapper.find({ ref: 'sliderRef' });
-          slider.trigger('mouseover');
-          slider.trigger('mousemove', {
-            pageX: 80,
-          });
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct progress bar style value', () => {
+        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+          'width: 30px;',
+        );
+      });
+
+      it('sets the correct thumb style value', () => {
+        expect(wrapper.find({ ref: 'thumbRef' }).attributes('style')).toBe(
+          'left: 24px;',
+        );
+      });
+    });
+
+    describe('when the mouseup is called', () => {
+      beforeEach(() => {
+        document.dispatchEvent(new MouseEvent('mouseup'));
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('removes the seeking class from the wrapper element', () => {
+        expect(wrapper.classes()).not.toContain('seeking');
+      });
+
+      it('removes the mouseup event listener function', () => {
+        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
+          'mouseup',
+          expect.any(Function),
+        );
+      });
+
+      it('removes the mousemove event listener function', () => {
+        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
+          'mousemove',
+          expect.any(Function),
+        );
+      });
+    });
+
+    describe('when delay props is not set', () => {
+      it('emits the update:modelValue value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
+      });
+
+      it('emits the change value', () => {
+        expect(wrapper.emitted('change')).toEqual([[6]]);
+      });
+    });
+
+    describe('when delay props is set to true', () => {
+      beforeEach(() => {
+        wrapper = factory({
+          delay: true,
         });
 
-        it('matches the snapshot', () => {
-          expect(wrapper.html()).toMatchSnapshot();
+        wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+          pageX: 60,
         });
+      });
 
-        it('updates the pending value', () => {
-          expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
-            'left: 80px;',
-          );
-        });
+      it('emits the update:modelValue value', () => {
+        expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+      });
+
+      it('emits the change value', () => {
+        expect(wrapper.emitted('change')).toBe(undefined);
       });
     });
   });

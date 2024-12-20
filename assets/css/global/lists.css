@@ -1,0 +1,47 @@
+.list,
+.bulletList,
+.commaList {
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    display: inline;
+
+    > * {
+      display: inline;
+    }
+  }
+}
+
+.commaList {
+  > * {
+    &:not(:last-child) {
+      &::after {
+        display: inline-block;
+        color: var(--body-font-color);
+        content: ',\00a0';
+      }
+    }
+
+    &:nth-last-child(2) {
+      &::after {
+        display: inline-block;
+        color: var(--body-font-color);
+        content: '\00a0&\00a0';
+      }
+    }
+  }
+}
+
+.bulletList {
+  > * {
+    &:not(:last-child) {
+      &::after {
+        display: inline-block;
+        padding: 0 var(--default-space);
+        color: var(--body-font-color);
+        content: '•';
+      }
+    }
+  }
+}

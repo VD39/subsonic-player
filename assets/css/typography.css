@@ -55,7 +55,16 @@ h4 {
 .link {
   position: relative;
 
-  &:hover {
-    text-decoration: underline;
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.sentenceCase {
+  &::first-letter {
+    text-transform: uppercase;
   }
 }

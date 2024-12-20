@@ -32,13 +32,13 @@ const buttonProps = {
   false: {
     color: undefined,
     mockFn: addFavouriteMock,
-    title: 'Like',
-    weight: 'duotone',
+    text: 'Like album',
+    weight: 'regular',
   },
   true: {
     color: 'var(--error-color)',
     mockFn: removeFavouriteMock,
-    title: 'Unlike',
+    text: 'Unlike album',
     weight: 'fill',
   },
 };
@@ -62,27 +62,31 @@ describe('FavouriteButton', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct color on ButtonLink component', () => {
+      it('sets the correct color on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).props('iconColor')).toBe(
           currentProps.color,
         );
       });
 
-      it('sets the correct weight on ButtonLink component', () => {
+      it('sets the correct weight on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).props('iconWeight')).toBe(
           currentProps.weight,
         );
       });
 
-      it('sets the correct title on ButtonLink component', () => {
-        const title = `${currentProps.title} album`;
-        const buttonLink = wrapper.findComponent(ButtonLink);
-
-        expect(buttonLink.attributes('title')).toBe(title);
-        expect(buttonLink.text()).toBe(title);
+      it('sets the correct title on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+          currentProps.text,
+        );
       });
 
-      describe('when the ButtonLink component emits a click event', () => {
+      it('sets the correct slot data on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).text()).toContain(
+          currentProps.text,
+        );
+      });
+
+      describe('when the ButtonLink component is clicked', () => {
         beforeEach(() => {
           wrapper.findComponent(ButtonLink).vm.$emit('click');
         });
@@ -95,24 +99,28 @@ describe('FavouriteButton', () => {
           expect(currentProps.mockFn).toHaveBeenCalled();
         });
 
-        it('sets the correct color on ButtonLink component', () => {
+        it('sets the correct color on the ButtonLink component', () => {
           expect(wrapper.findComponent(ButtonLink).props('iconColor')).toBe(
             inverseProp.color,
           );
         });
 
-        it('sets the correct weight on ButtonLink component', () => {
+        it('sets the correct weight on the ButtonLink component', () => {
           expect(wrapper.findComponent(ButtonLink).props('iconWeight')).toBe(
             inverseProp.weight,
           );
         });
 
-        it('sets the correct title on ButtonLink component', () => {
-          const title = `${inverseProp.title} album`;
-          const buttonLink = wrapper.findComponent(ButtonLink);
+        it('sets the correct title on the ButtonLink component', () => {
+          expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+            inverseProp.text,
+          );
+        });
 
-          expect(buttonLink.attributes('title')).toBe(title);
-          expect(buttonLink.text()).toBe(title);
+        it('sets the correct slot data on the ButtonLink component', () => {
+          expect(wrapper.findComponent(ButtonLink).text()).toContain(
+            inverseProp.text,
+          );
         });
       });
     },

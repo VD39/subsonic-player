@@ -14,6 +14,6 @@ exports[`InfiniteScroller > when hasMore value is true > matches the snapshot 1`
 
 exports[`InfiniteScroller > when hasMore value is true > when loading value is true > matches the snapshot 1`] = `
 "<div><button type="button" class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" title="Loading data">
-    <!--v-if--><span class="clamp text"><span class="centerItems spinningLoader"><ph-circle-notch-stub size="20" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span></span>
+    <!--v-if--><span class="clamp text"><span class="centerItems spinningLoader"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span></span>
   </button></div>"
 `;

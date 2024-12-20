@@ -28,7 +28,7 @@ const formInputs = {
       isUrl: true,
       required: true,
     },
-    value: props.radioStation?.streamUrl,
+    value: props.radioStation?.streamUrlId,
   },
 };
 

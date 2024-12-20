@@ -13,7 +13,7 @@ defineEmits(['deletePlaylist', 'editPlaylist']);
 </script>
 
 <template>
-  <MediaListWrapper v-if="playlists.length" rows="2">
+  <MediaListWrapper v-if="playlists.length" mobile="1" tablet="2" desktop="2">
     <article
       v-for="playlist in playlists"
       :key="playlist.id"
@@ -33,7 +33,7 @@ defineEmits(['deletePlaylist', 'editPlaylist']);
             <NuxtLink
               :to="`/playlist/${playlist.id}`"
               :title="`Go to playlist ${playlist.name}`"
-              class="itemLink link"
+              class="link"
             >
               {{ playlist.name }}
             </NuxtLink>

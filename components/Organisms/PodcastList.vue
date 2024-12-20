@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
@@ -16,6 +17,7 @@ defineEmits([
   'addToQueue',
   'deleteEpisode',
   'downloadEpisode',
+  'downloadMedia',
   'playEpisode',
   'showEpisodeDescription',
 ]);
@@ -25,7 +27,7 @@ defineEmits([
   <div v-if="podcastEpisodes.length" ref="tracksWrapper" class="trackTable">
     <div class="trackHeader">
       <div class="trackCell">Episodes</div>
-      <div class="trackCell" />
+      <div class="trackCell trackOptions" />
     </div>
 
     <div
@@ -41,7 +43,7 @@ defineEmits([
           <DownloadPodcastEpisode
             v-if="!episode.downloaded"
             :image="episode.image"
-            @download-episode="$emit('downloadEpisode', episode)"
+            @download-episode="$emit('downloadEpisode', episode.id)"
           />
 
           <TrackPlayPause
@@ -54,9 +56,11 @@ defineEmits([
           />
 
           <div :class="$style.column">
-            <h4 class="strong clamp mBM">
-              {{ episode.name }}
-            </h4>
+            <MarqueeScroll>
+              <h4 class="strong mBM">
+                {{ episode.name }}
+              </h4>
+            </MarqueeScroll>
 
             <p v-if="episode.description" ref="description" class="clamp2">
               {{ episode.description }}
@@ -82,7 +86,7 @@ defineEmits([
               :class="['centerItems', $style.downloaded]"
               title="Downloaded"
             >
-              <PhCheckCircle size="24" />
+              <PhCheckCircle :size="ICON_SIZE.medium" />
             </div>
 
             <ButtonLink
@@ -109,19 +113,26 @@ defineEmits([
         </div>
       </div>
 
-      <div class="trackCell trackPodcastEpisode">
+      <div class="trackCell trackOptions trackPodcastEpisode">
         <DropdownMenu ref="dropdownMenu">
-          <DropdownItem
-            v-if="episode.downloaded"
-            ref="deleteEpisode"
-            @click="$emit('deleteEpisode', episode.id)"
-          >
-            Delete episode
-          </DropdownItem>
+          <template v-if="episode.downloaded">
+            <DropdownItem
+              ref="deleteEpisode"
+              @click="$emit('deleteEpisode', episode.id)"
+            >
+              Delete episode
+            </DropdownItem>
+            <DropdownItem
+              ref="downloadMedia"
+              @click="$emit('downloadMedia', episode.streamUrlId)"
+            >
+              Download episode
+            </DropdownItem>
+          </template>
           <DropdownItem
             v-else
             ref="downloadEpisodeDropdownItem"
-            @click="$emit('downloadEpisode', episode)"
+            @click="$emit('downloadEpisode', episode.id)"
           >
             Download episode
           </DropdownItem>

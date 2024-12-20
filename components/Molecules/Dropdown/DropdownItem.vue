@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
-withDefaults(
-  defineProps<{
-    is?: ButtonLink;
-    selected?: boolean;
-  }>(),
-  {
-    is: undefined,
-  },
-);
+defineProps<{
+  icon?: Icon;
+  is?: ButtonLink;
+  selected?: boolean;
+}>();
 
 defineEmits(['click']);
 </script>
@@ -18,6 +14,7 @@ defineEmits(['click']);
   <li :class="$style.dropdownItem">
     <ButtonLink
       :is="is"
+      :icon="icon"
       :class="[
         'spaceBetween',
         $style.buttonLink,
@@ -28,7 +25,6 @@ defineEmits(['click']);
       show-text
       icon-position="right"
       full-width
-      v-bind="$attrs"
       @click="$emit('click')"
     >
       <slot />
@@ -47,8 +43,11 @@ defineEmits(['click']);
   padding: var(--default-space);
   background-color: var(--button-hover-color);
 
-  &:hover {
-    --button-hover-color: var(--hover-selected-color);
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      --button-hover-color: var(--hover-selected-color);
+    }
   }
 }
 

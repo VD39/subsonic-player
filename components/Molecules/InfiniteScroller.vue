@@ -50,7 +50,7 @@ onUnmounted(() => {
     >
       <SpinningLoader v-if="loading" />
 
-      <span v-else>Load more</span>
+      <span v-else ref="loadMore">Load more</span>
     </ButtonLink>
 
     <p v-else ref="message" :class="['centerAll', $style.message]">

@@ -16,14 +16,12 @@ const route = useRoute();
 const { artist, getArtist } = useArtist();
 const { openTrackInformationModal } = useDescription();
 
-onBeforeMount(async () => {
-  await getArtist(route.params.id as string);
-});
+getArtist(route.params.id as string);
 </script>
 
 <template>
   <LoadingData>
-    <template v-if="artist">
+    <div v-if="artist">
       <EntryHeader :images="[artist.image]" :title="artist.name">
         <TextClamp
           v-if="artist.biography"
@@ -48,7 +46,7 @@ onBeforeMount(async () => {
         <ul class="list">
           <FavouriteButton
             :id="artist.id"
-            type="album"
+            type="artist"
             :favourite="artist.favourite"
           />
 
@@ -75,7 +73,7 @@ onBeforeMount(async () => {
       <h2>Albums</h2>
 
       <AlbumsList :albums="artist.albums" hide-artist />
-    </template>
+    </div>
 
     <NoMediaMessage
       v-else

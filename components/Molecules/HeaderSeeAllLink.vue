@@ -14,23 +14,24 @@ defineProps<{
 
         <PhCaretDoubleRight
           :class="$style.moreIcon"
-          :size="18"
+          :size="ICON_SIZE.small"
           weight="regular"
         />
       </NuxtLink>
     </h3>
 
-    <NuxtLink :to="to" class="hideDesktop link">See all</NuxtLink>
+    <NuxtLink :to="to" class="mobileOnly link">See all</NuxtLink>
   </HeaderWithAction>
 </template>
 
 <style module>
 .header {
-  &:hover,
-  &:focus,
-  &:focus-within {
-    .moreIcon {
-      --more-icon-opacity: 1;
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      .moreIcon {
+        --more-icon-opacity: 1;
+      }
     }
   }
 }

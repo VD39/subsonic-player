@@ -3,28 +3,26 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
-import TrackListWithPreview from '@/components/Organisms/TrackListWithPreview.vue';
+import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.search],
 });
 
 const route = useRoute();
+const { addToPlaylistModal } = usePlaylist();
 const { search, searchResults } = useSearch();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { downloadMedia } = useMediaLibrary();
 
 function playTrack(index: number) {
   playTracks([searchResults.value!.tracks[index]], -1);
 }
 
-function addToPlaylist() {
-  console.log('addToPlaylist');
-}
-
 const query = replaceCharactersWithSpace(route.params.query as string);
 
-await search({
+search({
   offset: 0,
   query,
 });
@@ -46,13 +44,14 @@ await search({
       :artists="searchResults.artists"
     />
 
-    <TrackListWithPreview
+    <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
       :tracks="searchResults.tracks"
       @play-track="playTrack"
       @add-to-queue="addTrackToQueue"
-      @add-to-playlist="addToPlaylist"
+      @add-to-playlist="addToPlaylistModal"
       @media-information="openTrackInformationModal"
+      @download-media="downloadMedia"
     />
   </LoadingData>
 </template>

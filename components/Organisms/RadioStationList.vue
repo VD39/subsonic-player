@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
+import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
@@ -22,7 +23,7 @@ defineEmits([
   <div v-if="radioStations.length" ref="radioStationWrapper" class="trackTable">
     <div class="trackHeader">
       <div class="trackCell">Stations</div>
-      <div class="trackCell" />
+      <div class="trackCell trackOptions" />
     </div>
 
     <div
@@ -40,18 +41,19 @@ defineEmits([
             @play-track="$emit('playRadioStation', radioStation)"
           />
 
-          <LinkOrText
-            is="a"
-            :is-link="!!radioStation.homePageUrl"
-            :text="radioStation.name"
-            :to="radioStation.homePageUrl"
-            target="_blank"
-            class="clamp"
-          />
+          <MarqueeScroll>
+            <LinkOrText
+              is="a"
+              :is-link="!!radioStation.homePageUrl"
+              :text="radioStation.name"
+              :to="radioStation.homePageUrl"
+              target="_blank"
+            />
+          </MarqueeScroll>
         </div>
       </div>
 
-      <div class="trackCell">
+      <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenu">
           <DropdownItem
             is="a"

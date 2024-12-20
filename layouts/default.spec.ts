@@ -5,8 +5,6 @@ import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import SearchForm from '@/components/Molecules/SearchForm.vue';
-import MusicPlayer from '@/components/Organisms/MusicPlayer/MusicPlayer.vue';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
@@ -40,14 +38,12 @@ const { routeMock } = vi.hoisted(() => ({
 
 mockNuxtImport('useRoute', () => routeMock);
 
-const { showMediaPlayerMock } = useAudioPlayerMock();
-
 function factory(props = {}) {
   return mount(DefaultLayout, {
     attachTo: document.body,
     global: {
       stubs: {
-        MusicPlayer: true,
+        MusicPlayerAndQueue: true,
       },
     },
     props: {
@@ -101,7 +97,7 @@ describe('Default', () => {
       expect(wrapper.find({ ref: 'userDetails' }).exists()).toBe(true);
     });
 
-    describe('when the DropdownMenu component emits a click event', () => {
+    describe('when the DropdownMenu component is clicked', () => {
       beforeEach(async () => {
         wrapper
           .findComponent(DropdownMenu)
@@ -118,7 +114,7 @@ describe('Default', () => {
         expect(wrapper.findAllComponents(DropdownItem).length).toBe(4);
       });
 
-      describe('when the scan DropdownItem component emits a click event', () => {
+      describe('when the scan DropdownItem component is clicked', () => {
         beforeEach(async () => {
           wrapper.findComponent({ ref: 'scan' }).vm.$emit('click');
           await wrapper.vm.$nextTick();
@@ -129,7 +125,7 @@ describe('Default', () => {
         });
       });
 
-      describe('when the logout DropdownItem component emits a click event', () => {
+      describe('when the logout DropdownItem component is clicked', () => {
         beforeEach(async () => {
           wrapper.findComponent({ ref: 'logoutButton' }).vm.$emit('click');
           await wrapper.vm.$nextTick();
@@ -143,31 +139,6 @@ describe('Default', () => {
           expect(navigateToMock).toHaveBeenCalled();
         });
       });
-    });
-  });
-
-  describe('when showMediaPlayer value is false', () => {
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('does not show the MusicPlayer component', () => {
-      expect(wrapper.findComponent(MusicPlayer).exists()).toBe(false);
-    });
-  });
-
-  describe('when showMediaPlayer value is true', () => {
-    beforeEach(async () => {
-      showMediaPlayerMock.value = true;
-      await wrapper.vm.$nextTick();
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('shows the MusicPlayer component', () => {
-      expect(wrapper.findComponent(MusicPlayer).exists()).toBe(true);
     });
   });
 

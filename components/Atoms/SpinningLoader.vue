@@ -1,6 +1,17 @@
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    size?: number;
+  }>(),
+  {
+    size: ICON_SIZE.medium,
+  },
+);
+</script>
+
 <template>
   <span :class="['centerItems', $style.spinningLoader]">
-    <PhCircleNotch size="20" :class="$style.icon" />
+    <PhCircleNotch ref="phCircleNotch" :size="size" :class="$style.icon" />
 
     <span class="visuallyHidden">Loading...</span>
   </span>

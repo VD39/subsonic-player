@@ -29,7 +29,7 @@ export interface Track {
   information: TrackInformation;
   name: string;
   size: string;
-  streamUrl: string;
+  streamUrlId: string;
   trackNumber: number | string;
   type: MediaType;
   year: number | string;
@@ -99,7 +99,7 @@ export interface RadioStation {
   id: string;
   image: Image;
   name: string;
-  streamUrl: string;
+  streamUrlId: string;
   type: MediaType;
 }
 
@@ -117,8 +117,9 @@ export interface PodcastEpisode {
   id: string;
   image: Image;
   name: string;
+  podcastName: string;
   publishDate: string;
-  streamUrl?: string;
+  streamUrlId?: string;
   type: MediaType;
 }
 

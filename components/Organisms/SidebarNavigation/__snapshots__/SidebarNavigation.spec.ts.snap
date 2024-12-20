@@ -3,54 +3,54 @@
 exports[`SidebarNavigation > matches the snapshot 1`] = `
 "<div class="centerItems column sidebarNavigation">
   <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
-      <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+      <phwavesine class="icon" aria-hidden="true" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
     </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
-      <phtextoutdent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
+      <phtextoutdent class="icon" aria-hidden="true" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
     </button></div>
-  <nav class="navigationWrapper">
-    <ul>
-      <li>
+  <nav class="fullWidth">
+    <ul class="mBM">
+      <li class="mBM">
         <h4 class="strong mBM sidebarTitle">Browse</h4>
-        <ul class="mBM">
+        <ul>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
-              <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+              <phcompass class="icon" aria-hidden="true" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
-              <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+              <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
-              <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+              <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
             </a></li>
         </ul>
       </li>
-      <li>
+      <li class="mBM">
         <h4 class="strong mBM sidebarTitle">Your library</h4>
-        <ul class="mBM">
+        <ul>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
-              <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+              <phvinylrecord class="icon" aria-hidden="true" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
-              <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+              <phusersthree class="icon" aria-hidden="true" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
-              <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+              <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
-              <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
-              <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+              <phwaveform class="icon" aria-hidden="true" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
             </a></li>
         </ul>
       </li>
     </ul>
-    <ul>
+    <ul class="mBM">
       <li>
         <h4 class="strong mBM sidebarTitle">Playlist</h4>
-        <ul class="mBM"></ul>
+        <ul></ul>
       </li>
       <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
-          <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text"> Add playlist </span>
+          <phlistplus class="icon" aria-hidden="true" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
         </button></li>
     </ul>
   </nav>
@@ -60,54 +60,54 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
 exports[`SidebarNavigation > when collapsed is true > matches the snapshot 1`] = `
 "<div class="centerItems column sidebarNavigation collapsed">
   <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
-      <phwavesine class="icon" aria-hidden="true" size="32" weight="duotone"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+      <phwavesine class="icon" aria-hidden="true" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
     </a><button class="centerItems buttonLink" type="button" title="Open Navigation">
-      <phtextindent class="icon" aria-hidden="true" size="24" weight="duotone"></phtextindent><span class="clamp text visuallyHidden">Open Navigation</span>
+      <phtextindent class="icon" aria-hidden="true" size="24" weight="regular"></phtextindent><span class="clamp text visuallyHidden">Open Navigation</span>
     </button></div>
-  <nav class="navigationWrapper">
-    <ul>
-      <li>
+  <nav class="fullWidth">
+    <ul class="mBM">
+      <li class="mBM">
         <h4 class="strong mBM sidebarTitle visuallyHidden">Browse</h4>
-        <ul class="mBM">
+        <ul>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
-              <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text visuallyHidden">Discover</span>
+              <phcompass class="icon" aria-hidden="true" size="24" weight="regular"></phcompass><span class="clamp text visuallyHidden">Discover</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
-              <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text visuallyHidden">Podcasts</span>
+              <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text visuallyHidden">Podcasts</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
-              <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text visuallyHidden">Radio Stations</span>
+              <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text visuallyHidden">Radio Stations</span>
             </a></li>
         </ul>
       </li>
-      <li>
+      <li class="mBM">
         <h4 class="strong mBM sidebarTitle visuallyHidden">Your library</h4>
-        <ul class="mBM">
+        <ul>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
-              <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text visuallyHidden">Albums</span>
+              <phvinylrecord class="icon" aria-hidden="true" size="24" weight="regular"></phvinylrecord><span class="clamp text visuallyHidden">Albums</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
-              <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text visuallyHidden">Artists</span>
+              <phusersthree class="icon" aria-hidden="true" size="24" weight="regular"></phusersthree><span class="clamp text visuallyHidden">Artists</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
-              <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text visuallyHidden">Playlists</span>
+              <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text visuallyHidden">Playlists</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
-              <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Favourites</span>
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Favourites</span>
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
-              <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text visuallyHidden">Genres</span>
+              <phwaveform class="icon" aria-hidden="true" size="24" weight="regular"></phwaveform><span class="clamp text visuallyHidden">Genres</span>
             </a></li>
         </ul>
       </li>
     </ul>
-    <ul>
+    <ul class="mBM">
       <li>
         <h4 class="strong mBM sidebarTitle visuallyHidden">Playlist</h4>
-        <ul class="mBM"></ul>
+        <ul></ul>
       </li>
       <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
-          <phlistplus class="icon" aria-hidden="true" size="24" weight="duotone"></phlistplus><span class="clamp text visuallyHidden"> Add playlist </span>
+          <phlistplus class="icon" aria-hidden="true" size="24" weight="regular"></phlistplus><span class="clamp text visuallyHidden"> Add playlist </span>
         </button></li>
     </ul>
   </nav>

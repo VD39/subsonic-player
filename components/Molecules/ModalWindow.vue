@@ -31,7 +31,7 @@ const { closeModal, modal } = useModal();
             <ButtonLink
               :icon="ICONS.close"
               title="Close modal"
-              :icon-size="32"
+              icon-size="large"
               icon-weight="bold"
               @click="closeModal"
             >
@@ -58,7 +58,7 @@ const { closeModal, modal } = useModal();
 
   position: fixed;
   inset: 0;
-  z-index: 9;
+  z-index: 15;
   width: var(--modal-window-width-height);
   height: var(--modal-window-width-height);
 

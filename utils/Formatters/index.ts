@@ -53,7 +53,7 @@ export function formatTracks(track: Base): Track {
     },
     name,
     size: bytesToMB(size),
-    streamUrl: id,
+    streamUrlId: id,
     trackNumber,
     type: MEDIA_TYPE.track,
     year,
@@ -187,7 +187,7 @@ export function formatRadioStation(
     id,
     image,
     name,
-    streamUrl,
+    streamUrlId: streamUrl,
     type: MEDIA_TYPE.radioStation,
   };
 }
@@ -202,7 +202,9 @@ export function formatAllMedia(favourites: Starred2): AllMedia {
   };
 }
 
-export function formatPodcastEpisode(podcastImage: string) {
+export function formatPodcastEpisode(podcast: Partial<Podcast>) {
+  const { image: podcastImage, name: podcastName } = podcast;
+
   return function (episode: ResponsePodcastEpisode): PodcastEpisode {
     const {
       coverArt = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
@@ -211,14 +213,13 @@ export function formatPodcastEpisode(podcastImage: string) {
       id,
       publishDate,
       status,
-      streamUrl: episodeStreamUrl,
+      streamId,
       title: name,
     } = episode;
 
     const downloaded = status === 'completed';
     const image = podcastImage || coverArt;
-    const streamUrl =
-      downloaded && episodeStreamUrl ? episodeStreamUrl : undefined;
+    const streamUrlId = downloaded && streamId ? streamId : undefined;
 
     return {
       description,
@@ -228,8 +229,9 @@ export function formatPodcastEpisode(podcastImage: string) {
       id,
       image,
       name,
+      podcastName: podcastName!,
       publishDate: formatDate(publishDate, {}),
-      streamUrl,
+      streamUrlId,
       type: MEDIA_TYPE.podcastEpisode,
     };
   };
@@ -254,7 +256,12 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
   return {
     description,
     downloadedEpisodes,
-    episodes: episode.map(formatPodcastEpisode(image)),
+    episodes: episode.map(
+      formatPodcastEpisode({
+        image,
+        name,
+      }),
+    ),
     id,
     image,
     lastUpdated,

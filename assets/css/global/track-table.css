@@ -1,0 +1,113 @@
+.trackTable {
+  position: relative;
+  display: table;
+  width: var(--width-height-100);
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.trackHeader,
+.trackRow {
+  position: relative;
+  display: table-row;
+  width: var(--width-height-100);
+}
+
+.trackRow {
+  --track-row-background-color: var(--hover-selected-color);
+
+  &:nth-child(2n) {
+    background-color: var(--track-row-background-color);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      --track-row-background-color: var(--track-hover-background-color);
+    }
+  }
+}
+
+.trackCell {
+  --track-cell-padding: var(--default-space) 0 var(--default-space)
+    calc(var(--default-space) * 2);
+  --track-cell-width: auto;
+
+  display: table-cell;
+  width: var(--track-cell-width);
+  min-height: 55px;
+  padding: var(--track-cell-padding);
+  overflow: hidden;
+  text-align: left;
+  vertical-align: middle;
+
+  > * {
+    @extend .centerItems;
+
+    gap: var(--default-space);
+  }
+
+  @media (--tablet-up) {
+    --track-cell-padding: var(--default-space) calc(var(--default-space) * 2);
+  }
+}
+
+.trackPodcastEpisode {
+  vertical-align: top;
+}
+
+.trackHeader {
+  height: 50px;
+  font-weight: var(--font-weight-bold);
+  border-bottom: 1px solid var(--border-color);
+
+  .trackCell {
+    position: relative;
+
+    &:not(:first-child, :last-child) {
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 16px;
+        content: '';
+        background-color: var(--border-color);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.trackBorder {
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.trackSecondary {
+  @extend .desktopOnly;
+
+  --track-cell-width: 22%;
+  --track-secondary-position: relative;
+
+  position: var(--track-secondary-position);
+}
+
+.trackMeta {
+  flex: 1;
+  overflow: hidden;
+}
+
+.trackTime {
+  @extend .desktopOnly;
+
+  --track-cell-width: 100px;
+  --track-secondary-position: unset;
+}
+
+.trackOptions {
+  --track-cell-padding: 0;
+  --track-cell-width: 40px;
+
+  overflow: unset;
+}

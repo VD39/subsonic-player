@@ -39,7 +39,7 @@ describe('TrackList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when radioStations prop is an empty array', () => {
+  describe('when tracks prop is an empty array', () => {
     it('does not show the tracks wrapper element', () => {
       expect(wrapper.find({ ref: 'tracksWrapper' }).exists()).toBe(false);
     });
@@ -49,7 +49,7 @@ describe('TrackList', () => {
     });
   });
 
-  describe('when radioStations prop is not an empty array', () => {
+  describe('when tracks prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         tracks,
@@ -75,7 +75,7 @@ describe('TrackList', () => {
     describe('when track.artists is an empty array', () => {
       beforeEach(() => {
         wrapper = factory({
-          tracks: getFormattedTracksMock(5, {
+          tracks: getFormattedTracksMock(1, {
             artists: [],
           }),
         });
@@ -102,7 +102,7 @@ describe('TrackList', () => {
       });
 
       it('emits the addToPlaylist event with track', () => {
-        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0]]]);
+        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id]]);
       });
     });
 
@@ -113,6 +113,16 @@ describe('TrackList', () => {
 
       it('emits the addToPlaylist event with track', () => {
         expect(wrapper.emitted('mediaInformation')).toEqual([[tracks[0]]]);
+      });
+    });
+
+    describe('when the download media DropdownItem component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
+      });
+
+      it('emits the downloadMedia event with track', () => {
+        expect(wrapper.emitted('downloadMedia')).toEqual([[tracks[0].id]]);
       });
     });
 

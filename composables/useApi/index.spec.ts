@@ -27,7 +27,7 @@ mockNuxtImport(
     ),
 );
 
-const { fetchData, getImageUrl, getStreamUrl } = useAPI();
+const { fetchData, getDownloadUrl, getImageUrl, getStreamUrl } = useAPI();
 
 describe('useAPI', () => {
   afterEach(() => {
@@ -43,20 +43,28 @@ describe('useAPI', () => {
   });
 
   describe('getStreamUrl', () => {
-    describe('when streamUrl is a URL', () => {
+    describe('when streamUrlId is a URL', () => {
       it('returns the correct value', () => {
-        expect(getStreamUrl('https://streamUrl.mp3')).toBe(
-          'https://streamUrl.mp3',
+        expect(getStreamUrl('https://streamUrlId.mp3')).toBe(
+          'https://streamUrlId.mp3',
         );
       });
     });
 
-    describe('when streamUrl is not a URL', () => {
+    describe('when streamUrlId is not a URL', () => {
       it('returns the correct value', () => {
         expect(getStreamUrl('id')).toBe(
           'https://www.server.com/rest/stream?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id',
         );
       });
+    });
+  });
+
+  describe('getDownloadUrl', () => {
+    it('returns the correct value', () => {
+      expect(getDownloadUrl('id')).toBe(
+        'https://www.server.com/rest/download?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id',
+      );
     });
   });
 

@@ -9,11 +9,11 @@ const props = defineProps<{
 
 const { addFavourite, removeFavourite } = useFavourite();
 
-const isFavourite = ref(props.favourite);
+const isFavourite = toRef(props.favourite);
 
 const buttonProps = computed<ButtonProps>(() => ({
   iconColor: isFavourite.value ? 'var(--error-color)' : undefined,
-  iconWeight: isFavourite.value ? 'fill' : 'duotone',
+  iconWeight: isFavourite.value ? 'fill' : 'regular',
   text: `${isFavourite.value ? 'Unlike' : 'Like'} ${props.type}`,
 }));
 
@@ -26,6 +26,16 @@ async function toggleFavourite() {
 
   isFavourite.value = !isFavourite.value;
 }
+
+watch(
+  () => props.favourite,
+  () => {
+    isFavourite.value = props.favourite;
+  },
+  {
+    immediate: true,
+  },
+);
 </script>
 
 <template>

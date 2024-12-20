@@ -47,19 +47,13 @@ const swiper = useSwiper(swiperRef, {
 
     <ButtonLink
       :icon="ICONS.previous"
-      icon-weight="regular"
       :class="$style.previous"
       @click="swiper.prev()"
     >
       Previous slide
     </ButtonLink>
 
-    <ButtonLink
-      :icon="ICONS.next"
-      icon-weight="regular"
-      :class="$style.next"
-      @click="swiper.next()"
-    >
+    <ButtonLink :icon="ICONS.next" :class="$style.next" @click="swiper.next()">
       Next slide
     </ButtonLink>
   </div>
@@ -71,10 +65,12 @@ const swiper = useSwiper(swiperRef, {
   z-index: 0;
   transition: all var(--transition);
 
-  &:hover {
-    .next,
-    .previous {
-      --button-opacity: 1;
+  @media (hover: hover) {
+    &:hover {
+      .next,
+      .previous {
+        --button-opacity: 1;
+      }
     }
   }
 }

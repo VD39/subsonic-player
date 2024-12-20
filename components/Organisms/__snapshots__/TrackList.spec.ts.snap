@@ -1,45 +1,74 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TrackList > matches the snapshot 1`] = `
-"<div class="noMediaMessage">
-  <div class="column centerItems content">
-    <phmusicnotes size="50"></phmusicnotes>
-    <p>No tracks found.</p>
-  </div>
+"<div class="column centerAll noMediaMessage">
+  <phmusicnotes size="50"></phmusicnotes>
+  <p>No tracks found.</p>
 </div>"
 `;
 
-exports[`TrackList > when radioStations prop is not an empty array > matches the snapshot 1`] = `
+exports[`TrackList > when tracks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Artist</div>
-    <div class="trackCell trackSecondary trackFixed">Time</div>
-    <div class="trackCell"></div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <p class="clamp">track-0</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <p>track-0</p>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <ul class="commaList clamp">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
-      </ul>
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
@@ -48,6 +77,9 @@ exports[`TrackList > when radioStations prop is not an empty array > matches the
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li class="divider" aria-hidden="true"></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
@@ -66,24 +98,55 @@ exports[`TrackList > when radioStations prop is not an empty array > matches the
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <p class="clamp">track-1</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <p>track-1</p>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <ul class="commaList clamp">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
-      </ul>
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -94,24 +157,55 @@ exports[`TrackList > when radioStations prop is not an empty array > matches the
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <p class="clamp">track-2</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <p>track-2</p>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <ul class="commaList clamp">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
-      </ul>
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -122,24 +216,55 @@ exports[`TrackList > when radioStations prop is not an empty array > matches the
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <p class="clamp">track-3</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <p>track-3</p>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <ul class="commaList clamp">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
-      </ul>
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -150,24 +275,55 @@ exports[`TrackList > when radioStations prop is not an empty array > matches the
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <p class="clamp">track-4</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <p>track-4</p>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <ul class="commaList clamp">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
-      </ul>
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -176,34 +332,54 @@ exports[`TrackList > when radioStations prop is not an empty array > matches the
 </div>"
 `;
 
-exports[`TrackList > when radioStations prop is not an empty array > when track.artists is an empty array > matches the snapshot 1`] = `
+exports[`TrackList > when tracks prop is not an empty array > when track.artists is an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Artist</div>
-    <div class="trackCell trackSecondary trackFixed">Time</div>
-    <div class="trackCell"></div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <p class="clamp">track-0</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <p>track-0</p>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
     <div class="trackCell trackSecondary">
       <!--v-if-->
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
@@ -212,6 +388,9 @@ exports[`TrackList > when radioStations prop is not an empty array > when track.
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li class="divider" aria-hidden="true"></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
@@ -222,106 +401,6 @@ exports[`TrackList > when radioStations prop is not an empty array > when track.
               </button></li>
           </ul>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause">
-          <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <p class="clamp">track-1</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <!--v-if-->
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause">
-          <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <p class="clamp">track-2</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <!--v-if-->
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause">
-          <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <p class="clamp">track-3</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <!--v-if-->
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause">
-          <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink itemLink centerAll themeHoverButton buttonLink itemLink centerAll themeHoverButton buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="duotone"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <p class="clamp">track-4</p><button class="centerItems buttonLink trackFavourite trackFavourite" type="button" title="Like track">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <!--v-if-->
-    </div><time class="trackCell trackSecondary trackFixed">00:19</time>
-    <div class="trackCell">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
       </div>
     </div>
   </div>

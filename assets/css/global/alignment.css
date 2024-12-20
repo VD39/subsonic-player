@@ -1,0 +1,22 @@
+.centerItems {
+  display: flex;
+  align-items: center;
+}
+
+.centerAll {
+  @extend .centerItems;
+
+  justify-content: center;
+}
+
+.spaceBetween {
+  display: flex;
+  gap: var(--space-8);
+  justify-content: space-between;
+  width: var(--width-height-100);
+}
+
+.column {
+  display: flex;
+  flex-flow: column nowrap;
+}

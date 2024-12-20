@@ -110,7 +110,7 @@ describe('ModalWindow', () => {
       });
     });
 
-    describe('when the ButtonLink component emits a click event', () => {
+    describe('when the ButtonLink component is clicked', () => {
       beforeEach(async () => {
         wrapper.findComponent(ButtonLink).vm.$emit('click');
       });

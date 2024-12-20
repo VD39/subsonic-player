@@ -25,7 +25,7 @@ describe('DownloadPodcastEpisode', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when the ButtonLink component emits a click event', () => {
+  describe('when the ButtonLink component is clicked', () => {
     beforeEach(() => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
     });

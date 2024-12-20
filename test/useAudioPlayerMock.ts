@@ -17,7 +17,7 @@ const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
 const isCurrentTrackMock = vi.fn(() => false);
 const isMutedMock = ref(false);
-const isPodcastMock = ref(false);
+const isPodcastEpisodeMock = ref(false);
 const isRadioStationMock = ref(false);
 const isTrackMock = ref(false);
 const playBackRateMock = ref(1);
@@ -25,6 +25,7 @@ const playCurrentTrackMock = vi.fn();
 const playNextTrackMock = vi.fn();
 const togglePlayMock = vi.fn();
 const playPreviousTrackMock = vi.fn();
+const playTrackFromQueueListMock = vi.fn();
 const playTracksMock = vi.fn();
 const queueListMock = ref(queueTrack);
 const removeTrackFromQueueListMock = vi.fn();
@@ -56,13 +57,14 @@ export function useAudioPlayerMock() {
     hasPreviousTrack: hasPreviousTrackMock,
     isCurrentTrack: isCurrentTrackMock,
     isMuted: isMutedMock,
-    isPodcast: isPodcastMock,
+    isPodcastEpisode: isPodcastEpisodeMock,
     isRadioStation: isRadioStationMock,
     isTrack: isTrackMock,
     playBackRate: playBackRateMock,
     playCurrentTrack: playCurrentTrackMock,
     playNextTrack: playNextTrackMock,
     playPreviousTrack: playPreviousTrackMock,
+    playTrackFromQueueList: playTrackFromQueueListMock,
     playTracks: playTracksMock,
     queueList: queueListMock,
     removeTrackFromQueueList: removeTrackFromQueueListMock,
@@ -95,13 +97,14 @@ export function useAudioPlayerMock() {
     hasPreviousTrackMock,
     isCurrentTrackMock,
     isMutedMock,
-    isPodcastMock,
+    isPodcastEpisodeMock,
     isRadioStationMock,
     isTrackMock,
     playBackRateMock,
     playCurrentTrackMock,
     playNextTrackMock,
     playPreviousTrackMock,
+    playTrackFromQueueListMock,
     playTracksMock,
     queueListMock,
     removeTrackFromQueueListMock,

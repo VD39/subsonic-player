@@ -73,7 +73,7 @@ export function useRadioStation() {
   /* istanbul ignore next -- @preserve */
   function addRadioStationModal() {
     openModal(MODAL_TYPE.addRadioStationModal, {
-      async onSubmit(radioStation: RadioStation) {
+      async onSubmit(radioStation: RadioStationParams) {
         await addRadioStation(radioStation);
         closeModal();
       },
@@ -83,7 +83,7 @@ export function useRadioStation() {
   /* istanbul ignore next -- @preserve */
   function updateRadioStationModal(radioStation: RadioStation) {
     openModal(MODAL_TYPE.updateRadioStationModal, {
-      async onSubmit(newRadioStation: RadioStation) {
+      async onSubmit(newRadioStation: RadioStationParams) {
         await updateRadioStation({
           ...newRadioStation,
           id: radioStation.id,

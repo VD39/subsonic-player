@@ -2,6 +2,6 @@
 
 exports[`HeaderSeeAllLink > matches the snapshot 1`] = `
 "<div class="centerItems spaceBetween">
-  <h3 class="header"><a>Default slot content.<ph-caret-double-right-stub class="moreIcon" size="18" weight="regular"></ph-caret-double-right-stub></a></h3><a class="hideDesktop link">See all</a>
+  <h3 class="header"><a>Default slot content.<ph-caret-double-right-stub class="moreIcon" size="18" weight="regular"></ph-caret-double-right-stub></a></h3><a class="mobileOnly link">See all</a>
 </div>"
 `;

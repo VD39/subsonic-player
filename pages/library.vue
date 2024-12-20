@@ -12,12 +12,10 @@ const { artists, getArtists } = useArtist();
 const { genres, getGenres } = useGenre();
 const { getPlaylists, playlists } = usePlaylist();
 
-onBeforeMount(async () => {
-  await getRandomAlbums();
-  await getArtists();
-  await getGenres();
-  await getPlaylists();
-});
+getRandomAlbums();
+getArtists();
+getGenres();
+getPlaylists();
 </script>
 
 <template>

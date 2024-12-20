@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import OverflowShadow from '@/components/Atoms/OverflowShadow.vue';
 
 defineProps<{
   navigation: PageNavigation;
@@ -8,47 +9,49 @@ defineProps<{
 
 <template>
   <nav :class="$style.pageNavigation">
-    <ul :class="['centerItems', $style.navigation]">
-      <template v-for="(path, name) in navigation.routes" :key="name">
-        <li :class="$style.item">
-          <ButtonLink
-            is="nuxt-link"
-            :to="
-              !navigation.param
-                ? {
-                    path,
-                  }
-                : {
-                    params: {
-                      [navigation.param]: path,
-                    },
-                  }
-            "
-            show-text
-            class="link pageLink"
-            exact-active-class="pageCurrentLink"
-          >
-            {{ name }}
-          </ButtonLink>
-        </li>
-      </template>
-    </ul>
+    <OverflowShadow>
+      <ul :class="['centerItems', $style.navigation]">
+        <template v-for="(path, name) in navigation.routes" :key="name">
+          <li :class="$style.item">
+            <ButtonLink
+              is="nuxt-link"
+              :to="
+                !navigation.param
+                  ? {
+                      path,
+                    }
+                  : {
+                      params: {
+                        [navigation.param]: path,
+                      },
+                    }
+              "
+              show-text
+              class="link pageLink"
+              exact-active-class="pageCurrentLink"
+            >
+              {{ name }}
+            </ButtonLink>
+          </li>
+        </template>
+      </ul>
+    </OverflowShadow>
   </nav>
 </template>
 
 <style module>
 .pageNavigation {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
 }
 
 .navigation {
   --navigation-flex-wrap: nowrap;
 
+  flex: 1;
   flex-wrap: var(--navigation-flex-wrap);
   gap: 0;
-  overflow: auto;
 
   @media (--tablet-up) {
     --navigation-flex-wrap: wrap;
@@ -56,10 +59,12 @@ defineProps<{
 
   @media (--mobile-only) {
     border-bottom: 1px solid var(--border-color);
+  }
+}
 
-    .item {
-      flex: 1;
-    }
+.item {
+  @media (--mobile-only) {
+    flex: 1;
   }
 }
 </style>

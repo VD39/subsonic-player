@@ -1,16 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PlaylistsList > matches the snapshot 1`] = `
-"<div class="noMediaMessage">
-  <div class="column centerItems content">
-    <phplaylist size="50"></phplaylist>
-    <p>No playlists found.</p>
-  </div>
+"<div class="column centerAll noMediaMessage">
+  <phplaylist size="50"></phplaylist>
+  <p>No playlists found.</p>
 </div>"
 `;
 
-exports[`PlaylistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
-"<section class="mediaListWrapper" style="--loop-rows: 2;">
+exports[`PlaylistsList > when playlists prop is not an empty array > matches the snapshot 1`] = `
+"<section class="mediaListWrapper" style="--loop-rows-mobile: 1; --loop-rows-tablet: 2; --loop-rows-desktop: 2;">
   <article class="centerItems playlist" data-test-id="playlist">
     <figure class="imageLink"><a title="Go to Go to playlist playlist-0">
         <div class="centerAll preloadImage">
@@ -21,14 +19,14 @@ exports[`PlaylistsList > when artists prop is not an empty array > matches the s
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-0" class="itemLink link">playlist-0</a></p>
+        <p class="mBS"><a title="Go to playlist playlist-0" class="link">playlist-0</a></p>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
@@ -53,14 +51,14 @@ exports[`PlaylistsList > when artists prop is not an empty array > matches the s
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-1" class="itemLink link">playlist-1</a></p>
+        <p class="mBS"><a title="Go to playlist playlist-1" class="link">playlist-1</a></p>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -76,14 +74,14 @@ exports[`PlaylistsList > when artists prop is not an empty array > matches the s
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-2" class="itemLink link">playlist-2</a></p>
+        <p class="mBS"><a title="Go to playlist playlist-2" class="link">playlist-2</a></p>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -99,14 +97,14 @@ exports[`PlaylistsList > when artists prop is not an empty array > matches the s
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-3" class="itemLink link">playlist-3</a></p>
+        <p class="mBS"><a title="Go to playlist playlist-3" class="link">playlist-3</a></p>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -122,14 +120,14 @@ exports[`PlaylistsList > when artists prop is not an empty array > matches the s
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-4" class="itemLink link">playlist-4</a></p>
+        <p class="mBS"><a title="Go to playlist playlist-4" class="link">playlist-4</a></p>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="duotone"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>

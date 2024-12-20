@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`QueueList > matches the snapshot 1`] = `
+"<div class="queueWrapper">
+  <div class="centerAll"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue list">
+      <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue list </span>
+    </button></div>
+  <div class="spaceBetween">
+    <div></div><button class="centerItems buttonLink" type="button" title="Clear queue">
+      <phtrash class="icon" aria-hidden="true" size="24" weight="regular"></phtrash><span class="clamp text visuallyHidden"> Clear queue </span>
+    </button>
+  </div>
+  <div class="trackTable">
+    <div class="trackHeader">
+      <div class="trackCell">Track</div>
+      <div class="trackCell trackSecondary">Album</div>
+      <div class="trackCell trackSecondary">Artists</div>
+      <div class="trackCell trackTime">Time</div>
+      <div class="trackCell trackOptions"></div>
+    </div>
+    <div class="trackRow" data-test-id="track">
+      <div class="trackCell">
+        <div>
+          <div class="overlapWrapper trackPlayPause withImage">
+            <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+                <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              </button></div>
+          </div>
+          <div class="trackMeta">
+            <div class="marqueeScroll mBXS">
+              <div class="bulletList inner">
+                <div class="content">
+                  <p>queue-track-0</p>
+                </div>
+              </div>
+            </div>
+            <div class="marqueeScroll smallFont mobileOnly mBXS">
+              <div class="bulletList inner">
+                <div class="content">
+                  <ul class="bulletList">
+                    <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                    <!--v-if-->
+                    <li><span class="visuallyHidden">Track artists</span>
+                      <ul class="commaList">
+                        <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                      </ul>
+                    </li>
+                    <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><button class="centerItems buttonLink" type="button" title="Like track">
+            <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          </button>
+        </div>
+      </div>
+      <div class="trackCell trackSecondary">
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content"><a data-test-id="link" class="link">album</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="trackCell trackSecondary">
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="commaList">
+                <li data-test-id="artist-list-item"><a class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div><time class="trackCell trackTime">00:19</time>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+          <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+        </button></div>
+    </div>
+  </div>
+</div>"
+`;

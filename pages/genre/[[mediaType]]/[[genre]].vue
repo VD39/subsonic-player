@@ -3,7 +3,7 @@ import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import TrackListWithPreview from '@/components/Organisms/TrackListWithPreview.vue';
+import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.genre],
@@ -11,16 +11,14 @@ definePageMeta({
 
 const route = useRoute();
 const { getMediaByGenre } = useGenre();
+const { downloadMedia } = useMediaLibrary();
+const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, items } = useInfinityLoading<Album & Track>();
 
 function playTrack(index: number) {
   playTracks([items.value[index]], -1);
-}
-
-function addToPlaylist() {
-  console.log('addToPlaylist');
 }
 
 function fetchData() {
@@ -46,13 +44,14 @@ function fetchData() {
       :albums="items"
     />
 
-    <TrackListWithPreview
+    <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
       :tracks="items"
       @play-track="playTrack"
       @add-to-queue="addTrackToQueue"
-      @add-to-playlist="addToPlaylist"
+      @add-to-playlist="addToPlaylistModal"
       @media-information="openTrackInformationModal"
+      @download-media="downloadMedia"
     />
 
     <InfiniteScroller @load-more="fetchData" />

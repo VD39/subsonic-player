@@ -16,7 +16,7 @@ defineEmits(['downloadEpisode']);
     <ButtonLink
       :icon="ICONS.download"
       title="Download episode"
-      :class="['itemLink', 'overlap', $style.buttonLink]"
+      :class="['overlap', $style.buttonLink]"
       @click="$emit('downloadEpisode')"
     >
       Download episode

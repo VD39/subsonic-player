@@ -38,7 +38,7 @@ describe('PlaylistsList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when artists prop is an empty array', () => {
+  describe('when playlists prop is an empty array', () => {
     it('does not show the MediaListWrapper component', () => {
       expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(false);
     });
@@ -48,7 +48,7 @@ describe('PlaylistsList', () => {
     });
   });
 
-  describe('when artists prop is not an empty array', () => {
+  describe('when playlists prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         playlists,

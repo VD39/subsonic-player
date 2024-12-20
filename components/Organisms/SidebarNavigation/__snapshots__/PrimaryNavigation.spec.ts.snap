@@ -1,38 +1,38 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PrimaryNavigation > matches the snapshot 1`] = `
-"<ul>
-  <li>
+"<ul class="mBM">
+  <li class="mBM">
     <h4 class="strong mBM sidebarTitle">Browse</h4>
-    <ul class="mBM">
+    <ul>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
-          <phcompass class="icon" aria-hidden="true" size="24" weight="duotone"></phcompass><span class="clamp text">Discover</span>
+          <phcompass class="icon" aria-hidden="true" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
-          <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="duotone"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
+          <phapplepodcastslogo class="icon" aria-hidden="true" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
-          <phradio class="icon" aria-hidden="true" size="24" weight="duotone"></phradio><span class="clamp text">Radio Stations</span>
+          <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
         </a></li>
     </ul>
   </li>
-  <li>
+  <li class="mBM">
     <h4 class="strong mBM sidebarTitle">Your library</h4>
-    <ul class="mBM">
+    <ul>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
-          <phvinylrecord class="icon" aria-hidden="true" size="24" weight="duotone"></phvinylrecord><span class="clamp text">Albums</span>
+          <phvinylrecord class="icon" aria-hidden="true" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
-          <phusersthree class="icon" aria-hidden="true" size="24" weight="duotone"></phusersthree><span class="clamp text">Artists</span>
+          <phusersthree class="icon" aria-hidden="true" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="duotone"></phplaylist><span class="clamp text">Playlists</span>
+          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
-          <phheart class="icon" aria-hidden="true" size="24" weight="duotone"></phheart><span class="clamp text">Favourites</span>
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
-          <phwaveform class="icon" aria-hidden="true" size="24" weight="duotone"></phwaveform><span class="clamp text">Genres</span>
+          <phwaveform class="icon" aria-hidden="true" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
         </a></li>
     </ul>
   </li>

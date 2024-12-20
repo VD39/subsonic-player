@@ -32,8 +32,11 @@ const icon = computed(() => (props.loading ? SpinningLoader : undefined));
   border: 1px solid var(--theme-color);
   border-radius: var(--border-radius-medium);
 
-  &:hover {
-    --button-hover-color: var(--hover-selected-color);
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      --button-hover-color: var(--hover-selected-color);
+    }
   }
 }
 </style>

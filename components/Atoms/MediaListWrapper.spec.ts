@@ -15,25 +15,13 @@ function factory(props = {}) {
 describe('MediaListWrapper', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
-  });
-
-  it('matches the snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
-  });
-
-  describe('when rows prop is not set', () => {
-    it('sets the default styles', () => {
-      expect(wrapper.attributes('style')).toBe('--loop-rows: 5;');
-    });
-  });
-
-  describe('when rows prop is set', () => {
+  describe.each([
+    ['mobile', '2'],
+    ['tablet', '3'],
+    ['desktop', '5'],
+  ])('when %s prop is not set', (prop, defaultValue) => {
     beforeEach(() => {
-      wrapper = factory({
-        rows: '2',
-      });
+      wrapper = factory();
     });
 
     it('matches the snapshot', () => {
@@ -41,7 +29,31 @@ describe('MediaListWrapper', () => {
     });
 
     it('sets the default styles', () => {
-      expect(wrapper.attributes('style')).toBe('--loop-rows: 2;');
+      expect(wrapper.attributes('style')).toContain(
+        `--loop-rows-${prop}: ${defaultValue};`,
+      );
+    });
+  });
+
+  describe.each([
+    ['mobile', '5'],
+    ['tablet', '7'],
+    ['desktop', '9'],
+  ])('when %s prop is set', (prop, value) => {
+    beforeEach(() => {
+      wrapper = factory({
+        [prop]: value,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct style attribute', () => {
+      expect(wrapper.attributes('style')).toContain(
+        `--loop-rows-${prop}: ${value};`,
+      );
     });
   });
 });

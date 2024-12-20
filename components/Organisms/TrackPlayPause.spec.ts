@@ -157,7 +157,7 @@ describe('TrackPlayPause', () => {
       expect(wrapper.findComponent({ ref: 'play' }).exists()).toBe(true);
     });
 
-    describe('when the ButtonLink component emits a click event', () => {
+    describe('when the ButtonLink component is clicked', () => {
       beforeEach(() => {
         wrapper.findComponent({ ref: 'play' }).vm.$emit('click');
       });

@@ -2,12 +2,12 @@
 
 exports[`ThemeSwitcher > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Activate dark mode">
-  <phmoon class="icon" aria-hidden="true" size="24" weight="duotone"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
+  <phmoon class="icon" aria-hidden="true" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
 </button>"
 `;
 
-exports[`ThemeSwitcher > when ButtonLink component emits a click event > matches the snapshot 1`] = `
+exports[`ThemeSwitcher > when ButtonLink component is clicked > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Activate light mode">
-  <phsun class="icon" aria-hidden="true" size="24" weight="duotone"></phsun><span class="clamp text visuallyHidden">Activate light mode</span>
+  <phsun class="icon" aria-hidden="true" size="24" weight="regular"></phsun><span class="clamp text visuallyHidden">Activate light mode</span>
 </button>"
 `;

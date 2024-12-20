@@ -5,6 +5,7 @@ import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
+import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastList from '@/components/Organisms/PodcastList.vue';
 
@@ -13,6 +14,7 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const {
@@ -30,34 +32,41 @@ function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
 }
 
-onBeforeMount(async () => {
-  if (!podcasts.value.length) {
-    await getPodcasts();
-    await getNewestPodcasts();
-  }
-
+async function getData() {
+  getNewestPodcasts();
+  await getPodcasts();
   sortPodcasts(route.params.sortBy as PodcastsSortByParam);
-});
+}
+
+if (!podcasts.value.length) {
+  getData();
+} else {
+  sortPodcasts(route.params.sortBy as PodcastsSortByParam);
+}
 </script>
 
 <template>
   <HeaderWithAction>
     <h1>Podcasts</h1>
 
-    <ButtonLink
-      :icon-size="35"
-      :icon="ICONS.add"
-      title="Add podcast"
-      @click="addPodcastModal"
-    >
-      Add podcast
-    </ButtonLink>
+    <div class="centerItems">
+      <RefreshButton @refresh="getData" />
+
+      <ButtonLink
+        icon-size="large"
+        :icon="ICONS.add"
+        title="Add podcast"
+        @click="addPodcastModal"
+      >
+        Add podcast
+      </ButtonLink>
+    </div>
   </HeaderWithAction>
 
   <PageNavigation :navigation="PODCASTS_NAVIGATION" />
 
   <LoadingData>
-    <template v-if="podcasts.length">
+    <div v-if="podcasts.length">
       <MediaListWrapper>
         <PodcastItem
           v-for="podcast in podcasts"
@@ -66,17 +75,7 @@ onBeforeMount(async () => {
         />
       </MediaListWrapper>
 
-      <HeaderWithAction>
-        <h3>Latest Podcast Episodes</h3>
-
-        <ButtonLink
-          :icon="ICONS.refresh"
-          title="Refresh latest podcast episodes"
-          @click="getNewestPodcasts"
-        >
-          Refresh latest podcast episodes
-        </ButtonLink>
-      </HeaderWithAction>
+      <h3>Latest Podcast Episodes</h3>
 
       <PodcastList
         :podcast-episodes="latestPodcasts"
@@ -85,8 +84,9 @@ onBeforeMount(async () => {
         @show-episode-description="openTrackInformationModal"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
+        @download-media="downloadMedia"
       />
-    </template>
+    </div>
 
     <NoMediaMessage
       v-else

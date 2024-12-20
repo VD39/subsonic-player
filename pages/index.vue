@@ -13,11 +13,9 @@ const {
   recentAlbums,
 } = useAlbum();
 
-onBeforeMount(async () => {
-  await getFrequentAlbums();
-  await getNewestAlbums();
-  await getRecentAlbums();
-});
+getFrequentAlbums();
+getNewestAlbums();
+getRecentAlbums();
 </script>
 
 <template>

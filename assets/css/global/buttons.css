@@ -1,0 +1,11 @@
+.themeHoverButton {
+  background-color: var(--theme-color);
+  border-radius: var(--border-radius-round);
+}
+
+.largeThemeHoverButton {
+  @extend .themeHoverButton;
+
+  margin: var(--space-4);
+  transform: scale(1.2);
+}

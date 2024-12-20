@@ -49,7 +49,7 @@ export const radioStationMock = {
   id: 'id',
   name: 'name',
   streamUrl: 'streamUrl',
-};
+} as InternetRadioStation;
 
 export const trackMock = {
   album: 'album',
@@ -136,7 +136,7 @@ export const podcastEpisodeMock = {
   name: 'name',
   publishDate: API_DATE,
   status: 'completed',
-  streamUrl: 'streamUrl',
+  streamId: 'streamId',
   title: 'title',
 } as ResponsePodcastEpisode;
 
@@ -174,7 +174,7 @@ export const formattedTrackMock = {
   },
   name: 'name',
   size: '0.02 KB',
-  streamUrl: 'streamUrl',
+  streamUrlId: 'streamUrlId',
   trackNumber: 1,
   type: MEDIA_TYPE.track,
   year: 2024,
@@ -239,8 +239,9 @@ export const formattedPodcastEpisodeMock = {
   id: 'id',
   image: 'image',
   name: 'title',
+  podcastName: 'podcastName',
   publishDate: '01/01/2000',
-  streamUrl: 'streamUrl',
+  streamUrlId: 'streamUrlId',
   type: MEDIA_TYPE.podcastEpisode,
 } as PodcastEpisode;
 
@@ -262,7 +263,7 @@ export const formattedRadioStationMock = {
   id: 'id',
   image: 'image',
   name: 'name',
-  streamUrl: 'streamUrl',
+  streamUrlId: 'streamUrlId',
   type: MEDIA_TYPE.radioStation,
 } as RadioStation;
 

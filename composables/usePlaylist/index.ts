@@ -6,12 +6,13 @@ export function usePlaylist() {
   const playlist = useState<null | Playlist>(STATE_NAMES.playlist, () => null);
   const playlists = useState<Playlist[]>(STATE_NAMES.playlists, () => []);
 
-  async function getPlaylists() {
+  async function getPlaylists(noLoading = false) {
     const { data: playlistsData } = await fetchData('/getPlaylists', {
+      params: {
+        noLoading,
+      },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        (response.playlists.playlist || [])
-          .map(formatPlaylist)
-          .sort((a, b) => b.trackCount - a.trackCount),
+        (response.playlists.playlist || []).map(formatPlaylist),
     });
 
     if (Array.isArray(playlistsData)) {
@@ -73,8 +74,10 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      playlists.value.splice(1, 0, playlistData);
+      playlists.value.push(playlistData);
       addSuccessSnack(`Successfully added playlist ${playlistData.name}.`);
+
+      return playlistData;
     }
   }
 
@@ -89,6 +92,7 @@ export function usePlaylist() {
 
     if (playlistData) {
       addSuccessSnack(successMessage);
+      await getPlaylists(true);
     }
   }
 
@@ -101,6 +105,7 @@ export function usePlaylist() {
 
     if (playlistData) {
       addSuccessSnack('Successfully deleted playlist.');
+      await getPlaylists(true);
     }
   }
 
@@ -126,18 +131,73 @@ export function usePlaylist() {
   }
 
   /* istanbul ignore next -- @preserve */
-  function updatePlaylistModal(playlist: Playlist) {
+  function updatePlaylistModal(currentPlaylist: Playlist) {
     openModal(MODAL_TYPE.updatePlaylistModal, {
       /* istanbul ignore next -- @preserve */
-      async onSubmit(newPlaylist: Playlist) {
+      async onSubmit(newPlaylistName: string) {
         await updatePlaylist({
-          ...newPlaylist,
-          playlistId: playlist.id,
+          ...currentPlaylist,
+          name: newPlaylistName,
+          playlistId: currentPlaylist.id,
         });
 
         closeModal();
       },
-      playlist,
+      playlist: currentPlaylist,
+    });
+  }
+
+  /* istanbul ignore next -- @preserve */
+  function addToPlaylistModal(trackId: string) {
+    const loading = ref(false);
+
+    openModal(MODAL_TYPE.addToPlaylistModal, {
+      loading,
+      /* istanbul ignore next -- @preserve */
+      async onAddToPlaylist(params: PlaylistParam) {
+        loading.value = true;
+
+        await addToPlaylist({
+          playlistId: params.playlistId,
+          songIdToAdd: trackId,
+        });
+
+        loading.value = false;
+      },
+      /* istanbul ignore next -- @preserve */
+      async onRemoveFromPlaylist(params: PlaylistParam) {
+        loading.value = true;
+
+        const foundPlaylist = playlists.value.find(
+          (playlist) => playlist.id === params.playlistId,
+        );
+
+        if (foundPlaylist) {
+          await removeFromPlaylist({
+            playlistId: params.playlistId,
+            songIndexToRemove: foundPlaylist.trackCount - 1,
+          });
+        }
+
+        loading.value = false;
+      },
+      /* istanbul ignore next -- @preserve */
+      async onSubmit(playlistName: string) {
+        loading.value = true;
+
+        const playlistResponse = await addPlaylist(playlistName);
+
+        if (playlistResponse?.id) {
+          await addToPlaylist({
+            playlistId: playlistResponse.id,
+            songIdToAdd: trackId,
+          });
+        }
+
+        loading.value = false;
+      },
+      playlists,
+      trackId,
     });
   }
 
@@ -145,6 +205,7 @@ export function usePlaylist() {
     addPlaylist,
     addPlaylistModal,
     addToPlaylist,
+    addToPlaylistModal,
     deletePlaylist,
     getPlaylists,
     getPlaylistTracksById,

@@ -18,7 +18,7 @@ exports[`AddUpdatePlaylistForm > when form is valid > matches the snapshot 1`] =
     <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input" value="Playlist">
       <!--v-if-->
     </div>
-  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" size="24" weight="duotone"><ph-circle-notch-stub size="20" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add playlist </span></button>
+  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add playlist </span></button>
 </form>"
 `;
 

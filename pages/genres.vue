@@ -5,11 +5,9 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 
 const { genres, getGenres } = useGenre();
 
-onBeforeMount(async () => {
-  if (!genres.value.length) {
-    await getGenres();
-  }
-});
+if (!genres.value.length) {
+  getGenres();
+}
 </script>
 
 <template>

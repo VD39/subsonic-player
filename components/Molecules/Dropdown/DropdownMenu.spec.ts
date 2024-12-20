@@ -47,7 +47,7 @@ describe('DropdownMenu', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when the ButtonLink component emits a click event', () => {
+  describe('when the ButtonLink component is clicked', () => {
     beforeEach(async () => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
       await wrapper.vm.$nextTick();
@@ -128,7 +128,7 @@ describe('DropdownMenu', () => {
       });
     });
 
-    describe('when the ButtonLink component emits a click event again', () => {
+    describe('when the ButtonLink component is clicked again', () => {
       beforeEach(async () => {
         wrapper.findComponent(ButtonLink).vm.$emit('click');
         await wrapper.vm.$nextTick();

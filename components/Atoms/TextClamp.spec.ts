@@ -105,7 +105,7 @@ describe('TextClamp', () => {
       );
     });
 
-    describe('when the read more button element emits a click event', () => {
+    describe('when the read more button is clicked', () => {
       beforeEach(async () => {
         await wrapper.find({ ref: 'readMore' }).trigger('click');
       });

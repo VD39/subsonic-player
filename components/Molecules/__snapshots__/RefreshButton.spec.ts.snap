@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RefreshButton > when loading is false > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" type="button" title="Refresh page data">
+  <pharrowsclockwise class="icon" aria-hidden="true" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+</button>"
+`;
+
+exports[`RefreshButton > when loading is true > matches the snapshot 1`] = `"<button class="centerItems buttonLink" type="button" title="Refreshing page data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><ph-circle-notch-stub size="32" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Refreshing page data</span></button>"`;

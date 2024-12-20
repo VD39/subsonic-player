@@ -1,0 +1,288 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
+"<div class="mBL playlists">
+  <div class="trackTable">
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+  </div>
+</div>
+<form novalidate="">
+  <div class="spaceBetween">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
+        <!--v-if-->
+      </label><input id="name" type="text" autocomplete="off" placeholder="Add Playlist" class="input" value="Playlist">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink submitButton submitButton" type="submit">
+      <!--v-if--><span class="clamp text">Add</span>
+    </button>
+  </div>
+</form>"
+`;
+
+exports[`AddToPlaylistForm > when playlists prop is an empty array > matches the snapshot 1`] = `
+"<!--v-if-->
+<form novalidate="">
+  <div class="spaceBetween">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
+        <!--v-if-->
+      </label><input id="name" type="text" autocomplete="off" placeholder="Add Playlist" class="input" value="">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink submitButton submitButton" type="submit">
+      <!--v-if--><span class="clamp text">Add</span>
+    </button>
+  </div>
+</form>"
+`;
+
+exports[`AddToPlaylistForm > when playlists prop is not an empty array > matches the snapshot 1`] = `
+"<div class="mBL playlists">
+  <div class="trackTable">
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+  </div>
+</div>
+<form novalidate="">
+  <div class="spaceBetween">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
+        <!--v-if-->
+      </label><input id="name" type="text" autocomplete="off" placeholder="Add Playlist" class="input" value="">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink submitButton submitButton" type="submit">
+      <!--v-if--><span class="clamp text">Add</span>
+    </button>
+  </div>
+</form>"
+`;
+
+exports[`AddToPlaylistForm > when playlists prop is not an empty array > when the ButtonLink component is clicked > matches the snapshot 1`] = `
+"<div class="mBL playlists">
+  <div class="trackTable">
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove">
+          <phminuscircle class="icon" aria-hidden="true" size="24" weight="regular"></phminuscircle><span class="clamp text visuallyHidden">Remove</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+  </div>
+</div>
+<form novalidate="">
+  <div class="spaceBetween">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
+        <!--v-if-->
+      </label><input id="name" type="text" autocomplete="off" placeholder="Add Playlist" class="input" value="">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink submitButton submitButton" type="submit">
+      <!--v-if--><span class="clamp text">Add</span>
+    </button>
+  </div>
+</form>"
+`;
+
+exports[`AddToPlaylistForm > when playlists prop is not an empty array > when the ButtonLink component is clicked > when the ButtonLink component is clicked again > matches the snapshot 1`] = `
+"<div class="mBL playlists">
+  <div class="trackTable">
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+    <div class="trackRow trackBorder" data-test-id="playlist">
+      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+        <div>
+          <phplaylist></phplaylist> 1
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Add">
+          <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
+        </button></div>
+    </div>
+  </div>
+</div>
+<form novalidate="">
+  <div class="spaceBetween">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
+        <!--v-if-->
+      </label><input id="name" type="text" autocomplete="off" placeholder="Add Playlist" class="input" value="">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink submitButton submitButton" type="submit">
+      <!--v-if--><span class="clamp text">Add</span>
+    </button>
+  </div>
+</form>"
+`;

@@ -36,11 +36,11 @@ describe('ThemeSwitcher', () => {
     );
   });
 
-  it('shows the correct text', () => {
+  it('sets the correct slot data on the toggle button', () => {
     expect(wrapper.findComponent(ButtonLink).text()).toBe('Activate dark mode');
   });
 
-  describe('when ButtonLink component emits a click event', () => {
+  describe('when ButtonLink component is clicked', () => {
     beforeAll(async () => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
       await wrapper.vm.$nextTick();
@@ -50,19 +50,19 @@ describe('ThemeSwitcher', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('shows the correct icon prop', () => {
+    it('updates the correct icon prop', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
         ICONS.darkTheme,
       );
     });
 
-    it('shows the correct title prop', () => {
+    it('updates the correct title prop', () => {
       expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
         'Activate light mode',
       );
     });
 
-    it('shows the correct text', () => {
+    it('updates the correct slot data on the toggle button', () => {
       expect(wrapper.findComponent(ButtonLink).text()).toBe(
         'Activate light mode',
       );

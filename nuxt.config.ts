@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       'settings/**',
     ],
   },
-  modules: ['@nuxt/eslint', 'nuxt-swiper'],
+  modules: ['@nuxt/eslint', 'nuxt-swiper', '@nuxtjs/storybook'],
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {

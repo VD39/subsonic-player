@@ -15,6 +15,7 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: vi.fn(() => ({
     data: null,
   })),
+  getDownloadUrl: vi.fn((path) => path),
   getImageUrl: vi.fn((path) => path),
   getStreamUrl: vi.fn((path) => path),
 }));

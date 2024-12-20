@@ -37,16 +37,22 @@ describe('SidebarNavigation', () => {
       expect(wrapper.classes()).not.toContain('collapsed');
     });
 
-    it('sets the correct icon on toggle button', () => {
+    it('sets the correct icon on the toggle button', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
         'PhTextOutdent',
       );
     });
 
-    it('sets the correct title on toggle button', () => {
+    it('sets the correct title attribute on the toggle button', () => {
       expect(
         wrapper.findComponent({ ref: 'toggleButton' }).attributes('title'),
       ).toBe('Close Navigation');
+    });
+
+    it('sets the correct slot data on the toggle button', () => {
+      expect(wrapper.findComponent({ ref: 'toggleButton' }).text()).toContain(
+        'Close Navigation',
+      );
     });
   });
 
@@ -64,20 +70,26 @@ describe('SidebarNavigation', () => {
       expect(wrapper.classes()).toContain('collapsed');
     });
 
-    it('sets the correct icon on toggle button', () => {
+    it('sets the correct icon on the toggle button', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
         'PhTextIndent',
       );
     });
 
-    it('sets the correct title on toggle button', () => {
+    it('sets the correct title attribute on the toggle button', () => {
       expect(
         wrapper.findComponent({ ref: 'toggleButton' }).attributes('title'),
       ).toBe('Open Navigation');
     });
+
+    it('sets the correct slot data on the toggle button', () => {
+      expect(wrapper.findComponent({ ref: 'toggleButton' }).text()).toContain(
+        'Open Navigation',
+      );
+    });
   });
 
-  describe('when the toggle ButtonLink component emits a click event', () => {
+  describe('when the toggle ButtonLink component is clicked', () => {
     beforeEach(() => {
       wrapper.findComponent({ ref: 'toggleButton' }).vm.$emit('click');
     });

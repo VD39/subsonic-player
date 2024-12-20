@@ -114,7 +114,7 @@ export function usePodcast() {
         count: 10,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        (response.newestPodcasts.episode || []).map(formatPodcastEpisode('')),
+        (response.newestPodcasts.episode || []).map(formatPodcastEpisode({})),
     });
 
     if (Array.isArray(latestPodcastsData)) {

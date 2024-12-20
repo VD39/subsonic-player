@@ -39,7 +39,14 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.5.3",
     "vitest": "^2.0.2",
-    "vue-tsc": "^2.0.26"
+    "vue-tsc": "^2.0.26",
+    "@chromatic-com/storybook": "3.1.0",
+    "@nuxtjs/storybook": "latest",
+    "@storybook/addon-essentials": "8.3.0",
+    "@storybook/addon-links": "8.3.0",
+    "@storybook/blocks": "8.3.0",
+    "@storybook/test": "8.3.0",
+    "storybook": "8.3.0"
   },
   "name": "nuxt-app",
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
@@ -58,7 +65,9 @@
     "postinstall": "nuxt prepare",
     "preview": "nuxt preview",
     "test": "vitest",
-    "test:once": "yarn test --run"
+    "test:once": "yarn test --run",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "type": "module"
 }

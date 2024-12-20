@@ -2,6 +2,7 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
+import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
 
 const {
@@ -12,28 +13,30 @@ const {
   updatePlaylistModal,
 } = usePlaylist();
 
-onBeforeMount(async () => {
-  if (!playlists.value.length) {
-    await getPlaylists();
-  }
-});
+if (!playlists.value.length) {
+  getPlaylists();
+}
 </script>
 
 <template>
-  <LoadingData>
-    <HeaderWithAction>
-      <h1>Playlists</h1>
+  <HeaderWithAction>
+    <h1>Playlists</h1>
+
+    <div class="centerItems">
+      <RefreshButton @refresh="getPlaylists" />
 
       <ButtonLink
-        :icon-size="35"
+        icon-size="large"
         :icon="ICONS.add"
         title="Add playlist"
         @click="addPlaylistModal"
       >
         Add playlist
       </ButtonLink>
-    </HeaderWithAction>
+    </div>
+  </HeaderWithAction>
 
+  <LoadingData>
     <PlaylistsList
       :playlists="playlists"
       @delete-playlist="deletePlaylist"

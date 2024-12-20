@@ -7,12 +7,10 @@ import { mount } from '@vue/test-utils';
 
 import TrackInformation from './TrackInformation.vue';
 
-const queueTrackMock = getFormattedQueueTracksMock()[0] as Track;
-
 function factory(props = {}) {
   return mount(TrackInformation, {
     props: {
-      track: queueTrackMock,
+      track: getFormattedQueueTracksMock()[0] as Track,
       ...props,
     },
   });
@@ -42,10 +40,9 @@ describe('TrackInformation', () => {
   describe('when artists is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
-        track: {
-          ...queueTrackMock,
+        track: getFormattedQueueTracksMock(1, {
           artists: [],
-        },
+        })[0],
       });
     });
 
@@ -75,10 +72,9 @@ describe('TrackInformation', () => {
   describe('when genres is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
-        track: {
-          ...queueTrackMock,
+        track: getFormattedQueueTracksMock(1, {
           genres: [],
-        },
+        })[0],
       });
     });
 

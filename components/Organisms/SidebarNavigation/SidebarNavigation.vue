@@ -7,7 +7,7 @@ import PrimaryNavigation from './PrimaryNavigation.vue';
 
 const { collapsed, toggle } = useSidebar();
 
-const buttonProps = computed<SidebarButtonProps>(() => ({
+const buttonProps = computed<ButtonProps>(() => ({
   icon: collapsed.value ? ICONS.sidebarCollapsed : ICONS.sidebarNotCollapsed,
   text: collapsed.value ? 'Open Navigation' : 'Close Navigation',
 }));
@@ -37,7 +37,7 @@ const buttonProps = computed<SidebarButtonProps>(() => ({
       </ButtonLink>
     </div>
 
-    <nav :class="$style.navigationWrapper">
+    <nav class="fullWidth">
       <PrimaryNavigation :collapsed="collapsed" />
 
       <PlaylistNavigation :collapsed="collapsed" />
@@ -73,9 +73,5 @@ const buttonProps = computed<SidebarButtonProps>(() => ({
   .collapsed & {
     display: none;
   }
-}
-
-.navigationWrapper {
-  width: var(--width-height-100);
 }
 </style>

@@ -63,7 +63,9 @@ onUnmounted(() => {
     <div
       ref="clamp"
       :class="['clamp', $style.lineClamp]"
-      :style="{ '--truncate-line-clamp': maxLines }"
+      :style="{
+        '--truncate-line-clamp': maxLines,
+      }"
     >
       <span ref="textRef" />
 

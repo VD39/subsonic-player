@@ -2,6 +2,7 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
+import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import RadioStationList from '@/components/Organisms/RadioStationList.vue';
 
 const {
@@ -17,28 +18,30 @@ function playRadioStation(station: RadioStation) {
   playTracks([station]);
 }
 
-onBeforeMount(async () => {
-  if (!radioStations.value.length) {
-    getRadioStations();
-  }
-});
+if (!radioStations.value.length) {
+  getRadioStations();
+}
 </script>
 
 <template>
-  <LoadingData>
-    <HeaderWithAction>
-      <h1>Radio Stations</h1>
+  <HeaderWithAction>
+    <h1>Radio Stations</h1>
+
+    <div class="centerItems">
+      <RefreshButton @refresh="getRadioStations" />
 
       <ButtonLink
-        :icon-size="35"
+        icon-size="large"
         :icon="ICONS.add"
         title="Add radio station"
         @click="addRadioStationModal"
       >
         Add radio station
       </ButtonLink>
-    </HeaderWithAction>
+    </div>
+  </HeaderWithAction>
 
+  <LoadingData>
     <RadioStationList
       :radio-stations="radioStations"
       @add-to-queue="addTrackToQueue"

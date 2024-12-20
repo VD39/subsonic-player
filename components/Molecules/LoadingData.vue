@@ -5,11 +5,22 @@ const loading = useLoading();
 </script>
 
 <template>
-  <div v-show="loading" ref="mainLoader">
+  <div
+    v-show="loading"
+    ref="mainLoader"
+    :class="['column', 'centerAll', $style.loadingData]"
+  >
     <MainLoader />
   </div>
 
-  <div v-show="!loading" ref="mainContent" class="mBAllL">
+  <div v-show="!loading" ref="mainContent" class="mainContent">
     <slot />
   </div>
 </template>
+
+<style module>
+.loadingData {
+  position: relative;
+  flex: 1;
+}
+</style>

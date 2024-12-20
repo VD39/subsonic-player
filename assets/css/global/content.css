@@ -1,0 +1,22 @@
+.mainContent {
+  @extend .column, .mBAllL;
+
+  flex: 1;
+
+  /* Added for where v-if-else are used. */
+  > div:not([class]) {
+    @extend .column, .mBAllL;
+  }
+}
+
+.fullWidth {
+  width: var(--width-height-100);
+}
+
+.inner {
+  --inner-gap: 3vw;
+
+  width: calc(100% - var(--inner-gap) * 2);
+  margin-right: auto;
+  margin-left: auto;
+}

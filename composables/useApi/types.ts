@@ -268,7 +268,7 @@ export interface ResponsePodcastEpisode extends Base {
   description?: string;
   publishDate?: Date;
   status: PodcastStatus;
-  streamUrl?: string;
+  streamId?: string;
 }
 
 export interface PodcastChannel {
@@ -433,7 +433,16 @@ export interface Error {
   message?: string;
 }
 
+/* eslint-disable perfectionist/sort-interfaces */
 export interface SubsonicResponse {
+  // Base Subsonic Response.
+  status: ResponseStatus;
+  version: string;
+  type: string;
+  serverVersion: string;
+  openSubsonic: boolean;
+
+  // Base Subsonic Response.
   album: AlbumWithSongsID3;
   albumInfo: AlbumInfo;
   albumList: AlbumList;
@@ -453,11 +462,9 @@ export interface SubsonicResponse {
   jukeboxStatus: JukeboxStatus;
   license: License;
   lyrics: Lyrics;
-  // API response.
   musicFolders: MusicFolders;
   newestPodcasts: NewestPodcasts;
   nowPlaying: NowPlaying;
-  openSubsonic: boolean;
   playlist: PlaylistWithSongs;
   playlists: Playlists;
   playQueue: PlayQueue;
@@ -467,7 +474,6 @@ export interface SubsonicResponse {
   searchResult: SearchResult;
   searchResult2: SearchResult2;
   searchResult3: SearchResult3;
-  serverVersion: string;
   shares: Shares;
   similarSongs: SimilarSongs;
   similarSongs2: SimilarSongs2;
@@ -475,13 +481,13 @@ export interface SubsonicResponse {
   songsByGenre: Songs;
   starred: Starred;
   starred2: Starred2;
-  // Base Subsonic Response.
-  status: ResponseStatus;
   topSongs: TopSongs;
-  type: string;
   user: CurrentUser;
   users: Users;
-  version: string;
   videoInfo: VideoInfo;
   videos: Videos;
+
+  // File.
+  file: Blob;
 }
+/* eslint-enable perfectionist/sort-interfaces */

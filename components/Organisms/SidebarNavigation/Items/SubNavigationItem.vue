@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 defineProps<{
   collapsed: boolean;
-  icon: string;
+  icon: Icon;
   title: string;
   to: string;
 }>();

@@ -34,7 +34,7 @@ exports[`AddUpdateRadioStationForm > when form is valid > matches the snapshot 1
       </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input" value="">
       <!--v-if-->
     </div>
-  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" size="24" weight="duotone"><ph-circle-notch-stub size="20" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
+  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
 </form>"
 `;
 
@@ -44,7 +44,7 @@ exports[`AddUpdateRadioStationForm > when radioStation prop is set > matches the
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input" value="name">
       <!--v-if-->
     </div>
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input" value="streamUrl">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input" value="streamUrlId">
       <!--v-if-->
     </div>
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="homepageUrl">homepage Url

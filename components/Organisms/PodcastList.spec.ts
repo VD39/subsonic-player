@@ -187,6 +187,12 @@ describe('PodcastList', () => {
         );
       });
 
+      it('shows the download media DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'downloadMedia' }).exists()).toBe(
+          true,
+        );
+      });
+
       it('does not show the download episode DropdownItem component', () => {
         expect(
           wrapper
@@ -228,6 +234,18 @@ describe('PodcastList', () => {
           ]);
         });
       });
+
+      describe('when the download media DropdownItem component emits the click event', () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
+        });
+
+        it('emits the downloadMedia event with track', () => {
+          expect(wrapper.emitted('downloadMedia')).toEqual([
+            [podcastEpisodes[0].streamUrlId],
+          ]);
+        });
+      });
     });
 
     describe('when episode is not downloaded', () => {
@@ -257,6 +275,12 @@ describe('PodcastList', () => {
 
       it('does not show the delete episode DropdownItem component', () => {
         expect(wrapper.findComponent({ ref: 'deleteEpisode' }).exists()).toBe(
+          false,
+        );
+      });
+
+      it('does not show the download media DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'downloadMedia' }).exists()).toBe(
           false,
         );
       });
@@ -304,7 +328,7 @@ describe('PodcastList', () => {
 
         it('emits the downloadEpisode event with track', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
-            [podcastEpisodes[0]],
+            [podcastEpisodes[0].id],
           ]);
         });
       });
@@ -320,7 +344,7 @@ describe('PodcastList', () => {
 
         it('emits the downloadEpisode event with track', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
-            [podcastEpisodes[0]],
+            [podcastEpisodes[0].id],
           ]);
         });
       });

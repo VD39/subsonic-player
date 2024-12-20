@@ -111,7 +111,7 @@ describe('SnackBar', () => {
         expect(wrapper.findAllComponents(MessageBar).length).toBe(4);
       });
 
-      describe('when the ButtonLink component emits a click event', () => {
+      describe('when the ButtonLink component is clicked', () => {
         beforeEach(() => {
           wrapper.findAllComponents(ButtonLink)[0].vm.$emit('click');
         });

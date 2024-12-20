@@ -2,6 +2,6 @@
 
 exports[`SubNavigationItem > matches the snapshot 1`] = `
 "<li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="title">
-    <phpluscircle class="icon" aria-hidden="true" size="24" weight="duotone"></phpluscircle><span class="clamp text">title</span>
+    <phpluscircle class="icon" aria-hidden="true" size="24" weight="regular"></phpluscircle><span class="clamp text">title</span>
   </a></li>"
 `;

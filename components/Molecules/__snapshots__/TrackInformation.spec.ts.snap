@@ -3,17 +3,17 @@
 exports[`TrackInformation > matches the snapshot 1`] = `
 "<div class="trackTable trackInformation">
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Title</div>
+    <div class="trackCell trackMeta title">Title</div>
     <div class="trackCell">
       <p>queue-track-0</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Album</div>
+    <div class="trackCell trackMeta title">Album</div>
     <div class="trackCell"><a data-test-id="link" class="link">album</a></div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Artists</div>
+    <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <ul class="commaList list">
         <li data-test-id="artist-list-item"><a class="link">name</a></li>
@@ -22,28 +22,28 @@ exports[`TrackInformation > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Track</div>
+    <div class="trackCell trackMeta title">Track</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Duration</div><time class="trackCell">00:19</time>
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Year</div>
+    <div class="trackCell trackMeta title">Year</div>
     <div class="trackCell">
       <p>2024</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Disc number</div>
+    <div class="trackCell trackMeta title">Disc number</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Genre</div>
+    <div class="trackCell trackMeta title">Genre</div>
     <div class="trackCell">
       <ul class="commaList list">
         <li data-test-id="genre-list-item"><a class="link">genre</a></li>
@@ -52,37 +52,37 @@ exports[`TrackInformation > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Play count</div>
+    <div class="trackCell trackMeta title">Play count</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Size</div>
+    <div class="trackCell trackMeta title">Size</div>
     <div class="trackCell">
       <p>0.02 KB</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Content type</div>
+    <div class="trackCell trackMeta title">Content type</div>
     <div class="trackCell">
       <p>contentType</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Suffix</div>
+    <div class="trackCell trackMeta title">Suffix</div>
     <div class="trackCell">
       <p>suffix</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Bitrate</div>
+    <div class="trackCell trackMeta title">Bitrate</div>
     <div class="trackCell">
       <p>15 kbps</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Path</div>
+    <div class="trackCell trackMeta title">Path</div>
     <div class="trackCell">
       <p>path</p>
     </div>
@@ -93,44 +93,44 @@ exports[`TrackInformation > matches the snapshot 1`] = `
 exports[`TrackInformation > when artists is an empty array > matches the snapshot 1`] = `
 "<div class="trackTable trackInformation">
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Title</div>
+    <div class="trackCell trackMeta title">Title</div>
     <div class="trackCell">
       <p>queue-track-0</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Album</div>
+    <div class="trackCell trackMeta title">Album</div>
     <div class="trackCell"><a data-test-id="link" class="link">album</a></div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Artists</div>
+    <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <p>--</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Track</div>
+    <div class="trackCell trackMeta title">Track</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Duration</div><time class="trackCell">00:19</time>
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Year</div>
+    <div class="trackCell trackMeta title">Year</div>
     <div class="trackCell">
       <p>2024</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Disc number</div>
+    <div class="trackCell trackMeta title">Disc number</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Genre</div>
+    <div class="trackCell trackMeta title">Genre</div>
     <div class="trackCell">
       <ul class="commaList list">
         <li data-test-id="genre-list-item"><a class="link">genre</a></li>
@@ -139,37 +139,37 @@ exports[`TrackInformation > when artists is an empty array > matches the snapsho
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Play count</div>
+    <div class="trackCell trackMeta title">Play count</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Size</div>
+    <div class="trackCell trackMeta title">Size</div>
     <div class="trackCell">
       <p>0.02 KB</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Content type</div>
+    <div class="trackCell trackMeta title">Content type</div>
     <div class="trackCell">
       <p>contentType</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Suffix</div>
+    <div class="trackCell trackMeta title">Suffix</div>
     <div class="trackCell">
       <p>suffix</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Bitrate</div>
+    <div class="trackCell trackMeta title">Bitrate</div>
     <div class="trackCell">
       <p>15 kbps</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Path</div>
+    <div class="trackCell trackMeta title">Path</div>
     <div class="trackCell">
       <p>path</p>
     </div>
@@ -180,17 +180,17 @@ exports[`TrackInformation > when artists is an empty array > matches the snapsho
 exports[`TrackInformation > when genres is an empty array > matches the snapshot 1`] = `
 "<div class="trackTable trackInformation">
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Title</div>
+    <div class="trackCell trackMeta title">Title</div>
     <div class="trackCell">
       <p>queue-track-0</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Album</div>
+    <div class="trackCell trackMeta title">Album</div>
     <div class="trackCell"><a data-test-id="link" class="link">album</a></div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Artists</div>
+    <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <ul class="commaList list">
         <li data-test-id="artist-list-item"><a class="link">name</a></li>
@@ -199,64 +199,64 @@ exports[`TrackInformation > when genres is an empty array > matches the snapshot
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Track</div>
+    <div class="trackCell trackMeta title">Track</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Duration</div><time class="trackCell">00:19</time>
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Year</div>
+    <div class="trackCell trackMeta title">Year</div>
     <div class="trackCell">
       <p>2024</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Disc number</div>
+    <div class="trackCell trackMeta title">Disc number</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Genre</div>
+    <div class="trackCell trackMeta title">Genre</div>
     <div class="trackCell">
       <p>--</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Play count</div>
+    <div class="trackCell trackMeta title">Play count</div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Size</div>
+    <div class="trackCell trackMeta title">Size</div>
     <div class="trackCell">
       <p>0.02 KB</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Content type</div>
+    <div class="trackCell trackMeta title">Content type</div>
     <div class="trackCell">
       <p>contentType</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Suffix</div>
+    <div class="trackCell trackMeta title">Suffix</div>
     <div class="trackCell">
       <p>suffix</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Bitrate</div>
+    <div class="trackCell trackMeta title">Bitrate</div>
     <div class="trackCell">
       <p>15 kbps</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackTitle title">Path</div>
+    <div class="trackCell trackMeta title">Path</div>
     <div class="trackCell">
       <p>path</p>
     </div>

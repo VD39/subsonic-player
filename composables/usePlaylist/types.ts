@@ -4,5 +4,5 @@ export interface PlaylistParam {
   playlistId: string;
   public?: boolean;
   songIdToAdd?: string;
-  songIndexToRemove?: string;
+  songIndexToRemove?: number | string;
 }

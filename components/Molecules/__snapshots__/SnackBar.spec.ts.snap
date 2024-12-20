@@ -12,28 +12,28 @@ exports[`SnackBar > when snacks values are set > when snacks values are more tha
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween error messageBar">
         <p class="sentenceCase">content-0</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween error messageBar">
         <p class="sentenceCase">content-1</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween error messageBar">
         <p class="sentenceCase">content-2</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween error messageBar">
         <p class="sentenceCase">content-3</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>
@@ -47,7 +47,7 @@ exports[`SnackBar > when snacks values are set > when value is { content: 'conte
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween error messageBar">
         <p class="sentenceCase">content</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>
@@ -61,7 +61,7 @@ exports[`SnackBar > when snacks values are set > when value is { content: 'conte
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween info messageBar">
         <p class="sentenceCase">content</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>
@@ -75,7 +75,7 @@ exports[`SnackBar > when snacks values are set > when value is { content: 'conte
     <div class="mBM snackbar">
       <div class="strong smallFont centerItems spaceBetween success messageBar">
         <p class="sentenceCase">content</p><button class="centerItems buttonLink" type="button">
-          <phx class="icon" aria-hidden="true" size="24" weight="duotone"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
+          <phx class="icon" aria-hidden="true" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
       </div>
     </div>

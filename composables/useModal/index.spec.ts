@@ -1,6 +1,7 @@
 import MediaDescription from '@/components/Atoms/MediaDescription.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
 import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
+import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
 import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
 import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
 
@@ -100,6 +101,14 @@ describe('useModal', () => {
         MODAL_TYPE.trackDetailsModal,
         TrackDetails,
         'Track Details',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.addToPlaylistModal,
+        AddToPlaylistForm,
+        'Add to playlist',
         {
           attrs: 'attrs',
         },

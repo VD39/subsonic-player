@@ -1,3 +1,5 @@
+import type { MiddlewareKey } from '#build/types/middleware';
+
 export const DEFAULT_VALUE = '--';
 
 export const COOKIE_NAMES = {
@@ -32,6 +34,8 @@ export const STATE_NAMES = {
   podcast: 'podcast',
   podcastEpisodes: 'podcast-episodes',
   podcasts: 'podcasts',
+  queueListOpened: 'queue-list-opened',
+  queuePlayerOpened: 'queue-player-opened',
   radioStations: 'radio-stations',
   sideBarCollapsed: 'sidebar-collapsed',
   sideBarWidth: 'sidebar-width',
@@ -55,8 +59,7 @@ export const MIDDLEWARE_NAMES = {
   podcast: 'podcast',
   podcasts: 'podcasts',
   search: 'search',
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-} as Record<string, any>;
+} as Record<string, MiddlewareKey>;
 
 export const PAGE_NAVIGATION_ROUTES = [
   'index',
@@ -95,6 +98,7 @@ export const ICONS = {
   add: 'PhPlusCircle',
   album: 'PhVinylRecord',
   artist: 'PhUsersThree',
+  clear: 'PhTrash',
   close: 'PhX',
   darkTheme: 'PhSun',
   discover: 'PhCompass',
@@ -117,8 +121,11 @@ export const ICONS = {
   podcast: 'PhApplePodcastsLogo',
   podcastEpisode: 'PhApplePodcastsLogo',
   previous: 'PhCaretDoubleLeft',
+  queue: 'PhQueue',
+  queueClose: 'PhCaretDown',
   radioStation: 'PhRadio',
   refresh: 'PhArrowsClockwise',
+  remove: 'PhMinusCircle',
   repeat: 'PhRepeat',
   repeatOnce: 'PhRepeatOnce',
   rewind: 'PhRewind',
@@ -136,6 +143,12 @@ export const ICONS = {
   volume05: 'PhSpeakerHigh',
   volumeDefault: 'PhSpeakerX',
 } as const;
+
+export const ICON_SIZE = {
+  large: 32,
+  medium: 24,
+  small: 18,
+};
 
 export const DEFAULT_ALL_MEDIA = {
   albums: [],

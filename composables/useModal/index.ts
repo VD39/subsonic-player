@@ -1,6 +1,7 @@
 import MediaDescription from '@/components/Atoms/MediaDescription.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
 import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
+import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
 import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
 import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
 
@@ -79,6 +80,14 @@ export function useModal() {
     };
   }
 
+  function openAddToPlaylistFormModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      attrs,
+      component: markRaw(AddToPlaylistForm),
+      title: 'Add to playlist',
+    };
+  }
+
   function openModal(modalType: ModalType, attrs = {}) {
     switch (modalType) {
       case MODAL_TYPE.addPlaylistModal:
@@ -89,6 +98,9 @@ export function useModal() {
         break;
       case MODAL_TYPE.addRadioStationModal:
         openAddRadioStationModal(attrs);
+        break;
+      case MODAL_TYPE.addToPlaylistModal:
+        openAddToPlaylistFormModal(attrs);
         break;
       case MODAL_TYPE.artistBiographyModal:
         openArtistBiographyModal(attrs);

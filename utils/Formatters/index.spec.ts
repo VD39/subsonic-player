@@ -299,24 +299,40 @@ describe('formatGenre', () => {
 
 describe('formatPodcastEpisode', () => {
   it('returns the correct values', () => {
-    expect(formatPodcastEpisode('podcastImage')(podcastEpisodeMock)).toEqual({
+    expect(
+      formatPodcastEpisode({
+        image: 'image',
+        name: 'name',
+      })(podcastEpisodeMock),
+    ).toEqual({
       description: 'description',
       downloaded: true,
       duration: '00:19',
       genres: [],
       id: 'id',
-      image: 'podcastImage',
+      image: 'image',
       name: 'title',
+      podcastName: 'name',
       publishDate: '01/01/2000',
-      streamUrl: 'streamUrl',
+      streamUrlId: 'streamId',
       type: 'podcastEpisode',
     });
   });
 
-  describe('when podcastImage is not defined', () => {
+  describe('when name is not defined', () => {
+    it('returns the correct values', () => {
+      expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
+        expect.objectContaining({
+          podcastName: undefined,
+        }),
+      );
+    });
+  });
+
+  describe('when image is not defined', () => {
     describe('when coverArt is defined', () => {
       it('returns the correct values', () => {
-        expect(formatPodcastEpisode('')(podcastEpisodeMock)).toEqual(
+        expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
           expect.objectContaining({
             image: 'coverArt',
           }),
@@ -327,7 +343,7 @@ describe('formatPodcastEpisode', () => {
     describe('when coverArt is undefined', () => {
       it('returns the correct values', () => {
         expect(
-          formatPodcastEpisode('')({
+          formatPodcastEpisode({})({
             ...podcastEpisodeMock,
             coverArt: undefined,
           }),
@@ -343,41 +359,39 @@ describe('formatPodcastEpisode', () => {
   describe('when status is not completed', () => {
     it('returns the correct values', () => {
       expect(
-        formatPodcastEpisode('podcastImage')({
+        formatPodcastEpisode({})({
           ...podcastEpisodeMock,
           status: 'skipped',
         }),
       ).toEqual(
         expect.objectContaining({
-          streamUrl: undefined,
+          streamUrlId: undefined,
         }),
       );
     });
   });
 
   describe('when status is completed', () => {
-    describe('when streamUrl is undefined', () => {
+    describe('when streamId is undefined', () => {
       it('returns the correct values', () => {
         expect(
-          formatPodcastEpisode('podcastImage')({
+          formatPodcastEpisode({})({
             ...podcastEpisodeMock,
-            streamUrl: undefined,
+            streamId: undefined,
           }),
         ).toEqual(
           expect.objectContaining({
-            streamUrl: undefined,
+            streamUrlId: undefined,
           }),
         );
       });
     });
 
-    describe('when streamUrl is defined', () => {
+    describe('when streamId is defined', () => {
       it('returns the correct values', () => {
-        expect(
-          formatPodcastEpisode('podcastImage')(podcastEpisodeMock),
-        ).toEqual(
+        expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
           expect.objectContaining({
-            streamUrl: 'streamUrl',
+            streamUrlId: 'streamId',
           }),
         );
       });
@@ -399,8 +413,9 @@ describe('formatPodcast', () => {
           id: 'id',
           image: 'image',
           name: 'title',
+          podcastName: 'title',
           publishDate: '01/01/2000',
-          streamUrl: 'streamUrl',
+          streamUrlId: 'streamId',
           type: 'podcastEpisode',
         },
       ],
@@ -481,7 +496,7 @@ describe('formatRadioStation', () => {
       image:
         'https://besticon-demo.herokuapp.com/icon?url=homepageUrl&size=80..250..500',
       name: 'name',
-      streamUrl: 'streamUrl',
+      streamUrlId: 'streamUrl',
       type: 'radioStation',
     });
   });
@@ -544,7 +559,7 @@ describe('formatTracks', () => {
       },
       name: 'title',
       size: '0.02 KB',
-      streamUrl: 'id',
+      streamUrlId: 'id',
       trackNumber: 1,
       type: 'track',
       year: 2024,

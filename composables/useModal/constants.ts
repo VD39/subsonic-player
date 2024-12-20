@@ -8,6 +8,7 @@ export const MODAL_TYPE = {
   addPlaylistModal: 'addPlaylistModal',
   addPodcastModal: 'addPodcastModal',
   addRadioStationModal: 'addRadioStationModal',
+  addToPlaylistModal: 'addToPlaylistModal',
   artistBiographyModal: 'artistBiographyModal',
   podcastDescriptionModal: 'podcastDescriptionModal',
   podcastEpisodeDescriptionModal: 'podcastEpisodeDescriptionModal',

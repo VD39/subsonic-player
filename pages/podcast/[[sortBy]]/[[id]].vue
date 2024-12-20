@@ -16,6 +16,7 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useDescription();
 const {
   deletePodcast,
@@ -39,17 +40,15 @@ function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
 }
 
-onBeforeMount(async () => {
-  await getPodcast(
-    route.params.id as string,
-    route.params.sortBy as PodcastSortByParam,
-  );
-});
+getPodcast(
+  route.params.id as string,
+  route.params.sortBy as PodcastSortByParam,
+);
 </script>
 
 <template>
   <LoadingData>
-    <template v-if="podcast">
+    <div v-if="podcast">
       <EntryHeader :images="[podcast.image]" :title="podcast.name">
         <ul class="bulletList">
           <li>
@@ -114,10 +113,11 @@ onBeforeMount(async () => {
         @show-episode-description="openTrackInformationModal"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
+        @download-media="downloadMedia"
       />
 
       <InfiniteScroller @load-more="fetchData" />
-    </template>
+    </div>
 
     <NoMediaMessage
       v-else
