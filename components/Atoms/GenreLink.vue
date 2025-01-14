@@ -8,6 +8,7 @@ defineProps<{
   <NuxtLink
     :to="`/genre/albums/${encodeURIComponent(name)}`"
     :class="['centerAll', $style.genreLink]"
+    :aria-label="`View all albums with ${name} genre`"
   >
     {{ name }}
   </NuxtLink>

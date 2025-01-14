@@ -15,7 +15,9 @@ const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { fetchMoreData, items } = useInfinityLoading<Album & Track>();
+const { fetchMoreData, hasMore, items, loading } = useInfinityLoading<
+  Album & Track
+>();
 
 function playTrack(index: number) {
   playTracks([items.value[index]], -1);
@@ -31,6 +33,13 @@ function fetchData() {
       }),
   );
 }
+
+useHead({
+  title: () =>
+    [route.params.genre || '', route.params.mediaType || '', 'Genre']
+      .filter(Boolean)
+      .join(' - '),
+});
 </script>
 
 <template>
@@ -54,6 +63,10 @@ function fetchData() {
       @download-media="downloadMedia"
     />
 
-    <InfiniteScroller @load-more="fetchData" />
+    <InfiniteScroller
+      :has-more="hasMore"
+      :loading="loading"
+      @load-more="fetchData"
+    />
   </LoadingData>
 </template>

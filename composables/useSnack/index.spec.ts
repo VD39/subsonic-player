@@ -32,7 +32,7 @@ describe('useSnack', () => {
         expect(snacks.value).toEqual(
           expect.arrayContaining([
             {
-              content: 'Sorry, something went wrong. Please try again.',
+              content: DEFAULT_ERROR_MESSAGE,
               id: 'randomString',
               timer: expect.any(Object),
               type: 'error',
@@ -110,7 +110,7 @@ describe('useSnack', () => {
     it('removes from snack from the snacks value', () => {
       expect(snacks.value).toEqual([
         {
-          content: 'Sorry, something went wrong. Please try again.',
+          content: DEFAULT_ERROR_MESSAGE,
           id: 'randomString',
           timer: expect.any(Object),
           type: 'error',

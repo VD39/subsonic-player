@@ -19,7 +19,7 @@ async function checkLogin() {
   }
 }
 
-async function submitForm(fields: AuthData) {
+async function onFormSubmit(fields: AuthData) {
   const { password, server, username } = fields;
 
   await login({
@@ -30,6 +30,10 @@ async function submitForm(fields: AuthData) {
 
   await checkLogin();
 }
+
+useHead({
+  title: 'Login',
+});
 </script>
 
 <template>
@@ -40,7 +44,7 @@ async function submitForm(fields: AuthData) {
       <ThemeSwitcher />
     </HeaderWithAction>
 
-    <LoginForm :loading="loading" :error="error" @submit="submitForm" />
+    <LoginForm :loading="loading" :error="error" @submit="onFormSubmit" />
   </div>
 </template>
 

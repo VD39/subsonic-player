@@ -357,7 +357,7 @@ describe('PodcastList', () => {
 
       it('emits the addToPlaylist event with track', () => {
         expect(wrapper.emitted('addToPlaylist')).toEqual([
-          [podcastEpisodes[0]],
+          [podcastEpisodes[0].id],
         ]);
       });
     });

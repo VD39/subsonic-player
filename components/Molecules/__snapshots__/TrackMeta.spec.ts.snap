@@ -1,15 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TrackMeta > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p>queue-track-0</p>
+        <h4>queue-track-0-name</h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -17,8 +17,8 @@ exports[`TrackMeta > matches the snapshot 1`] = `
           <li><span class="visuallyHidden">Podcast name</span><a data-test-id="link" class="link">podcastName</a></li>
           <li><span class="visuallyHidden">Track artists</span>
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </li>
           <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -30,15 +30,15 @@ exports[`TrackMeta > matches the snapshot 1`] = `
 `;
 
 exports[`TrackMeta > when the track does not have a podcastName key > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p>queue-track-0</p>
+        <h4>queue-track-0-name</h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -46,8 +46,8 @@ exports[`TrackMeta > when the track does not have a podcastName key > matches th
           <!--v-if-->
           <li><span class="visuallyHidden">Track artists</span>
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </li>
           <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -59,15 +59,15 @@ exports[`TrackMeta > when the track does not have a podcastName key > matches th
 `;
 
 exports[`TrackMeta > when the track does not have an album key > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p>queue-track-0</p>
+        <h4>queue-track-0-name</h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -75,8 +75,8 @@ exports[`TrackMeta > when the track does not have an album key > matches the sna
           <!--v-if-->
           <li><span class="visuallyHidden">Track artists</span>
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </li>
           <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -88,15 +88,15 @@ exports[`TrackMeta > when the track does not have an album key > matches the sna
 `;
 
 exports[`TrackMeta > when the track does not have an artists key > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p>queue-track-0</p>
+        <h4>queue-track-0-name</h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -112,15 +112,15 @@ exports[`TrackMeta > when the track does not have an artists key > matches the s
 `;
 
 exports[`TrackMeta > when track.album is undefined > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p></p>
+        <h4></h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -136,15 +136,15 @@ exports[`TrackMeta > when track.album is undefined > matches the snapshot 1`] = 
 `;
 
 exports[`TrackMeta > when track.artists is an empty array > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p></p>
+        <h4></h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -160,15 +160,15 @@ exports[`TrackMeta > when track.artists is an empty array > matches the snapshot
 `;
 
 exports[`TrackMeta > when track.duration is undefined > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p></p>
+        <h4></h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
@@ -184,15 +184,15 @@ exports[`TrackMeta > when track.duration is undefined > matches the snapshot 1`]
 `;
 
 exports[`TrackMeta > when track.podcastName is undefined > matches the snapshot 1`] = `
-"<div>
-  <div class="marqueeScroll mBXS">
+"<div class="trackMeta">
+  <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
-        <p></p>
+        <h4></h4>
       </div>
     </div>
   </div>
-  <div class="marqueeScroll smallFont mobileOnly mBXS">
+  <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">

@@ -56,7 +56,7 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
         <div :class="$style.trackDetailsWrapper">
           <div :class="['mBAllL', 'column', $style.trackDetails]">
             <div>
-              <MarqueeScroll>
+              <MarqueeScroll inert>
                 <h2 class="strong mBXS">
                   {{ currentTrack.name }}
                 </h2>

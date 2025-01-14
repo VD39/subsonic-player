@@ -36,10 +36,7 @@ export function useSnack() {
     snacks.value = [];
   }
 
-  function addErrorSnack(
-    message = 'Sorry, something went wrong. Please try again.',
-    auto = true,
-  ) {
+  function addErrorSnack(message = DEFAULT_ERROR_MESSAGE, auto = true) {
     addSnack({
       auto,
       content: message,

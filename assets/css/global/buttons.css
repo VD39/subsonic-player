@@ -9,3 +9,15 @@
   margin: var(--space-4);
   transform: scale(1.2);
 }
+
+.globalLink {
+  position: unset !important;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    cursor: pointer;
+    content: '';
+  }
+}

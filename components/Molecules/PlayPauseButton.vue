@@ -12,7 +12,7 @@ const buttonProps = computed<ButtonProps>(() => ({
 
 <template>
   <ButtonLink
-    v-if="trackIsBuffering"
+    v-if="!trackIsBuffering"
     :icon="buttonProps.icon"
     :title="buttonProps.text"
     @click="togglePlay"

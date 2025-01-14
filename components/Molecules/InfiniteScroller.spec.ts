@@ -2,26 +2,17 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 import { mount } from '@vue/test-utils';
 
 import InfiniteScroller from './InfiniteScroller.vue';
-
-const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
-const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
-
-const loadingMock = ref(false);
-const hasMoreMock = ref(false);
-
-mockNuxtImport('useInfinityLoading', () => () => ({
-  hasMore: hasMoreMock,
-  loading: loadingMock,
-}));
 
 function factory(props = {}) {
   return mount(InfiniteScroller, {
     attachTo: document.body,
     props: {
+      hasMore: true,
+      loading: false,
       ...props,
     },
   });
@@ -38,18 +29,13 @@ describe('InfiniteScroller', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('emits the loadMore event', () => {
-    expect(wrapper.emitted('loadMore')).toEqual([[]]);
-  });
+  describe('when hasMore prop is false', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        hasMore: false,
+      });
+    });
 
-  it('adds the scroll event listener function', () => {
-    expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
-      'scroll',
-      expect.any(Function),
-    );
-  });
-
-  describe('when hasMore value is false', () => {
     it('does not show the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).exists()).toBe(false);
     });
@@ -59,11 +45,7 @@ describe('InfiniteScroller', () => {
     });
   });
 
-  describe('when hasMore value is true', () => {
-    beforeEach(() => {
-      hasMoreMock.value = true;
-    });
-
+  describe('when hasMore prop is true', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -76,37 +58,39 @@ describe('InfiniteScroller', () => {
       expect(wrapper.find({ ref: 'message' }).exists()).toBe(false);
     });
 
-    describe('when loading value is false', () => {
-      it('sets the correct title attribute value', () => {
+    describe('when loading prop is false', () => {
+      it('sets the correct title attribute value on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
           'Load more',
         );
       });
 
-      it('sets the correct slot data on the ButtonLink component', () => {
-        expect(wrapper.findComponent(SpinningLoader).exists()).toBe(false);
-        expect(wrapper.find({ ref: 'loadMore' }).exists()).toBe(true);
+      it('sets the correct icon prop on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).props('icon')).toBeUndefined();
       });
     });
 
-    describe('when loading value is true', () => {
+    describe('when loading prop is true', () => {
       beforeEach(() => {
-        loadingMock.value = true;
+        wrapper = factory({
+          loading: true,
+        });
       });
 
       it('matches the snapshot', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct title attribute value', () => {
+      it('sets the correct title attribute value on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
           'Loading data',
         );
       });
 
-      it('sets the correct slot data on the ButtonLink component', () => {
-        expect(wrapper.findComponent(SpinningLoader).exists()).toBe(true);
-        expect(wrapper.find({ ref: 'loadMore' }).exists()).toBe(false);
+      it('sets the correct icon prop on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
+          SpinningLoader,
+        );
       });
     });
 
@@ -119,64 +103,81 @@ describe('InfiniteScroller', () => {
         expect(wrapper.emitted('loadMore')).toEqual([[]]);
       });
     });
+  });
 
-    describe('when scroll is called', () => {
+  describe('when intersectionObserver is not intersecting', () => {
+    beforeEach(() => {
+      intersectionObserverMock();
+      wrapper = factory();
+    });
+
+    it('does not call the loadMore event', () => {
+      expect(wrapper.emitted('loadMore')).toEqual(undefined);
+    });
+  });
+
+  describe('when intersectionObserver is intersecting', () => {
+    beforeEach(() => {
+      intersectionObserverMock([
+        {
+          isIntersecting: true,
+        } as never,
+      ]);
+    });
+
+    describe('when hasMore prop is false', () => {
       beforeEach(() => {
-        global.window.innerHeight = 500;
-        Element.prototype.getBoundingClientRect = vi.fn(
-          () =>
-            ({
-              bottom: 500,
-            }) as DOMRect,
-        );
+        wrapper = factory({
+          hasMore: false,
+        });
       });
 
-      describe('when loading value is true', () => {
-        it('does not emit the loadMore event', () => {
+      it('does not call the loadMore event', () => {
+        expect(wrapper.emitted('loadMore')).toEqual(undefined);
+      });
+    });
+
+    describe('when hasMore prop is true', () => {
+      describe('when loading prop is false', () => {
+        beforeEach(() => {
+          wrapper = factory();
+        });
+
+        it('calls the loadMore event', () => {
           expect(wrapper.emitted('loadMore')).toEqual([[]]);
         });
       });
 
-      describe('when loading value is false', () => {
+      describe('when loading prop is true', () => {
         beforeEach(() => {
-          loadingMock.value = false;
-          global.dispatchEvent(new CustomEvent('scroll'));
-        });
-
-        describe('when innerHeight is less than container getBoundingClientRect bottom', () => {
-          beforeEach(() => {
-            global.dispatchEvent(new CustomEvent('scroll'));
-          });
-
-          it('does not emit the loadMore event', () => {
-            expect(wrapper.emitted('loadMore')).toEqual([[]]);
+          wrapper = factory({
+            loading: true,
           });
         });
 
-        describe('when innerHeight is greater than container getBoundingClientRect bottom', () => {
-          beforeEach(() => {
-            global.window.innerHeight = 600;
-            global.dispatchEvent(new CustomEvent('scroll'));
-          });
-
-          it('emits the loadMore event', () => {
-            expect(wrapper.emitted('loadMore')).toEqual([[], []]);
-          });
+        it('does not call the loadMore event', () => {
+          expect(wrapper.emitted('loadMore')).toEqual(undefined);
         });
       });
     });
+  });
 
-    describe('when component unmounts', () => {
-      beforeEach(() => {
-        wrapper.unmount();
-      });
+  describe('when component unmounts', () => {
+    let iOMock: ReturnType<typeof intersectionObserverMock>;
 
-      it('removes the scroll event listeners function', () => {
-        expect(removeEventListenerSpy).toHaveBeenCalledWith(
-          'scroll',
-          expect.any(Function),
-        );
-      });
+    beforeEach(() => {
+      iOMock = intersectionObserverMock([
+        {
+          isIntersecting: true,
+        } as never,
+      ]);
+
+      wrapper = factory();
+      wrapper.unmount();
+    });
+
+    it('disconnects the intersectionObserver function', () => {
+      expect(iOMock.disconnectMock).toHaveBeenCalled();
     });
   });
 });

@@ -8,6 +8,10 @@ const { genres, getGenres } = useGenre();
 if (!genres.value.length) {
   getGenres();
 }
+
+useHead({
+  title: 'Genres',
+});
 </script>
 
 <template>

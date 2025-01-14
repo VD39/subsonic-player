@@ -23,7 +23,7 @@ const formInputs = {
 
 const form = createForm(formInputs);
 
-function submitForm() {
+function onFormSubmit() {
   validateInputs(form);
 
   if (!form.isValid.value) {
@@ -88,6 +88,7 @@ function getButtonProps(playlistId: string) {
           <NuxtLink
             :to="`/playlist/${playlist.id}`"
             :class="['mBS', $style.nuxtLink]"
+            :aria-label="`Go to playlist ${playlist.name}`"
           >
             {{ playlist.name }}
           </NuxtLink>
@@ -113,7 +114,7 @@ function getButtonProps(playlistId: string) {
     </div>
   </div>
 
-  <form ref="formWrapper" novalidate @submit.stop.prevent="submitForm">
+  <form ref="formWrapper" novalidate @submit.stop.prevent="onFormSubmit">
     <div class="spaceBetween">
       <InputField
         :id="form.fields.name.id"

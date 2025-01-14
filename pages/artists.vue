@@ -7,6 +7,10 @@ const { artists, getArtists } = useArtist();
 if (!artists.value.length) {
   getArtists();
 }
+
+useHead({
+  title: 'Artists',
+});
 </script>
 
 <template>

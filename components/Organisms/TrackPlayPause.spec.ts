@@ -1,7 +1,5 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import PlayingLoader from '@/components/Atoms/PlayingLoader.vue';
-import PlayPauseButton from '@/components/Molecules/PlayPauseButton.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mount } from '@vue/test-utils';
@@ -92,65 +90,13 @@ describe('TrackPlayPause', () => {
     });
   });
 
-  describe('when trackIsBuffering value is false', () => {
-    it('does not add the buffering class to the play pause wrapper element', () => {
-      expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).not.toContain(
-        'buffering',
-      );
-    });
-  });
-
-  describe('when trackIsBuffering value is true', () => {
-    beforeEach(() => {
-      trackIsBufferingMock.value = true;
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('adds the buffering class to the play pause wrapper element', () => {
-      expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
-        'buffering',
-      );
-    });
-  });
-
-  describe('when trackIsPlaying value is false', () => {
-    it('does not add the playing class to the play pause wrapper element', () => {
-      expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).not.toContain(
-        'playing',
-      );
-    });
-  });
-
-  describe('when trackIsPlaying value is true', () => {
-    beforeEach(() => {
-      trackIsPlayingMock.value = true;
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('adds the playing class to the play pause wrapper element', () => {
-      expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
-        'playing',
-      );
-    });
-  });
-
   describe('when isCurrentTrack value is false', () => {
-    it('does not add the withImage class to the wrapper element', () => {
+    it('does not add the currentTrack class to the wrapper element', () => {
       expect(wrapper.classes()).not.toContain('currentTrack');
     });
 
-    it('does not show the PlayingLoader component', () => {
-      expect(wrapper.findComponent(PlayingLoader).exists()).toBe(false);
-    });
-
-    it('does not show the PlayPauseButton component', () => {
-      expect(wrapper.findComponent(PlayPauseButton).exists()).toBe(false);
+    it('does not show the play pause wrapper element', () => {
+      expect(wrapper.find({ ref: 'playPauseWrapper' }).exists()).toBe(false);
     });
 
     it('shows the ButtonLink component', () => {
@@ -178,20 +124,76 @@ describe('TrackPlayPause', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('adds the withImage class to the wrapper element', () => {
+    it('adds the currentTrack class to the wrapper element', () => {
       expect(wrapper.classes()).toContain('currentTrack');
     });
 
-    it('shows the PlayingLoader component', () => {
-      expect(wrapper.findComponent(PlayingLoader).exists()).toBe(true);
-    });
-
-    it('shows the PlayPauseButton component', () => {
-      expect(wrapper.findComponent(PlayPauseButton).exists()).toBe(true);
+    it('shows the play pause wrapper element', () => {
+      expect(wrapper.find({ ref: 'playPauseWrapper' }).exists()).toBe(true);
     });
 
     it('does not show the ButtonLink component', () => {
       expect(wrapper.findComponent({ ref: 'play' }).exists()).toBe(false);
+    });
+
+    describe('when trackIsBuffering value is false', () => {
+      it('does not add the buffering class to the play pause wrapper element', () => {
+        expect(
+          wrapper.find({ ref: 'playPauseWrapper' }).classes(),
+        ).not.toContain('buffering');
+      });
+    });
+
+    describe('when trackIsBuffering value is true', () => {
+      beforeEach(() => {
+        trackIsBufferingMock.value = true;
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the buffering class to the play pause wrapper element', () => {
+        expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
+          'buffering',
+        );
+      });
+    });
+
+    describe('when trackIsPlaying value is false', () => {
+      it('adds the paused class to the play pause wrapper element', () => {
+        expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
+          'paused',
+        );
+      });
+
+      it('does not add the playing class to the play pause wrapper element', () => {
+        expect(
+          wrapper.find({ ref: 'playPauseWrapper' }).classes(),
+        ).not.toContain('playing');
+      });
+    });
+
+    describe('when trackIsPlaying value is true', () => {
+      beforeEach(() => {
+        trackIsPlayingMock.value = true;
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the playing class to the play pause wrapper element', () => {
+        expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
+          'playing',
+        );
+      });
+
+      it('does not add the paused class to the play pause wrapper element', () => {
+        expect(
+          wrapper.find({ ref: 'playPauseWrapper' }).classes(),
+        ).not.toContain('paused');
+      });
     });
   });
 });

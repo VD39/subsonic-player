@@ -5,7 +5,7 @@ exports[`TrackInformation > matches the snapshot 1`] = `
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Title</div>
     <div class="trackCell">
-      <p>queue-track-0</p>
+      <p>queue-track-0-name</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
@@ -16,8 +16,8 @@ exports[`TrackInformation > matches the snapshot 1`] = `
     <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <ul class="commaList list">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+        <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
       </ul>
     </div>
   </div>
@@ -46,8 +46,8 @@ exports[`TrackInformation > matches the snapshot 1`] = `
     <div class="trackCell trackMeta title">Genre</div>
     <div class="trackCell">
       <ul class="commaList list">
-        <li data-test-id="genre-list-item"><a class="link">genre</a></li>
-        <li data-test-id="genre-list-item"><a class="link">genre1</a></li>
+        <li data-test-id="genre-list-item"><a class="link" aria-label="View all albums with genre genre">genre</a></li>
+        <li data-test-id="genre-list-item"><a class="link" aria-label="View all albums with genre1 genre">genre1</a></li>
       </ul>
     </div>
   </div>
@@ -95,7 +95,7 @@ exports[`TrackInformation > when artists is an empty array > matches the snapsho
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Title</div>
     <div class="trackCell">
-      <p>queue-track-0</p>
+      <p>queue-track-0-name</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
@@ -133,8 +133,8 @@ exports[`TrackInformation > when artists is an empty array > matches the snapsho
     <div class="trackCell trackMeta title">Genre</div>
     <div class="trackCell">
       <ul class="commaList list">
-        <li data-test-id="genre-list-item"><a class="link">genre</a></li>
-        <li data-test-id="genre-list-item"><a class="link">genre1</a></li>
+        <li data-test-id="genre-list-item"><a class="link" aria-label="View all albums with genre genre">genre</a></li>
+        <li data-test-id="genre-list-item"><a class="link" aria-label="View all albums with genre1 genre">genre1</a></li>
       </ul>
     </div>
   </div>
@@ -182,7 +182,7 @@ exports[`TrackInformation > when genres is an empty array > matches the snapshot
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Title</div>
     <div class="trackCell">
-      <p>queue-track-0</p>
+      <p>queue-track-0-name</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
@@ -193,8 +193,8 @@ exports[`TrackInformation > when genres is an empty array > matches the snapshot
     <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <ul class="commaList list">
-        <li data-test-id="artist-list-item"><a class="link">name</a></li>
-        <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+        <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+        <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
       </ul>
     </div>
   </div>

@@ -36,7 +36,7 @@ const { removeSnack, snacks } = useSnack();
 .wrapper {
   position: fixed;
   inset: auto 0 0;
-  z-index: 9;
+  z-index: 15;
   margin: var(--space-16) var(--space-16) 0;
 
   @media (--tablet-up) {

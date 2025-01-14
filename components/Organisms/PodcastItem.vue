@@ -10,7 +10,7 @@ defineProps<{
   <article>
     <ImageLink
       :to="`/podcast/all/${podcast.id}`"
-      :title="podcast.name"
+      :title="`Go to podcast ${podcast.name}`"
       :image="podcast.image"
     />
   </article>

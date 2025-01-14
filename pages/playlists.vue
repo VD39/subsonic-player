@@ -16,6 +16,10 @@ const {
 if (!playlists.value.length) {
   getPlaylists();
 }
+
+useHead({
+  title: 'Playlists',
+});
 </script>
 
 <template>

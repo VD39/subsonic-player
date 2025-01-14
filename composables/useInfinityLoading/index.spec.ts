@@ -19,7 +19,7 @@ describe('useInfinityLoading', () => {
   });
 
   it('sets the default hasMore value', () => {
-    expect(result.composable.hasMore.value).toBe(false);
+    expect(result.composable.hasMore.value).toBe(true);
   });
 
   it('sets the default items value', () => {
@@ -111,7 +111,7 @@ describe('useInfinityLoading', () => {
     });
 
     it('clears the hasMore value', () => {
-      expect(result.composable.hasMore.value).toBe(false);
+      expect(result.composable.hasMore.value).toBe(true);
     });
 
     it('clears the items value', () => {
@@ -134,7 +134,7 @@ describe('useInfinityLoading', () => {
     });
 
     it('clears the hasMore value', () => {
-      expect(result.composable.hasMore.value).toBe(false);
+      expect(result.composable.hasMore.value).toBe(true);
     });
 
     it('clears the items value', () => {

@@ -26,6 +26,11 @@ search({
   offset: 0,
   query,
 });
+
+useHead({
+  title: () =>
+    [query, route.params.mediaType || '', 'Search'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>

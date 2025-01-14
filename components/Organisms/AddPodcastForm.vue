@@ -17,7 +17,7 @@ const formInputs = {
 
 const form = createForm(formInputs);
 
-async function submitForm() {
+async function onFormSubmit() {
   validateInputs(form);
 
   if (!form.isValid.value) {
@@ -31,7 +31,7 @@ async function submitForm() {
 </script>
 
 <template>
-  <form novalidate @submit.stop.prevent="submitForm">
+  <form novalidate @submit.stop.prevent="onFormSubmit">
     <div class="formFields">
       <InputField
         :id="form.fields.feedUrl.id"

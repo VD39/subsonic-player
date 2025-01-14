@@ -15,6 +15,7 @@ definePageMeta({
 
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
+const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const {
@@ -43,6 +44,11 @@ if (!podcasts.value.length) {
 } else {
   sortPodcasts(route.params.sortBy as PodcastsSortByParam);
 }
+
+useHead({
+  title: () =>
+    [route.params.sortBy || '', 'Podcasts'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>
@@ -81,6 +87,7 @@ if (!podcasts.value.length) {
         :podcast-episodes="latestPodcasts"
         @play-episode="playEpisode"
         @add-to-queue="addTrackToQueue"
+        @add-to-playlist="addToPlaylistModal"
         @show-episode-description="openTrackInformationModal"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"

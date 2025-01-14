@@ -4,7 +4,9 @@ exports[`MainPlayerControls > matches the snapshot 1`] = `
 "<div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
     <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
   </button>
-  <!--v-if--><span class="centerItems spinningLoader spinningLoader playPauseButton"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span>
+  <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+    <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+  </button>
   <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
     <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
   </button>
@@ -16,7 +18,9 @@ exports[`MainPlayerControls > when isPodcastEpisode value is true > matches the 
     <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
   </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
     <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
-  </button><span class="centerItems spinningLoader spinningLoader playPauseButton"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+  </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+    <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+  </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
     <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
   </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
     <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>

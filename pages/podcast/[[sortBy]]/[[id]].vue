@@ -17,6 +17,7 @@ definePageMeta({
 
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
+const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const {
   deletePodcast,
@@ -26,7 +27,7 @@ const {
   podcast,
   podcastEpisodes,
 } = usePodcast();
-const { fetchMoreData, items, LOAD_SIZE } =
+const { fetchMoreData, hasMore, items, LOAD_SIZE, loading } =
   useInfinityLoading<PodcastEpisode>();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
@@ -44,6 +45,13 @@ getPodcast(
   route.params.id as string,
   route.params.sortBy as PodcastSortByParam,
 );
+
+useHead({
+  title: () =>
+    [podcast.value?.name || '', route.params.sortBy || '', 'Podcast']
+      .filter(Boolean)
+      .join(' - '),
+});
 </script>
 
 <template>
@@ -110,13 +118,18 @@ getPodcast(
         :podcast-episodes="items"
         @play-episode="playEpisode"
         @add-to-queue="addTrackToQueue"
+        @add-to-playlist="addToPlaylistModal"
         @show-episode-description="openTrackInformationModal"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
         @download-media="downloadMedia"
       />
 
-      <InfiniteScroller @load-more="fetchData" />
+      <InfiniteScroller
+        :has-more="hasMore"
+        :loading="loading"
+        @load-more="fetchData"
+      />
     </div>
 
     <NoMediaMessage

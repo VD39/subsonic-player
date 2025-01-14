@@ -41,24 +41,6 @@ describe('PlayPauseButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not show the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).exists()).toBe(false);
-    });
-
-    it('shows the SpinningLoader component', () => {
-      expect(wrapper.findComponent(SpinningLoader).exists()).toBe(true);
-    });
-  });
-
-  describe('when trackIsBuffering value is true', () => {
-    beforeEach(() => {
-      trackIsBufferingMock.value = true;
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
     it('does not show the SpinningLoader component', () => {
       expect(wrapper.findComponent(SpinningLoader).exists()).toBe(false);
     });
@@ -106,6 +88,24 @@ describe('PlayPauseButton', () => {
           expect(togglePlayMock).toHaveBeenCalled();
         });
       });
+    });
+  });
+
+  describe('when trackIsBuffering value is true', () => {
+    beforeEach(() => {
+      trackIsBufferingMock.value = true;
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).exists()).toBe(false);
+    });
+
+    it('shows the SpinningLoader component', () => {
+      expect(wrapper.findComponent(SpinningLoader).exists()).toBe(true);
     });
   });
 });

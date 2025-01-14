@@ -24,7 +24,7 @@ const { currentTrack, isTrack } = useAudioPlayer();
         <ImageLink
           v-if="isTrack && 'albumId' in currentTrack && currentTrack.albumId"
           :to="`/album/${currentTrack.albumId}`"
-          :title="currentTrack.name"
+          :title="`Go to album ${currentTrack.name}`"
           :image="currentTrack.image"
           :class="$style.image"
         />
@@ -44,6 +44,7 @@ const { currentTrack, isTrack } = useAudioPlayer();
 
           <MarqueeScroll
             v-if="'artists' in currentTrack && currentTrack.artists.length"
+            ref="artistsMarqueeScroll"
           >
             <ArtistsList :artists="currentTrack.artists" class="smallFont" />
           </MarqueeScroll>

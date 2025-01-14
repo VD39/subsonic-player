@@ -4,8 +4,8 @@ export function useInfinityLoading<T>() {
 
   const items = ref<T[]>([]);
   const offset = ref(0);
-  const loading = useState(STATE_NAMES.infinityLoading, () => false);
-  const hasMore = useState(STATE_NAMES.infinityHasMore, () => false);
+  const loading = ref(false);
+  const hasMore = ref(true);
 
   async function fetchMoreData<T>(
     dataToFetch: (offset: number) => Promise<T> | T,
@@ -14,7 +14,7 @@ export function useInfinityLoading<T>() {
 
     const values = await dataToFetch(offset.value);
 
-    if (!values) {
+    if (!values || (Array.isArray(values) && !values.length)) {
       hasMore.value = false;
     }
 
@@ -31,7 +31,7 @@ export function useInfinityLoading<T>() {
     items.value = [];
     offset.value = 0;
     loading.value = false;
-    hasMore.value = false;
+    hasMore.value = true;
   }
 
   onBeforeUnmount(() => {

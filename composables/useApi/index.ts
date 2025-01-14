@@ -25,10 +25,10 @@ export function useAPI() {
     return url.toString();
   }
 
-  function getImageUrl(image: string) {
+  function getImageUrl(image: string, size = IMAGE_SIZE) {
     return getUrl('getCoverArt', {
       id: image,
-      size: IMAGE_SIZE,
+      size,
     });
   }
 
@@ -50,27 +50,46 @@ export function useAPI() {
   }
 
   async function fetchData<DataT = SubsonicResponse>(
-    url: (() => string) | string,
+    url: string,
     options: UseFetchOptions<SubsonicResponse, DataT> = {},
   ) {
-    const { data, error } = await useFetch(url, {
-      ...options,
-      $fetch: useNuxtApp().$api,
-      baseURL: options.baseURL ?? baseURL,
-      params: {
-        ...baseParams,
-        ...options.params,
-      },
-    });
+    try {
+      const { $api } = useNuxtApp();
 
-    if (error.value?.message || !data.value) {
-      addErrorSnack(error.value?.message);
+      const response = await $api(url, {
+        ...options,
+        baseURL: options.baseURL ?? baseURL,
+        params: {
+          ...baseParams,
+          ...options.params,
+        },
+      } as never);
+
+      if (!response) {
+        throw new Error(DEFAULT_ERROR_MESSAGE);
+      }
+
+      let result = response as DataT;
+
+      if (options.transform) {
+        result = await options.transform(response as SubsonicResponse);
+      }
+
+      return {
+        data: result,
+        error: null,
+      };
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error : new Error(error as string);
+
+      addErrorSnack(errorMessage.message);
+
+      return {
+        data: null,
+        error: errorMessage,
+      };
     }
-
-    return {
-      data: data.value,
-      error: error.value,
-    };
   }
 
   return {

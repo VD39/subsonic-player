@@ -20,19 +20,19 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS">
+          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
-                <p>track-0</p>
+                <h4>track-0</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
+          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -40,8 +40,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
                     </ul>
                   </li>
                   <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -55,12 +55,12 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
+      <div class="marqueeScroll" style="--animation-duration: 0ms;">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </div>
         </div>
@@ -98,19 +98,19 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS">
+          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
-                <p>track-1</p>
+                <h4>track-1</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
+          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -118,8 +118,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
                     </ul>
                   </li>
                   <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -133,12 +133,12 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
+      <div class="marqueeScroll" style="--animation-duration: 0ms;">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </div>
         </div>
@@ -157,19 +157,19 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS">
+          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
-                <p>track-2</p>
+                <h4>track-2</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
+          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -177,8 +177,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
                     </ul>
                   </li>
                   <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -192,12 +192,12 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
+      <div class="marqueeScroll" style="--animation-duration: 0ms;">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </div>
         </div>
@@ -216,19 +216,19 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS">
+          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
-                <p>track-3</p>
+                <h4>track-3</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
+          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -236,8 +236,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
                     </ul>
                   </li>
                   <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -251,12 +251,12 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
+      <div class="marqueeScroll" style="--animation-duration: 0ms;">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </div>
         </div>
@@ -275,19 +275,19 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS">
+          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
-                <p>track-4</p>
+                <h4>track-4</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
+          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -295,8 +295,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
                     </ul>
                   </li>
                   <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
@@ -310,12 +310,12 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
+      <div class="marqueeScroll" style="--animation-duration: 0ms;">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
             </ul>
           </div>
         </div>
@@ -345,19 +345,19 @@ exports[`TrackList > when tracks prop is not an empty array > when track.artists
       <div>
         <div class="overlapWrapper trackPlayPause">
           <p class="overlap trackNumber">1</p>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS">
+          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
-                <p>track-0</p>
+                <h4>track-0</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
+          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">

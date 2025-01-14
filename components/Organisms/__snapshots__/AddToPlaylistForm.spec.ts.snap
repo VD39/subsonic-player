@@ -4,7 +4,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
 "<div class="mBL playlists">
   <div class="trackTable">
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-0">playlist-0</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -14,7 +14,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-1">playlist-1</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -24,7 +24,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-2">playlist-2</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -34,7 +34,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-3">playlist-3</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -44,7 +44,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-4">playlist-4</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -87,7 +87,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > matches
 "<div class="mBL playlists">
   <div class="trackTable">
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-0">playlist-0</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -97,7 +97,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > matches
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-1">playlist-1</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -107,7 +107,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > matches
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-2">playlist-2</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -117,7 +117,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > matches
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-3">playlist-3</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -127,7 +127,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > matches
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-4">playlist-4</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -155,7 +155,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
 "<div class="mBL playlists">
   <div class="trackTable">
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-0">playlist-0</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -165,7 +165,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-1">playlist-1</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -175,7 +175,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-2">playlist-2</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -185,7 +185,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-3">playlist-3</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -195,7 +195,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-4">playlist-4</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -223,7 +223,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
 "<div class="mBL playlists">
   <div class="trackTable">
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-0</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-0">playlist-0</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -233,7 +233,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-1</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-1">playlist-1</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -243,7 +243,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-2</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-2">playlist-2</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -253,7 +253,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-3</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-3">playlist-3</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>
@@ -263,7 +263,7 @@ exports[`AddToPlaylistForm > when playlists prop is not an empty array > when th
         </button></div>
     </div>
     <div class="trackRow trackBorder" data-test-id="playlist">
-      <div class="trackCell"><a class="mBS nuxtLink">playlist-4</a>
+      <div class="trackCell"><a class="mBS nuxtLink" aria-label="Go to playlist playlist-4">playlist-4</a>
         <div>
           <phplaylist></phplaylist> 1
         </div>

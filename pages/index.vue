@@ -16,6 +16,10 @@ const {
 getFrequentAlbums();
 getNewestAlbums();
 getRecentAlbums();
+
+useHead({
+  title: 'Discover',
+});
 </script>
 
 <template>

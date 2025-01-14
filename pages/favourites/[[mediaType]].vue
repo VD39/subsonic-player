@@ -23,6 +23,11 @@ function playTrack(index: number) {
 }
 
 getFavourites();
+
+useHead({
+  title: () =>
+    [route.params.mediaType || '', 'Favourites'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>

@@ -7,6 +7,7 @@ import LinkOrText from './LinkOrText.vue';
 function factory(props = {}) {
   return mount(LinkOrText, {
     props: {
+      is: 'nuxt-link',
       isLink: true,
       text: 'text',
       to: 'to',
@@ -65,12 +66,6 @@ describe('LinkOrText', () => {
     });
 
     describe('when is prop is nuxt-link', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          is: 'nuxt-link',
-        });
-      });
-
       it('sets the correct link attribute', () => {
         expect(wrapper.findComponent(RouterLinkStub).props('to')).toBeDefined();
         expect(

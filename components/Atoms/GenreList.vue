@@ -11,7 +11,11 @@ defineProps<{
       :key="genre.name"
       data-test-id="genre-list-item"
     >
-      <NuxtLink :to="`/genre/albums/${genre.name}`" class="link">
+      <NuxtLink
+        :to="`/genre/albums/${encodeURIComponent(genre.name)}`"
+        class="link"
+        :aria-label="`View all albums with ${genre.name} genre`"
+      >
         {{ genre.name }}
       </NuxtLink>
     </li>

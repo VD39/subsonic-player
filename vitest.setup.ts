@@ -1,6 +1,11 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { config, RouterLinkStub } from '@vue/test-utils';
 
+window.MutationObserver = vi.fn().mockImplementation(() => ({
+  disconnect: vi.fn(),
+  observe: vi.fn(),
+}));
+
 mockNuxtImport('callOnce', () => {
   return <T>(cb: () => T) => {
     cb();

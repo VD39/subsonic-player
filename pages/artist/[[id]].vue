@@ -17,6 +17,10 @@ const { artist, getArtist } = useArtist();
 const { openTrackInformationModal } = useDescription();
 
 getArtist(route.params.id as string);
+
+useHead({
+  title: () => [artist.value?.name || '', 'Artist'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>

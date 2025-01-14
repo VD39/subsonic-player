@@ -36,9 +36,7 @@ defineEmits([
       data-test-id="track"
       class="trackRow trackBorder spaceBetween"
     >
-      <div
-        :class="['trackCell', 'trackPodcastEpisode', 'column', $style.column]"
-      >
+      <div class="trackCell trackPodcastEpisode column">
         <div>
           <DownloadPodcastEpisode
             v-if="!episode.downloaded"
@@ -56,7 +54,7 @@ defineEmits([
           />
 
           <div :class="$style.column">
-            <MarqueeScroll>
+            <MarqueeScroll inert>
               <h4 class="strong mBM">
                 {{ episode.name }}
               </h4>
@@ -100,16 +98,18 @@ defineEmits([
             </ButtonLink>
           </div>
 
-          <ul class="list bulletList">
-            <li>
-              <span class="visually-hidden">Published: </span>
-              {{ episode.publishDate }}
-            </li>
-            <li>
-              <span class="visually-hidden">Duration: </span>
-              <time>{{ episode.duration }}</time>
-            </li>
-          </ul>
+          <MarqueeScroll>
+            <ul class="bulletList">
+              <li>
+                <span class="visually-hidden">Published: </span>
+                {{ episode.publishDate }}
+              </li>
+              <li>
+                <span class="visually-hidden">Duration: </span>
+                <time>{{ episode.duration }}</time>
+              </li>
+            </ul>
+          </MarqueeScroll>
         </div>
       </div>
 
@@ -145,7 +145,7 @@ defineEmits([
           </DropdownItem>
           <DropdownItem
             ref="addToPlaylist"
-            @click="$emit('addToPlaylist', episode)"
+            @click="$emit('addToPlaylist', episode.id)"
           >
             Add to playlist
           </DropdownItem>

@@ -14,7 +14,7 @@ const formInputs = {
 
 const form = createForm(formInputs);
 
-async function submitForm() {
+async function onFormSubmit() {
   validateInputs(form);
 
   if (!form.isValid.value) {
@@ -32,7 +32,7 @@ async function submitForm() {
 </script>
 
 <template>
-  <form novalidate @submit.prevent="submitForm">
+  <form novalidate @submit.prevent="onFormSubmit">
     <div class="centerItems">
       <InputField
         :id="form.fields.query.id"

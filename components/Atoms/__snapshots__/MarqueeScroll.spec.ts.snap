@@ -1,9 +1,73 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MarqueeScroll > matches the snapshot 1`] = `
-"<div class="marqueeScroll">
+"<div class="marqueeScroll" style="--animation-duration: 0ms;">
   <div class="bulletList inner">
     <div class="content">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when events are triggered on wrapper > when the mouseout is triggered on wrapper > matches the snapshot 1`] = `
+"<div style="--animation-duration: 6000ms;" class="marqueeScroll animating">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when events are triggered on wrapper > when the mouseover is triggered on wrapper > matches the snapshot 1`] = `
+"<div style="--animation-duration: 6000ms;" class="marqueeScroll animating">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item" inert="">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item" inert="">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when events are triggered on wrapper > when the touchend is triggered on wrapper > matches the snapshot 1`] = `
+"<div style="--animation-duration: 6000ms;" class="marqueeScroll animating">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`MarqueeScroll > when events are triggered on wrapper > when the touchstart is triggered on wrapper > matches the snapshot 1`] = `
+"<div style="--animation-duration: 6000ms;" class="marqueeScroll animating">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item" inert="">
+      <div>Sample text.</div>
+    </div>
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
   </div>
@@ -11,12 +75,12 @@ exports[`MarqueeScroll > matches the snapshot 1`] = `
 `;
 
 exports[`MarqueeScroll > when marqueeContent element clientWidth is equal to the marqueeScroll element clientWidth > matches the snapshot 1`] = `
-"<div class="marqueeScroll animating">
+"<div style="--animation-duration: 6000ms;" class="marqueeScroll animating">
   <div class="bulletList inner">
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content" aria-hidden="true" data-test-id="cloned-item">
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
   </div>
@@ -24,15 +88,15 @@ exports[`MarqueeScroll > when marqueeContent element clientWidth is equal to the
 `;
 
 exports[`MarqueeScroll > when marqueeContent element clientWidth is greater than the marqueeScroll element clientWidth > matches the snapshot 1`] = `
-"<div class="marqueeScroll animating">
+"<div style="--animation-duration: 6000ms;" class="marqueeScroll animating">
   <div class="bulletList inner">
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content" aria-hidden="true" data-test-id="cloned-item">
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
-    <div class="content" aria-hidden="true" data-test-id="cloned-item">
+    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
   </div>
@@ -40,7 +104,7 @@ exports[`MarqueeScroll > when marqueeContent element clientWidth is greater than
 `;
 
 exports[`MarqueeScroll > when marqueeContent element clientWidth is less than the marqueeScroll element clientWidth > matches the snapshot 1`] = `
-"<div class="marqueeScroll">
+"<div class="marqueeScroll" style="--animation-duration: 6000ms;">
   <div class="bulletList inner">
     <div class="content">
       <div>Sample text.</div>

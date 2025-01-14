@@ -19,7 +19,7 @@ withDefaults(
 
 const emit = defineEmits(['update:modelValue']);
 
-function updateModel(event: Event) {
+function onInputInput(event: Event) {
   emit('update:modelValue', (event.target as HTMLInputElement).value);
 }
 </script>
@@ -60,7 +60,7 @@ function updateModel(event: Event) {
       :required="required"
       :placeholder="placeholder"
       :class="$style.input"
-      @input="updateModel"
+      @input="onInputInput"
     />
 
     <p v-if="error" ref="error" class="smallFont sentenceCase">

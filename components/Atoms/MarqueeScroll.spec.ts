@@ -7,6 +7,16 @@ import MarqueeScroll from './MarqueeScroll.vue';
 const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
 const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
 
+const disconnectMock = vi.fn();
+
+const windowMutationObserverSpy = vi
+  .spyOn(window, 'MutationObserver')
+  .mockImplementation(() => ({
+    disconnect: disconnectMock,
+    observe: vi.fn(),
+    takeRecords: vi.fn(),
+  }));
+
 function factory(slots = {}) {
   return mount(MarqueeScroll, {
     slots: {
@@ -32,6 +42,10 @@ describe('MarqueeScroll', () => {
       'resize',
       expect.any(Function),
     );
+  });
+
+  it('adds the MutationObserver function', () => {
+    expect(windowMutationObserverSpy).toHaveBeenCalled();
   });
 
   describe.each([
@@ -68,6 +82,87 @@ describe('MarqueeScroll', () => {
     },
   );
 
+  describe('when events are triggered on wrapper', () => {
+    beforeEach(() => {
+      const marqueeScroll = wrapper.find({ ref: 'marqueeScrollRef' });
+      const marqueeContent = wrapper.find({ ref: 'marqueeContentRef' });
+
+      Object.defineProperty(marqueeScroll.element, 'clientWidth', {
+        value: 200,
+      });
+
+      Object.defineProperty(marqueeContent.element, 'clientWidth', {
+        value: 201,
+      });
+
+      global.dispatchEvent(new CustomEvent('resize'));
+    });
+
+    describe('when the mouseover is triggered on wrapper', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'marqueeScrollRef' }).trigger('mouseover');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the inert attribute', () => {
+        expect(
+          wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
+        ).toBeDefined();
+      });
+    });
+
+    describe('when the touchstart is triggered on wrapper', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'marqueeScrollRef' }).trigger('touchstart');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the inert attribute', () => {
+        expect(
+          wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
+        ).toBeDefined();
+      });
+    });
+
+    describe('when the mouseout is triggered on wrapper', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'marqueeScrollRef' }).trigger('mouseout');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('removes the inert attribute', () => {
+        expect(
+          wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
+        ).not.toBeDefined();
+      });
+    });
+
+    describe('when the touchend is triggered on wrapper', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'marqueeScrollRef' }).trigger('touchend');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('removes the inert attribute', () => {
+        expect(
+          wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
+        ).not.toBeDefined();
+      });
+    });
+  });
+
   describe('when component unmounts', () => {
     beforeEach(() => {
       wrapper.unmount();
@@ -78,6 +173,10 @@ describe('MarqueeScroll', () => {
         'resize',
         expect.any(Function),
       );
+    });
+
+    it('disconnects the MutationObserver function', () => {
+      expect(disconnectMock).toHaveBeenCalled();
     });
   });
 });

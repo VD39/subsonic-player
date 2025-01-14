@@ -26,10 +26,11 @@ export function useAlbum() {
     return albumsData || [];
   }
 
-  async function getAlbum(id: string) {
+  async function getAlbum(id: string, noLoading = false) {
     const { data: albumData } = await fetchData('/getAlbum', {
       params: {
         id,
+        noLoading,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         formatAlbum(response.album),

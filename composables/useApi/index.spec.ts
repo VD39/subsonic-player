@@ -4,14 +4,11 @@ import { useAPI } from './index';
 
 vi.unmock('./index');
 
-const { useFetchMock } = vi.hoisted(() => ({
-  useFetchMock: vi.fn(() => ({
-    data: ref<unknown>(null),
-    error: ref<Error | null>(null),
-  })),
-}));
+const $apiMock = vi.fn();
 
-mockNuxtImport('useFetch', () => useFetchMock);
+mockNuxtImport('useNuxtApp', () => () => ({
+  $api: $apiMock,
+}));
 
 const addErrorSnackMock = vi.fn();
 
@@ -35,10 +32,20 @@ describe('useAPI', () => {
   });
 
   describe('getImageUrl', () => {
-    it('returns the correct value', () => {
-      expect(getImageUrl('id')).toBe(
-        'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=500',
-      );
+    describe('when size is not set', () => {
+      it('returns the correct value', () => {
+        expect(getImageUrl('id')).toBe(
+          'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=500',
+        );
+      });
+    });
+
+    describe('when size is set', () => {
+      it('returns the correct value', () => {
+        expect(getImageUrl('id', '250')).toBe(
+          'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=250',
+        );
+      });
     });
   });
 
@@ -77,12 +84,11 @@ describe('useAPI', () => {
       });
 
       it('sets the correct baseUrl', () => {
-        expect(useFetchMock).toHaveBeenCalledWith(
+        expect($apiMock).toHaveBeenCalledWith(
           '/path',
           expect.objectContaining({
             baseURL: 'https://www.server.com/rest',
           }),
-          expect.any(String),
         );
       });
     });
@@ -95,81 +101,106 @@ describe('useAPI', () => {
       });
 
       it('sets the correct baseUrl', () => {
-        expect(useFetchMock).toHaveBeenCalledWith(
+        expect($apiMock).toHaveBeenCalledWith(
           '/path',
           expect.objectContaining({
             baseURL: 'https://www.baseUrl.com',
           }),
-          expect.any(String),
         );
       });
     });
 
-    describe('when fetchData response is successful', () => {
-      describe('when response returns null', () => {
+    describe('when api response is successful', () => {
+      describe('when api response returns null', () => {
         beforeEach(async () => {
-          useFetchMock.mockResolvedValue({
-            data: ref(null),
-            error: ref(null),
-          });
-
+          $apiMock.mockResolvedValue(null);
           result = await fetchData('/path');
         });
 
         it('calls the addErrorSnack function', () => {
-          expect(addErrorSnackMock).toHaveBeenCalled();
+          expect(addErrorSnackMock).toHaveBeenCalledWith(DEFAULT_ERROR_MESSAGE);
         });
 
         it('returns the correct response', () => {
           expect(result).toEqual({
             data: null,
-            error: null,
+            error: Error(DEFAULT_ERROR_MESSAGE),
           });
         });
       });
 
-      describe('when response returns a value', () => {
-        describe('when response returns a non array value', () => {
-          beforeEach(async () => {
-            useFetchMock.mockResolvedValue({
-              data: ref({}),
-              error: ref(null),
-            });
+      describe('when api response returns a value', () => {
+        beforeEach(async () => {
+          $apiMock.mockResolvedValue({});
+          result = await fetchData('/path');
+        });
 
-            result = await fetchData('/path');
+        it('does not call the addErrorSnack function', () => {
+          expect(addErrorSnackMock).not.toHaveBeenCalled();
+        });
+
+        it('returns the correct response', () => {
+          expect(result).toEqual({
+            data: {},
+            error: null,
           });
+        });
 
-          it('does not call the addErrorSnack function', () => {
-            expect(addErrorSnackMock).not.toHaveBeenCalled();
+        describe('when transform is set', () => {
+          beforeEach(async () => {
+            result = await fetchData('/path', {
+              transform: () => 'I will return instead of response',
+            });
           });
 
           it('returns the correct response', () => {
             expect(result).toEqual({
-              data: {},
+              data: 'I will return instead of response',
               error: null,
             });
           });
         });
       });
 
-      describe('when fetchData response is not successful', () => {
-        beforeEach(async () => {
-          useFetchMock.mockResolvedValue({
-            data: ref(null),
-            error: ref(new Error('Error message.')),
+      describe('when api response is not successful', () => {
+        describe('when api response is rejected value', () => {
+          beforeEach(async () => {
+            $apiMock.mockRejectedValue('Error message.');
+            result = await fetchData('/path');
           });
 
-          result = await fetchData('/path');
+          it('calls the addErrorSnack function', () => {
+            expect(addErrorSnackMock).toHaveBeenCalledWith('Error message.');
+          });
+
+          it('returns the correct response', () => {
+            expect(result).toEqual({
+              data: null,
+              error: new Error('Error message.'),
+            });
+          });
         });
 
-        it('calls the addErrorSnack function', () => {
-          expect(addErrorSnackMock).toHaveBeenCalledWith('Error message.');
-        });
+        describe('when api response throws an error', () => {
+          beforeEach(async () => {
+            $apiMock.mockImplementation(() => {
+              throw new Error('new Error message.');
+            });
 
-        it('returns the correct response', () => {
-          expect(result).toEqual({
-            data: null,
-            error: expect.any(Error),
+            result = await fetchData('/path');
+          });
+
+          it('calls the addErrorSnack function', () => {
+            expect(addErrorSnackMock).toHaveBeenCalledWith(
+              'new Error message.',
+            );
+          });
+
+          it('returns the correct response', () => {
+            expect(result).toEqual({
+              data: null,
+              error: new Error('new Error message.'),
+            });
           });
         });
       });

@@ -1,5 +1,5 @@
 export function useAudioPlayer() {
-  const { getStreamUrl } = useAPI();
+  const { getImageUrl, getStreamUrl } = useAPI();
   const { resetQueueState } = useQueue();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
@@ -68,10 +68,128 @@ export function useAudioPlayer() {
     return currentTrack.value.id === id;
   }
 
+  // Media meta data for browsers.
+  function setPlaybackState(state: MediaSession['playbackState']) {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.playbackState = state;
+    }
+  }
+
+  function setMediaMetadata() {
+    if ('mediaSession' in navigator && currentTrack.value) {
+      let mediaData = {};
+
+      if (isTrack.value) {
+        mediaData = {
+          album: (currentTrack.value as Track).album,
+          artist: (currentTrack.value as Track).artists
+            .map((artist) => artist.name)
+            .join(', '),
+        };
+      }
+
+      if (isPodcastEpisode.value) {
+        mediaData = {
+          album: (currentTrack.value as PodcastEpisode).podcastName,
+        };
+      }
+
+      navigator.mediaSession.metadata = new MediaMetadata({
+        artwork: ['96', '128', '192', '256', '384', '512'].map((size) => ({
+          sizes: `${size}x${size}`,
+          src: getImageUrl(currentTrack.value.image, size),
+          type: 'image/jpeg',
+        })),
+        title: currentTrack.value.name,
+        ...mediaData,
+      });
+
+      /* istanbul ignore next -- @preserve */
+      async function handleMediaSessionActionDetails(
+        details: Parameters<
+          NonNullable<Parameters<MediaSession['setActionHandler']>['1']>
+        >['0'],
+      ) {
+        switch (details.action) {
+          case MEDIA_SESSION_ACTION_DETAILS.nextTrack:
+            await playNextTrack();
+            break;
+          case MEDIA_SESSION_ACTION_DETAILS.pause:
+            pauseTrack();
+            break;
+          case MEDIA_SESSION_ACTION_DETAILS.play:
+            await playTrack();
+            break;
+          case MEDIA_SESSION_ACTION_DETAILS.previousTrack:
+            await playPreviousTrack();
+            break;
+          case MEDIA_SESSION_ACTION_DETAILS.seekBackward:
+            rewindTrack();
+            break;
+          case MEDIA_SESSION_ACTION_DETAILS.seekForward:
+            fastForwardTrack();
+            break;
+          case MEDIA_SESSION_ACTION_DETAILS.seekTo:
+            setCurrentTime(details.seekTime!);
+            break;
+        }
+      }
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.pause,
+        handleMediaSessionActionDetails,
+      );
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.play,
+        handleMediaSessionActionDetails,
+      );
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.seekTo,
+        handleMediaSessionActionDetails,
+      );
+
+      const nextTrackHandler = hasNextTrack.value
+        ? handleMediaSessionActionDetails
+        : null;
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.nextTrack,
+        nextTrackHandler,
+      );
+
+      const previousTrackHandler = hasPreviousTrack.value
+        ? handleMediaSessionActionDetails
+        : null;
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.previousTrack,
+        previousTrackHandler,
+      );
+
+      const podcastEpisodeHandler = isPodcastEpisode.value
+        ? handleMediaSessionActionDetails
+        : null;
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.seekBackward,
+        podcastEpisodeHandler,
+      );
+
+      navigator.mediaSession.setActionHandler(
+        MEDIA_SESSION_ACTION_DETAILS.seekForward,
+        podcastEpisodeHandler,
+      );
+    }
+  }
+
   // Play/Pause actions.
   async function playTrack() {
     await audioPlayer.value?.play();
     trackIsPlaying.value = true;
+
+    setPlaybackState('playing');
   }
 
   function pauseTrack() {
@@ -81,6 +199,8 @@ export function useAudioPlayer() {
     } else {
       audioPlayer.value?.pause();
     }
+
+    setPlaybackState('paused');
   }
 
   async function togglePlay() {
@@ -94,6 +214,9 @@ export function useAudioPlayer() {
   async function changeTrack(track: QueueTrack) {
     const url = getStreamUrl(track.streamUrlId!);
     audioPlayer.value?.load(url);
+
+    setMediaMetadata();
+
     await playTrack();
   }
 
@@ -120,6 +243,7 @@ export function useAudioPlayer() {
       : currentQueueIndex.value + 1;
 
     const track = queueList.value[currentQueueIndex.value];
+
     await changeTrack(track);
   }
 
@@ -313,7 +437,8 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onCanPlay(() => {
-      trackIsBuffering.value = true;
+      trackIsPlaying.value = true;
+      trackIsBuffering.value = false;
     });
 
     audioPlayer.value.onLoadedMetadata((newDuration: number) => {
@@ -325,7 +450,8 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onWaiting(() => {
-      trackIsBuffering.value = false;
+      trackIsPlaying.value = false;
+      trackIsBuffering.value = true;
     });
 
     audioPlayer.value.onEnded(async () => {

@@ -1,8 +1,27 @@
 <script setup lang="ts">
+const MULTIPLICATION_TIME = 30;
+
 const cloneLength = ref(0);
+const disableClonedContent = ref(false);
 
 const marqueeScrollRef = ref<HTMLElement | null>(null);
 const marqueeContentRef = ref<HTMLElement | null>(null);
+const mutationObserver = ref<MutationObserver | null>(null);
+
+function setAnimationDuration() {
+  if (!marqueeContentRef.value || !marqueeScrollRef.value) {
+    return;
+  }
+
+  const distance =
+    marqueeContentRef.value.offsetWidth + marqueeScrollRef.value.clientWidth;
+  const duration = distance * MULTIPLICATION_TIME;
+
+  marqueeScrollRef.value.style.setProperty(
+    '--animation-duration',
+    `${duration}ms`,
+  );
+}
 
 function getCloneData() {
   if (!marqueeContentRef.value || !marqueeScrollRef.value) {
@@ -18,16 +37,38 @@ function getCloneData() {
     ) || 0;
 
   cloneLength.value = isOverflowing ? clonedLength : 0;
+  setAnimationDuration();
+}
+
+function onMouseOver() {
+  disableClonedContent.value = true;
+}
+
+function onMouseOut() {
+  disableClonedContent.value = false;
 }
 
 onMounted(() => {
+  if (!marqueeContentRef.value) {
+    return;
+  }
+
   getCloneData();
 
   window.addEventListener('resize', getCloneData);
+
+  // To watch slot data when it changes.
+  mutationObserver.value = new MutationObserver(getCloneData);
+
+  mutationObserver.value.observe(marqueeContentRef.value, {
+    childList: true,
+    subtree: true,
+  });
 });
 
 onUnmounted(() => {
   window.removeEventListener('resize', getCloneData);
+  mutationObserver.value?.disconnect();
 });
 </script>
 
@@ -40,6 +81,11 @@ onUnmounted(() => {
         [$style.animating]: cloneLength,
       },
     ]"
+    @mousedown.prevent
+    @mouseover="onMouseOver"
+    @touchstart="onMouseOver"
+    @mouseout="onMouseOut"
+    @touchend="onMouseOut"
   >
     <div :class="['bulletList', $style.inner]">
       <div ref="marqueeContentRef" :class="$style.content">
@@ -49,8 +95,9 @@ onUnmounted(() => {
       <div
         v-for="length in cloneLength"
         :key="length"
-        :class="$style.content"
+        :class="[$style.content, $style.clonedContent]"
         aria-hidden="true"
+        :inert="disableClonedContent"
         data-test-id="cloned-item"
       >
         <slot />
@@ -81,6 +128,14 @@ onUnmounted(() => {
     &:hover {
       --animation-play-state: paused;
     }
+
+    &:not(:focus):focus-within {
+      mask: none;
+
+      .content {
+        animation: none;
+      }
+    }
   }
 }
 
@@ -94,7 +149,7 @@ onUnmounted(() => {
   flex: 0 0 auto;
 
   .animating & {
-    animation: marquee 20s linear infinite forwards;
+    animation: marquee var(--animation-duration) linear infinite forwards;
     animation-play-state: var(--animation-play-state);
   }
 }

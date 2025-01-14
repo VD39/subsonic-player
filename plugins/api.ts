@@ -20,8 +20,7 @@ export default defineNuxtPlugin(() => {
         loading.value = false;
 
         throw new Error(
-          subsonicResponse?.error?.message ||
-            'Sorry, something went wrong. Please try again.',
+          subsonicResponse?.error?.message || DEFAULT_ERROR_MESSAGE,
         );
       }
 

@@ -11,7 +11,7 @@ export default defineNuxtConfig({
           name: 'viewport',
         },
       ],
-      title: process.env.MAIN_APP_TITLE || 'Music App',
+      titleTemplate: `%s - ${process.env.MAIN_APP_TITLE || 'Music App'}`,
     },
   },
   builder: 'vite',

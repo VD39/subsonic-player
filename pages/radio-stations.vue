@@ -21,6 +21,10 @@ function playRadioStation(station: RadioStation) {
 if (!radioStations.value.length) {
   getRadioStations();
 }
+
+useHead({
+  title: 'Radio Stations',
+});
 </script>
 
 <template>

@@ -27,6 +27,10 @@ function playTrack(index: number) {
 }
 
 getAlbum(route.params.id as string);
+
+useHead({
+  title: () => [album.value?.name || '', 'Album'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>

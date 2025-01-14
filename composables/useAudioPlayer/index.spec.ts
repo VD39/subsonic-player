@@ -8,6 +8,17 @@ const queueTracks = getFormattedQueueTracksMock(3);
 const queueTracksMore = getFormattedQueueTracksMock(15);
 const queueTrack = queueTracks[0];
 
+Object.defineProperty(window.navigator, 'mediaSession', {
+  configurable: true,
+  value: {
+    playbackState: '',
+    setActionHandler: vi.fn(),
+  },
+  writable: true,
+});
+
+window.MediaMetadata = vi.fn();
+
 type CB = (...args: unknown[]) => void;
 
 let onBufferedCb: CB;
@@ -571,6 +582,7 @@ describe('useAudioPlayer', () => {
 
   describe('when playCurrentTrack function is called', () => {
     beforeAll(() => {
+      result.composable.queueList.value = queueTracks;
       result.composable.playCurrentTrack(queueTrack);
     });
 
@@ -585,6 +597,84 @@ describe('useAudioPlayer', () => {
     it('calls the audio play function', () => {
       expect(playMock).toHaveBeenCalled();
     });
+
+    describe('when mediaSession is in navigator', () => {
+      describe('when track type is a track', () => {
+        it('calls the MediaMetadata function', () => {
+          expect(window.MediaMetadata).toHaveBeenCalledWith({
+            album: 'album',
+            artist: 'name, name1',
+            artwork: expect.any(Array),
+            title: 'queue-track-0-name',
+          });
+        });
+      });
+
+      describe('when track type is a radio station', () => {
+        beforeAll(() => {
+          const queue = getFormattedQueueTracksMock(1, {
+            type: MEDIA_TYPE.radioStation,
+          });
+
+          vi.clearAllMocks();
+          result.composable.queueList.value = queue;
+          result.composable.playCurrentTrack(queue[0]);
+        });
+
+        it('calls the MediaMetadata function', () => {
+          expect(window.MediaMetadata).toHaveBeenCalledWith({
+            artwork: expect.any(Array),
+            title: 'queue-radioStation-0-name',
+          });
+        });
+      });
+
+      describe('when track type is a podcast episode', () => {
+        beforeAll(() => {
+          const queue = getFormattedQueueTracksMock(1, {
+            podcastName: 'podcastName',
+            type: MEDIA_TYPE.podcastEpisode,
+          });
+
+          vi.clearAllMocks();
+          result.composable.queueList.value = queue;
+          result.composable.playCurrentTrack(queue[0]);
+        });
+
+        it('calls the MediaMetadata function', () => {
+          expect(window.MediaMetadata).toHaveBeenCalledWith({
+            album: 'podcastName',
+            artwork: expect.any(Array),
+            title: 'queue-podcastEpisode-0-name',
+          });
+        });
+      });
+    });
+
+    describe('when mediaSession is not in navigator', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        Object.defineProperty(window, 'navigator', {
+          value: {},
+        });
+        result.composable.playCurrentTrack(queueTrack);
+      });
+
+      afterAll(() => {
+        Object.defineProperty(window.navigator, 'mediaSession', {
+          configurable: true,
+          value: {
+            playbackState: '',
+            setActionHandler: vi.fn(),
+          },
+          writable: true,
+        });
+      });
+
+      it('does not call the MediaMetadata function', () => {
+        expect(window.MediaMetadata).not.toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when togglePlay function is called', () => {
@@ -596,7 +686,7 @@ describe('useAudioPlayer', () => {
       expect(result.composable.trackIsPlaying.value).toBe(false);
     });
 
-    describe('when track is not a radioStation', () => {
+    describe('when track is not a radio station', () => {
       it('calls the audio pause function', () => {
         expect(pauseMock).toHaveBeenCalled();
       });
@@ -604,9 +694,15 @@ describe('useAudioPlayer', () => {
       it('does not call the audio stop function', () => {
         expect(stopMock).not.toHaveBeenCalled();
       });
+
+      describe('when mediaSession is in navigator', () => {
+        it('sets the correct playbackState state', () => {
+          expect(navigator.mediaSession.playbackState).toBe('paused');
+        });
+      });
     });
 
-    describe('when track is radioStation', () => {
+    describe('when track is radio station', () => {
       beforeAll(async () => {
         vi.clearAllMocks();
         await result.composable.playTracks([
@@ -639,6 +735,12 @@ describe('useAudioPlayer', () => {
 
       it('sets the the trackIsPlaying value', () => {
         expect(result.composable.trackIsPlaying.value).toBe(true);
+      });
+
+      describe('when mediaSession is in navigator', () => {
+        it('sets the correct playbackState state', () => {
+          expect(navigator.mediaSession.playbackState).toBe('playing');
+        });
       });
     });
   });
@@ -788,7 +890,7 @@ describe('useAudioPlayer', () => {
   describe('when isCurrentTrack function is called', () => {
     describe('when current track id is the same as the id', () => {
       it('returns the correct value', () => {
-        expect(result.composable.isCurrentTrack('queue-track-1')).toBe(true);
+        expect(result.composable.isCurrentTrack(queueTracks[1].id)).toBe(true);
       });
     });
 
@@ -816,7 +918,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('sets the correct trackIsBuffering value', () => {
-        expect(result.composable.trackIsBuffering.value).toBe(false);
+        expect(result.composable.trackIsBuffering.value).toBe(true);
       });
     });
 
@@ -826,7 +928,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('sets the correct trackIsBuffering value', () => {
-        expect(result.composable.trackIsBuffering.value).toBe(true);
+        expect(result.composable.trackIsBuffering.value).toBe(false);
       });
     });
 

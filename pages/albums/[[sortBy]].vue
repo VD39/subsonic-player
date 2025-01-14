@@ -10,10 +10,10 @@ definePageMeta({
 
 const route = useRoute();
 const { getAlbums } = useAlbum();
-const { fetchMoreData, items } = useInfinityLoading<Album>();
+const { fetchMoreData, hasMore, items, loading } = useInfinityLoading<Album>();
 
-function fetchData() {
-  fetchMoreData(
+async function fetchData() {
+  await fetchMoreData(
     async (offset: number) =>
       await getAlbums({
         offset,
@@ -21,6 +21,11 @@ function fetchData() {
       }),
   );
 }
+
+useHead({
+  title: () =>
+    [route.params.sortBy || '', 'Albums'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>
@@ -31,6 +36,10 @@ function fetchData() {
   <LoadingData>
     <AlbumsList :albums="items" />
 
-    <InfiniteScroller @load-more="fetchData" />
+    <InfiniteScroller
+      :has-more="hasMore"
+      :loading="loading"
+      @load-more="fetchData"
+    />
   </LoadingData>
 </template>

@@ -1,6 +1,5 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
@@ -85,14 +84,18 @@ describe('TrackWithPreviewList', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+      it('does not show the MarqueeScroll component containing the artists details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+        ).toBe(false);
       });
     });
 
     describe('when track.artists is not empty array', () => {
-      it('shows the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+      it('shows the MarqueeScroll component containing the artists details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+        ).toBe(true);
       });
     });
 

@@ -36,7 +36,6 @@
   width: var(--track-cell-width);
   min-height: 55px;
   padding: var(--track-cell-padding);
-  overflow: hidden;
   text-align: left;
   vertical-align: middle;
 

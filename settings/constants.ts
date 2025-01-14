@@ -2,6 +2,9 @@ import type { MiddlewareKey } from '#build/types/middleware';
 
 export const DEFAULT_VALUE = '--';
 
+export const DEFAULT_ERROR_MESSAGE =
+  'Sorry, something went wrong. Please try again.';
+
 export const COOKIE_NAMES = {
   auth: 'auth-params',
 } as const;
@@ -12,8 +15,6 @@ export const STATE_NAMES = {
   favourites: 'favourites',
   genres: 'genres',
   globalLoading: 'global-loading',
-  infinityHasMore: 'infinity-has-more',
-  infinityLoading: 'infinity-loading',
   latestPodcasts: 'latest-podcasts',
   modal: 'modal',
   playerAudioPlayer: 'player-audio-player',

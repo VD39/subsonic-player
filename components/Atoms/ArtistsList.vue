@@ -11,7 +11,11 @@ defineProps<{
       :key="artist.id"
       data-test-id="artist-list-item"
     >
-      <NuxtLink :to="`/artist/${artist.id}`" class="link">
+      <NuxtLink
+        :to="`/artist/${artist.id}`"
+        class="link"
+        :aria-label="`Go to artist ${artist.name}`"
+      >
         {{ artist.name }}
       </NuxtLink>
     </li>

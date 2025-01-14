@@ -9,7 +9,6 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ['../stories/**/*.stories.ts'],
-
   async viteFinal(config) {
     return mergeConfig(config, {
       resolve: {
@@ -20,4 +19,5 @@ const config: StorybookConfig = {
     });
   },
 };
+
 export default config;

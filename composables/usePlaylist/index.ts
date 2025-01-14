@@ -201,6 +201,10 @@ export function usePlaylist() {
     });
   }
 
+  function resetPlaylist() {
+    playlist.value = null;
+  }
+
   return {
     addPlaylist,
     addPlaylistModal,
@@ -212,6 +216,7 @@ export function usePlaylist() {
     playlist,
     playlists,
     removeFromPlaylist,
+    resetPlaylist,
     updatePlaylist,
     updatePlaylistModal,
   };

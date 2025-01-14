@@ -2,9 +2,9 @@
 
 exports[`ArtistItem > matches the snapshot 1`] = `
 "<article>
-  <figure class="mBS"><a title="Go to name">
-      <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="name" style="display: none;"></div>
+  <figure class="mBS"><a title="Go to artist name">
+      <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to artist name" style="display: none;"></div>
     </a></figure>
-  <p class="mBXS strong smallFont clamp2"><a class="link" title="Go to artist name">name</a></p>
+  <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to artist name">name</a></p>
 </article>"
 `;

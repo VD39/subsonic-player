@@ -2,39 +2,52 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 
+const props = defineProps<{
+  hasMore: boolean;
+  loading: boolean;
+}>();
+
 const emit = defineEmits(['loadMore']);
 
-const { hasMore, loading } = useInfinityLoading();
-
 const containerRef = ref<HTMLElement | null>(null);
+const intersectionObserver = ref<IntersectionObserver | null>(null);
 
-const title = computed(() => (loading.value ? 'Loading data' : 'Load more'));
+const buttonProps = computed<ButtonProps>(() => ({
+  icon: props.loading ? SpinningLoader : undefined,
+  text: props.loading ? 'Loading data' : 'Load more',
+}));
 
 function loadMore() {
   emit('loadMore');
 }
-
-function onScroll() {
-  if (
-    !loading.value &&
-    containerRef.value!.getBoundingClientRect().bottom < window.innerHeight
-  ) {
-    loadMore();
-  }
-}
-
-loadMore();
 
 onMounted(() => {
   if (!containerRef.value) {
     return;
   }
 
-  window.addEventListener('scroll', onScroll);
+  intersectionObserver.value = new IntersectionObserver(
+    ([entry]) => {
+      if (entry && entry.isIntersecting) {
+        if (props.hasMore && !props.loading) {
+          loadMore();
+        } else {
+          intersectionObserver.value?.disconnect();
+        }
+      }
+    },
+    {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1,
+    },
+  );
+
+  intersectionObserver.value.observe(containerRef.value);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll);
+  intersectionObserver.value?.disconnect();
 });
 </script>
 
@@ -43,14 +56,13 @@ onUnmounted(() => {
     <ButtonLink
       v-if="hasMore"
       :class="['centerAll', $style.buttonLink]"
-      :title="title"
+      :title="buttonProps.text"
       :disabled="loading"
-      show-text
+      :icon="buttonProps.icon"
+      :show-text="!loading"
       @click="loadMore"
     >
-      <SpinningLoader v-if="loading" />
-
-      <span v-else ref="loadMore">Load more</span>
+      {{ buttonProps.text }}
     </ButtonLink>
 
     <p v-else ref="message" :class="['centerAll', $style.message]">

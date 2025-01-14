@@ -14,16 +14,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
     <div class="trackCell trackOptions"></div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -41,10 +41,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -78,16 +84,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -105,10 +111,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -120,16 +132,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -147,10 +159,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -162,16 +180,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -189,10 +207,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -204,16 +228,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -231,10 +255,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -255,16 +285,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
     <div class="trackCell trackOptions"></div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -282,10 +312,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -319,16 +355,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -346,10 +382,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -361,16 +403,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -388,10 +430,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -403,16 +451,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -430,10 +478,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -445,16 +499,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
     </div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -472,10 +526,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -496,7 +556,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
     <div class="trackCell trackOptions"></div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" type="button" title="Download episode">
@@ -504,7 +564,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
           </button>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -520,10 +580,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
           </button><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button></div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -563,16 +629,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
     <div class="trackCell trackOptions"></div>
   </div>
   <div data-test-id="track" class="trackRow trackBorder spaceBetween">
-    <div class="trackCell trackPodcastEpisode column column">
+    <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage">
           <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" type="button">
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -589,10 +655,16 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
           </div>
           <!--v-if-->
         </div>
-        <ul class="list bulletList">
-          <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-          <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
-        </ul>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">

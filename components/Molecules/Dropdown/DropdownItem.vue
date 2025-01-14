@@ -25,6 +25,7 @@ defineEmits(['click']);
       show-text
       icon-position="right"
       full-width
+      v-bind="$attrs"
       @click="$emit('click')"
     >
       <slot />

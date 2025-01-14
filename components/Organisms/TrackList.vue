@@ -56,7 +56,7 @@ defineEmits([
       </div>
 
       <div class="trackCell trackSecondary">
-        <MarqueeScroll v-if="track.artists.length">
+        <MarqueeScroll v-if="track.artists.length" ref="artistsMarqueeScroll">
           <ArtistsList :artists="track.artists" />
         </MarqueeScroll>
       </div>

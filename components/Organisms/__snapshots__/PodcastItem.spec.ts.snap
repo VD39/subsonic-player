@@ -2,8 +2,8 @@
 
 exports[`PodcastItem > matches the snapshot 1`] = `
 "<article>
-  <figure><a title="Go to title">
-      <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  <figure><a title="Go to podcast title">
+      <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to podcast title" style="display: none;"></div>
     </a></figure>
 </article>"
 `;

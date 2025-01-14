@@ -122,14 +122,17 @@ export function useModal() {
         break;
     }
 
-    if (modal.value.component) {
+    if (modal.value.component && import.meta.client) {
       addEventListener();
     }
   }
 
   function closeModal() {
     modal.value = DEFAULT_STATE;
-    document.removeEventListener('keydown', onKeydown);
+
+    if (import.meta.client) {
+      document.removeEventListener('keydown', onKeydown);
+    }
   }
 
   return {

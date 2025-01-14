@@ -1,6 +1,5 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import ImageLink from '@/components/Organisms/ImageLink.vue';
 import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
@@ -97,8 +96,10 @@ describe('MusicPlayer', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not show the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+    it('does not show the MarqueeScroll component containing the artists details', () => {
+      expect(
+        wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+      ).toBe(false);
     });
   });
 
@@ -114,8 +115,10 @@ describe('MusicPlayer', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+      it('does not show the MarqueeScroll component containing the artists details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+        ).toBe(false);
       });
     });
 
@@ -124,8 +127,10 @@ describe('MusicPlayer', () => {
         currentTrackMock.value = getFormattedQueueTracksMock()[0];
       });
 
-      it('shows the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+      it('shows the MarqueeScroll component containing the artists details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+        ).toBe(true);
       });
     });
   });

@@ -3,7 +3,10 @@
 .commaList {
   display: flex;
   flex-wrap: wrap;
+}
 
+.bulletList,
+.commaList {
   > * {
     display: inline;
 

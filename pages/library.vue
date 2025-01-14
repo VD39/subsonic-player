@@ -16,6 +16,10 @@ getRandomAlbums();
 getArtists();
 getGenres();
 getPlaylists();
+
+useHead({
+  title: 'Library',
+});
 </script>
 
 <template>

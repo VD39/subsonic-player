@@ -20,6 +20,7 @@ const {
   getPlaylistTracksById,
   playlist,
   removeFromPlaylist,
+  resetPlaylist,
   updatePlaylistModal,
 } = usePlaylist();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
@@ -39,6 +40,15 @@ function removeTrackFromPlaylist(songIndexToRemove: string) {
 const hasTracks = computed(() => !playlist.value?.tracks.length);
 
 getPlaylistTracksById(route.params.id as string);
+
+onBeforeUnmount(() => {
+  resetPlaylist();
+});
+
+useHead({
+  title: () =>
+    [playlist.value?.name || '', 'Playlist'].filter(Boolean).join(' - '),
+});
 </script>
 
 <template>

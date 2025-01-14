@@ -10,7 +10,7 @@ exports[`PlaylistsList > matches the snapshot 1`] = `
 exports[`PlaylistsList > when playlists prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 1; --loop-rows-tablet: 2; --loop-rows-desktop: 2;">
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to Go to playlist playlist-0">
+    <figure class="imageLink"><a title="Go to playlist playlist-0">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -19,7 +19,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-0" class="link">playlist-0</a></p>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-0" class="link globalLink">playlist-0</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
@@ -42,7 +42,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to Go to playlist playlist-1">
+    <figure class="imageLink"><a title="Go to playlist playlist-1">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -51,7 +51,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-1" class="link">playlist-1</a></p>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-1" class="link globalLink">playlist-1</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
@@ -65,7 +65,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to Go to playlist playlist-2">
+    <figure class="imageLink"><a title="Go to playlist playlist-2">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -74,7 +74,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-2" class="link">playlist-2</a></p>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-2" class="link globalLink">playlist-2</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
@@ -88,7 +88,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to Go to playlist playlist-3">
+    <figure class="imageLink"><a title="Go to playlist playlist-3">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -97,7 +97,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-3" class="link">playlist-3</a></p>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-3" class="link globalLink">playlist-3</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
@@ -111,7 +111,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to Go to playlist playlist-4">
+    <figure class="imageLink"><a title="Go to playlist playlist-4">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -120,7 +120,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <p class="mBS"><a title="Go to playlist playlist-4" class="link">playlist-4</a></p>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-4" class="link globalLink">playlist-4</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>

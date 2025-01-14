@@ -29,15 +29,15 @@ defineEmits(['deletePlaylist', 'editPlaylist']);
 
       <div class="spaceBetween">
         <div>
-          <p class="mBS">
+          <h4 class="mBS">
             <NuxtLink
               :to="`/playlist/${playlist.id}`"
-              :title="`Go to playlist ${playlist.name}`"
-              class="link"
+              :aria-label="`Go to playlist ${playlist.name}`"
+              class="link globalLink"
             >
               {{ playlist.name }}
             </NuxtLink>
-          </p>
+          </h4>
 
           <ul class="bulletList smallFont">
             <li>{{ playlist.trackCount }} tracks</li>

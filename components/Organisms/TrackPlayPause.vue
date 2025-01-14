@@ -35,32 +35,39 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
       {{ trackNumber }}
     </p>
 
-    <div
-      ref="playPauseWrapper"
-      :class="[
-        'overlap',
-        $style.playPauseWrapper,
-        {
-          [$style.buffering]: trackIsBuffering,
-          [$style.playing]: trackIsPlaying,
-        },
-      ]"
-    >
-      <template v-if="isCurrentTrack(trackId)">
-        <PlayingLoader :class="$style.playingLoader">
+    <div :class="['overlap', $style.playPauseWrapper]">
+      <div
+        v-if="isCurrentTrack(trackId)"
+        ref="playPauseWrapper"
+        :class="[
+          'centerAll',
+          $style.playPauseInner,
+          {
+            [$style.buffering]: trackIsBuffering,
+            [$style.paused]: !trackIsPlaying,
+            [$style.playing]: trackIsPlaying,
+          },
+        ]"
+      >
+        <PlayingLoader :class="$style.playingLoader" :playing="trackIsPlaying">
           Playing current track {{ currentTrack.name }}
         </PlayingLoader>
 
         <PlayPauseButton
           :class="['centerAll', 'themeHoverButton', $style.playPauseButton]"
         />
-      </template>
+      </div>
 
       <ButtonLink
         v-else
         ref="play"
         :icon="ICONS.play"
-        :class="['centerAll', 'themeHoverButton', $style.buttonLink]"
+        :class="[
+          'centerAll',
+          'themeHoverButton',
+          'globalLink',
+          $style.buttonLink,
+        ]"
         @click="$emit('playTrack')"
       >
         Play track
@@ -92,7 +99,9 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
   --track-number-visibility: visible;
   --track-number-opacity: 1;
   --track-number-transform: unset;
+  --track-number-display: flex;
 
+  display: var(--track-number-display);
   visibility: var(--track-number-visibility);
   opacity: var(--track-number-opacity);
   transform: var(--track-number-transform);
@@ -108,12 +117,18 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
   transform: var(--play-pause-transform);
 }
 
+.playPauseInner {
+  width: var(--track-width-height);
+  height: var(--track-width-height);
+}
+
 .buttonLink,
 .playPauseButton {
   --play-pause-width-height: calc(var(--track-width-height-default) - 15%);
 
   width: var(--play-pause-width-height);
   height: var(--play-pause-width-height);
+  aspect-ratio: 1;
   margin: auto;
   transform: unset;
 
@@ -122,88 +137,123 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
   }
 }
 
-.buttonLink {
-  position: unset;
+.playingLoader {
+  --playing-loader-display: flex;
 
-  &::after {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    cursor: pointer;
-    content: '';
+  display: var(--playing-loader-display);
+}
+
+.playPauseButton {
+  --play-pause-button-display: flex;
+
+  display: var(--play-pause-button-display);
+}
+
+.currentTrack {
+  .trackNumber {
+    --track-number-display: none;
+  }
+
+  &.withImage {
+    .playPauseInner {
+      background-color: color-mix(
+        in oklab,
+        var(--black-color) 65%,
+        transparent
+      );
+    }
   }
 }
 
-:global(.trackRow) {
-  &:hover {
+@media (hover: hover) {
+  :global(.trackRow) {
+    &:hover {
+      .playPauseWrapper {
+        --play-pause-visibility: visible;
+        --play-pause-opacity: 1;
+        --play-pause-transform: unset;
+      }
+
+      .trackNumber {
+        --track-number-visibility: hidden;
+        --track-number-opacity: 0;
+        --track-number-transform: scale(2);
+      }
+    }
+  }
+
+  .currentTrack {
     .playPauseWrapper {
       --play-pause-visibility: visible;
       --play-pause-opacity: 1;
       --play-pause-transform: unset;
     }
 
-    .trackNumber {
-      --track-number-visibility: hidden;
-      --track-number-opacity: 0;
-      --track-number-transform: scale(2);
-    }
-  }
-}
-
-.currentTrack {
-  .trackNumber {
-    display: none;
-  }
-
-  .playPauseWrapper {
-    --play-pause-visibility: visible;
-    --play-pause-opacity: 1;
-    --play-pause-transform: unset;
-  }
-
-  .playingLoader {
-    display: none;
-  }
-
-  &.withImage {
     .playing {
-      height: var(--width-height-100);
-      background-color: color-mix(
-        in oklab,
-        var(--black-color) 75%,
-        transparent
-      );
+      .playingLoader {
+        --playing-loader-display: flex;
+      }
+
+      .playPauseButton {
+        --play-pause-button-display: none;
+      }
+    }
+
+    .buffering,
+    .paused {
+      .playingLoader {
+        --playing-loader-display: none;
+      }
+
+      .playPauseButton {
+        --play-pause-button-display: flex;
+      }
     }
 
     &:hover {
       .playing {
-        background-color: transparent;
-      }
-    }
-  }
-
-  .playing {
-    &.buffering {
-      .playingLoader {
-        display: flex;
-      }
-
-      .playPauseButton {
-        display: none;
-      }
-    }
-  }
-
-  &:hover {
-    .playing {
-      &.buffering {
         .playingLoader {
-          display: none;
+          --playing-loader-display: none;
         }
 
         .playPauseButton {
-          display: flex;
+          --play-pause-button-display: flex;
         }
+      }
+    }
+  }
+}
+
+@media (hover: none) {
+  .playPauseWrapper {
+    --play-pause-visibility: visible;
+    --play-pause-opacity: 0;
+    --play-pause-transform: unset;
+  }
+
+  .currentTrack {
+    .playPauseWrapper {
+      --play-pause-opacity: 1;
+    }
+
+    .playing,
+    .paused {
+      .playingLoader {
+        --playing-loader-display: flex;
+      }
+
+      .playPauseButton {
+        --play-pause-button-display: none;
+      }
+    }
+
+    .buffering {
+      .playingLoader {
+        --playing-loader-display: none;
+      }
+
+      .playPauseButton {
+        --play-pause-button-display: flex;
       }
     }
   }
