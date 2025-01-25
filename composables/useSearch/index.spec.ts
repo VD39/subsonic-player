@@ -12,15 +12,11 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { search, searchResults } = useSearch();
+const { search } = useSearch();
 
 describe('useSearch', () => {
   afterEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('sets the default searchResults value', () => {
-    expect(searchResults.value).toEqual(DEFAULT_ALL_MEDIA);
   });
 
   describe('when the search function is called', () => {
@@ -38,7 +34,6 @@ describe('useSearch', () => {
             albumOffset: 0,
             artistCount: '50',
             artistOffset: 0,
-            noLoading: false,
             query: 'query',
             songCount: '50',
             songOffset: 0,
@@ -49,32 +44,7 @@ describe('useSearch', () => {
     });
 
     describe('when offset is set', () => {
-      describe('when offset is 0', () => {
-        beforeEach(() => {
-          search({
-            offset: 0,
-            query: 'query',
-          } as SearchParams);
-        });
-
-        it('calls the fetchData function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith('/search3', {
-            params: {
-              albumCount: '50',
-              albumOffset: 0,
-              artistCount: '50',
-              artistOffset: 0,
-              noLoading: false,
-              query: 'query',
-              songCount: '50',
-              songOffset: 0,
-            },
-            transform: expect.any(Function),
-          });
-        });
-      });
-
-      describe('when offset is greater than 0', () => {
+      describe('when offset is 1', () => {
         beforeEach(() => {
           search({
             offset: 1,
@@ -89,7 +59,6 @@ describe('useSearch', () => {
               albumOffset: 1,
               artistCount: '50',
               artistOffset: 1,
-              noLoading: true,
               query: 'query',
               songCount: '50',
               songOffset: 1,
@@ -105,12 +74,10 @@ describe('useSearch', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-
-        search({} as SearchParams);
       });
 
-      it('does not add to the searchResults value', () => {
-        expect(searchResults.value).toEqual(DEFAULT_ALL_MEDIA);
+      it('returns the correct response', async () => {
+        expect(await search({} as SearchParams)).toEqual(DEFAULT_ALL_MEDIA);
       });
     });
 
@@ -135,12 +102,10 @@ describe('useSearch', () => {
             ],
           },
         });
-
-        search({} as SearchParams);
       });
 
-      it('adds to the searchResults value', () => {
-        expect(searchResults.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await search({} as SearchParams)).toEqual({
           album: [
             {
               id: 'album',

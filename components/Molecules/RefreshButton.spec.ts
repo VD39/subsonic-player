@@ -2,18 +2,14 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import RefreshButton from './RefreshButton.vue';
 
-const loadingMock = ref(false);
-
-mockNuxtImport('useLoading', () => () => loadingMock);
-
 function factory(props = {}) {
   return mount(RefreshButton, {
     props: {
+      status: 'success',
       ...props,
     },
   });
@@ -34,12 +30,15 @@ describe('RefreshButton', () => {
   let wrapper: VueWrapper;
 
   describe.each([
-    [true, buttonProps.loading],
-    [false, buttonProps.notLoading],
-  ])('when loading is %s', (loading, currentProps) => {
+    ['pending', buttonProps.loading],
+    ['idle', buttonProps.notLoading],
+    ['success', buttonProps.notLoading],
+    ['error', buttonProps.notLoading],
+  ])('when status prop is %s', (status, currentProps) => {
     beforeEach(() => {
-      wrapper = factory();
-      loadingMock.value = loading;
+      wrapper = factory({
+        status,
+      });
     });
 
     it('matches the snapshot', () => {

@@ -14,15 +14,35 @@ definePageMeta({
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { favourites, getFavourites } = useFavourite();
+const { getFavourites } = useFavourite();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
-function playTrack(index: number) {
-  playTracks([favourites.value!.tracks[index]], -1);
-}
+const {
+  data: favouritesData,
+  refresh,
+  status,
+} = useAsyncData(
+  ASYNC_DATA_NAMES.favourites,
+  async () => {
+    const favourites = await getFavourites();
 
-getFavourites();
+    return {
+      favourites,
+    };
+  },
+  {
+    default: () => ({
+      favourites: DEFAULT_ALL_MEDIA,
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
+function playTrack(index: number) {
+  playTracks([favouritesData.value.favourites!.tracks[index]], -1);
+}
 
 useHead({
   title: () =>
@@ -34,25 +54,27 @@ useHead({
   <HeaderWithAction>
     <h1>Favourites</h1>
 
-    <RefreshButton @refresh="getFavourites" />
+    <template #actions>
+      <RefreshButton :status="status" @refresh="refresh" />
+    </template>
   </HeaderWithAction>
 
   <PageNavigation :navigation="FAVOURITES_NAVIGATION" />
 
-  <LoadingData>
+  <LoadingData :status="status">
     <AlbumsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
-      :albums="favourites.albums"
+      :albums="favouritesData.favourites.albums"
     />
 
     <ArtistsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Artists"
-      :artists="favourites.artists"
+      :artists="favouritesData.favourites.artists"
     />
 
     <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
-      :tracks="favourites.tracks"
+      :tracks="favouritesData.favourites.tracks"
       @play-track="playTrack"
       @add-to-queue="addTrackToQueue"
       @add-to-playlist="addToPlaylistModal"

@@ -1,3 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`HeaderWithAction > matches the snapshot 1`] = `"<div class="centerItems spaceBetween">Default slot content.</div>"`;
+exports[`HeaderWithAction > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">Default slot content.
+  <!--v-if-->
+</div>"
+`;
+
+exports[`HeaderWithAction > when actions slot is set > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">Default slot content.<div class="centerItems">Actions slot content.</div>
+</div>"
+`;

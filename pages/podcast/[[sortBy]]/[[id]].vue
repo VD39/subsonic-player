@@ -23,59 +23,110 @@ const {
   deletePodcast,
   deletePodcastEpisode,
   downloadPodcastEpisode,
-  getPodcast,
-  podcast,
-  podcastEpisodes,
+  getNewestPodcasts,
+  getPodcasts,
 } = usePodcast();
-const { fetchMoreData, hasMore, items, LOAD_SIZE, loading } =
-  useInfinityLoading<PodcastEpisode>();
+const {
+  fetchMoreData,
+  hasMore,
+  items: podcastEpisodes,
+  LOAD_SIZE,
+} = useInfinityLoading<PodcastEpisode>(
+  `${route.params.id}-${route.params.sortBy}`,
+);
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
+
+const { data: podcastsData, status } = await useAsyncData(
+  ASYNC_DATA_NAMES.podcasts,
+  async () => {
+    const [latestPodcasts, podcasts] = await Promise.all([
+      getNewestPodcasts(),
+      getPodcasts(),
+    ]);
+
+    return {
+      latestPodcasts,
+      podcasts,
+    };
+  },
+  {
+    default: () => ({
+      latestPodcasts: [],
+      podcasts: [],
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
+const podcastById = computed(() => {
+  const podcast = podcastsData.value?.podcasts?.find(
+    (podcast) => podcast.id === route.params.id,
+  );
+
+  if (!podcast) {
+    return null;
+  }
+
+  return {
+    ...podcast,
+    episodes: sortPodcastEpisodes(
+      podcast.episodes,
+      route.params.sortBy as PodcastSortByParam,
+    ),
+  };
+});
 
 function fetchData() {
   fetchMoreData((offset: number) =>
-    sliceArrayBySizeAndOffset(podcastEpisodes.value, LOAD_SIZE, offset),
+    sliceArrayBySizeAndOffset(
+      podcastById.value?.episodes || [],
+      LOAD_SIZE,
+      offset,
+    ),
   );
 }
+
+fetchData();
 
 function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
 }
 
-getPodcast(
-  route.params.id as string,
-  route.params.sortBy as PodcastSortByParam,
-);
-
 useHead({
   title: () =>
-    [podcast.value?.name || '', route.params.sortBy || '', 'Podcast']
+    [podcastById.value?.name || '', route.params.sortBy || '', 'Podcast']
       .filter(Boolean)
       .join(' - '),
 });
 </script>
 
 <template>
-  <LoadingData>
-    <div v-if="podcast">
-      <EntryHeader :images="[podcast.image]" :title="podcast.name">
+  <LoadingData :status="status">
+    <div v-if="podcastById">
+      <EntryHeader :images="[podcastById.image]" :title="podcastById.name">
         <ul class="bulletList">
           <li>
-            Episodes: <span class="strong">{{ podcast.totalEpisodes }}</span>
+            Episodes:
+            <span class="strong">{{ podcastById.totalEpisodes }}</span>
           </li>
           <li>
-            Last updated: <span class="strong">{{ podcast.lastUpdated }}</span>
+            Last updated:
+            <span class="strong">{{ podcastById.lastUpdated }}</span>
           </li>
           <li>
             Downloaded episodes:
-            <span class="strong">{{ podcast.downloadedEpisodes }}</span>
+            <span class="strong">
+              {{ podcastById.totalDownloadedEpisodes }}
+            </span>
           </li>
         </ul>
 
         <TextClamp
-          v-if="podcast.description"
+          v-if="podcastById.description"
           :max-lines="3"
-          :text="podcast.description"
-          @more="openTrackInformationModal(podcast)"
+          :text="podcastById.description"
+          @more="openTrackInformationModal(podcastById)"
         />
 
         <div class="list">
@@ -83,29 +134,29 @@ useHead({
             :icon="ICONS.play"
             title="Play podcast episodes"
             class="largeThemeHoverButton"
-            @click="playTracks(podcast.episodes)"
+            @click="playTracks(podcastById.episodes)"
           >
             Play podcast episodes
           </ButtonLink>
 
           <DropdownMenu>
             <DropdownItem
-              v-if="podcast.description"
-              @click="openTrackInformationModal(podcast)"
+              v-if="podcastById.description"
+              @click="openTrackInformationModal(podcastById)"
             >
               Podcast description
             </DropdownItem>
-            <DropdownItem @click="deletePodcast(podcast.id)">
+            <DropdownItem @click="deletePodcast(podcastById.id)">
               Delete podcast
             </DropdownItem>
             <DropdownDivider />
-            <DropdownItem @click="addTracksToQueue(podcast.episodes)">
+            <DropdownItem @click="addTracksToQueue(podcastById.episodes)">
               Add episodes to queue
             </DropdownItem>
-            <DropdownItem @click="playEpisode(podcast.episodes[0])">
+            <DropdownItem @click="playEpisode(podcastById.episodes[0])">
               Play latests episode
             </DropdownItem>
-            <DropdownItem @click="playTracks(podcast.episodes)">
+            <DropdownItem @click="playTracks(podcastById.episodes)">
               Play all episodes
             </DropdownItem>
           </DropdownMenu>
@@ -115,7 +166,7 @@ useHead({
       <PageNavigation :navigation="PODCAST_NAVIGATION" />
 
       <PodcastList
-        :podcast-episodes="items"
+        :podcast-episodes="podcastEpisodes"
         @play-episode="playEpisode"
         @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"
@@ -127,7 +178,7 @@ useHead({
 
       <InfiniteScroller
         :has-more="hasMore"
-        :loading="loading"
+        :loading="false"
         @load-more="fetchData"
       />
     </div>

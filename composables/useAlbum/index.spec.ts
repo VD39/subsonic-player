@@ -15,26 +15,17 @@ mockNuxtImport('useAPI', () => () => ({
 }));
 
 const {
-  album,
-  frequentAlbums,
   getAlbum,
   getAlbums,
   getFrequentAlbums,
   getNewestAlbums,
   getRandomAlbums,
   getRecentAlbums,
-  newestAlbums,
-  randomAlbums,
-  recentAlbums,
 } = useAlbum();
 
 describe('useAlbum', () => {
   afterEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('sets the default album value', () => {
-    expect(album.value).toEqual(null);
   });
 
   describe('when the getAlbums function is called', () => {
@@ -46,7 +37,6 @@ describe('useAlbum', () => {
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
           params: {
-            noLoading: false,
             offset: 0,
             size: 50,
             type: 'random',
@@ -57,27 +47,7 @@ describe('useAlbum', () => {
     });
 
     describe('when offset is set', () => {
-      describe('when offset is 0', () => {
-        beforeEach(() => {
-          getAlbums({
-            offset: 0,
-          } as AlbumsParams);
-        });
-
-        it('calls the fetchData function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-            params: {
-              noLoading: false,
-              offset: 0,
-              size: 50,
-              type: 'random',
-            },
-            transform: expect.any(Function),
-          });
-        });
-      });
-
-      describe('when offset is greater than 0', () => {
+      describe('when offset is 1', () => {
         beforeEach(() => {
           getAlbums({
             offset: 1,
@@ -87,7 +57,6 @@ describe('useAlbum', () => {
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
             params: {
-              noLoading: true,
               offset: 1,
               size: 50,
               type: 'random',
@@ -106,7 +75,6 @@ describe('useAlbum', () => {
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
           params: {
-            noLoading: false,
             offset: 0,
             size: 50,
             type: 'random',
@@ -117,7 +85,7 @@ describe('useAlbum', () => {
     });
 
     describe('when size is set', () => {
-      describe('when offset is 0', () => {
+      describe('when size is 21', () => {
         beforeEach(() => {
           getAlbums({
             size: 21,
@@ -127,29 +95,8 @@ describe('useAlbum', () => {
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
             params: {
-              noLoading: false,
               offset: 0,
               size: 21,
-              type: 'random',
-            },
-            transform: expect.any(Function),
-          });
-        });
-      });
-
-      describe('when offset is greater than 0', () => {
-        beforeEach(() => {
-          getAlbums({
-            offset: 1,
-          } as AlbumsParams);
-        });
-
-        it('calls the fetchData function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-            params: {
-              noLoading: true,
-              offset: 1,
-              size: 50,
               type: 'random',
             },
             transform: expect.any(Function),
@@ -166,7 +113,6 @@ describe('useAlbum', () => {
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
           params: {
-            noLoading: false,
             offset: 0,
             size: 50,
             type: 'random',
@@ -190,30 +136,9 @@ describe('useAlbum', () => {
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
             params: {
-              noLoading: false,
               offset: 0,
               size: 50,
               type: paramType,
-            },
-            transform: expect.any(Function),
-          });
-        });
-      });
-
-      describe('when offset is greater than 0', () => {
-        beforeEach(() => {
-          getAlbums({
-            offset: 1,
-          } as AlbumsParams);
-        });
-
-        it('calls the fetchData function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-            params: {
-              noLoading: true,
-              offset: 1,
-              size: 50,
-              type: 'random',
             },
             transform: expect.any(Function),
           });
@@ -228,7 +153,7 @@ describe('useAlbum', () => {
         });
       });
 
-      it('returns the correct value', async () => {
+      it('returns the correct response', async () => {
         expect(await getAlbums({} as AlbumsParams)).toEqual([]);
       });
     });
@@ -242,7 +167,7 @@ describe('useAlbum', () => {
         });
       });
 
-      it('returns the correct value', async () => {
+      it('returns the correct response', async () => {
         expect(await getAlbums({} as AlbumsParams)).toEqual({
           name: 'name',
         });
@@ -256,12 +181,10 @@ describe('useAlbum', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-
-        getAlbum('id');
       });
 
-      it('sets the correct album value', () => {
-        expect(album.value).toEqual(null);
+      it('returns the correct response', async () => {
+        expect(await getAlbum('id')).toEqual(null);
       });
     });
 
@@ -272,12 +195,10 @@ describe('useAlbum', () => {
             name: 'name',
           },
         });
-
-        getAlbum('id');
       });
 
-      it('sets the correct album value', () => {
-        expect(album.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await getAlbum('id')).toEqual({
           name: 'name',
         });
       });
@@ -286,12 +207,8 @@ describe('useAlbum', () => {
 
   describe('when the getFrequentAlbums function is called', () => {
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
-        getFrequentAlbums();
-      });
-
-      it('sets the correct frequentAlbums value', () => {
-        expect(frequentAlbums.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await getFrequentAlbums()).toEqual({
           name: 'name',
         });
       });
@@ -300,12 +217,8 @@ describe('useAlbum', () => {
 
   describe('when the getNewestAlbums function is called', () => {
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
-        getNewestAlbums();
-      });
-
-      it('sets the correct newestAlbums value', () => {
-        expect(newestAlbums.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await getNewestAlbums()).toEqual({
           name: 'name',
         });
       });
@@ -314,12 +227,8 @@ describe('useAlbum', () => {
 
   describe('when the getRecentAlbums function is called', () => {
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
-        getRecentAlbums();
-      });
-
-      it('sets the correct recentAlbums value', () => {
-        expect(recentAlbums.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await getRecentAlbums()).toEqual({
           name: 'name',
         });
       });
@@ -328,12 +237,8 @@ describe('useAlbum', () => {
 
   describe('when the getRandomAlbums function is called', () => {
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
-        getRandomAlbums();
-      });
-
-      it('sets the correct randomAlbums value', () => {
-        expect(randomAlbums.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await getRandomAlbums()).toEqual({
           name: 'name',
         });
       });

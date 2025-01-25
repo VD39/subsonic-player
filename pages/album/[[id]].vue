@@ -15,48 +15,74 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { album, getAlbum } = useAlbum();
+const { getAlbum } = useAlbum();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
+const { data: albumData, status } = useAsyncData(
+  `${ASYNC_DATA_NAMES.album}-${route.params.id}`,
+  async () => {
+    const album = await getAlbum(route.params.id as string);
+
+    return {
+      album,
+    };
+  },
+  {
+    default: () => ({
+      album: null,
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
 function playTrack(index: number) {
-  playTracks(album.value!.tracks, index - 1);
+  playTracks(albumData.value.album!.tracks, index - 1);
 }
 
-getAlbum(route.params.id as string);
-
 useHead({
-  title: () => [album.value?.name || '', 'Album'].filter(Boolean).join(' - '),
+  title: () =>
+    [albumData.value.album?.name || '', 'Album'].filter(Boolean).join(' - '),
 });
 </script>
 
 <template>
-  <LoadingData>
-    <div v-if="album">
-      <EntryHeader :images="[album.image]" :title="album.name">
-        <ArtistsList v-if="album.artists.length" :artists="album.artists" />
+  <LoadingData :status="status">
+    <div v-if="albumData.album">
+      <EntryHeader
+        :images="[albumData.album.image]"
+        :title="albumData.album.name"
+      >
+        <ArtistsList
+          v-if="albumData.album.artists.length"
+          :artists="albumData.album.artists"
+        />
 
-        <GenreList v-if="album.genres.length" :genres="album.genres" />
+        <GenreList
+          v-if="albumData.album.genres.length"
+          :genres="albumData.album.genres"
+        />
 
         <ul class="bulletList">
           <li>
             <span class="visuallyHidden">Year: </span>
-            {{ album.year }}
+            {{ albumData.album.year }}
           </li>
           <li>
-            <span class="strong">{{ album.trackCount }}</span>
-            {{ album.trackCount > 1 ? ' Tracks' : ' Track' }}
+            <span class="strong">{{ albumData.album.trackCount }}</span>
+            {{ albumData.album.trackCount > 1 ? ' Tracks' : ' Track' }}
           </li>
           <li>
             <span class="visuallyHidden">Duration: </span>
-            <time>{{ album.duration }}</time>
+            <time>{{ albumData.album.duration }}</time>
           </li>
           <li>
             <span class="visuallyHidden">Size: </span>
-            {{ album.size }}
+            {{ albumData.album.size }}
           </li>
         </ul>
 
@@ -65,7 +91,7 @@ useHead({
             :icon="ICONS.play"
             title="Play tracks"
             class="largeThemeHoverButton"
-            @click="playTracks(album.tracks)"
+            @click="playTracks(albumData.album.tracks)"
           >
             Play tracks
           </ButtonLink>
@@ -73,22 +99,22 @@ useHead({
           <ButtonLink
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
-            @click="shuffleTracks(album.tracks)"
+            @click="shuffleTracks(albumData.album.tracks)"
           >
             Shuffle tracks
           </ButtonLink>
 
           <FavouriteButton
-            :id="album.id"
+            :id="albumData.album.id"
             type="album"
-            :favourite="album.favourite"
+            :favourite="albumData.album.favourite"
           />
 
           <DropdownMenu>
-            <DropdownItem @click="addTracksToQueue(album.tracks)">
+            <DropdownItem @click="addTracksToQueue(albumData.album.tracks)">
               Add to queue
             </DropdownItem>
-            <DropdownItem @click="playTracks(album.tracks)">
+            <DropdownItem @click="playTracks(albumData.album.tracks)">
               Play Tracks
             </DropdownItem>
           </DropdownMenu>
@@ -96,7 +122,7 @@ useHead({
       </EntryHeader>
 
       <TrackList
-        :tracks="album.tracks"
+        :tracks="albumData.album.tracks"
         @play-track="playTrack"
         @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"

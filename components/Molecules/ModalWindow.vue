@@ -28,15 +28,17 @@ const { closeModal, modal } = useModal();
               {{ modal.title }}
             </h3>
 
-            <ButtonLink
-              :icon="ICONS.close"
-              title="Close modal"
-              icon-size="large"
-              icon-weight="bold"
-              @click="closeModal"
-            >
-              Close modal
-            </ButtonLink>
+            <template #actions>
+              <ButtonLink
+                :icon="ICONS.close"
+                title="Close modal"
+                icon-size="large"
+                icon-weight="bold"
+                @click="closeModal"
+              >
+                Close modal
+              </ButtonLink>
+            </template>
           </HeaderWithAction>
 
           <div :class="['main', $style.body]">

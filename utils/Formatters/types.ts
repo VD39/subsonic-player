@@ -2,7 +2,9 @@ type TypeofMediaType = typeof MEDIA_TYPE;
 export type MediaType = TypeofMediaType[keyof TypeofMediaType];
 
 export interface Genre {
+  albumCount?: number;
   name: string;
+  trackCount?: number;
 }
 
 interface TrackInformation {
@@ -125,12 +127,12 @@ export interface PodcastEpisode {
 
 export interface Podcast {
   description?: string;
-  downloadedEpisodes: number;
   episodes: PodcastEpisode[];
   id: string;
   image: Image;
   lastUpdated: string;
   name: string;
+  totalDownloadedEpisodes: number;
   totalEpisodes: number;
   type: MediaType;
   url: string;

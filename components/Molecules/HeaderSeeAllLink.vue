@@ -20,7 +20,9 @@ defineProps<{
       </NuxtLink>
     </h3>
 
-    <NuxtLink :to="to" class="mobileOnly link">See all</NuxtLink>
+    <template #actions>
+      <NuxtLink :to="to" class="mobileOnly link">See all</NuxtLink>
+    </template>
   </HeaderWithAction>
 </template>
 

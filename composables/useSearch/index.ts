@@ -4,8 +4,6 @@ export function useSearch() {
 
   const { fetchData } = useAPI();
 
-  const searchResults = ref<AllMedia>(DEFAULT_ALL_MEDIA);
-
   async function search(params: SearchParams) {
     const { offset, query } = params;
 
@@ -15,7 +13,6 @@ export function useSearch() {
         albumOffset: offset || 0,
         artistCount: LOAD_SIZE,
         artistOffset: offset || 0,
-        noLoading: offset! > 0,
         query,
         songCount: LOAD_SIZE,
         songOffset: offset || 0,
@@ -24,13 +21,10 @@ export function useSearch() {
         formatAllMedia(response.searchResult3),
     });
 
-    if (searchData) {
-      searchResults.value = searchData;
-    }
+    return searchData || DEFAULT_ALL_MEDIA;
   }
 
   return {
     search,
-    searchResults,
   };
 }

@@ -15,6 +15,9 @@ export const STATE_NAMES = {
   favourites: 'favourites',
   genres: 'genres',
   globalLoading: 'global-loading',
+  infinityHasMore: 'infinity-has-more',
+  infinityItems: 'infinity-items',
+  infinityOffset: 'infinity-offset',
   latestPodcasts: 'latest-podcasts',
   modal: 'modal',
   playerAudioPlayer: 'player-audio-player',
@@ -43,6 +46,23 @@ export const STATE_NAMES = {
   snacks: 'snacks',
   theme: 'theme',
   userAuthenticated: 'user-authenticated',
+} as const;
+
+export const ASYNC_DATA_NAMES = {
+  album: 'album',
+  albums: 'albums',
+  artist: 'artist',
+  artists: 'artists',
+  favourites: 'favourites',
+  genres: 'genres',
+  index: 'index',
+  library: 'library',
+  playlist: 'playlist',
+  playlists: 'playlists',
+  podcast: 'podcast',
+  podcasts: 'podcasts',
+  radioStations: 'radio-stations',
+  searchResults: 'search-results',
 } as const;
 
 export const ROUTE_TYPES = {

@@ -13,6 +13,7 @@ function factory(props = {}) {
       ...props,
     },
     slots: {
+      actions: 'Actions slot content.',
       default: 'Default slot content.',
     },
   });

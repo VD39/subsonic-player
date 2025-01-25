@@ -3,11 +3,7 @@ export function useMediaLibrary() {
   const { addSuccessSnack } = useSnack();
 
   async function startScan() {
-    const { data: startScanData } = await fetchData('/startScan', {
-      params: {
-        noLoading: true,
-      },
-    });
+    const { data: startScanData } = await fetchData('/startScan');
 
     if (startScanData) {
       addSuccessSnack('Scan started.');
@@ -21,48 +17,30 @@ export function useMediaLibrary() {
 
   /* istanbul ignore next -- @preserve */
   async function getBookmarks() {
-    await fetchData('/getBookmarks', {
-      params: {
-        noLoading: true,
-      },
-    });
+    await fetchData('/getBookmarks');
   }
 
   /* istanbul ignore next -- @preserve */
   async function createBookmark() {
     await fetchData('/createBookmark', {
       method: 'POST',
-      params: {
-        noLoading: true,
-      },
     });
   }
 
   /* istanbul ignore next -- @preserve */
   async function deleteBookmark() {
-    await fetchData('/deleteBookmark', {
-      params: {
-        noLoading: true,
-      },
-    });
+    await fetchData('/deleteBookmark');
   }
 
   /* istanbul ignore next -- @preserve */
   async function getPlayQueue() {
-    await fetchData('/getPlayQueue', {
-      params: {
-        noLoading: true,
-      },
-    });
+    await fetchData('/getPlayQueue');
   }
 
   /* istanbul ignore next -- @preserve */
   async function savePlayQueue() {
     await fetchData('/savePlayQueue', {
       method: 'POST',
-      params: {
-        noLoading: true,
-      },
     });
   }
 

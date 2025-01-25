@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 defineProps<{
@@ -31,7 +32,13 @@ defineProps<{
     </figure>
 
     <div :class="['mBAllM', $style.detailsWrapper]">
-      <h1>{{ title }}</h1>
+      <HeaderWithAction>
+        <h1>{{ title }}</h1>
+
+        <template #actions>
+          <slot name="actions" />
+        </template>
+      </HeaderWithAction>
 
       <slot />
     </div>
@@ -121,6 +128,7 @@ defineProps<{
 }
 
 .detailsWrapper {
+  width: var(--width-height-100);
   padding: var(--space-12) 0;
 
   @media (--mobile-only) {

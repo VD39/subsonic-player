@@ -1,4 +1,4 @@
-export function formatGenre(genre: ResponseGenre) {
+export function formatGenre(genre: ResponseGenre): Genre {
   const { albumCount, name, songCount: trackCount, value } = genre;
 
   return {
@@ -249,13 +249,12 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
   } = podcast;
 
   const lastUpdated = formatDate(getEarliestDate(episode));
-  const downloadedEpisodes = getDownloadedEpisodesLength(episode);
+  const totalDownloadedEpisodes = getDownloadedEpisodesLength(episode);
   const image = originalImageUrl || coverArt;
   const totalEpisodes = episode.length;
 
   return {
     description,
-    downloadedEpisodes,
     episodes: episode.map(
       formatPodcastEpisode({
         image,
@@ -266,6 +265,7 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
     image,
     lastUpdated,
     name,
+    totalDownloadedEpisodes,
     totalEpisodes,
     type: MEDIA_TYPE.podcast,
     url,

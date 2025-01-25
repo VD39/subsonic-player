@@ -1,15 +1,23 @@
 <script setup lang="ts">
+import type { AsyncDataRequestStatus } from '#app';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 
+const props = defineProps<{
+  status: AsyncDataRequestStatus;
+}>();
+
 defineEmits(['refresh']);
 
-const loading = useLoading();
+const buttonProps = computed<ButtonProps>(() => {
+  const loading = props.status === 'pending';
 
-const buttonProps = computed<ButtonProps>(() => ({
-  icon: loading.value ? SpinningLoader : ICONS.refresh,
-  text: `${loading.value ? 'Refreshing' : 'Refresh'} page data`,
-}));
+  return {
+    icon: loading ? SpinningLoader : ICONS.refresh,
+    text: `${loading ? 'Refreshing' : 'Refresh'} page data`,
+  };
+});
 </script>
 
 <template>

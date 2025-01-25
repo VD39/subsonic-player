@@ -13,9 +13,27 @@ const {
   updatePlaylistModal,
 } = usePlaylist();
 
-if (!playlists.value.length) {
-  getPlaylists();
-}
+const {
+  data: playlistsData,
+  refresh,
+  status,
+} = useAsyncData(
+  ASYNC_DATA_NAMES.playlists,
+  async () => {
+    await getPlaylists();
+
+    return {
+      playlists: playlists.value,
+    };
+  },
+  {
+    default: () => ({
+      playlists: [],
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
 
 useHead({
   title: 'Playlists',
@@ -26,8 +44,8 @@ useHead({
   <HeaderWithAction>
     <h1>Playlists</h1>
 
-    <div class="centerItems">
-      <RefreshButton @refresh="getPlaylists" />
+    <template #actions>
+      <RefreshButton :status="status" @refresh="refresh" />
 
       <ButtonLink
         icon-size="large"
@@ -37,12 +55,12 @@ useHead({
       >
         Add playlist
       </ButtonLink>
-    </div>
+    </template>
   </HeaderWithAction>
 
-  <LoadingData>
+  <LoadingData :status="status">
     <PlaylistsList
-      :playlists="playlists"
+      :playlists="playlistsData.playlists"
       @delete-playlist="deletePlaylist"
       @edit-playlist="updatePlaylistModal"
     />

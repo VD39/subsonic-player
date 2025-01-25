@@ -1,19 +1,25 @@
 <script setup lang="ts">
+import type { AsyncDataRequestStatus } from '#app';
+
 import MainLoader from '@/components/Atoms/MainLoader.vue';
 
-const loading = useLoading();
+const props = defineProps<{
+  status: AsyncDataRequestStatus;
+}>();
+
+const showLoader = computed(() => props.status === 'pending');
 </script>
 
 <template>
   <div
-    v-show="loading"
+    v-show="showLoader"
     ref="mainLoader"
     :class="['column', 'centerAll', $style.loadingData]"
   >
     <MainLoader />
   </div>
 
-  <div v-show="!loading" ref="mainContent" class="mainContent">
+  <div v-show="!showLoader" ref="mainContent" class="mainContent">
     <slot />
   </div>
 </template>

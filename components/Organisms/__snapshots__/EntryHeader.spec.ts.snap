@@ -10,7 +10,10 @@ exports[`EntryHeader > matches the snapshot 1`] = `
     <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
   </figure>
   <div class="mBAllM detailsWrapper">
-    <h1>title</h1>Default slot content.
+    <div class="centerItems spaceBetween">
+      <h1>title</h1>
+      <div class="centerItems">Actions slot content.</div>
+    </div>Default slot content.
   </div>
 </section>"
 `;
@@ -27,7 +30,10 @@ exports[`EntryHeader > when there are three images > matches the snapshot 1`] = 
     <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image2" alt="title" style="display: none;"></div>
   </figure>
   <div class="mBAllM detailsWrapper">
-    <h1>title</h1>Default slot content.
+    <div class="centerItems spaceBetween">
+      <h1>title</h1>
+      <div class="centerItems">Actions slot content.</div>
+    </div>Default slot content.
   </div>
 </section>"
 `;

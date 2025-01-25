@@ -3,11 +3,6 @@ export function useRadioStation() {
   const { addSuccessSnack } = useSnack();
   const { closeModal, openModal } = useModal();
 
-  const radioStations = useState<RadioStation[]>(
-    STATE_NAMES.radioStations,
-    () => [],
-  );
-
   async function getRadioStations() {
     const { data: radioStationsData } = await fetchData(
       '/getInternetRadioStations',
@@ -19,9 +14,7 @@ export function useRadioStation() {
       },
     );
 
-    if (Array.isArray(radioStationsData)) {
-      radioStations.value = radioStationsData;
-    }
+    return radioStationsData || [];
   }
 
   async function addRadioStation(params: RadioStationParams) {
@@ -100,7 +93,6 @@ export function useRadioStation() {
     addRadioStationModal,
     deleteRadioStation,
     getRadioStations,
-    radioStations,
     updateRadioStation,
     updateRadioStationModal,
   };

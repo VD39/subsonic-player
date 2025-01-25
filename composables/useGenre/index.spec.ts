@@ -18,15 +18,11 @@ mockNuxtImport('useAlbum', () => () => ({
   getAlbums: getAlbumsMock,
 }));
 
-const { genres, getGenres, getMediaByGenre } = useGenre();
+const { getGenres, getMediaByGenre } = useGenre();
 
 describe('useGenre', () => {
   afterEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('sets the default genres value', () => {
-    expect(genres.value).toEqual([]);
   });
 
   describe('when the getGenres function is called', () => {
@@ -35,12 +31,10 @@ describe('useGenre', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-
-        getGenres();
       });
 
-      it('does not add to the genres value', () => {
-        expect(genres.value).toEqual([]);
+      it('returns the correct response', async () => {
+        expect(await getGenres()).toEqual([]);
       });
     });
 
@@ -53,12 +47,10 @@ describe('useGenre', () => {
             },
           ],
         });
-
-        getGenres();
       });
 
-      it('adds to the genres value', () => {
-        expect(genres.value).toEqual([
+      it('returns the correct response', async () => {
+        expect(await getGenres()).toEqual([
           {
             name: 'name',
           },
@@ -110,7 +102,6 @@ describe('useGenre', () => {
               count: 50,
               genre: 'soundtrack',
               mediaType: 'tracks',
-              noLoading: false,
               offset: 0,
             },
             transform: expect.any(Function),
@@ -119,30 +110,7 @@ describe('useGenre', () => {
       });
 
       describe('when offset is set', () => {
-        describe('when offset is 0', () => {
-          beforeEach(() => {
-            getMediaByGenre({
-              genre: 'soundtrack',
-              mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-              offset: 0,
-            });
-          });
-
-          it('calls the fetchData function with the correct parameters', () => {
-            expect(fetchDataMock).toHaveBeenCalledWith('/getSongsByGenre', {
-              params: {
-                count: 50,
-                genre: 'soundtrack',
-                mediaType: 'tracks',
-                noLoading: false,
-                offset: 0,
-              },
-              transform: expect.any(Function),
-            });
-          });
-        });
-
-        describe('when offset is greater than 0', () => {
+        describe('when offset is greater than 1', () => {
           beforeEach(() => {
             getMediaByGenre({
               genre: 'soundtrack',
@@ -157,7 +125,6 @@ describe('useGenre', () => {
                 count: 50,
                 genre: 'soundtrack',
                 mediaType: 'tracks',
-                noLoading: true,
                 offset: 1,
               },
               transform: expect.any(Function),

@@ -403,7 +403,6 @@ describe('formatPodcast', () => {
   it('returns the correct values', () => {
     expect(formatPodcast(podcastMock)).toEqual({
       description: 'description',
-      downloadedEpisodes: 1,
       episodes: [
         {
           description: 'description',
@@ -423,6 +422,7 @@ describe('formatPodcast', () => {
       image: 'image',
       lastUpdated: '01 January 2000',
       name: 'title',
+      totalDownloadedEpisodes: 1,
       totalEpisodes: 1,
       type: 'podcast',
       url: 'url',

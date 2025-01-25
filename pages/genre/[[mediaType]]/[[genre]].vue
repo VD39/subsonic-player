@@ -15,23 +15,46 @@ const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { fetchMoreData, hasMore, items, loading } = useInfinityLoading<
-  Album & Track
->();
-
-function playTrack(index: number) {
-  playTracks([items.value[index]], -1);
-}
+const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
+  `${route.params.genre}-${route.params.mediaType}`,
+);
 
 function fetchData() {
-  fetchMoreData(
-    async (offset: number) =>
-      await getMediaByGenre({
-        genre: route.params.genre as string,
-        mediaType: route.params.mediaType as MediaTypeParam,
-        offset,
-      }),
+  return fetchMoreData((offset: number) =>
+    getMediaByGenre({
+      genre: route.params.genre as string,
+      mediaType: route.params.mediaType as MediaTypeParam,
+      offset,
+    }),
   );
+}
+
+const {
+  data: genreData,
+  refresh,
+  status,
+} = useAsyncData(
+  `${ASYNC_DATA_NAMES.genres}-${route.params.genre}-${route.params.mediaType}`,
+  async () => {
+    const genreMedia = await fetchData();
+
+    return {
+      genreMedia,
+    };
+  },
+  {
+    default: () => ({
+      genreMedia: [],
+    }),
+  },
+);
+
+const loadingStatus = computed(() =>
+  genreData.value.genreMedia.length ? 'success' : status.value,
+);
+
+function playTrack(index: number) {
+  playTracks([genreData.value.genreMedia[index]], -1);
 }
 
 useHead({
@@ -47,15 +70,15 @@ useHead({
 
   <PageNavigation :navigation="GENRE_NAVIGATION" />
 
-  <LoadingData>
+  <LoadingData :status="loadingStatus">
     <AlbumsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
-      :albums="items"
+      :albums="genreData.genreMedia"
     />
 
     <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
-      :tracks="items"
+      :tracks="genreData.genreMedia"
       @play-track="playTrack"
       @add-to-queue="addTrackToQueue"
       @add-to-playlist="addToPlaylistModal"
@@ -65,8 +88,8 @@ useHead({
 
     <InfiniteScroller
       :has-more="hasMore"
-      :loading="loading"
-      @load-more="fetchData"
+      :loading="status === 'pending'"
+      @load-more="refresh"
     />
   </LoadingData>
 </template>

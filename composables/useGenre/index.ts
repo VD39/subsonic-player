@@ -5,22 +5,18 @@ export function useGenre() {
   const { fetchData } = useAPI();
   const { getAlbums } = useAlbum();
 
-  const genres = useState<Genre[]>(STATE_NAMES.genres, () => []);
-
   async function getGenres() {
     const { data: genresData } = await fetchData('/getGenres', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.genres.genre || []).map(formatGenre),
     });
 
-    if (Array.isArray(genresData)) {
-      genres.value = genresData;
-    }
+    return genresData || [];
   }
 
   /* istanbul ignore next -- @preserve */
-  async function getAlbumsByGenre(params: AlbumsByGenreParams) {
-    return await getAlbums({
+  function getAlbumsByGenre(params: AlbumsByGenreParams) {
+    return getAlbums({
       ...params,
       size: Number(LOAD_SIZE),
       type: 'byGenre',
@@ -32,7 +28,6 @@ export function useGenre() {
       params: {
         ...params,
         count: Number(LOAD_SIZE),
-        noLoading: params.offset! > 0,
         offset: params.offset || 0,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -54,7 +49,6 @@ export function useGenre() {
   }
 
   return {
-    genres,
     getGenres,
     getMediaByGenre,
   };

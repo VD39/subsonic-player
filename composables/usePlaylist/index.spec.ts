@@ -30,10 +30,6 @@ describe('usePlaylist', () => {
     vi.clearAllMocks();
   });
 
-  it('sets the default playlist value', () => {
-    expect(result.composable.playlist.value).toEqual(null);
-  });
-
   it('sets the default playlists value', () => {
     expect(result.composable.playlists.value).toEqual([]);
   });
@@ -70,7 +66,7 @@ describe('usePlaylist', () => {
       });
 
       describe('when fetchData response returns an array value', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           fetchDataMock.mockResolvedValue({
             data: [
               {
@@ -79,7 +75,7 @@ describe('usePlaylist', () => {
             ],
           });
 
-          result.composable.getPlaylists();
+          await result.composable.getPlaylists();
         });
 
         it('adds to the playlists value', () => {
@@ -113,12 +109,10 @@ describe('usePlaylist', () => {
           fetchDataMock.mockResolvedValue({
             data: null,
           });
-
-          result.composable.getPlaylistTracksById();
         });
 
-        it('sets the playlist value', () => {
-          expect(result.composable.playlist.value).toEqual(null);
+        it('returns the correct response', async () => {
+          expect(await result.composable.getPlaylistTracksById()).toEqual(null);
         });
       });
 
@@ -129,12 +123,10 @@ describe('usePlaylist', () => {
               name: 'name',
             },
           });
-
-          result.composable.getPlaylistTracksById();
         });
 
-        it('sets the playlist value', () => {
-          expect(result.composable.playlist.value).toEqual({
+        it('returns the correct response', async () => {
+          expect(await result.composable.getPlaylistTracksById()).toEqual({
             name: 'name',
           });
         });
@@ -163,12 +155,12 @@ describe('usePlaylist', () => {
           fetchDataMock.mockResolvedValue({
             data: null,
           });
-
-          result.composable.getPlaylistTracksById('playlistId');
         });
 
-        it('sets the playlist value', () => {
-          expect(result.composable.playlist.value).toEqual(null);
+        it('returns the correct response', async () => {
+          expect(
+            await result.composable.getPlaylistTracksById('playlistId'),
+          ).toEqual(null);
         });
       });
 
@@ -179,12 +171,12 @@ describe('usePlaylist', () => {
               name: 'name',
             },
           });
-
-          result.composable.getPlaylistTracksById('playlistId');
         });
 
-        it('sets the playlist value', () => {
-          expect(result.composable.playlist.value).toEqual({
+        it('returns the correct response', async () => {
+          expect(
+            await result.composable.getPlaylistTracksById('playlistId'),
+          ).toEqual({
             name: 'name',
           });
         });

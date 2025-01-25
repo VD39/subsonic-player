@@ -247,12 +247,12 @@ export const formattedPodcastEpisodeMock = {
 
 export const formattedPodcastMock = {
   description: 'description',
-  downloadedEpisodes: 1,
   episodes: [formattedPodcastEpisodeMock],
   id: 'id',
   image: 'image',
   lastUpdated: '01 January 2000',
   name: 'title',
+  totalDownloadedEpisodes: 1,
   totalEpisodes: 1,
   type: MEDIA_TYPE.podcast,
   url: 'url',

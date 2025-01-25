@@ -41,7 +41,9 @@ useHead({
     <HeaderWithAction>
       <h3>Login</h3>
 
-      <ThemeSwitcher />
+      <template #actions>
+        <ThemeSwitcher />
+      </template>
     </HeaderWithAction>
 
     <LoginForm :loading="loading" :error="error" @submit="onFormSubmit" />

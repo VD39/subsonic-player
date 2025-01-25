@@ -10,17 +10,17 @@ const props = defineProps<{
 }>();
 
 const { playTracks } = useAudioPlayer();
-const { album: selectedAlbum, getAlbum } = useAlbum();
+const { getAlbum } = useAlbum();
 
 const loading = ref(false);
 
 async function playAlbumTracks(albumId: string) {
   loading.value = true;
 
-  await getAlbum(albumId, true);
+  const selectedAlbum = await getAlbum(albumId);
 
-  if (selectedAlbum.value) {
-    await playTracks(selectedAlbum.value.tracks);
+  if (selectedAlbum) {
+    await playTracks(selectedAlbum.tracks);
   }
 
   loading.value = false;

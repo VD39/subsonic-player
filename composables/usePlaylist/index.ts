@@ -3,14 +3,10 @@ export function usePlaylist() {
   const { addSuccessSnack } = useSnack();
   const { closeModal, openModal } = useModal();
 
-  const playlist = useState<null | Playlist>(STATE_NAMES.playlist, () => null);
   const playlists = useState<Playlist[]>(STATE_NAMES.playlists, () => []);
 
-  async function getPlaylists(noLoading = false) {
+  async function getPlaylists() {
     const { data: playlistsData } = await fetchData('/getPlaylists', {
-      params: {
-        noLoading,
-      },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.playlists.playlist || []).map(formatPlaylist),
     });
@@ -40,7 +36,7 @@ export function usePlaylist() {
       },
     });
 
-    playlist.value = playlistData;
+    return playlistData;
   }
 
   async function getPlaylistTracks(id: string) {
@@ -52,14 +48,14 @@ export function usePlaylist() {
         response?.playlist && formatPlaylist(response.playlist),
     });
 
-    playlist.value = playlistData;
+    return playlistData;
   }
 
-  async function getPlaylistTracksById(id = 'random') {
+  function getPlaylistTracksById(id = 'random') {
     if (id === 'random') {
-      await getRandomTracks();
+      return getRandomTracks();
     } else {
-      await getPlaylistTracks(id);
+      return getPlaylistTracks(id);
     }
   }
 
@@ -92,7 +88,7 @@ export function usePlaylist() {
 
     if (playlistData) {
       addSuccessSnack(successMessage);
-      await getPlaylists(true);
+      await getPlaylists();
     }
   }
 
@@ -105,7 +101,7 @@ export function usePlaylist() {
 
     if (playlistData) {
       addSuccessSnack('Successfully deleted playlist.');
-      await getPlaylists(true);
+      await getPlaylists();
     }
   }
 
@@ -201,10 +197,6 @@ export function usePlaylist() {
     });
   }
 
-  function resetPlaylist() {
-    playlist.value = null;
-  }
-
   return {
     addPlaylist,
     addPlaylistModal,
@@ -213,10 +205,8 @@ export function usePlaylist() {
     deletePlaylist,
     getPlaylists,
     getPlaylistTracksById,
-    playlist,
     playlists,
     removeFromPlaylist,
-    resetPlaylist,
     updatePlaylist,
     updatePlaylistModal,
   };

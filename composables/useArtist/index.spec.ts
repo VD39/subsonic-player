@@ -12,19 +12,11 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { artist, artists, getArtist, getArtists } = useArtist();
+const { getArtist, getArtists } = useArtist();
 
 describe('useArtist', () => {
   afterEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('sets the default artist value', () => {
-    expect(artist.value).toEqual(null);
-  });
-
-  it('sets the default artists value', () => {
-    expect(artists.value).toEqual([]);
   });
 
   describe('when the getArtists function is called', () => {
@@ -33,12 +25,10 @@ describe('useArtist', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-
-        getArtists();
       });
 
-      it('does not add to the artists value', () => {
-        expect(artists.value).toEqual([]);
+      it('returns the correct response', async () => {
+        expect(await getArtists()).toEqual([]);
       });
     });
 
@@ -51,12 +41,10 @@ describe('useArtist', () => {
             },
           ],
         });
-
-        getArtists();
       });
 
-      it('adds to the artists value', () => {
-        expect(artists.value).toEqual([
+      it('returns the correct response', async () => {
+        expect(await getArtists()).toEqual([
           {
             name: 'name',
           },
@@ -75,12 +63,10 @@ describe('useArtist', () => {
           .mockResolvedValueOnce({
             data: null,
           });
-
-        getArtist('id');
       });
 
-      it('does not add to the artists value', () => {
-        expect(artist.value).toBe(null);
+      it('returns the correct response', async () => {
+        expect(await getArtist('id')).toBe(null);
       });
     });
 
@@ -98,12 +84,10 @@ describe('useArtist', () => {
               },
             },
           });
-
-        getArtist('id');
       });
 
-      it('adds to the artist value', () => {
-        expect(artist.value).toEqual(
+      it('returns the correct response', async () => {
+        expect(await getArtist('id')).toEqual(
           expect.objectContaining({
             id: 'id',
             musicBrainzUrl: undefined,
@@ -132,12 +116,10 @@ describe('useArtist', () => {
               },
             },
           });
-
-        getArtist('id');
       });
 
-      it('adds to the artist value', () => {
-        expect(artist.value).toEqual(
+      it('returns the correct response', async () => {
+        expect(await getArtist('id')).toEqual(
           expect.objectContaining({
             id: 'id',
             musicBrainzUrl: 'https://musicbrainz.org/artist/musicBrainzId',

@@ -11,21 +11,37 @@ definePageMeta({
 
 const route = useRoute();
 const { addToPlaylistModal } = usePlaylist();
-const { search, searchResults } = useSearch();
+const { search } = useSearch();
 const { openTrackInformationModal } = useDescription();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
 
-function playTrack(index: number) {
-  playTracks([searchResults.value!.tracks[index]], -1);
-}
-
 const query = replaceCharactersWithSpace(route.params.query as string);
 
-search({
-  offset: 0,
-  query,
-});
+const { data: searchResultsData, status } = useAsyncData(
+  `${ASYNC_DATA_NAMES.searchResults}-${query}`,
+  async () => {
+    const searchResults = await search({
+      offset: 0,
+      query,
+    });
+
+    return {
+      searchResults,
+    };
+  },
+  {
+    default: () => ({
+      searchResults: DEFAULT_ALL_MEDIA,
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
+function playTrack(index: number) {
+  playTracks([searchResultsData.value.searchResults!.tracks[index]], -1);
+}
 
 useHead({
   title: () =>
@@ -38,20 +54,20 @@ useHead({
 
   <PageNavigation :navigation="SEARCH_NAVIGATION" />
 
-  <LoadingData>
+  <LoadingData :status="status">
     <AlbumsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
-      :albums="searchResults.albums"
+      :albums="searchResultsData.searchResults.albums"
     />
 
     <ArtistsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Artists"
-      :artists="searchResults.artists"
+      :artists="searchResultsData.searchResults.artists"
     />
 
     <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
-      :tracks="searchResults.tracks"
+      :tracks="searchResultsData.searchResults.tracks"
       @play-track="playTrack"
       @add-to-queue="addTrackToQueue"
       @add-to-playlist="addToPlaylistModal"

@@ -12,15 +12,11 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { favourites, getFavourites } = useFavourite();
+const { getFavourites } = useFavourite();
 
 describe('useFavourite', () => {
   afterEach(() => {
     vi.clearAllMocks();
-  });
-
-  it('sets the default favourites value', () => {
-    expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
   });
 
   describe('when the getFavourites function is called', () => {
@@ -29,12 +25,10 @@ describe('useFavourite', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-
-        getFavourites();
       });
 
-      it('does not add to the favourites value', () => {
-        expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
+      it('returns the correct response', async () => {
+        expect(await getFavourites()).toEqual(DEFAULT_ALL_MEDIA);
       });
     });
 
@@ -59,12 +53,10 @@ describe('useFavourite', () => {
             ],
           },
         });
-
-        getFavourites();
       });
 
-      it('adds to the favourites value', () => {
-        expect(favourites.value).toEqual({
+      it('returns the correct response', async () => {
+        expect(await getFavourites()).toEqual({
           album: [
             {
               id: 'album',

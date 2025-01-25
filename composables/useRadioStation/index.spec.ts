@@ -22,7 +22,6 @@ const {
   addRadioStation,
   deleteRadioStation,
   getRadioStations,
-  radioStations,
   updateRadioStation,
 } = useRadioStation();
 
@@ -31,22 +30,16 @@ describe('useRadioStation', () => {
     vi.clearAllMocks();
   });
 
-  it('sets the default radioStations value', () => {
-    expect(radioStations.value).toEqual([]);
-  });
-
   describe('when the getPodcasts function is called', () => {
     describe('when fetchData response returns non array value', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-
-        getRadioStations();
       });
 
-      it('does not add to the radioStations value', () => {
-        expect(radioStations.value).toEqual([]);
+      it('returns the correct response', async () => {
+        expect(await getRadioStations()).toEqual([]);
       });
     });
 
@@ -59,12 +52,10 @@ describe('useRadioStation', () => {
             },
           ],
         });
-
-        getRadioStations();
       });
 
-      it('adds to the radioStations value', () => {
-        expect(radioStations.value).toEqual([
+      it('returns the correct response', async () => {
+        expect(await getRadioStations()).toEqual([
           {
             name: 'name',
           },
@@ -76,7 +67,6 @@ describe('useRadioStation', () => {
   describe('when the addRadioStation function is called', () => {
     describe('when fetchData response returns null', () => {
       beforeEach(() => {
-        radioStations.value = [];
         fetchDataMock.mockResolvedValue({
           data: null,
         });
@@ -86,10 +76,6 @@ describe('useRadioStation', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not add to the radioStations value', () => {
-        expect(radioStations.value).toEqual([]);
       });
 
       it('does not call the fetchData function', () => {
@@ -127,14 +113,6 @@ describe('useRadioStation', () => {
         );
       });
 
-      it('adds to the radioStations value', () => {
-        expect(radioStations.value).toEqual([
-          {
-            name: 'radio-station-name',
-          },
-        ]);
-      });
-
       it('calls the fetchData function', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getInternetRadioStations',
@@ -147,7 +125,6 @@ describe('useRadioStation', () => {
   describe('when the updateRadioStation function is called', () => {
     describe('when fetchData response returns null', () => {
       beforeEach(() => {
-        radioStations.value = [];
         fetchDataMock.mockResolvedValue({
           data: null,
         });
@@ -157,10 +134,6 @@ describe('useRadioStation', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not add to the radioStations value', () => {
-        expect(radioStations.value).toEqual([]);
       });
 
       it('does not call the fetchData function', () => {
@@ -198,14 +171,6 @@ describe('useRadioStation', () => {
         );
       });
 
-      it('adds to the radioStations value', () => {
-        expect(radioStations.value).toEqual([
-          {
-            name: 'radio-station-update-name',
-          },
-        ]);
-      });
-
       it('calls the fetchData function', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getInternetRadioStations',
@@ -218,7 +183,6 @@ describe('useRadioStation', () => {
   describe('when the deleteRadioStation function is called', () => {
     describe('when fetchData response returns null', () => {
       beforeEach(() => {
-        radioStations.value = [];
         fetchDataMock.mockResolvedValue({
           data: null,
         });
@@ -228,10 +192,6 @@ describe('useRadioStation', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not add to the radioStations value', () => {
-        expect(radioStations.value).toEqual([]);
       });
 
       it('does not call the fetchData function', () => {
@@ -261,10 +221,6 @@ describe('useRadioStation', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted radio station.',
         );
-      });
-
-      it('adds to the radioStations value', () => {
-        expect(radioStations.value).toEqual([]);
       });
 
       it('calls the fetchData function', () => {

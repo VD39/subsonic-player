@@ -13,70 +13,93 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { artist, getArtist } = useArtist();
+const { getArtist } = useArtist();
 const { openTrackInformationModal } = useDescription();
 
-getArtist(route.params.id as string);
+const { data: artistData, status } = useAsyncData(
+  `${ASYNC_DATA_NAMES.artist}-${route.params.id}`,
+  async () => {
+    const artist = await getArtist(route.params.id as string);
+
+    return {
+      artist,
+    };
+  },
+  {
+    default: () => ({
+      artist: null,
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
 
 useHead({
-  title: () => [artist.value?.name || '', 'Artist'].filter(Boolean).join(' - '),
+  title: () =>
+    [artistData.value.artist?.name || '', 'Artist'].filter(Boolean).join(' - '),
 });
 </script>
 
 <template>
-  <LoadingData>
-    <div v-if="artist">
-      <EntryHeader :images="[artist.image]" :title="artist.name">
+  <LoadingData :status="status">
+    <div v-if="artistData.artist">
+      <EntryHeader
+        :images="[artistData.artist.image]"
+        :title="artistData.artist.name"
+      >
         <TextClamp
-          v-if="artist.biography"
+          v-if="artistData.artist.biography"
           :max-lines="2"
-          :text="artist.biography"
-          @more="openTrackInformationModal(artist)"
+          :text="artistData.artist.biography"
+          @more="openTrackInformationModal(artistData.artist)"
         />
 
-        <GenreList v-if="artist.genres.length" :genres="artist.genres" />
+        <GenreList
+          v-if="artistData.artist.genres.length"
+          :genres="artistData.artist.genres"
+        />
 
         <ul class="bulletList">
           <li>
-            <span class="strong">{{ artist.totalAlbums }}</span>
-            {{ artist.totalAlbums > 1 ? 'Albums' : 'Album' }}
+            <span class="strong">{{ artistData.artist.totalAlbums }}</span>
+            {{ artistData.artist.totalAlbums > 1 ? 'Albums' : 'Album' }}
           </li>
           <li>
-            <span class="strong">{{ artist.totalTracks }}</span>
-            {{ artist.totalTracks > 1 ? 'Tracks' : 'Track' }}
+            <span class="strong">{{ artistData.artist.totalTracks }}</span>
+            {{ artistData.artist.totalTracks > 1 ? 'Tracks' : 'Track' }}
           </li>
         </ul>
 
-        <ul class="list">
+        <div class="list">
           <FavouriteButton
-            :id="artist.id"
+            :id="artistData.artist.id"
             type="artist"
-            :favourite="artist.favourite"
+            :favourite="artistData.artist.favourite"
           />
 
           <ButtonLink
             is="a"
-            v-if="artist.lastFmUrl"
+            v-if="artistData.artist.lastFmUrl"
             :icon="ICONS.lastFm"
             title="LastFm"
-            :href="artist.lastFmUrl"
+            :href="artistData.artist.lastFmUrl"
             target="_blank"
           />
 
           <ButtonLink
             is="a"
-            v-if="artist.musicBrainzUrl"
+            v-if="artistData.artist.musicBrainzUrl"
             :icon="ICONS.musicBrainz"
             title="MusicBrainz"
-            :href="artist.musicBrainzUrl"
+            :href="artistData.artist.musicBrainzUrl"
             target="_blank"
           />
-        </ul>
+        </div>
       </EntryHeader>
 
       <h2>Albums</h2>
 
-      <AlbumsList :albums="artist.albums" hide-artist />
+      <AlbumsList :albums="artistData.artist.albums" hide-artist />
     </div>
 
     <NoMediaMessage

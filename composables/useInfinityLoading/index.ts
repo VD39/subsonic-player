@@ -1,17 +1,14 @@
-export function useInfinityLoading<T>() {
+export function useInfinityLoading<T>(id: string) {
   const config = useRuntimeConfig();
   const { LOAD_SIZE } = config.public;
 
-  const items = ref<T[]>([]);
-  const offset = ref(0);
-  const loading = ref(false);
-  const hasMore = ref(true);
+  const items = useState<T[]>(`${STATE_NAMES.infinityItems}-${id}`, () => []);
+  const offset = useState(`${STATE_NAMES.infinityOffset}-${id}`, () => 0);
+  const hasMore = useState(`${STATE_NAMES.infinityHasMore}-${id}`, () => true);
 
   async function fetchMoreData<T>(
     dataToFetch: (offset: number) => Promise<T> | T,
   ) {
-    loading.value = true;
-
     const values = await dataToFetch(offset.value);
 
     if (!values || (Array.isArray(values) && !values.length)) {
@@ -21,29 +18,23 @@ export function useInfinityLoading<T>() {
     if (Array.isArray(values)) {
       items.value.push(...values);
       offset.value = items.value.length;
-      hasMore.value = values.length >= Number(LOAD_SIZE);
+      hasMore.value = !(values.length < Number(LOAD_SIZE));
     }
 
-    loading.value = false;
+    return items.value;
   }
 
   function resetToDefaults() {
     items.value = [];
     offset.value = 0;
-    loading.value = false;
     hasMore.value = true;
   }
-
-  onBeforeUnmount(() => {
-    resetToDefaults();
-  });
 
   return {
     fetchMoreData,
     hasMore,
     items,
     LOAD_SIZE: Number(LOAD_SIZE),
-    loading,
     resetToDefaults,
   };
 }

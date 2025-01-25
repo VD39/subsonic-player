@@ -24,26 +24,46 @@ const {
   downloadPodcastEpisode,
   getNewestPodcasts,
   getPodcasts,
-  latestPodcasts,
-  podcasts,
   sortPodcasts,
 } = usePodcast();
+
+const {
+  data: podcastsData,
+  refresh,
+  status,
+} = useAsyncData(
+  ASYNC_DATA_NAMES.podcasts,
+  async () => {
+    const [latestPodcasts, podcasts] = await Promise.all([
+      getNewestPodcasts(),
+      getPodcasts(),
+    ]);
+
+    return {
+      latestPodcasts,
+      podcasts,
+    };
+  },
+  {
+    default: () => ({
+      latestPodcasts: [],
+      podcasts: [],
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
 
 function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
 }
 
-async function getData() {
-  getNewestPodcasts();
-  await getPodcasts();
-  sortPodcasts(route.params.sortBy as PodcastsSortByParam);
-}
-
-if (!podcasts.value.length) {
-  getData();
-} else {
-  sortPodcasts(route.params.sortBy as PodcastsSortByParam);
-}
+const podcasts = computed(() =>
+  sortPodcasts(
+    podcastsData.value.podcasts,
+    route.params.sortBy as PodcastsSortByParam,
+  ),
+);
 
 useHead({
   title: () =>
@@ -55,8 +75,8 @@ useHead({
   <HeaderWithAction>
     <h1>Podcasts</h1>
 
-    <div class="centerItems">
-      <RefreshButton @refresh="getData" />
+    <template #actions>
+      <RefreshButton :status="status" @refresh="refresh" />
 
       <ButtonLink
         icon-size="large"
@@ -66,12 +86,12 @@ useHead({
       >
         Add podcast
       </ButtonLink>
-    </div>
+    </template>
   </HeaderWithAction>
 
   <PageNavigation :navigation="PODCASTS_NAVIGATION" />
 
-  <LoadingData>
+  <LoadingData :status="status">
     <div v-if="podcasts.length">
       <MediaListWrapper>
         <PodcastItem
@@ -84,7 +104,7 @@ useHead({
       <h3>Latest Podcast Episodes</h3>
 
       <PodcastList
-        :podcast-episodes="latestPodcasts"
+        :podcast-episodes="podcastsData.latestPodcasts"
         @play-episode="playEpisode"
         @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"

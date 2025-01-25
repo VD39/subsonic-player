@@ -10,17 +10,42 @@ definePageMeta({
 
 const route = useRoute();
 const { getAlbums } = useAlbum();
-const { fetchMoreData, hasMore, items, loading } = useInfinityLoading<Album>();
+const { fetchMoreData, hasMore } = useInfinityLoading<Album>(
+  route.params.sortBy as string,
+);
 
-async function fetchData() {
-  await fetchMoreData(
-    async (offset: number) =>
-      await getAlbums({
-        offset,
-        type: route.params.sortBy as AlbumSortBy,
-      }),
+function fetchData() {
+  return fetchMoreData((offset: number) =>
+    getAlbums({
+      offset,
+      type: route.params.sortBy as AlbumSortBy,
+    }),
   );
 }
+
+const {
+  data: albumsData,
+  refresh,
+  status,
+} = useAsyncData(
+  `${ASYNC_DATA_NAMES.albums}-${route.params.sortBy}`,
+  async () => {
+    const albums = await fetchData();
+
+    return {
+      albums,
+    };
+  },
+  {
+    default: () => ({
+      albums: [],
+    }),
+  },
+);
+
+const loadingStatus = computed(() =>
+  albumsData.value.albums.length ? 'success' : status.value,
+);
 
 useHead({
   title: () =>
@@ -33,13 +58,13 @@ useHead({
 
   <PageNavigation :navigation="ALBUMS_NAVIGATION" />
 
-  <LoadingData>
-    <AlbumsList :albums="items" />
+  <LoadingData :status="loadingStatus">
+    <AlbumsList :albums="albumsData.albums" />
 
     <InfiniteScroller
       :has-more="hasMore"
-      :loading="loading"
-      @load-more="fetchData"
+      :loading="status === 'pending'"
+      @load-more="refresh"
     />
   </LoadingData>
 </template>

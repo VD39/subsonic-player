@@ -9,17 +9,34 @@ const {
   addRadioStationModal,
   deleteRadioStation,
   getRadioStations,
-  radioStations,
   updateRadioStationModal,
 } = useRadioStation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
+const {
+  data: radioStationsData,
+  refresh,
+  status,
+} = useAsyncData(
+  ASYNC_DATA_NAMES.radioStations,
+  async () => {
+    const radioStations = await getRadioStations();
+
+    return {
+      radioStations,
+    };
+  },
+  {
+    default: () => ({
+      radioStations: [],
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
 function playRadioStation(station: RadioStation) {
   playTracks([station]);
-}
-
-if (!radioStations.value.length) {
-  getRadioStations();
 }
 
 useHead({
@@ -31,8 +48,8 @@ useHead({
   <HeaderWithAction>
     <h1>Radio Stations</h1>
 
-    <div class="centerItems">
-      <RefreshButton @refresh="getRadioStations" />
+    <template #actions>
+      <RefreshButton :status="status" @refresh="refresh" />
 
       <ButtonLink
         icon-size="large"
@@ -42,12 +59,12 @@ useHead({
       >
         Add radio station
       </ButtonLink>
-    </div>
+    </template>
   </HeaderWithAction>
 
-  <LoadingData>
+  <LoadingData :status="status">
     <RadioStationList
-      :radio-stations="radioStations"
+      :radio-stations="radioStationsData.radioStations"
       @add-to-queue="addTrackToQueue"
       @delete-radio-station="deleteRadioStation"
       @edit-radio-station="updateRadioStationModal"

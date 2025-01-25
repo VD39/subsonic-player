@@ -2,11 +2,25 @@
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 
-const { artists, getArtists } = useArtist();
+const { getArtists } = useArtist();
 
-if (!artists.value.length) {
-  getArtists();
-}
+const { data: artistsData, status } = useAsyncData(
+  ASYNC_DATA_NAMES.artists,
+  async () => {
+    const artists = await getArtists();
+
+    return {
+      artists,
+    };
+  },
+  {
+    default: () => ({
+      artists: [],
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
 
 useHead({
   title: 'Artists',
@@ -14,9 +28,9 @@ useHead({
 </script>
 
 <template>
-  <LoadingData>
-    <h1>Artists</h1>
+  <h1>Artists</h1>
 
-    <ArtistsList :artists="artists" />
+  <LoadingData :status="status">
+    <ArtistsList :artists="artistsData.artists" />
   </LoadingData>
 </template>

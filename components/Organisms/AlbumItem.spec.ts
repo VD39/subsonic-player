@@ -9,11 +9,9 @@ import { mount } from '@vue/test-utils';
 
 import AlbumItem from './AlbumItem.vue';
 
-const albumMock = ref<Album | null>(null);
 const getAlbumMock = vi.fn();
 
 mockNuxtImport('useAlbum', () => () => ({
-  album: albumMock,
   getAlbum: getAlbumMock,
 }));
 
@@ -85,7 +83,7 @@ describe('AlbumItem', () => {
     });
 
     it('calls the getAlbum function', () => {
-      expect(getAlbumMock).toHaveBeenCalledWith(formattedAlbumMock.id, true);
+      expect(getAlbumMock).toHaveBeenCalledWith(formattedAlbumMock.id);
     });
 
     describe('when useAlbum album returns null', () => {
@@ -96,7 +94,7 @@ describe('AlbumItem', () => {
 
     describe('when useAlbum album returns track data', () => {
       beforeEach(async () => {
-        albumMock.value = formattedAlbumMock;
+        getAlbumMock.mockResolvedValue(formattedAlbumMock);
         await wrapper.findComponent(ButtonLink).trigger('click');
       });
 
