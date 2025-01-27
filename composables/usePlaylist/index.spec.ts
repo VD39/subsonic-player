@@ -98,7 +98,7 @@ describe('usePlaylist', () => {
       });
 
       it('calls the fetchData with the correct path', () => {
-        expect(fetchDataMock).toBeCalledWith(
+        expect(fetchDataMock).toHaveBeenCalledWith(
           '/getRandomSongs',
           expect.any(Object),
         );
@@ -140,7 +140,7 @@ describe('usePlaylist', () => {
       });
 
       it('calls the fetchData with the correct path', () => {
-        expect(fetchDataMock).toBeCalledWith(
+        expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.objectContaining({
             params: {
@@ -195,15 +195,6 @@ describe('usePlaylist', () => {
         result.composable.addPlaylist('name');
       });
 
-      it('does not add to the playlists value', () => {
-        expect(result.composable.playlists.value).toEqual([
-          RANDOM_PLAYLIST,
-          {
-            name: 'name',
-          },
-        ]);
-      });
-
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
@@ -218,18 +209,6 @@ describe('usePlaylist', () => {
         });
 
         result.composable.addPlaylist('name');
-      });
-
-      it('adds to the playlists value', () => {
-        expect(result.composable.playlists.value).toEqual([
-          RANDOM_PLAYLIST,
-          {
-            name: 'name',
-          },
-          {
-            name: 'name',
-          },
-        ]);
       });
 
       it('calls the addSuccessSnackMock function', () => {
@@ -254,6 +233,13 @@ describe('usePlaylist', () => {
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
+
+      it('does not call the getPlaylists function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPlaylists',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -263,13 +249,18 @@ describe('usePlaylist', () => {
             name: 'name',
           },
         });
+
+        result.composable.updatePlaylist({} as PlaylistParam);
+      });
+
+      it('calls the getPlaylists function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPlaylists',
+          expect.any(Object),
+        );
       });
 
       describe('when success message is not set', () => {
-        beforeEach(() => {
-          result.composable.updatePlaylist({} as PlaylistParam);
-        });
-
         it('calls the addSuccessSnackMock function', () => {
           expect(addSuccessSnackMock).toHaveBeenCalledWith(
             'Successfully updated playlist.',
@@ -306,6 +297,13 @@ describe('usePlaylist', () => {
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
+
+      it('does not call the getPlaylists function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPlaylists',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -322,6 +320,13 @@ describe('usePlaylist', () => {
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted playlist.',
+        );
+      });
+
+      it('calls the getPlaylists function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPlaylists',
+          expect.any(Object),
         );
       });
     });

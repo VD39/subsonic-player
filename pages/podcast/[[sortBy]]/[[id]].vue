@@ -16,9 +16,10 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { openModal } = useModal();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 const {
   deletePodcast,
   deletePodcastEpisode,
@@ -36,7 +37,11 @@ const {
 );
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
-const { data: podcastsData, status } = await useAsyncData(
+const {
+  data: podcastsData,
+  refresh,
+  status,
+} = await useAsyncData(
   ASYNC_DATA_NAMES.podcasts,
   async () => {
     const [latestPodcasts, podcasts] = await Promise.all([
@@ -93,6 +98,18 @@ function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
 }
 
+function openPodcastDescriptionModal() {
+  openModal(MODAL_TYPE.readMoreModal, {
+    text: podcastById.value!.description,
+    title: 'Description',
+  });
+}
+
+async function deleteSelectedPodcast() {
+  await deletePodcast(podcastById.value!.id, refresh);
+  await navigateTo('/podcasts');
+}
+
 useHead({
   title: () =>
     [podcastById.value?.name || '', route.params.sortBy || '', 'Podcast']
@@ -126,7 +143,7 @@ useHead({
           v-if="podcastById.description"
           :max-lines="3"
           :text="podcastById.description"
-          @more="openTrackInformationModal(podcastById)"
+          @more="openPodcastDescriptionModal"
         />
 
         <div class="list">
@@ -140,13 +157,7 @@ useHead({
           </ButtonLink>
 
           <DropdownMenu>
-            <DropdownItem
-              v-if="podcastById.description"
-              @click="openTrackInformationModal(podcastById)"
-            >
-              Podcast description
-            </DropdownItem>
-            <DropdownItem @click="deletePodcast(podcastById.id)">
+            <DropdownItem @click="deleteSelectedPodcast">
               Delete podcast
             </DropdownItem>
             <DropdownDivider />
@@ -170,7 +181,7 @@ useHead({
         @play-episode="playEpisode"
         @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"
-        @show-episode-description="openTrackInformationModal"
+        @episode-information="openTrackInformationModal"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
         @download-media="downloadMedia"

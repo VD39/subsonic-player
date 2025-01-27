@@ -1,24 +1,16 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import { getFormattedPlaylistsMock } from '@/test/helpers';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PlaylistItems from './PlaylistNavigation.vue';
 
-const playlistsMock = ref<Playlist[]>([]);
-const addPlaylistModalMock = vi.fn();
-
-mockNuxtImport('usePlaylist', () => () => ({
-  addPlaylistModal: addPlaylistModalMock,
-  playlists: playlistsMock,
-}));
-
 function factory(props = {}) {
   return mount(PlaylistItems, {
     props: {
       collapsed: false,
+      playlists: [],
       ...props,
     },
   });
@@ -43,7 +35,9 @@ describe('PlaylistItems', () => {
 
   describe('when playlist value returns playlists', () => {
     beforeEach(() => {
-      playlistsMock.value = getFormattedPlaylistsMock(2);
+      wrapper = factory({
+        playlists: getFormattedPlaylistsMock(2),
+      });
     });
 
     it('matches the snapshot', () => {
@@ -58,7 +52,9 @@ describe('PlaylistItems', () => {
 
     describe('when playlist value returned is more than 5', () => {
       beforeEach(() => {
-        playlistsMock.value = getFormattedPlaylistsMock(10);
+        wrapper = factory({
+          playlists: getFormattedPlaylistsMock(10),
+        });
       });
 
       it('matches the snapshot', () => {
@@ -76,8 +72,8 @@ describe('PlaylistItems', () => {
       wrapper.findComponent({ ref: 'addPlaylist' }).vm.$emit('click');
     });
 
-    it('calls the addPlaylistModal function', () => {
-      expect(addPlaylistModalMock).toHaveBeenCalled();
+    it('emits the addPlaylist event', () => {
+      expect(wrapper.emitted('addPlaylist')).toEqual([[]]);
     });
   });
 });

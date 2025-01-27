@@ -10,10 +10,12 @@ const showButton = ref(false);
 const textRef = ref<HTMLElement | null>(null);
 const tempText = ref('');
 
-function updateClamp() {
+async function updateClamp() {
   if (!textRef.value) {
     return;
   }
+
+  await nextTick();
 
   showButton.value = false;
 
@@ -50,7 +52,7 @@ onMounted(() => {
 
   updateClamp();
 
-  window.addEventListener('resize', onResize);
+  window.addEventListener('resize', debounce(onResize));
 });
 
 onUnmounted(() => {

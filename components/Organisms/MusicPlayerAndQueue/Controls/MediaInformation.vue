@@ -2,7 +2,7 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 const { currentTrack } = useAudioPlayer();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 
 function openCurrentTrackInformationModal() {
   openTrackInformationModal(currentTrack.value);

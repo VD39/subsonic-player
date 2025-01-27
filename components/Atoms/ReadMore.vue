@@ -1,10 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-  description: string;
+  text: string;
 }>();
 </script>
 
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <div v-html="description" />
+  <div v-html="text" />
 </template>

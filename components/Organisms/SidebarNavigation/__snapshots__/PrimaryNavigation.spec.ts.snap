@@ -14,6 +14,9 @@ exports[`PrimaryNavigation > matches the snapshot 1`] = `
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
           <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
         </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+          <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
+        </a></li>
     </ul>
   </li>
   <li class="mBM">

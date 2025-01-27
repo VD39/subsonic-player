@@ -4,6 +4,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useRadioStation } from './index';
 
+const refreshMock = vi.fn();
+
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
 }));
@@ -77,30 +79,15 @@ describe('useRadioStation', () => {
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
-
-      it('does not call the fetchData function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
-      });
     });
 
     describe('when fetchData response returns a value', () => {
       beforeEach(() => {
-        fetchDataMock
-          .mockResolvedValueOnce({
-            data: {
-              name: 'radio-station-name',
-            },
-          })
-          .mockResolvedValueOnce({
-            data: [
-              {
-                name: 'radio-station-name',
-              },
-            ],
-          });
+        fetchDataMock.mockResolvedValueOnce({
+          data: {
+            name: 'radio-station-name',
+          },
+        });
 
         addRadioStation({
           name: 'radio-station-name',
@@ -110,13 +97,6 @@ describe('useRadioStation', () => {
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully added radio station radio-station-name.',
-        );
-      });
-
-      it('calls the fetchData function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
         );
       });
     });
@@ -135,30 +115,15 @@ describe('useRadioStation', () => {
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
-
-      it('does not call the fetchData function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
-      });
     });
 
     describe('when fetchData response returns a value', () => {
       beforeEach(() => {
-        fetchDataMock
-          .mockResolvedValueOnce({
-            data: {
-              name: 'radio-station-update-name',
-            },
-          })
-          .mockResolvedValueOnce({
-            data: [
-              {
-                name: 'radio-station-update-name',
-              },
-            ],
-          });
+        fetchDataMock.mockResolvedValueOnce({
+          data: {
+            name: 'radio-station-update-name',
+          },
+        });
 
         updateRadioStation({
           name: 'radio-station-update-name',
@@ -168,13 +133,6 @@ describe('useRadioStation', () => {
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully updated radio station radio-station-update-name.',
-        );
-      });
-
-      it('calls the fetchData function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
         );
       });
     });
@@ -187,34 +145,27 @@ describe('useRadioStation', () => {
           data: null,
         });
 
-        deleteRadioStation('id');
+        deleteRadioStation('id', refreshMock);
       });
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
-      it('does not call the fetchData function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
+      it('does not call the refresh function', () => {
+        expect(refreshMock).not.toHaveBeenCalled();
       });
     });
 
     describe('when fetchData response returns a value', () => {
       beforeEach(() => {
-        fetchDataMock
-          .mockResolvedValueOnce({
-            data: {
-              name: 'radio-station-update-name',
-            },
-          })
-          .mockResolvedValueOnce({
-            data: [],
-          });
+        fetchDataMock.mockResolvedValueOnce({
+          data: {
+            name: 'radio-station-update-name',
+          },
+        });
 
-        deleteRadioStation('id');
+        deleteRadioStation('id', refreshMock);
       });
 
       it('calls the addSuccessSnackMock function', () => {
@@ -223,11 +174,8 @@ describe('useRadioStation', () => {
         );
       });
 
-      it('calls the fetchData function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
+      it('calls the refresh function', () => {
+        expect(refreshMock).toHaveBeenCalled();
       });
     });
   });

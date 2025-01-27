@@ -3,6 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
+import PlaylistNavigation from './PlaylistNavigation.vue';
 import SidebarNavigation from './SidebarNavigation.vue';
 
 const toggleMock = vi.fn();
@@ -11,6 +12,13 @@ const collapsedMock = ref(false);
 mockNuxtImport('useSidebar', () => () => ({
   collapsed: collapsedMock,
   toggle: toggleMock,
+}));
+
+const addPlaylistModalMock = vi.fn();
+
+mockNuxtImport('usePlaylist', () => () => ({
+  addPlaylistModal: addPlaylistModalMock,
+  playlists: [],
 }));
 
 function factory(props = {}) {
@@ -96,6 +104,16 @@ describe('SidebarNavigation', () => {
 
     it('calls the toggle function', () => {
       expect(toggleMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the PlaylistNavigation component emits the addPlaylist event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(PlaylistNavigation).vm.$emit('addPlaylist');
+    });
+
+    it('calls the addPlaylistModal function', () => {
+      expect(addPlaylistModalMock).toHaveBeenCalled();
     });
   });
 });

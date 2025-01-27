@@ -14,7 +14,7 @@ definePageMeta({
 
 const route = useRoute();
 const { getArtist } = useArtist();
-const { openTrackInformationModal } = useDescription();
+const { openModal } = useModal();
 
 const { data: artistData, status } = useAsyncData(
   `${ASYNC_DATA_NAMES.artist}-${route.params.id}`,
@@ -34,6 +34,13 @@ const { data: artistData, status } = useAsyncData(
   },
 );
 
+function openArtistBiographyModal() {
+  openModal(MODAL_TYPE.readMoreModal, {
+    text: artistData.value.artist!.biography,
+    title: 'Artist biography',
+  });
+}
+
 useHead({
   title: () =>
     [artistData.value.artist?.name || '', 'Artist'].filter(Boolean).join(' - '),
@@ -51,7 +58,7 @@ useHead({
           v-if="artistData.artist.biography"
           :max-lines="2"
           :text="artistData.artist.biography"
-          @more="openTrackInformationModal(artistData.artist)"
+          @more="openArtistBiographyModal"
         />
 
         <GenreList

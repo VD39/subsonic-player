@@ -41,6 +41,9 @@ exports[`Default > matches the snapshot 1`] = `
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -152,6 +155,9 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
                 </a></li>
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
             </ul>
           </li>
@@ -281,6 +287,9 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -408,6 +417,9 @@ exports[`Default > when route name is podcasts-sortBy > matches the snapshot 1`]
                 </a></li>
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
             </ul>
           </li>
@@ -537,6 +549,9 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -665,6 +680,9 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -792,6 +810,9 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
                 </a></li>
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
                   <phradio class="icon" aria-hidden="true" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
+                </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+                  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
             </ul>
           </li>

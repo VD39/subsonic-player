@@ -5,6 +5,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { usePodcast } from './index';
 
+const refreshMock = vi.fn();
+
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
 }));
@@ -99,12 +101,6 @@ describe('usePodcast', () => {
           'Successfully added podcast.',
         );
       });
-
-      it('calls the getPodcasts function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith('/getPodcasts', {
-          transform: expect.any(Function),
-        });
-      });
     });
   });
 
@@ -115,11 +111,17 @@ describe('usePodcast', () => {
           data: null,
         });
 
-        deletePodcast('id');
+        deletePodcast('id', refreshMock);
       });
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      describe('when refresh function is passed', () => {
+        it('does not call the refresh function', () => {
+          expect(refreshMock).not.toHaveBeenCalled();
+        });
       });
     });
 
@@ -131,7 +133,7 @@ describe('usePodcast', () => {
           },
         });
 
-        deletePodcast('id');
+        deletePodcast('id', refreshMock);
       });
 
       it('calls the addSuccessSnackMock function', () => {
@@ -140,9 +142,9 @@ describe('usePodcast', () => {
         );
       });
 
-      it('calls the getPodcasts function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith('/getPodcasts', {
-          transform: expect.any(Function),
+      describe('when refresh function is passed', () => {
+        it('calls the refresh function', () => {
+          expect(refreshMock).toHaveBeenCalled();
         });
       });
     });
@@ -176,14 +178,8 @@ describe('usePodcast', () => {
 
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully deleted podcast episode.',
+          'Successfully deleted podcast episode from server.',
         );
-      });
-
-      it('calls the getPodcasts function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith('/getPodcasts', {
-          transform: expect.any(Function),
-        });
       });
     });
   });

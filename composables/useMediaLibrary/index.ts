@@ -17,30 +17,30 @@ export function useMediaLibrary() {
 
   /* istanbul ignore next -- @preserve */
   async function getBookmarks() {
-    await fetchData('/getBookmarks');
+    const { data: bookmarksData } = await fetchData('/getBookmarks');
+
+    if (bookmarksData) {
+      return bookmarksData;
+    }
   }
 
   /* istanbul ignore next -- @preserve */
-  async function createBookmark() {
+  async function createBookmark(id: string, position: string) {
     await fetchData('/createBookmark', {
       method: 'POST',
+      params: {
+        id,
+        position,
+      },
     });
   }
 
   /* istanbul ignore next -- @preserve */
-  async function deleteBookmark() {
-    await fetchData('/deleteBookmark');
-  }
-
-  /* istanbul ignore next -- @preserve */
-  async function getPlayQueue() {
-    await fetchData('/getPlayQueue');
-  }
-
-  /* istanbul ignore next -- @preserve */
-  async function savePlayQueue() {
-    await fetchData('/savePlayQueue', {
-      method: 'POST',
+  async function deleteBookmark(id: string) {
+    await fetchData('/deleteBookmark', {
+      params: {
+        id,
+      },
     });
   }
 
@@ -49,8 +49,6 @@ export function useMediaLibrary() {
     deleteBookmark,
     downloadMedia,
     getBookmarks,
-    getPlayQueue,
-    savePlayQueue,
     startScan,
   };
 }

@@ -1,15 +1,14 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
+import MediaInformation from '@/components/Organisms/MusicPlayerAndQueue/Controls/MediaInformation.vue';
+import PlaybackRateButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/PlaybackRateButton.vue';
+import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
+import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
-
-import MediaInformation from '~/components/Organisms/MusicPlayerAndQueue/Controls/MediaInformation.vue';
-import PlaybackRateButton from '~/components/Organisms/MusicPlayerAndQueue/Controls/PlaybackRateButton.vue';
-import RepeatButton from '~/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
-import ShuffleButton from '~/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 
 import QueuePlayer from './QueuePlayer.vue';
 

@@ -1,6 +1,6 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
-import { useDescription } from './index';
+import { useMediaInformation } from './index';
 
 const trackMock = {
   biography: 'biography',
@@ -13,9 +13,9 @@ mockNuxtImport('useModal', () => () => ({
   openModal: openModalMock,
 }));
 
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 
-describe('useDescription', () => {
+describe('useMediaInformation', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -25,31 +25,14 @@ describe('useDescription', () => {
       [
         {
           ...trackMock,
-          type: MEDIA_TYPE.artist,
-        },
-        MODAL_TYPE.artistBiographyModal,
-        {
-          description: trackMock.biography,
-        },
-      ],
-      [
-        {
-          ...trackMock,
-          type: MEDIA_TYPE.podcast,
-        },
-        MODAL_TYPE.podcastDescriptionModal,
-        {
-          description: trackMock.description,
-        },
-      ],
-      [
-        {
-          ...trackMock,
           type: MEDIA_TYPE.podcastEpisode,
         },
-        MODAL_TYPE.podcastEpisodeDescriptionModal,
+        MODAL_TYPE.podcastEpisodeInformationModal,
         {
-          description: trackMock.description,
+          podcastEpisode: {
+            ...trackMock,
+            type: MEDIA_TYPE.podcastEpisode,
+          },
         },
       ],
       [

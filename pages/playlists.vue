@@ -13,11 +13,7 @@ const {
   updatePlaylistModal,
 } = usePlaylist();
 
-const {
-  data: playlistsData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.playlists,
   async () => {
     await getPlaylists();
@@ -60,7 +56,7 @@ useHead({
 
   <LoadingData :status="status">
     <PlaylistsList
-      :playlists="playlistsData.playlists"
+      :playlists="playlists"
       @delete-playlist="deletePlaylist"
       @edit-playlist="updatePlaylistModal"
     />

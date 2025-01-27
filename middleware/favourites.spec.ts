@@ -18,7 +18,7 @@ describe('favourites-middleware', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toBeCalledWith('/favourites/albums');
+      expect(navigateToMock).toHaveBeenCalledWith('/favourites/albums');
     });
   });
 
@@ -38,7 +38,7 @@ describe('favourites-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/favourites/albums');
+        expect(navigateToMock).toHaveBeenCalledWith('/favourites/albums');
       });
     });
 
@@ -61,7 +61,7 @@ describe('favourites-middleware', () => {
       });
 
       it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toBeCalled();
+        expect(navigateToMock).not.toHaveBeenCalled();
       });
     });
   });

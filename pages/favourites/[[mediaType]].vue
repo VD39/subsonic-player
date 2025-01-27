@@ -15,7 +15,7 @@ const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { getFavourites } = useFavourite();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
 const {

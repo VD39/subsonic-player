@@ -18,4 +18,4 @@ exports[`PlayPauseButton > when trackIsBuffering value is false > when shuffle v
 </button>"
 `;
 
-exports[`PlayPauseButton > when trackIsBuffering value is true > matches the snapshot 1`] = `"<span class="centerItems spinningLoader spinningLoader"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span>"`;
+exports[`PlayPauseButton > when trackIsBuffering value is true > matches the snapshot 1`] = `"<span class="centerItems spinningLoader spinningLoader"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;

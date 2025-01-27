@@ -48,6 +48,7 @@ import {
   PhWaveform,
   PhWaveSine,
   PhX,
+  PhXCircle,
 } from '@phosphor-icons/vue';
 
 const ICONS = [
@@ -100,6 +101,7 @@ const ICONS = [
   PhWaveform,
   PhWaveSine,
   PhX,
+  PhXCircle,
 ];
 
 export default defineNuxtPlugin((nuxtApp) => {

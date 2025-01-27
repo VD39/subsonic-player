@@ -19,7 +19,7 @@ defineEmits([
   'downloadEpisode',
   'downloadMedia',
   'playEpisode',
-  'showEpisodeDescription',
+  'episodeInformation',
 ]);
 </script>
 
@@ -60,6 +60,16 @@ defineEmits([
               </h4>
             </MarqueeScroll>
 
+            <MarqueeScroll
+              v-if="episode.author"
+              ref="authorMarqueeScroll"
+              inert
+            >
+              <p class="strong mBM">
+                {{ episode.author }}
+              </p>
+            </MarqueeScroll>
+
             <p v-if="episode.description" ref="description" class="clamp2">
               {{ episode.description }}
             </p>
@@ -84,15 +94,14 @@ defineEmits([
               :class="['centerItems', $style.downloaded]"
               title="Downloaded"
             >
-              <PhCheckCircle :size="ICON_SIZE.medium" />
+              <component :is="ICONS.downloaded" :size="ICON_SIZE.medium" />
             </div>
 
             <ButtonLink
-              v-if="episode.description"
-              ref="showEpisodeDescriptionButton"
+              ref="episodeInformationButton"
               :icon="ICONS.information"
               title="Episode information"
-              @click="$emit('showEpisodeDescription', episode)"
+              @click="$emit('episodeInformation', episode)"
             >
               Episode information
             </ButtonLink>
@@ -137,11 +146,10 @@ defineEmits([
             Download episode
           </DropdownItem>
           <DropdownItem
-            v-if="episode.description"
-            ref="showEpisodeDescriptionDropdownItem"
-            @click="$emit('showEpisodeDescription', episode)"
+            ref="episodeInformationDropdownItem"
+            @click="$emit('episodeInformation', episode)"
           >
-            Episode description
+            Episode information
           </DropdownItem>
           <DropdownItem
             ref="addToPlaylist"

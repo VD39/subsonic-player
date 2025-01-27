@@ -34,7 +34,7 @@ exports[`AddUpdateRadioStationForm > when form is valid > matches the snapshot 1
       </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input" value="">
       <!--v-if-->
     </div>
-  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
+  </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
 </form>"
 `;
 

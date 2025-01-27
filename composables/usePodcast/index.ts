@@ -40,11 +40,10 @@ export function usePodcast() {
 
     if (podcastData) {
       addSuccessSnack('Successfully added podcast.');
-      await getPodcasts();
     }
   }
 
-  async function deletePodcast(id: string) {
+  async function deletePodcast(id: string, refresh?: () => Promise<void>) {
     const { data: podcastData } = await fetchData('/deletePodcastChannel', {
       params: {
         id,
@@ -53,7 +52,7 @@ export function usePodcast() {
 
     if (podcastData) {
       addSuccessSnack('Successfully deleted podcast.');
-      await getPodcasts();
+      await refresh?.();
     }
   }
 
@@ -65,8 +64,7 @@ export function usePodcast() {
     });
 
     if (podcastData) {
-      addSuccessSnack('Successfully deleted podcast episode.');
-      await getPodcasts();
+      addSuccessSnack('Successfully deleted podcast episode from server.');
     }
   }
 
@@ -83,10 +81,11 @@ export function usePodcast() {
   }
 
   /* istanbul ignore next -- @preserve */
-  function addPodcastModal() {
+  function addPodcastModal(refresh: () => Promise<void>) {
     openModal(MODAL_TYPE.addPodcastModal, {
       async onSubmit(podcastUrl: string) {
         await addPodcast(podcastUrl);
+        await refresh();
         closeModal();
       },
     });

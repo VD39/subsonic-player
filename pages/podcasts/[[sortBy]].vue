@@ -16,7 +16,7 @@ definePageMeta({
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const {
   addPodcastModal,
@@ -65,6 +65,10 @@ const podcasts = computed(() =>
   ),
 );
 
+function addNewPodcastModal() {
+  addPodcastModal(refresh);
+}
+
 useHead({
   title: () =>
     [route.params.sortBy || '', 'Podcasts'].filter(Boolean).join(' - '),
@@ -82,7 +86,7 @@ useHead({
         icon-size="large"
         :icon="ICONS.add"
         title="Add podcast"
-        @click="addPodcastModal"
+        @click="addNewPodcastModal"
       >
         Add podcast
       </ButtonLink>
@@ -108,7 +112,7 @@ useHead({
         @play-episode="playEpisode"
         @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"
-        @show-episode-description="openTrackInformationModal"
+        @episode-information="openTrackInformationModal"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
         @download-media="downloadMedia"

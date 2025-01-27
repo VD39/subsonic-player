@@ -6,9 +6,10 @@ import SubNavigationItem from './Items/SubNavigationItem.vue';
 
 defineProps<{
   collapsed: boolean;
+  playlists: Playlist[];
 }>();
 
-const { addPlaylistModal, playlists } = usePlaylist();
+defineEmits(['addPlaylist']);
 </script>
 
 <template>
@@ -34,7 +35,7 @@ const { addPlaylistModal, playlists } = usePlaylist();
         :show-text="!collapsed"
         title="Add playlist"
         full-width
-        @click="addPlaylistModal"
+        @click="$emit('addPlaylist')"
       >
         Add playlist
       </ButtonLink>

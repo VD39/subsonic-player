@@ -5,7 +5,6 @@ withDefaults(
     hideLabel?: boolean;
     id: string;
     label: string;
-    modelValue: string | string[];
     placeholder?: string;
     required?: boolean;
     type?: string;
@@ -17,10 +16,10 @@ withDefaults(
   },
 );
 
-const emit = defineEmits(['update:modelValue']);
+const internalModal = defineModel<string | string[]>();
 
 function onInputInput(event: Event) {
-  emit('update:modelValue', (event.target as HTMLInputElement).value);
+  internalModal.value = (event.target as HTMLInputElement).value;
 }
 </script>
 

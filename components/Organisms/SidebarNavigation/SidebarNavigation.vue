@@ -6,6 +6,7 @@ import PlaylistNavigation from './PlaylistNavigation.vue';
 import PrimaryNavigation from './PrimaryNavigation.vue';
 
 const { collapsed, toggle } = useSidebar();
+const { addPlaylistModal, playlists } = usePlaylist();
 
 const buttonProps = computed<ButtonProps>(() => ({
   icon: collapsed.value ? ICONS.sidebarCollapsed : ICONS.sidebarNotCollapsed,
@@ -40,7 +41,11 @@ const buttonProps = computed<ButtonProps>(() => ({
     <nav class="fullWidth">
       <PrimaryNavigation :collapsed="collapsed" />
 
-      <PlaylistNavigation :collapsed="collapsed" />
+      <PlaylistNavigation
+        :collapsed="collapsed"
+        :playlists="playlists"
+        @add-playlist="addPlaylistModal"
+      />
     </nav>
   </div>
 </template>

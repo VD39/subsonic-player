@@ -1,4 +1,5 @@
-import MediaDescription from '@/components/Atoms/MediaDescription.vue';
+import ReadMore from '@/components/Atoms/ReadMore.vue';
+import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
 import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
 import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
@@ -74,25 +75,17 @@ describe('useModal', () => {
         },
       ],
       [
-        MODAL_TYPE.podcastDescriptionModal,
-        MediaDescription,
-        'Podcast Description',
+        MODAL_TYPE.podcastEpisodeInformationModal,
+        PodcastEpisodeInformation,
+        'Podcast episode information',
         {
           attrs: 'attrs',
         },
       ],
       [
-        MODAL_TYPE.podcastEpisodeDescriptionModal,
-        MediaDescription,
-        'Episode Description',
-        {
-          attrs: 'attrs',
-        },
-      ],
-      [
-        MODAL_TYPE.artistBiographyModal,
-        MediaDescription,
-        'Artist Biography',
+        MODAL_TYPE.readMoreModal,
+        ReadMore,
+        'More',
         {
           attrs: 'attrs',
         },

@@ -15,14 +15,18 @@ function onScroll() {
   showEnd.value = Math.ceil(scrollLeft + offsetWidth) < scrollWidth;
 }
 
+function onResize() {
+  onScroll();
+}
+
 onMounted(() => {
   onScroll();
 
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('resize', debounce(onResize));
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', onScroll);
+  window.removeEventListener('resize', onResize);
 });
 </script>
 

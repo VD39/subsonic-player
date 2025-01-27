@@ -127,7 +127,7 @@ function onResize() {
 onMounted(() => {
   updateProgress();
 
-  window.addEventListener('resize', onResize);
+  window.addEventListener('resize', debounce(onResize));
 });
 
 onUnmounted(() => {

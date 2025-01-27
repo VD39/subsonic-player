@@ -48,6 +48,10 @@ function onMouseOut() {
   disableClonedContent.value = false;
 }
 
+function onResize() {
+  getCloneData();
+}
+
 onMounted(() => {
   if (!marqueeContentRef.value) {
     return;
@@ -55,10 +59,10 @@ onMounted(() => {
 
   getCloneData();
 
-  window.addEventListener('resize', getCloneData);
+  window.addEventListener('resize', debounce(onResize, 1000));
 
   // To watch slot data when it changes.
-  mutationObserver.value = new MutationObserver(getCloneData);
+  mutationObserver.value = new MutationObserver(onResize);
 
   mutationObserver.value.observe(marqueeContentRef.value, {
     childList: true,

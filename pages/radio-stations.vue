@@ -39,6 +39,18 @@ function playRadioStation(station: RadioStation) {
   playTracks([station]);
 }
 
+function addNewRadioStationModal() {
+  addRadioStationModal(refresh);
+}
+
+function deleteSelectedRadioStation(id: string) {
+  deleteRadioStation(id, refresh);
+}
+
+function updateSelectedRadioStationModal(radioStation: RadioStation) {
+  updateRadioStationModal(radioStation, refresh);
+}
+
 useHead({
   title: 'Radio Stations',
 });
@@ -55,7 +67,7 @@ useHead({
         icon-size="large"
         :icon="ICONS.add"
         title="Add radio station"
-        @click="addRadioStationModal"
+        @click="addNewRadioStationModal"
       >
         Add radio station
       </ButtonLink>
@@ -66,8 +78,8 @@ useHead({
     <RadioStationList
       :radio-stations="radioStationsData.radioStations"
       @add-to-queue="addTrackToQueue"
-      @delete-radio-station="deleteRadioStation"
-      @edit-radio-station="updateRadioStationModal"
+      @delete-radio-station="deleteSelectedRadioStation"
+      @edit-radio-station="updateSelectedRadioStationModal"
       @play-radio-station="playRadioStation"
     />
   </LoadingData>

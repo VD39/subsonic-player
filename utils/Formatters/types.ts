@@ -112,6 +112,7 @@ export interface AllMedia {
 }
 
 export interface PodcastEpisode {
+  author?: string;
   description?: string;
   downloaded: boolean;
   duration: string;
@@ -119,6 +120,7 @@ export interface PodcastEpisode {
   id: string;
   image: Image;
   name: string;
+  podcastId: string;
   podcastName: string;
   publishDate: string;
   streamUrlId?: string;

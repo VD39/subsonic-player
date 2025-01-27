@@ -18,7 +18,7 @@ describe('artist-middleware', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toBeCalledWith('/artists');
+      expect(navigateToMock).toHaveBeenCalledWith('/artists');
     });
   });
 
@@ -37,7 +37,7 @@ describe('artist-middleware', () => {
     });
 
     it('does not call the navigateTo function', () => {
-      expect(navigateToMock).not.toBeCalled();
+      expect(navigateToMock).not.toHaveBeenCalled();
     });
   });
 });

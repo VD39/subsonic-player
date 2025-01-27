@@ -18,7 +18,7 @@ describe('search-middleware', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toBeCalledWith('/');
+      expect(navigateToMock).toHaveBeenCalledWith('/');
     });
   });
 
@@ -39,7 +39,7 @@ describe('search-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/');
+        expect(navigateToMock).toHaveBeenCalledWith('/');
       });
     });
 
@@ -63,7 +63,7 @@ describe('search-middleware', () => {
       });
 
       it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toBeCalled();
+        expect(navigateToMock).not.toHaveBeenCalled();
       });
     });
   });

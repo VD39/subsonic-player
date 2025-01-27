@@ -38,7 +38,7 @@ describe('useTheme', () => {
       });
 
       it('calls the localStorage.setItem with correct parameters', () => {
-        expect(setLocalStorageMock).toBeCalledWith(
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
           STATE_NAMES.theme,
           stringify,
         );

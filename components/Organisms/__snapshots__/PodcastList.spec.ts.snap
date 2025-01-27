@@ -30,13 +30,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -66,7 +73,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Episode description </span>
+                <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
@@ -100,13 +107,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -148,13 +162,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -196,13 +217,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -244,13 +272,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -301,13 +336,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -337,7 +379,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Episode description </span>
+                <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
@@ -371,13 +413,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -419,13 +468,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -467,13 +523,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -515,13 +578,20 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
+            <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
@@ -571,6 +641,13 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <p class="clamp2">description</p>
         </div>
       </div>
@@ -602,7 +679,87 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Episode description </span>
+                <!--v-if--><span class="clamp text"> Episode information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="divider" aria-hidden="true"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Episode </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`PodcastList > when podcastEpisodes prop is not an empty array > when the episode has no author > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Episodes</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div data-test-id="track" class="trackRow trackBorder spaceBetween">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper trackPlayPause large withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <!--v-if-->
+          <p class="clamp2">description</p>
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+            <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
+        </div>
+        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Delete episode </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download episode </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
@@ -645,15 +802,23 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
               </div>
             </div>
           </div>
+          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div>
           <!--v-if-->
         </div>
       </div>
       <div class="centerItems podcastOptions">
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
-            <ph-check-circle-stub size="24"></ph-check-circle-stub>
-          </div>
-          <!--v-if-->
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+            <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
         </div>
         <div class="marqueeScroll" style="--animation-duration: 0ms;">
           <div class="bulletList inner">
@@ -679,7 +844,9 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
-            <!--v-if-->
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Episode information </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>

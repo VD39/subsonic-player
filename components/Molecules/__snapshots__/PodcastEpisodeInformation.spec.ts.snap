@@ -1,0 +1,87 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PodcastEpisodeInformation > matches the snapshot 1`] = `
+"<div class="trackTable trackInformation">
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Title</div>
+    <div class="trackCell">
+      <p>title</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Podcast</div>
+    <div class="trackCell"><a data-test-id="link" class="link">podcastName</a></div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Author</div>
+    <div class="trackCell">
+      <p>author</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Description</div>
+    <div class="trackCell">
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div>description</div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Published Date </div>
+    <div class="trackCell">
+      <p>01/01/2000</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Downloaded</div>
+    <div class="trackCell">
+      <phcheckcircle size="24"></phcheckcircle>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`PodcastEpisodeInformation > when episode is not downloaded > matches the snapshot 1`] = `
+"<div class="trackTable trackInformation">
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Title</div>
+    <div class="trackCell">
+      <p>title</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Podcast</div>
+    <div class="trackCell"><a data-test-id="link" class="link">podcastName</a></div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Author</div>
+    <div class="trackCell">
+      <p>author</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Description</div>
+    <div class="trackCell">
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div>description</div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Published Date </div>
+    <div class="trackCell">
+      <p>01/01/2000</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Downloaded</div>
+    <div class="trackCell">
+      <phxcircle size="24"></phxcircle>
+    </div>
+  </div>
+</div>"
+`;

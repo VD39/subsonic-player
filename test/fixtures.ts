@@ -127,6 +127,8 @@ export const playlistMock = {
 } as ResponsePlaylist;
 
 export const podcastEpisodeMock = {
+  album: 'album',
+  artist: 'artist',
   channelId: 'channelId',
   coverArt: 'coverArt',
   description: 'description',
@@ -232,6 +234,7 @@ export const formattedArtistMock = {
 } as Artist;
 
 export const formattedPodcastEpisodeMock = {
+  author: 'author',
   description: 'description',
   downloaded: true,
   duration: '00:19',
@@ -239,6 +242,7 @@ export const formattedPodcastEpisodeMock = {
   id: 'id',
   image: 'image',
   name: 'title',
+  podcastId: 'podcastId',
   podcastName: 'podcastName',
   publishDate: '01/01/2000',
   streamUrlId: 'streamUrlId',

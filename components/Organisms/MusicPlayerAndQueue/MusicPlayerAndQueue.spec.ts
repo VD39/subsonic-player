@@ -1,12 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import MusicPlayer from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayer/MusicPlayer.vue';
+import QueueList from '@/components/Organisms/MusicPlayerAndQueue/Queue/QueueList.vue';
+import QueuePlayer from '@/components/Organisms/MusicPlayerAndQueue/Queue/QueuePlayer.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
-
-import MusicPlayer from '~/components/Organisms/MusicPlayerAndQueue/MusicPlayer/MusicPlayer.vue';
-import QueueList from '~/components/Organisms/MusicPlayerAndQueue/Queue/QueueList.vue';
-import QueuePlayer from '~/components/Organisms/MusicPlayerAndQueue/Queue/QueuePlayer.vue';
 
 import MusicPlayerAndQueue from './MusicPlayerAndQueue.vue';
 
@@ -23,6 +22,13 @@ const { showMediaPlayerMock } = useAudioPlayerMock();
 function factory(props = {}) {
   return mount(MusicPlayerAndQueue, {
     attachTo: document.body,
+    global: {
+      stubs: {
+        MusicPlayer: true,
+        QueueList: true,
+        QueuePlayer: true,
+      },
+    },
     props: {
       ...props,
     },
@@ -47,9 +53,8 @@ describe('MusicPlayerAndQueue', () => {
   });
 
   describe('when showMediaPlayer value is true', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       showMediaPlayerMock.value = true;
-      await wrapper.vm.$nextTick();
     });
 
     it('matches the snapshot', () => {

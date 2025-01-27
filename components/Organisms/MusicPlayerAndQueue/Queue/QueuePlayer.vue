@@ -5,13 +5,12 @@ import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
-
-import MainPlayerControls from '~/components/Organisms/MusicPlayerAndQueue/Controls/MainPlayerControls.vue';
-import MediaInformation from '~/components/Organisms/MusicPlayerAndQueue/Controls/MediaInformation.vue';
-import PlaybackRateButton from '~/components/Organisms/MusicPlayerAndQueue/Controls/PlaybackRateButton.vue';
-import RepeatButton from '~/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
-import ShuffleButton from '~/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
-import TrackSeeker from '~/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
+import MainPlayerControls from '@/components/Organisms/MusicPlayerAndQueue/Controls/MainPlayerControls.vue';
+import MediaInformation from '@/components/Organisms/MusicPlayerAndQueue/Controls/MediaInformation.vue';
+import PlaybackRateButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/PlaybackRateButton.vue';
+import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
+import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
+import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 
 const {
   currentTime,

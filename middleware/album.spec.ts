@@ -18,7 +18,7 @@ describe('album-middleware', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toBeCalledWith('/albums/a-z');
+      expect(navigateToMock).toHaveBeenCalledWith('/albums/a-z');
     });
   });
 
@@ -37,7 +37,7 @@ describe('album-middleware', () => {
     });
 
     it('does not call the navigateTo function', () => {
-      expect(navigateToMock).not.toBeCalled();
+      expect(navigateToMock).not.toHaveBeenCalled();
     });
   });
 });

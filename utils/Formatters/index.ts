@@ -207,6 +207,9 @@ export function formatPodcastEpisode(podcast: Partial<Podcast>) {
 
   return function (episode: ResponsePodcastEpisode): PodcastEpisode {
     const {
+      album = DEFAULT_VALUE,
+      artist: author = DEFAULT_VALUE,
+      channelId: podcastId,
       coverArt = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
       description,
       duration,
@@ -222,6 +225,7 @@ export function formatPodcastEpisode(podcast: Partial<Podcast>) {
     const streamUrlId = downloaded && streamId ? streamId : undefined;
 
     return {
+      author,
       description,
       downloaded,
       duration: secondsToHHMMSS(duration),
@@ -229,7 +233,8 @@ export function formatPodcastEpisode(podcast: Partial<Podcast>) {
       id,
       image,
       name,
-      podcastName: podcastName!,
+      podcastId,
+      podcastName: podcastName! || album,
       publishDate: formatDate(publishDate, {}),
       streamUrlId,
       type: MEDIA_TYPE.podcastEpisode,

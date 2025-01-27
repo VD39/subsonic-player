@@ -12,7 +12,7 @@ definePageMeta({
 const route = useRoute();
 const { addToPlaylistModal } = usePlaylist();
 const { search } = useSearch();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
 

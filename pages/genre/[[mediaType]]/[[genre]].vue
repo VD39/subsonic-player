@@ -13,7 +13,7 @@ const route = useRoute();
 const { getMediaByGenre } = useGenre();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
   `${route.params.genre}-${route.params.mediaType}`,

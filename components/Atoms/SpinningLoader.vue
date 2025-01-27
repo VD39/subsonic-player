@@ -11,7 +11,12 @@ withDefaults(
 
 <template>
   <span :class="['centerItems', $style.spinningLoader]">
-    <PhCircleNotch ref="phCircleNotch" :size="size" :class="$style.icon" />
+    <component
+      :is="ICONS.spinner"
+      ref="spinnerIcon"
+      :size="size"
+      :class="$style.icon"
+    />
 
     <span class="visuallyHidden">Loading...</span>
   </span>

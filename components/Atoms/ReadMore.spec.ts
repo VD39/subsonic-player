@@ -2,24 +2,25 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import Playlists from './playlists.vue';
+import ReadMore from './ReadMore.vue';
 
 function factory(props = {}) {
-  return mount(Playlists, {
+  return mount(ReadMore, {
     props: {
+      text: '<p><a href="#">Link</a> Text</p>',
       ...props,
     },
   });
 }
 
-describe('Playlists', () => {
+describe('ReadMore', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
     wrapper = factory();
   });
 
-  it('renders', () => {
-    expect(wrapper).toBeDefined();
+  it('matches the snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

@@ -12,4 +12,4 @@ exports[`SubmitButton > when fullWidth prop is set to true > matches the snapsho
 </button>"
 `;
 
-exports[`SubmitButton > when loading prop is set to true > matches the snapshot 1`] = `"<button class="centerItems buttonLink alignRight disabled submitButton submitButton" disabled="" type="submit"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Default slot content.</span></button>"`;
+exports[`SubmitButton > when loading prop is set to true > matches the snapshot 1`] = `"<button class="centerItems buttonLink alignRight disabled submitButton submitButton" disabled="" type="submit"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Default slot content.</span></button>"`;

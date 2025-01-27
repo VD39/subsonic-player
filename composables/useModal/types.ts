@@ -1,7 +1,8 @@
 import type { Raw } from 'vue';
 
 export interface ModalProps {
-  attrs?: Record<string, unknown>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  attrs?: Record<string, any>;
   component: null | Raw<unknown>;
   title?: null | string;
 }

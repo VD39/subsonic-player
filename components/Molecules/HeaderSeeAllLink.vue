@@ -12,7 +12,8 @@ defineProps<{
       <NuxtLink :to="to">
         <slot />
 
-        <PhCaretDoubleRight
+        <component
+          :is="ICONS.more"
           :class="$style.moreIcon"
           :size="ICON_SIZE.small"
           weight="regular"

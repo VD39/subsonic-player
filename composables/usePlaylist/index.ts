@@ -70,9 +70,7 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      playlists.value.push(playlistData);
       addSuccessSnack(`Successfully added playlist ${playlistData.name}.`);
-
       return playlistData;
     }
   }
@@ -121,6 +119,7 @@ export function usePlaylist() {
       /* istanbul ignore next -- @preserve */
       async onSubmit(playlistName: string) {
         await addPlaylist(playlistName);
+        await getPlaylists();
         closeModal();
       },
     });

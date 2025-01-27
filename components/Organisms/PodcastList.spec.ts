@@ -76,54 +76,6 @@ describe('PodcastList', () => {
       it('shows the description element', () => {
         expect(wrapper.find({ ref: 'description' }).exists()).toBe(true);
       });
-
-      it('shows the show episode description ButtonLink component', () => {
-        expect(
-          wrapper
-            .findComponent({ ref: 'showEpisodeDescriptionButton' })
-            .exists(),
-        ).toBe(true);
-      });
-
-      it('shows the show episode description DropdownItem component', () => {
-        expect(
-          wrapper
-            .findComponent({ ref: 'showEpisodeDescriptionDropdownItem' })
-            .exists(),
-        ).toBe(true);
-      });
-
-      describe('when the show episode description ButtonLink component emits the click event', () => {
-        beforeEach(() => {
-          wrapper
-            .findComponent({
-              ref: 'showEpisodeDescriptionButton',
-            })
-            .vm.$emit('click');
-        });
-
-        it('emits the showEpisodeDescription event with track', () => {
-          expect(wrapper.emitted('showEpisodeDescription')).toEqual([
-            [podcastEpisodes[0]],
-          ]);
-        });
-      });
-
-      describe('when the show episode description DropdownItem component emits the click event', () => {
-        beforeEach(() => {
-          wrapper
-            .findComponent({
-              ref: 'showEpisodeDescriptionDropdownItem',
-            })
-            .vm.$emit('click');
-        });
-
-        it('emits the showEpisodeDescription event with track', () => {
-          expect(wrapper.emitted('showEpisodeDescription')).toEqual([
-            [podcastEpisodes[0]],
-          ]);
-        });
-      });
     });
 
     describe('when the episode has no description', () => {
@@ -142,20 +94,32 @@ describe('PodcastList', () => {
       it('does not show the description element', () => {
         expect(wrapper.find({ ref: 'description' }).exists()).toBe(false);
       });
+    });
 
-      it('does not show the show episode description ButtonLink component', () => {
+    describe('when the episode has an author', () => {
+      it('shows the MarqueeScroll component containing the author', () => {
         expect(
-          wrapper
-            .findComponent({ ref: 'showEpisodeDescriptionButton' })
-            .exists(),
-        ).toBe(false);
+          wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
+        ).toBe(true);
+      });
+    });
+
+    describe('when the episode has no author', () => {
+      beforeEach(async () => {
+        wrapper = factory({
+          podcastEpisodes: getFormattedPodcastEpisodesMock(1, {
+            author: undefined,
+          }),
+        });
       });
 
-      it('does not show the show episode description DropdownItem component', () => {
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the MarqueeScroll component containing the author', () => {
         expect(
-          wrapper
-            .findComponent({ ref: 'showEpisodeDescriptionDropdownItem' })
-            .exists(),
+          wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
         ).toBe(false);
       });
     });
@@ -347,6 +311,38 @@ describe('PodcastList', () => {
             [podcastEpisodes[0].id],
           ]);
         });
+      });
+    });
+
+    describe('when the episode information ButtonLink component emits the click event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent({
+            ref: 'episodeInformationButton',
+          })
+          .vm.$emit('click');
+      });
+
+      it('emits the episodeInformation event with track', () => {
+        expect(wrapper.emitted('episodeInformation')).toEqual([
+          [podcastEpisodes[0]],
+        ]);
+      });
+    });
+
+    describe('when the episode information DropdownItem component emits the click event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent({
+            ref: 'episodeInformationDropdownItem',
+          })
+          .vm.$emit('click');
+      });
+
+      it('emits the episodeInformation event with track', () => {
+        expect(wrapper.emitted('episodeInformation')).toEqual([
+          [podcastEpisodes[0]],
+        ]);
       });
     });
 

@@ -468,6 +468,7 @@ describe('InputRange', () => {
           left: 0,
           width: 200,
         }) as DOMRect;
+
       global.dispatchEvent(new CustomEvent('resize'));
     });
 

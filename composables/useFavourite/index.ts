@@ -16,8 +16,6 @@ export function useFavourite() {
       method: 'POST',
       params: getParams(params),
     });
-
-    getFavourites();
   }
 
   /* istanbul ignore next -- @preserve */
@@ -26,8 +24,6 @@ export function useFavourite() {
       method: 'POST',
       params: getParams(params),
     });
-
-    getFavourites();
   }
 
   return {

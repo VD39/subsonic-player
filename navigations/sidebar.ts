@@ -16,6 +16,11 @@ export const SIDEBAR_DESKTOP_NAVIGATION = [
         title: 'Radio Stations',
         to: '/radio-stations',
       },
+      {
+        icon: ICONS.queue,
+        title: 'Queue',
+        to: '/queue',
+      },
     ],
     title: 'Browse',
   },

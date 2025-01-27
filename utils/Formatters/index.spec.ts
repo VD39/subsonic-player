@@ -305,6 +305,7 @@ describe('formatPodcastEpisode', () => {
         name: 'name',
       })(podcastEpisodeMock),
     ).toEqual({
+      author: 'artist',
       description: 'description',
       downloaded: true,
       duration: '00:19',
@@ -312,6 +313,7 @@ describe('formatPodcastEpisode', () => {
       id: 'id',
       image: 'image',
       name: 'title',
+      podcastId: 'channelId',
       podcastName: 'name',
       publishDate: '01/01/2000',
       streamUrlId: 'streamId',
@@ -320,12 +322,29 @@ describe('formatPodcastEpisode', () => {
   });
 
   describe('when name is not defined', () => {
-    it('returns the correct values', () => {
-      expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
-        expect.objectContaining({
-          podcastName: undefined,
-        }),
-      );
+    describe('when episode album is defined', () => {
+      it('returns the correct values', () => {
+        expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
+          expect.objectContaining({
+            podcastName: 'album',
+          }),
+        );
+      });
+    });
+
+    describe('when episode album is not defined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatPodcastEpisode({})({
+            ...podcastEpisodeMock,
+            album: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            podcastName: DEFAULT_VALUE,
+          }),
+        );
+      });
     });
   });
 
@@ -353,6 +372,21 @@ describe('formatPodcastEpisode', () => {
           }),
         );
       });
+    });
+  });
+
+  describe('when artist is undefined', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatPodcastEpisode({})({
+          ...podcastEpisodeMock,
+          artist: undefined,
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          author: DEFAULT_VALUE,
+        }),
+      );
     });
   });
 
@@ -405,6 +439,7 @@ describe('formatPodcast', () => {
       description: 'description',
       episodes: [
         {
+          author: 'artist',
           description: 'description',
           downloaded: true,
           duration: '00:19',
@@ -412,6 +447,7 @@ describe('formatPodcast', () => {
           id: 'id',
           image: 'image',
           name: 'title',
+          podcastId: 'channelId',
           podcastName: 'title',
           publishDate: '01/01/2000',
           streamUrlId: 'streamId',

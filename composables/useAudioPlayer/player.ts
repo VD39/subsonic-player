@@ -6,8 +6,7 @@ export class AudioPlayer {
 
   private currentVolume = 1;
   private endedCallback: () => void = () => ({});
-  // eslint-disable-next-line no-undef
-  private fadeTimer: NodeJS.Timeout | undefined = undefined;
+  private fadeTimer: ReturnType<typeof setTimeout> | undefined = undefined;
   private loadedMetadataCallback: (duration: number) => void = () => ({});
   private timeupdateCallback: (currentTime: number) => void = () => ({});
   private waitingCallback: () => void = () => ({});

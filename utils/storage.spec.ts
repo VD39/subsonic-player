@@ -80,7 +80,7 @@ describe('setLocalStorage', () => {
   describe('when invalid data is passed', () => {
     beforeEach(() => {
       vi.spyOn(window.localStorage, 'setItem').mockImplementationOnce(() => {
-        throw new Error('Mock error');
+        throw new Error('new Error message.');
       });
 
       setLocalStorage('testKey', {
@@ -89,7 +89,10 @@ describe('setLocalStorage', () => {
     });
 
     it('calls the console.error function', () => {
-      expect(consoleErrorSpy).toHaveBeenCalled();
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        'Error setting local storage data for key "testKey":',
+        expect.any(Error),
+      );
     });
   });
 });

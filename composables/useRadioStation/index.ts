@@ -28,7 +28,6 @@ export function useRadioStation() {
 
     if (radioStationData) {
       addSuccessSnack(`Successfully added radio station ${params.name}.`);
-      await getRadioStations();
     }
   }
 
@@ -43,11 +42,10 @@ export function useRadioStation() {
 
     if (radioStationData) {
       addSuccessSnack(`Successfully updated radio station ${params.name}.`);
-      await getRadioStations();
     }
   }
 
-  async function deleteRadioStation(id: string) {
+  async function deleteRadioStation(id: string, refresh: () => Promise<void>) {
     const { data: radioStationData } = await fetchData(
       '/deleteInternetRadioStation',
       {
@@ -59,22 +57,26 @@ export function useRadioStation() {
 
     if (radioStationData) {
       addSuccessSnack('Successfully deleted radio station.');
-      await getRadioStations();
+      await refresh();
     }
   }
 
   /* istanbul ignore next -- @preserve */
-  function addRadioStationModal() {
+  function addRadioStationModal(refresh: () => Promise<void>) {
     openModal(MODAL_TYPE.addRadioStationModal, {
       async onSubmit(radioStation: RadioStationParams) {
         await addRadioStation(radioStation);
+        await refresh();
         closeModal();
       },
     });
   }
 
   /* istanbul ignore next -- @preserve */
-  function updateRadioStationModal(radioStation: RadioStation) {
+  function updateRadioStationModal(
+    radioStation: RadioStation,
+    refresh: () => Promise<void>,
+  ) {
     openModal(MODAL_TYPE.updateRadioStationModal, {
       async onSubmit(newRadioStation: RadioStationParams) {
         await updateRadioStation({
@@ -82,6 +84,7 @@ export function useRadioStation() {
           id: radioStation.id,
         });
 
+        await refresh();
         closeModal();
       },
       radioStation,

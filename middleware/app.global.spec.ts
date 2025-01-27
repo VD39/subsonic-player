@@ -22,12 +22,6 @@ mockNuxtImport('usePlaylist', () => () => ({
   playlists,
 }));
 
-const clearAllSnackMock = vi.fn();
-
-mockNuxtImport('useSnack', () => () => ({
-  clearAllSnack: clearAllSnackMock,
-}));
-
 describe('app-global-middleware', () => {
   beforeEach(() => {
     appGlobalMiddleware(routeMock, routeMock);
@@ -36,10 +30,6 @@ describe('app-global-middleware', () => {
   afterEach(() => {
     authenticated.value = false;
     vi.clearAllMocks();
-  });
-
-  it('calls the clearAllSnack function', () => {
-    expect(clearAllSnackMock).toHaveBeenCalled();
   });
 
   describe('when authenticated is false', () => {

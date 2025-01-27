@@ -9,7 +9,7 @@ import MediaInformation from './MediaInformation.vue';
 
 const openTrackInformationModalMock = vi.fn();
 
-mockNuxtImport('useDescription', () => () => ({
+mockNuxtImport('useMediaInformation', () => () => ({
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 

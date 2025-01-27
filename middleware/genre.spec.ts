@@ -18,7 +18,7 @@ describe('genre-middleware', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toBeCalledWith('/genres');
+      expect(navigateToMock).toHaveBeenCalledWith('/genres');
     });
   });
 
@@ -39,7 +39,7 @@ describe('genre-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toBeCalledWith('/genres');
+        expect(navigateToMock).toHaveBeenCalledWith('/genres');
       });
     });
 
@@ -62,7 +62,7 @@ describe('genre-middleware', () => {
       });
 
       it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toBeCalled();
+        expect(navigateToMock).not.toHaveBeenCalled();
       });
     });
   });

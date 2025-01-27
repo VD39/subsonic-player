@@ -25,10 +25,13 @@ mockNuxtImport('useAPI', () => () => ({
   getStreamUrl: vi.fn((path) => path),
 }));
 
+mockNuxtImport('debounce', () => {
+  return <T>(cb: () => T) => {
+    return cb;
+  };
+});
+
 config.global.stubs = {
-  PhCaretDoubleRight: true,
-  PhCheckCircle: true,
-  PhCircleNotch: true,
   RouterLink: RouterLinkStub,
   teleport: true,
 };

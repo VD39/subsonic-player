@@ -1,5 +1,6 @@
-import MediaDescription from '@/components/Atoms/MediaDescription.vue';
-import TrackDetails from '@/components/Molecules/TrackInformation.vue';
+import ReadMore from '@/components/Atoms/ReadMore.vue';
+import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
+import TrackInformation from '@/components/Molecules/TrackInformation.vue';
 import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
 import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
 import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
@@ -48,34 +49,26 @@ export function useModal() {
     };
   }
 
-  function openPodcastDescriptionModal(attrs: ModalProps['attrs']) {
+  function openPodcastEpisodeInformationModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(MediaDescription),
-      title: 'Podcast Description',
+      component: markRaw(PodcastEpisodeInformation),
+      title: 'Podcast episode information',
     };
   }
 
-  function openPodcastEpisodeDescriptionModal(attrs: ModalProps['attrs']) {
+  function openReadMoreModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(MediaDescription),
-      title: 'Episode Description',
-    };
-  }
-
-  function openArtistBiographyModal(attrs: ModalProps['attrs']) {
-    modal.value = {
-      attrs,
-      component: markRaw(MediaDescription),
-      title: 'Artist Biography',
+      component: markRaw(ReadMore),
+      title: 'More',
     };
   }
 
   function openTrackDetailsModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(TrackDetails),
+      component: markRaw(TrackInformation),
       title: 'Track Details',
     };
   }
@@ -102,14 +95,11 @@ export function useModal() {
       case MODAL_TYPE.addToPlaylistModal:
         openAddToPlaylistFormModal(attrs);
         break;
-      case MODAL_TYPE.artistBiographyModal:
-        openArtistBiographyModal(attrs);
+      case MODAL_TYPE.podcastEpisodeInformationModal:
+        openPodcastEpisodeInformationModal(attrs);
         break;
-      case MODAL_TYPE.podcastDescriptionModal:
-        openPodcastDescriptionModal(attrs);
-        break;
-      case MODAL_TYPE.podcastEpisodeDescriptionModal:
-        openPodcastEpisodeDescriptionModal(attrs);
+      case MODAL_TYPE.readMoreModal:
+        openReadMoreModal(attrs);
         break;
       case MODAL_TYPE.trackDetailsModal:
         openTrackDetailsModal(attrs);

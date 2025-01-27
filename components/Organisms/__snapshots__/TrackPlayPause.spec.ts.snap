@@ -33,7 +33,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > when trackIsBuffer
 "<div class="overlapWrapper trackPlayPause currentTrack">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">
-    <div class="centerAll playPauseInner buffering paused"><span class="centerAll playingLoader playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span></div>
+    <div class="centerAll playPauseInner buffering paused"><span class="centerAll playingLoader playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
   </div>
 </div>"
 `;
@@ -42,7 +42,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > when trackIsPlayin
 "<div class="overlapWrapper trackPlayPause currentTrack">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">
-    <div class="centerAll playPauseInner buffering playing"><span class="centerAll playingLoader playing playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><ph-circle-notch-stub size="24" class="icon"></ph-circle-notch-stub><span class="visuallyHidden">Loading...</span></span></div>
+    <div class="centerAll playPauseInner buffering playing"><span class="centerAll playingLoader playing playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
   </div>
 </div>"
 `;

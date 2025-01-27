@@ -15,7 +15,7 @@ definePageMeta({
 
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
-const { openTrackInformationModal } = useDescription();
+const { openTrackInformationModal } = useMediaInformation();
 const {
   deletePlaylist,
   getPlaylistTracksById,
@@ -47,6 +47,8 @@ const {
   },
 );
 
+const hasTracks = computed(() => !playlistData.value.playlist?.tracks.length);
+
 function playTrack(index: number) {
   playTracks(playlistData.value.playlist!.tracks, index - 1);
 }
@@ -58,7 +60,10 @@ function removeTrackFromPlaylist(songIndexToRemove: string) {
   });
 }
 
-const hasTracks = computed(() => !playlistData.value.playlist?.tracks.length);
+async function deleteSelectedPlaylist() {
+  await deletePlaylist(playlistData.value.playlist!.id);
+  await navigateTo('/playlists');
+}
 
 useHead({
   title: () =>
@@ -115,7 +120,7 @@ useHead({
             <DropdownItem @click="updatePlaylistModal(playlistData.playlist)">
               Edit Playlist
             </DropdownItem>
-            <DropdownItem @click="deletePlaylist(playlistData.playlist.id)">
+            <DropdownItem @click="deleteSelectedPlaylist">
               Delete Playlist
             </DropdownItem>
 

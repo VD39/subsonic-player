@@ -7,9 +7,8 @@ import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import SearchForm from '@/components/Molecules/SearchForm.vue';
 import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
+import MusicPlayerAndQueue from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
-
-import MusicPlayerAndQueue from '~/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 
 const user = useUser();
 const { logout } = useAuth();
