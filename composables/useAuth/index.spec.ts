@@ -18,12 +18,6 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const resetAudioMock = vi.fn();
-
-mockNuxtImport('useAudioPlayer', () => () => ({
-  resetAudio: resetAudioMock,
-}));
-
 const useUserMock = ref();
 
 mockNuxtImport('useUser', () => () => useUserMock);
@@ -60,8 +54,8 @@ describe('useAuth', () => {
         expect(fetchDataMock).not.toHaveBeenCalled();
       });
 
-      it('sets the authenticated value to false', () => {
-        expect(result.composable.authenticated.value).toBe(false);
+      it('sets the isAuthenticated value to false', () => {
+        expect(result.composable.isAuthenticated.value).toBe(false);
       });
     });
 
@@ -91,8 +85,8 @@ describe('useAuth', () => {
         });
 
         describe('when fetchData response returns is successful', () => {
-          it('sets the correct authenticated value', () => {
-            expect(result.composable.authenticated.value).toBe(true);
+          it('sets the correct isAuthenticated value', () => {
+            expect(result.composable.isAuthenticated.value).toBe(true);
           });
         });
 
@@ -105,8 +99,8 @@ describe('useAuth', () => {
             result.composable.autoLogin();
           });
 
-          it('sets the correct authenticated value', () => {
-            expect(result.composable.authenticated.value).toBe(undefined);
+          it('sets the correct isAuthenticated value', () => {
+            expect(result.composable.isAuthenticated.value).toBe(undefined);
           });
         });
       });
@@ -137,8 +131,8 @@ describe('useAuth', () => {
         expect(result.composable.error.value).toBe('Error message.');
       });
 
-      it('sets the correct authenticated value', () => {
-        expect(result.composable.authenticated.value).toBe(false);
+      it('sets the correct isAuthenticated value', () => {
+        expect(result.composable.isAuthenticated.value).toBe(false);
       });
     });
 
@@ -172,8 +166,8 @@ describe('useAuth', () => {
         });
       });
 
-      it('sets the correct authenticated value', () => {
-        expect(result.composable.authenticated.value).toBe(true);
+      it('sets the correct isAuthenticated value', () => {
+        expect(result.composable.isAuthenticated.value).toBe(true);
       });
 
       it('sets the correct error value', () => {
@@ -191,12 +185,8 @@ describe('useAuth', () => {
       expect(useCookieMock.value).toBe(null);
     });
 
-    it('sets the correct authenticated value', () => {
-      expect(result.composable.authenticated.value).toBe(undefined);
-    });
-
-    it('calls the resetAudio function', () => {
-      expect(resetAudioMock).toHaveBeenCalled();
+    it('sets the correct isAuthenticated value', () => {
+      expect(result.composable.isAuthenticated.value).toBe(undefined);
     });
   });
 });

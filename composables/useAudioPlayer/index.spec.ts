@@ -4,10 +4,6 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAudioPlayer } from './index';
 
-const queueTracks = getFormattedQueueTracksMock(3);
-const queueTracksMore = getFormattedQueueTracksMock(15);
-const queueTrack = queueTracks[0];
-
 Object.defineProperty(window.navigator, 'mediaSession', {
   configurable: true,
   value: {
@@ -40,7 +36,6 @@ const onWaitingMock = vi.fn((cb) => (onWaitingCb = cb));
 const pauseMock = vi.fn();
 const playMock = vi.fn(() => Promise.resolve());
 const setCurrentTimeMock = vi.fn();
-const stopMock = vi.fn();
 const unloadMock = vi.fn();
 
 mockNuxtImport('AudioPlayer', () =>
@@ -57,7 +52,6 @@ mockNuxtImport('AudioPlayer', () =>
     play: playMock,
     setCurrentTime: setCurrentTimeMock,
     setVolume: setVolumeMock,
-    stop: stopMock,
     unload: unloadMock,
   })),
 );
@@ -68,15 +62,33 @@ mockNuxtImport('useQueue', () => () => ({
   resetQueueState: resetQueueStateMock,
 }));
 
+const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
+
+const setLocalStorageMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
+
+const getLocalStorageMock = vi.hoisted(() =>
+  vi.fn<() => null | typeof AUDIO_PLAYER_DEFAULT_STATES>(() => null),
+);
+
+mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
+
+const queueTracks = getFormattedQueueTracksMock(3);
+const queueTracksMore = getFormattedQueueTracksMock(15);
+const queueTrack = queueTracks[0];
+
 describe('useAudioPlayer', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>;
 
-  beforeEach(() => {
+  beforeAll(() => {
     result = withSetup(useAudioPlayer);
   });
 
-  it('sets the default trackIsBuffering value', () => {
-    expect(result.composable.trackIsBuffering.value).toBe(false);
+  it('sets the default isBuffering value', () => {
+    expect(result.composable.isBuffering.value).toBe(false);
   });
 
   it('sets the default currentTime value', () => {
@@ -91,12 +103,12 @@ describe('useAudioPlayer', () => {
     expect(result.composable.duration.value).toBe(0);
   });
 
-  it('sets the default trackIsPlaying value', () => {
-    expect(result.composable.trackIsPlaying.value).toBe(false);
+  it('sets the default isPlaying value', () => {
+    expect(result.composable.isPlaying.value).toBe(false);
   });
 
-  it('sets the default playBackRate value', () => {
-    expect(result.composable.playBackRate.value).toBe(1);
+  it('sets the default playbackRate value', () => {
+    expect(result.composable.playbackRate.value).toBe(1);
   });
 
   it('sets the default isMuted value', () => {
@@ -145,6 +157,62 @@ describe('useAudioPlayer', () => {
 
   it('sets the the correct isRadioStation value', () => {
     expect(result.composable.isRadioStation.value).toBe(false);
+  });
+
+  describe('when getLocalStorage returns data', () => {
+    const queueList = getFormattedQueueTracksMock(2);
+
+    beforeAll(() => {
+      getLocalStorageMock.mockReturnValue({
+        ...AUDIO_PLAYER_DEFAULT_STATES,
+        currentQueueIndex: 1,
+        currentTime: 55,
+        duration: 100,
+        playbackRate: 0.5,
+        queueList,
+        repeat: -1,
+        shuffle: false,
+        volume: 0.5,
+      });
+
+      result = withSetup(useAudioPlayer);
+    });
+
+    it('sets the correct duration value', () => {
+      expect(result.composable.duration.value).toBe(100);
+    });
+
+    it('sets the correct queueList value', () => {
+      expect(result.composable.queueList.value).toEqual(queueList);
+    });
+
+    it('sets the correct repeat value', () => {
+      expect(result.composable.repeat.value).toBe(-1);
+    });
+
+    it('sets the correct shuffle value', () => {
+      expect(result.composable.shuffle.value).toBe(false);
+    });
+
+    it('sets the correct volume value', () => {
+      expect(result.composable.volume.value).toBe(0.5);
+    });
+
+    it('calls the audio load function', () => {
+      expect(loadMock).toHaveBeenCalledWith(queueList[1].streamUrlId);
+    });
+
+    it('calls the audio setVolume function', () => {
+      expect(setVolumeMock).toHaveBeenCalledWith(0.5);
+    });
+
+    it('calls the audio setCurrentTime function', () => {
+      expect(setCurrentTimeMock).toHaveBeenCalledWith(55);
+    });
+
+    it('calls the audio changePlaybackRate function', () => {
+      expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
+    });
   });
 
   describe.each([
@@ -388,6 +456,16 @@ describe('useAudioPlayer', () => {
     it('calls the resetQueueState function', () => {
       expect(resetQueueStateMock).toHaveBeenCalled();
     });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.playerState,
+        expect.objectContaining({
+          currentQueueIndex: -1,
+          queueList: [],
+        }),
+      );
+    });
   });
 
   describe('when setVolume function is called', () => {
@@ -399,7 +477,7 @@ describe('useAudioPlayer', () => {
       expect(setVolumeMock).toHaveBeenCalledWith(0.23);
     });
 
-    it('sets the the playBackRate value', () => {
+    it('sets the the playbackRate value', () => {
       expect(result.composable.volume.value).toBe(0.23);
     });
   });
@@ -412,6 +490,10 @@ describe('useAudioPlayer', () => {
     it('calls the audio setCurrentTime function', () => {
       expect(setCurrentTimeMock).toHaveBeenCalledWith(23);
     });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalled();
+    });
   });
 
   describe('when setPlaybackRate function is called', () => {
@@ -423,8 +505,17 @@ describe('useAudioPlayer', () => {
       expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
     });
 
-    it('sets the the playBackRate value', () => {
-      expect(result.composable.playBackRate.value).toBe(0.5);
+    it('sets the the playbackRate value', () => {
+      expect(result.composable.playbackRate.value).toBe(0.5);
+    });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.playerState,
+        expect.objectContaining({
+          playbackRate: 0.5,
+        }),
+      );
     });
   });
 
@@ -437,6 +528,15 @@ describe('useAudioPlayer', () => {
 
       it('sets the the repeat value', () => {
         expect(result.composable.repeat.value).toBe(outcome);
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          STATE_NAMES.playerState,
+          expect.objectContaining({
+            repeat: outcome,
+          }),
+        );
       });
     },
   );
@@ -453,6 +553,15 @@ describe('useAudioPlayer', () => {
 
     it('shuffles the queueList value', () => {
       expect(result.composable.queueList.value).not.toEqual(queueTracksMore);
+    });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.playerState,
+        expect.objectContaining({
+          shuffle: true,
+        }),
+      );
     });
 
     describe('when toggleShuffle function is called again', () => {
@@ -498,6 +607,7 @@ describe('useAudioPlayer', () => {
 
   describe('when toggleVolume function is called', () => {
     beforeAll(() => {
+      vi.clearAllMocks();
       result.composable.toggleVolume(0.5);
     });
 
@@ -511,6 +621,15 @@ describe('useAudioPlayer', () => {
 
     it('sets the the isMuted value', () => {
       expect(result.composable.isMuted.value).toBe(true);
+    });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.playerState,
+        expect.objectContaining({
+          volume: 0,
+        }),
+      );
     });
 
     describe('when toggleVolume function is called again', () => {
@@ -530,6 +649,15 @@ describe('useAudioPlayer', () => {
         it('sets the the isMuted value', () => {
           expect(result.composable.isMuted.value).toBe(false);
         });
+
+        it('calls the setLocalStorage function', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            STATE_NAMES.playerState,
+            expect.objectContaining({
+              volume: 0.5,
+            }),
+          );
+        });
       });
 
       describe('when volume is 0', () => {
@@ -548,6 +676,15 @@ describe('useAudioPlayer', () => {
 
         it('sets the the isMuted value', () => {
           expect(result.composable.isMuted.value).toBe(false);
+        });
+
+        it('calls the setLocalStorage function', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            STATE_NAMES.playerState,
+            expect.objectContaining({
+              volume: 0.1,
+            }),
+          );
         });
       });
     });
@@ -596,6 +733,15 @@ describe('useAudioPlayer', () => {
 
     it('calls the audio play function', () => {
       expect(playMock).toHaveBeenCalled();
+    });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.playerState,
+        expect.objectContaining({
+          queueList: queueTracks,
+        }),
+      );
     });
 
     describe('when mediaSession is in navigator', () => {
@@ -682,45 +828,17 @@ describe('useAudioPlayer', () => {
       result.composable.togglePlay();
     });
 
-    it('sets the the trackIsPlaying value', () => {
-      expect(result.composable.trackIsPlaying.value).toBe(false);
+    it('sets the the isPlaying value', () => {
+      expect(result.composable.isPlaying.value).toBe(false);
     });
 
-    describe('when track is not a radio station', () => {
-      it('calls the audio pause function', () => {
-        expect(pauseMock).toHaveBeenCalled();
-      });
-
-      it('does not call the audio stop function', () => {
-        expect(stopMock).not.toHaveBeenCalled();
-      });
-
-      describe('when mediaSession is in navigator', () => {
-        it('sets the correct playbackState state', () => {
-          expect(navigator.mediaSession.playbackState).toBe('paused');
-        });
-      });
+    it('calls the audio pause function', () => {
+      expect(pauseMock).toHaveBeenCalled();
     });
 
-    describe('when track is radio station', () => {
-      beforeAll(async () => {
-        vi.clearAllMocks();
-        await result.composable.playTracks([
-          {
-            ...queueTrack,
-            type: MEDIA_TYPE.radioStation,
-          },
-        ]);
-
-        await result.composable.togglePlay();
-      });
-
-      it('calls the audio stop function', () => {
-        expect(stopMock).toHaveBeenCalled();
-      });
-
-      it('does not call the audio pause function', () => {
-        expect(pauseMock).not.toHaveBeenCalled();
+    describe('when mediaSession is in navigator', () => {
+      it('sets the correct playbackState state', () => {
+        expect(navigator.mediaSession.playbackState).toBe('paused');
       });
     });
 
@@ -733,8 +851,8 @@ describe('useAudioPlayer', () => {
         expect(playMock).toHaveBeenCalled();
       });
 
-      it('sets the the trackIsPlaying value', () => {
-        expect(result.composable.trackIsPlaying.value).toBe(true);
+      it('sets the the isPlaying value', () => {
+        expect(result.composable.isPlaying.value).toBe(true);
       });
 
       describe('when mediaSession is in navigator', () => {
@@ -755,6 +873,10 @@ describe('useAudioPlayer', () => {
 
       it('calls the audio setCurrentTime function', () => {
         expect(setCurrentTimeMock).toHaveBeenCalledWith(1);
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalled();
       });
     });
 
@@ -796,6 +918,10 @@ describe('useAudioPlayer', () => {
       it('calls the audio setCurrentTime function', () => {
         expect(setCurrentTimeMock).toHaveBeenCalledWith(119);
       });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalled();
+      });
     });
 
     describe(`when currentTime is greater than the duration - ${FAST_FORWARD_TRACK_TIME}`, () => {
@@ -832,16 +958,27 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the audio load function', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTracks[1].streamUrlId);
+        expect(loadMock).toHaveBeenCalledWith(queueTracks[0].streamUrlId);
       });
 
       it('calls the audio play function', () => {
         expect(playMock).toHaveBeenCalled();
       });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          STATE_NAMES.playerState,
+          expect.objectContaining({
+            currentQueueIndex: 0,
+            queueList: queueTracks,
+          }),
+        );
+      });
     });
 
     describe('when track is the last track in queueList', () => {
       beforeAll(() => {
+        result.composable.playNextTrack();
         result.composable.playNextTrack();
         vi.clearAllMocks();
         result.composable.playNextTrack();
@@ -869,6 +1006,16 @@ describe('useAudioPlayer', () => {
 
       it('calls the audio play function', () => {
         expect(playMock).toHaveBeenCalled();
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          STATE_NAMES.playerState,
+          expect.objectContaining({
+            currentQueueIndex: 2,
+            queueList: queueTracks,
+          }),
+        );
       });
     });
 
@@ -901,6 +1048,92 @@ describe('useAudioPlayer', () => {
     });
   });
 
+  describe('when resetAudio function is called', () => {
+    beforeAll(() => {
+      result.composable.resetAudio();
+    });
+
+    it('calls the audio unload function', () => {
+      expect(unloadMock).toHaveBeenCalled();
+    });
+
+    it('calls the deleteLocalStorage function', () => {
+      expect(deleteLocalStorageMock).toHaveBeenCalled();
+    });
+
+    it('sets isBuffering to default value', () => {
+      expect(result.composable.isBuffering.value).toBe(false);
+    });
+
+    it('sets currentTime to default value', () => {
+      expect(result.composable.currentTime.value).toBe(0);
+    });
+
+    it('sets bufferedDuration to default value', () => {
+      expect(result.composable.bufferedDuration.value).toBe(0);
+    });
+
+    it('sets duration to default value', () => {
+      expect(result.composable.duration.value).toBe(0);
+    });
+
+    it('sets isPlaying to default value', () => {
+      expect(result.composable.isPlaying.value).toBe(false);
+    });
+
+    it('sets playbackRate to default value', () => {
+      expect(result.composable.playbackRate.value).toBe(1);
+    });
+
+    it('sets isMuted to default value', () => {
+      expect(result.composable.isMuted.value).toBe(false);
+    });
+
+    it('sets volume to default value', () => {
+      expect(result.composable.volume.value).toBe(1);
+    });
+
+    it('sets queueList to default value', () => {
+      expect(result.composable.queueList.value).toEqual([]);
+    });
+
+    it('sets repeat to default value', () => {
+      expect(result.composable.repeat.value).toBe(-1);
+    });
+
+    it('sets shuffle to default value', () => {
+      expect(result.composable.shuffle.value).toBe(false);
+    });
+
+    it('sets the correct hasNextTrack to default value', () => {
+      expect(result.composable.hasNextTrack.value).toBe(false);
+    });
+
+    it('sets the correct hasPreviousTrack to default value', () => {
+      expect(result.composable.hasPreviousTrack.value).toBe(false);
+    });
+
+    it('sets the the correct showMediaPlayer to default value', () => {
+      expect(result.composable.showMediaPlayer.value).toBe(false);
+    });
+
+    it('sets the the correct currentTrack to default value', () => {
+      expect(result.composable.currentTrack.value).toEqual({});
+    });
+
+    it('sets the the correct isTrack to default value', () => {
+      expect(result.composable.isTrack.value).toBe(false);
+    });
+
+    it('sets the the correct isPodcastEpisode to default value', () => {
+      expect(result.composable.isPodcastEpisode.value).toBe(false);
+    });
+
+    it('sets the the correct isRadioStation to default value', () => {
+      expect(result.composable.isRadioStation.value).toBe(false);
+    });
+  });
+
   describe('when track is not first track in queueList', () => {
     describe('when onBuffered event is called', () => {
       beforeAll(() => {
@@ -917,8 +1150,8 @@ describe('useAudioPlayer', () => {
         onWaitingCb();
       });
 
-      it('sets the correct trackIsBuffering value', () => {
-        expect(result.composable.trackIsBuffering.value).toBe(true);
+      it('sets the correct isBuffering value', () => {
+        expect(result.composable.isBuffering.value).toBe(true);
       });
     });
 
@@ -927,8 +1160,8 @@ describe('useAudioPlayer', () => {
         onCanPlayCb();
       });
 
-      it('sets the correct trackIsBuffering value', () => {
-        expect(result.composable.trackIsBuffering.value).toBe(false);
+      it('sets the correct isBuffering value', () => {
+        expect(result.composable.isBuffering.value).toBe(false);
       });
     });
 
@@ -943,12 +1176,20 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when onLoadedMetadata event is called', () => {
-      beforeAll(() => {
-        onLoadedMetadataCb(120);
-      });
+      describe.each([
+        ['120', 120],
+        [120, 120],
+        [-120, -120],
+        [Infinity, 0],
+        [-Infinity, 0],
+      ])('when duration is %s', (duration, setValue) => {
+        beforeAll(() => {
+          onLoadedMetadataCb(duration);
+        });
 
-      it('sets the correct duration value', () => {
-        expect(result.composable.duration.value).toBe(120);
+        it('sets the correct duration value', () => {
+          expect(result.composable.duration.value).toBe(setValue);
+        });
       });
     });
 

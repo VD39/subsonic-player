@@ -165,6 +165,7 @@ describe('formatArtist', () => {
       lastFmUrl: undefined,
       musicBrainzUrl: undefined,
       name: 'name',
+      similarArtist: [],
       totalAlbums: 0,
       totalTracks: 4,
       type: 'artist',
@@ -194,6 +195,12 @@ describe('formatArtist', () => {
       'starred',
       {
         favourite: false,
+      },
+    ],
+    [
+      'similarArtist',
+      {
+        similarArtist: [],
       },
     ],
   ])('when %s is undefined', (key, outcome) => {
@@ -227,11 +234,11 @@ describe('formatArtist', () => {
       expect(
         formatArtist({
           ...artistMock,
-          albumCount: undefined,
+          albumCount: 8,
         }),
       ).toEqual(
         expect.objectContaining({
-          totalAlbums: 0,
+          totalAlbums: 8,
         }),
       );
     });
@@ -244,7 +251,6 @@ describe('formatArtist', () => {
           formatArtist({
             ...artistMock,
             artistImageUrl: undefined,
-            coverArt: 'coverArt',
           }),
         ).toEqual(
           expect.objectContaining({
@@ -265,6 +271,57 @@ describe('formatArtist', () => {
         ).toEqual(
           expect.objectContaining({
             image: 'PhUsersThree',
+          }),
+        );
+      });
+    });
+  });
+
+  describe('when similarArtist is defined', () => {
+    describe('when coverArt is defined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatArtist({
+            ...artistMock,
+            similarArtist: [
+              {
+                ...artistMock,
+                coverArt: 'coverArt',
+              },
+            ],
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            similarArtist: expect.arrayContaining([
+              expect.objectContaining({
+                image: 'coverArt',
+              }),
+            ]),
+          }),
+        );
+      });
+    });
+
+    describe('when coverArt is undefined', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatArtist({
+            ...artistMock,
+            similarArtist: [
+              {
+                ...artistMock,
+                artistImageUrl: undefined,
+                coverArt: undefined,
+              },
+            ],
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            similarArtist: expect.arrayContaining([
+              expect.objectContaining({
+                image: 'PhUsersThree',
+              }),
+            ]),
           }),
         );
       });

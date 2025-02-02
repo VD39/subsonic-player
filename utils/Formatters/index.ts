@@ -94,6 +94,16 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
   };
 }
 
+function formatSimilarArtist(similarArtist: ArtistID3): SimilarArtist {
+  const { coverArt = IMAGE_DEFAULT_BY_TYPE.artist, id, name } = similarArtist;
+
+  return {
+    id,
+    image: coverArt,
+    name,
+  };
+}
+
 export function formatArtist(
   artistData: Partial<ArtistInfo2 & ArtistWithAlbumsID3>,
 ): Artist {
@@ -107,6 +117,7 @@ export function formatArtist(
     lastFmUrl,
     musicBrainzId,
     name = DEFAULT_VALUE,
+    similarArtist = [],
     starred,
   } = artistData;
 
@@ -125,6 +136,7 @@ export function formatArtist(
     lastFmUrl,
     musicBrainzUrl,
     name,
+    similarArtist: similarArtist.map(formatSimilarArtist),
     totalAlbums,
     totalTracks: getTracksTotal(album),
     type: MEDIA_TYPE.artist,

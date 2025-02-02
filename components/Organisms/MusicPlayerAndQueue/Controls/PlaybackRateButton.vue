@@ -4,7 +4,7 @@ import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import DropdownTitle from '@/components/Molecules/Dropdown/DropdownTitle.vue';
 
-const { playBackRate, setPlaybackRate } = useAudioPlayer();
+const { playbackRate, setPlaybackRate } = useAudioPlayer();
 
 const PLAYBACK_RATES = [
   {
@@ -41,7 +41,7 @@ const PLAYBACK_RATES = [
     <DropdownItem
       v-for="rate in PLAYBACK_RATES"
       :key="rate.speed"
-      :selected="playBackRate === rate.speed"
+      :selected="playbackRate === rate.speed"
       @click="setPlaybackRate(rate.speed)"
     >
       {{ rate.title }}

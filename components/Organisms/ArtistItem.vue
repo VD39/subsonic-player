@@ -2,7 +2,7 @@
 import ImageLink from '@/components/Organisms/ImageLink.vue';
 
 const props = defineProps<{
-  artist: Artist;
+  artist: Artist | SimilarArtist;
 }>();
 
 const toLink = `/artist/${props.artist.id}`;

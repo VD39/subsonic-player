@@ -1,4 +1,5 @@
 import {
+  convertToTitleCase,
   generateRandomString,
   replaceCharactersWithSpace,
   replaceSpacesWithCharacter,
@@ -75,6 +76,18 @@ describe('splitCamelCase', () => {
   ])('when is string %s', (input, output) => {
     it('returns correct value', () => {
       expect(splitCamelCase(input)).toBe(output);
+    });
+  });
+});
+
+describe('convertToTitleCase', () => {
+  describe.each([
+    ['Title Case', 'Title Case'],
+    ['all lowercase', 'All Lowercase'],
+    ['ALL UPPERCASE', 'All Uppercase'],
+  ])('when is string %s', (input, output) => {
+    it('returns correct value', () => {
+      expect(convertToTitleCase(input)).toBe(output);
     });
   });
 });

@@ -8,6 +8,7 @@ import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
+import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
 import PodcastList from '@/components/Organisms/PodcastList.vue';
 
@@ -32,6 +33,7 @@ const {
   hasMore,
   items: podcastEpisodes,
   LOAD_SIZE,
+  resetToDefaults,
 } = useInfinityLoading<PodcastEpisode>(
   `${route.params.id}-${route.params.sortBy}`,
 );
@@ -92,6 +94,7 @@ function fetchData() {
   );
 }
 
+resetToDefaults();
 fetchData();
 
 function playEpisode(episode: PodcastEpisode) {
@@ -106,13 +109,20 @@ function openPodcastDescriptionModal() {
 }
 
 async function deleteSelectedPodcast() {
-  await deletePodcast(podcastById.value!.id, refresh);
+  await deletePodcast(podcastById.value!.id);
   await navigateTo('/podcasts');
+  await refresh();
+}
+
+async function refreshPodcast() {
+  resetToDefaults();
+  await refresh();
+  fetchData();
 }
 
 useHead({
   title: () =>
-    [podcastById.value?.name || '', route.params.sortBy || '', 'Podcast']
+    [podcastById.value?.name, route.params.sortBy, 'Podcast']
       .filter(Boolean)
       .join(' - '),
 });
@@ -122,6 +132,10 @@ useHead({
   <LoadingData :status="status">
     <div v-if="podcastById">
       <EntryHeader :images="[podcastById.image]" :title="podcastById.name">
+        <template #actions>
+          <RefreshButton :status="status" @refresh="refreshPodcast" />
+        </template>
+
         <ul class="bulletList">
           <li>
             Episodes:

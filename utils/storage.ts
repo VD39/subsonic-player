@@ -30,8 +30,13 @@ export function setLocalStorage(key: string, value: unknown) {
   }
 }
 
-export function deleteLocalStorage() {
+export function deleteLocalStorage(key?: string) {
   if (import.meta.client) {
+    if (key) {
+      window.localStorage.removeItem(key);
+      return;
+    }
+
     window.localStorage.clear();
   }
 }

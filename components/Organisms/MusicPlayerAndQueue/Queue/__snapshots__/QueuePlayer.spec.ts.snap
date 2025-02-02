@@ -18,13 +18,14 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
+            <!--v-if-->
             <!--v-if-->
           </div>
           <div class="fullWidth">
@@ -88,25 +89,33 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content"><a data-test-id="link" class="link">album</a></div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
                     <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
                     <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
                   </ul>
+                </div>
+              </div>
+            </div>
+            <!--v-if-->
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content">
+                  <p>author</p>
                 </div>
               </div>
             </div>
@@ -173,19 +182,19 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content"><a data-test-id="link" class="link">album</a></div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
@@ -195,6 +204,446 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
                 </div>
               </div>
             </div>
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+          <div class="fullWidth">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+              <div class="centerItems slider">
+                <div class="progressWrapper">
+                  <div class="process" style="width: 0px;"></div>
+                  <div class="buffer" style="width: 0px;"></div>
+                </div>
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+            </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
+              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+            </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+            </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+            </button></div>
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            </button>
+            <!--v-if-->
+            <!--v-if-->
+            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+              </button>
+              <!--v-if-->
+            </div>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
+    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+  </button>
+</div>"
+`;
+
+exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value contain author > when currentTrack.author is undefined > matches the snapshot 1`] = `
+"<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
+    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+  </button>
+  <div class="column playerWrapper">
+    <div class="wrapper">
+      <div class="inner">
+        <div class="imageWrapper">
+          <div class="imageInner">
+            <div class="preloadImageWrapper">
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackDetailsWrapper">
+        <div class="mBAllL column trackDetails">
+          <div>
+            <div class="marqueeScroll" inert="">
+              <div class="bulletList inner">
+                <div class="content">
+                  <h2 class="strong mBXS">queue-track-0-name</h2>
+                </div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a data-test-id="link" class="link">album</a></div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content">
+                  <ul class="commaList">
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+          <div class="fullWidth">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+              <div class="centerItems slider">
+                <div class="progressWrapper">
+                  <div class="process" style="width: 0px;"></div>
+                  <div class="buffer" style="width: 0px;"></div>
+                </div>
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+            </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
+              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+            </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+            </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+            </button></div>
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            </button>
+            <!--v-if-->
+            <!--v-if-->
+            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+              </button>
+              <!--v-if-->
+            </div>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
+    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+  </button>
+</div>"
+`;
+
+exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does have a podcastId key > when currentTrack.podcastId is defined > matches the snapshot 1`] = `
+"<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
+    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+  </button>
+  <div class="column playerWrapper">
+    <div class="wrapper">
+      <div class="inner">
+        <div class="imageWrapper">
+          <div class="imageInner">
+            <div class="preloadImageWrapper">
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackDetailsWrapper">
+        <div class="mBAllL column trackDetails">
+          <div>
+            <div class="marqueeScroll" inert="">
+              <div class="bulletList inner">
+                <div class="content">
+                  <h2 class="strong mBXS">queue-track-0-name</h2>
+                </div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a data-test-id="link" class="link">album</a></div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content">
+                  <ul class="commaList">
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div><a data-test-id="link" class="link">podcastName</a>
+            <!--v-if-->
+          </div>
+          <div class="fullWidth">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+              <div class="centerItems slider">
+                <div class="progressWrapper">
+                  <div class="process" style="width: 0px;"></div>
+                  <div class="buffer" style="width: 0px;"></div>
+                </div>
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+            </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
+              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+            </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+            </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+            </button></div>
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            </button>
+            <!--v-if-->
+            <!--v-if-->
+            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+              </button>
+              <!--v-if-->
+            </div>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
+    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+  </button>
+</div>"
+`;
+
+exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does have a podcastId key > when currentTrack.podcastId is undefined > matches the snapshot 1`] = `
+"<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
+    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+  </button>
+  <div class="column playerWrapper">
+    <div class="wrapper">
+      <div class="inner">
+        <div class="imageWrapper">
+          <div class="imageInner">
+            <div class="preloadImageWrapper">
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackDetailsWrapper">
+        <div class="mBAllL column trackDetails">
+          <div>
+            <div class="marqueeScroll" inert="">
+              <div class="bulletList inner">
+                <div class="content">
+                  <h2 class="strong mBXS">queue-track-0-name</h2>
+                </div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a data-test-id="link" class="link">album</a></div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content">
+                  <ul class="commaList">
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+          <div class="fullWidth">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+              <div class="centerItems slider">
+                <div class="progressWrapper">
+                  <div class="process" style="width: 0px;"></div>
+                  <div class="buffer" style="width: 0px;"></div>
+                </div>
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+            </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
+              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+            </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+            </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+            </button></div>
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            </button>
+            <!--v-if-->
+            <!--v-if-->
+            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+              </button>
+              <!--v-if-->
+            </div>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
+    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+  </button>
+</div>"
+`;
+
+exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does not have an author key > matches the snapshot 1`] = `
+"<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
+    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+  </button>
+  <div class="column playerWrapper">
+    <div class="wrapper">
+      <div class="inner">
+        <div class="imageWrapper">
+          <div class="imageInner">
+            <div class="preloadImageWrapper">
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackDetailsWrapper">
+        <div class="mBAllL column trackDetails">
+          <div>
+            <div class="marqueeScroll" inert="">
+              <div class="bulletList inner">
+                <div class="content">
+                  <h2 class="strong mBXS">queue-track-0-name</h2>
+                </div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a data-test-id="link" class="link">album</a></div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content">
+                  <ul class="commaList">
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div><a data-test-id="link" class="link">podcastName</a>
+            <!--v-if-->
+          </div>
+          <div class="fullWidth">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+              <div class="centerItems slider">
+                <div class="progressWrapper">
+                  <div class="process" style="width: 0px;"></div>
+                  <div class="buffer" style="width: 0px;"></div>
+                </div>
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
+              </div>
+            </div>
+            <!--v-if-->
+          </div>
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+            </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
+              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+            </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+            </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+            </button></div>
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
+              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            </button>
+            <!--v-if-->
+            <!--v-if-->
+            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+              </button>
+              <!--v-if-->
+            </div>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
+    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+  </button>
+</div>"
+`;
+
+exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does not have an podcastId key > matches the snapshot 1`] = `
+"<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
+    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+  </button>
+  <div class="column playerWrapper">
+    <div class="wrapper">
+      <div class="inner">
+        <div class="imageWrapper">
+          <div class="imageInner">
+            <div class="preloadImageWrapper">
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackDetailsWrapper">
+        <div class="mBAllL column trackDetails">
+          <div>
+            <div class="marqueeScroll" inert="">
+              <div class="bulletList inner">
+                <div class="content">
+                  <h2 class="strong mBXS">queue-track-0-name</h2>
+                </div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a data-test-id="link" class="link">album</a></div>
+              </div>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content">
+                  <ul class="commaList">
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--v-if-->
+            <!--v-if-->
           </div>
           <div class="fullWidth">
             <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
@@ -259,19 +708,19 @@ exports[`QueuePlayer > when isRadioStation value is false > when duration value 
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content"><a data-test-id="link" class="link">album</a></div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
@@ -281,6 +730,7 @@ exports[`QueuePlayer > when isRadioStation value is false > when duration value 
                 </div>
               </div>
             </div>
+            <!--v-if-->
           </div>
           <div class="fullWidth">
             <div aria-label="Seek" class="inputRange fullWidth" aria-valuetext="00:00 of 00:10">
@@ -343,19 +793,19 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content"><a data-test-id="link" class="link">album</a></div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
@@ -365,6 +815,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
                 </div>
               </div>
             </div>
+            <!--v-if-->
           </div>
           <div class="fullWidth">
             <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
@@ -424,7 +875,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
@@ -432,7 +883,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
               </div>
             </div>
             <!--v-if-->
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
@@ -442,6 +893,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
                 </div>
               </div>
             </div>
+            <!--v-if-->
           </div>
           <div class="fullWidth">
             <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
@@ -504,18 +956,19 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content"><a data-test-id="link" class="link">album</a></div>
               </div>
             </div>
+            <!--v-if-->
             <!--v-if-->
           </div>
           <div class="fullWidth">
@@ -579,7 +1032,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
@@ -587,7 +1040,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
               </div>
             </div>
             <!--v-if-->
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
@@ -597,6 +1050,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
                 </div>
               </div>
             </div>
+            <!--v-if-->
           </div>
           <div class="fullWidth">
             <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
@@ -659,18 +1113,19 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
       <div class="trackDetailsWrapper">
         <div class="mBAllL column trackDetails">
           <div>
-            <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h2 class="strong mBXS">queue-track-0-name</h2>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content"><a data-test-id="link" class="link">album</a></div>
               </div>
             </div>
+            <!--v-if-->
             <!--v-if-->
           </div>
           <div class="fullWidth">

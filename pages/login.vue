@@ -9,10 +9,10 @@ definePageMeta({
 
 const route = useRoute();
 
-const { authenticated, error, loading, login } = useAuth();
+const { error, isAuthenticated, loading, login } = useAuth();
 
 async function checkLogin() {
-  if (authenticated.value) {
+  if (isAuthenticated.value) {
     const redirect = route.query.redirect?.toString();
 
     await navigateTo(redirect ?? '/');

@@ -1,8 +1,8 @@
 import { useQueue } from './index';
 
 const {
-  queueListOpened,
-  queuePlayerOpened,
+  isQueueListOpened,
+  isQueuePlayerOpened,
   resetQueueState,
   toggleQueueList,
   toggleQueuePlayer,
@@ -13,12 +13,12 @@ describe('useQueue', () => {
     vi.clearAllMocks();
   });
 
-  it('sets the default queueListOpened value', () => {
-    expect(queueListOpened.value).toBe(false);
+  it('sets the default isQueueListOpened value', () => {
+    expect(isQueueListOpened.value).toBe(false);
   });
 
-  it('sets the default queuePlayerOpened value', () => {
-    expect(queuePlayerOpened.value).toBe(false);
+  it('sets the default isQueuePlayerOpened value', () => {
+    expect(isQueuePlayerOpened.value).toBe(false);
   });
 
   describe('when toggleQueueList function is called', () => {
@@ -26,8 +26,8 @@ describe('useQueue', () => {
       toggleQueueList();
     });
 
-    it('sets the correct queueListOpened value', () => {
-      expect(queueListOpened.value).toBe(true);
+    it('sets the correct isQueueListOpened value', () => {
+      expect(isQueueListOpened.value).toBe(true);
     });
   });
 
@@ -36,8 +36,8 @@ describe('useQueue', () => {
       toggleQueuePlayer();
     });
 
-    it('sets the correct queuePlayerOpened value', () => {
-      expect(queuePlayerOpened.value).toBe(true);
+    it('sets the correct isQueuePlayerOpened value', () => {
+      expect(isQueuePlayerOpened.value).toBe(true);
     });
   });
 
@@ -46,12 +46,12 @@ describe('useQueue', () => {
       resetQueueState();
     });
 
-    it('sets the correct queueListOpened value', () => {
-      expect(queueListOpened.value).toBe(false);
+    it('sets the correct isQueueListOpened value', () => {
+      expect(isQueueListOpened.value).toBe(false);
     });
 
-    it('sets the correct queuePlayerOpened value', () => {
-      expect(queuePlayerOpened.value).toBe(false);
+    it('sets the correct isQueuePlayerOpened value', () => {
+      expect(isQueuePlayerOpened.value).toBe(false);
     });
   });
 });

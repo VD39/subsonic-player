@@ -2,17 +2,17 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 
-const { togglePlay, trackIsBuffering, trackIsPlaying } = useAudioPlayer();
+const { isBuffering, isPlaying, togglePlay } = useAudioPlayer();
 
 const buttonProps = computed<ButtonProps>(() => ({
-  icon: trackIsPlaying.value ? ICONS.pause : ICONS.play,
-  text: `${trackIsPlaying.value ? 'Pause' : 'Play'} current track`,
+  icon: isPlaying.value ? ICONS.pause : ICONS.play,
+  text: `${isPlaying.value ? 'Pause' : 'Play'} current track`,
 }));
 </script>
 
 <template>
   <ButtonLink
-    v-if="!trackIsBuffering"
+    v-if="!isBuffering"
     :icon="buttonProps.icon"
     :title="buttonProps.text"
     @click="togglePlay"

@@ -11,8 +11,8 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Time</div>
     <div class="trackCell trackOptions"></div>
   </div>
@@ -26,14 +26,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-0-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -56,14 +56,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -88,14 +88,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-1-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -118,14 +118,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -150,14 +150,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-2-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -180,14 +180,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -212,14 +212,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-3-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -242,14 +242,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -274,14 +274,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-4-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -304,14 +304,14 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -333,8 +333,8 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Time</div>
     <div class="trackCell trackOptions"></div>
   </div>
@@ -348,14 +348,14 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-0-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -377,14 +377,14 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -402,12 +402,12 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
 </div>"
 `;
 
-exports[`QueueList > when tracks prop is not an empty array > when the track does not have an album key > matches the snapshot 1`] = `
+exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Time</div>
     <div class="trackCell trackOptions"></div>
   </div>
@@ -421,14 +421,14 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-0-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -454,7 +454,7 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
       <p>--</p>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -472,12 +472,12 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
 </div>"
 `;
 
-exports[`QueueList > when tracks prop is not an empty array > when the track does not have an artists key > matches the snapshot 1`] = `
+exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is defined > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Time</div>
     <div class="trackCell trackOptions"></div>
   </div>
@@ -491,20 +491,27 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-0-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
                   <!--v-if-->
-                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span>
+                    <p>podcastName</p>
+                  </li>
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    </ul>
+                  </li>
                   <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
                 </ul>
               </div>
@@ -516,14 +523,19 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
-        <div class="bulletList inner">
-          <div class="content"><a data-test-id="link" class="link">album</a></div>
-        </div>
-      </div>
+      <p>podcastName</p>
     </div>
     <div class="trackCell trackSecondary">
-      <p>--</p>
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
         <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
@@ -532,12 +544,12 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
 </div>"
 `;
 
-exports[`QueueList > when tracks prop is not an empty array > when track.album is undefined > matches the snapshot 1`] = `
+exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is undefined > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Time</div>
     <div class="trackCell trackOptions"></div>
   </div>
@@ -551,14 +563,14 @@ exports[`QueueList > when tracks prop is not an empty array > when track.album i
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-0-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -584,7 +596,7 @@ exports[`QueueList > when tracks prop is not an empty array > when track.album i
       <p>--</p>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -602,12 +614,12 @@ exports[`QueueList > when tracks prop is not an empty array > when track.album i
 </div>"
 `;
 
-exports[`QueueList > when tracks prop is not an empty array > when track.artists is an empty array > matches the snapshot 1`] = `
+exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does not have an podcastName key > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Time</div>
     <div class="trackCell trackOptions"></div>
   </div>
@@ -621,14 +633,84 @@ exports[`QueueList > when tracks prop is not an empty array > when track.artists
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>queue-track-0-name</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+        <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>queue-track-0-name</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -646,7 +728,323 @@ exports[`QueueList > when tracks prop is not an empty array > when track.artists
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a data-test-id="link" class="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+        <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is defined > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>queue-track-0-name</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a data-test-id="link" class="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+        <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is undefined > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>queue-track-0-name</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a data-test-id="link" class="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+        <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does not have an author key > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>queue-track-0-name</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a data-test-id="link" class="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+        <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`QueueList > when tracks prop is not an empty array > when track does not have an album key > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>queue-track-0-name</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+                      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    </ul>
+                  </li>
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
+              <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
+        <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`QueueList > when tracks prop is not an empty array > when track does not have an artists key > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>queue-track-0-name</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a data-test-id="link" class="link">album</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content"><a data-test-id="link" class="link">album</a></div>
         </div>

@@ -6,6 +6,7 @@ import { mount } from '@vue/test-utils';
 import TrackMeta from './TrackMeta.vue';
 
 const track = getFormattedQueueTracksMock(1, {
+  podcastId: 'podcastId',
   podcastName: 'podcastName',
 })[0] as Track;
 
@@ -29,7 +30,7 @@ describe('TrackMeta', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when the track does not have an album key', () => {
+  describe('when the track prop does not have an album key', () => {
     beforeEach(() => {
       const track = getFormattedQueueTracksMock(1)[0];
 
@@ -67,19 +68,13 @@ describe('TrackMeta', () => {
     });
   });
 
-  describe('when track.album is not undefined', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        track,
-      });
-    });
-
+  describe('when track.album is defined', () => {
     it('shows the album name', () => {
       expect(wrapper.find({ ref: 'album' }).exists()).toBe(true);
     });
   });
 
-  describe('when the track does not have a podcastName key', () => {
+  describe('when the track prop does not have a podcastName key', () => {
     beforeEach(() => {
       const track = getFormattedQueueTracksMock(1)[0];
 
@@ -117,19 +112,13 @@ describe('TrackMeta', () => {
     });
   });
 
-  describe('when track.podcastName is not undefined', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        track,
-      });
-    });
-
+  describe('when track.podcastName is defined', () => {
     it('shows the podcast name', () => {
       expect(wrapper.find({ ref: 'podcastName' }).exists()).toBe(true);
     });
   });
 
-  describe('when the track does not have an artists key', () => {
+  describe('when the track prop does not have an artists key', () => {
     beforeEach(() => {
       const track = getFormattedQueueTracksMock(1)[0];
 
@@ -168,12 +157,6 @@ describe('TrackMeta', () => {
   });
 
   describe('when track.artists is not an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        track,
-      });
-    });
-
     it('shows the artists details', () => {
       expect(wrapper.find({ ref: 'artists' }).exists()).toBe(true);
     });
@@ -197,13 +180,7 @@ describe('TrackMeta', () => {
     });
   });
 
-  describe('when track.duration is not undefined', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        track,
-      });
-    });
-
+  describe('when track.duration is defined', () => {
     it('shows the duration', () => {
       expect(wrapper.find({ ref: 'duration' }).exists()).toBe(true);
     });

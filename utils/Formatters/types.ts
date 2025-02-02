@@ -63,6 +63,10 @@ export interface BaseArtist {
   name: string;
 }
 
+export interface SimilarArtist extends BaseArtist {
+  image: string;
+}
+
 export interface Artist extends BaseArtist {
   albums: Album[];
   biography?: string;
@@ -71,6 +75,7 @@ export interface Artist extends BaseArtist {
   image: Image;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
+  similarArtist: SimilarArtist[];
   totalAlbums: number;
   totalTracks: number;
   type: MediaType;
@@ -120,7 +125,7 @@ export interface PodcastEpisode {
   id: string;
   image: Image;
   name: string;
-  podcastId: string;
+  podcastId?: string;
   podcastName: string;
   publishDate: string;
   streamUrlId?: string;

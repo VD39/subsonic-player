@@ -24,6 +24,12 @@ mockNuxtImport('useAuth', () => () => ({
   logout: logoutMock,
 }));
 
+const resetAudioMock = vi.fn();
+
+mockNuxtImport('useAudioPlayer', () => () => ({
+  resetAudio: resetAudioMock,
+}));
+
 const startScanMock = vi.fn();
 
 mockNuxtImport('useMediaLibrary', () => () => ({
@@ -111,7 +117,7 @@ describe('Default', () => {
       });
 
       it('shows the DropdownItem components', () => {
-        expect(wrapper.findAllComponents(DropdownItem).length).toBe(4);
+        expect(wrapper.findAllComponents(DropdownItem).length).toBe(5);
       });
 
       describe('when the scan DropdownItem component is clicked', () => {
@@ -133,6 +139,10 @@ describe('Default', () => {
 
         it('calls the logout function', () => {
           expect(logoutMock).toHaveBeenCalled();
+        });
+
+        it('calls the resetAudio function', () => {
+          expect(resetAudioMock).toHaveBeenCalled();
         });
 
         it('calls the navigateTo function', () => {

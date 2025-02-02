@@ -4,44 +4,75 @@ export function useAudioPlayer() {
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
+    () => AUDIO_PLAYER_DEFAULT_STATES.audioPlayer,
+  );
+  const saveInterval = useState<null | ReturnType<typeof setInterval>>(
+    STATE_NAMES.playerInterval,
     () => null,
   );
 
   // Ready state.
-  const trackIsBuffering = useState(STATE_NAMES.playerPlayLoading, () => false);
+  const isBuffering = useState(
+    STATE_NAMES.playerPlayLoading,
+    () => AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
+  );
 
   // Audio time state.
-  const currentTime = useState(STATE_NAMES.playerCurrentTime, () => 0);
-  const bufferedDuration = useState(STATE_NAMES.playerBufferedLength, () => 0);
-  const duration = useState(STATE_NAMES.playerDuration, () => 0);
+  const currentTime = useState(
+    STATE_NAMES.playerCurrentTime,
+    () => AUDIO_PLAYER_DEFAULT_STATES.currentTime,
+  );
+  const bufferedDuration = useState(
+    STATE_NAMES.playerBufferedLength,
+    () => AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
+  );
+  const duration = useState(
+    STATE_NAMES.playerDuration,
+    () => AUDIO_PLAYER_DEFAULT_STATES.duration,
+  );
 
   // Play/Pause state.
-  const trackIsPlaying = useState(
+  const isPlaying = useState(
     STATE_NAMES.playerTrackIsPlaying,
-    () => false,
+    () => AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
   );
 
   // Playback rate state.
-  const playBackRate = useState(STATE_NAMES.playerPlaybackRate, () => 1);
+  const playbackRate = useState(
+    STATE_NAMES.playerPlaybackRate,
+    () => AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
+  );
 
   // Volume state.
-  const volume = useState(STATE_NAMES.playerVolume, () => 1);
+  const volume = useState(
+    STATE_NAMES.playerVolume,
+    () => AUDIO_PLAYER_DEFAULT_STATES.volume,
+  );
   const isMuted = computed(() => !volume.value);
 
   // Queue state.
   const queueList = useState<QueueTrack[]>(
     STATE_NAMES.playerQueueList,
-    () => [],
+    () => AUDIO_PLAYER_DEFAULT_STATES.queueList,
   );
-  const queueOriginal = useState(STATE_NAMES.playerQueueOriginal, () => '');
+  const originalQueueList = useState(
+    STATE_NAMES.playerOriginalQueueList,
+    () => AUDIO_PLAYER_DEFAULT_STATES.originalQueueList,
+  );
   const currentQueueIndex = useState(
     STATE_NAMES.playerCurrentQueueIndex,
-    () => -1,
+    () => AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
   );
 
   // Repeat/Shuffle state.
-  const repeat = useState(STATE_NAMES.playerRepeat, () => -1);
-  const shuffle = useState(STATE_NAMES.playerShuffle, () => false);
+  const repeat = useState(
+    STATE_NAMES.playerRepeat,
+    () => AUDIO_PLAYER_DEFAULT_STATES.repeat,
+  );
+  const shuffle = useState(
+    STATE_NAMES.playerShuffle,
+    () => AUDIO_PLAYER_DEFAULT_STATES.shuffle,
+  );
 
   const showMediaPlayer = computed(() => !!queueList.value.length);
 
@@ -64,12 +95,75 @@ export function useAudioPlayer() {
     () => currentTrack.value.type === MEDIA_TYPE.radioStation,
   );
 
+  // Save states.
+  function setDefaultState() {
+    bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
+    currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
+    currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
+    duration.value = AUDIO_PLAYER_DEFAULT_STATES.duration;
+    isBuffering.value = AUDIO_PLAYER_DEFAULT_STATES.isBuffering;
+    isPlaying.value = false;
+    originalQueueList.value = AUDIO_PLAYER_DEFAULT_STATES.originalQueueList;
+    playbackRate.value = AUDIO_PLAYER_DEFAULT_STATES.playbackRate;
+    queueList.value = AUDIO_PLAYER_DEFAULT_STATES.queueList;
+    repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
+    shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
+    volume.value = AUDIO_PLAYER_DEFAULT_STATES.volume;
+
+    deleteLocalStorage(STATE_NAMES.playerState);
+  }
+
+  function setState() {
+    const SAVED_STATE = getLocalStorage(STATE_NAMES.playerState);
+
+    if (!SAVED_STATE) {
+      return;
+    }
+
+    currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
+    duration.value = SAVED_STATE.duration;
+    queueList.value = SAVED_STATE.queueList;
+    originalQueueList.value = SAVED_STATE.originalQueueList;
+    repeat.value = SAVED_STATE.repeat;
+    shuffle.value = SAVED_STATE.shuffle;
+
+    loadTrack(currentTrack.value);
+    setVolume(SAVED_STATE.volume);
+    setCurrentTime(SAVED_STATE.currentTime);
+    setPlaybackRate(SAVED_STATE.playbackRate);
+  }
+
+  function saveState() {
+    const STATE_TO_SAVE = {
+      currentQueueIndex: currentQueueIndex.value,
+      currentTime: currentTime.value,
+      duration: duration.value,
+      originalQueueList: originalQueueList.value,
+      playbackRate: playbackRate.value,
+      queueList: queueList.value,
+      repeat: repeat.value,
+      shuffle: shuffle.value,
+      volume: volume.value,
+    };
+
+    setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
+  }
+
+  function clearSaveInterval() {
+    clearInterval(saveInterval.value!);
+  }
+
+  function setSaveInterval() {
+    clearSaveInterval();
+    saveInterval.value = setInterval(saveState, 2000);
+  }
+
   function isCurrentTrack(id: string) {
     return currentTrack.value.id === id;
   }
 
   // Media meta data for browsers.
-  function setPlaybackState(state: MediaSession['playbackState']) {
+  function setMediaSessionPlaybackState(state: MediaSession['playbackState']) {
     if ('mediaSession' in navigator) {
       navigator.mediaSession.playbackState = state;
     }
@@ -187,37 +281,41 @@ export function useAudioPlayer() {
   // Play/Pause actions.
   async function playTrack() {
     await audioPlayer.value?.play();
-    trackIsPlaying.value = true;
-
-    setPlaybackState('playing');
+    isPlaying.value = true;
+    setSaveInterval();
+    setMediaSessionPlaybackState('playing');
   }
 
   function pauseTrack() {
-    trackIsPlaying.value = false;
-    if (isRadioStation.value) {
-      audioPlayer.value?.stop();
-    } else {
-      audioPlayer.value?.pause();
-    }
-
-    setPlaybackState('paused');
+    isPlaying.value = false;
+    audioPlayer.value?.pause();
+    clearSaveInterval();
+    setMediaSessionPlaybackState('paused');
   }
 
   async function togglePlay() {
-    if (trackIsPlaying.value) {
+    if (isPlaying.value) {
       pauseTrack();
     } else {
       await playTrack();
     }
   }
 
-  async function changeTrack(track: QueueTrack) {
+  function loadTrack(track: QueueTrack) {
     const url = getStreamUrl(track.streamUrlId!);
     audioPlayer.value?.load(url);
-
     setMediaMetadata();
+  }
 
+  async function changeTrack(track: QueueTrack) {
+    loadTrack(track);
     await playTrack();
+
+    if (isPodcastEpisode.value) {
+      setPlaybackRate(playbackRate.value);
+    }
+
+    saveState();
   }
 
   // Next/previous state.
@@ -267,6 +365,7 @@ export function useAudioPlayer() {
   // Audio time actions.
   function setCurrentTime(time: number) {
     audioPlayer.value?.setCurrentTime(time);
+    saveState();
   }
 
   function rewindTrack() {
@@ -298,6 +397,8 @@ export function useAudioPlayer() {
         repeat.value = -1;
         break;
     }
+
+    saveState();
   }
 
   async function replayCurrent() {
@@ -313,18 +414,21 @@ export function useAudioPlayer() {
     } else {
       resetQueueTracks();
     }
+
+    saveState();
   }
 
   function resetQueueTracks() {
     const tempCurrentTrackId = currentTrack.value.id;
-    queueList.value = [...JSON.parse(queueOriginal.value)];
+    queueList.value = [...JSON.parse(originalQueueList.value)];
+    originalQueueList.value = '';
     const index = getIndex(queueList.value, tempCurrentTrackId);
     currentQueueIndex.value = index;
   }
 
   function shuffleQueueTracks() {
     const queueClone = [...queueList.value];
-    queueOriginal.value = JSON.stringify(queueClone);
+    originalQueueList.value = JSON.stringify(queueClone);
     const index = getIndex(queueList.value, currentTrack.value.id);
     queueList.value = shuffleArray(queueClone, index);
     currentQueueIndex.value = 0;
@@ -340,6 +444,7 @@ export function useAudioPlayer() {
   function setVolume(newVolume: number) {
     audioPlayer.value?.setVolume(newVolume);
     volume.value = newVolume;
+    saveState();
   }
 
   function unmuteVolume(previousVolume: number) {
@@ -355,9 +460,10 @@ export function useAudioPlayer() {
     }
   }
 
-  function setPlaybackRate(playbackRate: number) {
-    playBackRate.value = playbackRate;
-    audioPlayer.value?.changePlaybackRate(playbackRate);
+  function setPlaybackRate(newPlaybackRate: number) {
+    playbackRate.value = newPlaybackRate;
+    audioPlayer.value?.changePlaybackRate(newPlaybackRate);
+    saveState();
   }
 
   // Queue actions.
@@ -367,6 +473,7 @@ export function useAudioPlayer() {
     currentQueueIndex.value = -1;
     queueList.value = [];
     resetQueueState();
+    saveState();
   }
 
   async function playTrackFromQueueList(index: number) {
@@ -397,16 +504,16 @@ export function useAudioPlayer() {
     }
   }
 
+  function addTracksToQueue(tracks: QueueTrack[]) {
+    queueList.value.push(...tracks);
+  }
+
   async function addTrackToQueue(tracks: QueueTrack) {
-    queueList.value.push(tracks);
+    addTracksToQueue([tracks]);
 
     if (queueList.value.length === 1) {
       await playNextTrack();
     }
-  }
-
-  function addTracksToQueue(tracks: QueueTrack[]) {
-    queueList.value.push(...tracks);
   }
 
   async function playTracks(tracks: QueueTrack[], queueIndex = -1) {
@@ -424,8 +531,8 @@ export function useAudioPlayer() {
 
   /* istanbul ignore next -- @preserve */
   function resetAudio() {
-    pauseTrack();
-    clearQueueList();
+    audioPlayer.value?.unload();
+    setDefaultState();
   }
 
   function setAudioPlayer() {
@@ -437,12 +544,12 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onCanPlay(() => {
-      trackIsPlaying.value = true;
-      trackIsBuffering.value = false;
+      isBuffering.value = false;
     });
 
     audioPlayer.value.onLoadedMetadata((newDuration: number) => {
-      duration.value = newDuration;
+      const durationToNumber = Number(newDuration);
+      duration.value = Number.isFinite(durationToNumber) ? durationToNumber : 0;
     });
 
     audioPlayer.value.onBuffered((newBufferedDuration: number) => {
@@ -450,8 +557,7 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onWaiting(() => {
-      trackIsPlaying.value = false;
-      trackIsBuffering.value = true;
+      isBuffering.value = true;
     });
 
     audioPlayer.value.onEnded(async () => {
@@ -485,7 +591,14 @@ export function useAudioPlayer() {
   onMounted(() => {
     callOnce(() => {
       setAudioPlayer();
+      setState();
     });
+  });
+
+  onBeforeUnmount(() => {
+    if (!isPlaying.value) {
+      clearSaveInterval();
+    }
   });
 
   return {
@@ -499,12 +612,14 @@ export function useAudioPlayer() {
     fastForwardTrack,
     hasNextTrack,
     hasPreviousTrack,
+    isBuffering,
     isCurrentTrack,
     isMuted,
+    isPlaying,
     isPodcastEpisode,
     isRadioStation,
     isTrack,
-    playBackRate,
+    playbackRate,
     playCurrentTrack,
     playNextTrack,
     playPreviousTrack,
@@ -525,8 +640,6 @@ export function useAudioPlayer() {
     togglePlay,
     toggleShuffle,
     toggleVolume,
-    trackIsBuffering,
-    trackIsPlaying,
     volume,
   };
 }

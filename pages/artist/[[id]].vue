@@ -6,6 +6,7 @@ import TextClamp from '@/components/Atoms/TextClamp.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
+import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
 
 definePageMeta({
@@ -17,7 +18,7 @@ const { getArtist } = useArtist();
 const { openModal } = useModal();
 
 const { data: artistData, status } = useAsyncData(
-  `${ASYNC_DATA_NAMES.artist}-${route.params.id}`,
+  route.fullPath,
   async () => {
     const artist = await getArtist(route.params.id as string);
 
@@ -43,7 +44,7 @@ function openArtistBiographyModal() {
 
 useHead({
   title: () =>
-    [artistData.value.artist?.name || '', 'Artist'].filter(Boolean).join(' - '),
+    [artistData.value.artist?.name, 'Artist'].filter(Boolean).join(' - '),
 });
 </script>
 
@@ -107,6 +108,12 @@ useHead({
       <h2>Albums</h2>
 
       <AlbumsList :albums="artistData.artist.albums" hide-artist />
+
+      <template v-if="artistData.artist.similarArtist.length">
+        <h2>Similar Artists</h2>
+
+        <ArtistsList :artists="artistData.artist.similarArtist" />
+      </template>
     </div>
 
     <NoMediaMessage

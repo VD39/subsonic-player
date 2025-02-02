@@ -21,7 +21,14 @@ mockNuxtImport('useSnack', () => () => ({
   addSuccessSnack: addSuccessSnackMock,
 }));
 
-const { downloadMedia, startScan } = useMediaLibrary();
+const {
+  downloadMedia,
+  getFiles,
+  getIndexes,
+  getMusicDirectory,
+  getMusicFolders,
+  startScan,
+} = useMediaLibrary();
 
 describe('useMediaLibrary', () => {
   describe('when the downloadMedia function is called', () => {
@@ -62,6 +69,106 @@ describe('useMediaLibrary', () => {
 
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith('Scan started.');
+      });
+    });
+  });
+
+  describe.each([
+    ['getIndexes', getIndexes],
+    ['getMusicDirectory', getMusicDirectory],
+    ['getMusicFolders', getMusicFolders],
+  ])('when the %s function is called', (_functionName, action) => {
+    describe('when fetchData response returns null', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await action('id')).toEqual(DEFAULT_MEDIA_LIBRARY);
+      });
+    });
+
+    describe('when fetchData response returns a success response', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            name: 'name',
+          },
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await action('id')).toEqual({
+          name: 'name',
+        });
+      });
+    });
+  });
+
+  describe('when the getFiles function is called', () => {
+    describe('without and id or slug parameter', () => {
+      beforeEach(() => {
+        getFiles();
+      });
+
+      it('calls the getMusicFolders function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getMusicFolders', {
+          transform: expect.any(Function),
+        });
+      });
+    });
+
+    describe('with an id parameter', () => {
+      beforeEach(() => {
+        getFiles({
+          id: 'id',
+        });
+      });
+
+      it('calls the getIndexes function with correct params', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getIndexes', {
+          params: {
+            musicFolderId: 'id',
+          },
+          transform: expect.any(Function),
+        });
+      });
+    });
+
+    describe('with a slug parameter', () => {
+      beforeEach(() => {
+        getFiles({
+          slug: ['slug1', 'slug2', 'slug3'],
+        });
+      });
+
+      it('calls the getMusicDirectory function with correct params', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getMusicDirectory', {
+          params: {
+            id: 'slug3',
+          },
+          transform: expect.any(Function),
+        });
+      });
+    });
+
+    describe('with an id and slug parameter', () => {
+      beforeEach(() => {
+        getFiles({
+          id: 'id1',
+          slug: ['slug1', 'slug2', 'slug3'],
+        });
+      });
+
+      it('calls the getIndexes function with correct params', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getIndexes', {
+          params: {
+            musicFolderId: 'id',
+          },
+          transform: expect.any(Function),
+        });
       });
     });
   });

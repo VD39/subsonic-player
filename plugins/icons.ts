@@ -1,6 +1,7 @@
 import {
   PhApplePodcastsLogo,
   PhArrowsClockwise,
+  PhArrowURightUp,
   PhCaretCircleDown,
   PhCaretCircleUp,
   PhCaretDoubleLeft,
@@ -12,6 +13,7 @@ import {
   PhDotsThreeVertical,
   PhDownload,
   PhFastForward,
+  PhFolder,
   PhGear,
   PhHeadphones,
   PhHeart,
@@ -54,6 +56,7 @@ import {
 const ICONS = [
   PhApplePodcastsLogo,
   PhArrowsClockwise,
+  PhArrowURightUp,
   PhCaretCircleDown,
   PhCaretCircleUp,
   PhCaretDoubleLeft,
@@ -65,6 +68,7 @@ const ICONS = [
   PhDotsThreeVertical,
   PhDownload,
   PhFastForward,
+  PhFolder,
   PhGear,
   PhHeadphones,
   PhHeart,

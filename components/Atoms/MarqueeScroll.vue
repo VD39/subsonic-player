@@ -2,14 +2,23 @@
 const MULTIPLICATION_TIME = 30;
 
 const cloneLength = ref(0);
-const disableClonedContent = ref(false);
+// Disable cloned content links so tabbing works as expected.
+const disableClonedContent = ref(true);
 
 const marqueeScrollRef = ref<HTMLElement | null>(null);
 const marqueeContentRef = ref<HTMLElement | null>(null);
 const mutationObserver = ref<MutationObserver | null>(null);
+const intersectionObserver = ref<IntersectionObserver | null>(null);
 
-function setAnimationDuration() {
+function setAnimationDuration(isOverflowing: boolean) {
   if (!marqueeContentRef.value || !marqueeScrollRef.value) {
+    return;
+  }
+
+  const PROPERTY = '--animation-duration';
+
+  if (!isOverflowing) {
+    marqueeScrollRef.value.style.removeProperty(PROPERTY);
     return;
   }
 
@@ -17,10 +26,7 @@ function setAnimationDuration() {
     marqueeContentRef.value.offsetWidth + marqueeScrollRef.value.clientWidth;
   const duration = distance * MULTIPLICATION_TIME;
 
-  marqueeScrollRef.value.style.setProperty(
-    '--animation-duration',
-    `${duration}ms`,
-  );
+  marqueeScrollRef.value.style.setProperty(PROPERTY, `${duration}ms`);
 }
 
 function getCloneData() {
@@ -37,29 +43,42 @@ function getCloneData() {
     ) || 0;
 
   cloneLength.value = isOverflowing ? clonedLength : 0;
-  setAnimationDuration();
+
+  setAnimationDuration(isOverflowing);
 }
 
 function onMouseOver() {
-  disableClonedContent.value = true;
-}
-
-function onMouseOut() {
+  // Enabled cloned content links so links can be clicked.
   disableClonedContent.value = false;
 }
 
-function onResize() {
-  getCloneData();
+function onMouseOut() {
+  disableClonedContent.value = true;
 }
 
+const onResize = debounce(getCloneData, 1000);
+
 onMounted(() => {
-  if (!marqueeContentRef.value) {
+  if (!marqueeScrollRef.value || !marqueeContentRef.value) {
     return;
   }
 
-  getCloneData();
+  intersectionObserver.value = new IntersectionObserver(
+    ([entry]) => {
+      if (entry && entry.isIntersecting) {
+        getCloneData();
+        window.addEventListener('resize', onResize);
+      } else {
+        window.removeEventListener('resize', onResize);
+        cloneLength.value = 0;
+      }
+    },
+    {
+      threshold: 1,
+    },
+  );
 
-  window.addEventListener('resize', debounce(onResize, 1000));
+  intersectionObserver.value.observe(marqueeScrollRef.value);
 
   // To watch slot data when it changes.
   mutationObserver.value = new MutationObserver(onResize);
@@ -71,8 +90,9 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', getCloneData);
+  window.removeEventListener('resize', onResize);
   mutationObserver.value?.disconnect();
+  intersectionObserver.value?.disconnect();
 });
 </script>
 
@@ -87,9 +107,9 @@ onUnmounted(() => {
     ]"
     @mousedown.prevent
     @mouseover="onMouseOver"
-    @touchstart="onMouseOver"
+    @touchstart.passive="onMouseOver"
     @mouseout="onMouseOut"
-    @touchend="onMouseOut"
+    @touchend.passive="onMouseOut"
   >
     <div :class="['bulletList', $style.inner]">
       <div ref="marqueeContentRef" :class="$style.content">

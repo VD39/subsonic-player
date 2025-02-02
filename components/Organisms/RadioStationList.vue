@@ -71,7 +71,7 @@ defineEmits([
           </DropdownItem>
           <DropdownItem
             ref="deleteRadioStation"
-            @click="$emit('deleteRadioStation', radioStation)"
+            @click="$emit('deleteRadioStation', radioStation.id)"
           >
             Delete station
           </DropdownItem>

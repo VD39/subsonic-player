@@ -13,8 +13,8 @@ exports[`QueueList > matches the snapshot 1`] = `
   <div class="trackTable">
     <div class="trackHeader">
       <div class="trackCell">Track</div>
-      <div class="trackCell trackSecondary">Album</div>
-      <div class="trackCell trackSecondary">Artists</div>
+      <div class="trackCell trackSecondary">Album/Podcast</div>
+      <div class="trackCell trackSecondary">Artists/Author</div>
       <div class="trackCell trackTime">Time</div>
       <div class="trackCell trackOptions"></div>
     </div>
@@ -28,14 +28,14 @@ exports[`QueueList > matches the snapshot 1`] = `
               </button></div>
           </div>
           <div class="trackMeta">
-            <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll mBXS" inert="">
               <div class="bulletList inner">
                 <div class="content">
                   <h4>queue-track-0-name</h4>
                 </div>
               </div>
             </div>
-            <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+            <div class="marqueeScroll smallFont mobileOnly mBXS">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="bulletList">
@@ -58,14 +58,14 @@ exports[`QueueList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackSecondary">
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content"><a data-test-id="link" class="link">album</a></div>
           </div>
         </div>
       </div>
       <div class="trackCell trackSecondary">
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">

@@ -15,12 +15,14 @@ const durationMock = ref(0);
 const fastForwardTrackMock = vi.fn();
 const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
+const isBufferingMock = ref(false);
 const isCurrentTrackMock = vi.fn(() => false);
 const isMutedMock = ref(false);
+const isPlayingMock = ref(false);
 const isPodcastEpisodeMock = ref(false);
 const isRadioStationMock = ref(false);
 const isTrackMock = ref(false);
-const playBackRateMock = ref(1);
+const playbackRateMock = ref(1);
 const playCurrentTrackMock = vi.fn();
 const playNextTrackMock = vi.fn();
 const togglePlayMock = vi.fn();
@@ -39,8 +41,6 @@ const showMediaPlayerMock = ref(false);
 const shuffleMock = ref(false);
 const toggleShuffleMock = vi.fn();
 const toggleVolumeMock = vi.fn();
-const trackIsPlayingMock = ref(false);
-const trackIsBufferingMock = ref(false);
 const volumeMock = ref(1);
 
 export function useAudioPlayerMock() {
@@ -55,12 +55,14 @@ export function useAudioPlayerMock() {
     fastForwardTrack: fastForwardTrackMock,
     hasNextTrack: hasNextTrackMock,
     hasPreviousTrack: hasPreviousTrackMock,
+    isBuffering: isBufferingMock,
     isCurrentTrack: isCurrentTrackMock,
     isMuted: isMutedMock,
+    isPlaying: isPlayingMock,
     isPodcastEpisode: isPodcastEpisodeMock,
     isRadioStation: isRadioStationMock,
     isTrack: isTrackMock,
-    playBackRate: playBackRateMock,
+    playbackRate: playbackRateMock,
     playCurrentTrack: playCurrentTrackMock,
     playNextTrack: playNextTrackMock,
     playPreviousTrack: playPreviousTrackMock,
@@ -79,8 +81,6 @@ export function useAudioPlayerMock() {
     togglePlay: togglePlayMock,
     toggleShuffle: toggleShuffleMock,
     toggleVolume: toggleVolumeMock,
-    trackIsBuffering: trackIsBufferingMock,
-    trackIsPlaying: trackIsPlayingMock,
     volume: volumeMock,
   }));
 
@@ -95,12 +95,14 @@ export function useAudioPlayerMock() {
     fastForwardTrackMock,
     hasNextTrackMock,
     hasPreviousTrackMock,
+    isBufferingMock,
     isCurrentTrackMock,
     isMutedMock,
+    isPlayingMock,
     isPodcastEpisodeMock,
     isRadioStationMock,
     isTrackMock,
-    playBackRateMock,
+    playbackRateMock,
     playCurrentTrackMock,
     playNextTrackMock,
     playPreviousTrackMock,
@@ -119,8 +121,6 @@ export function useAudioPlayerMock() {
     togglePlayMock,
     toggleShuffleMock,
     toggleVolumeMock,
-    trackIsBufferingMock,
-    trackIsPlayingMock,
     volumeMock,
   };
 }

@@ -24,12 +24,14 @@ export function usePlaylist() {
         size: RANDOM_SIZE,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => {
+        const song = response.randomSongs.song || [];
+
         const playlistRes = {
           ...response.randomSongs,
           ...RANDOM_PLAYLIST,
-          duration: getRandomTracksDuration(response.randomSongs.song),
-          entry: response.randomSongs.song || [],
-          songCount: response.randomSongs.song?.length || 0,
+          duration: getRandomTracksDuration(song),
+          entry: song,
+          songCount: song.length || 0,
         };
 
         return formatPlaylist(playlistRes);

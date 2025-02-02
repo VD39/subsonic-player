@@ -10,7 +10,7 @@ import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/Tra
 import PlayerControls from './PlayerControls.vue';
 import PlayerOptions from './PlayerOptions.vue';
 
-const { currentTrack, isTrack } = useAudioPlayer();
+const { currentTrack } = useAudioPlayer();
 </script>
 
 <template>
@@ -22,9 +22,19 @@ const { currentTrack, isTrack } = useAudioPlayer();
         <QueueButton :class="['mobileOnly', $style.queueControl]" />
 
         <ImageLink
-          v-if="isTrack && 'albumId' in currentTrack && currentTrack.albumId"
+          v-if="'albumId' in currentTrack && currentTrack.albumId"
+          ref="albumImageLink"
           :to="`/album/${currentTrack.albumId}`"
           :title="`Go to album ${currentTrack.name}`"
+          :image="currentTrack.image"
+          :class="$style.image"
+        />
+
+        <ImageLink
+          v-else-if="'podcastId' in currentTrack && currentTrack.podcastId"
+          ref="podcastImageLink"
+          :to="`/podcast/all/${currentTrack.podcastId}`"
+          :title="`Go to podcast ${currentTrack.podcastName}`"
           :image="currentTrack.image"
           :class="$style.image"
         />
@@ -47,6 +57,13 @@ const { currentTrack, isTrack } = useAudioPlayer();
             ref="artistsMarqueeScroll"
           >
             <ArtistsList :artists="currentTrack.artists" class="smallFont" />
+          </MarqueeScroll>
+
+          <MarqueeScroll
+            v-if="'author' in currentTrack && currentTrack.author"
+            ref="authorMarqueeScroll"
+          >
+            <p>{{ currentTrack.author }}</p>
           </MarqueeScroll>
         </div>
       </div>

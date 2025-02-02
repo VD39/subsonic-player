@@ -38,7 +38,7 @@ describe('PlaybackRateButton', () => {
     expect(wrapper.findAllComponents(DropdownItem).length).toBe(6);
   });
 
-  describe('when playback speed matches the playBackRate', () => {
+  describe('when playback speed matches the playbackRate', () => {
     it('sets correct selected prop', () => {
       const dropdownItems = wrapper.findAllComponents(DropdownItem);
       expect(dropdownItems[0].props('selected')).toBe(false);

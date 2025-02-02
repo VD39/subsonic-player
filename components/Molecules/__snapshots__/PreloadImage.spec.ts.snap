@@ -18,6 +18,30 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
+exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhArrowURightUp > matches the snapshot 1`] = `
+"<div class="centerAll preloadImage">
+  <div class="iconImage">
+    <pharrowurightup class="icon"></pharrowurightup>
+  </div>
+</div>"
+`;
+
+exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhFolder > matches the snapshot 1`] = `
+"<div class="centerAll preloadImage">
+  <div class="iconImage">
+    <phfolder class="icon"></phfolder>
+  </div>
+</div>"
+`;
+
+exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhInfo > matches the snapshot 1`] = `
+"<div class="centerAll preloadImage">
+  <div class="iconImage">
+    <phinfo class="icon"></phinfo>
+  </div>
+</div>"
+`;
+
 exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhMusicNotes > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">

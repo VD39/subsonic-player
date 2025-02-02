@@ -1,0 +1,264 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FilesList > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <!--v-if-->
+  <div class="trackRow">
+    <div class="trackCell">
+      <div>
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <phinfo class="icon"></phinfo>
+          </div>
+        </div>
+        <p>No folders/files found.</p>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`FilesList > when folders is not an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <div class="trackRow" data-test-id="folder">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-0" style="display: none;"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-0</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="trackRow" data-test-id="folder">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-1" style="display: none;"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-1</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="trackRow" data-test-id="folder">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-2" style="display: none;"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-2</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="trackRow" data-test-id="folder">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-3" style="display: none;"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-3</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="trackRow" data-test-id="folder">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-4" style="display: none;"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-4</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`FilesList > when route params does have an Id > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <div class="trackRow">
+    <div class="trackCell">
+      <div>
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <phinfo class="icon"></phinfo>
+          </div>
+        </div>
+        <p>No folders/files found.</p>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell trackCell"><a class="trackCell">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <!--v-if-->
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">
+              <h4>track-0</h4>
+            </div>
+          </div>
+        </div>
+        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          </button>
+          <div class="dropdown fade-enter-from fade-enter-active">
+            <ul>
+              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                  <!--v-if--><span class="clamp text"> Add to playlist </span>
+                </button></li>
+              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                  <!--v-if--><span class="clamp text"> Media information </span>
+                </button></li>
+              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                  <!--v-if--><span class="clamp text"> Download track </span>
+                </button></li>
+              <li class="divider" aria-hidden="true"></li>
+              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                  <!--v-if--><span class="clamp text"> Add to queue </span>
+                </button></li>
+              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                  <!--v-if--><span class="clamp text"> Play Track </span>
+                </button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">
+              <h4>track-1</h4>
+            </div>
+          </div>
+        </div>
+        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          </button>
+          <!--v-if-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">
+              <h4>track-2</h4>
+            </div>
+          </div>
+        </div>
+        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          </button>
+          <!--v-if-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">
+              <h4>track-3</h4>
+            </div>
+          </div>
+        </div>
+        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          </button>
+          <!--v-if-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">
+              <h4>track-4</h4>
+            </div>
+          </div>
+        </div>
+        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+            <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          </button>
+          <!--v-if-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

@@ -43,7 +43,7 @@ export function usePodcast() {
     }
   }
 
-  async function deletePodcast(id: string, refresh?: () => Promise<void>) {
+  async function deletePodcast(id: string) {
     const { data: podcastData } = await fetchData('/deletePodcastChannel', {
       params: {
         id,
@@ -52,7 +52,6 @@ export function usePodcast() {
 
     if (podcastData) {
       addSuccessSnack('Successfully deleted podcast.');
-      await refresh?.();
     }
   }
 

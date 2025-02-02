@@ -29,7 +29,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > matches the snapsh
 </div>"
 `;
 
-exports[`TrackPlayPause > when isCurrentTrack value is true > when trackIsBuffering value is true > matches the snapshot 1`] = `
+exports[`TrackPlayPause > when isCurrentTrack value is true > when isBuffering value is true > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause currentTrack">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">
@@ -38,7 +38,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > when trackIsBuffer
 </div>"
 `;
 
-exports[`TrackPlayPause > when isCurrentTrack value is true > when trackIsPlaying value is true > matches the snapshot 1`] = `
+exports[`TrackPlayPause > when isCurrentTrack value is true > when isPlaying value is true > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause currentTrack">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">

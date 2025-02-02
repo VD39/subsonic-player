@@ -7,11 +7,11 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const authenticated = ref(false);
+const isAuthenticated = ref(false);
 
 mockNuxtImport('useAuth', () => () => ({
-  authenticated,
   autoLogin: vi.fn(),
+  isAuthenticated,
 }));
 
 const playlists = ref([]);
@@ -28,11 +28,11 @@ describe('app-global-middleware', () => {
   });
 
   afterEach(() => {
-    authenticated.value = false;
+    isAuthenticated.value = false;
     vi.clearAllMocks();
   });
 
-  describe('when authenticated is false', () => {
+  describe('when isAuthenticated is false', () => {
     describe('when route name is login', () => {
       beforeEach(() => {
         appGlobalMiddleware(
@@ -78,9 +78,9 @@ describe('app-global-middleware', () => {
     });
   });
 
-  describe('when authenticated is true', () => {
+  describe('when isAuthenticated is true', () => {
     beforeEach(() => {
-      authenticated.value = true;
+      isAuthenticated.value = true;
 
       appGlobalMiddleware(
         {

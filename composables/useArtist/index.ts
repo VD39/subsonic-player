@@ -5,7 +5,7 @@ export function useArtist() {
     const { data: artistsData } = await fetchData('/getArtists', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.artists.index || [])
-          .flatMap((artist) => artist.artist!)
+          .flatMap((index) => index.artist!)
           .map(formatArtist),
     });
 

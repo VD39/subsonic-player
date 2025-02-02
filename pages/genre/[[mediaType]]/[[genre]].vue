@@ -34,7 +34,7 @@ const {
   refresh,
   status,
 } = useAsyncData(
-  `${ASYNC_DATA_NAMES.genres}-${route.params.genre}-${route.params.mediaType}`,
+  route.fullPath,
   async () => {
     const genreMedia = await fetchData();
 
@@ -59,7 +59,7 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [route.params.genre || '', route.params.mediaType || '', 'Genre']
+    [route.params.genre, route.params.mediaType, 'Genre']
       .filter(Boolean)
       .join(' - '),
 });

@@ -38,9 +38,7 @@ async function updateClamp() {
   }
 }
 
-function onResize() {
-  updateClamp();
-}
+const onResize = debounce(updateClamp);
 
 onMounted(() => {
   if (!textRef.value) {
@@ -52,7 +50,7 @@ onMounted(() => {
 
   updateClamp();
 
-  window.addEventListener('resize', debounce(onResize));
+  window.addEventListener('resize', onResize);
 });
 
 onUnmounted(() => {

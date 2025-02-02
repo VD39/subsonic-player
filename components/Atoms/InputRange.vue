@@ -91,8 +91,12 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   document.addEventListener('mouseup', onMouseUp);
   document.addEventListener('mousemove', onMouseMove);
 
-  document.addEventListener('touchend', onMouseUp);
-  document.addEventListener('touchmove', onMouseMove);
+  document.addEventListener('touchend', onMouseUp, {
+    passive: true,
+  });
+  document.addEventListener('touchmove', onMouseMove, {
+    passive: true,
+  });
 }
 
 function onSliderMouseOver() {
@@ -120,14 +124,12 @@ watch(() => [props.buffer, internalModal.value], updateProgress, {
   immediate: true,
 });
 
-function onResize() {
-  updateProgress();
-}
+const onResize = debounce(updateProgress);
 
 onMounted(() => {
   updateProgress();
 
-  window.addEventListener('resize', debounce(onResize));
+  window.addEventListener('resize', onResize);
 });
 
 onUnmounted(() => {
@@ -151,7 +153,7 @@ onUnmounted(() => {
       @mousedown.stop.prevent="onSliderMouseDown"
       @mouseover="onSliderMouseOver"
       @mousemove="onSliderMouseMove"
-      @touchstart.stop="onSliderMouseDown"
+      @touchstart.stop.passive="onSliderMouseDown"
     >
       <div :class="$style.progressWrapper">
         <div
@@ -174,7 +176,7 @@ onUnmounted(() => {
         :class="$style.thumb"
         :style="{ left: `${progress - 6}px` }"
         @mousedown.stop.prevent="onSliderMouseDown"
-        @touchstart.stop="onSliderMouseDown"
+        @touchstart.stop.passive="onSliderMouseDown"
       />
 
       <div
@@ -251,7 +253,7 @@ onUnmounted(() => {
       transparent
     );
     background-size: 50px 50px;
-    animation: stripes-move 5s linear infinite;
+    animation: stripes-move 10s linear infinite;
   }
 }
 

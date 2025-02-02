@@ -98,12 +98,28 @@ describe('setLocalStorage', () => {
 });
 
 describe('deleteLocalStorage', () => {
-  beforeEach(() => {
-    window.localStorage.setItem('key1', 'key');
-    deleteLocalStorage();
+  describe('when deleteLocalStorage function is called', () => {
+    describe('with a parameter', () => {
+      beforeEach(() => {
+        window.localStorage.setItem('key1', 'key');
+        window.localStorage.setItem('key2', 'key');
+        deleteLocalStorage('key2');
+      });
+
+      it('deletes the key from localStorage', () => {
+        expect(window.localStorage).toEqual({
+          key1: 'key',
+          testKey: '{"storage":"storage"}',
+        });
+      });
+    });
   });
 
-  describe('when deleteLocalStorage function is called', () => {
+  describe('without a parameter', () => {
+    beforeEach(() => {
+      deleteLocalStorage();
+    });
+
     it('resets the localStorage', () => {
       expect(window.localStorage).toEqual({});
     });

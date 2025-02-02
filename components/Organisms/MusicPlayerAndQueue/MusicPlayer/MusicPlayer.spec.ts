@@ -1,6 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import ImageLink from '@/components/Organisms/ImageLink.vue';
+import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
@@ -8,7 +8,7 @@ import { mount } from '@vue/test-utils';
 
 import MusicPlayer from './MusicPlayer.vue';
 
-const { currentTrackMock, isTrackMock } = useAudioPlayerMock();
+const { currentTrackMock } = useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(MusicPlayer, {
@@ -33,61 +33,151 @@ describe('MusicPlayer', () => {
     expect(wrapper.findComponent(TrackSeeker).exists()).toBe(true);
   });
 
-  describe('when isTrack value is false', () => {
-    it('does not show the ImageLink component', () => {
-      expect(wrapper.findComponent(ImageLink).exists()).toBe(false);
+  describe('when currentTrack value does not have an albumId key', () => {
+    beforeEach(() => {
+      delete (currentTrackMock.value as Track).albumId;
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the ImageLink component containing the album link', () => {
+      expect(wrapper.findComponent({ ref: 'albumImageLink' }).exists()).toBe(
+        false,
+      );
     });
   });
 
-  describe('when isTrack value is true', () => {
-    beforeEach(() => {
-      isTrackMock.value = true;
+  describe('when currentTrack value does have an albumId key', () => {
+    describe('when currentTrack.albumId is defined', () => {
+      beforeEach(() => {
+        currentTrackMock.value = getFormattedQueueTracksMock()[0];
+      });
+
+      it('shows the ImageLink component containing the album link', () => {
+        expect(wrapper.findComponent({ ref: 'albumImageLink' }).exists()).toBe(
+          true,
+        );
+      });
+
+      it('does not show the ImageLink component containing the podcast name link', () => {
+        expect(
+          wrapper.findComponent({ ref: 'podcastImageLink' }).exists(),
+        ).toBe(false);
+      });
+
+      it('does not show the PreloadImage component', () => {
+        expect(wrapper.findComponent(PreloadImage).exists()).toBe(true);
+      });
     });
 
-    describe('when currentTrack value does not contain albumId', () => {
+    describe('when currentTrack.albumId is undefined', () => {
       beforeEach(() => {
-        delete (currentTrackMock.value as Track).albumId;
+        currentTrackMock.value = getFormattedQueueTracksMock(1, {
+          albumId: undefined,
+        })[0];
       });
 
       it('matches the snapshot', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the ImageLink component', () => {
-        expect(wrapper.findComponent(ImageLink).exists()).toBe(false);
+      it('does not show the ImageLink component containing the album link', () => {
+        expect(wrapper.findComponent({ ref: 'albumImageLink' }).exists()).toBe(
+          false,
+        );
       });
-    });
 
-    describe('when currentTrack value contain albumId', () => {
-      describe('when currentTrack.albumId is undefined', () => {
+      describe('when currentTrack value does not have an podcastId key', () => {
         beforeEach(() => {
-          currentTrackMock.value = getFormattedQueueTracksMock(1, {
-            albumId: undefined,
-          })[0];
+          delete (currentTrackMock.value as PodcastEpisode).podcastId;
         });
 
         it('matches the snapshot', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('does not show the ImageLink component', () => {
-          expect(wrapper.findComponent(ImageLink).exists()).toBe(false);
+        it('does not show the ImageLink component containing the album link', () => {
+          expect(
+            wrapper.findComponent({ ref: 'albumImageLink' }).exists(),
+          ).toBe(false);
+        });
+
+        it('does not show the ImageLink component containing the podcast name link', () => {
+          expect(
+            wrapper.findComponent({ ref: 'podcastImageLink' }).exists(),
+          ).toBe(false);
+        });
+
+        it('shows the PreloadImage component', () => {
+          expect(wrapper.findComponent(PreloadImage).exists()).toBe(true);
         });
       });
 
-      describe('when currentTrack.albumId is defined', () => {
-        beforeEach(() => {
-          currentTrackMock.value = getFormattedQueueTracksMock()[0];
+      describe('when currentTrack value does have an podcastId key', () => {
+        describe('when currentTrack.podcastId is undefined', () => {
+          beforeEach(() => {
+            currentTrackMock.value = getFormattedQueueTracksMock(1, {
+              albumId: undefined,
+              podcastId: undefined,
+            })[0];
+          });
+
+          it('matches the snapshot', () => {
+            expect(wrapper.html()).toMatchSnapshot();
+          });
+
+          it('does not show the ImageLink component containing the album link', () => {
+            expect(
+              wrapper.findComponent({ ref: 'albumImageLink' }).exists(),
+            ).toBe(false);
+          });
+
+          it('does not show the ImageLink component containing the podcast name link', () => {
+            expect(
+              wrapper.findComponent({ ref: 'podcastImageLink' }).exists(),
+            ).toBe(false);
+          });
+
+          it('shows the PreloadImage component', () => {
+            expect(wrapper.findComponent(PreloadImage).exists()).toBe(true);
+          });
         });
 
-        it('shows the ImageLink component', () => {
-          expect(wrapper.findComponent(ImageLink).exists()).toBe(true);
+        describe('when currentTrack.podcastId is defined', () => {
+          beforeEach(() => {
+            currentTrackMock.value = getFormattedQueueTracksMock(1, {
+              albumId: undefined,
+              podcastId: 'podcastId',
+            })[0];
+          });
+
+          it('matches the snapshot', () => {
+            expect(wrapper.html()).toMatchSnapshot();
+          });
+
+          it('does not show the ImageLink component containing the album link', () => {
+            expect(
+              wrapper.findComponent({ ref: 'albumImageLink' }).exists(),
+            ).toBe(false);
+          });
+
+          it('shows the ImageLink component containing the podcast name link', () => {
+            expect(
+              wrapper.findComponent({ ref: 'podcastImageLink' }).exists(),
+            ).toBe(true);
+          });
+
+          it('does not show the PreloadImage component', () => {
+            expect(wrapper.findComponent(PreloadImage).exists()).toBe(true);
+          });
         });
       });
     });
   });
 
-  describe('when currentTrack value does not contain artists', () => {
+  describe('when currentTrack value does not have an artists key', () => {
     beforeEach(() => {
       delete (currentTrackMock.value as Partial<Track>).artists;
     });
@@ -130,6 +220,56 @@ describe('MusicPlayer', () => {
       it('shows the MarqueeScroll component containing the artists details', () => {
         expect(
           wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+        ).toBe(true);
+      });
+    });
+  });
+
+  describe('when currentTrack value does not have an author key', () => {
+    beforeEach(() => {
+      delete (currentTrackMock.value as PodcastEpisode).author;
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the MarqueeScroll component containing the author details', () => {
+      expect(
+        wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
+      ).toBe(false);
+    });
+  });
+
+  describe('when currentTrack value contain author', () => {
+    describe('when currentTrack.author is undefined', () => {
+      beforeEach(() => {
+        currentTrackMock.value = getFormattedQueueTracksMock(1, {
+          author: undefined,
+        })[0];
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the MarqueeScroll component containing the author details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
+        ).toBe(false);
+      });
+    });
+
+    describe('when currentTrack.author is defined', () => {
+      beforeEach(() => {
+        currentTrackMock.value = getFormattedQueueTracksMock(1, {
+          author: 'author',
+        })[0];
+      });
+
+      it('shows the MarqueeScroll component containing the author details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
         ).toBe(true);
       });
     });

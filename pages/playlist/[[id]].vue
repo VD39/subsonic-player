@@ -30,7 +30,7 @@ const {
   refresh,
   status,
 } = useAsyncData(
-  `${ASYNC_DATA_NAMES.playlist}-${route.params.id}`,
+  route.fullPath,
   async () => {
     const playlist = await getPlaylistTracksById(route.params.id as string);
 
@@ -67,9 +67,7 @@ async function deleteSelectedPlaylist() {
 
 useHead({
   title: () =>
-    [playlistData.value.playlist?.name || '', 'Playlist']
-      .filter(Boolean)
-      .join(' - '),
+    [playlistData.value.playlist?.name, 'Playlist'].filter(Boolean).join(' - '),
 });
 </script>
 

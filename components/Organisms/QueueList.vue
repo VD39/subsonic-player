@@ -19,8 +19,8 @@ defineEmits(['addToPlaylist', 'playTrack', 'removeFromQueue']);
   <div v-if="tracks.length" ref="tracksWrapper" class="trackTable">
     <div class="trackHeader">
       <div class="trackCell">Track</div>
-      <div class="trackCell trackSecondary">Album</div>
-      <div class="trackCell trackSecondary">Artists</div>
+      <div class="trackCell trackSecondary">Album/Podcast</div>
+      <div class="trackCell trackSecondary">Artists/Author</div>
       <div class="trackCell trackTime">Time</div>
       <div class="trackCell trackOptions" />
     </div>
@@ -63,6 +63,14 @@ defineEmits(['addToPlaylist', 'playTrack', 'removeFromQueue']);
           />
         </MarqueeScroll>
 
+        <LinkOrText
+          v-else-if="'podcastName' in track && track.podcastName"
+          ref="podcastNameLinkOrText"
+          :is-link="!!track.podcastId"
+          :text="track.podcastName"
+          :to="`/podcast/all/${track.podcastId}`"
+        />
+
         <p v-else ref="albumElse">{{ DEFAULT_VALUE }}</p>
       </div>
 
@@ -72,6 +80,13 @@ defineEmits(['addToPlaylist', 'playTrack', 'removeFromQueue']);
           ref="artistsMarqueeScroll"
         >
           <ArtistsList :artists="track.artists" />
+        </MarqueeScroll>
+
+        <MarqueeScroll
+          v-else-if="'author' in track && track.author"
+          ref="authorMarqueeScroll"
+        >
+          <p>{{ track.author }}</p>
         </MarqueeScroll>
 
         <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>

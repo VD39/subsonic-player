@@ -773,6 +773,9 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
                 <li class="dropdownItem" to="/user-profile"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink">
                     <!--v-if--><span class="clamp text"> Profile </span>
                   </a></li>
+                <li class="dropdownItem" to="/files"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink">
+                    <!--v-if--><span class="clamp text">Files</span>
+                  </a></li>
                 <li class="dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" href="server" target="_blank">
                     <!--v-if--><span class="clamp text"> Server </span>
                   </a></li>

@@ -23,14 +23,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -48,7 +48,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -100,14 +100,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -125,7 +125,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -155,14 +155,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -180,7 +180,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -210,14 +210,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -235,7 +235,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -265,14 +265,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -290,7 +290,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -329,14 +329,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -354,7 +354,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -406,14 +406,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -431,7 +431,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -461,14 +461,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -486,7 +486,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -516,14 +516,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -541,7 +541,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -571,14 +571,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -596,7 +596,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -634,14 +634,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
           </button>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -657,7 +657,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
           </button><button class="centerItems buttonLink" type="button" title="Episode information">
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button></div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -715,7 +715,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
@@ -734,7 +734,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">
@@ -795,14 +795,14 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
             </button></div>
         </div>
         <div class="column">
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4 class="strong mBM">title</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <p class="strong mBM">author</p>
@@ -820,7 +820,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
             <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
-        <div class="marqueeScroll" style="--animation-duration: 0ms;">
+        <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
               <ul class="bulletList">

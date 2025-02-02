@@ -1,5 +1,7 @@
-<template>
-  <div>Hello User profile Page</div>
-</template>
+<script setup lang="ts">
+const user = useUser();
+</script>
 
-<script setup></script>
+<template>
+  <h1 v-if="user">Hello {{ user.username }}</h1>
+</template>

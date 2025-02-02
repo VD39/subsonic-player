@@ -9,15 +9,14 @@ export function useAuth() {
 
   const loading = ref(false);
   const error = ref<null | string>(null);
-  const authenticated = useState(STATE_NAMES.userAuthenticated, () => false);
+  const isAuthenticated = useState(STATE_NAMES.userAuthenticated, () => false);
   user.value = loadSession(authCookie.value!);
 
-  async function logout() {
-    const { resetAudio } = useAudioPlayer();
-
+  function logout() {
+    clearNuxtData();
     authCookie.value = null;
-    resetAudio();
     clearNuxtState(STATE_NAMES.userAuthenticated);
+    clearNuxtState(STATE_NAMES.playlists);
   }
 
   async function autoLogin() {
@@ -33,7 +32,7 @@ export function useAuth() {
     }
 
     if (loggedIn) {
-      authenticated.value = true;
+      isAuthenticated.value = true;
     }
   }
 
@@ -68,7 +67,7 @@ export function useAuth() {
     if (loginError?.message) {
       error.value = loginError.message;
       loading.value = false;
-      authenticated.value = false;
+      isAuthenticated.value = false;
 
       return;
     }
@@ -76,16 +75,16 @@ export function useAuth() {
     if (loggedIn) {
       authCookie.value = convertToQueryString(params);
       user.value = loadSession(authCookie.value);
-      authenticated.value = true;
+      isAuthenticated.value = true;
     }
 
     loading.value = false;
   }
 
   return {
-    authenticated,
     autoLogin,
     error,
+    isAuthenticated,
     loading,
     login,
     logout,

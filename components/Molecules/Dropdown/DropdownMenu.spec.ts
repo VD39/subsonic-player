@@ -101,7 +101,7 @@ describe('DropdownMenu', () => {
 
     describe('when dropdown height is less than window height', () => {
       beforeEach(async () => {
-        global.window.innerHeight = 10;
+        window.innerHeight = 10;
         Object.defineProperties(HTMLElement.prototype, {
           clientHeight: {
             configurable: true,

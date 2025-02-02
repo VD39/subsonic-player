@@ -45,7 +45,7 @@ export function useRadioStation() {
     }
   }
 
-  async function deleteRadioStation(id: string, refresh: () => Promise<void>) {
+  async function deleteRadioStation(id: string) {
     const { data: radioStationData } = await fetchData(
       '/deleteInternetRadioStation',
       {
@@ -57,7 +57,6 @@ export function useRadioStation() {
 
     if (radioStationData) {
       addSuccessSnack('Successfully deleted radio station.');
-      await refresh();
     }
   }
 

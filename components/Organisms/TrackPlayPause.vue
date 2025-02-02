@@ -13,7 +13,7 @@ defineProps<{
 
 defineEmits(['playTrack']);
 
-const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
+const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
   useAudioPlayer();
 </script>
 
@@ -43,13 +43,13 @@ const { currentTrack, isCurrentTrack, trackIsBuffering, trackIsPlaying } =
           'centerAll',
           $style.playPauseInner,
           {
-            [$style.buffering]: trackIsBuffering,
-            [$style.paused]: !trackIsPlaying,
-            [$style.playing]: trackIsPlaying,
+            [$style.buffering]: isBuffering,
+            [$style.paused]: !isPlaying,
+            [$style.playing]: isPlaying,
           },
         ]"
       >
-        <PlayingLoader :class="$style.playingLoader" :playing="trackIsPlaying">
+        <PlayingLoader :class="$style.playingLoader" :playing="isPlaying">
           Playing current track {{ currentTrack.name }}
         </PlayingLoader>
 

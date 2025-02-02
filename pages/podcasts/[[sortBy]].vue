@@ -70,8 +70,7 @@ function addNewPodcastModal() {
 }
 
 useHead({
-  title: () =>
-    [route.params.sortBy || '', 'Podcasts'].filter(Boolean).join(' - '),
+  title: () => [route.params.sortBy, 'Podcasts'].filter(Boolean).join(' - '),
 });
 </script>
 

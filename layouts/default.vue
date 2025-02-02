@@ -12,10 +12,12 @@ import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarN
 
 const user = useUser();
 const { logout } = useAuth();
+const { resetAudio } = useAudioPlayer();
 const { startScan } = useMediaLibrary();
 
 async function logoutAndRedirect() {
-  await logout();
+  resetAudio();
+  logout();
   await navigateTo('/login');
 }
 
@@ -58,6 +60,7 @@ const showPageNavigation = computed(() =>
               <DropdownItem is="nuxt-link" to="/user-profile">
                 Profile
               </DropdownItem>
+              <DropdownItem is="nuxt-link" to="/files">Files</DropdownItem>
               <DropdownItem is="a" :href="user.server" target="_blank">
                 Server
               </DropdownItem>

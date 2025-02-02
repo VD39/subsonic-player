@@ -1,24 +1,24 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MusicPlayerAndQueue > when queueListOpened is false > matches the snapshot 1`] = `
+exports[`MusicPlayerAndQueue > when isQueueListOpened is false > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <queue-player-stub></queue-player-stub>
 <!--v-if-->"
 `;
 
-exports[`MusicPlayerAndQueue > when queueListOpened is true > matches the snapshot 1`] = `
+exports[`MusicPlayerAndQueue > when isQueueListOpened is true > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <queue-player-stub></queue-player-stub>
 <queue-list-stub class="slide-up-down-enter-from slide-up-down-enter-active"></queue-list-stub>"
 `;
 
-exports[`MusicPlayerAndQueue > when queuePlayerOpened is false > matches the snapshot 1`] = `
+exports[`MusicPlayerAndQueue > when isQueuePlayerOpened is false > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <!--v-if-->
 <!--v-if-->"
 `;
 
-exports[`MusicPlayerAndQueue > when queuePlayerOpened is true > matches the snapshot 1`] = `
+exports[`MusicPlayerAndQueue > when isQueuePlayerOpened is true > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <queue-player-stub class="slide-up-down-enter-from slide-up-down-enter-active"></queue-player-stub>
 <!--v-if-->"

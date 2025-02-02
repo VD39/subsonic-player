@@ -11,6 +11,9 @@ export const MEDIA_TYPE = {
 export const IMAGE_DEFAULT_BY_TYPE = {
   album: ICONS.album,
   artist: ICONS.artist,
+  folder: ICONS.folder,
+  folderBack: ICONS.folderBack,
+  noFolder: ICONS.noFolder,
   playlist: ICONS.playlist,
   podcast: ICONS.podcast,
   podcastEpisode: ICONS.podcastEpisode,

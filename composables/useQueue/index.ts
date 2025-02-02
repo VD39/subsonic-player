@@ -1,26 +1,26 @@
 export function useQueue() {
-  const queuePlayerOpened = useState(
+  const isQueueListOpened = useState(STATE_NAMES.queueListOpened, () => false);
+  const isQueuePlayerOpened = useState(
     STATE_NAMES.queuePlayerOpened,
     () => false,
   );
-  const queueListOpened = useState(STATE_NAMES.queueListOpened, () => false);
 
   function toggleQueuePlayer() {
-    queuePlayerOpened.value = !queuePlayerOpened.value;
+    isQueuePlayerOpened.value = !isQueuePlayerOpened.value;
   }
 
   function toggleQueueList() {
-    queueListOpened.value = !queueListOpened.value;
+    isQueueListOpened.value = !isQueueListOpened.value;
   }
 
   function resetQueueState() {
-    queueListOpened.value = false;
-    queuePlayerOpened.value = false;
+    isQueueListOpened.value = false;
+    isQueuePlayerOpened.value = false;
   }
 
   return {
-    queueListOpened,
-    queuePlayerOpened,
+    isQueueListOpened,
+    isQueuePlayerOpened,
     resetQueueState,
     toggleQueueList,
     toggleQueuePlayer,

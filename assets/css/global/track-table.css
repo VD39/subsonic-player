@@ -8,15 +8,13 @@
 
 .trackHeader,
 .trackRow {
+  --track-row-background-color: var(--hover-selected-color);
+
   position: relative;
   display: table-row;
   width: var(--width-height-100);
-}
 
-.trackRow {
-  --track-row-background-color: var(--hover-selected-color);
-
-  &:nth-child(2n) {
+  &:nth-child(2n + 1) {
     background-color: var(--track-row-background-color);
   }
 
@@ -55,6 +53,8 @@
 }
 
 .trackHeader {
+  --track-row-background-color: transparent;
+
   height: 50px;
   font-weight: var(--font-weight-bold);
   border-bottom: 1px solid var(--border-color);

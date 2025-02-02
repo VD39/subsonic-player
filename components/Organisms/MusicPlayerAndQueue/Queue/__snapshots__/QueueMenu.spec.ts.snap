@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`QueueMenu > when queueListOpened is false > matches the snapshot 1`] = `
+exports[`QueueMenu > when isQueueListOpened is false > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
     <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -84,7 +84,7 @@ exports[`QueueMenu > when queueListOpened is false > matches the snapshot 1`] = 
 </div>"
 `;
 
-exports[`QueueMenu > when queueListOpened is true > matches the snapshot 1`] = `
+exports[`QueueMenu > when isQueueListOpened is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
     <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -168,7 +168,7 @@ exports[`QueueMenu > when queueListOpened is true > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`QueueMenu > when queuePlayerOpened is false > matches the snapshot 1`] = `
+exports[`QueueMenu > when isQueuePlayerOpened is false > matches the snapshot 1`] = `
 "<div class="queueWrapper column" style="display: none;"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
     <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -252,7 +252,7 @@ exports[`QueueMenu > when queuePlayerOpened is false > matches the snapshot 1`] 
 </div>"
 `;
 
-exports[`QueueMenu > when queuePlayerOpened is true > matches the snapshot 1`] = `
+exports[`QueueMenu > when isQueuePlayerOpened is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column slide-up-down-enter-from slide-up-down-enter-active"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
     <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>

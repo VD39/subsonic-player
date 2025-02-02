@@ -16,10 +16,12 @@ const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
 
-const query = replaceCharactersWithSpace(route.params.query as string);
+const query = replaceCharactersWithSpace(
+  sanitiseString(route.params.query as string),
+);
 
 const { data: searchResultsData, status } = useAsyncData(
-  `${ASYNC_DATA_NAMES.searchResults}-${query}`,
+  route.fullPath,
   async () => {
     const searchResults = await search({
       offset: 0,
@@ -45,12 +47,12 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [query, route.params.mediaType || '', 'Search'].filter(Boolean).join(' - '),
+    [query, route.params.mediaType, 'Search'].filter(Boolean).join(' - '),
 });
 </script>
 
 <template>
-  <h1>Search results for: {{ query }}</h1>
+  <h1>Search results for: {{ convertToTitleCase(query) }}</h1>
 
   <PageNavigation :navigation="SEARCH_NAVIGATION" />
 

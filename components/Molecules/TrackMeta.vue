@@ -34,9 +34,9 @@ defineProps<{
           <span class="visuallyHidden">Podcast name</span>
 
           <LinkOrText
-            :is-link="!!track.id"
+            :is-link="!!track.podcastId"
             :text="track.podcastName"
-            :to="`/podcast/all/${track.id}`"
+            :to="`/podcast/all/${track.podcastId}`"
           />
         </li>
         <li v-if="'artists' in track && track.artists.length" ref="artists">

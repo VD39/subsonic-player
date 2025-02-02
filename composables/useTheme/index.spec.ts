@@ -12,9 +12,11 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 const setLocalStorageMock = vi.hoisted(() => vi.fn());
-const getLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
+
+const getLocalStorageMock = vi.hoisted(() => vi.fn());
+
 mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
 
 const { isDarkTheme, setDefaultTheme, toggleTheme } = useTheme();
@@ -30,8 +32,8 @@ describe('useTheme', () => {
 
   describe('when toggleTheme function is called', () => {
     describe.each([
-      [true, 'true'],
-      [false, 'false'],
+      [true, true],
+      [false, false],
     ])('when parameter is %s', (themeParam, stringify) => {
       beforeAll(() => {
         toggleTheme();

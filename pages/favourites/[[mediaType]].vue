@@ -46,7 +46,7 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [route.params.mediaType || '', 'Favourites'].filter(Boolean).join(' - '),
+    [route.params.mediaType, 'Favourites'].filter(Boolean).join(' - '),
 });
 </script>
 

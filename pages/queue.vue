@@ -9,6 +9,10 @@ const {
   queueList,
   removeTrackFromQueueList,
 } = useAudioPlayer();
+
+useHead({
+  title: 'Queue',
+});
 </script>
 
 <template>

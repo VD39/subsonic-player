@@ -3,22 +3,14 @@ import { defineNuxtConfig } from 'nuxt/config';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      meta: [
-        {
-          content: 'width=device-width, initial-scale=1',
-          name: 'viewport',
-        },
-      ],
-      titleTemplate: `%s - ${process.env.MAIN_APP_TITLE || 'Music App'}`,
-    },
-  },
   builder: 'vite',
   compatibilityDate: '2024-04-03',
   css: ['@/assets/css/main.css'],
   devtools: {
     enabled: true,
+  },
+  experimental: {
+    resetAsyncDataToUndefined: false,
   },
   imports: {
     dirs: [

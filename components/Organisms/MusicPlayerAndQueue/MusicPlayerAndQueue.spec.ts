@@ -9,12 +9,12 @@ import { mount } from '@vue/test-utils';
 
 import MusicPlayerAndQueue from './MusicPlayerAndQueue.vue';
 
-const queueListOpenedMock = ref(false);
-const queuePlayerOpenedMock = ref(false);
+const isQueueListOpenedMock = ref(false);
+const isQueuePlayerOpenedMock = ref(false);
 
 mockNuxtImport('useQueue', () => () => ({
-  queueListOpened: queueListOpenedMock,
-  queuePlayerOpened: queuePlayerOpenedMock,
+  isQueueListOpened: isQueueListOpenedMock,
+  isQueuePlayerOpened: isQueuePlayerOpenedMock,
 }));
 
 const { showMediaPlayerMock } = useAudioPlayerMock();
@@ -66,7 +66,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when queuePlayerOpened is false', () => {
+  describe('when isQueuePlayerOpened is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -76,9 +76,9 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when queuePlayerOpened is true', () => {
+  describe('when isQueuePlayerOpened is true', () => {
     beforeEach(() => {
-      queuePlayerOpenedMock.value = true;
+      isQueuePlayerOpenedMock.value = true;
     });
 
     it('matches the snapshot', () => {
@@ -90,7 +90,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when queueListOpened is false', () => {
+  describe('when isQueueListOpened is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -100,9 +100,9 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when queueListOpened is true', () => {
+  describe('when isQueueListOpened is true', () => {
     beforeEach(() => {
-      queueListOpenedMock.value = true;
+      isQueueListOpenedMock.value = true;
     });
 
     it('matches the snapshot', () => {

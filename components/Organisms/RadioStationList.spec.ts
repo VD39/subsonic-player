@@ -78,7 +78,7 @@ describe('RadioStationList', () => {
 
       it('emits the deleteRadioStation event with track', () => {
         expect(wrapper.emitted('deleteRadioStation')).toEqual([
-          [radioStations[0]],
+          [radioStations[0].id],
         ]);
       });
     });

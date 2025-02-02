@@ -7,8 +7,7 @@ import { mount } from '@vue/test-utils';
 
 import PlayPauseButton from './PlayPauseButton.vue';
 
-const { togglePlayMock, trackIsBufferingMock, trackIsPlayingMock } =
-  useAudioPlayerMock();
+const { isBufferingMock, isPlayingMock, togglePlayMock } = useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(PlayPauseButton, {
@@ -36,7 +35,7 @@ describe('PlayPauseButton', () => {
     wrapper = factory();
   });
 
-  describe('when trackIsBuffering value is false', () => {
+  describe('when isBuffering value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -54,7 +53,7 @@ describe('PlayPauseButton', () => {
       [true, buttonProps.true],
     ])('when shuffle value is set to %s', (shuffle, buttonProps) => {
       beforeEach(() => {
-        trackIsPlayingMock.value = shuffle;
+        isPlayingMock.value = shuffle;
       });
 
       it('matches the snapshot', () => {
@@ -91,9 +90,9 @@ describe('PlayPauseButton', () => {
     });
   });
 
-  describe('when trackIsBuffering value is true', () => {
+  describe('when isBuffering value is true', () => {
     beforeEach(() => {
-      trackIsBufferingMock.value = true;
+      isBufferingMock.value = true;
     });
 
     it('matches the snapshot', () => {

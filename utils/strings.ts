@@ -16,12 +16,20 @@ export function replaceSpacesWithCharacter(
   str: string,
   replaceCharacter = '-',
 ) {
-  return sanitiseString(str).replace(/ +/g, replaceCharacter);
+  return str.replace(/ +/g, replaceCharacter);
 }
 
 export function replaceCharactersWithSpace(
   str: string,
   replaceCharacter = '-',
 ) {
-  return sanitiseString(str).replace(new RegExp(replaceCharacter, 'g'), ' ');
+  return str.replace(new RegExp(replaceCharacter, 'g'), ' ');
+}
+
+export function convertToTitleCase(str: string) {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
 }

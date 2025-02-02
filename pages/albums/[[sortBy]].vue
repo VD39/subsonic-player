@@ -28,7 +28,7 @@ const {
   refresh,
   status,
 } = useAsyncData(
-  `${ASYNC_DATA_NAMES.albums}-${route.params.sortBy}`,
+  route.fullPath,
   async () => {
     const albums = await fetchData();
 
@@ -48,8 +48,7 @@ const loadingStatus = computed(() =>
 );
 
 useHead({
-  title: () =>
-    [route.params.sortBy || '', 'Albums'].filter(Boolean).join(' - '),
+  title: () => [route.params.sortBy, 'Albums'].filter(Boolean).join(' - '),
 });
 </script>
 

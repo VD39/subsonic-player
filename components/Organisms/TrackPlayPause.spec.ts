@@ -6,7 +6,7 @@ import { mount } from '@vue/test-utils';
 
 import TrackPlayPause from './TrackPlayPause.vue';
 
-const { isCurrentTrackMock, trackIsBufferingMock, trackIsPlayingMock } =
+const { isBufferingMock, isCurrentTrackMock, isPlayingMock } =
   useAudioPlayerMock();
 
 function factory(props = {}) {
@@ -136,7 +136,7 @@ describe('TrackPlayPause', () => {
       expect(wrapper.findComponent({ ref: 'play' }).exists()).toBe(false);
     });
 
-    describe('when trackIsBuffering value is false', () => {
+    describe('when isBuffering value is false', () => {
       it('does not add the buffering class to the play pause wrapper element', () => {
         expect(
           wrapper.find({ ref: 'playPauseWrapper' }).classes(),
@@ -144,9 +144,9 @@ describe('TrackPlayPause', () => {
       });
     });
 
-    describe('when trackIsBuffering value is true', () => {
+    describe('when isBuffering value is true', () => {
       beforeEach(() => {
-        trackIsBufferingMock.value = true;
+        isBufferingMock.value = true;
       });
 
       it('matches the snapshot', () => {
@@ -160,7 +160,7 @@ describe('TrackPlayPause', () => {
       });
     });
 
-    describe('when trackIsPlaying value is false', () => {
+    describe('when isPlaying value is false', () => {
       it('adds the paused class to the play pause wrapper element', () => {
         expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
           'paused',
@@ -174,9 +174,9 @@ describe('TrackPlayPause', () => {
       });
     });
 
-    describe('when trackIsPlaying value is true', () => {
+    describe('when isPlaying value is true', () => {
       beforeEach(() => {
-        trackIsPlayingMock.value = true;
+        isPlayingMock.value = true;
       });
 
       it('matches the snapshot', () => {

@@ -23,7 +23,7 @@ const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
 const { data: albumData, status } = useAsyncData(
-  `${ASYNC_DATA_NAMES.album}-${route.params.id}`,
+  route.fullPath,
   async () => {
     const album = await getAlbum(route.params.id as string);
 
@@ -46,7 +46,7 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [albumData.value.album?.name || '', 'Album'].filter(Boolean).join(' - '),
+    [albumData.value.album?.name, 'Album'].filter(Boolean).join(' - '),
 });
 </script>
 

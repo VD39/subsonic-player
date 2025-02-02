@@ -43,12 +43,13 @@ function addNewRadioStationModal() {
   addRadioStationModal(refresh);
 }
 
-function deleteSelectedRadioStation(id: string) {
-  deleteRadioStation(id, refresh);
-}
-
 function updateSelectedRadioStationModal(radioStation: RadioStation) {
   updateRadioStationModal(radioStation, refresh);
+}
+
+async function deleteSelectedRadioStation(id: string) {
+  await deleteRadioStation(id);
+  await refresh();
 }
 
 useHead({

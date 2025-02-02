@@ -20,13 +20,19 @@ function factory(props = {}) {
 
 describe('InfiniteScroller', () => {
   let wrapper: VueWrapper;
+  let iOMock: ReturnType<typeof intersectionObserverMock>;
 
   beforeEach(() => {
+    iOMock = intersectionObserverMock();
     wrapper = factory();
   });
 
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('adds the IntersectionObserver function', () => {
+    expect(iOMock.observeMock).toHaveBeenCalled();
   });
 
   describe('when hasMore prop is false', () => {
@@ -107,7 +113,6 @@ describe('InfiniteScroller', () => {
 
   describe('when intersectionObserver is not intersecting', () => {
     beforeEach(() => {
-      intersectionObserverMock();
       wrapper = factory();
     });
 
@@ -163,20 +168,11 @@ describe('InfiniteScroller', () => {
   });
 
   describe('when component unmounts', () => {
-    let iOMock: ReturnType<typeof intersectionObserverMock>;
-
     beforeEach(() => {
-      iOMock = intersectionObserverMock([
-        {
-          isIntersecting: true,
-        } as never,
-      ]);
-
-      wrapper = factory();
       wrapper.unmount();
     });
 
-    it('disconnects the intersectionObserver function', () => {
+    it('disconnects the IntersectionObserver function', () => {
       expect(iOMock.disconnectMock).toHaveBeenCalled();
     });
   });

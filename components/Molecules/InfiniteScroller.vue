@@ -9,7 +9,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['loadMore']);
 
-const containerRef = ref<HTMLElement | null>(null);
+const infiniteScrollerRef = ref<HTMLElement | null>(null);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 const buttonProps = computed<ButtonProps>(() => ({
@@ -22,7 +22,7 @@ function loadMore() {
 }
 
 onMounted(() => {
-  if (!containerRef.value) {
+  if (!infiniteScrollerRef.value) {
     return;
   }
 
@@ -43,7 +43,7 @@ onMounted(() => {
     },
   );
 
-  intersectionObserver.value.observe(containerRef.value);
+  intersectionObserver.value.observe(infiniteScrollerRef.value);
 });
 
 onUnmounted(() => {
@@ -52,7 +52,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef">
+  <div ref="infiniteScrollerRef">
     <ButtonLink
       v-if="hasMore"
       :class="['centerAll', $style.buttonLink]"

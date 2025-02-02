@@ -25,14 +25,14 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>track-0</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -55,7 +55,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -103,14 +103,14 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>track-1</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -133,7 +133,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -162,14 +162,14 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>track-2</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -192,7 +192,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -221,14 +221,14 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>track-3</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -251,7 +251,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -280,14 +280,14 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>track-4</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">
@@ -310,7 +310,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
       </div>
     </div>
     <div class="trackCell trackSecondary">
-      <div class="marqueeScroll" style="--animation-duration: 0ms;">
+      <div class="marqueeScroll">
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
@@ -350,14 +350,14 @@ exports[`TrackList > when tracks prop is not an empty array > when track.artists
             </button></div>
         </div>
         <div class="trackMeta">
-          <div class="marqueeScroll mBXS" inert="" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
                 <h4>track-0</h4>
               </div>
             </div>
           </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS" style="--animation-duration: 0ms;">
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
             <div class="bulletList inner">
               <div class="content">
                 <ul class="bulletList">

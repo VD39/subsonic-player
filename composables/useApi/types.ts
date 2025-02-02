@@ -9,10 +9,10 @@ type PodcastStatus =
   | 'skipped';
 
 export interface MusicFolders {
-  musicFolder?: MusicFolder[];
+  musicFolder?: ResponseMusicFolder[];
 }
 
-export interface MusicFolder {
+export interface ResponseMusicFolder {
   id: number;
   name?: string;
 }

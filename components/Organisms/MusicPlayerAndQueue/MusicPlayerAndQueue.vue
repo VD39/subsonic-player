@@ -4,7 +4,7 @@ import QueueList from '@/components/Organisms/MusicPlayerAndQueue/Queue/QueueLis
 import QueuePlayer from '@/components/Organisms/MusicPlayerAndQueue/Queue/QueuePlayer.vue';
 
 const { showMediaPlayer } = useAudioPlayer();
-const { queueListOpened, queuePlayerOpened } = useQueue();
+const { isQueueListOpened, isQueuePlayerOpened } = useQueue();
 </script>
 
 <template>
@@ -13,10 +13,10 @@ const { queueListOpened, queuePlayerOpened } = useQueue();
   </transition>
 
   <transition name="slide-up-down">
-    <QueuePlayer v-if="queuePlayerOpened" />
+    <QueuePlayer v-if="isQueuePlayerOpened" />
   </transition>
 
   <transition name="slide-up-down">
-    <QueueList v-if="queueListOpened" />
+    <QueueList v-if="isQueueListOpened" />
   </transition>
 </template>
