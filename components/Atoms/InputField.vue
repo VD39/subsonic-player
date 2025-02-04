@@ -17,10 +17,6 @@ withDefaults(
 );
 
 const internalModal = defineModel<string | string[]>();
-
-function onInputInput(event: Event) {
-  internalModal.value = (event.target as HTMLInputElement).value;
-}
 </script>
 
 <template>
@@ -53,13 +49,12 @@ function onInputInput(event: Event) {
     <input
       :id="id"
       ref="input"
+      v-model="internalModal"
       :type="type"
       autocomplete="off"
-      :value="modelValue"
       :required="required"
       :placeholder="placeholder"
       :class="$style.input"
-      @input="onInputInput"
     />
 
     <p v-if="error" ref="error" class="smallFont sentenceCase">

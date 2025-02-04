@@ -1,6 +1,6 @@
 <template>
-  <span>
-    <span :class="$style.mainLoader">
+  <span :class="$style.mainLoader">
+    <span :class="$style.headphones">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -30,7 +30,11 @@
 </template>
 
 <style module>
-.mainLoader,
+.mainLoader {
+  position: relative;
+}
+
+.headphones,
 .loader {
   position: absolute;
   inset: 50% auto auto 50%;
