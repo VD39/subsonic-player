@@ -9,7 +9,6 @@ function factory(props = {}) {
     props: {
       id: 'id',
       label: 'label',
-      modelValue: '',
       type: 'text',
       ...props,
     },

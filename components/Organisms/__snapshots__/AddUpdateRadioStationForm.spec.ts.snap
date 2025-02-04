@@ -3,15 +3,15 @@
 exports[`AddUpdateRadioStationForm > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input" value="">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input">
       <!--v-if-->
     </div>
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input" value="">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input">
       <!--v-if-->
     </div>
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="homepageUrl">homepage Url
         <!--v-if-->
-      </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input" value="">
+      </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input">
       <!--v-if-->
     </div>
   </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
@@ -23,15 +23,15 @@ exports[`AddUpdateRadioStationForm > matches the snapshot 1`] = `
 exports[`AddUpdateRadioStationForm > when form is valid > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input" value="name">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input">
       <!--v-if-->
     </div>
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input" value="https://www.test.com">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input">
       <!--v-if-->
     </div>
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="homepageUrl">homepage Url
         <!--v-if-->
-      </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input" value="">
+      </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input">
       <!--v-if-->
     </div>
   </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
@@ -41,15 +41,15 @@ exports[`AddUpdateRadioStationForm > when form is valid > matches the snapshot 1
 exports[`AddUpdateRadioStationForm > when radioStation prop is set > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input" value="name">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter radio station name" class="input">
       <!--v-if-->
     </div>
-    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input" value="streamUrlId">
+    <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="streamUrl">stream Url <span class="required">*</span></label><input id="streamUrl" type="text" autocomplete="off" required="" placeholder="Enter radio station stream URL" class="input">
       <!--v-if-->
     </div>
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="homepageUrl">homepage Url
         <!--v-if-->
-      </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input" value="homepageUrl">
+      </label><input id="homepageUrl" type="text" autocomplete="off" placeholder="Enter radio station homepage URL" class="input">
       <!--v-if-->
     </div>
   </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">

@@ -3,7 +3,7 @@
 exports[`AddUpdatePlaylistForm > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
-    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input" value="">
+    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input">
       <!--v-if-->
     </div>
   </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
@@ -15,7 +15,7 @@ exports[`AddUpdatePlaylistForm > matches the snapshot 1`] = `
 exports[`AddUpdatePlaylistForm > when form is valid > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
-    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input" value="Playlist">
+    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input">
       <!--v-if-->
     </div>
   </div><button type="submit" class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add playlist </span></button>
@@ -25,7 +25,7 @@ exports[`AddUpdatePlaylistForm > when form is valid > matches the snapshot 1`] =
 exports[`AddUpdatePlaylistForm > when playlist prop is set > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
-    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input" value="name">
+    <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" type="text" autocomplete="off" required="" placeholder="Enter playlist name" class="input">
       <!--v-if-->
     </div>
   </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">

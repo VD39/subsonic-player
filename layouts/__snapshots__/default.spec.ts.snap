@@ -9,7 +9,7 @@ exports[`Default > matches the snapshot 1`] = `
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -113,7 +113,7 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -244,7 +244,7 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -375,7 +375,7 @@ exports[`Default > when route name is podcasts-sortBy > matches the snapshot 1`]
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -506,7 +506,7 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -637,7 +637,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -752,7 +752,7 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
       <div class="search">
         <form novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input" value="">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
               <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
