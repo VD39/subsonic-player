@@ -90,11 +90,7 @@ const downloadedEpisodes = computed(() =>
 
 function fetchData() {
   fetchMoreData((offset: number) =>
-    sliceArrayBySizeAndOffset(
-      podcastById.value?.episodes || [],
-      LOAD_SIZE,
-      offset,
-    ),
+    sliceArrayBySizeAndOffset(sortedPodcast.value, LOAD_SIZE, offset),
   );
 }
 
