@@ -232,7 +232,6 @@ describe('useAudioPlayer', () => {
       });
 
       afterAll(() => {
-        vi.clearAllMocks();
         result.composable.queueList.value = [];
       });
 
@@ -273,6 +272,45 @@ describe('useAudioPlayer', () => {
 
     it('sets the correct hasPreviousTrack value', () => {
       expect(result.composable.hasPreviousTrack.value).toBe(false);
+    });
+
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.playerState,
+        expect.objectContaining({
+          currentQueueIndex: -1,
+          queueList: [queueTrack],
+        }),
+      );
+    });
+
+    describe('when queueList length is 1', () => {
+      it('calls the audio load function', () => {
+        expect(loadMock).toHaveBeenCalledWith(queueTrack.streamUrlId);
+      });
+
+      it('calls the audio play function', () => {
+        expect(playMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when currentQueueIndex is greater than 1', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        result.composable.addTrackToQueue(queueTrack);
+      });
+
+      afterAll(() => {
+        result.composable.queueList.value = [queueTrack];
+      });
+
+      it('does not call the audio load function', () => {
+        expect(loadMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the audio play function', () => {
+        expect(playMock).not.toHaveBeenCalled();
+      });
     });
   });
 

@@ -1,6 +1,7 @@
 export function useAudioPlayer() {
   const { getImageUrl, getStreamUrl } = useAPI();
   const { resetQueueState } = useQueue();
+  const { addErrorSnack } = useSnack();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -308,14 +309,23 @@ export function useAudioPlayer() {
   }
 
   async function changeTrack(track: QueueTrack) {
-    loadTrack(track);
-    await playTrack();
+    try {
+      loadTrack(track);
+      await playTrack();
 
-    if (isPodcastEpisode.value) {
-      setPlaybackRate(playbackRate.value);
+      if (isPodcastEpisode.value) {
+        setPlaybackRate(playbackRate.value);
+      }
+
+      saveState();
+    } catch (error) {
+      if (isPodcastEpisode.value) {
+        removeTrackFromQueueList(track.id);
+        addErrorSnack(
+          `Podcast episode ${track.name} not downloaded. Episode was removed from queue.`,
+        );
+      }
     }
-
-    saveState();
   }
 
   // Next/previous state.
@@ -502,20 +512,24 @@ export function useAudioPlayer() {
       currentQueueIndex.value -= 1;
       await playNextTrack();
     }
+
+    saveState();
   }
 
-  async function addTracksToQueue(tracks: QueueTrack[]) {
+  function addTracksToQueue(tracks: QueueTrack[]) {
     queueList.value.push(...tracks);
     saveState();
+  }
 
-    if (currentQueueIndex.value === -1) {
+  async function addTrackToQueue(track: QueueTrack) {
+    addTracksToQueue([track]);
+
+    if (queueList.value.length === 1) {
       await playNextTrack();
       pauseTrack();
     }
-  }
 
-  function addTrackToQueue(track: QueueTrack) {
-    addTracksToQueue([track]);
+    saveState();
   }
 
   async function playTracks(tracks: QueueTrack[], queueIndex = -1) {
