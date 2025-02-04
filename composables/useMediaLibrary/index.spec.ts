@@ -158,14 +158,14 @@ describe('useMediaLibrary', () => {
       beforeEach(() => {
         getFiles({
           id: 'id1',
-          slug: ['slug1', 'slug2', 'slug3'],
+          slug: ['slug1', 'slug2'],
         });
       });
 
-      it('calls the getIndexes function with correct params', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith('/getIndexes', {
+      it('calls the getMusicDirectory function with correct params', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getMusicDirectory', {
           params: {
-            musicFolderId: 'id',
+            id: 'slug2',
           },
           transform: expect.any(Function),
         });

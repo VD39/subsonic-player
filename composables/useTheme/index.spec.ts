@@ -26,15 +26,27 @@ describe('useTheme', () => {
     vi.clearAllMocks();
   });
 
-  it('sets the default theme', () => {
+  it('sets the default isDarkTheme value', () => {
     expect(isDarkTheme.value).toBe(false);
   });
 
   describe('when toggleTheme function is called', () => {
-    describe.each([
-      [true, true],
-      [false, false],
-    ])('when parameter is %s', (themeParam, stringify) => {
+    beforeAll(() => {
+      toggleTheme();
+    });
+
+    it('calls the localStorage.setItem with correct parameters', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        STATE_NAMES.theme,
+        'true',
+      );
+    });
+
+    it('updates the isDarkTheme value with true', () => {
+      expect(isDarkTheme.value).toBe(true);
+    });
+
+    describe('when toggleTheme function is called again', () => {
       beforeAll(() => {
         toggleTheme();
       });
@@ -42,12 +54,12 @@ describe('useTheme', () => {
       it('calls the localStorage.setItem with correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
           STATE_NAMES.theme,
-          stringify,
+          'false',
         );
       });
 
-      it('sets the correct theme theme', () => {
-        expect(isDarkTheme.value).toBe(themeParam);
+      it('updates the isDarkTheme value with false', () => {
+        expect(isDarkTheme.value).toBe(false);
       });
     });
   });
@@ -59,7 +71,7 @@ describe('useTheme', () => {
         setDefaultTheme();
       });
 
-      it('sets the correct theme theme', () => {
+      it('does not update the isDarkTheme value', () => {
         expect(isDarkTheme.value).toBe(false);
       });
     });
@@ -70,19 +82,24 @@ describe('useTheme', () => {
         setDefaultTheme();
       });
 
-      it('sets the correct theme theme', () => {
+      it('sets the correct isDarkTheme value', () => {
         expect(isDarkTheme.value).toBe(true);
       });
     });
 
     describe('when theme in local storage is set', () => {
-      beforeEach(() => {
-        getLocalStorageMock.mockReturnValue(true);
-        setDefaultTheme();
-      });
+      describe.each([
+        ['true', true],
+        ['false', false],
+      ])('when localStorage returns is %s', (localStorage, theme) => {
+        beforeAll(() => {
+          getLocalStorageMock.mockReturnValue(localStorage);
+          setDefaultTheme();
+        });
 
-      it('sets the correct theme theme', () => {
-        expect(isDarkTheme.value).toBe(true);
+        it('sets the correct isDarkTheme value', () => {
+          expect(isDarkTheme.value).toBe(theme);
+        });
       });
     });
   });

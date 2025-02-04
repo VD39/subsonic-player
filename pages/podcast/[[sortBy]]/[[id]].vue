@@ -71,18 +71,22 @@ const podcastById = computed(() => {
     (podcast) => podcast.id === route.params.id,
   );
 
-  if (!podcast) {
-    return null;
-  }
-
-  return {
-    ...podcast,
-    episodes: sortPodcastEpisodes(
-      podcast.episodes,
-      route.params.sortBy as PodcastSortByParam,
-    ),
-  };
+  return podcast || null;
 });
+
+const sortedPodcast = computed(() =>
+  sortPodcastEpisodes(
+    podcastById.value?.episodes || [],
+    route.params.sortBy as PodcastSortByParam,
+  ),
+);
+
+const downloadedEpisodes = computed(() =>
+  sortPodcastEpisodes(
+    sortedPodcast.value,
+    ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded,
+  ),
+);
 
 function fetchData() {
   fetchMoreData((offset: number) =>
@@ -97,8 +101,20 @@ function fetchData() {
 resetToDefaults();
 fetchData();
 
+function playAllEpisodes() {
+  playTracks(downloadedEpisodes.value, -1);
+}
+
 function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
+}
+
+function playLatestsEpisodes() {
+  playEpisode(downloadedEpisodes.value[0]);
+}
+
+function addDownloadedTracksToQueue() {
+  addTracksToQueue(downloadedEpisodes.value);
 }
 
 function openPodcastDescriptionModal() {
@@ -165,7 +181,7 @@ useHead({
             :icon="ICONS.play"
             title="Play podcast episodes"
             class="largeThemeHoverButton"
-            @click="playTracks(podcastById.episodes)"
+            @click="playAllEpisodes"
           >
             Play podcast episodes
           </ButtonLink>
@@ -175,13 +191,13 @@ useHead({
               Delete podcast
             </DropdownItem>
             <DropdownDivider />
-            <DropdownItem @click="addTracksToQueue(podcastById.episodes)">
+            <DropdownItem @click="addDownloadedTracksToQueue">
               Add episodes to queue
             </DropdownItem>
-            <DropdownItem @click="playEpisode(podcastById.episodes[0])">
+            <DropdownItem @click="playLatestsEpisodes">
               Play latests episode
             </DropdownItem>
-            <DropdownItem @click="playTracks(podcastById.episodes)">
+            <DropdownItem @click="playAllEpisodes">
               Play all episodes
             </DropdownItem>
           </DropdownMenu>

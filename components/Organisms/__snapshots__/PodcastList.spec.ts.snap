@@ -681,16 +681,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to playlist </span>
-              </button></li>
-            <li class="divider" aria-hidden="true"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Play Episode </span>
-              </button></li>
+            <!--v-if-->
           </ul>
         </div>
       </div>

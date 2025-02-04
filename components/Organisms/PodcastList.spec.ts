@@ -157,6 +157,24 @@ describe('PodcastList', () => {
         );
       });
 
+      it('shows the add to playlist DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'addToPlaylist' }).exists()).toBe(
+          true,
+        );
+      });
+
+      it('shows the add to queue DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
+          true,
+        );
+      });
+
+      it('shows the play episode DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(
+          true,
+        );
+      });
+
       it('does not show the download episode DropdownItem component', () => {
         expect(
           wrapper
@@ -210,6 +228,40 @@ describe('PodcastList', () => {
           ]);
         });
       });
+
+      describe('when the add to playlist DropdownItem component emits the click event', () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
+        });
+
+        it('emits the addToPlaylist event with track', () => {
+          expect(wrapper.emitted('addToPlaylist')).toEqual([
+            [podcastEpisodes[0].id],
+          ]);
+        });
+      });
+
+      describe('when the add to queue DropdownItem component emits the click event', () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
+        });
+
+        it('emits the addToQueue event with track', () => {
+          expect(wrapper.emitted('addToQueue')).toEqual([[podcastEpisodes[0]]]);
+        });
+      });
+
+      describe('when the play episode DropdownItem component emits the click event', () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref: 'playEpisode' }).vm.$emit('click');
+        });
+
+        it('emits the playEpisode event with track', () => {
+          expect(wrapper.emitted('playEpisode')).toEqual([
+            [podcastEpisodes[0].id],
+          ]);
+        });
+      });
     });
 
     describe('when episode is not downloaded', () => {
@@ -245,6 +297,24 @@ describe('PodcastList', () => {
 
       it('does not show the download media DropdownItem component', () => {
         expect(wrapper.findComponent({ ref: 'downloadMedia' }).exists()).toBe(
+          false,
+        );
+      });
+
+      it('does not show the add to playlist DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'addToPlaylist' }).exists()).toBe(
+          false,
+        );
+      });
+
+      it('does not show the add to queue DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
+          false,
+        );
+      });
+
+      it('does not show the play episode DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(
           false,
         );
       });
@@ -342,40 +412,6 @@ describe('PodcastList', () => {
       it('emits the episodeInformation event with track', () => {
         expect(wrapper.emitted('episodeInformation')).toEqual([
           [podcastEpisodes[0]],
-        ]);
-      });
-    });
-
-    describe('when the add to playlist DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
-      });
-
-      it('emits the addToPlaylist event with track', () => {
-        expect(wrapper.emitted('addToPlaylist')).toEqual([
-          [podcastEpisodes[0].id],
-        ]);
-      });
-    });
-
-    describe('when the add to queue DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
-      });
-
-      it('emits the addToQueue event with track', () => {
-        expect(wrapper.emitted('addToQueue')).toEqual([[podcastEpisodes[0]]]);
-      });
-    });
-
-    describe('when the play episode DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'playEpisode' }).vm.$emit('click');
-      });
-
-      it('emits the playEpisode event with track', () => {
-        expect(wrapper.emitted('playEpisode')).toEqual([
-          [podcastEpisodes[0].id],
         ]);
       });
     });

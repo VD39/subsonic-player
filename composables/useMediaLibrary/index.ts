@@ -70,12 +70,12 @@ export function useMediaLibrary() {
   function getFiles(filesParams: FilesParams = {}) {
     const { id, slug = [] } = filesParams;
 
-    if (id) {
-      return getIndexes(id);
-    }
-
     if (slug.length) {
       return getMusicDirectory(slug.at(-1) as string);
+    }
+
+    if (id) {
+      return getIndexes(id);
     }
 
     return getMusicFolders();

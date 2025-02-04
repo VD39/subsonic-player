@@ -59,6 +59,12 @@
   font-weight: var(--font-weight-bold);
   border-bottom: 1px solid var(--border-color);
 
+  @media (hover: hover) {
+    &:hover {
+      --track-row-background-color: transparent;
+    }
+  }
+
   .trackCell {
     position: relative;
 

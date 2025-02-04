@@ -8,7 +8,8 @@ exports[`QueueList > matches the snapshot 1`] = `
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 5</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -330,7 +331,8 @@ exports[`QueueList > when tracks prop is not an empty array > matches the snapsh
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when the track does not have a favourite key > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -403,7 +405,8 @@ exports[`QueueList > when tracks prop is not an empty array > when the track doe
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -473,7 +476,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is defined > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -545,7 +549,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is undefined > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -615,7 +620,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does not have an podcastName key > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -685,7 +691,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -745,7 +752,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is defined > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -811,7 +819,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is undefined > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -871,7 +880,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does not have an author key > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -931,7 +941,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does ha
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does not have an album key > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>
@@ -1001,7 +1012,8 @@ exports[`QueueList > when tracks prop is not an empty array > when track does no
 `;
 
 exports[`QueueList > when tracks prop is not an empty array > when track does not have an artists key > matches the snapshot 1`] = `
-"<div class="trackTable">
+"<h4>Tracks: 1</h4>
+<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
     <div class="trackCell trackSecondary">Album/Podcast</div>

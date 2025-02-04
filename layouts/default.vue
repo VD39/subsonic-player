@@ -10,6 +10,7 @@ import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
 import MusicPlayerAndQueue from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
 
+const route = useRoute();
 const user = useUser();
 const { logout } = useAuth();
 const { resetAudio } = useAudioPlayer();
@@ -24,8 +25,6 @@ async function logoutAndRedirect() {
 async function search(term: string) {
   await navigateTo(`/search/albums/${term}`);
 }
-
-const route = useRoute();
 
 const showPageNavigation = computed(() =>
   PAGE_NAVIGATION_ROUTES.includes(route.name as string),

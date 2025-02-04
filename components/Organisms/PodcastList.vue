@@ -151,22 +151,27 @@ defineEmits([
           >
             Episode information
           </DropdownItem>
-          <DropdownItem
-            ref="addToPlaylist"
-            @click="$emit('addToPlaylist', episode.id)"
-          >
-            Add to playlist
-          </DropdownItem>
-          <DropdownDivider />
-          <DropdownItem ref="addToQueue" @click="$emit('addToQueue', episode)">
-            Add to queue
-          </DropdownItem>
-          <DropdownItem
-            ref="playEpisode"
-            @click="$emit('playEpisode', episode.id)"
-          >
-            Play Episode
-          </DropdownItem>
+          <template v-if="episode.downloaded">
+            <DropdownItem
+              ref="addToPlaylist"
+              @click="$emit('addToPlaylist', episode.id)"
+            >
+              Add to playlist
+            </DropdownItem>
+            <DropdownDivider />
+            <DropdownItem
+              ref="addToQueue"
+              @click="$emit('addToQueue', episode)"
+            >
+              Add to queue
+            </DropdownItem>
+            <DropdownItem
+              ref="playEpisode"
+              @click="$emit('playEpisode', episode.id)"
+            >
+              Play Episode
+            </DropdownItem>
+          </template>
         </DropdownMenu>
       </div>
     </div>

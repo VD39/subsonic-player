@@ -33,7 +33,7 @@ export function useAudioPlayer() {
 
   // Play/Pause state.
   const isPlaying = useState(
-    STATE_NAMES.playerTrackIsPlaying,
+    STATE_NAMES.playerIsPlaying,
     () => AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
   );
 
@@ -504,16 +504,18 @@ export function useAudioPlayer() {
     }
   }
 
-  function addTracksToQueue(tracks: QueueTrack[]) {
+  async function addTracksToQueue(tracks: QueueTrack[]) {
     queueList.value.push(...tracks);
+    saveState();
+
+    if (currentQueueIndex.value === -1) {
+      await playNextTrack();
+      pauseTrack();
+    }
   }
 
-  async function addTrackToQueue(tracks: QueueTrack) {
-    addTracksToQueue([tracks]);
-
-    if (queueList.value.length === 1) {
-      await playNextTrack();
-    }
+  function addTrackToQueue(track: QueueTrack) {
+    addTracksToQueue([track]);
   }
 
   async function playTracks(tracks: QueueTrack[], queueIndex = -1) {
