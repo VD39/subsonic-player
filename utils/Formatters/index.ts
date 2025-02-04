@@ -19,6 +19,7 @@ export function formatTracks(track: Base): Track {
     discNumber = DEFAULT_VALUE,
     duration,
     id,
+    parent,
     path = DEFAULT_VALUE,
     playCount = 0,
     size = 0,
@@ -33,7 +34,7 @@ export function formatTracks(track: Base): Track {
 
   return {
     album,
-    albumId,
+    albumId: albumId || parent,
     artists: getArtists(track),
     discNumber,
     duration: secondsToHHMMSS(duration),

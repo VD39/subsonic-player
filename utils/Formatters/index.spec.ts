@@ -762,6 +762,40 @@ describe('formatTracks', () => {
       ).toEqual(expect.objectContaining(outcome));
     });
   });
+
+  describe('when station does not have an albumId value', () => {
+    describe('when station has a parent value', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatTracks({
+            ...trackMock,
+            albumId: undefined,
+            parent: 'parent',
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            albumId: 'parent',
+          }),
+        );
+      });
+    });
+
+    describe('when station does not have a parent value', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatTracks({
+            ...trackMock,
+            albumId: undefined,
+            parent: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            albumId: undefined,
+          }),
+        );
+      });
+    });
+  });
 });
 
 describe('formatPlaylist', () => {

@@ -1,4 +1,4 @@
-type MediaType = 'audiobook' | 'music' | 'podcast' | 'video';
+type MediaType = 'audiobook' | 'music' | 'podcast' | 'podcastepisode' | 'video';
 type ResponseStatus = 'failed' | 'ok';
 type PodcastStatus =
   | 'completed'
