@@ -31,6 +31,7 @@ export const STATE_NAMES = {
   playerShuffle: 'player-shuffle',
   playerState: 'player-state',
   playerVolume: 'player-volume',
+  playlist: 'playlist',
   playlists: 'playlists',
   queueListOpened: 'queue-list-opened',
   queuePlayerOpened: 'queue-player-opened',

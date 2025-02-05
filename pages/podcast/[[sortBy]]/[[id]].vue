@@ -94,7 +94,6 @@ function fetchData() {
   );
 }
 
-resetToDefaults();
 fetchData();
 
 function playAllEpisodes() {
@@ -131,6 +130,10 @@ async function refreshPodcast() {
   await refresh();
   fetchData();
 }
+
+onBeforeUnmount(() => {
+  resetToDefaults();
+});
 
 useHead({
   title: () =>

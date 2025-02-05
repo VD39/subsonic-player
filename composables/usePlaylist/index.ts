@@ -3,6 +3,7 @@ export function usePlaylist() {
   const { addSuccessSnack } = useSnack();
   const { closeModal, openModal } = useModal();
 
+  const playlist = useState<null | Playlist>(STATE_NAMES.playlist, () => null);
   const playlists = useState<Playlist[]>(STATE_NAMES.playlists, () => []);
 
   async function getPlaylists() {
@@ -53,11 +54,13 @@ export function usePlaylist() {
     return playlistData;
   }
 
-  function getPlaylistTracksById(id = 'random') {
+  async function getPlaylistTracksById(id = 'random') {
+    playlist.value = null;
+
     if (id === 'random') {
-      return getRandomTracks();
+      playlist.value = await getRandomTracks();
     } else {
-      return getPlaylistTracks(id);
+      playlist.value = await getPlaylistTracks(id);
     }
   }
 
@@ -113,6 +116,7 @@ export function usePlaylist() {
   /* istanbul ignore next -- @preserve */
   async function removeFromPlaylist(params: PlaylistParam) {
     await updatePlaylist(params, 'Successfully removed from playlist.');
+    await getPlaylistTracksById(params.playlistId);
   }
 
   /* istanbul ignore next -- @preserve */
@@ -137,7 +141,7 @@ export function usePlaylist() {
           name: newPlaylistName,
           playlistId: currentPlaylist.id,
         });
-
+        await getPlaylistTracksById(currentPlaylist.id);
         closeModal();
       },
       playlist: currentPlaylist,
@@ -206,6 +210,7 @@ export function usePlaylist() {
     deletePlaylist,
     getPlaylists,
     getPlaylistTracksById,
+    playlist,
     playlists,
     removeFromPlaylist,
     updatePlaylist,

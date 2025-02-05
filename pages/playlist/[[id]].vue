@@ -19,65 +19,57 @@ const { openTrackInformationModal } = useMediaInformation();
 const {
   deletePlaylist,
   getPlaylistTracksById,
+  playlist,
   removeFromPlaylist,
   updatePlaylistModal,
 } = usePlaylist();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
-const {
-  data: playlistData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = useAsyncData(
   route.fullPath,
   async () => {
-    const playlist = await getPlaylistTracksById(route.params.id as string);
+    await getPlaylistTracksById(route.params.id as string);
 
     return {
-      playlist,
+      playlist: playlist.value,
     };
   },
   {
     default: () => ({
       playlist: null,
     }),
-    getCachedData: (key, nuxtApp) =>
-      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    getCachedData: undefined,
   },
 );
 
-const hasTracks = computed(() => !playlistData.value.playlist?.tracks.length);
+const hasTracks = computed(() => !playlist.value?.tracks.length);
 
 function playTrack(index: number) {
-  playTracks(playlistData.value.playlist!.tracks, index - 1);
+  playTracks(playlist.value!.tracks, index - 1);
 }
 
-function removeTrackFromPlaylist(songIndexToRemove: string) {
-  removeFromPlaylist({
+async function removeTrackFromPlaylist(songIndexToRemove: string) {
+  await removeFromPlaylist({
     playlistId: route.params.id as string,
     songIndexToRemove,
   });
 }
 
 async function deleteSelectedPlaylist() {
-  await deletePlaylist(playlistData.value.playlist!.id);
+  await deletePlaylist(playlist.value!.id);
   await navigateTo('/playlists');
 }
 
 useHead({
-  title: () =>
-    [playlistData.value.playlist?.name, 'Playlist'].filter(Boolean).join(' - '),
+  title: () => [playlist.value?.name, 'Playlist'].filter(Boolean).join(' - '),
 });
 </script>
 
 <template>
   <LoadingData :status="status">
-    <div v-if="playlistData.playlist">
-      <EntryHeader
-        :images="playlistData.playlist.images"
-        :title="playlistData.playlist.name"
-      >
+    <div v-if="playlist">
+      <EntryHeader :images="playlist.images" :title="playlist.name">
         <template #actions>
           <RefreshButton :status="status" @refresh="refresh" />
         </template>
@@ -85,12 +77,12 @@ useHead({
         <ul class="bulletList">
           <li>Playlist</li>
           <li>
-            <span class="strong">{{ playlistData.playlist.trackCount }}</span>
-            {{ playlistData.playlist.trackCount > 1 ? 'Tracks' : 'Track' }}
+            <span class="strong">{{ playlist.trackCount }}</span>
+            {{ playlist.trackCount > 1 ? 'Tracks' : 'Track' }}
           </li>
           <li>
             <span class="visuallyHidden">Duration: </span>
-            <time>{{ playlistData.playlist.duration }}</time>
+            <time>{{ playlist.duration }}</time>
           </li>
         </ul>
 
@@ -100,7 +92,7 @@ useHead({
             :icon="ICONS.play"
             title="Play tracks"
             class="largeThemeHoverButton"
-            @click="playTracks(playlistData.playlist.tracks)"
+            @click="playTracks(playlist.tracks)"
           >
             Play tracks
           </ButtonLink>
@@ -109,13 +101,13 @@ useHead({
             :disabled="hasTracks"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
-            @click="shuffleTracks(playlistData.playlist.tracks)"
+            @click="shuffleTracks(playlist.tracks)"
           >
             Shuffle tracks
           </ButtonLink>
 
           <DropdownMenu>
-            <DropdownItem @click="updatePlaylistModal(playlistData.playlist)">
+            <DropdownItem @click="updatePlaylistModal(playlist)">
               Edit Playlist
             </DropdownItem>
             <DropdownItem @click="deleteSelectedPlaylist">
@@ -124,12 +116,10 @@ useHead({
 
             <template v-if="hasTracks">
               <DropdownDivider />
-              <DropdownItem
-                @click="addTracksToQueue(playlistData.playlist.tracks)"
-              >
+              <DropdownItem @click="addTracksToQueue(playlist.tracks)">
                 Add to queue
               </DropdownItem>
-              <DropdownItem @click="playTracks(playlistData.playlist.tracks)">
+              <DropdownItem @click="playTracks(playlist.tracks)">
                 Play Tracks
               </DropdownItem>
             </template>
@@ -138,7 +128,7 @@ useHead({
       </EntryHeader>
 
       <TrackWithPreviewList
-        :tracks="playlistData.playlist.tracks"
+        :tracks="playlist.tracks"
         in-playlist
         @play-track="playTrack"
         @add-to-queue="addTrackToQueue"

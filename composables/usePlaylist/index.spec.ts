@@ -1,6 +1,5 @@
 import type { DataMock } from '@/test/types';
 
-import { withSetup } from '@/test/withSetup';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { usePlaylist } from './index';
@@ -19,19 +18,27 @@ mockNuxtImport('useSnack', () => () => ({
   addSuccessSnack: addSuccessSnackMock,
 }));
 
+const {
+  addPlaylist,
+  deletePlaylist,
+  getPlaylists,
+  getPlaylistTracksById,
+  playlist,
+  playlists,
+  updatePlaylist,
+} = usePlaylist();
+
 describe('usePlaylist', () => {
-  let result: ReturnType<typeof withSetup<ReturnType<typeof usePlaylist>>>;
-
-  beforeEach(() => {
-    result = withSetup(usePlaylist);
-  });
-
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default playlists value', () => {
-    expect(result.composable.playlists.value).toEqual([]);
+    expect(playlists.value).toEqual([]);
+  });
+
+  it('sets the default playlist value', () => {
+    expect(playlist.value).toEqual(null);
   });
 
   describe('when the getPlaylists function is called', () => {
@@ -41,12 +48,11 @@ describe('usePlaylist', () => {
           data: null,
         });
 
-        result = withSetup(usePlaylist);
-        result.composable.getPlaylists();
+        getPlaylists();
       });
 
       it('does not add to the playlists value', () => {
-        expect(result.composable.playlists.value).toEqual([]);
+        expect(playlists.value).toEqual([]);
       });
     });
 
@@ -57,11 +63,11 @@ describe('usePlaylist', () => {
             data: {},
           });
 
-          result.composable.getPlaylists();
+          getPlaylists();
         });
 
         it('does not add to the playlists value', () => {
-          expect(result.composable.playlists.value).toEqual([]);
+          expect(playlists.value).toEqual([]);
         });
       });
 
@@ -75,11 +81,11 @@ describe('usePlaylist', () => {
             ],
           });
 
-          await result.composable.getPlaylists();
+          await getPlaylists();
         });
 
         it('adds to the playlists value', () => {
-          expect(result.composable.playlists.value).toEqual([
+          expect(playlists.value).toEqual([
             RANDOM_PLAYLIST,
             {
               name: 'name',
@@ -93,8 +99,7 @@ describe('usePlaylist', () => {
   describe('when the getPlaylistTracksById function is called', () => {
     describe('when id is not set', () => {
       beforeEach(() => {
-        result = withSetup(usePlaylist);
-        result.composable.getPlaylistTracksById();
+        getPlaylistTracksById();
       });
 
       it('calls the fetchData with the correct path', () => {
@@ -109,10 +114,12 @@ describe('usePlaylist', () => {
           fetchDataMock.mockResolvedValue({
             data: null,
           });
+
+          getPlaylistTracksById();
         });
 
-        it('returns the correct response', async () => {
-          expect(await result.composable.getPlaylistTracksById()).toEqual(null);
+        it('sets the correct playlist value', () => {
+          expect(playlist.value).toEqual(null);
         });
       });
 
@@ -123,10 +130,12 @@ describe('usePlaylist', () => {
               name: 'name',
             },
           });
+
+          getPlaylistTracksById();
         });
 
-        it('returns the correct response', async () => {
-          expect(await result.composable.getPlaylistTracksById()).toEqual({
+        it('sets the correct playlist value', () => {
+          expect(playlist.value).toEqual({
             name: 'name',
           });
         });
@@ -135,8 +144,7 @@ describe('usePlaylist', () => {
 
     describe('when id is set', () => {
       beforeEach(() => {
-        result = withSetup(usePlaylist);
-        result.composable.getPlaylistTracksById('playlistId');
+        getPlaylistTracksById('playlistId');
       });
 
       it('calls the fetchData with the correct path', () => {
@@ -155,12 +163,12 @@ describe('usePlaylist', () => {
           fetchDataMock.mockResolvedValue({
             data: null,
           });
+
+          getPlaylistTracksById('playlistId');
         });
 
-        it('returns the correct response', async () => {
-          expect(
-            await result.composable.getPlaylistTracksById('playlistId'),
-          ).toEqual(null);
+        it('sets the correct playlist value', () => {
+          expect(playlist.value).toEqual(null);
         });
       });
 
@@ -171,12 +179,12 @@ describe('usePlaylist', () => {
               name: 'name',
             },
           });
+
+          getPlaylistTracksById('playlistId');
         });
 
-        it('returns the correct response', async () => {
-          expect(
-            await result.composable.getPlaylistTracksById('playlistId'),
-          ).toEqual({
+        it('sets the correct playlist value', () => {
+          expect(playlist.value).toEqual({
             name: 'name',
           });
         });
@@ -191,8 +199,7 @@ describe('usePlaylist', () => {
           data: null,
         });
 
-        result = withSetup(usePlaylist);
-        result.composable.addPlaylist('name');
+        addPlaylist('name');
       });
 
       it('does not call the addSuccessSnackMock function', () => {
@@ -208,7 +215,7 @@ describe('usePlaylist', () => {
           },
         });
 
-        result.composable.addPlaylist('name');
+        addPlaylist('name');
       });
 
       it('calls the addSuccessSnackMock function', () => {
@@ -226,8 +233,7 @@ describe('usePlaylist', () => {
           data: null,
         });
 
-        result = withSetup(usePlaylist);
-        result.composable.updatePlaylist({} as PlaylistParam);
+        updatePlaylist({} as PlaylistParam);
       });
 
       it('does not call the addSuccessSnackMock function', () => {
@@ -250,7 +256,7 @@ describe('usePlaylist', () => {
           },
         });
 
-        result.composable.updatePlaylist({} as PlaylistParam);
+        updatePlaylist({} as PlaylistParam);
       });
 
       it('calls the getPlaylists function', () => {
@@ -270,10 +276,7 @@ describe('usePlaylist', () => {
 
       describe('when success message is set', () => {
         beforeEach(() => {
-          result.composable.updatePlaylist(
-            {} as PlaylistParam,
-            'Success message',
-          );
+          updatePlaylist({} as PlaylistParam, 'Success message');
         });
 
         it('calls the addSuccessSnackMock function', () => {
@@ -290,8 +293,7 @@ describe('usePlaylist', () => {
           data: null,
         });
 
-        result = withSetup(usePlaylist);
-        result.composable.deletePlaylist('id');
+        deletePlaylist('id');
       });
 
       it('does not call the addSuccessSnackMock function', () => {
@@ -314,7 +316,7 @@ describe('usePlaylist', () => {
           },
         });
 
-        result.composable.deletePlaylist('id');
+        deletePlaylist('id');
       });
 
       it('calls the addSuccessSnackMock function', () => {
