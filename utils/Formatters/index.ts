@@ -190,15 +190,17 @@ export function formatRadioStation(
   } = station;
 
   const homePageUrl = radioStationHomePageUrl || radioStationHomepageUrl;
-  const image = homePageUrl
-    ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
-    : IMAGE_DEFAULT_BY_TYPE.radioStation;
+
+  // TODO: Fix this to use app is running.
+  // const image = homePageUrl
+  //   ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
+  //   : IMAGE_DEFAULT_BY_TYPE.radioStation;
 
   return {
     duration: '',
     homePageUrl,
     id,
-    image,
+    image: IMAGE_DEFAULT_BY_TYPE.radioStation,
     name,
     streamUrlId: streamUrl,
     type: MEDIA_TYPE.radioStation,
