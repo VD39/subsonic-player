@@ -431,7 +431,7 @@ export function useAudioPlayer() {
   function resetQueueTracks() {
     const tempCurrentTrackId = currentTrack.value.id;
     queueList.value = [...JSON.parse(originalQueueList.value)];
-    originalQueueList.value = '';
+    originalQueueList.value = AUDIO_PLAYER_DEFAULT_STATES.originalQueueList;
     const index = getIndex(queueList.value, tempCurrentTrackId);
     currentQueueIndex.value = index;
   }
@@ -480,8 +480,10 @@ export function useAudioPlayer() {
   function clearQueueList() {
     audioPlayer.value?.unload();
     resetAudioStates();
-    currentQueueIndex.value = -1;
     queueList.value = [];
+    currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
+    shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
+    repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
     resetQueueState();
     saveState();
   }
@@ -501,7 +503,7 @@ export function useAudioPlayer() {
 
     const index = getIndex(queueList.value, id);
 
-    if (index === -1) {
+    if (index === AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex) {
       return;
     }
 
@@ -532,7 +534,10 @@ export function useAudioPlayer() {
     saveState();
   }
 
-  async function playTracks(tracks: QueueTrack[], queueIndex = -1) {
+  async function playTracks(
+    tracks: QueueTrack[],
+    queueIndex = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
+  ) {
     clearQueueList();
     addTracksToQueue(tracks);
     currentQueueIndex.value = queueIndex;
@@ -540,9 +545,9 @@ export function useAudioPlayer() {
   }
 
   function resetAudioStates() {
-    currentTime.value = 0;
-    bufferedDuration.value = 0;
-    duration.value = 0;
+    currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
+    bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
+    duration.value = AUDIO_PLAYER_DEFAULT_STATES.duration;
   }
 
   /* istanbul ignore next -- @preserve */
@@ -584,14 +589,16 @@ export function useAudioPlayer() {
         case Number.POSITIVE_INFINITY:
           if (isLastTrack.value) {
             // set to -1 as playNextTrack will + 1 to currentQueueIndex
-            currentQueueIndex.value = -1;
+            currentQueueIndex.value =
+              AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
           }
 
           await playNextTrack();
           break;
         default:
           if (isLastTrack.value) {
-            currentQueueIndex.value = -1;
+            currentQueueIndex.value =
+              AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
             await playNextTrack();
             pauseTrack();
 

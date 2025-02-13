@@ -88,27 +88,39 @@ describe('useAudioPlayer', () => {
   });
 
   it('sets the default isBuffering value', () => {
-    expect(result.composable.isBuffering.value).toBe(false);
+    expect(result.composable.isBuffering.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
+    );
   });
 
   it('sets the default currentTime value', () => {
-    expect(result.composable.currentTime.value).toBe(0);
+    expect(result.composable.currentTime.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.currentTime,
+    );
   });
 
   it('sets the default bufferedDuration value', () => {
-    expect(result.composable.bufferedDuration.value).toBe(0);
+    expect(result.composable.bufferedDuration.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
+    );
   });
 
   it('sets the default duration value', () => {
-    expect(result.composable.duration.value).toBe(0);
+    expect(result.composable.duration.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.duration,
+    );
   });
 
   it('sets the default isPlaying value', () => {
-    expect(result.composable.isPlaying.value).toBe(false);
+    expect(result.composable.isPlaying.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
+    );
   });
 
   it('sets the default playbackRate value', () => {
-    expect(result.composable.playbackRate.value).toBe(1);
+    expect(result.composable.playbackRate.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
+    );
   });
 
   it('sets the default isMuted value', () => {
@@ -116,19 +128,27 @@ describe('useAudioPlayer', () => {
   });
 
   it('sets the default volume value', () => {
-    expect(result.composable.volume.value).toBe(1);
+    expect(result.composable.volume.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.volume,
+    );
   });
 
   it('sets the default queueList value', () => {
-    expect(result.composable.queueList.value).toEqual([]);
+    expect(result.composable.queueList.value).toEqual(
+      AUDIO_PLAYER_DEFAULT_STATES.queueList,
+    );
   });
 
   it('sets the default repeat value', () => {
-    expect(result.composable.repeat.value).toBe(-1);
+    expect(result.composable.repeat.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.repeat,
+    );
   });
 
   it('sets the default shuffle value', () => {
-    expect(result.composable.shuffle.value).toBe(false);
+    expect(result.composable.shuffle.value).toBe(
+      AUDIO_PLAYER_DEFAULT_STATES.shuffle,
+    );
   });
 
   it('sets the correct hasNextTrack value', () => {
@@ -742,6 +762,18 @@ describe('useAudioPlayer', () => {
       expect(result.composable.queueList.value).toEqual(queueTracks);
     });
 
+    it('resets the shuffle value', () => {
+      expect(result.composable.shuffle.value).toEqual(
+        AUDIO_PLAYER_DEFAULT_STATES.shuffle,
+      );
+    });
+
+    it('resets the repeat value', () => {
+      expect(result.composable.repeat.value).toEqual(
+        AUDIO_PLAYER_DEFAULT_STATES.repeat,
+      );
+    });
+
     it('calls the audio unload function', () => {
       expect(unloadMock).toHaveBeenCalled();
     });
@@ -1139,27 +1171,39 @@ describe('useAudioPlayer', () => {
     });
 
     it('sets isBuffering to default value', () => {
-      expect(result.composable.isBuffering.value).toBe(false);
+      expect(result.composable.isBuffering.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
+      );
     });
 
     it('sets currentTime to default value', () => {
-      expect(result.composable.currentTime.value).toBe(0);
+      expect(result.composable.currentTime.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.currentTime,
+      );
     });
 
     it('sets bufferedDuration to default value', () => {
-      expect(result.composable.bufferedDuration.value).toBe(0);
+      expect(result.composable.bufferedDuration.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
+      );
     });
 
     it('sets duration to default value', () => {
-      expect(result.composable.duration.value).toBe(0);
+      expect(result.composable.duration.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.duration,
+      );
     });
 
     it('sets isPlaying to default value', () => {
-      expect(result.composable.isPlaying.value).toBe(false);
+      expect(result.composable.isPlaying.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
+      );
     });
 
     it('sets playbackRate to default value', () => {
-      expect(result.composable.playbackRate.value).toBe(1);
+      expect(result.composable.playbackRate.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
+      );
     });
 
     it('sets isMuted to default value', () => {
@@ -1167,19 +1211,27 @@ describe('useAudioPlayer', () => {
     });
 
     it('sets volume to default value', () => {
-      expect(result.composable.volume.value).toBe(1);
+      expect(result.composable.volume.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.volume,
+      );
     });
 
     it('sets queueList to default value', () => {
-      expect(result.composable.queueList.value).toEqual([]);
+      expect(result.composable.queueList.value).toEqual(
+        AUDIO_PLAYER_DEFAULT_STATES.queueList,
+      );
     });
 
     it('sets repeat to default value', () => {
-      expect(result.composable.repeat.value).toBe(-1);
+      expect(result.composable.repeat.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.repeat,
+      );
     });
 
     it('sets shuffle to default value', () => {
-      expect(result.composable.shuffle.value).toBe(false);
+      expect(result.composable.shuffle.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.shuffle,
+      );
     });
 
     it('sets the correct hasNextTrack to default value', () => {
