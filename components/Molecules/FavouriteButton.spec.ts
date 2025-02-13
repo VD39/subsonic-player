@@ -1,16 +1,23 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import FavouriteButton from './FavouriteButton.vue';
 
+const { updateQueueTrackFavouriteMock } = useAudioPlayerMock();
+
 const addFavouriteMock = vi.fn();
+const addToFavouriteIdsMock = vi.fn();
+const favouriteIdsMock = ref<Record<string, boolean>>({});
 const removeFavouriteMock = vi.fn();
 
 mockNuxtImport('useFavourite', () => () => ({
   addFavourite: addFavouriteMock,
+  addToFavouriteIds: addToFavouriteIdsMock,
+  favouriteIds: favouriteIdsMock,
   removeFavourite: removeFavouriteMock,
 }));
 
@@ -45,6 +52,48 @@ const buttonProps = {
 
 describe('FavouriteButton', () => {
   let wrapper: VueWrapper;
+
+  describe('when component is mounted', () => {
+    describe('when id prop is in favouriteIds value', () => {
+      beforeEach(() => {
+        favouriteIdsMock.value = {
+          id: false,
+        };
+      });
+
+      it('does not call the addToFavouriteIds function', () => {
+        expect(addToFavouriteIdsMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when id prop is not in favouriteIds value', () => {
+      beforeEach(() => {
+        favouriteIdsMock.value = {};
+      });
+
+      describe('when favourite prop is false', () => {
+        beforeEach(() => {
+          factory();
+        });
+
+        it('does not call the addToFavouriteIds function', () => {
+          expect(addToFavouriteIdsMock).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when favourite prop is true', () => {
+        beforeEach(() => {
+          factory({
+            favourite: true,
+          });
+        });
+
+        it('calls the addToFavouriteIds function', () => {
+          expect(addToFavouriteIdsMock).toHaveBeenCalled();
+        });
+      });
+    });
+  });
 
   describe.each([
     [false, buttonProps.false, buttonProps.true],
@@ -89,6 +138,7 @@ describe('FavouriteButton', () => {
       describe('when the ButtonLink component is clicked', () => {
         beforeEach(() => {
           wrapper.findComponent(ButtonLink).vm.$emit('click');
+          favouriteIdsMock.value.id = !favourite;
         });
 
         it('matches the snapshot', () => {
@@ -120,6 +170,13 @@ describe('FavouriteButton', () => {
         it('sets the correct slot data on the ButtonLink component', () => {
           expect(wrapper.findComponent(ButtonLink).text()).toContain(
             inverseProp.text,
+          );
+        });
+
+        it('calls the updateQueueTrackFavourite function with correct parameters', () => {
+          expect(updateQueueTrackFavouriteMock).toHaveBeenCalledWith(
+            'id',
+            !favourite,
           );
         });
       });

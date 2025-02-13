@@ -14,21 +14,17 @@ definePageMeta({
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { getFavourites } = useFavourite();
+const { favourites, getFavourites } = useFavourite();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
-const {
-  data: favouritesData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.favourites,
   async () => {
-    const favourites = await getFavourites();
+    await getFavourites();
 
     return {
-      favourites,
+      favourites: favourites.value,
     };
   },
   {
@@ -41,7 +37,7 @@ const {
 );
 
 function playTrack(index: number) {
-  playTracks([favouritesData.value.favourites!.tracks[index]], -1);
+  playTracks([favourites.value!.tracks[index]], -1);
 }
 
 useHead({
@@ -64,17 +60,17 @@ useHead({
   <LoadingData :status="status">
     <AlbumsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
-      :albums="favouritesData.favourites.albums"
+      :albums="favourites.albums"
     />
 
     <ArtistsList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Artists"
-      :artists="favouritesData.favourites.artists"
+      :artists="favourites.artists"
     />
 
     <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
-      :tracks="favouritesData.favourites.tracks"
+      :tracks="favourites.tracks"
       @play-track="playTrack"
       @add-to-queue="addTrackToQueue"
       @add-to-playlist="addToPlaylistModal"

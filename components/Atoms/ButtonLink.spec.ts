@@ -122,7 +122,7 @@ describe('ButtonLink', () => {
       expect(wrapper.classes()).not.toContain('disabled');
     });
 
-    it('sets the correct disabled attribute', async () => {
+    it('sets the correct disabled attribute', () => {
       expect(wrapper.attributes('disabled')).not.toBeDefined();
     });
   });
@@ -142,7 +142,7 @@ describe('ButtonLink', () => {
       expect(wrapper.classes()).toContain('disabled');
     });
 
-    it('sets the correct disabled attribute', async () => {
+    it('sets the correct disabled attribute', () => {
       expect(wrapper.attributes('disabled')).toBeDefined();
     });
   });

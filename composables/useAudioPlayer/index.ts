@@ -604,6 +604,15 @@ export function useAudioPlayer() {
     });
   }
 
+  function updateQueueTrackFavourite(id: string, isFavourite: boolean) {
+    const track = queueList.value.find((track) => track.id === id) as Track;
+
+    if (track) {
+      track.favourite = isFavourite;
+      saveState();
+    }
+  }
+
   onMounted(() => {
     callOnce(() => {
       setAudioPlayer();
@@ -656,6 +665,7 @@ export function useAudioPlayer() {
     togglePlay,
     toggleShuffle,
     toggleVolume,
+    updateQueueTrackFavourite,
     volume,
   };
 }

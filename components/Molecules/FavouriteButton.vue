@@ -7,9 +7,11 @@ const props = defineProps<{
   type: MediaType;
 }>();
 
-const { addFavourite, removeFavourite } = useFavourite();
+const { updateQueueTrackFavourite } = useAudioPlayer();
+const { addFavourite, addToFavouriteIds, favouriteIds, removeFavourite } =
+  useFavourite();
 
-const isFavourite = toRef(props.favourite);
+const isFavourite = computed(() => favouriteIds.value[props.id]);
 
 const buttonProps = computed<ButtonProps>(() => ({
   iconColor: isFavourite.value ? 'var(--error-color)' : undefined,
@@ -24,13 +26,20 @@ async function toggleFavourite() {
     await addFavourite(props);
   }
 
-  isFavourite.value = !isFavourite.value;
+  updateQueueTrackFavourite(props.id, isFavourite.value);
 }
 
-watch(
+const unwatch = watch(
   () => props.favourite,
   () => {
-    isFavourite.value = props.favourite;
+    if (props.id in favouriteIds.value) {
+      setTimeout(() => unwatch());
+      return;
+    }
+
+    if (props.favourite) {
+      addToFavouriteIds(props.id);
+    }
   },
   {
     immediate: true,

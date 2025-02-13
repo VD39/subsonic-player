@@ -11,6 +11,8 @@ export const COOKIE_NAMES = {
 
 export const STATE_NAMES = {
   currentUser: 'current-user',
+  favouriteIds: 'favourite-ids',
+  favourites: 'favourites',
   genres: 'genres',
   infinityHasMore: 'infinity-has-more',
   infinityItems: 'infinity-items',

@@ -74,7 +74,7 @@ describe('useGenre', () => {
         expect(getAlbumsMock).toHaveBeenCalled();
       });
 
-      it('returns the correct value', async () => {
+      it('returns the correct value', () => {
         expect(results).toEqual(['albums']);
       });
     });
@@ -91,7 +91,7 @@ describe('useGenre', () => {
         });
       });
 
-      it('returns the correct value', async () => {
+      it('returns the correct value', () => {
         expect(results).toEqual(['tracks']);
       });
 

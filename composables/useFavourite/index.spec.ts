@@ -12,28 +12,39 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { getFavourites } = useFavourite();
+const { addToFavouriteIds, favouriteIds, favourites, getFavourites } =
+  useFavourite();
 
 describe('useFavourite', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
 
+  it('sets the default favourites value', () => {
+    expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
+  });
+
+  it('sets the default favouriteIds value', () => {
+    expect(favouriteIds.value).toEqual({});
+  });
+
   describe('when the getFavourites function is called', () => {
     describe('when fetchData response returns null', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
+
+        await getFavourites();
       });
 
-      it('returns the correct response', async () => {
-        expect(await getFavourites()).toEqual(DEFAULT_ALL_MEDIA);
+      it('sets the correct favourites value', () => {
+        expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
       });
     });
 
     describe('when fetchData response returns an array', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {
             album: [
@@ -53,10 +64,12 @@ describe('useFavourite', () => {
             ],
           },
         });
+
+        await getFavourites();
       });
 
-      it('returns the correct response', async () => {
-        expect(await getFavourites()).toEqual({
+      it('sets the correct favourites value', () => {
+        expect(favourites.value).toEqual({
           album: [
             {
               id: 'album',
@@ -72,6 +85,30 @@ describe('useFavourite', () => {
               id: 'album',
             },
           ],
+        });
+      });
+    });
+  });
+
+  describe('when the addToFavouriteIds function is called', () => {
+    beforeEach(() => {
+      addToFavouriteIds('id', false);
+    });
+
+    it('updates the favouriteIds value', () => {
+      expect(favouriteIds.value).toEqual({
+        id: false,
+      });
+    });
+
+    describe('when called without a isFavourite parameter', () => {
+      beforeEach(() => {
+        addToFavouriteIds('id');
+      });
+
+      it('updates the favouriteIds value', () => {
+        expect(favouriteIds.value).toEqual({
+          id: true,
         });
       });
     });

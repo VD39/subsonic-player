@@ -1086,6 +1086,45 @@ describe('useAudioPlayer', () => {
     });
   });
 
+  describe('when updateQueueTrackFavourite function is called', () => {
+    describe('when id is not in queueTrack', () => {
+      beforeEach(() => {
+        vi.clearAllMocks();
+        result.composable.updateQueueTrackFavourite('id-not-found', true);
+      });
+
+      it('does not update the queueList favourite value', () => {
+        expect(result.composable.queueList.value).toEqual(
+          result.composable.queueList.value,
+        );
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when id is in queueTrack', () => {
+      describe('when current track id is the same as the id', () => {
+        it('updates the queueList favourite value', () => {
+          expect(
+            (result.composable.queueList.value[1] as Track).favourite,
+          ).toBe(false);
+
+          result.composable.updateQueueTrackFavourite(queueTracks[1].id, true);
+
+          expect(
+            (result.composable.queueList.value[1] as Track).favourite,
+          ).toBe(true);
+        });
+
+        it('calls the setLocalStorage function', () => {
+          expect(setLocalStorageMock).toHaveBeenCalled();
+        });
+      });
+    });
+  });
+
   describe('when resetAudio function is called', () => {
     beforeAll(() => {
       result.composable.resetAudio();

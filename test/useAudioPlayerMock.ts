@@ -41,6 +41,7 @@ const showMediaPlayerMock = ref(false);
 const shuffleMock = ref(false);
 const toggleShuffleMock = vi.fn();
 const toggleVolumeMock = vi.fn();
+const updateQueueTrackFavouriteMock = vi.fn();
 const volumeMock = ref(1);
 
 export function useAudioPlayerMock() {
@@ -81,6 +82,7 @@ export function useAudioPlayerMock() {
     togglePlay: togglePlayMock,
     toggleShuffle: toggleShuffleMock,
     toggleVolume: toggleVolumeMock,
+    updateQueueTrackFavourite: updateQueueTrackFavouriteMock,
     volume: volumeMock,
   }));
 
@@ -121,6 +123,7 @@ export function useAudioPlayerMock() {
     togglePlayMock,
     toggleShuffleMock,
     toggleVolumeMock,
+    updateQueueTrackFavouriteMock,
     volumeMock,
   };
 }
