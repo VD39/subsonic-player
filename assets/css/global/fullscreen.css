@@ -1,0 +1,18 @@
+.fullscreen {
+  --loader-width-height: var(--width-height-100);
+
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  width: var(--loader-width-height);
+  height: var(--loader-width-height);
+
+  &::after {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    content: '';
+    background-color: var(--body-background-color);
+    opacity: 0.7;
+  }
+}

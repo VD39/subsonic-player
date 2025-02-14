@@ -17,7 +17,7 @@ useHead({
 
 <template>
   <HeaderWithAction>
-    <h1>Queue</h1>
+    <h1>Queue ({{ queueList.length }})</h1>
 
     <template #actions>
       <ButtonLink

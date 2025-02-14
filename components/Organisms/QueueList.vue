@@ -17,8 +17,6 @@ defineEmits(['addToPlaylist', 'playTrack', 'removeFromQueue']);
 
 <template>
   <template v-if="tracks.length">
-    <h4>Tracks: {{ tracks.length }}</h4>
-
     <div ref="tracksWrapper" class="trackTable">
       <div class="trackHeader">
         <div class="trackCell">Track</div>

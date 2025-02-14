@@ -40,6 +40,8 @@ const { toggleQueueList } = useQueue();
       </ButtonLink>
     </div>
 
+    <h2>Queue ({{ queueList.length }})</h2>
+
     <QueueList
       :tracks="queueList"
       @play-track="playTrackFromQueueList"

@@ -32,7 +32,7 @@ useHead({
 
 <template>
   <NuxtLayout>
-    <div v-if="isLoading" :class="['centerAll', $style.loader]">
+    <div v-if="isLoading" class="fullscreen centerAll">
       <MainLoader />
     </div>
 
@@ -41,25 +41,3 @@ useHead({
     <SnackBar />
   </NuxtLayout>
 </template>
-
-<style module>
-/* TODO: Move to component and use in ModalWindow component. */
-.loader {
-  --loader-width-height: var(--width-height-100);
-
-  position: fixed;
-  inset: 0;
-  z-index: 15;
-  width: var(--loader-width-height);
-  height: var(--loader-width-height);
-
-  &::after {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    content: '';
-    background-color: var(--body-background-color);
-    opacity: 0.7;
-  }
-}
-</style>

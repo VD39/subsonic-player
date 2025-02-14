@@ -14,7 +14,7 @@ const { closeModal, modal } = useModal();
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
-        :class="['centerAll', $style.modalWindow]"
+        class="fullscreen centerAll"
         @click.self="closeModal"
       >
         <div
