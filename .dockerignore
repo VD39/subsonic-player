@@ -1,0 +1,12 @@
+**/node_modules
+**/npm-debug*
+**/.nuxt
+**/.output
+**/dist
+**/Dockerfile
+**/docker-compose.yml
+**/README.md
+**/.dockerignore
+**/.git
+**/.github
+**/.gitignore
