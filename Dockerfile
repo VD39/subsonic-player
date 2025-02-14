@@ -1,12 +1,10 @@
 ARG NODE_VERSION=20.12.2
-ARG NODE_ENV=production
-ARG PORT=3000
-ARG HOSTNAME=0.0.0.0
 
 # Create build stage
 FROM node:${NODE_VERSION}-alpine AS base
 
 # Define environment variables
+ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
 # Set the working directory inside the container.
@@ -32,7 +30,10 @@ RUN yarn build
 FROM base
 
 # Define environment variables.
+ARG PORT=3000
 ENV PORT=${PORT}
+
+ARG HOSTNAME=0.0.0.0
 ENV HOSTNAME=${HOSTNAME}
 
 # Copy the output from the build stage to the working directory.
