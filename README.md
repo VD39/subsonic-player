@@ -1,14 +1,14 @@
-# 🎵 Subsonic Music App: A Modern Subsonic Client
+# 🎵 Subsonic Player: A Modern Subsonic Client
 
 ## 📝 Overview
 
-Subsonic Music App is a responsive, modern web-based client designed for [Subsonic music servers][subsonic].
+Subsonic player is a responsive, modern web-based client designed for [Subsonic music servers][subsonic].
 
 Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source application provides a seamless and enjoyable music listening experience across all devices.
 
 **Compatible Servers:**
 
-- [Gonic][gonic] (This app is primarily optimized for use with [Gonic][gonic]).
+- [Gonic][gonic] (This application is primarily optimized for use with [Gonic][gonic]).
 - [Airsonic Advanced][airsonic].
 - [Navidrome][navidrome].
 - [Subsonic servers][subsonic].
@@ -52,9 +52,9 @@ Create a file named `docker-compose.yml` with the following content.
 
 ```yml
 services:
-  subsonic-music-player:
-    container_name: subsonic-music-player
-    image: vd39/subsonic-music-app:latest # To be deployed.
+  subsonic-player:
+    container_name: subsonic-player
+    image: vd39/subsonic-player:latest
     ports:
       - '3000:3000'
     restart: unless-stopped
@@ -74,10 +74,10 @@ This method offers more granular control.
 
 ```bash
 docker run -d \
-  --name subsonic-music-player \
+  --name subsonic-player \
   -p 3000:3000 \
   --restart unless-stopped \
-  vd39/subsonic-music-app:latest # To be deployed.
+  vd39/subsonic-player:latest
 ```
 
 The application will be accessible at `http://localhost:3000`.
@@ -89,13 +89,13 @@ This method skips Docker and runs the application directly using Node.js and Yar
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/VD39/subsonic-music-app.git
+   git clone https://github.com/VD39/subsonic-player.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd subsonic-music-app
+   cd subsonic-player
    ```
 
 3. Install dependencies:
@@ -133,14 +133,21 @@ Contributions are always welcome! Feel free to contribute, provide feedback, or 
 
 This project is licensed under the AGPLv3 license. Full license details available in the [LICENSE][license] file for details.
 
+## 🌐 Project Resources
+
+- [GitHub Repository][github]
+- [Docker Hub][docker-hub]
+
 [nuxt]: https://nuxt.com/
 [vue]: https://vuejs.org/
-[gonic]: https://github.com/sentriz/gonic
-[airsonic]: https://github.com/airsonic-advanced/airsonic-advanced
-[navidrome]: https://github.com/navidrome/navidrome
-[subsonic]: https://github.com/topics/subsonic
+[gonic]: https://github.com/sentriz/gonic/
+[airsonic]: https://github.com/airsonic-advanced/airsonic-advanced/
+[navidrome]: https://github.com/navidrome/navidrome/
+[subsonic]: https://github.com/topics/subsonic/
 [docker]: https://www.docker.com/
 [nodejs]: https://nodejs.org/
 [yarn]: https://yarnpkg.com/
 [env-vars]: #-environment-variables
 [license]: LICENSE
+[github]: https://github.com/VD39/subsonic-player
+[docker-hub]: https://hub.docker.com/r/vd39/subsonic-player
