@@ -32,6 +32,7 @@ export const STATE_NAMES = {
   playerRepeat: 'player-repeat',
   playerShuffle: 'player-shuffle',
   playerState: 'player-state',
+  playerTrackHasScrobbled: 'player-track-has-scrobbled',
   playerVolume: 'player-volume',
   playlist: 'playlist',
   playlists: 'playlists',

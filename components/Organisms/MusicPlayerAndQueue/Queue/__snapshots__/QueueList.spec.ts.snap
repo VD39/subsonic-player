@@ -10,7 +10,7 @@ exports[`QueueList > matches the snapshot 1`] = `
       <phtrash class="icon" aria-hidden="true" size="24" weight="regular"></phtrash><span class="clamp text visuallyHidden"> Clear queue </span>
     </button>
   </div>
-  <h4>Tracks: 1</h4>
+  <h2>Queue (1)</h2>
   <div class="trackTable">
     <div class="trackHeader">
       <div class="trackCell">Track</div>

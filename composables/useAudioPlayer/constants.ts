@@ -15,6 +15,7 @@ export const AUDIO_PLAYER_DEFAULT_STATES = {
   queueList: [] as QueueTrack[],
   repeat: -1,
   shuffle: false,
+  trackHasScrobbled: false,
   volume: 1,
 };
 

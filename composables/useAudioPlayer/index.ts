@@ -2,6 +2,7 @@ export function useAudioPlayer() {
   const { getImageUrl, getStreamUrl } = useAPI();
   const { resetQueueState } = useQueue();
   const { addErrorSnack } = useSnack();
+  const { scrobble } = useMediaLibrary();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -77,6 +78,12 @@ export function useAudioPlayer() {
 
   const showMediaPlayer = computed(() => !!queueList.value.length);
 
+  // Scrobble states.
+  const trackHasScrobbled = useState(
+    STATE_NAMES.playerTrackHasScrobbled,
+    () => AUDIO_PLAYER_DEFAULT_STATES.trackHasScrobbled,
+  );
+
   // Track states.
   const currentTrack = computed<QueueTrack>(
     () => queueList.value[currentQueueIndex.value] || ({} as QueueTrack),
@@ -150,13 +157,26 @@ export function useAudioPlayer() {
     setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
   }
 
+  function saveStateInterval() {
+    saveState();
+
+    if (
+      isTrack.value &&
+      !trackHasScrobbled.value &&
+      currentTime.value / duration.value > 0.8
+    ) {
+      scrobble(currentTrack.value.id);
+      trackHasScrobbled.value = true;
+    }
+  }
+
   function clearSaveInterval() {
     clearInterval(saveInterval.value!);
   }
 
   function setSaveInterval() {
     clearSaveInterval();
-    saveInterval.value = setInterval(saveState, 2000);
+    saveInterval.value = setInterval(saveStateInterval, 2000);
   }
 
   function isCurrentTrack(id: string) {
@@ -309,6 +329,8 @@ export function useAudioPlayer() {
   }
 
   async function changeTrack(track: QueueTrack) {
+    trackHasScrobbled.value = false;
+
     try {
       loadTrack(track);
       await playTrack();

@@ -82,6 +82,15 @@ export function useMediaLibrary() {
   }
 
   /* istanbul ignore next -- @preserve */
+  async function scrobble(id: string) {
+    await fetchData('/scrobble', {
+      params: {
+        id,
+      },
+    });
+  }
+
+  /* istanbul ignore next -- @preserve */
   async function getBookmarks() {
     const { data: bookmarksData } = await fetchData('/getBookmarks');
 
@@ -117,6 +126,7 @@ export function useMediaLibrary() {
     getIndexes,
     getMusicDirectory,
     getMusicFolders,
+    scrobble,
     startScan,
   };
 }
