@@ -10,11 +10,17 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "3.1.0",
     "@csstools/postcss-global-data": "^2.1.1",
     "@eslint/compat": "^1.1.0",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/test-utils": "^3.13.1",
+    "@nuxtjs/storybook": "latest",
     "@nuxtjs/stylelint-module": "^5.2.0",
+    "@storybook/addon-essentials": "8.3.0",
+    "@storybook/addon-links": "8.3.0",
+    "@storybook/blocks": "8.3.0",
+    "@storybook/test": "8.3.0",
     "@types/crypto-js": "^4.2.2",
     "@vitest/coverage-istanbul": "^2.0.3",
     "@vue/test-utils": "^2.4.6",
@@ -25,6 +31,8 @@
     "eslint-plugin-vitest": "^0.5.4",
     "eslint-plugin-vue": "^9.27.0",
     "happy-dom": "^14.12.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "playwright-core": "^1.45.1",
     "postcss-custom-media": "^10.0.8",
     "postcss-extend-rule": "^4.0.0",
@@ -33,20 +41,14 @@
     "postcss-pxtorem": "^6.1.0",
     "postcss-rem": "^3.0.0",
     "prettier": "^3.3.2",
+    "storybook": "8.3.0",
     "stylelint": "^16.6.1",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.5.3",
     "vitest": "^2.0.2",
-    "vue-tsc": "^2.0.26",
-    "@chromatic-com/storybook": "3.1.0",
-    "@nuxtjs/storybook": "latest",
-    "@storybook/addon-essentials": "8.3.0",
-    "@storybook/addon-links": "8.3.0",
-    "@storybook/blocks": "8.3.0",
-    "@storybook/test": "8.3.0",
-    "storybook": "8.3.0"
+    "vue-tsc": "^2.0.26"
   },
   "name": "nuxt-app",
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
@@ -67,7 +69,8 @@
     "test": "vitest",
     "test:once": "yarn test --run",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
   },
   "type": "module"
 }
