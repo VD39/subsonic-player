@@ -36,7 +36,7 @@
     "playwright-core": "^1.45.1",
     "postcss-custom-media": "^10.0.8",
     "postcss-extend-rule": "^4.0.0",
-    "postcss-html": "^1.7.0",
+    "postcss-html": "^1.8.0",
     "postcss-preset-env": "^9.6.0",
     "postcss-pxtorem": "^6.1.0",
     "postcss-rem": "^3.0.0",
