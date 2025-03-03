@@ -20,6 +20,12 @@ export default withNuxt(
       reportUnusedDisableDirectives: 'error',
     },
     rules: {
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        {
+          allowInterfaces: 'with-single-extends',
+        },
+      ],
       '@typescript-eslint/no-unused-vars': 'error',
       'dot-notation': 'error',
       'no-undef': 'error',
