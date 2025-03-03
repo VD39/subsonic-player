@@ -733,7 +733,7 @@ exports[`QueuePlayer > when isRadioStation value is false > when duration value 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-label="Seek" class="inputRange fullWidth" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>

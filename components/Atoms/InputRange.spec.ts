@@ -11,7 +11,7 @@ const documentRemoveEventListenerSpy = vi.spyOn(
   document,
   'removeEventListener',
 );
-window.HTMLElement.prototype.getBoundingClientRect = () =>
+HTMLElement.prototype.getBoundingClientRect = () =>
   ({
     left: 0,
     width: 100,
@@ -463,7 +463,7 @@ describe('InputRange', () => {
 
   describe('when the window change size is called', () => {
     beforeEach(() => {
-      window.HTMLElement.prototype.getBoundingClientRect = () =>
+      HTMLElement.prototype.getBoundingClientRect = () =>
         ({
           left: 0,
           width: 200,

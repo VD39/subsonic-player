@@ -108,7 +108,7 @@ describe('DropdownMenu', () => {
             get: () => 500,
           },
         });
-        Element.prototype.getBoundingClientRect = vi.fn(
+        HTMLElement.prototype.getBoundingClientRect = vi.fn(
           () =>
             ({
               top: 5,

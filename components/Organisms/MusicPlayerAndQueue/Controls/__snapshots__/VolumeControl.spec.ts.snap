@@ -47,7 +47,7 @@ exports[`VolumeControl > when volume value is 0 > matches the snapshot 1`] = `
     <phspeakerx class="icon" aria-hidden="true" size="24" weight="regular"></phspeakerx><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" hide-thumb="" aria-valuetext="0 of 1">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0 of 1" hide-thumb="">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -68,7 +68,7 @@ exports[`VolumeControl > when volume value is 0.1 > matches the snapshot 1`] = `
     <phspeakernone class="icon" aria-hidden="true" size="24" weight="regular"></phspeakernone><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" hide-thumb="" aria-valuetext="0.1 of 1">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0.1 of 1" hide-thumb="">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -89,7 +89,7 @@ exports[`VolumeControl > when volume value is 0.3 > matches the snapshot 1`] = `
     <phspeakerlow class="icon" aria-hidden="true" size="24" weight="regular"></phspeakerlow><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" hide-thumb="" aria-valuetext="0.3 of 1">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0.3 of 1" hide-thumb="">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -110,7 +110,7 @@ exports[`VolumeControl > when volume value is 0.6 > matches the snapshot 1`] = `
     <phspeakerhigh class="icon" aria-hidden="true" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" hide-thumb="" aria-valuetext="0.6 of 1">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0.6 of 1" hide-thumb="">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>

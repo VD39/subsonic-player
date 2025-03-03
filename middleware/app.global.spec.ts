@@ -1,5 +1,6 @@
 import { routeMock } from '@/test/fixtures';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { flushPromises } from '@vue/test-utils';
 
 import appGlobalMiddleware from './app.global';
 
@@ -23,34 +24,33 @@ mockNuxtImport('usePlaylist', () => () => ({
 }));
 
 describe('app-global-middleware', () => {
-  beforeEach(() => {
-    appGlobalMiddleware(routeMock, routeMock);
-  });
-
   afterEach(() => {
-    isAuthenticated.value = false;
     vi.clearAllMocks();
   });
 
   describe('when isAuthenticated is false', () => {
-    describe('when route name is login', () => {
-      beforeEach(() => {
-        appGlobalMiddleware(
-          {
-            ...routeMock,
-            name: 'login',
-          },
-          routeMock,
-        );
-      });
+    beforeEach(async () => {
+      isAuthenticated.value = false;
 
+      appGlobalMiddleware(
+        {
+          ...routeMock,
+          name: 'login',
+        },
+        routeMock,
+      );
+
+      await flushPromises();
+    });
+
+    describe('when route name is login', () => {
       it('does not call the navigateTo function', () => {
         expect(navigateToMock).not.toHaveBeenCalled();
       });
     });
 
     describe('when route name is not login', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         appGlobalMiddleware(
           {
             ...routeMock,
@@ -59,6 +59,8 @@ describe('app-global-middleware', () => {
           },
           routeMock,
         );
+
+        await flushPromises();
       });
 
       it('calls the navigateTo function with correct URL', () => {
@@ -81,25 +83,28 @@ describe('app-global-middleware', () => {
   describe('when isAuthenticated is true', () => {
     beforeEach(() => {
       isAuthenticated.value = true;
-
-      appGlobalMiddleware(
-        {
-          ...routeMock,
-          name: 'login',
-        },
-        routeMock,
-      );
     });
 
     describe('when route name is login', () => {
+      beforeEach(async () => {
+        appGlobalMiddleware(
+          {
+            ...routeMock,
+            name: 'login',
+          },
+          routeMock,
+        );
+
+        await flushPromises();
+      });
+
       it('calls the navigateTo function with correct URL', () => {
         expect(navigateToMock).toHaveBeenCalledWith('/');
       });
     });
 
     describe('when route name is not login', () => {
-      beforeEach(() => {
-        vi.clearAllMocks();
+      beforeEach(async () => {
         appGlobalMiddleware(
           {
             ...routeMock,
@@ -108,6 +113,8 @@ describe('app-global-middleware', () => {
           },
           routeMock,
         );
+
+        await flushPromises();
       });
 
       it('does not call the navigateTo function', () => {
@@ -116,8 +123,41 @@ describe('app-global-middleware', () => {
     });
 
     describe('when playlists value is an empty array', () => {
+      beforeEach(async () => {
+        appGlobalMiddleware(
+          {
+            ...routeMock,
+            name: 'login',
+          },
+          routeMock,
+        );
+
+        await flushPromises();
+      });
+
       it('calls the getPlaylistsMock function', () => {
         expect(getPlaylistsMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when playlists value is not an empty array', () => {
+      beforeEach(async () => {
+        playlists.value = [{} as never];
+
+        appGlobalMiddleware(
+          {
+            ...routeMock,
+            fullPath: 'about',
+            name: 'about',
+          },
+          routeMock,
+        );
+
+        await flushPromises();
+      });
+
+      it('does not call the getPlaylistsMock function', () => {
+        expect(getPlaylistsMock).not.toHaveBeenCalled();
       });
     });
   });
