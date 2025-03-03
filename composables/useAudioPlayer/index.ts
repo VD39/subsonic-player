@@ -340,7 +340,7 @@ export function useAudioPlayer() {
       }
 
       saveState();
-    } catch (error) {
+    } catch {
       if (isPodcastEpisode.value) {
         removeTrackFromQueueList(track.id);
         addErrorSnack(
