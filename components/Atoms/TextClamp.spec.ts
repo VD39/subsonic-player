@@ -60,8 +60,8 @@ describe('TextClamp', () => {
   });
 
   describe('when text does not fit within the maxLines', () => {
-    beforeEach(() => {
-      Element.prototype.getClientRects = vi
+    beforeEach(async () => {
+      HTMLElement.prototype.getClientRects = vi
         .fn()
         .mockImplementationOnce(
           () =>
@@ -89,6 +89,7 @@ describe('TextClamp', () => {
         );
 
       wrapper = factory();
+      await nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -119,7 +120,7 @@ describe('TextClamp', () => {
   describe('when the window change size is called', () => {
     describe('when text fits within the maxLines', () => {
       beforeEach(() => {
-        Element.prototype.getClientRects = vi.fn().mockImplementation(
+        HTMLElement.prototype.getClientRects = vi.fn().mockImplementation(
           () =>
             ({
               length: 1,
