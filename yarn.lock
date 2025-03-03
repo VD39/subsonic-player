@@ -616,14 +616,11 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
-"@chromatic-com/storybook@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@chromatic-com/storybook/-/storybook-3.1.0.tgz#c28f49d143cc6c80d7e56baea9944579d90ecfc9"
-  integrity sha512-AM8jDwoBNNwJKgmoWkHIOhu4ObsxvDtOzZC9tPCVEW6P+pFwg5xjSZAQglIE2c8/SsEPSduNdxBt31ES3iDwoA==
+"@chromatic-com/storybook@3.2.5":
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/@chromatic-com/storybook/-/storybook-3.2.5.tgz#77acfc44c156d92e0cd26d208f6c4dd39771126f"
+  integrity sha512-Y388ft6po5FmGKdkcqz3r2sW6aMF5DSBaatC0jvT5bI/Dh27RJw3gPTmXJcZVNjteNl6tpiP3qxZ9MswAk5luw==
   dependencies:
-    "@storybook/channels" "^8.3.0"
-    "@storybook/telemetry" "^8.3.0"
-    "@storybook/types" "^8.3.0"
     chromatic "^11.15.0"
     filesize "^10.0.12"
     jsonfile "^6.1.0"
@@ -2791,11 +2788,6 @@
     browser-assert "^1.2.1"
     ts-dedent "^2.0.0"
 
-"@storybook/channels@^8.3.0":
-  version "8.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-8.4.5.tgz#f302794311b8a33a9629dba17b0779dd393b08ca"
-  integrity sha512-+7C6OypXw60pLxZH8BeTxTWvn1HCdeuraXiDl0+EnKZ5umGNYHrp8R5BRdCiXxrKK2hj6ag8Ztlgu4jGqIYpqg==
-
 "@storybook/components@8.4.5":
   version "8.4.5"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-8.4.5.tgz#039e4cb5090c56c47fc10f0c5ecda77f4b015c7f"
@@ -2900,11 +2892,6 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-8.3.0.tgz#e6c8c75ff725a9a096fb63b46dc4108e51428857"
   integrity sha512-87X4cvgwFT1ll5SzXgQq6iGbkVCgxLBpBm58akF/hzpeRkwfJDncGi/A5hElOJrBg63IkznmSJE7tf9RkrboqQ==
 
-"@storybook/telemetry@^8.3.0":
-  version "8.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/telemetry/-/telemetry-8.4.5.tgz#e65cbde49cb1d4636a61ac89436ae5b2a47d4ecb"
-  integrity sha512-6zdse7ilYyF5okrZdRseKXNNiiF83Fi9XUHE0KU2YeQmMGxZewXX1h2plbtJdf0DLz0MvImlDU9xaqlGGlsaiw==
-
 "@storybook/test@8.3.0":
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/@storybook/test/-/test-8.3.0.tgz#52ac7f779ee92e9fc318af95cb0dc17fb4d204b6"
@@ -2924,11 +2911,6 @@
   version "8.4.5"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-8.4.5.tgz#d7c77215f09906c9bb124d530d4307fd1841fbb8"
   integrity sha512-45e/jeG4iuqdZcHg3PbB6dwXQTwlnnEB7r/QcVExyC7ibrkTnjUfvxzyUw4mmU3CXETFGD5EcUobFkgK+/aPxQ==
-
-"@storybook/types@^8.3.0":
-  version "8.4.5"
-  resolved "https://registry.yarnpkg.com/@storybook/types/-/types-8.4.5.tgz#cf5301376c718e9b1aeb5f93f0e322965dade83e"
-  integrity sha512-1hlSq7sPYyU9QT++7qytxtY53ARtKGq2cYEr92pOPt6uinCbStmtQ5BoKOFB6vyHoXWgIbhZJKAXZq+tGTz7Qw==
 
 "@storybook/vue3-vite@^8.3.0":
   version "8.4.5"
