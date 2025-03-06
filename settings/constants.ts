@@ -9,6 +9,8 @@ export const COOKIE_NAMES = {
   auth: 'auth-params',
 } as const;
 
+export const DAYS_COOKIE_EXPIRES = 60;
+
 export const STATE_NAMES = {
   currentUser: 'current-user',
   favouriteIds: 'favourite-ids',
