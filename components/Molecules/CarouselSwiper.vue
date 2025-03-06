@@ -69,7 +69,7 @@ const swiper = useSwiper(swiperRef, {
     &:hover {
       .next,
       .previous {
-        --button-opacity: 1;
+        --carousel-swiper-button-opacity: 1;
       }
     }
   }
@@ -89,13 +89,13 @@ swiper-container {
 
 .next,
 .previous {
-  --button-opacity: 0;
+  --carousel-swiper-button-opacity: 0;
 
   position: absolute;
   inset: 0 auto;
   z-index: 1;
   height: var(--width-height-100);
-  opacity: var(--button-opacity);
+  opacity: var(--carousel-swiper-button-opacity);
   transition: opacity var(--transition);
 }
 

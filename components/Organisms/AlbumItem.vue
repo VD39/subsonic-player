@@ -80,18 +80,18 @@ const toLink = `/album/${props.album.id}`;
     &:hover,
     &:focus {
       .buttonLink {
-        --button-opacity: 1;
+        --album-play-button-opacity: 1;
       }
     }
   }
 }
 
 .buttonLink {
-  --button-opacity: 0;
+  --album-play-button-opacity: 0;
 
   position: absolute;
   inset: auto var(--default-space) var(--default-space) auto;
-  opacity: var(--button-opacity);
+  opacity: var(--album-play-button-opacity);
   transition: opacity var(--transition);
 }
 </style>
