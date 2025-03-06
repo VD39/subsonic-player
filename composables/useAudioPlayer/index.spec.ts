@@ -4,11 +4,14 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAudioPlayer } from './index';
 
+const setPositionStateMock = vi.fn();
+
 Object.defineProperty(window.navigator, 'mediaSession', {
   configurable: true,
   value: {
     playbackState: '',
     setActionHandler: vi.fn(),
+    setPositionState: setPositionStateMock,
   },
   writable: true,
 });
@@ -882,6 +885,7 @@ describe('useAudioPlayer', () => {
           value: {
             playbackState: '',
             setActionHandler: vi.fn(),
+            setPositionState: setPositionStateMock,
           },
           writable: true,
         });
@@ -928,6 +932,37 @@ describe('useAudioPlayer', () => {
       describe('when mediaSession is in navigator', () => {
         it('sets the correct playbackState state', () => {
           expect(navigator.mediaSession.playbackState).toBe('playing');
+        });
+      });
+    });
+
+    describe('when play throws an error', () => {
+      describe('when error does not contain no supported source', () => {
+        beforeAll(() => {
+          playMock.mockImplementationOnce(() => {
+            throw new Error('new Error message.');
+          });
+
+          result.composable.togglePlay();
+          result.composable.togglePlay();
+        });
+
+        it('does not remove the current track from queueList', () => {
+          expect(result.composable.queueList.value.length).toBe(1);
+        });
+      });
+
+      describe('when error contains no supported source', () => {
+        beforeAll(() => {
+          playMock.mockImplementationOnce(() => {
+            throw new Error('no supported source.');
+          });
+
+          result.composable.togglePlay();
+        });
+
+        it('removes the current track from queueList', () => {
+          expect(result.composable.queueList.value.length).toBe(0);
         });
       });
     });
@@ -1302,6 +1337,16 @@ describe('useAudioPlayer', () => {
       it('sets the correct currentTime value', () => {
         expect(result.composable.currentTime.value).toBe(20);
       });
+
+      describe('when mediaSession is in navigator', () => {
+        it('calls the navigator mediaSession setPositionState function', () => {
+          expect(setPositionStateMock).toHaveBeenCalledWith(
+            expect.objectContaining({
+              position: 20,
+            }),
+          );
+        });
+      });
     });
 
     describe('when onLoadedMetadata event is called', () => {
@@ -1318,6 +1363,16 @@ describe('useAudioPlayer', () => {
 
         it('sets the correct duration value', () => {
           expect(result.composable.duration.value).toBe(setValue);
+        });
+
+        describe('when mediaSession is in navigator', () => {
+          it('calls the navigator mediaSession setPositionState function', () => {
+            expect(setPositionStateMock).toHaveBeenCalledWith(
+              expect.objectContaining({
+                duration: setValue,
+              }),
+            );
+          });
         });
       });
     });

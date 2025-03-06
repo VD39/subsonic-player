@@ -117,7 +117,7 @@ export interface AllMedia {
 }
 
 export interface PodcastEpisode {
-  author?: string;
+  author: string;
   description?: string;
   downloaded: boolean;
   duration: string;

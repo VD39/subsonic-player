@@ -157,6 +157,7 @@ export function useAudioPlayer() {
     setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
   }
 
+  /* istanbul ignore next -- @preserve */
   function saveStateInterval() {
     saveState();
 
@@ -190,6 +191,16 @@ export function useAudioPlayer() {
     }
   }
 
+  function setMediaSessionPositionState() {
+    if ('setPositionState' in navigator.mediaSession) {
+      navigator.mediaSession.setPositionState({
+        duration: duration.value,
+        playbackRate: playbackRate.value,
+        position: currentTime.value,
+      });
+    }
+  }
+
   function setMediaMetadata() {
     if ('mediaSession' in navigator && currentTrack.value) {
       let mediaData = {};
@@ -206,6 +217,7 @@ export function useAudioPlayer() {
       if (isPodcastEpisode.value) {
         mediaData = {
           album: (currentTrack.value as PodcastEpisode).podcastName,
+          artist: (currentTrack.value as PodcastEpisode).author,
         };
       }
 
@@ -301,10 +313,23 @@ export function useAudioPlayer() {
 
   // Play/Pause actions.
   async function playTrack() {
-    await audioPlayer.value?.play();
-    isPlaying.value = true;
-    setSaveInterval();
-    setMediaSessionPlaybackState('playing');
+    try {
+      await audioPlayer.value?.play();
+      isPlaying.value = true;
+      setSaveInterval();
+      setMediaSessionPlaybackState('playing');
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error : new Error(error as string);
+
+      if (errorMessage.message.includes('no supported source')) {
+        addErrorSnack(
+          `The track ${currentTrack.value.name} was not found and removed from queue.`,
+        );
+
+        removeTrackFromQueueList(currentTrack.value.id);
+      }
+    }
   }
 
   function pauseTrack() {
@@ -331,23 +356,14 @@ export function useAudioPlayer() {
   async function changeTrack(track: QueueTrack) {
     trackHasScrobbled.value = false;
 
-    try {
-      loadTrack(track);
-      await playTrack();
+    loadTrack(track);
+    await playTrack();
 
-      if (isPodcastEpisode.value) {
-        setPlaybackRate(playbackRate.value);
-      }
-
-      saveState();
-    } catch {
-      if (isPodcastEpisode.value) {
-        removeTrackFromQueueList(track.id);
-        addErrorSnack(
-          `Podcast episode ${track.name} not downloaded. Episode was removed from queue.`,
-        );
-      }
+    if (isPodcastEpisode.value) {
+      setPlaybackRate(playbackRate.value);
     }
+
+    saveState();
   }
 
   // Next/previous state.
@@ -584,6 +600,7 @@ export function useAudioPlayer() {
     // Audio actions.
     audioPlayer.value.onTimeupdate((newCurrentTime: number) => {
       currentTime.value = newCurrentTime;
+      setMediaSessionPositionState();
     });
 
     audioPlayer.value.onCanPlay(() => {
@@ -593,6 +610,7 @@ export function useAudioPlayer() {
     audioPlayer.value.onLoadedMetadata((newDuration: number) => {
       const durationToNumber = Number(newDuration);
       duration.value = Number.isFinite(durationToNumber) ? durationToNumber : 0;
+      setMediaSessionPositionState();
     });
 
     audioPlayer.value.onBuffered((newBufferedDuration: number) => {
@@ -649,6 +667,7 @@ export function useAudioPlayer() {
     });
   });
 
+  /* istanbul ignore next -- @preserve */
   onBeforeUnmount(() => {
     if (!isPlaying.value) {
       clearSaveInterval();

@@ -309,7 +309,7 @@ describe('QueuePlayer', () => {
 
     describe('when currentTrack value does not have an author key', () => {
       beforeEach(() => {
-        delete (currentTrackMock.value as PodcastEpisode).author;
+        delete (currentTrackMock.value as Partial<PodcastEpisode>).author;
       });
 
       it('matches the snapshot', () => {
