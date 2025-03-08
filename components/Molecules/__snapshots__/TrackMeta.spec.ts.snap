@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TrackMeta > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -30,7 +30,7 @@ exports[`TrackMeta > matches the snapshot 1`] = `
 `;
 
 exports[`TrackMeta > when the track prop does not have a podcastName key > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -59,7 +59,7 @@ exports[`TrackMeta > when the track prop does not have a podcastName key > match
 `;
 
 exports[`TrackMeta > when the track prop does not have an album key > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -88,7 +88,7 @@ exports[`TrackMeta > when the track prop does not have an album key > matches th
 `;
 
 exports[`TrackMeta > when the track prop does not have an artists key > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -112,7 +112,7 @@ exports[`TrackMeta > when the track prop does not have an artists key > matches 
 `;
 
 exports[`TrackMeta > when track.album is undefined > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -136,7 +136,7 @@ exports[`TrackMeta > when track.album is undefined > matches the snapshot 1`] = 
 `;
 
 exports[`TrackMeta > when track.artists is an empty array > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -160,7 +160,7 @@ exports[`TrackMeta > when track.artists is an empty array > matches the snapshot
 `;
 
 exports[`TrackMeta > when track.duration is undefined > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
@@ -184,7 +184,7 @@ exports[`TrackMeta > when track.duration is undefined > matches the snapshot 1`]
 `;
 
 exports[`TrackMeta > when track.podcastName is undefined > matches the snapshot 1`] = `
-"<div class="trackMeta">
+"<div class="noTouchEvents">
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">

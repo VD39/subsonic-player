@@ -20,3 +20,9 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.noTouchEvents {
+  @media (hover: none) {
+    pointer-events: none;
+  }
+}

@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="$style.trackMeta">
+  <div class="noTouchEvents">
     <MarqueeScroll class="mBXS" inert>
       <h4>
         {{ track.name }}
@@ -53,11 +53,3 @@ defineProps<{
     </MarqueeScroll>
   </div>
 </template>
-
-<style module>
-.trackMeta {
-  @media (hover: none) {
-    pointer-events: none;
-  }
-}
-</style>

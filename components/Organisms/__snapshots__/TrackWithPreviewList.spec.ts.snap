@@ -25,7 +25,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > matches
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -110,7 +110,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > matches
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -176,7 +176,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > matches
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -242,7 +242,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > matches
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -308,7 +308,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > matches
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -386,7 +386,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -471,7 +471,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -537,7 +537,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -603,7 +603,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -669,7 +669,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -747,7 +747,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -832,7 +832,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -898,7 +898,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -964,7 +964,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -1030,7 +1030,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -1108,7 +1108,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">

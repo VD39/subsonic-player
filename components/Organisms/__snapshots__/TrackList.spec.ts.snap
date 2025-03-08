@@ -24,7 +24,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -102,7 +102,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -161,7 +161,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -220,7 +220,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -279,7 +279,7 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">
@@ -349,7 +349,7 @@ exports[`TrackList > when tracks prop is not an empty array > when track.artists
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
-        <div class="trackMeta">
+        <div class="noTouchEvents trackMeta">
           <div class="marqueeScroll mBXS" inert="">
             <div class="bulletList inner">
               <div class="content">

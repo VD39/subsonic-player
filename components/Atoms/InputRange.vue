@@ -214,6 +214,7 @@ onUnmounted(() => {
   background-color: var(--invert-color);
 
   .standard & {
+    pointer-events: none;
     cursor: unset;
   }
 }

@@ -44,6 +44,7 @@ defineEmits([
           <MarqueeScroll>
             <LinkOrText
               is="a"
+              class="noTouchEvents"
               :is-link="!!radioStation.homePageUrl"
               :text="radioStation.name"
               :to="radioStation.homePageUrl"

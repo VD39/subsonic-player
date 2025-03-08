@@ -24,7 +24,7 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link" target="_blank">radio-station-0</a></div>
+            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-0</a></div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link" target="_blank">radio-station-1</a></div>
+            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-1</a></div>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link" target="_blank">radio-station-2</a></div>
+            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-2</a></div>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link" target="_blank">radio-station-3</a></div>
+            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-3</a></div>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link" target="_blank">radio-station-4</a></div>
+            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-4</a></div>
           </div>
         </div>
       </div>
