@@ -8,7 +8,11 @@ import AlbumItem from '@/components/Organisms/AlbumItem.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 
+const { downloadMedia } = useMediaLibrary();
+const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
+const { openTrackInformationModal } = useMediaInformation();
+const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { getFrequentAlbums, getNewestAlbums, getRecentAlbums } = useAlbum();
 
 const {
@@ -42,6 +46,10 @@ const {
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
 );
+
+function playTrack(index: number) {
+  playTracks([favourites.value!.tracks[index]], -1);
+}
 
 useHead({
   title: 'Discover',
@@ -101,7 +109,14 @@ useHead({
       Favourite Tracks
     </HeaderSeeAllLink>
 
-    <TrackWithPreviewList :tracks="favourites.tracks.slice(0, 5)" />
+    <TrackWithPreviewList
+      :tracks="favourites.tracks.slice(0, 5)"
+      @play-track="playTrack"
+      @add-to-queue="addTrackToQueue"
+      @add-to-playlist="addToPlaylistModal"
+      @media-information="openTrackInformationModal"
+      @download-media="downloadMedia"
+    />
 
     <HeaderSeeAllLink to="/favourites/albums">
       Favourite Albums
