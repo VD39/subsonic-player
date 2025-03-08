@@ -8,6 +8,7 @@ export function useAudioPlayer() {
     STATE_NAMES.playerAudioPlayer,
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPlayer,
   );
+
   const saveInterval = useState<null | ReturnType<typeof setInterval>>(
     STATE_NAMES.playerInterval,
     () => null,
@@ -24,10 +25,12 @@ export function useAudioPlayer() {
     STATE_NAMES.playerCurrentTime,
     () => AUDIO_PLAYER_DEFAULT_STATES.currentTime,
   );
+
   const bufferedDuration = useState(
     STATE_NAMES.playerBufferedLength,
     () => AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
   );
+
   const duration = useState(
     STATE_NAMES.playerDuration,
     () => AUDIO_PLAYER_DEFAULT_STATES.duration,
@@ -50,6 +53,7 @@ export function useAudioPlayer() {
     STATE_NAMES.playerVolume,
     () => AUDIO_PLAYER_DEFAULT_STATES.volume,
   );
+
   const isMuted = computed(() => !volume.value);
 
   // Queue state.
@@ -57,10 +61,12 @@ export function useAudioPlayer() {
     STATE_NAMES.playerQueueList,
     () => AUDIO_PLAYER_DEFAULT_STATES.queueList,
   );
+
   const originalQueueList = useState(
     STATE_NAMES.playerOriginalQueueList,
     () => AUDIO_PLAYER_DEFAULT_STATES.originalQueueList,
   );
+
   const currentQueueIndex = useState(
     STATE_NAMES.playerCurrentQueueIndex,
     () => AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
@@ -71,6 +77,7 @@ export function useAudioPlayer() {
     STATE_NAMES.playerRepeat,
     () => AUDIO_PLAYER_DEFAULT_STATES.repeat,
   );
+
   const shuffle = useState(
     STATE_NAMES.playerShuffle,
     () => AUDIO_PLAYER_DEFAULT_STATES.shuffle,
@@ -192,123 +199,129 @@ export function useAudioPlayer() {
   }
 
   function setMediaSessionPositionState() {
-    if ('setPositionState' in navigator.mediaSession) {
-      navigator.mediaSession.setPositionState({
-        duration: duration.value,
-        playbackRate: playbackRate.value,
-        position: currentTime.value,
-      });
+    if (
+      !('setPositionState' in navigator.mediaSession && !isRadioStation.value)
+    ) {
+      return;
     }
+
+    navigator.mediaSession.setPositionState({
+      duration: duration.value,
+      playbackRate: playbackRate.value,
+      position: currentTime.value,
+    });
   }
 
   function setMediaMetadata() {
-    if ('mediaSession' in navigator && currentTrack.value) {
-      let mediaData = {};
-
-      if (isTrack.value) {
-        mediaData = {
-          album: (currentTrack.value as Track).album,
-          artist: (currentTrack.value as Track).artists
-            .map((artist) => artist.name)
-            .join(', '),
-        };
-      }
-
-      if (isPodcastEpisode.value) {
-        mediaData = {
-          album: (currentTrack.value as PodcastEpisode).podcastName,
-          artist: (currentTrack.value as PodcastEpisode).author,
-        };
-      }
-
-      navigator.mediaSession.metadata = new MediaMetadata({
-        artwork: ['96', '128', '192', '256', '384', '512'].map((size) => ({
-          sizes: `${size}x${size}`,
-          src: getImageUrl(currentTrack.value.image, size),
-          type: 'image/jpeg',
-        })),
-        title: currentTrack.value.name,
-        ...mediaData,
-      });
-
-      /* istanbul ignore next -- @preserve */
-      async function handleMediaSessionActionDetails(
-        details: Parameters<
-          NonNullable<Parameters<MediaSession['setActionHandler']>['1']>
-        >['0'],
-      ) {
-        switch (details.action) {
-          case MEDIA_SESSION_ACTION_DETAILS.nextTrack:
-            await playNextTrack();
-            break;
-          case MEDIA_SESSION_ACTION_DETAILS.pause:
-            pauseTrack();
-            break;
-          case MEDIA_SESSION_ACTION_DETAILS.play:
-            await playTrack();
-            break;
-          case MEDIA_SESSION_ACTION_DETAILS.previousTrack:
-            await playPreviousTrack();
-            break;
-          case MEDIA_SESSION_ACTION_DETAILS.seekBackward:
-            rewindTrack();
-            break;
-          case MEDIA_SESSION_ACTION_DETAILS.seekForward:
-            fastForwardTrack();
-            break;
-          case MEDIA_SESSION_ACTION_DETAILS.seekTo:
-            setCurrentTime(details.seekTime!);
-            break;
-        }
-      }
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.pause,
-        handleMediaSessionActionDetails,
-      );
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.play,
-        handleMediaSessionActionDetails,
-      );
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.seekTo,
-        handleMediaSessionActionDetails,
-      );
-
-      const nextTrackHandler = hasNextTrack.value
-        ? handleMediaSessionActionDetails
-        : null;
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.nextTrack,
-        nextTrackHandler,
-      );
-
-      const previousTrackHandler = hasPreviousTrack.value
-        ? handleMediaSessionActionDetails
-        : null;
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.previousTrack,
-        previousTrackHandler,
-      );
-
-      const podcastEpisodeHandler = isPodcastEpisode.value
-        ? handleMediaSessionActionDetails
-        : null;
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.seekBackward,
-        podcastEpisodeHandler,
-      );
-
-      navigator.mediaSession.setActionHandler(
-        MEDIA_SESSION_ACTION_DETAILS.seekForward,
-        podcastEpisodeHandler,
-      );
+    if (!('mediaSession' in navigator && currentTrack.value)) {
+      return;
     }
+
+    let mediaData = {};
+
+    if (isTrack.value) {
+      mediaData = {
+        album: (currentTrack.value as Track).album,
+        artist: (currentTrack.value as Track).artists
+          .map((artist) => artist.name)
+          .join(', '),
+      };
+    }
+
+    if (isPodcastEpisode.value) {
+      mediaData = {
+        album: (currentTrack.value as PodcastEpisode).podcastName,
+        artist: (currentTrack.value as PodcastEpisode).author,
+      };
+    }
+
+    navigator.mediaSession.metadata = new MediaMetadata({
+      artwork: ['96', '128', '192', '256', '384', '512'].map((size) => ({
+        sizes: `${size}x${size}`,
+        src: getImageUrl(currentTrack.value.image, size),
+        type: 'image/jpeg',
+      })),
+      title: currentTrack.value.name,
+      ...mediaData,
+    });
+
+    /* istanbul ignore next -- @preserve */
+    async function handleMediaSessionActionDetails(
+      details: Parameters<
+        NonNullable<Parameters<MediaSession['setActionHandler']>['1']>
+      >['0'],
+    ) {
+      switch (details.action) {
+        case MEDIA_SESSION_ACTION_DETAILS.nextTrack:
+          await playNextTrack();
+          break;
+        case MEDIA_SESSION_ACTION_DETAILS.pause:
+          pauseTrack();
+          break;
+        case MEDIA_SESSION_ACTION_DETAILS.play:
+          await playTrack();
+          break;
+        case MEDIA_SESSION_ACTION_DETAILS.previousTrack:
+          await playPreviousTrack();
+          break;
+        case MEDIA_SESSION_ACTION_DETAILS.seekBackward:
+          rewindTrack();
+          break;
+        case MEDIA_SESSION_ACTION_DETAILS.seekForward:
+          fastForwardTrack();
+          break;
+        case MEDIA_SESSION_ACTION_DETAILS.seekTo:
+          setCurrentTime(details.seekTime!);
+          break;
+      }
+    }
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.pause,
+      handleMediaSessionActionDetails,
+    );
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.play,
+      handleMediaSessionActionDetails,
+    );
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.seekTo,
+      handleMediaSessionActionDetails,
+    );
+
+    const nextTrackHandler = hasNextTrack.value
+      ? handleMediaSessionActionDetails
+      : null;
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.nextTrack,
+      nextTrackHandler,
+    );
+
+    const previousTrackHandler = hasPreviousTrack.value
+      ? handleMediaSessionActionDetails
+      : null;
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.previousTrack,
+      previousTrackHandler,
+    );
+
+    const podcastEpisodeHandler = isPodcastEpisode.value
+      ? handleMediaSessionActionDetails
+      : null;
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.seekBackward,
+      podcastEpisodeHandler,
+    );
+
+    navigator.mediaSession.setActionHandler(
+      MEDIA_SESSION_ACTION_DETAILS.seekForward,
+      podcastEpisodeHandler,
+    );
   }
 
   // Play/Pause actions.
@@ -541,12 +554,18 @@ export function useAudioPlayer() {
 
     const index = getIndex(queueList.value, id);
 
-    if (index === AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex) {
+    // If index not found.
+    if (index === -1) {
       return;
+    }
+
+    if (index < currentQueueIndex.value || isLastTrack.value) {
+      currentQueueIndex.value -= 1;
     }
 
     queueList.value.splice(index, 1);
 
+    // Check if the selected track was the current playing track.
     if (tempCurrentTrackId === id) {
       audioPlayer.value?.unload();
       currentQueueIndex.value -= 1;

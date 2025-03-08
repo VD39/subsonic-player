@@ -187,6 +187,7 @@ defineEmits([
 <style module>
 .column {
   display: grid;
+  flex: 1;
   align-self: start;
 }
 

@@ -35,7 +35,7 @@ export function usePodcast() {
       params: {
         url,
       },
-      retry: 0,
+      retry: 3,
     });
 
     if (podcastData) {
@@ -84,7 +84,7 @@ export function usePodcast() {
     openModal(MODAL_TYPE.addPodcastModal, {
       async onSubmit(podcastUrl: string) {
         await addPodcast(podcastUrl);
-        await refresh();
+        refresh();
         closeModal();
       },
     });

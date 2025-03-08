@@ -13,6 +13,7 @@ export const IMAGE_DEFAULT_BY_TYPE = {
   artist: ICONS.artist,
   folder: ICONS.folder,
   folderBack: ICONS.folderBack,
+  genre: ICONS.genre,
   noFolder: ICONS.noFolder,
   playlist: ICONS.playlist,
   podcast: ICONS.podcast,
