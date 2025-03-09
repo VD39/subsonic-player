@@ -7,7 +7,6 @@ export function useAuth() {
     expires: new Date(
       new Date().setDate(new Date().getDate() + DAYS_COOKIE_EXPIRES),
     ),
-    sameSite: true,
   });
 
   const loading = ref(false);
