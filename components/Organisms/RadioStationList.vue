@@ -55,7 +55,7 @@ defineEmits([
       </div>
 
       <div class="trackCell trackOptions">
-        <DropdownMenu ref="dropdownMenu">
+        <DropdownMenu>
           <DropdownItem
             is="a"
             v-if="radioStation.homePageUrl"

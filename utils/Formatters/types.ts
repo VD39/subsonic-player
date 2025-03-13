@@ -96,7 +96,7 @@ export interface Playlist {
   information: PlaylistInformation;
   name: string;
   trackCount: number;
-  tracks: Track[];
+  tracks: (PodcastEpisode | Track)[];
   type: MediaType;
 }
 
@@ -107,6 +107,7 @@ export interface RadioStation {
   image: Image;
   name: string;
   streamUrlId: string;
+  trackNumber: number | string;
   type: MediaType;
 }
 
@@ -129,6 +130,7 @@ export interface PodcastEpisode {
   podcastName: string;
   publishDate: string;
   streamUrlId?: string;
+  trackNumber: number | string;
   type: MediaType;
 }
 

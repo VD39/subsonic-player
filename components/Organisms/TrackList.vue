@@ -66,7 +66,7 @@ defineEmits([
       </time>
 
       <div class="trackCell trackOptions">
-        <DropdownMenu ref="dropdownMenu">
+        <DropdownMenu>
           <DropdownItem
             ref="addToPlaylist"
             @click="$emit('addToPlaylist', track.id)"

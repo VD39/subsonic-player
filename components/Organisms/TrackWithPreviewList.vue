@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -10,28 +11,43 @@ import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 
-defineProps<{
+const props = defineProps<{
   inPlaylist?: boolean;
-  tracks: Track[];
+  inQueue?: boolean;
+  tracks: (PodcastEpisode | QueueTrack | Track)[];
 }>();
 
 defineEmits([
-  'addToQueue',
   'addToPlaylist',
+  'addToQueue',
   'downloadMedia',
+  'mediaInformation',
   'playTrack',
   'removeFromPlaylist',
-  'mediaInformation',
+  'removeFromQueue',
 ]);
+
+const TRACK_HEADER = {
+  mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],
+  track: ['Track', 'Album', 'Artists', 'Duration'],
+};
+
+const trackHeader = computed(() => {
+  if (props.inPlaylist || props.inQueue) {
+    return TRACK_HEADER.mix;
+  }
+
+  return TRACK_HEADER.track;
+});
 </script>
 
 <template>
-  <div v-if="tracks.length" ref="tracksWrapper" class="trackTable">
+  <div v-if="tracks.length" ref="tracksWrapper" class="trackTable withPreview">
     <div class="trackHeader">
-      <div class="trackCell">Track</div>
-      <div class="trackCell trackSecondary">Album</div>
-      <div class="trackCell trackSecondary">Artists</div>
-      <div class="trackCell trackTime">Time</div>
+      <div class="trackCell">{{ trackHeader[0] }}</div>
+      <div class="trackCell trackSecondary">{{ trackHeader[1] }}</div>
+      <div class="trackCell trackSecondary">{{ trackHeader[2] }}</div>
+      <div class="trackCell trackTime">{{ trackHeader[3] }}</div>
       <div class="trackCell trackOptions" />
     </div>
 
@@ -53,6 +69,7 @@ defineEmits([
           <TrackMeta :track="track" class="trackMeta" />
 
           <FavouriteButton
+            v-if="'favourite' in track"
             :id="track.id"
             :type="track.type"
             :favourite="track.favourite"
@@ -61,27 +78,68 @@ defineEmits([
       </div>
 
       <div class="trackCell trackSecondary">
-        <MarqueeScroll>
+        <MarqueeScroll
+          v-if="'album' in track && track.album"
+          ref="albumMarqueeScroll"
+        >
           <LinkOrText
             :is-link="!!track.albumId"
             :text="track.album"
             :to="`/album/${track.albumId}`"
           />
         </MarqueeScroll>
+
+        <MarqueeScroll
+          v-else-if="'podcastName' in track && track.podcastName"
+          ref="podcastNameMarqueeScroll"
+        >
+          <LinkOrText
+            ref=""
+            :is-link="!!track.podcastId"
+            :text="track.podcastName"
+            :to="`/podcast/all/${track.podcastId}`"
+          />
+        </MarqueeScroll>
+
+        <p v-else ref="albumElse">{{ DEFAULT_VALUE }}</p>
       </div>
 
       <div class="trackCell trackSecondary">
-        <MarqueeScroll v-if="track.artists.length" ref="artistsMarqueeScroll">
+        <MarqueeScroll
+          v-if="'artists' in track && track.artists.length"
+          ref="artistsMarqueeScroll"
+        >
           <ArtistsList :artists="track.artists" />
         </MarqueeScroll>
+
+        <MarqueeScroll
+          v-else-if="'author' in track && track.author"
+          ref="authorMarqueeScroll"
+        >
+          <p>{{ track.author }}</p>
+        </MarqueeScroll>
+
+        <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>
       </div>
 
-      <time class="trackCell trackTime">
-        {{ track.duration }}
-      </time>
+      <div class="trackCell trackTime">
+        <time>{{ track.duration }}</time>
+      </div>
 
       <div class="trackCell trackOptions">
-        <DropdownMenu ref="dropdownMenu">
+        <ButtonLink
+          v-if="inQueue"
+          ref="removeFromQueue"
+          icon="PhX"
+          title="Remove item from queue"
+          icon-weight="bold"
+          icon-size="small"
+          @click="$emit('removeFromQueue', track.id)"
+        >
+          Remove item from queue
+        </ButtonLink>
+
+        <DropdownMenu v-else>
           <DropdownItem
             v-if="inPlaylist"
             ref="removeFromPlaylist"

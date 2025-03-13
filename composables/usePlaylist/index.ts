@@ -54,8 +54,10 @@ export function usePlaylist() {
     return playlistData;
   }
 
-  async function getPlaylistTracksById(id = 'random') {
-    playlist.value = null;
+  async function getPlaylistTracksById(id = 'random', resetPlaylist = true) {
+    if (resetPlaylist) {
+      playlist.value = null;
+    }
 
     if (id === 'random') {
       playlist.value = await getRandomTracks();
@@ -116,7 +118,7 @@ export function usePlaylist() {
   /* istanbul ignore next -- @preserve */
   async function removeFromPlaylist(params: PlaylistParam) {
     await updatePlaylist(params, 'Successfully removed from playlist.');
-    await getPlaylistTracksById(params.playlistId);
+    await getPlaylistTracksById(params.playlistId, false);
   }
 
   /* istanbul ignore next -- @preserve */

@@ -17,7 +17,6 @@ export function getTracksMock(length = 1, params = {} as Partial<Base>) {
     .map((_, index) => ({
       ...trackMock,
       ...params,
-      coverArt: params.coverArt || `genre-${index}`,
       id: `tracks-${index}`,
     }));
 }
@@ -82,6 +81,7 @@ export function getFormattedTracksMock(
       ...formattedTrackMock,
       ...params,
       id: `track-${index}`,
+      image: params.image || `image-${index}`,
       name: `track-${index}`,
     }));
 }

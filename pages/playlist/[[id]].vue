@@ -57,7 +57,7 @@ async function removeTrackFromPlaylist(songIndexToRemove: string) {
 }
 
 async function deleteSelectedPlaylist() {
-  await deletePlaylist(playlist.value!.id);
+  await deletePlaylist(route.params.id as string);
   await navigateTo('/playlists');
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import QueueList from '@/components/Organisms/QueueList.vue';
+import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 
 const {
   clearQueueList,
@@ -42,8 +42,9 @@ const { toggleQueueList } = useQueue();
 
     <h2>Queue ({{ queueList.length }})</h2>
 
-    <QueueList
+    <TrackWithPreviewList
       :tracks="queueList"
+      in-queue
       @play-track="playTrackFromQueueList"
       @remove-from-queue="removeTrackFromQueueList"
     />

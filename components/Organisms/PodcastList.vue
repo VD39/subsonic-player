@@ -123,7 +123,7 @@ defineEmits([
       </div>
 
       <div class="trackCell trackOptions trackPodcastEpisode">
-        <DropdownMenu ref="dropdownMenu">
+        <DropdownMenu>
           <template v-if="episode.downloaded">
             <DropdownItem
               ref="deleteEpisode"

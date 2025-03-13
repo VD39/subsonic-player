@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import QueueList from '@/components/Organisms/QueueList.vue';
+import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 
 const {
   clearQueueList,
@@ -31,8 +31,9 @@ useHead({
     </template>
   </HeaderWithAction>
 
-  <QueueList
+  <TrackWithPreviewList
     :tracks="queueList"
+    in-queue
     @play-track="playTrackFromQueueList"
     @remove-from-queue="removeTrackFromQueueList"
   />

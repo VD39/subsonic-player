@@ -85,7 +85,7 @@ defineEmits([
                 </h4>
               </MarqueeScroll>
 
-              <DropdownMenu ref="dropdownMenu" :class="$style.dropdownMenu">
+              <DropdownMenu :class="$style.dropdownMenu">
                 <DropdownItem
                   ref="addToPlaylist"
                   @click="$emit('addToPlaylist', track.id)"

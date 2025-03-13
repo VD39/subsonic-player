@@ -159,11 +159,16 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
   } = playlist;
 
   const name = playlistName || '(Unnamed)';
+  const tracks = entry.map((media) =>
+    media.type === 'podcastepisode'
+      ? formatPodcastEpisode({})(media as ResponsePodcastEpisode)
+      : formatTracks(media),
+  );
 
   return {
     duration: secondsToTimeFormat(duration),
     id,
-    images: getUniqueImages(entry),
+    images: getUniqueImages(tracks),
     information: {
       changed: formatDate(changed),
       comment,
@@ -173,7 +178,7 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
     },
     name,
     trackCount,
-    tracks: entry.map(formatTracks),
+    tracks,
     type: MEDIA_TYPE.playlist,
   };
 }
@@ -203,6 +208,7 @@ export function formatRadioStation(
     image: IMAGE_DEFAULT_BY_TYPE.radioStation,
     name,
     streamUrlId: streamUrl,
+    trackNumber: 0,
     type: MEDIA_TYPE.radioStation,
   };
 }
@@ -237,7 +243,6 @@ export function formatPodcastEpisode(podcast: Partial<Podcast>) {
 
     const downloaded = status === 'completed';
     const image = podcastImage || coverArt;
-    const streamUrlId = downloaded && streamId ? streamId : undefined;
 
     return {
       author,
@@ -251,7 +256,8 @@ export function formatPodcastEpisode(podcast: Partial<Podcast>) {
       podcastId,
       podcastName: podcastName! || album,
       publishDate: formatDate(publishDate, {}),
-      streamUrlId,
+      streamUrlId: streamId || id,
+      trackNumber: 0,
       type: MEDIA_TYPE.podcastEpisode,
     };
   };
