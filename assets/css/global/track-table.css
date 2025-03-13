@@ -92,10 +92,14 @@
 .trackSecondary {
   @extend .desktopOnly;
 
-  --track-cell-width: 22%;
+  --track-cell-width: 35%;
   --track-secondary-position: relative;
 
   position: var(--track-secondary-position);
+
+  .withPreview & {
+    --track-cell-width: 25%;
+  }
 }
 
 .trackMeta {

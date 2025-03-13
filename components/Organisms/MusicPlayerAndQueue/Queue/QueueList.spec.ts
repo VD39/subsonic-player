@@ -1,6 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import MediaQueueList from '@/components/Organisms/QueueList.vue';
+import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
@@ -38,13 +38,13 @@ describe('QueueList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('shows the MediaQueueList component', () => {
-    expect(wrapper.findComponent(MediaQueueList).exists()).toBe(true);
+  it('shows the TrackWithPreviewList component', () => {
+    expect(wrapper.findComponent(TrackWithPreviewList).exists()).toBe(true);
   });
 
-  describe('when MediaQueueList component emits a playTrack event', () => {
+  describe('when TrackWithPreviewList component emits a playTrack event', () => {
     beforeEach(() => {
-      wrapper.findComponent(MediaQueueList).vm.$emit('playTrack');
+      wrapper.findComponent(TrackWithPreviewList).vm.$emit('playTrack');
     });
 
     it('calls the playTrackFromQueueList function', () => {
@@ -52,9 +52,9 @@ describe('QueueList', () => {
     });
   });
 
-  describe('when MediaQueueList component emits a removeFromQueue event', () => {
+  describe('when TrackWithPreviewList component emits a removeFromQueue event', () => {
     beforeEach(() => {
-      wrapper.findComponent(MediaQueueList).vm.$emit('removeFromQueue');
+      wrapper.findComponent(TrackWithPreviewList).vm.$emit('removeFromQueue');
     });
 
     it('calls the removeTrackFromQueueList function', () => {

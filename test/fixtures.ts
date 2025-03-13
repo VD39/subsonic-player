@@ -140,6 +140,7 @@ export const podcastEpisodeMock = {
   status: 'completed',
   streamId: 'streamId',
   title: 'title',
+  type: 'podcastepisode',
 } as ResponsePodcastEpisode;
 
 export const podcastMock = {
@@ -246,6 +247,7 @@ export const formattedPodcastEpisodeMock = {
   podcastName: 'podcastName',
   publishDate: '01/01/2000',
   streamUrlId: 'streamUrlId',
+  trackNumber: 1,
   type: MEDIA_TYPE.podcastEpisode,
 } as PodcastEpisode;
 

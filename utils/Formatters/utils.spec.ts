@@ -1,5 +1,6 @@
 import {
   getAlbumsMock,
+  getFormattedTracksMock,
   getPodcastEpisodesMock,
   getTracksMock,
 } from '@/test/helpers';
@@ -114,28 +115,28 @@ describe('getUniqueImages', () => {
   describe('when tracks is defined', () => {
     describe('when tracks length is less than 4', () => {
       it('returns the correct values', () => {
-        expect(getUniqueImages(getTracksMock())).toEqual(['genre-0']);
+        expect(getUniqueImages(getFormattedTracksMock(1))).toEqual(['image-0']);
       });
     });
 
     describe('when tracks length is exactly 4', () => {
       it('returns the correct values', () => {
-        expect(getUniqueImages(getTracksMock(4))).toEqual([
-          'genre-0',
-          'genre-1',
-          'genre-2',
-          'genre-3',
+        expect(getUniqueImages(getFormattedTracksMock(4))).toEqual([
+          'image-0',
+          'image-1',
+          'image-2',
+          'image-3',
         ]);
       });
     });
 
     describe('when tracks length is more than 4', () => {
       it('returns the correct values', () => {
-        expect(getUniqueImages(getTracksMock(10))).toEqual([
-          'genre-0',
-          'genre-1',
-          'genre-2',
-          'genre-3',
+        expect(getUniqueImages(getFormattedTracksMock(10))).toEqual([
+          'image-0',
+          'image-1',
+          'image-2',
+          'image-3',
         ]);
       });
     });
@@ -143,8 +144,8 @@ describe('getUniqueImages', () => {
     describe('When all values are the same', () => {
       it('returns the correct values', () => {
         expect(
-          getUniqueImages(getTracksMock(10, { coverArt: 'sameId' })),
-        ).toEqual(['sameId']);
+          getUniqueImages(getFormattedTracksMock(10, { image: 'image' })),
+        ).toEqual(['image']);
       });
     });
   });

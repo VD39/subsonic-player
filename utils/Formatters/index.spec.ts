@@ -214,33 +214,29 @@ describe('formatArtist', () => {
     });
   });
 
-  describe('when musicBrainzId is defined', () => {
+  describe.each([
+    [
+      'musicBrainzId',
+      'musicBrainzId',
+      {
+        musicBrainzUrl: 'https://musicbrainz.org/artist/musicBrainzId',
+      },
+    ],
+    [
+      'albumCount',
+      8,
+      {
+        totalAlbums: 8,
+      },
+    ],
+  ])('when %s is defined', (key, value, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatArtist({
           ...artistMock,
-          musicBrainzId: 'musicBrainzId',
+          [key]: value,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          musicBrainzUrl: 'https://musicbrainz.org/artist/musicBrainzId',
-        }),
-      );
-    });
-  });
-
-  describe('when albumCount is defined', () => {
-    it('returns the correct values', () => {
-      expect(
-        formatArtist({
-          ...artistMock,
-          albumCount: 8,
-        }),
-      ).toEqual(
-        expect.objectContaining({
-          totalAlbums: 8,
-        }),
-      );
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 
@@ -374,11 +370,12 @@ describe('formatPodcastEpisode', () => {
       podcastName: 'name',
       publishDate: '01/01/2000',
       streamUrlId: 'streamId',
+      trackNumber: 0,
       type: 'podcastEpisode',
     });
   });
 
-  describe('when name is not defined', () => {
+  describe('when podcast name is not defined', () => {
     describe('when episode album is defined', () => {
       it('returns the correct values', () => {
         expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
@@ -405,7 +402,7 @@ describe('formatPodcastEpisode', () => {
     });
   });
 
-  describe('when image is not defined', () => {
+  describe('when podcast image is not defined', () => {
     describe('when coverArt is defined', () => {
       it('returns the correct values', () => {
         expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
@@ -432,60 +429,37 @@ describe('formatPodcastEpisode', () => {
     });
   });
 
-  describe('when artist is undefined', () => {
+  describe.each([
+    [
+      'artist',
+      {
+        author: DEFAULT_VALUE,
+      },
+    ],
+    [
+      'streamId',
+      {
+        streamUrlId: 'id',
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
         formatPodcastEpisode({})({
           ...podcastEpisodeMock,
-          artist: undefined,
+          [key]: undefined,
         }),
-      ).toEqual(
-        expect.objectContaining({
-          author: DEFAULT_VALUE,
-        }),
-      );
+      ).toEqual(expect.objectContaining(outcome));
     });
   });
 
-  describe('when status is not completed', () => {
+  describe('when streamId is defined', () => {
     it('returns the correct values', () => {
-      expect(
-        formatPodcastEpisode({})({
-          ...podcastEpisodeMock,
-          status: 'skipped',
-        }),
-      ).toEqual(
+      expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
         expect.objectContaining({
-          streamUrlId: undefined,
+          streamUrlId: 'streamId',
         }),
       );
-    });
-  });
-
-  describe('when status is completed', () => {
-    describe('when streamId is undefined', () => {
-      it('returns the correct values', () => {
-        expect(
-          formatPodcastEpisode({})({
-            ...podcastEpisodeMock,
-            streamId: undefined,
-          }),
-        ).toEqual(
-          expect.objectContaining({
-            streamUrlId: undefined,
-          }),
-        );
-      });
-    });
-
-    describe('when streamId is defined', () => {
-      it('returns the correct values', () => {
-        expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
-          expect.objectContaining({
-            streamUrlId: 'streamId',
-          }),
-        );
-      });
     });
   });
 });
@@ -508,6 +482,7 @@ describe('formatPodcast', () => {
           podcastName: 'title',
           publishDate: '01/01/2000',
           streamUrlId: 'streamId',
+          trackNumber: 0,
           type: 'podcastEpisode',
         },
       ],
@@ -589,11 +564,12 @@ describe('formatRadioStation', () => {
       image: IMAGE_DEFAULT_BY_TYPE.radioStation,
       name: 'name',
       streamUrlId: 'streamUrl',
+      trackNumber: 0,
       type: 'radioStation',
     });
   });
 
-  describe.skip('when station has homePageUrl value', () => {
+  describe.todo('when station has homePageUrl value', () => {
     it('returns the correct values', () => {
       expect(
         formatRadioStation({
@@ -798,22 +774,47 @@ describe('formatTracks', () => {
 });
 
 describe('formatPlaylist', () => {
-  it('returns the correct values', () => {
-    expect(formatPlaylist(playlistMock)).toEqual({
-      duration: '1s',
-      id: 'id',
-      images: ['coverArt'],
-      information: {
-        changed: '01 January 2000',
-        comment: '',
-        created: '01 January 2000',
-        owner: 'owner',
-        public: true,
-      },
-      name: 'name',
-      trackCount: 1,
-      tracks: expect.any(Array),
-      type: 'playlist',
+  describe('when entry media type is a podcast episode', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatPlaylist({
+          ...playlistMock,
+          entry: [podcastEpisodeMock],
+        }),
+      ).toEqual({
+        duration: '1s',
+        id: 'id',
+        images: ['coverArt'],
+        information: {
+          changed: '01 January 2000',
+          comment: '',
+          created: '01 January 2000',
+          owner: 'owner',
+          public: true,
+        },
+        name: 'name',
+        trackCount: 1,
+        tracks: expect.arrayContaining([
+          expect.objectContaining({
+            type: 'podcastEpisode',
+          }),
+        ]),
+        type: 'playlist',
+      });
+    });
+  });
+
+  describe('when entry media type is not a podcast episode', () => {
+    it('returns the correct values', () => {
+      expect(formatPlaylist(playlistMock)).toEqual(
+        expect.objectContaining({
+          tracks: expect.arrayContaining([
+            expect.objectContaining({
+              type: 'track',
+            }),
+          ]),
+        }),
+      );
     });
   });
 

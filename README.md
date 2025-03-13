@@ -1,5 +1,9 @@
 # 🎵 Subsonic Player: A Modern Subsonic Client
 
+![GitHub Actions Workflow Status][action-workflow]
+[![Docker Pulls][docker-pulls]][docker-hub]
+[![GitHub License][github-license]][license]
+
 ## 📝 Overview
 
 Subsonic player is a responsive, modern web-based client designed for [Subsonic music servers][subsonic].
@@ -138,6 +142,8 @@ This project is licensed under the AGPLv3 license. Full license details availabl
 - [GitHub Repository][github]
 - [Docker Hub][docker-hub]
 
+<!-- Links -->
+
 [nuxt]: https://nuxt.com/
 [vue]: https://vuejs.org/
 [gonic]: https://github.com/sentriz/gonic/
@@ -151,3 +157,9 @@ This project is licensed under the AGPLv3 license. Full license details availabl
 [license]: LICENSE
 [github]: https://github.com/VD39/subsonic-player
 [docker-hub]: https://hub.docker.com/r/vd39/subsonic-player
+
+<!-- Badges -->
+
+[action-workflow]: https://img.shields.io/github/actions/workflow/status/VD39/subsonic-player/ci.yml?logo=githubactions&style=flat-square
+[docker-pulls]: https://img.shields.io/docker/pulls/vd39/subsonic-player?logo=githubactions&style=flat-square
+[github-license]: https://img.shields.io/github/license/VD39/subsonic-player?logo=githubactions&style=flat-square

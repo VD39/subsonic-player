@@ -47,7 +47,7 @@ defineEmits(['deletePlaylist', 'editPlaylist']);
           </ul>
         </div>
 
-        <DropdownMenu ref="dropdownMenu">
+        <DropdownMenu>
           <DropdownItem
             ref="editPlaylist"
             @click="$emit('editPlaylist', playlist)"

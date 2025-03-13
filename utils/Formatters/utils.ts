@@ -35,8 +35,8 @@ export function getGenres(media: Base): Genre[] {
   return genre;
 }
 
-export function getUniqueImages(tracks: Base[] = []) {
-  const coverArtIds = tracks.map((track) => track.coverArt!);
+export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
+  const coverArtIds = tracks.map((track) => track.image);
   const images = [...new Set(coverArtIds)].splice(0, 4);
 
   if (!images.length) {

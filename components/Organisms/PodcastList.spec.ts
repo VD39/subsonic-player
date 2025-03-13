@@ -2,6 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
+import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
@@ -19,7 +20,7 @@ function factory(props = {}) {
     },
   });
 
-  const dropdownMenu = wrapper.findComponent({ ref: 'dropdownMenu' });
+  const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
   if (dropdownMenu.exists()) {
     dropdownMenu.findComponent(ButtonLink).vm.$emit('click');

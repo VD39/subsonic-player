@@ -11,12 +11,12 @@ exports[`QueueList > matches the snapshot 1`] = `
     </button>
   </div>
   <h2>Queue (1)</h2>
-  <div class="trackTable">
+  <div class="trackTable withPreview">
     <div class="trackHeader">
       <div class="trackCell">Track</div>
       <div class="trackCell trackSecondary">Album/Podcast</div>
       <div class="trackCell trackSecondary">Artists/Author</div>
-      <div class="trackCell trackTime">Time</div>
+      <div class="trackCell trackTime">Duration</div>
       <div class="trackCell trackOptions"></div>
     </div>
     <div class="trackRow" data-test-id="track">
@@ -76,7 +76,8 @@ exports[`QueueList > matches the snapshot 1`] = `
             </div>
           </div>
         </div>
-      </div><time class="trackCell trackTime">00:19</time>
+      </div>
+      <div class="trackCell trackTime"><time>00:19</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
           <phx class="icon" aria-hidden="true" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
         </button></div>

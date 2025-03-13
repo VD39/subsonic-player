@@ -31,7 +31,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
   </div>
   <div class="trackRow" data-test-id="folder">
     <div class="trackCell trackCell"><a class="trackCell">
-        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-0" style="display: none;"></div>
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-0" alt="track-0" style="display: none;"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-0</div>
@@ -41,7 +41,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
   </div>
   <div class="trackRow" data-test-id="folder">
     <div class="trackCell trackCell"><a class="trackCell">
-        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-1" style="display: none;"></div>
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-1" alt="track-1" style="display: none;"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-1</div>
@@ -51,7 +51,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
   </div>
   <div class="trackRow" data-test-id="folder">
     <div class="trackCell trackCell"><a class="trackCell">
-        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-2" style="display: none;"></div>
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-2" alt="track-2" style="display: none;"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-2</div>
@@ -61,7 +61,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
   </div>
   <div class="trackRow" data-test-id="folder">
     <div class="trackCell trackCell"><a class="trackCell">
-        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-3" style="display: none;"></div>
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-3" alt="track-3" style="display: none;"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-3</div>
@@ -71,7 +71,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
   </div>
   <div class="trackRow" data-test-id="folder">
     <div class="trackCell trackCell"><a class="trackCell">
-        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="track-4" style="display: none;"></div>
+        <div class="centerAll preloadImage trackImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-4" alt="track-4" style="display: none;"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-4</div>
@@ -125,7 +125,7 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-0" alt="Image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
@@ -168,7 +168,7 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-1" alt="Image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
@@ -192,7 +192,7 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-2" alt="Image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
@@ -216,7 +216,7 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-3" alt="Image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
@@ -240,7 +240,7 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image-4" alt="Image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
               <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>

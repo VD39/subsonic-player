@@ -164,7 +164,7 @@ describe('usePlaylist', () => {
             data: null,
           });
 
-          getPlaylistTracksById('playlistId');
+          getPlaylistTracksById('playlistId', false);
         });
 
         it('sets the correct playlist value', () => {
