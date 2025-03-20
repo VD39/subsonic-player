@@ -133,6 +133,7 @@ export const ICONS = {
   musicBrainz: 'PhVinylRecord',
   next: 'PhCaretDoubleRight',
   noFolder: 'PhInfo',
+  noMedia: 'PhWaveformSlash',
   notDownloaded: 'PhXCircle',
   pause: 'PhPause',
   play: 'PhPlay',

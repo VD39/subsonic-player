@@ -335,9 +335,14 @@ export function useAudioPlayer() {
       const errorMessage =
         error instanceof Error ? error : new Error(error as string);
 
-      if (errorMessage.message.includes('no supported source')) {
+      // Error can throw when user is offline.
+      // Only remove if we know they are online and media is not on the server.
+      if (
+        navigator.onLine &&
+        errorMessage.message.includes('no supported source')
+      ) {
         addErrorSnack(
-          `The track ${currentTrack.value.name} was not found and removed from queue.`,
+          `The track ${currentTrack.value.name} was not found on the server and removed from queue.`,
         );
 
         removeTrackFromQueueList(currentTrack.value.id);

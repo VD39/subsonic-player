@@ -1,15 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`InfiniteScroller > matches the snapshot 1`] = `
-"<div><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" type="button" title="Load more">
+"<div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" type="button" title="Load more">
     <!--v-if--><span class="clamp text">Load more</span>
   </button></div>"
 `;
 
 exports[`InfiniteScroller > when hasMore prop is true > matches the snapshot 1`] = `
-"<div><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" type="button" title="Load more">
+"<div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" type="button" title="Load more">
     <!--v-if--><span class="clamp text">Load more</span>
   </button></div>"
 `;
 
-exports[`InfiniteScroller > when hasMore prop is true > when loading prop is true > matches the snapshot 1`] = `"<div><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>"`;
+exports[`InfiniteScroller > when hasMore prop is true > when loading prop is true > matches the snapshot 1`] = `"<div class="infinityScroller"><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>"`;

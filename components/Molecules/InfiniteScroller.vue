@@ -52,7 +52,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="infiniteScrollerRef">
+  <div ref="infiniteScrollerRef" class="infinityScroller">
     <ButtonLink
       v-if="hasMore"
       :class="['centerAll', $style.buttonLink]"

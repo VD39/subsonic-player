@@ -15,6 +15,7 @@ export const IMAGE_DEFAULT_BY_TYPE = {
   folderBack: ICONS.folderBack,
   genre: ICONS.genre,
   noFolder: ICONS.noFolder,
+  noMedia: ICONS.noMedia,
   playlist: ICONS.playlist,
   podcast: ICONS.podcast,
   podcastEpisode: ICONS.podcastEpisode,

@@ -1017,7 +1017,7 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when play throws an error', () => {
-      describe('when error does not contain no supported source', () => {
+      describe('when navigator.onLine is false', () => {
         beforeAll(() => {
           playMock.mockImplementationOnce(() => {
             throw new Error('new Error message.');
@@ -1032,17 +1032,43 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when error contains no supported source', () => {
+      describe('when navigator.onLine is true', () => {
         beforeAll(() => {
-          playMock.mockImplementationOnce(() => {
-            throw new Error('no supported source.');
+          Object.defineProperty(window.navigator, 'onLine', {
+            configurable: true,
+            value: true,
+            writable: true,
           });
-
-          result.composable.togglePlay();
         });
 
-        it('removes the current track from queueList', () => {
-          expect(result.composable.queueList.value.length).toBe(0);
+        describe('when error does not contain no supported source', () => {
+          beforeAll(() => {
+            playMock.mockImplementationOnce(() => {
+              throw new Error('new Error message.');
+            });
+
+            result.composable.togglePlay();
+            result.composable.togglePlay();
+          });
+
+          it('does not remove the current track from queueList', () => {
+            expect(result.composable.queueList.value.length).toBe(1);
+          });
+        });
+
+        describe('when error contains no supported source', () => {
+          beforeAll(() => {
+            playMock.mockImplementationOnce(() => {
+              throw new Error('no supported source.');
+            });
+
+            result.composable.togglePlay();
+            result.composable.togglePlay();
+          });
+
+          it('removes the current track from queueList', () => {
+            expect(result.composable.queueList.value.length).toBe(0);
+          });
         });
       });
     });
