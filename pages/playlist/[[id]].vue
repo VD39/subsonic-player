@@ -43,7 +43,7 @@ const { refresh, status } = useAsyncData(
   },
 );
 
-const hasTracks = computed(() => !playlist.value?.tracks.length);
+const hasTracks = computed(() => !!playlist.value?.tracks.length);
 
 function playTrack(index: number) {
   playTracks(playlist.value!.tracks, index - 1);
@@ -88,7 +88,7 @@ useHead({
 
         <div class="list">
           <ButtonLink
-            :disabled="hasTracks"
+            :disabled="!hasTracks"
             :icon="ICONS.play"
             title="Play tracks"
             class="largeThemeHoverButton"
@@ -98,7 +98,7 @@ useHead({
           </ButtonLink>
 
           <ButtonLink
-            :disabled="hasTracks"
+            :disabled="!hasTracks"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
             @click="shuffleTracks(playlist.tracks)"

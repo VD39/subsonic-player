@@ -50,6 +50,7 @@ defineEmits([
             :image="episode.image"
             :track-number="index + 1"
             large
+            :class="$style.trackPlayPause"
             @play-track="$emit('playEpisode', episode)"
           />
 
@@ -185,6 +186,14 @@ defineEmits([
 </template>
 
 <style module>
+.trackPlayPause {
+  @media (hover: none) {
+    :global(.overlap) {
+      --play-pause-opacity: 1;
+    }
+  }
+}
+
 .column {
   display: grid;
   flex: 1;

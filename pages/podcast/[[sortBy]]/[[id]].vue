@@ -88,6 +88,8 @@ const downloadedEpisodes = computed(() =>
   ),
 );
 
+const hasDownloadedEpisodes = computed(() => !!downloadedEpisodes.value.length);
+
 function fetchData() {
   fetchMoreData((offset: number) =>
     sliceArrayBySizeAndOffset(sortedPodcast.value, LOAD_SIZE, offset),
@@ -177,6 +179,7 @@ useHead({
 
         <div class="list">
           <ButtonLink
+            :disabled="!hasDownloadedEpisodes"
             :icon="ICONS.play"
             title="Play podcast episodes"
             class="largeThemeHoverButton"
@@ -189,16 +192,18 @@ useHead({
             <DropdownItem @click="deleteSelectedPodcast">
               Delete podcast
             </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem @click="addDownloadedTracksToQueue">
-              Add episodes to queue
-            </DropdownItem>
-            <DropdownItem @click="playLatestsEpisodes">
-              Play latests episode
-            </DropdownItem>
-            <DropdownItem @click="playAllEpisodes">
-              Play all episodes
-            </DropdownItem>
+            <template v-if="hasDownloadedEpisodes">
+              <DropdownDivider />
+              <DropdownItem @click="addDownloadedTracksToQueue">
+                Add episodes to queue
+              </DropdownItem>
+              <DropdownItem @click="playLatestsEpisodes">
+                Play latests episode
+              </DropdownItem>
+              <DropdownItem @click="playAllEpisodes">
+                Play all episodes
+              </DropdownItem>
+            </template>
           </DropdownMenu>
         </div>
       </EntryHeader>

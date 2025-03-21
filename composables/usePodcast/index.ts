@@ -35,7 +35,8 @@ export function usePodcast() {
       params: {
         url,
       },
-      retry: 3,
+      // Server might return error, however, some servers still add podcast.
+      retry: 0,
     });
 
     if (podcastData) {
