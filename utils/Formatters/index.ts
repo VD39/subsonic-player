@@ -75,6 +75,9 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
     year = DEFAULT_VALUE,
   } = album;
 
+  const tracks = song.map(formatTracks);
+  const tracksByDiscNumber = groupTracksByDiscNumber(tracks);
+
   return {
     artists: getArtists(album),
     created: formatDate(created),
@@ -88,8 +91,10 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
     },
     name,
     size: bytesToMB(getAlbumSize(song)),
+    totalDiscNumber: Object.keys(tracksByDiscNumber).length,
     trackCount,
-    tracks: song.map(formatTracks),
+    tracks,
+    tracksByDiscNumber,
     type: MEDIA_TYPE.album,
     year,
   };

@@ -213,8 +213,12 @@ export const formattedAlbumMock = {
   },
   name: 'name',
   size: '0.02 KB',
+  totalDiscNumber: 1,
   trackCount: 4,
   tracks: [formattedTrackMock],
+  tracksByDiscNumber: {
+    'Disc 1': [formattedTrackMock],
+  },
   type: MEDIA_TYPE.album,
   year: 2024,
 } as Album;

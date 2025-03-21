@@ -15,6 +15,7 @@ import {
   getTracksTotal,
   getUniqueGenres,
   getUniqueImages,
+  groupTracksByDiscNumber,
 } from './utils';
 
 describe('getArtists', () => {
@@ -376,6 +377,49 @@ describe('getRandomTracksDuration', () => {
     describe('when duration is defined', () => {
       it('returns the correct values', () => {
         expect(getRandomTracksDuration(getTracksMock(10))).toEqual(190);
+      });
+    });
+  });
+});
+
+describe('groupTracksByDiscNumber', () => {
+  describe('when tracks is undefined', () => {
+    it('returns the correct values', () => {
+      expect(groupTracksByDiscNumber()).toEqual({});
+    });
+  });
+
+  describe('when tracks is not undefined', () => {
+    it('returns the correct values', () => {
+      expect(
+        groupTracksByDiscNumber([
+          ...getFormattedTracksMock(4),
+          ...getFormattedTracksMock(2, {
+            discNumber: 2,
+          }),
+          ...getFormattedTracksMock(3, {
+            discNumber: 3,
+          }),
+          ...getFormattedTracksMock(5, {
+            discNumber: 4,
+          }),
+        ]),
+      ).toEqual({
+        'Disc 1': [
+          expect.any(Object),
+          expect.any(Object),
+          expect.any(Object),
+          expect.any(Object),
+        ],
+        'Disc 2': [expect.any(Object), expect.any(Object)],
+        'Disc 3': [expect.any(Object), expect.any(Object), expect.any(Object)],
+        'Disc 4': [
+          expect.any(Object),
+          expect.any(Object),
+          expect.any(Object),
+          expect.any(Object),
+          expect.any(Object),
+        ],
       });
     });
   });

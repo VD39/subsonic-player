@@ -77,6 +77,10 @@ useHead({
             {{ albumData.album.trackCount > 1 ? ' Tracks' : ' Track' }}
           </li>
           <li>
+            <span class="strong">{{ albumData.album.totalDiscNumber }}</span>
+            {{ albumData.album.totalDiscNumber > 1 ? ' Discs' : ' Disc' }}
+          </li>
+          <li>
             <span class="visuallyHidden">Duration: </span>
             <time>{{ albumData.album.duration }}</time>
           </li>
@@ -121,14 +125,23 @@ useHead({
         </div>
       </EntryHeader>
 
-      <TrackList
-        :tracks="albumData.album.tracks"
-        @play-track="playTrack"
-        @add-to-queue="addTrackToQueue"
-        @add-to-playlist="addToPlaylistModal"
-        @media-information="openTrackInformationModal"
-        @download-media="downloadMedia"
-      />
+      <template
+        v-for="(value, disc) in albumData.album.tracksByDiscNumber"
+        :key="disc"
+      >
+        <h3 v-if="albumData.album.totalDiscNumber > 1">
+          {{ disc }}
+        </h3>
+
+        <TrackList
+          :tracks="value"
+          @play-track="playTrack"
+          @add-to-queue="addTrackToQueue"
+          @add-to-playlist="addToPlaylistModal"
+          @media-information="openTrackInformationModal"
+          @download-media="downloadMedia"
+        />
+      </template>
     </div>
 
     <NoMediaMessage

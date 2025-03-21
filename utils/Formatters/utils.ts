@@ -91,3 +91,17 @@ export function getUniqueGenres(albums: AlbumID3[] = []): Genre[] {
 export function getTracksTotal(albums: AlbumID3[] = []) {
   return albums.reduce((sum, album) => sum + album.songCount, 0);
 }
+
+export function groupTracksByDiscNumber(tracks: Track[] = []) {
+  return tracks.reduce<AlbumTracks>((acc, item) => {
+    const discNumber = `Disc ${item.discNumber}`;
+
+    if (!acc[discNumber]) {
+      acc[discNumber] = [];
+    }
+
+    acc[discNumber].push(item);
+
+    return acc;
+  }, {});
+}

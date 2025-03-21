@@ -41,6 +41,10 @@ interface AlbumTrack {
   playCount: number;
 }
 
+export interface AlbumTracks {
+  [key: string]: Track[];
+}
+
 export interface Album {
   artists: BaseArtist[];
   created: string;
@@ -52,8 +56,10 @@ export interface Album {
   information: AlbumTrack;
   name: string;
   size: string;
+  totalDiscNumber: number;
   trackCount: number;
   tracks: Track[];
+  tracksByDiscNumber: AlbumTracks;
   type: MediaType;
   year: number | string;
 }
