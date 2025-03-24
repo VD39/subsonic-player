@@ -10,7 +10,7 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "3.2.5",
+    "@chromatic-com/storybook": "3.2.6",
     "@csstools/postcss-global-data": "^3.0.0",
     "@eslint/compat": "^1.2.7",
     "@nuxt/eslint": "^1.2.0",
