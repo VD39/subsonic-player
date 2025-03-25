@@ -7359,10 +7359,10 @@ pkg-types@^2.0.0, pkg-types@^2.0.1, pkg-types@^2.1.0:
     exsolve "^1.0.1"
     pathe "^2.0.3"
 
-playwright-core@^1.50.1:
-  version "1.50.1"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.50.1.tgz#6a0484f1f1c939168f40f0ab3828c4a1592c4504"
-  integrity sha512-ra9fsNWayuYumt+NiM069M6OkcRb1FZSK8bgi66AtpFoWkg2+y0bJSNmkFrWhMbEBbVKC/EruAHH3g0zmtwGmQ==
+playwright-core@^1.51.1:
+  version "1.51.1"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.51.1.tgz#d57f0393e02416f32a47cf82b27533656a8acce1"
+  integrity sha512-/crRMj8+j/Nq5s8QcvegseuyeZPxpQCZb6HNk3Sos3BlZyAknRjoyJPFWkpNn8v0+P3WiwqFF8P+zQo4eqiNuw==
 
 pluralize@^8.0.0:
   version "8.0.0"
