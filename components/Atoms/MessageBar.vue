@@ -26,9 +26,9 @@ defineProps<{
   padding: var(--default-space) var(--default-space) var(--default-space)
     calc(var(--default-space) * 2);
   color: var(--white-color);
-  word-break: break-word;
+  word-break: normal;
   word-wrap: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   border-radius: var(--border-radius-small);
 }
 </style>
