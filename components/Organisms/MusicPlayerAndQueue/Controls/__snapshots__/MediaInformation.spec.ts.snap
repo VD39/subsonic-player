@@ -2,6 +2,6 @@
 
 exports[`MediaInformation > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Media information">
-  <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+  <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
 </button>"
 `;

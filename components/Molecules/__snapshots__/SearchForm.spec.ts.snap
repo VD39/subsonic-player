@@ -3,10 +3,10 @@
 exports[`SearchForm > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="centerItems">
-    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
-      <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
     </button>
   </div>
 </form>"
@@ -15,10 +15,10 @@ exports[`SearchForm > matches the snapshot 1`] = `
 exports[`SearchForm > when form is valid > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="centerItems">
-    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" type="text" autocomplete="off" required="" placeholder="Enter query" class="input">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
-      <phmagnifyingglass class="icon" aria-hidden="true" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
     </button>
   </div>
 </form>"

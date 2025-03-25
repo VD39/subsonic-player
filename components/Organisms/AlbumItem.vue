@@ -38,15 +38,15 @@ const toLink = `/album/${props.album.id}`;
   <article>
     <div :class="$style.albumImageWrapper">
       <ImageLink
-        :to="toLink"
-        :title="`Go to album ${album.name}`"
-        :image="album.image"
         class="mBS"
+        :image="album.image"
+        :title="`Go to album ${album.name}`"
+        :to="toLink"
       />
 
       <ButtonLink
-        :icon="buttonProps.icon"
         :class="['themeHoverButton', $style.buttonLink]"
+        :icon="buttonProps.icon"
         :title="buttonProps.text"
         @click="playAlbumTracks(album.id)"
       >
@@ -56,9 +56,9 @@ const toLink = `/album/${props.album.id}`;
 
     <p class="mBXS strong smallFont clamp2">
       <NuxtLink
-        :to="toLink"
-        class="link"
         :aria-label="`Go to album ${album.name}`"
+        class="link"
+        :to="toLink"
       >
         {{ album.name }}
       </NuxtLink>

@@ -6,17 +6,19 @@ defineProps<{
   image: Image;
 }>();
 
-defineEmits(['downloadEpisode']);
+defineEmits<{
+  downloadEpisode: [];
+}>();
 </script>
 
 <template>
   <div :class="['overlapWrapper', $style.downloadPodcastEpisode]">
-    <PreloadImage :image="image" class="overlap" />
+    <PreloadImage class="overlap" :image="image" />
 
     <ButtonLink
+      :class="['overlap', $style.buttonLink]"
       :icon="ICONS.download"
       title="Download episode"
-      :class="['overlap', $style.buttonLink]"
       @click="$emit('downloadEpisode')"
     >
       Download episode

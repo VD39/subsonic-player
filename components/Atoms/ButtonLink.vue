@@ -49,11 +49,11 @@ const isComponent =
       :is="icon"
       v-if="icon"
       ref="iconComponent"
-      :class="$style.icon"
       aria-hidden="true"
+      :class="$style.icon"
+      :color="iconColor"
       :size="ICON_SIZE[iconSize]"
       :weight="iconWeight"
-      :color="iconColor"
     />
 
     <span

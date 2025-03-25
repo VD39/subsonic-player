@@ -4,13 +4,13 @@ exports[`MobileNavigation > matches the snapshot 1`] = `
 "<nav>
   <ul class="inner centerAll spaceBetween mobileNavigation">
     <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
-        <phcompass class="icon" aria-hidden="true" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
+        <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
       </a></li>
     <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
-        <phmusicnotes class="icon" aria-hidden="true" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
+        <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
       </a></li>
     <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
-        <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+        <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
       </a></li>
   </ul>
 </nav>"

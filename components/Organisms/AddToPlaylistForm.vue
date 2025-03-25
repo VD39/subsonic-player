@@ -3,15 +3,27 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputField from '@/components/Atoms/InputField.vue';
 import SubmitButton from '@/components/Molecules/SubmitButton.vue';
 
-const emit = defineEmits(['submit', 'addToPlaylist', 'removeFromPlaylist']);
-
-const selectedItems = ref<string[]>([]);
-
 defineProps<{
   loading: boolean;
   playlists: Playlist[];
   trackId: string;
 }>();
+
+const emit = defineEmits<{
+  addToPlaylist: [
+    value: {
+      playlistId: string;
+    },
+  ];
+  removeFromPlaylist: [
+    value: {
+      playlistId: string;
+    },
+  ];
+  submit: [value: string | string[]];
+}>();
+
+const selectedItems = ref<string[]>([]);
 
 const formInputs = {
   name: {
@@ -86,9 +98,9 @@ function getButtonProps(playlistId: string) {
       >
         <div class="trackCell">
           <NuxtLink
-            :to="`/playlist/${playlist.id}`"
-            :class="['mBS', $style.nuxtLink]"
             :aria-label="`Go to playlist ${playlist.name}`"
+            :class="['mBS', $style.nuxtLink]"
+            :to="`/playlist/${playlist.id}`"
           >
             {{ playlist.name }}
           </NuxtLink>
@@ -120,11 +132,11 @@ function getButtonProps(playlistId: string) {
         :id="form.fields.name.id"
         ref="playlistName"
         v-model="form.fields.name.value.value"
-        hide-label
         class="formField"
+        :error="form.fields.name.error.value"
+        hide-label
         :label="form.fields.name.label"
         placeholder="Add Playlist"
-        :error="form.fields.name.error.value"
       />
 
       <SubmitButton :loading="loading">Add</SubmitButton>

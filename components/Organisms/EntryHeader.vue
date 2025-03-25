@@ -11,9 +11,9 @@ defineProps<{
 <template>
   <div :class="$style.entryHeader">
     <PreloadImage
-      :image="images[0]"
       :alt="title"
       :class="$style.backgroundImage"
+      :image="images[0]"
     />
 
     <div :class="$style.blur" />
@@ -24,10 +24,10 @@ defineProps<{
       <PreloadImage
         v-for="image in images"
         :key="image"
-        :image="image"
-        :class="$style.preloadImage"
         :alt="title"
+        :class="$style.preloadImage"
         data-test-id="image"
+        :image="image"
       />
     </figure>
 

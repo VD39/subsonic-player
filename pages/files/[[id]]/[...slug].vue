@@ -55,11 +55,11 @@ useHead({
     <FilesList
       :folders="musicDirectoryData.musicDirectory.folders"
       :tracks="musicDirectoryData.musicDirectory.tracks"
-      @play-track="playTrack"
-      @add-to-queue="addTrackToQueue"
       @add-to-playlist="addToPlaylistModal"
-      @media-information="openTrackInformationModal"
+      @add-to-queue="addTrackToQueue"
       @download-media="downloadMedia"
+      @media-information="openTrackInformationModal"
+      @play-track="playTrack"
     />
   </LoadingData>
 </template>

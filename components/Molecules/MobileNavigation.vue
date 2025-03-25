@@ -15,11 +15,11 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
         <ButtonLink
           is="nuxt-link"
           v-if="item.icon"
-          :to="item.to"
-          :icon="item.icon"
           class="link smallFont column centerAll"
-          :title="item.title"
+          :icon="item.icon"
           show-text
+          :title="item.title"
+          :to="item.to"
         >
           {{ item.title }}
         </ButtonLink>

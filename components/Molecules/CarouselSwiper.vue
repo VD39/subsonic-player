@@ -46,14 +46,14 @@ const swiper = useSwiper(swiperRef, {
     </swiper-container>
 
     <ButtonLink
-      :icon="ICONS.previous"
       :class="$style.previous"
+      :icon="ICONS.previous"
       @click="swiper.prev()"
     >
       Previous slide
     </ButtonLink>
 
-    <ButtonLink :icon="ICONS.next" :class="$style.next" @click="swiper.next()">
+    <ButtonLink :class="$style.next" :icon="ICONS.next" @click="swiper.next()">
       Next slide
     </ButtonLink>
   </div>

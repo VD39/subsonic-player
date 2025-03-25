@@ -16,11 +16,11 @@ const { toggleQueueList } = useQueue();
     <div class="centerAll">
       <ButtonLink
         ref="closeQueueList"
+        class="queueAction"
+        full-width
         :icon="ICONS.queueClose"
         icon-weight="bold"
         title="Close queue list"
-        full-width
-        class="queueAction"
         @click="toggleQueueList"
       >
         Close queue list
@@ -43,8 +43,8 @@ const { toggleQueueList } = useQueue();
     <h2>Queue ({{ queueList.length }})</h2>
 
     <TrackWithPreviewList
-      :tracks="queueList"
       in-queue
+      :tracks="queueList"
       @play-track="playTrackFromQueueList"
       @remove-from-queue="removeTrackFromQueueList"
     />

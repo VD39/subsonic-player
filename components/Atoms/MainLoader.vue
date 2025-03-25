@@ -2,14 +2,14 @@
   <span :class="$style.mainLoader">
     <span :class="$style.headphones">
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         fill="none"
         stroke="currentColor"
-        stroke-width="1.25"
         stroke-linecap="round"
         stroke-linejoin="round"
+        stroke-width="1.25"
         viewBox="0 0 24 24"
         width="75"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5" />
         <path

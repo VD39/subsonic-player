@@ -7,14 +7,15 @@ defineProps<{
   selected?: boolean;
 }>();
 
-defineEmits(['click']);
+defineEmits<{
+  click: [];
+}>();
 </script>
 
 <template>
   <li :class="$style.dropdownItem">
     <ButtonLink
       :is="is"
-      :icon="icon"
       :class="[
         'spaceBetween',
         $style.buttonLink,
@@ -22,9 +23,10 @@ defineEmits(['click']);
           [$style.selected]: selected,
         },
       ]"
-      show-text
-      icon-position="right"
       full-width
+      :icon="icon"
+      icon-position="right"
+      show-text
       v-bind="$attrs"
       @click="$emit('click')"
     >

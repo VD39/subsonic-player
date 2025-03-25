@@ -32,8 +32,8 @@ useHead({
   </HeaderWithAction>
 
   <TrackWithPreviewList
-    :tracks="queueList"
     in-queue
+    :tracks="queueList"
     @play-track="playTrackFromQueueList"
     @remove-from-queue="removeTrackFromQueueList"
   />

@@ -44,8 +44,8 @@ useHead({
       <RefreshButton :status="status" @refresh="refresh" />
 
       <ButtonLink
-        icon-size="large"
         :icon="ICONS.add"
+        icon-size="large"
         title="Add playlist"
         @click="addPlaylistModal"
       >

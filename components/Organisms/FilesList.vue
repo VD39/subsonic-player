@@ -11,13 +11,13 @@ defineProps<{
   tracks: Track[];
 }>();
 
-defineEmits([
-  'addToQueue',
-  'addToPlaylist',
-  'downloadMedia',
-  'playTrack',
-  'mediaInformation',
-]);
+defineEmits<{
+  addToPlaylist: [value: string];
+  addToQueue: [value: Track];
+  downloadMedia: [value: string];
+  mediaInformation: [value: Track];
+  playTrack: [value: number];
+}>();
 </script>
 
 <template>
@@ -25,13 +25,13 @@ defineEmits([
     <div v-if="$route.params.id" ref="goBack" class="trackRow">
       <div :class="['trackCell', $style.trackCell]">
         <NuxtLink
-          :to="$route.fullPath.split('/').slice(0, -1).join('/')"
           class="trackCell"
+          :to="$route.fullPath.split('/').slice(0, -1).join('/')"
         >
           <PreloadImage
-            :image="IMAGE_DEFAULT_BY_TYPE.folderBack"
             alt="Go back"
             :class="$style.trackImage"
+            :image="IMAGE_DEFAULT_BY_TYPE.folderBack"
           />
           ...
           <p class="visuallyHidden">Go back</p>
@@ -48,11 +48,11 @@ defineEmits([
           data-test-id="folder"
         >
           <div :class="['trackCell', $style.trackCell]">
-            <NuxtLink :to="`${$route.fullPath}/${folder.id}`" class="trackCell">
+            <NuxtLink class="trackCell" :to="`${$route.fullPath}/${folder.id}`">
               <PreloadImage
-                :image="folder.image"
                 :alt="folder.name"
                 :class="$style.trackImage"
+                :image="folder.image"
               />
 
               <MarqueeScroll class="mBXS" inert>
@@ -73,8 +73,8 @@ defineEmits([
           <div class="trackCell">
             <div>
               <TrackPlayPause
-                :track-id="track.id"
                 :image="track.image"
+                :track-id="track.id"
                 :track-number="track.trackNumber"
                 @play-track="$emit('playTrack', index)"
               />
@@ -128,9 +128,9 @@ defineEmits([
       <div ref="noFoldersFiles" class="trackCell">
         <div>
           <PreloadImage
-            :image="IMAGE_DEFAULT_BY_TYPE.noFolder"
             alt="Go back"
             :class="$style.trackImage"
+            :image="IMAGE_DEFAULT_BY_TYPE.noFolder"
           />
 
           <p>No folders/files found.</p>

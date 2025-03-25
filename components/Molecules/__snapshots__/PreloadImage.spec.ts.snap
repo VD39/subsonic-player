@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Default > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>"`;
+exports[`Default > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>"`;
 
 exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhApplePodcastsLogo > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
@@ -98,8 +98,8 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when alt prop is set to true > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Alt text for image" style="display: none;"></div>"`;
+exports[`Default > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when alt prop is set to true > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Alt text for image" class="image" src="image" style="display: none;"></div>"`;
 
-exports[`Default > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when image has finished loading > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader" style="display: none;"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image"></div>"`;
+exports[`Default > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when image has finished loading > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader" style="display: none;"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image"></div>"`;
 
-exports[`Default > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when image prop is a URL > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="https://test.com" alt="Image" style="display: none;"></div>"`;
+exports[`Default > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when image prop is a URL > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="https://test.com" style="display: none;"></div>"`;

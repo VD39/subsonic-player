@@ -81,26 +81,26 @@ useHead({
         <div class="list">
           <FavouriteButton
             :id="artistData.artist.id"
-            type="artist"
             :favourite="artistData.artist.favourite"
+            type="artist"
           />
 
           <ButtonLink
             is="a"
             v-if="artistData.artist.lastFmUrl"
-            :icon="ICONS.lastFm"
-            title="LastFm"
             :href="artistData.artist.lastFmUrl"
+            :icon="ICONS.lastFm"
             target="_blank"
+            title="LastFm"
           />
 
           <ButtonLink
             is="a"
             v-if="artistData.artist.musicBrainzUrl"
-            :icon="ICONS.musicBrainz"
-            title="MusicBrainz"
             :href="artistData.artist.musicBrainzUrl"
+            :icon="ICONS.musicBrainz"
             target="_blank"
+            title="MusicBrainz"
           />
         </div>
       </EntryHeader>

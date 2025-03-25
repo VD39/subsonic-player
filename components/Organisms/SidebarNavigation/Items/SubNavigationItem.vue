@@ -13,12 +13,12 @@ defineProps<{
   <li>
     <ButtonLink
       is="nuxt-link"
-      :to="to"
-      :icon="icon"
       class="sidebarLink"
       exact-active-class="sidebarCurrentLink"
+      :icon="icon"
       :show-text="!collapsed"
       :title="title"
+      :to="to"
     >
       {{ title }}
     </ButtonLink>

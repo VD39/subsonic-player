@@ -12,9 +12,9 @@ defineProps<{
       data-test-id="genre-list-item"
     >
       <NuxtLink
-        :to="`/genre/albums/${encodeURIComponent(genre.name)}`"
-        class="link"
         :aria-label="`View all albums with ${genre.name} genre`"
+        class="link"
+        :to="`/genre/albums/${encodeURIComponent(genre.name)}`"
       >
         {{ genre.name }}
       </NuxtLink>

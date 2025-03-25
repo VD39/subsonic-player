@@ -14,12 +14,12 @@ const ariaValueText = computed(
   <InputRange
     v-slot="{ pendingValue }"
     v-model="currentTime"
-    :buffer="bufferedDuration"
-    :min="0"
-    :max="duration"
-    delay
     aria-label="Seek"
     :aria-valuetext="ariaValueText"
+    :buffer="bufferedDuration"
+    delay
+    :max="duration"
+    :min="0"
     @change="setCurrentTime"
   >
     {{ secondsToHHMMSS(pendingValue) }}

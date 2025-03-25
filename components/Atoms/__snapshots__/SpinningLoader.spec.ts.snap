@@ -1,5 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SpinningLoader > matches the snapshot 1`] = `"<span class="centerItems spinningLoader"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;
+exports[`SpinningLoader > matches the snapshot 1`] = `"<span class="centerItems spinningLoader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;
 
-exports[`SpinningLoader > when fullWidth prop is set to true > matches the snapshot 1`] = `"<span class="centerItems spinningLoader"><phcirclenotch size="32" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;
+exports[`SpinningLoader > when fullWidth prop is set to true > matches the snapshot 1`] = `"<span class="centerItems spinningLoader"><phcirclenotch class="icon" size="32"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;

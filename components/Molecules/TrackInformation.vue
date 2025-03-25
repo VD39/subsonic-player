@@ -82,8 +82,8 @@ defineProps<{
       <div class="trackCell">
         <GenreList
           v-if="track.genres.length"
-          :genres="track.genres"
           :class="$style.list"
+          :genres="track.genres"
         />
 
         <p v-else ref="genresElse">{{ DEFAULT_VALUE }}</p>

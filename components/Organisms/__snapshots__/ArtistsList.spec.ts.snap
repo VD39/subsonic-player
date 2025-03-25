@@ -11,33 +11,33 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5;">
   <article>
     <figure class="mBS"><a title="Go to artist artist-0">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to artist artist-0" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" src="image" style="display: none;"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to artist artist-0">artist-0</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="link">artist-0</a></p>
   </article>
   <article>
     <figure class="mBS"><a title="Go to artist artist-1">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to artist artist-1" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" src="image" style="display: none;"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to artist artist-1">artist-1</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="link">artist-1</a></p>
   </article>
   <article>
     <figure class="mBS"><a title="Go to artist artist-2">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to artist artist-2" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" src="image" style="display: none;"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to artist artist-2">artist-2</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="link">artist-2</a></p>
   </article>
   <article>
     <figure class="mBS"><a title="Go to artist artist-3">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to artist artist-3" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" src="image" style="display: none;"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to artist artist-3">artist-3</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="link">artist-3</a></p>
   </article>
   <article>
     <figure class="mBS"><a title="Go to artist artist-4">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to artist artist-4" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" src="image" style="display: none;"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to artist artist-4">artist-4</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="link">artist-4</a></p>
   </article>
 </section>"
 `;

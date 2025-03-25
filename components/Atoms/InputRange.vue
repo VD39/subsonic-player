@@ -6,7 +6,9 @@ const props = defineProps<{
   min: number;
 }>();
 
-const emit = defineEmits(['change']);
+const emit = defineEmits<{
+  change: [value: number];
+}>();
 
 const internalModal = defineModel<number>();
 
@@ -66,7 +68,7 @@ function handleModifyProgress(event: MouseEvent | TouchEvent) {
 
 function updateValue() {
   internalModal.value = pendingValue.value;
-  emit('change', pendingValue.value);
+  emit('change', pendingValue.value!);
 }
 
 function onMouseMove(event: MouseEvent | TouchEvent) {
@@ -151,8 +153,8 @@ onUnmounted(() => {
       ref="sliderRef"
       :class="['centerItems', $style.slider]"
       @mousedown.stop.prevent="onSliderMouseDown"
-      @mouseover="onSliderMouseOver"
       @mousemove="onSliderMouseMove"
+      @mouseover="onSliderMouseOver"
       @touchstart.stop.passive="onSliderMouseDown"
     >
       <div :class="$style.progressWrapper">

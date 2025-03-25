@@ -4,7 +4,9 @@ const props = defineProps<{
   text: string;
 }>();
 
-defineEmits(['more']);
+defineEmits<{
+  more: [];
+}>();
 
 const showButton = ref(false);
 const textRef = ref<HTMLElement | null>(null);

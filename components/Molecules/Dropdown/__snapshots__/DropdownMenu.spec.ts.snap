@@ -2,7 +2,7 @@
 
 exports[`DropdownMenu > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <!--v-if-->
 </div>"
@@ -10,7 +10,7 @@ exports[`DropdownMenu > matches the snapshot 1`] = `
 
 exports[`DropdownMenu > when the ButtonLink component is clicked > when a non esc key is pressed > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown above fade-enter-from fade-enter-active">
     <ul>Default slot content.</ul>
@@ -20,7 +20,7 @@ exports[`DropdownMenu > when the ButtonLink component is clicked > when a non es
 
 exports[`DropdownMenu > when the ButtonLink component is clicked > when document body is clicked > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
     <ul>Default slot content.</ul>
@@ -31,7 +31,7 @@ exports[`DropdownMenu > when the ButtonLink component is clicked > when document
 
 exports[`DropdownMenu > when the ButtonLink component is clicked > when dropdown element is clicked > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
     <ul>Default slot content.</ul>
@@ -42,7 +42,7 @@ exports[`DropdownMenu > when the ButtonLink component is clicked > when dropdown
 
 exports[`DropdownMenu > when the ButtonLink component is clicked > when dropdown height is not less than window height > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown fade-enter-from fade-enter-active">
     <ul>Default slot content.</ul>
@@ -52,7 +52,7 @@ exports[`DropdownMenu > when the ButtonLink component is clicked > when dropdown
 
 exports[`DropdownMenu > when the ButtonLink component is clicked > when esc key is pressed > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
     <ul>Default slot content.</ul>
@@ -63,7 +63,7 @@ exports[`DropdownMenu > when the ButtonLink component is clicked > when esc key 
 
 exports[`DropdownMenu > when the ButtonLink component is clicked > when the ButtonLink component is clicked again > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown above fade-enter-from fade-leave-from fade-leave-active">
     <ul>Default slot content.</ul>

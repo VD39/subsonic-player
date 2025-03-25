@@ -8,11 +8,11 @@ exports[`ModalWindow > when modal values are not set > matches the snapshot 1`] 
 
 exports[`ModalWindow > when modal values are set > matches the snapshot 1`] = `
 "<teleport-stub to="#teleports">
-  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fullscreen centerAll fade-enter-from fade-enter-active">
+  <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll fade-enter-from fade-enter-active" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
-            <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -25,11 +25,11 @@ exports[`ModalWindow > when modal values are set > matches the snapshot 1`] = `
 
 exports[`ModalWindow > when modal values are set > when modal container is clicked > matches the snapshot 1`] = `
 "<teleport-stub to="#teleports">
-  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fullscreen centerAll fade-leave-from fade-leave-active">
+  <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll fade-leave-from fade-leave-active" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
-            <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -43,11 +43,11 @@ exports[`ModalWindow > when modal values are set > when modal container is click
 
 exports[`ModalWindow > when modal values are set > when modal content is clicked > matches the snapshot 1`] = `
 "<teleport-stub to="#teleports">
-  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fullscreen centerAll">
+  <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
-            <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -60,11 +60,11 @@ exports[`ModalWindow > when modal values are set > when modal content is clicked
 
 exports[`ModalWindow > when modal values are set > when the ButtonLink component is clicked > matches the snapshot 1`] = `
 "<teleport-stub to="#teleports">
-  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fullscreen centerAll fade-enter-from fade-leave-from fade-leave-active">
+  <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll fade-enter-from fade-leave-from fade-leave-active" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
-            <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -78,12 +78,12 @@ exports[`ModalWindow > when modal values are set > when the ButtonLink component
 
 exports[`ModalWindow > when modal values are set > when title is set > matches the snapshot 1`] = `
 "<teleport-stub to="#teleports">
-  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fullscreen centerAll">
+  <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
         <h3 class="title">Title</h3>
         <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
-            <phx class="icon" aria-hidden="true" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">

@@ -49,7 +49,7 @@ function playTrack(index: number) {
   playTracks(playlist.value!.tracks, index - 1);
 }
 
-async function removeTrackFromPlaylist(songIndexToRemove: string) {
+async function removeTrackFromPlaylist(songIndexToRemove: number) {
   await removeFromPlaylist({
     playlistId: route.params.id as string,
     songIndexToRemove,
@@ -88,10 +88,10 @@ useHead({
 
         <div class="list">
           <ButtonLink
+            class="largeThemeHoverButton"
             :disabled="!hasTracks"
             :icon="ICONS.play"
             title="Play tracks"
-            class="largeThemeHoverButton"
             @click="playTracks(playlist.tracks)"
           >
             Play tracks
@@ -128,13 +128,13 @@ useHead({
       </EntryHeader>
 
       <TrackWithPreviewList
-        :tracks="playlist.tracks"
         in-playlist
-        @play-track="playTrack"
+        :tracks="playlist.tracks"
         @add-to-queue="addTrackToQueue"
-        @remove-from-playlist="removeTrackFromPlaylist"
-        @media-information="openTrackInformationModal"
         @download-media="downloadMedia"
+        @media-information="openTrackInformationModal"
+        @play-track="playTrack"
+        @remove-from-playlist="removeTrackFromPlaylist"
       />
     </div>
 

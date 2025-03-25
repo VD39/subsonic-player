@@ -2,24 +2,24 @@
 
 exports[`FavouriteButton > when favourite prop is set to false > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Like album">
-  <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like album</span>
+  <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like album</span>
 </button>"
 `;
 
 exports[`FavouriteButton > when favourite prop is set to false > when the ButtonLink component is clicked > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Unlike album">
-  <phheart class="icon" aria-hidden="true" size="24" weight="fill" color="var(--error-color)"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+  <phheart aria-hidden="true" class="icon" size="24" weight="fill" color="var(--error-color)"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
 </button>"
 `;
 
 exports[`FavouriteButton > when favourite prop is set to true > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Unlike album">
-  <phheart class="icon" aria-hidden="true" size="24" weight="fill" color="var(--error-color)"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+  <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
 </button>"
 `;
 
 exports[`FavouriteButton > when favourite prop is set to true > when the ButtonLink component is clicked > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Like album">
-  <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like album</span>
+  <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like album</span>
 </button>"
 `;

@@ -32,7 +32,14 @@ export default withNuxt(
       'no-unused-vars': 'off',
       'object-shorthand': ['error', 'always'],
       'prefer-const': 'error',
+      'vue/attributes-order': [
+        'error',
+        {
+          alphabetical: true,
+        },
+      ],
       'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+      'vue/define-emits-declaration': ['error', 'type-literal'],
       'vue/no-multiple-template-root': 'off',
     },
   },

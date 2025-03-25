@@ -9,9 +9,9 @@ defineProps<{
 <template>
   <article>
     <ImageLink
-      :to="`/podcast/all/${podcast.id}`"
-      :title="`Go to podcast ${podcast.name}`"
       :image="podcast.image"
+      :title="`Go to podcast ${podcast.name}`"
+      :to="`/podcast/all/${podcast.id}`"
     />
   </article>
 </template>

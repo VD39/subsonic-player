@@ -11,7 +11,9 @@ defineProps<{
   trackNumber: number | string;
 }>();
 
-defineEmits(['playTrack']);
+defineEmits<{
+  playTrack: [];
+}>();
 
 const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
   useAudioPlayer();
@@ -29,7 +31,7 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
       },
     ]"
   >
-    <PreloadImage v-if="image" :image="image" class="overlap" />
+    <PreloadImage v-if="image" class="overlap" :image="image" />
 
     <p v-else ref="trackNumber" :class="['overlap', $style.trackNumber]">
       {{ trackNumber }}
@@ -61,13 +63,13 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
       <ButtonLink
         v-else
         ref="play"
-        :icon="ICONS.play"
         :class="[
           'centerAll',
           'themeHoverButton',
           'globalLink',
           $style.buttonLink,
         ]"
+        :icon="ICONS.play"
         @click="$emit('playTrack')"
       >
         Play track

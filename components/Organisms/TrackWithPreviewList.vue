@@ -17,15 +17,15 @@ const props = defineProps<{
   tracks: (PodcastEpisode | QueueTrack | Track)[];
 }>();
 
-defineEmits([
-  'addToPlaylist',
-  'addToQueue',
-  'downloadMedia',
-  'mediaInformation',
-  'playTrack',
-  'removeFromPlaylist',
-  'removeFromQueue',
-]);
+defineEmits<{
+  addToPlaylist: [value: string];
+  addToQueue: [value: PodcastEpisode | QueueTrack | Track];
+  downloadMedia: [value: string];
+  mediaInformation: [value: PodcastEpisode | QueueTrack | Track];
+  playTrack: [value: number];
+  removeFromPlaylist: [value: number];
+  removeFromQueue: [value: string];
+}>();
 
 const TRACK_HEADER = {
   mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],
@@ -60,19 +60,19 @@ const trackHeader = computed(() => {
       <div class="trackCell">
         <div>
           <TrackPlayPause
-            :track-id="track.id"
             :image="track.image"
+            :track-id="track.id"
             :track-number="track.trackNumber"
             @play-track="$emit('playTrack', index)"
           />
 
-          <TrackMeta :track="track" class="trackMeta" />
+          <TrackMeta class="trackMeta" :track="track" />
 
           <FavouriteButton
             v-if="'favourite' in track"
             :id="track.id"
-            :type="track.type"
             :favourite="track.favourite"
+            :type="track.type"
           />
         </div>
       </div>
@@ -131,9 +131,9 @@ const trackHeader = computed(() => {
           v-if="inQueue"
           ref="removeFromQueue"
           icon="PhX"
-          title="Remove item from queue"
-          icon-weight="bold"
           icon-size="small"
+          icon-weight="bold"
+          title="Remove item from queue"
           @click="$emit('removeFromQueue', track.id)"
         >
           Remove item from queue

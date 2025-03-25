@@ -2,7 +2,7 @@
 
 exports[`QueuePlayer > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -10,7 +10,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -42,38 +42,38 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
             </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when currentTrack value does not have a favourite key > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -81,7 +81,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -98,15 +98,15 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -134,22 +134,22 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions">
             <!--v-if-->
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -159,14 +159,14 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -174,7 +174,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -191,15 +191,15 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -221,23 +221,23 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -247,14 +247,14 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value contain author > when currentTrack.author is undefined > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -262,7 +262,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -279,15 +279,15 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -309,23 +309,23 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -335,14 +335,14 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does have a podcastId key > when currentTrack.podcastId is defined > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -350,7 +350,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -367,19 +367,19 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
-            </div><a data-test-id="link" class="link">podcastName</a>
+            </div><a class="link" data-test-id="link">podcastName</a>
             <!--v-if-->
           </div>
           <div class="fullWidth">
@@ -396,23 +396,23 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -422,14 +422,14 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does have a podcastId key > when currentTrack.podcastId is undefined > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -437,7 +437,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -454,15 +454,15 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -484,23 +484,23 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -510,14 +510,14 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does not have an author key > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -525,7 +525,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -542,19 +542,19 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
-            </div><a data-test-id="link" class="link">podcastName</a>
+            </div><a class="link" data-test-id="link">podcastName</a>
             <!--v-if-->
           </div>
           <div class="fullWidth">
@@ -571,23 +571,23 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -597,14 +597,14 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does not have an podcastId key > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -612,7 +612,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -629,15 +629,15 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -659,23 +659,23 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
-              <phrewind class="icon" aria-hidden="true" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
+              <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
-              <phfastforward class="icon" aria-hidden="true" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-                <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
               </button>
               <!--v-if-->
             </div>
@@ -685,14 +685,14 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isRadioStation value is false > when duration value is greater than 0 > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -700,7 +700,7 @@ exports[`QueuePlayer > when isRadioStation value is false > when duration value 
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -717,15 +717,15 @@ exports[`QueuePlayer > when isRadioStation value is false > when duration value 
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -746,38 +746,38 @@ exports[`QueuePlayer > when isRadioStation value is false > when duration value 
             <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>00:10</time></div>
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
             </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -785,7 +785,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -802,15 +802,15 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -831,17 +831,17 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
             <!--v-if-->
@@ -852,14 +852,14 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album is undefined > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -867,7 +867,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -887,8 +887,8 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -909,38 +909,38 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
             </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artists is an empty array > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -948,7 +948,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -965,7 +965,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <!--v-if-->
@@ -985,38 +985,38 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
             </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isTrack value is true > when the track does not have an album key > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -1024,7 +1024,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -1044,8 +1044,8 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-                    <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -1066,38 +1066,38 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
             </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;
 
 exports[`QueuePlayer > when isTrack value is true > when the track does not have an artists key > matches the snapshot 1`] = `
 "<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown class="icon" aria-hidden="true" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
   <div class="column playerWrapper">
     <div class="wrapper">
@@ -1105,7 +1105,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
             </div>
           </div>
         </div>
@@ -1122,7 +1122,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             </div>
             <div class="marqueeScroll">
               <div class="bulletList inner">
-                <div class="content"><a data-test-id="link" class="link">album</a></div>
+                <div class="content"><a class="link" data-test-id="link">album</a></div>
               </div>
             </div>
             <!--v-if-->
@@ -1142,31 +1142,31 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback class="icon" aria-hidden="true" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward class="icon" aria-hidden="true" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart class="icon" aria-hidden="true" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
             </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
             <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo class="icon" aria-hidden="true" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist class="icon" aria-hidden="true" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
+    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
 </div>"
 `;

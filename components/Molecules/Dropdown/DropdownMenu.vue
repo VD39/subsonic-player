@@ -15,7 +15,10 @@ withDefaults(
   },
 );
 
-const emit = defineEmits(['opened', 'closed']);
+const emit = defineEmits<{
+  closed: [];
+  opened: [];
+}>();
 
 const isOpen = ref(false);
 const showAbove = ref(false);
@@ -80,10 +83,10 @@ async function toggleDropdown() {
 <template>
   <div ref="dropdownMenuRef" :class="['centerItems', $style.dropdownMenu]">
     <ButtonLink
-      :icon="icon"
       :class="$style.buttonLink"
-      :show-text="showText"
+      :icon="icon"
       icon-position="right"
+      :show-text="showText"
       :title="title"
       @click="toggleDropdown"
     >

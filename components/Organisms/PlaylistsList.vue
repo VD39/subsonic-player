@@ -9,11 +9,14 @@ defineProps<{
   playlists: Playlist[];
 }>();
 
-defineEmits(['deletePlaylist', 'editPlaylist']);
+defineEmits<{
+  deletePlaylist: [value: string];
+  editPlaylist: [value: Playlist];
+}>();
 </script>
 
 <template>
-  <MediaListWrapper v-if="playlists.length" mobile="1" tablet="2" desktop="2">
+  <MediaListWrapper v-if="playlists.length" desktop="2" mobile="1" tablet="2">
     <article
       v-for="playlist in playlists"
       :key="playlist.id"
@@ -21,19 +24,19 @@ defineEmits(['deletePlaylist', 'editPlaylist']);
       data-test-id="playlist"
     >
       <ImageLink
-        :to="`/playlist/${playlist.id}`"
-        :title="`Go to playlist ${playlist.name}`"
-        :image="ICONS.playlist"
         :class="$style.imageLink"
+        :image="ICONS.playlist"
+        :title="`Go to playlist ${playlist.name}`"
+        :to="`/playlist/${playlist.id}`"
       />
 
       <div class="spaceBetween">
         <div>
           <h4 class="mBS">
             <NuxtLink
-              :to="`/playlist/${playlist.id}`"
               :aria-label="`Go to playlist ${playlist.name}`"
               class="link globalLink"
+              :to="`/playlist/${playlist.id}`"
             >
               {{ playlist.name }}
             </NuxtLink>

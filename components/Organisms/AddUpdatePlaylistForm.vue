@@ -6,7 +6,9 @@ const props = defineProps<{
   playlist?: Playlist;
 }>();
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  submit: [value: string | string[]];
+}>();
 
 const loading = ref(false);
 
@@ -40,14 +42,14 @@ async function onFormSubmit() {
       <InputField
         :id="form.fields.name.id"
         v-model="form.fields.name.value.value"
+        :error="form.fields.name.error.value"
         :label="form.fields.name.label"
         placeholder="Enter playlist name"
         :required="form.fields.name.required"
-        :error="form.fields.name.error.value"
       />
     </div>
 
-    <SubmitButton :loading="loading" class="formButton">
+    <SubmitButton class="formButton" :loading="loading">
       {{ playlist?.name ? 'Update' : 'Add' }} playlist
     </SubmitButton>
   </form>

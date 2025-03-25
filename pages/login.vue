@@ -46,7 +46,7 @@ useHead({
       </template>
     </HeaderWithAction>
 
-    <LoginForm :loading="loading" :error="error" @submit="onFormSubmit" />
+    <LoginForm :error="error" :loading="loading" @submit="onFormSubmit" />
   </div>
 </template>
 
