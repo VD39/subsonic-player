@@ -66,11 +66,6 @@ function handleModifyProgress(event: MouseEvent | TouchEvent) {
   }
 }
 
-function updateValue() {
-  internalModal.value = pendingValue.value;
-  emit('change', pendingValue.value!);
-}
-
 function onMouseMove(event: MouseEvent | TouchEvent) {
   isHovering.value = false;
   handleModifyProgress(event);
@@ -101,14 +96,14 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   });
 }
 
-function onSliderMouseOver() {
-  isHovering.value = true;
-}
-
 function onSliderMouseMove(event: MouseEvent) {
   if (isHovering.value) {
     handleModifyProgress(event);
   }
+}
+
+function onSliderMouseOver() {
+  isHovering.value = true;
 }
 
 function updateProgress() {
@@ -120,6 +115,11 @@ function updateProgress() {
   if (props.buffer) {
     bufferProgress.value = getProgress(props.buffer);
   }
+}
+
+function updateValue() {
+  internalModal.value = pendingValue.value;
+  emit('change', pendingValue.value!);
 }
 
 watch(() => [props.buffer, internalModal.value], updateProgress, {

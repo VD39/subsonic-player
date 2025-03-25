@@ -18,15 +18,15 @@ export function sortPodcastEpisodes(
   return episodes.filter((episode) => episode.downloaded === downloaded);
 }
 
-export function sortPodcastsByName(podcasts: Podcast[]) {
-  return podcasts.sort((podcastA, podcastB) =>
-    podcastA.name.toLowerCase().localeCompare(podcastB.name.toLowerCase()),
-  );
-}
-
 export function sortPodcastsByDate(podcasts: Podcast[]) {
   return podcasts.sort(
     (podcastA, podcastB) =>
       Date.parse(podcastB.lastUpdated) - Date.parse(podcastA.lastUpdated),
+  );
+}
+
+export function sortPodcastsByName(podcasts: Podcast[]) {
+  return podcasts.sort((podcastA, podcastB) =>
+    podcastA.name.toLowerCase().localeCompare(podcastB.name.toLowerCase()),
   );
 }

@@ -14,11 +14,11 @@ export function convertToQueryString(params: Record<string, any>) {
   return new URLSearchParams(list).toString();
 }
 
+export function isUrl(url: string) {
+  return /^https?:\/\/[^ "]+$/.test(url);
+}
+
 /* istanbul ignore next -- @preserve */
 export function parseQueryString(query = '') {
   return new URLSearchParams(decodeURIComponent(query));
-}
-
-export function isUrl(url: string) {
-  return /^https?:\/\/[^ "]+$/.test(url);
 }

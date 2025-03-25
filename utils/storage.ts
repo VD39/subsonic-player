@@ -1,3 +1,14 @@
+export function deleteLocalStorage(key?: string) {
+  if (import.meta.client) {
+    if (key) {
+      window.localStorage.removeItem(key);
+      return;
+    }
+
+    window.localStorage.clear();
+  }
+}
+
 export function getLocalStorage(key: string) {
   if (import.meta.client) {
     const value = window.localStorage.getItem(key);
@@ -27,16 +38,5 @@ export function setLocalStorage(key: string, value: unknown) {
         error,
       );
     }
-  }
-}
-
-export function deleteLocalStorage(key?: string) {
-  if (import.meta.client) {
-    if (key) {
-      window.localStorage.removeItem(key);
-      return;
-    }
-
-    window.localStorage.clear();
   }
 }

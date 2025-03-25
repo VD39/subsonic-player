@@ -1,9 +1,3 @@
-function checkFormIsInvalid<T extends Fields<T>>(formFields: T) {
-  return Object.values<FormField>(formFields).every(
-    (field) => field.isValid.value,
-  );
-}
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function validateInputs<T extends Form<any>>(form: T) {
   Object.values(form.fields).forEach((field) => {
@@ -38,4 +32,10 @@ export function validateInputs<T extends Form<any>>(form: T) {
   });
 
   form.isValid.value = checkFormIsInvalid(form.fields);
+}
+
+function checkFormIsInvalid<T extends Fields<T>>(formFields: T) {
+  return Object.values<FormField>(formFields).every(
+    (field) => field.isValid.value,
+  );
 }

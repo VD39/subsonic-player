@@ -25,13 +25,16 @@ const showAbove = ref(false);
 const dropdownRef = ref<HTMLElement | null>(null);
 const dropdownMenuRef = ref<HTMLElement | null>(null);
 
-function onKeydown(event: KeyboardEvent) {
-  if (event.key === 'Escape') {
-    isOpen.value = false;
-
-    window.removeEventListener('click', onClick);
-    document.removeEventListener('keydown', onKeydown);
+function checkIfOutsideScreen() {
+  if (!dropdownRef.value) {
+    return;
   }
+
+  const dropdownHeight = dropdownRef.value.clientHeight;
+  const windowHeight = window.innerHeight;
+  const dropdownTop = dropdownRef.value.getBoundingClientRect().top;
+
+  showAbove.value = windowHeight - dropdownTop < dropdownHeight;
 }
 
 function onClick(event: MouseEvent) {
@@ -48,16 +51,13 @@ function onClick(event: MouseEvent) {
   }
 }
 
-function checkIfOutsideScreen() {
-  if (!dropdownRef.value) {
-    return;
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') {
+    isOpen.value = false;
+
+    window.removeEventListener('click', onClick);
+    document.removeEventListener('keydown', onKeydown);
   }
-
-  const dropdownHeight = dropdownRef.value.clientHeight;
-  const windowHeight = window.innerHeight;
-  const dropdownTop = dropdownRef.value.getBoundingClientRect().top;
-
-  showAbove.value = windowHeight - dropdownTop < dropdownHeight;
 }
 
 async function toggleDropdown() {

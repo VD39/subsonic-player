@@ -45,6 +45,11 @@ const { refresh, status } = useAsyncData(
 
 const hasTracks = computed(() => !!playlist.value?.tracks.length);
 
+async function deleteSelectedPlaylist() {
+  await deletePlaylist(route.params.id as string);
+  await navigateTo('/playlists');
+}
+
 function playTrack(index: number) {
   playTracks(playlist.value!.tracks, index - 1);
 }
@@ -54,11 +59,6 @@ async function removeTrackFromPlaylist(songIndexToRemove: number) {
     playlistId: route.params.id as string,
     songIndexToRemove,
   });
-}
-
-async function deleteSelectedPlaylist() {
-  await deletePlaylist(route.params.id as string);
-  await navigateTo('/playlists');
 }
 
 useHead({

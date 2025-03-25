@@ -1,5 +1,13 @@
 export interface AlbumsByGenreParams extends Omit<AlbumsParams, 'type'> {}
 
+export interface MediaByGenreParams {
+  genre: string;
+  mediaType?: MediaTypeParam;
+  offset?: number;
+}
+
+export type MediaTypeParam =
+  TypeofRouteMediaTypeParams[keyof TypeofRouteMediaTypeParams];
 export interface TracksByGenreParams {
   count?: number;
   genre: string;
@@ -8,11 +16,3 @@ export interface TracksByGenreParams {
 }
 
 type TypeofRouteMediaTypeParams = typeof ROUTE_MEDIA_TYPE_PARAMS;
-export type MediaTypeParam =
-  TypeofRouteMediaTypeParams[keyof TypeofRouteMediaTypeParams];
-
-export interface MediaByGenreParams {
-  genre: string;
-  mediaType?: MediaTypeParam;
-  offset?: number;
-}

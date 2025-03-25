@@ -98,6 +98,23 @@ function fetchData() {
 
 fetchData();
 
+function addDownloadedTracksToQueue() {
+  addTracksToQueue(downloadedEpisodes.value);
+}
+
+async function deleteSelectedPodcast() {
+  await deletePodcast(podcastById.value!.id);
+  await navigateTo('/podcasts');
+  await refresh();
+}
+
+function openPodcastDescriptionModal() {
+  openModal(MODAL_TYPE.readMoreModal, {
+    text: podcastById.value!.description,
+    title: 'Description',
+  });
+}
+
 function playAllEpisodes() {
   playTracks(downloadedEpisodes.value, -1);
 }
@@ -108,23 +125,6 @@ function playEpisode(episode: PodcastEpisode) {
 
 function playLatestsEpisodes() {
   playEpisode(downloadedEpisodes.value[0]);
-}
-
-function addDownloadedTracksToQueue() {
-  addTracksToQueue(downloadedEpisodes.value);
-}
-
-function openPodcastDescriptionModal() {
-  openModal(MODAL_TYPE.readMoreModal, {
-    text: podcastById.value!.description,
-    title: 'Description',
-  });
-}
-
-async function deleteSelectedPodcast() {
-  await deletePodcast(podcastById.value!.id);
-  await navigateTo('/podcasts');
-  await refresh();
 }
 
 async function refreshPodcast() {
