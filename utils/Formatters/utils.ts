@@ -1,3 +1,7 @@
+export function getAlbumSize(tracks: Base[] = []) {
+  return tracks.reduce((sum, track) => sum + (track.size || 0), 0);
+}
+
 export function getArtists(media: AlbumWithSongsID3 | Base): BaseArtist[] {
   const { artist: mediaArtist, artistId, artists } = media;
 
@@ -17,41 +21,10 @@ export function getArtists(media: AlbumWithSongsID3 | Base): BaseArtist[] {
   return artist;
 }
 
-export function getGenres(media: Base): Genre[] {
-  const { genre: mediaGenre, genres } = media;
-
-  if (Array.isArray(genres)) {
-    return genres;
-  }
-
-  const genre = [];
-
-  if (mediaGenre) {
-    genre.push({
-      name: mediaGenre,
-    });
-  }
-
-  return genre;
-}
-
-export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
-  const coverArtIds = tracks.map((track) => track.image);
-  const images = [...new Set(coverArtIds)].splice(0, 4);
-
-  if (!images.length) {
-    return [IMAGE_DEFAULT_BY_TYPE.playlist];
-  }
-
-  return images;
-}
-
-export function getRandomTracksDuration(tracks: Base[] = []) {
-  return tracks.reduce((sum, track) => sum + (track.duration || 0), 0);
-}
-
-export function getAlbumSize(tracks: Base[] = []) {
-  return tracks.reduce((sum, track) => sum + (track.size || 0), 0);
+export function getDownloadedEpisodesLength(
+  episodes: ResponsePodcastEpisode[] = [],
+) {
+  return episodes.filter((episode) => episode.status === 'completed').length;
 }
 
 export function getEarliestDate(episodes: ResponsePodcastEpisode[] = []) {
@@ -72,10 +45,30 @@ export function getEarliestDate(episodes: ResponsePodcastEpisode[] = []) {
   return new Date(Math.max(...dates));
 }
 
-export function getDownloadedEpisodesLength(
-  episodes: ResponsePodcastEpisode[] = [],
-) {
-  return episodes.filter((episode) => episode.status === 'completed').length;
+export function getGenres(media: Base): Genre[] {
+  const { genre: mediaGenre, genres } = media;
+
+  if (Array.isArray(genres)) {
+    return genres;
+  }
+
+  const genre = [];
+
+  if (mediaGenre) {
+    genre.push({
+      name: mediaGenre,
+    });
+  }
+
+  return genre;
+}
+
+export function getRandomTracksDuration(tracks: Base[] = []) {
+  return tracks.reduce((sum, track) => sum + (track.duration || 0), 0);
+}
+
+export function getTracksTotal(albums: AlbumID3[] = []) {
+  return albums.reduce((sum, album) => sum + album.songCount, 0);
 }
 
 export function getUniqueGenres(albums: AlbumID3[] = []): Genre[] {
@@ -88,8 +81,15 @@ export function getUniqueGenres(albums: AlbumID3[] = []): Genre[] {
   }));
 }
 
-export function getTracksTotal(albums: AlbumID3[] = []) {
-  return albums.reduce((sum, album) => sum + album.songCount, 0);
+export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
+  const coverArtIds = tracks.map((track) => track.image);
+  const images = [...new Set(coverArtIds)].splice(0, 4);
+
+  if (!images.length) {
+    return [IMAGE_DEFAULT_BY_TYPE.playlist];
+  }
+
+  return images;
 }
 
 export function groupTracksByDiscNumber(tracks: Track[] = []) {

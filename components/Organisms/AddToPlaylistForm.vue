@@ -35,6 +35,31 @@ const formInputs = {
 
 const form = createForm(formInputs);
 
+function addToRemoveFromPlaylist(playlistId: string) {
+  if (playlistIdInSelectedItems(playlistId)) {
+    removeFromSelectedPlaylist(playlistId);
+  } else {
+    addToSelectedPlaylist(playlistId);
+  }
+}
+
+function addToSelectedPlaylist(playlistId: string) {
+  emit('addToPlaylist', {
+    playlistId,
+  });
+
+  selectedItems.value.push(playlistId);
+}
+
+function getButtonProps(playlistId: string) {
+  const inSelected = playlistIdInSelectedItems(playlistId);
+
+  return {
+    icon: inSelected ? ICONS.remove : ICONS.add,
+    text: inSelected ? 'Remove' : 'Add',
+  };
+}
+
 function onFormSubmit() {
   validateInputs(form);
 
@@ -49,37 +74,12 @@ function playlistIdInSelectedItems(playlistId: string) {
   return selectedItems.value.includes(playlistId);
 }
 
-function addToSelectedPlaylist(playlistId: string) {
-  emit('addToPlaylist', {
-    playlistId,
-  });
-
-  selectedItems.value.push(playlistId);
-}
-
 function removeFromSelectedPlaylist(playlistId: string) {
   emit('removeFromPlaylist', {
     playlistId,
   });
 
   selectedItems.value = selectedItems.value.filter((id) => id !== playlistId);
-}
-
-function addToRemoveFromPlaylist(playlistId: string) {
-  if (playlistIdInSelectedItems(playlistId)) {
-    removeFromSelectedPlaylist(playlistId);
-  } else {
-    addToSelectedPlaylist(playlistId);
-  }
-}
-
-function getButtonProps(playlistId: string) {
-  const inSelected = playlistIdInSelectedItems(playlistId);
-
-  return {
-    icon: inSelected ? ICONS.remove : ICONS.add,
-    text: inSelected ? 'Remove' : 'Add',
-  };
 }
 </script>
 

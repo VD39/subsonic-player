@@ -35,21 +35,21 @@ const {
   },
 );
 
-function playRadioStation(station: RadioStation) {
-  playTracks([station]);
-}
-
 function addNewRadioStationModal() {
   addRadioStationModal(refresh);
-}
-
-function updateSelectedRadioStationModal(radioStation: RadioStation) {
-  updateRadioStationModal(radioStation, refresh);
 }
 
 async function deleteSelectedRadioStation(id: string) {
   await deleteRadioStation(id);
   await refresh();
+}
+
+function playRadioStation(station: RadioStation) {
+  playTracks([station]);
+}
+
+function updateSelectedRadioStationModal(radioStation: RadioStation) {
+  updateRadioStationModal(radioStation, refresh);
 }
 
 useHead({

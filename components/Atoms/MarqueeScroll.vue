@@ -10,25 +10,6 @@ const marqueeContentRef = ref<HTMLElement | null>(null);
 const mutationObserver = ref<MutationObserver | null>(null);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
-function setAnimationDuration(isOverflowing: boolean) {
-  if (!marqueeContentRef.value || !marqueeScrollRef.value) {
-    return;
-  }
-
-  const PROPERTY = '--animation-duration';
-
-  if (!isOverflowing) {
-    marqueeScrollRef.value.style.removeProperty(PROPERTY);
-    return;
-  }
-
-  const distance =
-    marqueeContentRef.value.offsetWidth + marqueeScrollRef.value.clientWidth;
-  const duration = distance * MULTIPLICATION_TIME;
-
-  marqueeScrollRef.value.style.setProperty(PROPERTY, `${duration}ms`);
-}
-
 function getCloneData() {
   if (!marqueeContentRef.value || !marqueeScrollRef.value) {
     return;
@@ -47,13 +28,32 @@ function getCloneData() {
   setAnimationDuration(isOverflowing);
 }
 
+function onMouseOut() {
+  disableClonedContent.value = true;
+}
+
 function onMouseOver() {
   // Enabled cloned content links so links can be clicked.
   disableClonedContent.value = false;
 }
 
-function onMouseOut() {
-  disableClonedContent.value = true;
+function setAnimationDuration(isOverflowing: boolean) {
+  if (!marqueeContentRef.value || !marqueeScrollRef.value) {
+    return;
+  }
+
+  const PROPERTY = '--animation-duration';
+
+  if (!isOverflowing) {
+    marqueeScrollRef.value.style.removeProperty(PROPERTY);
+    return;
+  }
+
+  const distance =
+    marqueeContentRef.value.offsetWidth + marqueeScrollRef.value.clientWidth;
+  const duration = distance * MULTIPLICATION_TIME;
+
+  marqueeScrollRef.value.style.setProperty(PROPERTY, `${duration}ms`);
 }
 
 const onResize = debounce(getCloneData, 1000);

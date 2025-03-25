@@ -1,17 +1,17 @@
+export function getAuthParams(params: Record<string, null | string>) {
+  return {
+    s: params.salt,
+    t: params.token,
+    u: params.username,
+  };
+}
+
 /* istanbul ignore next -- @preserve */
 export function getConfigParams() {
   return {
     c: 'web',
     f: 'json',
     v: '1.15.0',
-  };
-}
-
-export function getAuthParams(params: Record<string, null | string>) {
-  return {
-    s: params.salt,
-    t: params.token,
-    u: params.username,
   };
 }
 

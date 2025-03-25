@@ -1,3 +1,7 @@
+export function getIndex(array: QueueTrack[], id: string) {
+  return array.findIndex(({ id: itemId }) => itemId === id);
+}
+
 export function shuffleArray(queueArray: QueueTrack[], currentIndex = 0) {
   [queueArray[0], queueArray[currentIndex]] = [
     queueArray[currentIndex],
@@ -12,8 +16,4 @@ export function shuffleArray(queueArray: QueueTrack[], currentIndex = 0) {
   }
 
   return queueArray;
-}
-
-export function getIndex(array: QueueTrack[], id: string) {
-  return array.findIndex(({ id: itemId }) => itemId === id);
 }
