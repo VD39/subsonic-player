@@ -8,7 +8,9 @@ const props = defineProps<{
   status: AsyncDataRequestStatus;
 }>();
 
-defineEmits(['refresh']);
+defineEmits<{
+  refresh: [];
+}>();
 
 const buttonProps = computed<ButtonProps>(() => {
   const loading = props.status === 'pending';
@@ -23,8 +25,8 @@ const buttonProps = computed<ButtonProps>(() => {
 <template>
   <ButtonLink
     :icon="buttonProps.icon"
-    :title="buttonProps.text"
     icon-size="large"
+    :title="buttonProps.text"
     @click="$emit('refresh')"
   >
     {{ buttonProps.text }}

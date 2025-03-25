@@ -45,11 +45,11 @@ function toggleAudioVolume() {
     <div :class="['centerItems', 'smallFont', $style.volumeInputWrapper]">
       <InputRange
         v-model="volume"
-        :min="0"
-        :max="1"
         aria-label="Volume"
         :aria-valuetext="ariaValueText"
         hide-thumb
+        :max="1"
+        :min="0"
         @change="changeAudioVolume"
       />
 

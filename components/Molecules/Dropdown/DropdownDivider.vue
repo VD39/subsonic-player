@@ -1,5 +1,5 @@
 <template>
-  <li :class="$style.divider" aria-hidden="true" />
+  <li aria-hidden="true" :class="$style.divider" />
 </template>
 
 <style module>

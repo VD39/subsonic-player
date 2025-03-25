@@ -4,16 +4,16 @@ exports[`TrackPlayPause > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-      <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>
 </div>"
 `;
 
 exports[`TrackPlayPause > when image prop is set > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause withImage">
-  <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+  <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
   <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-      <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>
 </div>"
 `;
@@ -23,7 +23,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > matches the snapsh
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">
     <div class="centerAll playPauseInner paused"><span class="centerAll playingLoader playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><button class="centerItems buttonLink centerAll themeHoverButton playPauseButton centerAll themeHoverButton playPauseButton" type="button" title="Play current track">
-        <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
       </button></div>
   </div>
 </div>"
@@ -33,7 +33,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > when isBuffering v
 "<div class="overlapWrapper trackPlayPause currentTrack">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">
-    <div class="centerAll playPauseInner buffering paused"><span class="centerAll playingLoader playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
+    <div class="centerAll playPauseInner buffering paused"><span class="centerAll playingLoader playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
   </div>
 </div>"
 `;
@@ -42,7 +42,7 @@ exports[`TrackPlayPause > when isCurrentTrack value is true > when isPlaying val
 "<div class="overlapWrapper trackPlayPause currentTrack">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper">
-    <div class="centerAll playPauseInner buffering playing"><span class="centerAll playingLoader playing playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><phcirclenotch size="24" class="icon"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
+    <div class="centerAll playPauseInner buffering playing"><span class="centerAll playingLoader playing playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden"> Playing current track queue-track-0-name</span></span><span class="centerItems spinningLoader spinningLoader centerAll themeHoverButton playPauseButton"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
   </div>
 </div>"
 `;
@@ -51,7 +51,7 @@ exports[`TrackPlayPause > when large prop is true > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause large">
   <p class="overlap trackNumber">1</p>
   <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-      <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>
 </div>"
 `;

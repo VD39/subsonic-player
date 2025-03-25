@@ -6,7 +6,15 @@ const props = defineProps<{
   radioStation?: RadioStation;
 }>();
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  submit: [
+    value: {
+      homepageUrl: string | string[];
+      name: string | string[];
+      streamUrl: string | string[];
+    },
+  ];
+}>();
 
 const loading = ref(false);
 
@@ -61,10 +69,10 @@ async function onFormSubmit() {
         ref="name"
         v-model="form.fields.name.value.value"
         class="formField"
+        :error="form.fields.name.error.value"
         :label="form.fields.name.label"
         placeholder="Enter radio station name"
         :required="form.fields.name.required"
-        :error="form.fields.name.error.value"
       />
 
       <InputField
@@ -72,10 +80,10 @@ async function onFormSubmit() {
         ref="streamUrl"
         v-model="form.fields.streamUrl.value.value"
         class="formField"
+        :error="form.fields.streamUrl.error.value"
         :label="form.fields.streamUrl.label"
         placeholder="Enter radio station stream URL"
         required
-        :error="form.fields.streamUrl.error.value"
       />
 
       <InputField
@@ -83,9 +91,9 @@ async function onFormSubmit() {
         ref="homepageUrl"
         v-model="form.fields.homepageUrl.value.value"
         class="formField"
+        :error="form.fields.homepageUrl.error.value"
         :label="form.fields.homepageUrl.label"
         placeholder="Enter radio station homepage URL"
-        :error="form.fields.homepageUrl.error.value"
       />
     </div>
 

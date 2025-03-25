@@ -8,7 +8,9 @@ defineProps<{
   loading?: boolean;
 }>();
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  submit: [value: AuthData];
+}>();
 
 const config = useRuntimeConfig();
 const { SERVER_URL } = config.public;
@@ -47,9 +49,9 @@ async function onFormSubmit() {
   const { password, server, username } = form.fields;
 
   emit('submit', {
-    password: password.value.value,
-    server: server.value.value,
-    username: username.value.value,
+    password: password.value.value as string,
+    server: server.value.value as string,
+    username: username.value.value as string,
   });
 }
 </script>
@@ -63,10 +65,10 @@ async function onFormSubmit() {
         ref="serverUrl"
         v-model="form.fields.server.value.value"
         class="formField"
+        :error="form.fields.server.error.value"
         :label="form.fields.server.label"
         placeholder="Enter your server URL"
         required
-        :error="form.fields.server.error.value"
       />
 
       <InputField
@@ -74,10 +76,10 @@ async function onFormSubmit() {
         ref="username"
         v-model="form.fields.username.value.value"
         class="formField"
+        :error="form.fields.username.error.value"
         :label="form.fields.username.label"
         placeholder="Enter your username"
         required
-        :error="form.fields.username.error.value"
       />
 
       <InputField
@@ -85,11 +87,11 @@ async function onFormSubmit() {
         ref="password"
         v-model="form.fields.password.value.value"
         class="formField"
-        type="password"
+        :error="form.fields.password.error.value"
         :label="form.fields.password.label"
         placeholder="Enter your password"
         required
-        :error="form.fields.password.error.value"
+        type="password"
       />
     </div>
 
@@ -97,7 +99,7 @@ async function onFormSubmit() {
       <p class="sentenceCase">{{ error }}</p>
     </MessageBar>
 
-    <SubmitButton class="formButton" :loading="loading" full-width>
+    <SubmitButton class="formButton" full-width :loading="loading">
       Login
     </SubmitButton>
   </form>

@@ -11,17 +11,17 @@ const toLink = `/artist/${props.artist.id}`;
 <template>
   <article>
     <ImageLink
-      :to="toLink"
-      :title="`Go to artist ${artist.name}`"
-      :image="artist.image"
       class="mBS"
+      :image="artist.image"
+      :title="`Go to artist ${artist.name}`"
+      :to="toLink"
     />
 
     <p class="mBXS strong smallFont clamp2">
       <NuxtLink
-        :to="toLink"
-        class="link"
         :aria-label="`Go to artist ${artist.name}`"
+        class="link"
+        :to="toLink"
       >
         {{ artist.name }}
       </NuxtLink>

@@ -16,10 +16,10 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when events
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
   </div>
@@ -32,10 +32,10 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when events
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
   </div>
@@ -48,10 +48,10 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when events
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
   </div>
@@ -64,10 +64,10 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when events
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item">
       <div>Sample text.</div>
     </div>
   </div>
@@ -80,7 +80,7 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when marque
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
   </div>
@@ -93,10 +93,10 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when marque
     <div class="content">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
-    <div class="content clonedContent" aria-hidden="true" inert="" data-test-id="cloned-item">
+    <div aria-hidden="true" class="content clonedContent" data-test-id="cloned-item" inert="">
       <div>Sample text.</div>
     </div>
   </div>

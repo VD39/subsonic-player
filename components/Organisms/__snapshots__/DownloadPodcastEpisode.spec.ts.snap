@@ -2,8 +2,8 @@
 
 exports[`DownloadPodcastEpisode > matches the snapshot 1`] = `
 "<div class="overlapWrapper downloadPodcastEpisode">
-  <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" type="button" title="Download episode">
-    <phdownload class="icon" aria-hidden="true" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+  <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" type="button" title="Download episode">
+    <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
   </button>
 </div>"
 `;

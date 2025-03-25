@@ -6,9 +6,9 @@ defineProps<{
 
 <template>
   <NuxtLink
-    :to="`/genre/albums/${encodeURIComponent(name)}`"
-    :class="['centerAll', $style.genreLink]"
     :aria-label="`View all albums with ${name} genre`"
+    :class="['centerAll', $style.genreLink]"
+    :to="`/genre/albums/${encodeURIComponent(name)}`"
   >
     {{ name }}
   </NuxtLink>

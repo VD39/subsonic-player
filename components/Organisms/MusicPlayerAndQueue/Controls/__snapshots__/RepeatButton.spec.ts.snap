@@ -2,18 +2,18 @@
 
 exports[`RepeatButton > when shuffle is set to -1 > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-  <phrepeat class="icon" aria-hidden="true" size="24" weight="regular" color="currentColor"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+  <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
 </button>"
 `;
 
 exports[`RepeatButton > when shuffle is set to 1 > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Turn repeat off">
-  <phrepeatonce class="icon" aria-hidden="true" size="24" weight="fill" color="var(--theme-color)"></phrepeatonce><span class="clamp text visuallyHidden">Turn repeat off</span>
+  <phrepeatonce aria-hidden="true" class="icon" color="var(--theme-color)" size="24" weight="fill"></phrepeatonce><span class="clamp text visuallyHidden">Turn repeat off</span>
 </button>"
 `;
 
 exports[`RepeatButton > when shuffle is set to Infinity > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Turn on repeat one">
-  <phrepeat class="icon" aria-hidden="true" size="24" weight="fill" color="var(--theme-color)"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat one</span>
+  <phrepeat aria-hidden="true" class="icon" color="var(--theme-color)" size="24" weight="fill"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat one</span>
 </button>"
 `;

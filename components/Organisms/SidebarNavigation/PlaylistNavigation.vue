@@ -9,7 +9,9 @@ defineProps<{
   playlists: Playlist[];
 }>();
 
-defineEmits(['addPlaylist']);
+defineEmits<{
+  addPlaylist: [];
+}>();
 </script>
 
 <template>
@@ -30,11 +32,11 @@ defineEmits(['addPlaylist']);
     <li>
       <ButtonLink
         ref="addPlaylist"
-        :icon="ICONS.playlistAdd"
         class="sidebarLink"
+        full-width
+        :icon="ICONS.playlistAdd"
         :show-text="!collapsed"
         title="Add playlist"
-        full-width
         @click="$emit('addPlaylist')"
       >
         Add playlist

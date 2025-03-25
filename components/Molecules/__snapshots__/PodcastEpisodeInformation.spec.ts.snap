@@ -10,7 +10,7 @@ exports[`PodcastEpisodeInformation > matches the snapshot 1`] = `
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Podcast</div>
-    <div class="trackCell"><a data-test-id="link" class="link">podcastName</a></div>
+    <div class="trackCell"><a class="link" data-test-id="link">podcastName</a></div>
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Author</div>
@@ -53,7 +53,7 @@ exports[`PodcastEpisodeInformation > when episode is not downloaded > matches th
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Podcast</div>
-    <div class="trackCell"><a data-test-id="link" class="link">podcastName</a></div>
+    <div class="trackCell"><a class="link" data-test-id="link">podcastName</a></div>
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Author</div>

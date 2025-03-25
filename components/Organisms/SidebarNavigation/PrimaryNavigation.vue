@@ -12,9 +12,9 @@ defineProps<{
     <NavigationItem
       v-for="items in SIDEBAR_DESKTOP_NAVIGATION"
       :key="`navigation-${items.title}`"
+      class="mBM"
       :collapsed="collapsed"
       :title="items.title"
-      class="mBM"
     >
       <SubNavigationItem
         v-for="item in items.items"

@@ -82,8 +82,8 @@ useHead({
       <RefreshButton :status="status" @refresh="refresh" />
 
       <ButtonLink
-        icon-size="large"
         :icon="ICONS.add"
+        icon-size="large"
         title="Add podcast"
         @click="addNewPodcastModal"
       >
@@ -108,13 +108,13 @@ useHead({
 
       <PodcastList
         :podcast-episodes="podcastsData.latestPodcasts"
-        @play-episode="playEpisode"
-        @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"
-        @episode-information="openTrackInformationModal"
+        @add-to-queue="addTrackToQueue"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
         @download-media="downloadMedia"
+        @episode-information="openTrackInformationModal"
+        @play-episode="playEpisode"
       />
     </div>
 

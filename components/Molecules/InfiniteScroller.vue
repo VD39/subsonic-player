@@ -7,7 +7,9 @@ const props = defineProps<{
   loading: boolean;
 }>();
 
-const emit = defineEmits(['loadMore']);
+const emit = defineEmits<{
+  loadMore: [];
+}>();
 
 const infiniteScrollerRef = ref<HTMLElement | null>(null);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
@@ -56,10 +58,10 @@ onUnmounted(() => {
     <ButtonLink
       v-if="hasMore"
       :class="['centerAll', $style.buttonLink]"
-      :title="buttonProps.text"
       :disabled="loading"
       :icon="buttonProps.icon"
       :show-text="!loading"
+      :title="buttonProps.text"
       @click="loadMore"
     >
       {{ buttonProps.text }}

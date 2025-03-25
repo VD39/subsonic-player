@@ -70,11 +70,11 @@ useHead({
     <TrackWithPreviewList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
       :tracks="searchResultsData.searchResults.tracks"
-      @play-track="playTrack"
-      @add-to-queue="addTrackToQueue"
       @add-to-playlist="addToPlaylistModal"
-      @media-information="openTrackInformationModal"
+      @add-to-queue="addTrackToQueue"
       @download-media="downloadMedia"
+      @media-information="openTrackInformationModal"
+      @play-track="playTrack"
     />
   </LoadingData>
 </template>

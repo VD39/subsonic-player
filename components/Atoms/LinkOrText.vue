@@ -20,9 +20,9 @@ const linkAttribute = props.is === 'nuxt-link' ? 'to' : 'href';
   <component
     :is="isComponent"
     v-if="isLink"
-    data-test-id="link"
     :[linkAttribute]="to"
     class="link"
+    data-test-id="link"
   >
     {{ text }}
   </component>

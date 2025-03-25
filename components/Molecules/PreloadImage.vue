@@ -43,9 +43,9 @@ const imageSrc = computed(() => {
         <img
           v-show="!loading"
           ref="img"
+          :alt="alt"
           :class="$style.image"
           :src="imageSrc"
-          :alt="alt"
           @load="onImageLoad"
         />
       </ClientOnly>

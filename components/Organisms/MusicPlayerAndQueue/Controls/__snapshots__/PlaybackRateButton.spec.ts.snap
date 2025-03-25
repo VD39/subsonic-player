@@ -2,14 +2,14 @@
 
 exports[`PlaybackRateButton > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-    <phgear class="icon" aria-hidden="true" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+    <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown fade-enter-from fade-enter-active">
     <ul>
       <li class="centerItems dropdownTitle">
         <p class="strong smallFont">Playback speed</p>
       </li>
-      <li class="divider" aria-hidden="true"></li>
+      <li aria-hidden="true" class="divider"></li>
       <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
           <!--v-if--><span class="clamp text">0.5x</span>
         </button></li>

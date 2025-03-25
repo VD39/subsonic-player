@@ -2,12 +2,12 @@
 
 exports[`EntryHeader > matches the snapshot 1`] = `
 "<div class="entryHeader">
-  <div class="centerAll preloadImage backgroundImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  <div class="centerAll preloadImage backgroundImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
   <div class="blur"></div>
 </div>
 <section class="mBXL content">
   <figure class="figure">
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
   </figure>
   <div class="mBAllM detailsWrapper">
     <div class="centerItems spaceBetween">
@@ -20,14 +20,14 @@ exports[`EntryHeader > matches the snapshot 1`] = `
 
 exports[`EntryHeader > when there are three images > matches the snapshot 1`] = `
 "<div class="entryHeader">
-  <div class="centerAll preloadImage backgroundImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+  <div class="centerAll preloadImage backgroundImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
   <div class="blur"></div>
 </div>
 <section class="mBXL content">
   <figure class="figure">
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image1" alt="title" style="display: none;"></div>
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image2" alt="title" style="display: none;"></div>
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image1" style="display: none;"></div>
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image2" style="display: none;"></div>
   </figure>
   <div class="mBAllM detailsWrapper">
     <div class="centerItems spaceBetween">

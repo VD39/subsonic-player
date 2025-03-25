@@ -2,6 +2,6 @@
 
 exports[`QueueButton > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" type="button" title="Open queue">
-  <phqueue class="icon" aria-hidden="true" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
+  <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
 </button>"
 `;

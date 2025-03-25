@@ -259,7 +259,7 @@ describe('PodcastList', () => {
 
         it('emits the playEpisode event with track', () => {
           expect(wrapper.emitted('playEpisode')).toEqual([
-            [podcastEpisodes[0].id],
+            [podcastEpisodes[0]],
           ]);
         });
       });
@@ -349,7 +349,7 @@ describe('PodcastList', () => {
 
         it('emits the downloadEpisode event with track', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
-            [podcastEpisodes[0]],
+            [podcastEpisodes[0].id],
           ]);
         });
       });

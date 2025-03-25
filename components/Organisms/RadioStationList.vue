@@ -11,12 +11,12 @@ defineProps<{
   radioStations: RadioStation[];
 }>();
 
-defineEmits([
-  'addToQueue',
-  'deleteRadioStation',
-  'editRadioStation',
-  'playRadioStation',
-]);
+defineEmits<{
+  addToQueue: [value: RadioStation];
+  deleteRadioStation: [value: string];
+  editRadioStation: [value: RadioStation];
+  playRadioStation: [value: RadioStation];
+}>();
 </script>
 
 <template>
@@ -35,8 +35,8 @@ defineEmits([
       <div class="trackCell">
         <div>
           <TrackPlayPause
-            :track-id="radioStation.id"
             :image="radioStation.image"
+            :track-id="radioStation.id"
             :track-number="index + 1"
             @play-track="$emit('playRadioStation', radioStation)"
           />
@@ -46,9 +46,9 @@ defineEmits([
               is="a"
               class="noTouchEvents"
               :is-link="!!radioStation.homePageUrl"
+              target="_blank"
               :text="radioStation.name"
               :to="radioStation.homePageUrl"
-              target="_blank"
             />
           </MarqueeScroll>
         </div>

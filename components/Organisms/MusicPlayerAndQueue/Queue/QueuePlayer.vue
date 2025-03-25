@@ -27,11 +27,11 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
   <div class="queueWrapper column">
     <ButtonLink
       ref="closeQueueMenu"
+      class="queueAction"
+      full-width
       :icon="ICONS.queueClose"
       icon-weight="bold"
       title="Close queue menu"
-      full-width
-      class="queueAction"
       @click="toggleQueuePlayer"
     >
       Close queue menu
@@ -124,8 +124,8 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
               <FavouriteButton
                 v-if="'favourite' in currentTrack"
                 :id="currentTrack.id"
-                :type="currentTrack.type"
                 :favourite="currentTrack.favourite"
+                :type="currentTrack.type"
               />
 
               <ShuffleButton v-if="!isRadioStation" />
@@ -143,11 +143,11 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 
     <ButtonLink
       ref="openQueueList"
+      class="queueAction"
+      full-width
       :icon="ICONS.playlist"
       icon-weight="bold"
       title="Open queue list"
-      full-width
-      class="queueAction"
       @click="toggleQueueList"
     >
       Open queue list

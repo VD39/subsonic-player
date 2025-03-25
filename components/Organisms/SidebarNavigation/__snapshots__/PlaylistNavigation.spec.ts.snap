@@ -7,7 +7,7 @@ exports[`PlaylistItems > matches the snapshot 1`] = `
     <ul></ul>
   </li>
   <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
-      <phlistplus class="icon" aria-hidden="true" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
+      <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
     </button></li>
 </ul>"
 `;
@@ -18,15 +18,15 @@ exports[`PlaylistItems > when playlist value returns playlists > matches the sna
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
     <ul>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-0">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-1">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
         </a></li>
     </ul>
   </li>
   <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
-      <phlistplus class="icon" aria-hidden="true" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
+      <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
     </button></li>
 </ul>"
 `;
@@ -37,24 +37,24 @@ exports[`PlaylistItems > when playlist value returns playlists > when playlist v
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
     <ul>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-0">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-1">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-2">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-2</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-2</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-3">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-3</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-3</span>
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-4">
-          <phplaylist class="icon" aria-hidden="true" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-4</span>
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-4</span>
         </a></li>
     </ul>
   </li>
   <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
-      <phlistplus class="icon" aria-hidden="true" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
+      <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
     </button></li>
 </ul>"
 `;

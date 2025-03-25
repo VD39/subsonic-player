@@ -2,7 +2,9 @@
 import InputField from '@/components/Atoms/InputField.vue';
 import SubmitButton from '@/components/Molecules/SubmitButton.vue';
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits<{
+  submit: [value: string | string[]];
+}>();
 
 const loading = ref(false);
 
@@ -36,10 +38,10 @@ async function onFormSubmit() {
       <InputField
         :id="form.fields.feedUrl.id"
         v-model="form.fields.feedUrl.value.value"
+        :error="form.fields.feedUrl.error.value"
         :label="form.fields.feedUrl.label"
         placeholder="Enter RSS feed url"
         :required="form.fields.feedUrl.required"
-        :error="form.fields.feedUrl.error.value"
       />
     </div>
 

@@ -24,25 +24,25 @@ const { currentTrack } = useAudioPlayer();
         <ImageLink
           v-if="'albumId' in currentTrack && currentTrack.albumId"
           ref="albumImageLink"
-          :to="`/album/${currentTrack.albumId}`"
-          :title="`Go to album ${currentTrack.name}`"
-          :image="currentTrack.image"
           :class="$style.image"
+          :image="currentTrack.image"
+          :title="`Go to album ${currentTrack.name}`"
+          :to="`/album/${currentTrack.albumId}`"
         />
 
         <ImageLink
           v-else-if="'podcastId' in currentTrack && currentTrack.podcastId"
           ref="podcastImageLink"
-          :to="`/podcast/all/${currentTrack.podcastId}`"
-          :title="`Go to podcast ${currentTrack.podcastName}`"
-          :image="currentTrack.image"
           :class="$style.image"
+          :image="currentTrack.image"
+          :title="`Go to podcast ${currentTrack.podcastName}`"
+          :to="`/podcast/all/${currentTrack.podcastId}`"
         />
 
         <PreloadImage
           v-else
-          :image="currentTrack.image"
           :class="$style.image"
+          :image="currentTrack.image"
         />
 
         <div :class="$style.trackDetails">

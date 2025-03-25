@@ -17,21 +17,21 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-0</a></div>
+            <div class="content"><a href="homepageUrl" class="link noTouchEvents" data-test-id="link" target="_blank">radio-station-0</a></div>
           </div>
         </div>
       </div>
     </div>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
@@ -44,7 +44,7 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Delete station </span>
               </button></li>
-            <li class="divider" aria-hidden="true"></li>
+            <li aria-hidden="true" class="divider"></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
@@ -60,21 +60,21 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-1</a></div>
+            <div class="content"><a href="homepageUrl" class="link noTouchEvents" data-test-id="link" target="_blank">radio-station-1</a></div>
           </div>
         </div>
       </div>
     </div>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -84,21 +84,21 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-2</a></div>
+            <div class="content"><a href="homepageUrl" class="link noTouchEvents" data-test-id="link" target="_blank">radio-station-2</a></div>
           </div>
         </div>
       </div>
     </div>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -108,21 +108,21 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-3</a></div>
+            <div class="content"><a href="homepageUrl" class="link noTouchEvents" data-test-id="link" target="_blank">radio-station-3</a></div>
           </div>
         </div>
       </div>
     </div>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
@@ -132,21 +132,21 @@ exports[`RadioStationList > when radioStations prop is not an empty array > matc
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
-            <div class="content"><a data-test-id="link" href="homepageUrl" class="link noTouchEvents" target="_blank">radio-station-4</a></div>
+            <div class="content"><a href="homepageUrl" class="link noTouchEvents" data-test-id="link" target="_blank">radio-station-4</a></div>
           </div>
         </div>
       </div>
     </div>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical class="icon" aria-hidden="true" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>

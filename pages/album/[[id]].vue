@@ -92,9 +92,9 @@ useHead({
 
         <div class="list">
           <ButtonLink
+            class="largeThemeHoverButton"
             :icon="ICONS.play"
             title="Play tracks"
-            class="largeThemeHoverButton"
             @click="playTracks(albumData.album.tracks)"
           >
             Play tracks
@@ -110,8 +110,8 @@ useHead({
 
           <FavouriteButton
             :id="albumData.album.id"
-            type="album"
             :favourite="albumData.album.favourite"
+            type="album"
           />
 
           <DropdownMenu>
@@ -135,11 +135,11 @@ useHead({
 
         <TrackList
           :tracks="value"
-          @play-track="playTrack"
-          @add-to-queue="addTrackToQueue"
           @add-to-playlist="addToPlaylistModal"
-          @media-information="openTrackInformationModal"
+          @add-to-queue="addTrackToQueue"
           @download-media="downloadMedia"
+          @media-information="openTrackInformationModal"
+          @play-track="playTrack"
         />
       </template>
     </div>

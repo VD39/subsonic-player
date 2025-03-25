@@ -96,8 +96,8 @@ const showPageNavigation = computed(() =>
       >
         <PageNavigation
           v-if="showPageNavigation"
-          :navigation="MOBILE_PAGE_NAVIGATION"
           class="mobileOnly mBL"
+          :navigation="MOBILE_PAGE_NAVIGATION"
         />
 
         <div class="column inner mBAllL">

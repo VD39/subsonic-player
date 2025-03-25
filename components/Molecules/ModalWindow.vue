@@ -11,10 +11,10 @@ const { closeModal, modal } = useModal();
       <div
         v-if="modal.component"
         ref="modalContainer"
-        role="dialog"
-        aria-modal="true"
         aria-labelledby="modal-title"
+        aria-modal="true"
         class="fullscreen centerAll"
+        role="dialog"
         @click.self="closeModal"
       >
         <div
@@ -31,9 +31,9 @@ const { closeModal, modal } = useModal();
             <template #actions>
               <ButtonLink
                 :icon="ICONS.close"
-                title="Close modal"
                 icon-size="large"
                 icon-weight="bold"
+                title="Close modal"
                 @click="closeModal"
               >
                 Close modal

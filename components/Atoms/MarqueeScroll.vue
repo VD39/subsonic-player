@@ -106,10 +106,10 @@ onUnmounted(() => {
       },
     ]"
     @mousedown.prevent
-    @mouseover="onMouseOver"
-    @touchstart.passive="onMouseOver"
     @mouseout="onMouseOut"
+    @mouseover="onMouseOver"
     @touchend.passive="onMouseOut"
+    @touchstart.passive="onMouseOver"
   >
     <div :class="['bulletList', $style.inner]">
       <div ref="marqueeContentRef" :class="$style.content">
@@ -119,10 +119,10 @@ onUnmounted(() => {
       <div
         v-for="length in cloneLength"
         :key="length"
-        :class="[$style.content, $style.clonedContent]"
         aria-hidden="true"
-        :inert="disableClonedContent"
+        :class="[$style.content, $style.clonedContent]"
         data-test-id="cloned-item"
+        :inert="disableClonedContent"
       >
         <slot />
       </div>

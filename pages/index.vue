@@ -130,11 +130,11 @@ useHead({
 
         <TrackWithPreviewList
           :tracks="favourites.tracks.slice(0, 5)"
-          @play-track="playTrack"
-          @add-to-queue="addTrackToQueue"
           @add-to-playlist="addToPlaylistModal"
-          @media-information="openTrackInformationModal"
+          @add-to-queue="addTrackToQueue"
           @download-media="downloadMedia"
+          @media-information="openTrackInformationModal"
+          @play-track="playTrack"
         />
       </template>
 

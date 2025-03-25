@@ -12,13 +12,13 @@ const icon = computed(() => (props.loading ? SpinningLoader : undefined));
 
 <template>
   <ButtonLink
-    :disabled="loading"
-    type="submit"
-    show-text
-    :full-width="fullWidth"
-    icon-position="right"
-    :icon="icon"
     :class="$style.submitButton"
+    :disabled="loading"
+    :full-width="fullWidth"
+    :icon="icon"
+    icon-position="right"
+    show-text
+    type="submit"
   >
     <slot />
   </ButtonLink>

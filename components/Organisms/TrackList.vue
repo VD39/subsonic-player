@@ -13,13 +13,13 @@ defineProps<{
   tracks: Track[];
 }>();
 
-defineEmits([
-  'addToPlaylist',
-  'addToQueue',
-  'downloadMedia',
-  'playTrack',
-  'mediaInformation',
-]);
+defineEmits<{
+  addToPlaylist: [value: string];
+  addToQueue: [value: Track];
+  downloadMedia: [value: string];
+  mediaInformation: [value: Track];
+  playTrack: [value: number];
+}>();
 </script>
 
 <template>
@@ -45,12 +45,12 @@ defineEmits([
             @play-track="$emit('playTrack', index)"
           />
 
-          <TrackMeta :track="track" class="trackMeta" />
+          <TrackMeta class="trackMeta" :track="track" />
 
           <FavouriteButton
             :id="track.id"
-            :type="track.type"
             :favourite="track.favourite"
+            :type="track.type"
           />
         </div>
       </div>

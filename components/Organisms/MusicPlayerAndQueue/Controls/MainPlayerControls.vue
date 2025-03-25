@@ -22,10 +22,10 @@ const rewindFastForwardTitle = {
   <div class="centerItems spaceBetween">
     <ButtonLink
       ref="previousTrack"
+      :disabled="!hasPreviousTrack"
       :icon="ICONS.skipBack"
       icon-weight="fill"
       title="Previous track"
-      :disabled="!hasPreviousTrack"
       @click="playPreviousTrack"
     >
       Previous track
@@ -55,10 +55,10 @@ const rewindFastForwardTitle = {
 
     <ButtonLink
       ref="nextTrack"
+      :disabled="!hasNextTrack"
       :icon="ICONS.skipForward"
       icon-weight="fill"
       title="Next track"
-      :disabled="!hasNextTrack"
       @click="playNextTrack"
     >
       Next track

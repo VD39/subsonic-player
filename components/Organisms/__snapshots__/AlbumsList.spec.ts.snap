@@ -12,71 +12,71 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
   <article>
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-0">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to album album-0" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" src="image" style="display: none;"></div>
         </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-0">
-        <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
       </button>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to album album-0">album-0</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="link">album-0</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </article>
   <article>
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-1">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to album album-1" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" src="image" style="display: none;"></div>
         </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-1">
-        <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
       </button>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to album album-1">album-1</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="link">album-1</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </article>
   <article>
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-2">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to album album-2" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" src="image" style="display: none;"></div>
         </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-2">
-        <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
       </button>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to album album-2">album-2</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="link">album-2</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </article>
   <article>
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-3">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to album album-3" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" src="image" style="display: none;"></div>
         </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-3">
-        <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
       </button>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to album album-3">album-3</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="link">album-3</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </article>
   <article>
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-4">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="Go to album album-4" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" src="image" style="display: none;"></div>
         </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-4">
-        <phplay class="icon" aria-hidden="true" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
       </button>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a class="link" aria-label="Go to album album-4">album-4</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="link">album-4</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name">name</a></li>
-      <li data-test-id="artist-list-item"><a class="link" aria-label="Go to artist name1">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </article>
 </section>"

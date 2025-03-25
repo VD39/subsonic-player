@@ -15,6 +15,9 @@ defineProps<{
           <li :class="$style.item">
             <ButtonLink
               is="nuxt-link"
+              class="link pageLink"
+              exact-active-class="pageCurrentLink"
+              show-text
               :to="
                 !navigation.param
                   ? {
@@ -26,9 +29,6 @@ defineProps<{
                       },
                     }
               "
-              show-text
-              class="link pageLink"
-              exact-active-class="pageCurrentLink"
             >
               {{ name }}
             </ButtonLink>

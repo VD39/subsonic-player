@@ -179,10 +179,10 @@ useHead({
 
         <div class="list">
           <ButtonLink
+            class="largeThemeHoverButton"
             :disabled="!hasDownloadedEpisodes"
             :icon="ICONS.play"
             title="Play podcast episodes"
-            class="largeThemeHoverButton"
             @click="playAllEpisodes"
           >
             Play podcast episodes
@@ -212,13 +212,13 @@ useHead({
 
       <PodcastList
         :podcast-episodes="podcastEpisodes"
-        @play-episode="playEpisode"
-        @add-to-queue="addTrackToQueue"
         @add-to-playlist="addToPlaylistModal"
-        @episode-information="openTrackInformationModal"
+        @add-to-queue="addTrackToQueue"
         @delete-episode="deletePodcastEpisode"
         @download-episode="downloadPodcastEpisode"
         @download-media="downloadMedia"
+        @episode-information="openTrackInformationModal"
+        @play-episode="playEpisode"
       />
 
       <InfiniteScroller

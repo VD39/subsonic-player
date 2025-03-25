@@ -12,15 +12,15 @@ defineProps<{
   podcastEpisodes: PodcastEpisode[];
 }>();
 
-defineEmits([
-  'addToPlaylist',
-  'addToQueue',
-  'deleteEpisode',
-  'downloadEpisode',
-  'downloadMedia',
-  'playEpisode',
-  'episodeInformation',
-]);
+defineEmits<{
+  addToPlaylist: [value: string];
+  addToQueue: [value: PodcastEpisode];
+  deleteEpisode: [value: string];
+  downloadEpisode: [value: string];
+  downloadMedia: [value: string];
+  episodeInformation: [value: PodcastEpisode];
+  playEpisode: [value: PodcastEpisode];
+}>();
 </script>
 
 <template>
@@ -33,8 +33,8 @@ defineEmits([
     <div
       v-for="(episode, index) in podcastEpisodes"
       :key="episode.id"
-      data-test-id="track"
       class="trackRow trackBorder spaceBetween"
+      data-test-id="track"
     >
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -46,11 +46,11 @@ defineEmits([
 
           <TrackPlayPause
             v-else
-            :track-id="episode.id"
-            :image="episode.image"
-            :track-number="index + 1"
-            large
             :class="$style.trackPlayPause"
+            :image="episode.image"
+            large
+            :track-id="episode.id"
+            :track-number="index + 1"
             @play-track="$emit('playEpisode', episode)"
           />
 
@@ -84,7 +84,7 @@ defineEmits([
               ref="downloadEpisodeButton"
               :icon="ICONS.download"
               title="Download episode"
-              @click="$emit('downloadEpisode', episode)"
+              @click="$emit('downloadEpisode', episode.id)"
             >
               Download episode
             </ButtonLink>
@@ -134,7 +134,7 @@ defineEmits([
             </DropdownItem>
             <DropdownItem
               ref="downloadMedia"
-              @click="$emit('downloadMedia', episode.streamUrlId)"
+              @click="$emit('downloadMedia', episode.streamUrlId!)"
             >
               Download episode
             </DropdownItem>
@@ -168,7 +168,7 @@ defineEmits([
             </DropdownItem>
             <DropdownItem
               ref="playEpisode"
-              @click="$emit('playEpisode', episode.id)"
+              @click="$emit('playEpisode', episode)"
             >
               Play Episode
             </DropdownItem>

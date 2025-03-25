@@ -2,6 +2,6 @@
 
 exports[`ImageLink > matches the snapshot 1`] = `
 "<figure><a title="title">
-    <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img class="image" src="image" alt="title" style="display: none;"></div>
+    <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
   </a></figure>"
 `;
