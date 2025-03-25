@@ -34,8 +34,8 @@
   width: var(--track-cell-width);
   min-height: 55px;
   padding: var(--track-cell-padding);
-  text-align: left;
   vertical-align: middle;
+  text-align: left;
 
   > * {
     @extend .centerItems;

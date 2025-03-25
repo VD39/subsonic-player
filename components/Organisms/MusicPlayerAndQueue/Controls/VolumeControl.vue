@@ -82,16 +82,16 @@ function toggleAudioVolume() {
   top: calc(var(--default-space) * -4);
   left: 50%;
   z-index: 10;
+  visibility: var(--volume-input-visibility);
   gap: var(--default-space);
   width: 200px;
   padding: var(--default-space);
-  visibility: var(--volume-input-visibility);
   background: var(--secondary-background-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-large);
-  transition: visibility var(--transition);
   transform: translateX(-50%);
+  transition: visibility var(--transition);
 }
 
 .currentVolume {
