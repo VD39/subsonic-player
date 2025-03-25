@@ -294,11 +294,11 @@ onUnmounted(() => {
   background-color: var(--tooltip-background-color);
   box-shadow: var(--box-shadow-large);
   opacity: var(--tooltip-opacity);
+  transform: translate(-50%, 10px) scale(0.8);
+  transform-origin: 50% 100%;
   transition:
     transform var(--transition),
     opacity var(--transition);
-  transform: translate(-50%, 10px) scale(0.8);
-  transform-origin: 50% 100%;
 
   &::before {
     position: absolute;
