@@ -40,6 +40,7 @@ export const STATE_NAMES = {
   playlists: 'playlists',
   queueListOpened: 'queue-list-opened',
   queuePlayerOpened: 'queue-player-opened',
+  radioStations: 'radio-stations',
   sideBarCollapsed: 'sidebar-collapsed',
   sideBarWidth: 'sidebar-width',
   snacks: 'snacks',

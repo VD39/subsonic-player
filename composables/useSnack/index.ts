@@ -7,7 +7,7 @@ export function useSnack() {
     let timer = null;
     const id = generateRandomString(50);
 
-    if (snackData.auto) {
+    if (import.meta.client && snackData.auto) {
       timer = setTimeout(() => {
         removeSnack(id);
       }, DURATION);

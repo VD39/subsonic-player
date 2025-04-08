@@ -22,6 +22,7 @@ const {
   addRadioStation,
   deleteRadioStation,
   getRadioStations,
+  radioStations,
   updateRadioStation,
 } = useRadioStation();
 
@@ -30,16 +31,18 @@ describe('useRadioStation', () => {
     vi.clearAllMocks();
   });
 
-  describe('when the getPodcasts function is called', () => {
+  describe('when the getRadioStations function is called', () => {
     describe('when fetchData response returns non array value', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
+
+        getRadioStations();
       });
 
-      it('returns the correct response', async () => {
-        expect(await getRadioStations()).toEqual([]);
+      it('sets the correct radioStations value', () => {
+        expect(radioStations.value).toEqual([]);
       });
     });
 
@@ -52,10 +55,12 @@ describe('useRadioStation', () => {
             },
           ],
         });
+
+        getRadioStations();
       });
 
-      it('returns the correct response', async () => {
-        expect(await getRadioStations()).toEqual([
+      it('sets the correct radioStations value', () => {
+        expect(radioStations.value).toEqual([
           {
             name: 'name',
           },
@@ -77,6 +82,13 @@ describe('useRadioStation', () => {
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
+
+      it('does not call the getRadioStations function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getInternetRadioStations',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -97,10 +109,51 @@ describe('useRadioStation', () => {
           'Successfully added radio station radio-station-name.',
         );
       });
+
+      it('calls the getRadioStations function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getInternetRadioStations',
+          expect.any(Object),
+        );
+      });
     });
   });
 
   describe('when the updateRadioStation function is called', () => {
+    describe('when the homepageUrl param is falsy', () => {
+      beforeEach(() => {
+        updateRadioStation({ homepageUrl: '' } as RadioStationParams);
+      });
+
+      it('calls the fetch function without homepageUrl key in params', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/updateInternetRadioStation',
+          expect.objectContaining({
+            params: {},
+          }),
+        );
+      });
+    });
+
+    describe('when the homepageUrl param is not falsy', () => {
+      beforeEach(() => {
+        updateRadioStation({
+          homepageUrl: 'homepageUrl',
+        } as RadioStationParams);
+      });
+
+      it('calls the fetch function with homepageUrl key in params', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/updateInternetRadioStation',
+          expect.objectContaining({
+            params: {
+              homepageUrl: 'homepageUrl',
+            },
+          }),
+        );
+      });
+    });
+
     describe('when fetchData response returns null', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
@@ -112,6 +165,13 @@ describe('useRadioStation', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getRadioStations function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getInternetRadioStations',
+          expect.any(Object),
+        );
       });
     });
 
@@ -133,6 +193,13 @@ describe('useRadioStation', () => {
           'Successfully updated radio station radio-station-update-name.',
         );
       });
+
+      it('calls the getRadioStations function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getInternetRadioStations',
+          expect.any(Object),
+        );
+      });
     });
   });
 
@@ -148,6 +215,13 @@ describe('useRadioStation', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getRadioStations function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getInternetRadioStations',
+          expect.any(Object),
+        );
       });
     });
 
@@ -165,6 +239,13 @@ describe('useRadioStation', () => {
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted radio station.',
+        );
+      });
+
+      it('calls the getRadioStations function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getInternetRadioStations',
+          expect.any(Object),
         );
       });
     });

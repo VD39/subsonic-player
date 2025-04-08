@@ -143,7 +143,7 @@ export function usePlaylist() {
           name: newPlaylistName,
           playlistId: currentPlaylist.id,
         });
-        await getPlaylistTracksById(currentPlaylist.id);
+        await getPlaylistTracksById(currentPlaylist.id, false);
         closeModal();
       },
       playlist: currentPlaylist,

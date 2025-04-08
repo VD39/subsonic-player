@@ -9,21 +9,18 @@ const {
   addRadioStationModal,
   deleteRadioStation,
   getRadioStations,
+  radioStations,
   updateRadioStationModal,
 } = useRadioStation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
-const {
-  data: radioStationsData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.radioStations,
   async () => {
-    const radioStations = await getRadioStations();
+    await getRadioStations();
 
     return {
-      radioStations,
+      radioStations: radioStations.value,
     };
   },
   {
@@ -35,21 +32,8 @@ const {
   },
 );
 
-function addNewRadioStationModal() {
-  addRadioStationModal(refresh);
-}
-
-async function deleteSelectedRadioStation(id: string) {
-  await deleteRadioStation(id);
-  await refresh();
-}
-
 function playRadioStation(station: RadioStation) {
   playTracks([station]);
-}
-
-function updateSelectedRadioStationModal(radioStation: RadioStation) {
-  updateRadioStationModal(radioStation, refresh);
 }
 
 useHead({
@@ -68,7 +52,7 @@ useHead({
         :icon="ICONS.add"
         icon-size="large"
         title="Add radio station"
-        @click="addNewRadioStationModal"
+        @click="addRadioStationModal"
       >
         Add radio station
       </ButtonLink>
@@ -77,10 +61,10 @@ useHead({
 
   <LoadingData :status="status">
     <RadioStationList
-      :radio-stations="radioStationsData.radioStations"
+      :radio-stations="radioStations"
       @add-to-queue="addTrackToQueue"
-      @delete-radio-station="deleteSelectedRadioStation"
-      @edit-radio-station="updateSelectedRadioStationModal"
+      @delete-radio-station="deleteRadioStation"
+      @edit-radio-station="updateRadioStationModal"
       @play-radio-station="playRadioStation"
     />
   </LoadingData>
