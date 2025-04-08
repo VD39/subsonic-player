@@ -17,8 +17,7 @@ export function useAuth() {
   function logout() {
     clearNuxtData();
     authCookie.value = null;
-    clearNuxtState(STATE_NAMES.userAuthenticated);
-    clearNuxtState(STATE_NAMES.playlists);
+    clearNuxtState(STATES_TO_CLEAR);
   }
 
   async function autoLogin() {

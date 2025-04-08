@@ -48,6 +48,17 @@ export const STATE_NAMES = {
   userAuthenticated: 'user-authenticated',
 } as const;
 
+export const STATES_TO_CLEAR = [
+  STATE_NAMES.currentUser,
+  STATE_NAMES.favouriteIds,
+  STATE_NAMES.favourites,
+  STATE_NAMES.genres,
+  STATE_NAMES.playlist,
+  STATE_NAMES.playlists,
+  STATE_NAMES.radioStations,
+  STATE_NAMES.userAuthenticated,
+];
+
 export const ASYNC_DATA_NAMES = {
   artists: 'artists',
   favourites: 'favourites',
