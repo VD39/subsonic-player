@@ -4,14 +4,9 @@ import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
-import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastList from '@/components/Organisms/PodcastList.vue';
-
-definePageMeta({
-  middleware: [MIDDLEWARE_NAMES.podcasts],
-});
 
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
@@ -22,31 +17,31 @@ const {
   addPodcastModal,
   deletePodcastEpisode,
   downloadPodcastEpisode,
-  getNewestPodcasts,
+  getNewestPodcastEpisodes,
   getPodcasts,
-  sortPodcasts,
+  podcasts,
 } = usePodcast();
 
 const {
-  data: podcastsData,
+  data: podcastData,
   refresh,
   status,
 } = useAsyncData(
   ASYNC_DATA_NAMES.podcasts,
   async () => {
-    const [latestPodcasts, podcasts] = await Promise.all([
-      getNewestPodcasts(),
+    const [newestPodcastEpisodes] = await Promise.all([
+      getNewestPodcastEpisodes(),
       getPodcasts(),
     ]);
 
     return {
-      latestPodcasts,
-      podcasts,
+      newestPodcastEpisodes,
+      podcasts: podcasts.value,
     };
   },
   {
     default: () => ({
-      latestPodcasts: [],
+      newestPodcastEpisodes: [],
       podcasts: [],
     }),
     getCachedData: (key, nuxtApp) =>
@@ -56,17 +51,6 @@ const {
 
 function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
-}
-
-const podcasts = computed(() =>
-  sortPodcasts(
-    podcastsData.value.podcasts,
-    route.params.sortBy as PodcastsSortByParam,
-  ),
-);
-
-function addNewPodcastModal() {
-  addPodcastModal(refresh);
 }
 
 useHead({
@@ -85,14 +69,12 @@ useHead({
         :icon="ICONS.add"
         icon-size="large"
         title="Add podcast"
-        @click="addNewPodcastModal"
+        @click="addPodcastModal"
       >
         Add podcast
       </ButtonLink>
     </template>
   </HeaderWithAction>
-
-  <PageNavigation :navigation="PODCASTS_NAVIGATION" />
 
   <LoadingData :status="status">
     <div v-if="podcasts.length">
@@ -107,7 +89,7 @@ useHead({
       <h3>Latest Podcast Episodes</h3>
 
       <PodcastList
-        :podcast-episodes="podcastsData.latestPodcasts"
+        :podcast-episodes="podcastData.newestPodcastEpisodes"
         @add-to-playlist="addToPlaylistModal"
         @add-to-queue="addTrackToQueue"
         @delete-episode="deletePodcastEpisode"

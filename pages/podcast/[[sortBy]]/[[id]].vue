@@ -25,8 +25,7 @@ const {
   deletePodcast,
   deletePodcastEpisode,
   downloadPodcastEpisode,
-  getNewestPodcasts,
-  getPodcasts,
+  getPodcast,
 } = usePodcast();
 const {
   fetchMoreData,
@@ -39,84 +38,68 @@ const {
 );
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
+function fetchData() {
+  fetchMoreData((offset: number) =>
+    sliceArrayBySizeAndOffset(
+      podcastData.value.podcast?.episodes?.[
+        route.params.sortBy as PodcastSortByParam
+      ] || [],
+      LOAD_SIZE,
+      offset,
+    ),
+  );
+}
+
 const {
-  data: podcastsData,
+  data: podcastData,
   refresh,
   status,
 } = await useAsyncData(
-  ASYNC_DATA_NAMES.podcasts,
+  `${ASYNC_DATA_NAMES.podcast}-${route.params.id}`,
   async () => {
-    const [latestPodcasts, podcasts] = await Promise.all([
-      getNewestPodcasts(),
-      getPodcasts(),
-    ]);
+    const podcast = await getPodcast(route.params.id as string);
 
     return {
-      latestPodcasts,
-      podcasts,
+      podcast,
     };
   },
   {
     default: () => ({
-      latestPodcasts: [],
-      podcasts: [],
+      podcast: null,
     }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    lazy: true,
   },
 );
 
-const podcastById = computed(() => {
-  const podcast = podcastsData.value?.podcasts?.find(
-    (podcast) => podcast.id === route.params.id,
-  );
-
-  return podcast || null;
-});
-
-const sortedPodcast = computed(() =>
-  sortPodcastEpisodes(
-    podcastById.value?.episodes || [],
-    route.params.sortBy as PodcastSortByParam,
-  ),
+const hasDownloadedEpisodes = computed(
+  () => podcastData.value.podcast!.totalDownloadedEpisodes > 0,
 );
-
-const downloadedEpisodes = computed(() =>
-  sortPodcastEpisodes(
-    sortedPodcast.value,
-    ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded,
-  ),
-);
-
-const hasDownloadedEpisodes = computed(() => !!downloadedEpisodes.value.length);
-
-function fetchData() {
-  fetchMoreData((offset: number) =>
-    sliceArrayBySizeAndOffset(sortedPodcast.value, LOAD_SIZE, offset),
-  );
-}
-
-fetchData();
 
 function addDownloadedTracksToQueue() {
-  addTracksToQueue(downloadedEpisodes.value);
+  addTracksToQueue(podcastData.value.podcast!.episodes.downloaded);
 }
 
 async function deleteSelectedPodcast() {
-  await deletePodcast(podcastById.value!.id);
+  await deletePodcast(podcastData.value.podcast!.id);
   await navigateTo('/podcasts');
-  await refresh();
+}
+
+function getData() {
+  resetToDefaults();
+  fetchData();
 }
 
 function openPodcastDescriptionModal() {
   openModal(MODAL_TYPE.readMoreModal, {
-    text: podcastById.value!.description,
+    text: podcastData.value.podcast!.description,
     title: 'Description',
   });
 }
 
 function playAllEpisodes() {
-  playTracks(downloadedEpisodes.value, -1);
+  playTracks(podcastData.value.podcast!.episodes.downloaded, -1);
 }
 
 function playEpisode(episode: PodcastEpisode) {
@@ -124,22 +107,26 @@ function playEpisode(episode: PodcastEpisode) {
 }
 
 function playLatestsEpisodes() {
-  playEpisode(downloadedEpisodes.value[0]);
+  playEpisode(podcastData.value.podcast!.episodes.downloaded[0]);
 }
 
 async function refreshPodcast() {
-  resetToDefaults();
   await refresh();
-  fetchData();
+  resetToDefaults();
 }
 
-onBeforeUnmount(() => {
-  resetToDefaults();
-});
+getData();
+
+watch(
+  () => podcastData.value.podcast,
+  () => {
+    getData();
+  },
+);
 
 useHead({
   title: () =>
-    [podcastById.value?.name, route.params.sortBy, 'Podcast']
+    [podcastData.value.podcast?.name, route.params.sortBy, 'Podcast']
       .filter(Boolean)
       .join(' - '),
 });
@@ -147,8 +134,11 @@ useHead({
 
 <template>
   <LoadingData :status="status">
-    <div v-if="podcastById">
-      <EntryHeader :images="[podcastById.image]" :title="podcastById.name">
+    <div v-if="podcastData.podcast">
+      <EntryHeader
+        :images="[podcastData.podcast.image]"
+        :title="podcastData.podcast.name"
+      >
         <template #actions>
           <RefreshButton :status="status" @refresh="refreshPodcast" />
         </template>
@@ -156,24 +146,24 @@ useHead({
         <ul class="bulletList">
           <li>
             Episodes:
-            <span class="strong">{{ podcastById.totalEpisodes }}</span>
+            <span class="strong">{{ podcastData.podcast.totalEpisodes }}</span>
           </li>
           <li>
             Last updated:
-            <span class="strong">{{ podcastById.lastUpdated }}</span>
+            <span class="strong">{{ podcastData.podcast.lastUpdated }}</span>
           </li>
           <li>
             Downloaded episodes:
             <span class="strong">
-              {{ podcastById.totalDownloadedEpisodes }}
+              {{ podcastData.podcast.totalDownloadedEpisodes }}
             </span>
           </li>
         </ul>
 
         <TextClamp
-          v-if="podcastById.description"
+          v-if="podcastData.podcast.description"
           :max-lines="3"
-          :text="podcastById.description"
+          :text="podcastData.podcast.description"
           @more="openPodcastDescriptionModal"
         />
 

@@ -580,15 +580,16 @@ export function useAudioPlayer() {
     saveState();
   }
 
-  function addTracksToQueue(tracks: QueueTrack[]) {
+  function addTracksToQueueList(tracks: QueueTrack[]) {
     queueList.value.push(...tracks);
-    saveState();
   }
 
-  async function addTrackToQueue(track: QueueTrack) {
-    addTracksToQueue([track]);
+  async function addTracksToQueue(tracks: QueueTrack[]) {
+    const tempQueueLength = queueList.value.length;
 
-    if (queueList.value.length === 1) {
+    addTracksToQueueList(tracks);
+
+    if (!tempQueueLength) {
       await playNextTrack();
       pauseTrack();
     }
@@ -596,12 +597,16 @@ export function useAudioPlayer() {
     saveState();
   }
 
+  async function addTrackToQueue(track: QueueTrack) {
+    await addTracksToQueue([track]);
+  }
+
   async function playTracks(
     tracks: QueueTrack[],
     queueIndex = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
   ) {
     clearQueueList();
-    addTracksToQueue(tracks);
+    addTracksToQueueList(tracks);
     currentQueueIndex.value = queueIndex;
     await playNextTrack();
   }

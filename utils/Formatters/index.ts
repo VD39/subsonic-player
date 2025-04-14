@@ -53,9 +53,9 @@ export function formatArtist(
   const {
     album = [],
     albumCount: totalAlbums = 0,
-    artistImageUrl,
+    artistImageUrl = IMAGE_DEFAULT_BY_TYPE.artist,
     biography,
-    coverArt = IMAGE_DEFAULT_BY_TYPE.artist,
+    coverArt,
     id,
     lastFmUrl,
     musicBrainzId,
@@ -64,20 +64,17 @@ export function formatArtist(
     starred,
   } = artistData;
 
-  const image = artistImageUrl || coverArt;
-  const musicBrainzUrl = musicBrainzId
-    ? `https://musicbrainz.org/artist/${musicBrainzId}`
-    : undefined;
-
   return {
     albums: album.map(formatAlbum),
     biography,
     favourite: !!starred,
     genres: getUniqueGenres(album),
     id: id!,
-    image,
+    image: coverArt || artistImageUrl,
     lastFmUrl,
-    musicBrainzUrl,
+    musicBrainzUrl: musicBrainzId
+      ? `https://musicbrainz.org/artist/${musicBrainzId}`
+      : undefined,
     name,
     similarArtist: similarArtist.map(formatSimilarArtist),
     totalAlbums,
@@ -104,16 +101,15 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
     duration,
     entry = [],
     id,
-    name: playlistName,
+    name = '(Unnamed)',
     owner = DEFAULT_VALUE,
     public: playlistPublic = false,
     songCount: trackCount,
   } = playlist;
 
-  const name = playlistName || '(Unnamed)';
   const tracks = entry.map((media) =>
     media.type === 'podcastepisode'
-      ? formatPodcastEpisode({})(media as ResponsePodcastEpisode)
+      ? formatPodcastEpisode(media as ResponsePodcastEpisode)
       : formatTracks(media),
   );
 
@@ -146,67 +142,56 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
     url,
   } = podcast;
 
-  const lastUpdated = formatDate(getEarliestDate(episode));
-  const totalDownloadedEpisodes = getDownloadedEpisodesLength(episode);
-  const image = originalImageUrl || coverArt;
-  const totalEpisodes = episode.length;
+  const podcastEpisodes = episode.map(formatPodcastEpisode);
+  const episodes = getSortedPodcastEpisodes(podcastEpisodes);
 
   return {
     description,
-    episodes: episode.map(
-      formatPodcastEpisode({
-        image,
-        name,
-      }),
-    ),
+    episodes,
     id,
-    image,
-    lastUpdated,
+    image: originalImageUrl || coverArt,
+    lastUpdated: formatDate(getEarliestDate(episode)),
     name,
-    totalDownloadedEpisodes,
-    totalEpisodes,
+    totalDownloadedEpisodes: getDownloadedEpisodesLength(episode),
+    totalEpisodes: episode.length,
     type: MEDIA_TYPE.podcast,
     url,
   };
 }
 
-export function formatPodcastEpisode(podcast: Partial<Podcast>) {
-  const { image: podcastImage, name: podcastName } = podcast;
+export function formatPodcastEpisode(
+  episode: ResponsePodcastEpisode,
+): PodcastEpisode {
+  const {
+    album = DEFAULT_VALUE,
+    artist: author = DEFAULT_VALUE,
+    channelId: podcastId,
+    coverArt: image = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
+    description,
+    duration,
+    id,
+    parent,
+    publishDate,
+    status,
+    streamId,
+    title: name,
+  } = episode;
 
-  return function (episode: ResponsePodcastEpisode): PodcastEpisode {
-    const {
-      album = DEFAULT_VALUE,
-      artist: author = DEFAULT_VALUE,
-      channelId: podcastId,
-      coverArt = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
-      description,
-      duration,
-      id,
-      publishDate,
-      status,
-      streamId,
-      title: name,
-    } = episode;
-
-    const downloaded = status === 'completed';
-    const image = podcastImage || coverArt;
-
-    return {
-      author,
-      description,
-      downloaded,
-      duration: secondsToHHMMSS(duration),
-      genres: getGenres(episode),
-      id,
-      image,
-      name,
-      podcastId,
-      podcastName: podcastName! || album,
-      publishDate: formatDate(publishDate, {}),
-      streamUrlId: streamId || id,
-      trackNumber: 0,
-      type: MEDIA_TYPE.podcastEpisode,
-    };
+  return {
+    author,
+    description,
+    downloaded: status === 'completed',
+    duration: secondsToHHMMSS(duration),
+    genres: getGenres(episode),
+    id,
+    image,
+    name,
+    podcastId: parent || podcastId,
+    podcastName: album,
+    publishDate: formatDate(publishDate, {}),
+    streamUrlId: streamId || id,
+    trackNumber: 0,
+    type: MEDIA_TYPE.podcastEpisode,
   };
 }
 
@@ -221,8 +206,6 @@ export function formatRadioStation(
     streamUrl,
   } = station;
 
-  const homePageUrl = radioStationHomePageUrl || radioStationHomepageUrl;
-
   // TODO: Fix this to use app is running.
   // const image = homePageUrl
   //   ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
@@ -230,7 +213,7 @@ export function formatRadioStation(
 
   return {
     duration: '',
-    homePageUrl,
+    homePageUrl: radioStationHomePageUrl || radioStationHomepageUrl,
     id,
     image: IMAGE_DEFAULT_BY_TYPE.radioStation,
     name,

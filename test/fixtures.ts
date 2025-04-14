@@ -257,7 +257,13 @@ export const formattedPodcastEpisodeMock = {
 
 export const formattedPodcastMock = {
   description: 'description',
-  episodes: [formattedPodcastEpisodeMock],
+  episodes: {
+    [ROUTE_PODCAST_SORT_BY_PARAMS.All]: [formattedPodcastEpisodeMock],
+    [ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded]: [formattedPodcastEpisodeMock],
+    [ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']]: [
+      formattedPodcastEpisodeMock,
+    ],
+  },
   id: 'id',
   image: 'image',
   lastUpdated: '01 January 2000',

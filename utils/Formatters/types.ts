@@ -66,7 +66,7 @@ export interface Playlist {
 
 export interface Podcast {
   description?: string;
-  episodes: PodcastEpisode[];
+  episodes: Record<PodcastSortByParam, PodcastEpisode[]>;
   id: string;
   image: Image;
   lastUpdated: string;

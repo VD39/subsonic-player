@@ -26,7 +26,7 @@ Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source app
 
 2. Comprehensive Library Browsing
 
-   - Browse by album, artist, genre.
+   - Browse by album, artist, genre, and folder/files.
    - Explore podcasts and favourites.
    - Access internet radio stations.
 

@@ -165,7 +165,7 @@ describe('formatArtist', () => {
       favourite: true,
       genres: expect.any(Array),
       id: 'id',
-      image: 'artistImageUrl',
+      image: 'coverArt',
       lastFmUrl: undefined,
       musicBrainzUrl: undefined,
       name: 'name',
@@ -244,23 +244,23 @@ describe('formatArtist', () => {
     });
   });
 
-  describe('when artistImageUrl is undefined', () => {
-    describe('when coverArt is defined', () => {
+  describe('when coverArt is undefined', () => {
+    describe('when artistImageUrl is defined', () => {
       it('returns the correct values', () => {
         expect(
           formatArtist({
             ...artistMock,
-            artistImageUrl: undefined,
+            coverArt: undefined,
           }),
         ).toEqual(
           expect.objectContaining({
-            image: 'coverArt',
+            image: 'artistImageUrl',
           }),
         );
       });
     });
 
-    describe('when coverArt is undefined', () => {
+    describe('when artistImageUrl is undefined', () => {
       it('returns the correct values', () => {
         expect(
           formatArtist({
@@ -356,80 +356,21 @@ describe('formatGenre', () => {
 
 describe('formatPodcastEpisode', () => {
   it('returns the correct values', () => {
-    expect(
-      formatPodcastEpisode({
-        image: 'image',
-        name: 'name',
-      })(podcastEpisodeMock),
-    ).toEqual({
+    expect(formatPodcastEpisode(podcastEpisodeMock)).toEqual({
       author: 'artist',
       description: 'description',
       downloaded: true,
       duration: '00:19',
       genres: [],
       id: 'id',
-      image: 'image',
+      image: 'coverArt',
       name: 'title',
       podcastId: 'channelId',
-      podcastName: 'name',
+      podcastName: 'album',
       publishDate: '01/01/2000',
       streamUrlId: 'streamId',
       trackNumber: 0,
       type: 'podcastEpisode',
-    });
-  });
-
-  describe('when podcast name is not defined', () => {
-    describe('when episode album is defined', () => {
-      it('returns the correct values', () => {
-        expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
-          expect.objectContaining({
-            podcastName: 'album',
-          }),
-        );
-      });
-    });
-
-    describe('when episode album is not defined', () => {
-      it('returns the correct values', () => {
-        expect(
-          formatPodcastEpisode({})({
-            ...podcastEpisodeMock,
-            album: undefined,
-          }),
-        ).toEqual(
-          expect.objectContaining({
-            podcastName: DEFAULT_VALUE,
-          }),
-        );
-      });
-    });
-  });
-
-  describe('when podcast image is not defined', () => {
-    describe('when coverArt is defined', () => {
-      it('returns the correct values', () => {
-        expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
-          expect.objectContaining({
-            image: 'coverArt',
-          }),
-        );
-      });
-    });
-
-    describe('when coverArt is undefined', () => {
-      it('returns the correct values', () => {
-        expect(
-          formatPodcastEpisode({})({
-            ...podcastEpisodeMock,
-            coverArt: undefined,
-          }),
-        ).toEqual(
-          expect.objectContaining({
-            image: IMAGE_DEFAULT_BY_TYPE.podcast,
-          }),
-        );
-      });
     });
   });
 
@@ -446,10 +387,28 @@ describe('formatPodcastEpisode', () => {
         streamUrlId: 'id',
       },
     ],
+    [
+      'coverArt',
+      {
+        image: IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
+      },
+    ],
+    [
+      'artist',
+      {
+        author: DEFAULT_VALUE,
+      },
+    ],
+    [
+      'album',
+      {
+        podcastName: DEFAULT_VALUE,
+      },
+    ],
   ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
-        formatPodcastEpisode({})({
+        formatPodcastEpisode({
           ...podcastEpisodeMock,
           [key]: undefined,
         }),
@@ -459,7 +418,7 @@ describe('formatPodcastEpisode', () => {
 
   describe('when streamId is defined', () => {
     it('returns the correct values', () => {
-      expect(formatPodcastEpisode({})(podcastEpisodeMock)).toEqual(
+      expect(formatPodcastEpisode(podcastEpisodeMock)).toEqual(
         expect.objectContaining({
           streamUrlId: 'streamId',
         }),
@@ -472,24 +431,45 @@ describe('formatPodcast', () => {
   it('returns the correct values', () => {
     expect(formatPodcast(podcastMock)).toEqual({
       description: 'description',
-      episodes: [
-        {
-          author: 'artist',
-          description: 'description',
-          downloaded: true,
-          duration: '00:19',
-          genres: [],
-          id: 'id',
-          image: 'image',
-          name: 'title',
-          podcastId: 'channelId',
-          podcastName: 'title',
-          publishDate: '01/01/2000',
-          streamUrlId: 'streamId',
-          trackNumber: 0,
-          type: 'podcastEpisode',
-        },
-      ],
+      episodes: {
+        all: [
+          {
+            author: 'artist',
+            description: 'description',
+            downloaded: true,
+            duration: '00:19',
+            genres: [],
+            id: 'id',
+            image: 'coverArt',
+            name: 'title',
+            podcastId: 'channelId',
+            podcastName: 'album',
+            publishDate: '01/01/2000',
+            streamUrlId: 'streamId',
+            trackNumber: 0,
+            type: 'podcastEpisode',
+          },
+        ],
+        downloaded: [
+          {
+            author: 'artist',
+            description: 'description',
+            downloaded: true,
+            duration: '00:19',
+            genres: [],
+            id: 'id',
+            image: 'coverArt',
+            name: 'title',
+            podcastId: 'channelId',
+            podcastName: 'album',
+            publishDate: '01/01/2000',
+            streamUrlId: 'streamId',
+            trackNumber: 0,
+            type: 'podcastEpisode',
+          },
+        ],
+        'not-downloaded': [],
+      },
       id: 'id',
       image: 'image',
       lastUpdated: '01 January 2000',
@@ -505,7 +485,11 @@ describe('formatPodcast', () => {
     [
       'episode',
       {
-        episodes: [],
+        episodes: {
+          all: [],
+          downloaded: [],
+          'not-downloaded': [],
+        },
       },
     ],
     [

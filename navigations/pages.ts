@@ -21,11 +21,6 @@ export const PODCAST_NAVIGATION = {
   routes: ROUTE_PODCAST_SORT_BY_PARAMS,
 };
 
-export const PODCASTS_NAVIGATION = {
-  param: ROUTE_TYPES.sortBy,
-  routes: ROUTE_PODCASTS_SORT_BY_PARAMS,
-};
-
 export const SEARCH_NAVIGATION = {
   param: ROUTE_TYPES.mediaType,
   routes: ROUTE_MEDIA_TYPE_PARAMS,

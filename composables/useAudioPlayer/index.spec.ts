@@ -306,35 +306,6 @@ describe('useAudioPlayer', () => {
         }),
       );
     });
-
-    describe('when queueList length is 1', () => {
-      it('calls the audio load function', () => {
-        expect(loadMock).toHaveBeenCalledWith(queueTrack.streamUrlId);
-      });
-
-      it('calls the audio play function', () => {
-        expect(playMock).toHaveBeenCalled();
-      });
-    });
-
-    describe('when currentQueueIndex is greater than 1', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        result.composable.addTrackToQueue(queueTrack);
-      });
-
-      afterAll(() => {
-        result.composable.queueList.value = [queueTrack];
-      });
-
-      it('does not call the audio load function', () => {
-        expect(loadMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the audio play function', () => {
-        expect(playMock).not.toHaveBeenCalled();
-      });
-    });
   });
 
   describe('when addTracksToQueue function is called', () => {
@@ -356,6 +327,35 @@ describe('useAudioPlayer', () => {
 
     it('sets the correct hasPreviousTrack value', () => {
       expect(result.composable.hasPreviousTrack.value).toBe(false);
+    });
+
+    describe('when queueList length is 0', () => {
+      it('calls the audio load function', () => {
+        expect(loadMock).toHaveBeenCalledWith(queueTrack.streamUrlId);
+      });
+
+      it('calls the audio play function', () => {
+        expect(playMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when queueList length is greater than 0', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        result.composable.addTracksToQueue([queueTrack]);
+      });
+
+      afterAll(() => {
+        result.composable.queueList.value = [queueTrack];
+      });
+
+      it('does not call the audio load function', () => {
+        expect(loadMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the audio play function', () => {
+        expect(playMock).not.toHaveBeenCalled();
+      });
     });
   });
 

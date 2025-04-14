@@ -40,7 +40,7 @@ onMounted(() => {
     },
     {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '-65px',
       threshold: 0.1,
     },
   );

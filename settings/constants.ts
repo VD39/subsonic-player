@@ -38,6 +38,8 @@ export const STATE_NAMES = {
   playerVolume: 'player-volume',
   playlist: 'playlist',
   playlists: 'playlists',
+  podcast: 'podcast',
+  podcasts: 'podcasts',
   queueListOpened: 'queue-list-opened',
   queuePlayerOpened: 'queue-player-opened',
   radioStations: 'radio-stations',
@@ -66,6 +68,7 @@ export const ASYNC_DATA_NAMES = {
   index: 'index',
   library: 'library',
   playlists: 'playlists',
+  podcast: 'podcast',
   podcasts: 'podcasts',
   radioStations: 'radio-stations',
 } as const;
@@ -83,14 +86,13 @@ export const MIDDLEWARE_NAMES = {
   genre: 'genre',
   playlist: 'playlist',
   podcast: 'podcast',
-  podcasts: 'podcasts',
   search: 'search',
 } as Record<string, MiddlewareKey>;
 
 export const PAGE_NAVIGATION_ROUTES = [
   'index',
   'podcast-sortBy-id',
-  'podcasts-sortBy',
+  'podcasts',
   'radio-stations',
 ];
 
@@ -104,11 +106,6 @@ export const ROUTE_PODCAST_SORT_BY_PARAMS = {
   All: 'all',
   Downloaded: 'downloaded',
   'Not downloaded': 'not-downloaded',
-} as const;
-
-export const ROUTE_PODCASTS_SORT_BY_PARAMS = {
-  'A-Z': 'a-z',
-  Recent: 'recent',
 } as const;
 
 export const ROUTE_ALBUMS_SORT_BY_PARAMS = {

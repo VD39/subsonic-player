@@ -10,6 +10,6 @@ export default defineNuxtRouteMiddleware((to) => {
       ].includes(to.params.sortBy as never)
     )
   ) {
-    return navigateTo(`/podcasts/${ROUTE_PODCASTS_SORT_BY_PARAMS.Recent}`);
+    return navigateTo('/podcasts');
   }
 });

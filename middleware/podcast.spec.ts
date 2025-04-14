@@ -18,7 +18,7 @@ describe('podcast-middleware', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/podcasts/recent');
+      expect(navigateToMock).toHaveBeenCalledWith('/podcasts');
     });
   });
 
@@ -39,7 +39,7 @@ describe('podcast-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/podcasts/recent');
+        expect(navigateToMock).toHaveBeenCalledWith('/podcasts');
       });
     });
 

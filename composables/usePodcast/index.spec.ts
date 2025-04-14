@@ -1,6 +1,5 @@
 import type { DataMock } from '@/test/types';
 
-import { usePodcastPodcastValueMock } from '@/test/fixtures';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { usePodcast } from './index';
@@ -24,9 +23,10 @@ const {
   deletePodcast,
   deletePodcastEpisode,
   downloadPodcastEpisode,
-  getNewestPodcasts,
+  getNewestPodcastEpisodes,
+  getPodcast,
   getPodcasts,
-  sortPodcasts,
+  podcasts,
 } = usePodcast();
 
 describe('usePodcast', () => {
@@ -40,10 +40,48 @@ describe('usePodcast', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
+
+        getPodcasts();
+      });
+
+      it('sets the correct podcasts value', () => {
+        expect(podcasts.value).toEqual([]);
+      });
+    });
+
+    describe('when fetchData response returns an array', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: [
+            {
+              name: 'name',
+            },
+          ],
+        });
+
+        getPodcasts();
+      });
+
+      it('sets the correct podcasts value', () => {
+        expect(podcasts.value).toEqual([
+          {
+            name: 'name',
+          },
+        ]);
+      });
+    });
+  });
+
+  describe('when the getPodcast function is called', () => {
+    describe('when fetchData response returns non array value', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
       });
 
       it('returns the correct response', async () => {
-        expect(await getPodcasts()).toEqual([]);
+        expect(await getPodcast('id')).toEqual(null);
       });
     });
 
@@ -59,11 +97,9 @@ describe('usePodcast', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getPodcasts()).toEqual([
-          {
-            name: 'name',
-          },
-        ]);
+        expect(await getPodcast('id')).toEqual({
+          name: 'name',
+        });
       });
     });
   });
@@ -80,6 +116,13 @@ describe('usePodcast', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getPodcasts function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
       });
     });
 
@@ -99,6 +142,13 @@ describe('usePodcast', () => {
           'Successfully added podcast.',
         );
       });
+
+      it('calls the getPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
+      });
     });
   });
 
@@ -114,6 +164,13 @@ describe('usePodcast', () => {
 
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getPodcasts function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
       });
     });
 
@@ -131,6 +188,13 @@ describe('usePodcast', () => {
       it('calls the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted podcast.',
+        );
+      });
+
+      it('calls the getPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
         );
       });
     });
@@ -204,7 +268,7 @@ describe('usePodcast', () => {
     });
   });
 
-  describe('when the getNewestPodcasts function is called', () => {
+  describe('when the getNewestPodcastEpisodes function is called', () => {
     describe('when fetchData response returns non array value', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
@@ -213,7 +277,7 @@ describe('usePodcast', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getNewestPodcasts()).toEqual([]);
+        expect(await getNewestPodcastEpisodes()).toEqual([]);
       });
     });
 
@@ -229,59 +293,9 @@ describe('usePodcast', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getNewestPodcasts()).toEqual([
+        expect(await getNewestPodcastEpisodes()).toEqual([
           {
             name: 'name',
-          },
-        ]);
-      });
-    });
-  });
-
-  describe('when the sortPodcasts function is called', () => {
-    describe(`when sortBy is ${ROUTE_PODCASTS_SORT_BY_PARAMS.Recent}`, () => {
-      it('returns the correct response', () => {
-        expect(
-          sortPodcasts(
-            usePodcastPodcastValueMock,
-            ROUTE_PODCASTS_SORT_BY_PARAMS.Recent,
-          ),
-        ).toEqual([
-          {
-            lastUpdated: new Date(2000, 0, 10).toString(),
-            name: 'H',
-          },
-          {
-            lastUpdated: new Date(2000, 0, 5).toString(),
-            name: 'Z',
-          },
-          {
-            lastUpdated: new Date(2000, 0, 1).toString(),
-            name: 'A',
-          },
-        ]);
-      });
-    });
-
-    describe(`when sortBy is ${ROUTE_PODCASTS_SORT_BY_PARAMS['A-Z']}`, () => {
-      it('returns the correct response', () => {
-        expect(
-          sortPodcasts(
-            usePodcastPodcastValueMock,
-            ROUTE_PODCASTS_SORT_BY_PARAMS['A-Z'],
-          ),
-        ).toEqual([
-          {
-            lastUpdated: new Date(2000, 0, 1).toString(),
-            name: 'A',
-          },
-          {
-            lastUpdated: new Date(2000, 0, 10).toString(),
-            name: 'H',
-          },
-          {
-            lastUpdated: new Date(2000, 0, 5).toString(),
-            name: 'Z',
           },
         ]);
       });

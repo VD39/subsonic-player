@@ -67,6 +67,22 @@ export function getRandomTracksDuration(tracks: Base[] = []) {
   return tracks.reduce((sum, track) => sum + (track.duration || 0), 0);
 }
 
+export function getSortedPodcastEpisodes(
+  podcastEpisodes: PodcastEpisode[] = [],
+) {
+  return {
+    [ROUTE_PODCAST_SORT_BY_PARAMS.All]: podcastEpisodes,
+    [ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded]: sortPodcastEpisodes(
+      podcastEpisodes,
+      ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded,
+    ),
+    [ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']]: sortPodcastEpisodes(
+      podcastEpisodes,
+      ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded'],
+    ),
+  };
+}
+
 export function getTracksTotal(albums: AlbumID3[] = []) {
   return albums.reduce((sum, album) => sum + album.songCount, 0);
 }
@@ -104,4 +120,24 @@ export function groupTracksByDiscNumber(tracks: Track[] = []) {
 
     return acc;
   }, {});
+}
+
+export function sortPodcastEpisodes(
+  episodes: PodcastEpisode[],
+  sortBy: PodcastSortByParam,
+) {
+  let downloaded = undefined;
+
+  switch (sortBy) {
+    case ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded:
+      downloaded = true;
+      break;
+    case ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']:
+      downloaded = false;
+      break;
+    default:
+      return episodes;
+  }
+
+  return episodes.filter((episode) => episode.downloaded === downloaded);
 }
