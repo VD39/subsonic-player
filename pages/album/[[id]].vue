@@ -126,7 +126,7 @@ useHead({
       </EntryHeader>
 
       <template
-        v-for="(value, disc) in albumData.album.tracksByDiscNumber"
+        v-for="(tracks, disc) in albumData.album.tracksByDiscNumber"
         :key="disc"
       >
         <h3 v-if="albumData.album.totalDiscNumber > 1">
@@ -134,7 +134,7 @@ useHead({
         </h3>
 
         <TrackList
-          :tracks="value"
+          :tracks="tracks"
           @add-to-playlist="addToPlaylistModal"
           @add-to-queue="addTrackToQueue"
           @download-media="downloadMedia"

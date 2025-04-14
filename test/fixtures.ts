@@ -165,6 +165,7 @@ export const formattedTrackMock = {
   genres,
   id: 'id',
   image: 'image',
+  index: 0,
   information: {
     bitRate: '15 kbps',
     contentType: 'contentType',

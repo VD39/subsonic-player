@@ -107,10 +107,10 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
     songCount: trackCount,
   } = playlist;
 
-  const tracks = entry.map((media) =>
+  const tracks = entry.map((media, index) =>
     media.type === 'podcastepisode'
       ? formatPodcastEpisode(media as ResponsePodcastEpisode)
-      : formatTracks(media),
+      : formatTracks(media, index),
   );
 
   return {
@@ -223,7 +223,7 @@ export function formatRadioStation(
   };
 }
 
-export function formatTracks(track: Base): Track {
+export function formatTracks(track: Base, index: number): Track {
   const {
     album = DEFAULT_VALUE,
     albumId,
@@ -257,6 +257,7 @@ export function formatTracks(track: Base): Track {
     genres: getGenres(track),
     id,
     image,
+    index,
     information: {
       bitRate: `${bitRate} kbps`,
       contentType,

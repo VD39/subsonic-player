@@ -594,7 +594,7 @@ describe('formatRadioStation', () => {
 
 describe('formatTracks', () => {
   it('returns the correct values', () => {
-    expect(formatTracks(trackMock)).toEqual({
+    expect(formatTracks(trackMock, 0)).toEqual({
       album: 'album',
       albumId: 'albumId',
       artists: expect.any(Array),
@@ -604,6 +604,7 @@ describe('formatTracks', () => {
       genres: [],
       id: 'id',
       image: 'coverArt',
+      index: 0,
       information: {
         bitRate: '15 kbps',
         contentType: 'contentType',
@@ -719,10 +720,13 @@ describe('formatTracks', () => {
   ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
-        formatTracks({
-          ...trackMock,
-          [key]: undefined,
-        }),
+        formatTracks(
+          {
+            ...trackMock,
+            [key]: undefined,
+          },
+          0,
+        ),
       ).toEqual(expect.objectContaining(outcome));
     });
   });
@@ -731,11 +735,14 @@ describe('formatTracks', () => {
     describe('when station has a parent value', () => {
       it('returns the correct values', () => {
         expect(
-          formatTracks({
-            ...trackMock,
-            albumId: undefined,
-            parent: 'parent',
-          }),
+          formatTracks(
+            {
+              ...trackMock,
+              albumId: undefined,
+              parent: 'parent',
+            },
+            0,
+          ),
         ).toEqual(
           expect.objectContaining({
             albumId: 'parent',
@@ -747,11 +754,14 @@ describe('formatTracks', () => {
     describe('when station does not have a parent value', () => {
       it('returns the correct values', () => {
         expect(
-          formatTracks({
-            ...trackMock,
-            albumId: undefined,
-            parent: undefined,
-          }),
+          formatTracks(
+            {
+              ...trackMock,
+              albumId: undefined,
+              parent: undefined,
+            },
+            0,
+          ),
         ).toEqual(
           expect.objectContaining({
             albumId: undefined,

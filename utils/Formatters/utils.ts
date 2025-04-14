@@ -109,14 +109,17 @@ export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
 }
 
 export function groupTracksByDiscNumber(tracks: Track[] = []) {
-  return tracks.reduce<AlbumTracks>((acc, item) => {
+  return tracks.reduce<TracksByDiscNumber>((acc, item, index) => {
     const discNumber = `Disc ${item.discNumber}`;
 
     if (!acc[discNumber]) {
       acc[discNumber] = [];
     }
 
-    acc[discNumber].push(item);
+    acc[discNumber].push({
+      ...item,
+      index,
+    });
 
     return acc;
   }, {});

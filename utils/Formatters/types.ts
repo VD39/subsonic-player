@@ -12,14 +12,10 @@ export interface Album {
   totalDiscNumber: number;
   trackCount: number;
   tracks: Track[];
-  tracksByDiscNumber: AlbumTracks;
+  tracksByDiscNumber: TracksByDiscNumber;
   type: MediaType;
   year: number | string;
 }
-export interface AlbumTracks {
-  [key: string]: Track[];
-}
-
 export interface AllMedia {
   albums: Album[];
   artists: Artist[];
@@ -119,6 +115,7 @@ export interface Track {
   genres: Genre[];
   id: string;
   image: Image;
+  index: number;
   information: TrackInformation;
   name: string;
   size: string;
@@ -126,6 +123,10 @@ export interface Track {
   trackNumber: number | string;
   type: MediaType;
   year: number | string;
+}
+
+export interface TracksByDiscNumber {
+  [key: string]: Track[];
 }
 
 interface AlbumTrack {

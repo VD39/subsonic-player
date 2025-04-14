@@ -32,7 +32,7 @@ defineEmits<{
     </div>
 
     <div
-      v-for="(track, index) in tracks"
+      v-for="track in tracks"
       :key="track.id"
       class="trackRow"
       data-test-id="track"
@@ -42,7 +42,7 @@ defineEmits<{
           <TrackPlayPause
             :track-id="track.id"
             :track-number="track.trackNumber"
-            @play-track="$emit('playTrack', index)"
+            @play-track="$emit('playTrack', track.index)"
           />
 
           <TrackMeta class="trackMeta" :track="track" />
@@ -89,7 +89,10 @@ defineEmits<{
           <DropdownItem ref="addToQueue" @click="$emit('addToQueue', track)">
             Add to queue
           </DropdownItem>
-          <DropdownItem ref="playTrack" @click="$emit('playTrack', index)">
+          <DropdownItem
+            ref="playTrack"
+            @click="$emit('playTrack', track.index)"
+          >
             Play Track
           </DropdownItem>
         </DropdownMenu>
