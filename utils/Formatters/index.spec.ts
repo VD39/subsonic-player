@@ -549,7 +549,8 @@ describe('formatRadioStation', () => {
       duration: '',
       homePageUrl: 'homepageUrl',
       id: 'id',
-      image: IMAGE_DEFAULT_BY_TYPE.radioStation,
+      image:
+        'https://s2.googleusercontent.com/s2/favicons?domain=homepageUrl&sz=50',
       name: 'name',
       streamUrlId: 'streamUrl',
       trackNumber: 0,
@@ -557,7 +558,7 @@ describe('formatRadioStation', () => {
     });
   });
 
-  describe.todo('when station has homePageUrl value', () => {
+  describe('when station has homePageUrl value', () => {
     it('returns the correct values', () => {
       expect(
         formatRadioStation({
@@ -568,7 +569,7 @@ describe('formatRadioStation', () => {
         expect.objectContaining({
           homePageUrl: 'homePageValue',
           image:
-            'https://besticon-demo.herokuapp.com/icon?url=homePageValue&size=80..250..500',
+            'https://s2.googleusercontent.com/s2/favicons?domain=homePageValue&sz=50',
         }),
       );
     });

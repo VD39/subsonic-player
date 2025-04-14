@@ -206,16 +206,16 @@ export function formatRadioStation(
     streamUrl,
   } = station;
 
-  // TODO: Fix this to use app is running.
-  // const image = homePageUrl
-  //   ? `https://besticon-demo.herokuapp.com/icon?url=${encodeURIComponent(homePageUrl)}&size=80..250..500`
-  //   : IMAGE_DEFAULT_BY_TYPE.radioStation;
+  const homePageUrl = radioStationHomePageUrl || radioStationHomepageUrl;
+  const image = homePageUrl
+    ? `https://s2.googleusercontent.com/s2/favicons?domain=${encodeURIComponent(homePageUrl)}&sz=50`
+    : IMAGE_DEFAULT_BY_TYPE.radioStation;
 
   return {
     duration: '',
     homePageUrl: radioStationHomePageUrl || radioStationHomepageUrl,
     id,
-    image: IMAGE_DEFAULT_BY_TYPE.radioStation,
+    image,
     name,
     streamUrlId: streamUrl,
     trackNumber: 0,

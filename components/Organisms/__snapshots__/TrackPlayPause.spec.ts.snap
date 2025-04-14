@@ -11,7 +11,7 @@ exports[`TrackPlayPause > matches the snapshot 1`] = `
 
 exports[`TrackPlayPause > when image prop is set > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause withImage">
-  <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+  <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
   <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>

@@ -31,7 +31,11 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
       },
     ]"
   >
-    <PreloadImage v-if="image" class="overlap" :image="image" />
+    <PreloadImage
+      v-if="image"
+      :class="['overlap', $style.preloadImage]"
+      :image="image"
+    />
 
     <p v-else ref="trackNumber" :class="['overlap', $style.trackNumber]">
       {{ trackNumber }}
@@ -95,6 +99,10 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
 .trackNumber,
 .playPauseWrapper {
   transition: all var(--transition);
+}
+
+.preloadImage {
+  background-color: var(--white-color);
 }
 
 .trackNumber {
