@@ -24,7 +24,7 @@
     "@types/crypto-js": "^4.2.2",
     "@vitest/coverage-istanbul": "3.1.1",
     "@vue/test-utils": "^2.4.6",
-    "eslint": "^9.24.0",
+    "eslint": "^9.25.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-perfectionist": "^4.11.0",
     "eslint-plugin-prettier": "^5.2.6",
