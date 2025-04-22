@@ -31,6 +31,10 @@ describe('useRadioStation', () => {
     vi.clearAllMocks();
   });
 
+  it('sets the default radioStations value', () => {
+    expect(radioStations.value).toEqual([]);
+  });
+
   describe('when the getRadioStations function is called', () => {
     describe('when fetchData response returns non array value', () => {
       beforeEach(() => {

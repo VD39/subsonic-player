@@ -4,6 +4,10 @@ export function usePodcast() {
   const { closeModal, openModal } = useModal();
 
   const podcasts = useState<Podcast[]>(STATE_NAMES.podcasts, () => []);
+  const newestPodcastEpisodes = useState<PodcastEpisode[]>(
+    STATE_NAMES.newestPodcastEpisodes,
+    () => [],
+  );
 
   function getPodcastsData(
     params: PodcastsParams = {
@@ -49,7 +53,11 @@ export function usePodcast() {
       },
     );
 
-    return newestPodcastEpisodesData || [];
+    newestPodcastEpisodes.value = newestPodcastEpisodesData || [];
+  }
+
+  function getPodcastsAndNewestPodcastEpisodes() {
+    return Promise.all([getPodcasts(), getNewestPodcastEpisodes()]);
   }
 
   /* istanbul ignore next -- @preserve */
@@ -69,7 +77,7 @@ export function usePodcast() {
 
     if (podcastData) {
       addSuccessSnack('Successfully added podcast.');
-      await getPodcasts();
+      await getPodcastsAndNewestPodcastEpisodes();
     }
   }
 
@@ -82,7 +90,7 @@ export function usePodcast() {
 
     if (podcastData) {
       addSuccessSnack('Successfully deleted podcast.');
-      await getPodcasts();
+      await getPodcastsAndNewestPodcastEpisodes();
     }
   }
 
@@ -115,7 +123,6 @@ export function usePodcast() {
     openModal(MODAL_TYPE.addPodcastModal, {
       async onSubmit(podcastUrl: string) {
         await addPodcast(podcastUrl);
-        await getPodcasts();
         closeModal();
       },
     });
@@ -127,9 +134,9 @@ export function usePodcast() {
     deletePodcast,
     deletePodcastEpisode,
     downloadPodcastEpisode,
-    getNewestPodcastEpisodes,
     getPodcast,
-    getPodcasts,
+    getPodcastsAndNewestPodcastEpisodes,
+    newestPodcastEpisodes,
     podcasts,
     refreshPodcasts,
   };

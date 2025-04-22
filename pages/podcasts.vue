@@ -17,25 +17,18 @@ const {
   addPodcastModal,
   deletePodcastEpisode,
   downloadPodcastEpisode,
-  getNewestPodcastEpisodes,
-  getPodcasts,
+  getPodcastsAndNewestPodcastEpisodes,
+  newestPodcastEpisodes,
   podcasts,
 } = usePodcast();
 
-const {
-  data: podcastData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.podcasts,
   async () => {
-    const [newestPodcastEpisodes] = await Promise.all([
-      getNewestPodcastEpisodes(),
-      getPodcasts(),
-    ]);
+    await getPodcastsAndNewestPodcastEpisodes();
 
     return {
-      newestPodcastEpisodes,
+      newestPodcastEpisodes: newestPodcastEpisodes.value,
       podcasts: podcasts.value,
     };
   },
@@ -89,7 +82,7 @@ useHead({
       <h3>Latest Podcast Episodes</h3>
 
       <PodcastEpisodesList
-        :podcast-episodes="podcastData.newestPodcastEpisodes"
+        :podcast-episodes="newestPodcastEpisodes"
         @add-to-playlist="addToPlaylistModal"
         @add-to-queue="addTrackToQueue"
         @delete-episode="deletePodcastEpisode"

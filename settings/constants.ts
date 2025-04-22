@@ -21,6 +21,7 @@ export const STATE_NAMES = {
   infinityItems: 'infinity-items',
   infinityOffset: 'infinity-offset',
   modal: 'modal',
+  newestPodcastEpisodes: 'newest-podcast-episodes',
   playerAudioPlayer: 'player-audio-player',
   playerBufferedLength: 'player-buffered-length',
   playerCurrentQueueIndex: 'player-current-queue-index',

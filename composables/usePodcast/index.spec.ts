@@ -23,9 +23,9 @@ const {
   deletePodcast,
   deletePodcastEpisode,
   downloadPodcastEpisode,
-  getNewestPodcastEpisodes,
   getPodcast,
-  getPodcasts,
+  getPodcastsAndNewestPodcastEpisodes,
+  newestPodcastEpisodes,
   podcasts,
 } = usePodcast();
 
@@ -34,38 +34,70 @@ describe('usePodcast', () => {
     vi.clearAllMocks();
   });
 
-  describe('when the getPodcasts function is called', () => {
+  it('sets the default podcasts value', () => {
+    expect(podcasts.value).toEqual([]);
+  });
+
+  it('sets the default newestPodcastEpisodes value', () => {
+    expect(newestPodcastEpisodes.value).toEqual([]);
+  });
+
+  describe('when the getPodcastsAndNewestPodcastEpisodes function is called', () => {
     describe('when fetchData response returns non array value', () => {
       beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
+        fetchDataMock
+          .mockResolvedValueOnce({
+            data: null,
+          })
+          .mockResolvedValueOnce({
+            data: null,
+          });
 
-        getPodcasts();
+        getPodcastsAndNewestPodcastEpisodes();
       });
 
       it('sets the correct podcasts value', () => {
         expect(podcasts.value).toEqual([]);
       });
+
+      it('sets the correct newestPodcastEpisodes value', () => {
+        expect(newestPodcastEpisodes.value).toEqual([]);
+      });
     });
 
     describe('when fetchData response returns an array', () => {
       beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: [
-            {
-              name: 'name',
-            },
-          ],
-        });
+        fetchDataMock
+          .mockResolvedValueOnce({
+            data: [
+              {
+                name: 'name',
+              },
+            ],
+          })
+          .mockResolvedValueOnce({
+            data: [
+              {
+                name: 'name1',
+              },
+            ],
+          });
 
-        getPodcasts();
+        getPodcastsAndNewestPodcastEpisodes();
       });
 
       it('sets the correct podcasts value', () => {
         expect(podcasts.value).toEqual([
           {
             name: 'name',
+          },
+        ]);
+      });
+
+      it('sets the correct newestPodcastEpisodes value', () => {
+        expect(newestPodcastEpisodes.value).toEqual([
+          {
+            name: 'name1',
           },
         ]);
       });
@@ -124,6 +156,13 @@ describe('usePodcast', () => {
           expect.any(Object),
         );
       });
+
+      it('does not call the getNewestPodcasts function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -146,6 +185,13 @@ describe('usePodcast', () => {
       it('calls the getPodcasts function', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPodcasts',
+          expect.any(Object),
+        );
+      });
+
+      it('calls the getNewestPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getNewestPodcasts',
           expect.any(Object),
         );
       });
@@ -172,6 +218,13 @@ describe('usePodcast', () => {
           expect.any(Object),
         );
       });
+
+      it('does not call the getNewestPodcasts function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -194,6 +247,13 @@ describe('usePodcast', () => {
       it('calls the getPodcasts function', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPodcasts',
+          expect.any(Object),
+        );
+      });
+
+      it('calls the getNewestPodcasts function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getNewestPodcasts',
           expect.any(Object),
         );
       });
@@ -264,40 +324,6 @@ describe('usePodcast', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Download has begun on the server.',
         );
-      });
-    });
-  });
-
-  describe('when the getNewestPodcastEpisodes function is called', () => {
-    describe('when fetchData response returns non array value', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-      });
-
-      it('returns the correct response', async () => {
-        expect(await getNewestPodcastEpisodes()).toEqual([]);
-      });
-    });
-
-    describe('when fetchData response returns an array', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: [
-            {
-              name: 'name',
-            },
-          ],
-        });
-      });
-
-      it('returns the correct response', async () => {
-        expect(await getNewestPodcastEpisodes()).toEqual([
-          {
-            name: 'name',
-          },
-        ]);
       });
     });
   });

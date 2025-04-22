@@ -27,6 +27,10 @@ describe('useBookmarks', () => {
     vi.clearAllMocks();
   });
 
+  it('sets the default bookmarks value', () => {
+    expect(bookmarks.value).toEqual([]);
+  });
+
   describe('when the getBookmarks function is called', () => {
     describe('when fetchData response returns null', () => {
       beforeEach(async () => {
