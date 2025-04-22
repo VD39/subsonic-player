@@ -6,16 +6,25 @@ export function useAPI() {
 
   const { addErrorSnack } = useSnack();
 
-  const authCookie = useCookie(COOKIE_NAMES.auth);
-  const params = loadSession(authCookie.value!);
+  function getBaseParams() {
+    const authCookie = useCookie(COOKIE_NAMES.auth);
+    const params = loadSession(authCookie.value!);
 
-  const baseURL = `${decodeURIComponent(params.server!)}/rest`;
-  const baseParams = {
-    ...getAuthParams(params),
-    ...getConfigParams(),
-  };
+    const baseURL = `${decodeURIComponent(params.server!)}/rest`;
+    const baseParams = {
+      ...getAuthParams(params),
+      ...getConfigParams(),
+    };
+
+    return {
+      baseParams,
+      baseURL,
+    };
+  }
 
   function getUrl(path: string, param: Record<string, number | string>) {
+    const { baseParams, baseURL } = getBaseParams();
+
     const url = new URL(`${baseURL}/${path}`);
     url.search = convertToQueryString({
       ...baseParams,
@@ -55,6 +64,7 @@ export function useAPI() {
   ) {
     try {
       const { $api } = useNuxtApp();
+      const { baseParams, baseURL } = getBaseParams();
 
       const response = await $api(url, {
         ...options,
