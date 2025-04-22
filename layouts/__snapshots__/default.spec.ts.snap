@@ -44,6 +44,9 @@ exports[`Default > matches the snapshot 1`] = `
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -88,6 +91,9 @@ exports[`Default > matches the snapshot 1`] = `
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>
@@ -159,6 +165,9 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -203,6 +212,9 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>
@@ -290,6 +302,9 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -334,6 +349,9 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>
@@ -421,6 +439,9 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -465,6 +486,9 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>
@@ -552,6 +576,9 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -596,6 +623,9 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>
@@ -683,6 +713,9 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -727,6 +760,9 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>
@@ -817,6 +853,9 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
               <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
+              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+                </a></li>
             </ul>
           </li>
           <li class="mBM">
@@ -861,6 +900,9 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
           </a></li>
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
+          </a></li>
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
     </nav>

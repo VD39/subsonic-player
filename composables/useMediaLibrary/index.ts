@@ -90,38 +90,8 @@ export function useMediaLibrary() {
     });
   }
 
-  /* istanbul ignore next -- @preserve */
-  async function getBookmarks() {
-    const { data: bookmarksData } = await fetchData('/getBookmarks');
-
-    return bookmarksData?.bookmarks || [];
-  }
-
-  /* istanbul ignore next -- @preserve */
-  async function createBookmark(id: string, position: string) {
-    await fetchData('/createBookmark', {
-      method: 'POST',
-      params: {
-        id,
-        position,
-      },
-    });
-  }
-
-  /* istanbul ignore next -- @preserve */
-  async function deleteBookmark(id: string) {
-    await fetchData('/deleteBookmark', {
-      params: {
-        id,
-      },
-    });
-  }
-
   return {
-    createBookmark,
-    deleteBookmark,
     downloadMedia,
-    getBookmarks,
     getFiles,
     getIndexes,
     getMusicDirectory,

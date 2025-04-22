@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
+import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
 const {
   clearQueueList,
@@ -9,6 +9,9 @@ const {
   removeTrackFromQueueList,
 } = useAudioPlayer();
 const { toggleQueueList } = useQueue();
+const { addToPlaylistModal } = usePlaylist();
+const { downloadMedia } = useMediaLibrary();
+const { openTrackInformationModal } = useMediaInformation();
 </script>
 
 <template>
@@ -42,11 +45,13 @@ const { toggleQueueList } = useQueue();
 
     <h2>Queue ({{ queueList.length }})</h2>
 
-    <TrackWithPreviewList
-      in-queue
+    <MixedTracksList
       :tracks="queueList"
+      @add-to-playlist="addToPlaylistModal"
+      @download-media="downloadMedia"
+      @media-information="openTrackInformationModal"
       @play-track="playTrackFromQueueList"
-      @remove-from-queue="removeTrackFromQueueList"
+      @remove="({ id }) => removeTrackFromQueueList(id)"
     />
   </div>
 </template>

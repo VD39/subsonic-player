@@ -21,6 +21,11 @@ export const SIDEBAR_DESKTOP_NAVIGATION = [
         title: 'Queue',
         to: '/queue',
       },
+      {
+        icon: ICONS.bookmark,
+        title: 'Bookmarks',
+        to: '/bookmarks',
+      },
     ],
     title: 'Browse',
   },

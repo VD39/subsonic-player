@@ -4,16 +4,14 @@ import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 
 defineProps<{
-  track: QueueTrack;
+  track: Bookmark | MixedTrack;
 }>();
 </script>
 
 <template>
   <div class="noTouchEvents">
     <MarqueeScroll class="mBXS" inert>
-      <h4>
-        {{ track.name }}
-      </h4>
+      <h4>{{ track.name }}</h4>
     </MarqueeScroll>
 
     <MarqueeScroll class="smallFont mobileOnly mBXS">
@@ -44,10 +42,21 @@ defineProps<{
 
           <ArtistsList :artists="track.artists" />
         </li>
+        <li v-if="'author' in track && track.author" ref="author">
+          <span class="visuallyHidden">Podcast author</span>
+
+          <span>{{ track.author }}</span>
+        </li>
         <li v-if="track.duration" ref="duration">
           <span class="visuallyHidden">Duration</span>
 
-          <time>{{ track.duration }}</time>
+          <span>
+            <template v-if="'position' in track && track.position">
+              <time ref="position">{{ track.position }}</time>
+              <span>/</span>
+            </template>
+            <time>{{ track.duration }}</time>
+          </span>
         </li>
       </ul>
     </MarqueeScroll>

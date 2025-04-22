@@ -1,13 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PodcastList > matches the snapshot 1`] = `
+exports[`PodcastEpisodesList > matches the snapshot 1`] = `
 "<div class="column centerAll noMediaMessage">
   <phapplepodcastslogo size="50"></phapplepodcastslogo>
   <p>No episodes found.</p>
 </div>"
 `;
 
-exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches the snapshot 1`] = `
+exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Episodes</div>
@@ -36,8 +36,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -113,8 +113,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -168,8 +168,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -223,8 +223,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -278,8 +278,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -313,7 +313,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > matches
 </div>"
 `;
 
-exports[`PodcastList > when podcastEpisodes prop is not an empty array > when episode is downloaded > matches the snapshot 1`] = `
+exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array > when episode is downloaded > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Episodes</div>
@@ -342,8 +342,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -419,8 +419,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -474,8 +474,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -529,8 +529,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -584,8 +584,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -619,7 +619,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
 </div>"
 `;
 
-exports[`PodcastList > when podcastEpisodes prop is not an empty array > when episode is not downloaded > matches the snapshot 1`] = `
+exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array > when episode is not downloaded > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Episodes</div>
@@ -647,8 +647,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
-          <p class="clamp2">description</p>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -690,7 +690,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when ep
 </div>"
 `;
 
-exports[`PodcastList > when podcastEpisodes prop is not an empty array > when the episode has no author > matches the snapshot 1`] = `
+exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array > when the episode has no author > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Episodes</div>
@@ -714,7 +714,8 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
             </div>
           </div>
           <!--v-if-->
-          <p class="clamp2">description</p>
+          <!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">
@@ -770,7 +771,7 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
 </div>"
 `;
 
-exports[`PodcastList > when podcastEpisodes prop is not an empty array > when the episode has no description > matches the snapshot 1`] = `
+exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array > when the episode has no description > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Episodes</div>
@@ -799,8 +800,9 @@ exports[`PodcastList > when podcastEpisodes prop is not an empty array > when th
                 <p class="strong mBM">author</p>
               </div>
             </div>
-          </div>
+          </div><!-- eslint-disable vue/no-v-html -->
           <!--v-if-->
+          <!-- eslint-enable vue/no-v-html -->
         </div>
       </div>
       <div class="centerItems podcastOptions">

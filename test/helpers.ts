@@ -2,6 +2,7 @@ import {
   albumMock,
   formattedAlbumMock,
   formattedArtistMock,
+  formattedBookmarkMock,
   formattedPlaylistMock,
   formattedPodcastEpisodeMock,
   formattedRadioStationMock,
@@ -49,6 +50,19 @@ export function getFormattedArtistsMock(
     }));
 }
 
+export function getFormattedBookmarksMock(
+  length = 1,
+  params = {} as Partial<Bookmark>,
+) {
+  return Array(length)
+    .fill('')
+    .map((_, index) => ({
+      ...formattedBookmarkMock,
+      ...params,
+      id: `track-${index}`,
+    }));
+}
+
 export function getFormattedPlaylistsMock(
   length = 1,
   params = {} as Partial<Playlist>,
@@ -78,7 +92,7 @@ export function getFormattedPodcastEpisodesMock(
 
 export function getFormattedQueueTracksMock(
   length = 1,
-  params = {} as Partial<QueueTrack>,
+  params = {} as Partial<MixedTrack>,
 ) {
   return Array(length)
     .fill('')
@@ -90,7 +104,7 @@ export function getFormattedQueueTracksMock(
           id: `queue-${params.type || formattedTrackMock.type}-${index}-id`,
           name: `queue-${params.type || formattedTrackMock.type}-${index}-name`,
           streamUrlId: `queue-streamUrlId${index}`,
-        }) as QueueTrack,
+        }) as MixedTrack,
     );
 }
 

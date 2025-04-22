@@ -104,7 +104,7 @@ describe('useRadioStation', () => {
         } as RadioStationParams);
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully added radio station radio-station-name.',
         );
@@ -188,7 +188,7 @@ describe('useRadioStation', () => {
         } as RadioStationParams);
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully updated radio station radio-station-update-name.',
         );
@@ -236,7 +236,7 @@ describe('useRadioStation', () => {
         deleteRadioStation('id');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted radio station.',
         );

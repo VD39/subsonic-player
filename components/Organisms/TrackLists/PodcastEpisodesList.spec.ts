@@ -8,12 +8,12 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 import { mount } from '@vue/test-utils';
 
-import PodcastList from './PodcastList.vue';
+import PodcastEpisodesList from './PodcastEpisodesList.vue';
 
 let podcastEpisodes = getFormattedPodcastEpisodesMock(5);
 
 function factory(props = {}) {
-  const wrapper = mount(PodcastList, {
+  const wrapper = mount(PodcastEpisodesList, {
     props: {
       podcastEpisodes: [],
       ...props,
@@ -29,7 +29,7 @@ function factory(props = {}) {
   return wrapper;
 }
 
-describe('PodcastList', () => {
+describe('PodcastEpisodesList', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -211,7 +211,7 @@ describe('PodcastList', () => {
           wrapper.findComponent({ ref: 'deleteEpisode' }).vm.$emit('click');
         });
 
-        it('emits the deleteEpisode event with track', () => {
+        it('emits the deleteEpisode event with track id', () => {
           expect(wrapper.emitted('deleteEpisode')).toEqual([
             [podcastEpisodes[0].id],
           ]);
@@ -223,7 +223,7 @@ describe('PodcastList', () => {
           wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
         });
 
-        it('emits the downloadMedia event with track', () => {
+        it('emits the downloadMedia event with track streamUrlId', () => {
           expect(wrapper.emitted('downloadMedia')).toEqual([
             [podcastEpisodes[0].streamUrlId],
           ]);
@@ -235,7 +235,7 @@ describe('PodcastList', () => {
           wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
         });
 
-        it('emits the addToPlaylist event with track', () => {
+        it('emits the addToPlaylist event with track id', () => {
           expect(wrapper.emitted('addToPlaylist')).toEqual([
             [podcastEpisodes[0].id],
           ]);
@@ -347,7 +347,7 @@ describe('PodcastList', () => {
             .vm.$emit('click');
         });
 
-        it('emits the downloadEpisode event with track', () => {
+        it('emits the downloadEpisode event with track id', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
             [podcastEpisodes[0].id],
           ]);
@@ -361,7 +361,7 @@ describe('PodcastList', () => {
             .vm.$emit('downloadEpisode');
         });
 
-        it('emits the downloadEpisode event with track', () => {
+        it('emits the downloadEpisode event with track id', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
             [podcastEpisodes[0].id],
           ]);
@@ -377,7 +377,7 @@ describe('PodcastList', () => {
             .vm.$emit('click');
         });
 
-        it('emits the downloadEpisode event with track', () => {
+        it('emits the downloadEpisode event with track id', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
             [podcastEpisodes[0].id],
           ]);

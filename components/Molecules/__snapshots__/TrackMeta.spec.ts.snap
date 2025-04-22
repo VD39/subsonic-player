@@ -21,7 +21,33 @@ exports[`TrackMeta > matches the snapshot 1`] = `
               <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
             </ul>
           </li>
-          <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackMeta > when the track prop does not have a author key > matches the snapshot 1`] = `
+"<div class="noTouchEvents">
+  <div class="marqueeScroll mBXS" inert="">
+    <div class="bulletList inner">
+      <div class="content">
+        <h4>title</h4>
+      </div>
+    </div>
+  </div>
+  <div class="marqueeScroll smallFont mobileOnly mBXS">
+    <div class="bulletList inner">
+      <div class="content">
+        <ul class="bulletList">
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+          <!--v-if-->
+          <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>
@@ -34,7 +60,7 @@ exports[`TrackMeta > when the track prop does not have a podcastName key > match
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
-        <h4>queue-track-0-name</h4>
+        <h4>title</h4>
       </div>
     </div>
   </div>
@@ -42,15 +68,11 @@ exports[`TrackMeta > when the track prop does not have a podcastName key > match
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
-          <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
           <!--v-if-->
-          <li><span class="visuallyHidden">Track artists</span>
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </li>
-          <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+          <!--v-if-->
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>
@@ -79,7 +101,8 @@ exports[`TrackMeta > when the track prop does not have an album key > matches th
               <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
             </ul>
           </li>
-          <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>
@@ -103,7 +126,8 @@ exports[`TrackMeta > when the track prop does not have an artists key > matches 
           <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
           <!--v-if-->
           <!--v-if-->
-          <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>
@@ -116,7 +140,7 @@ exports[`TrackMeta > when track.album is undefined > matches the snapshot 1`] = 
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
-        <h4></h4>
+        <h4>queue-track-0-name</h4>
       </div>
     </div>
   </div>
@@ -126,8 +150,14 @@ exports[`TrackMeta > when track.album is undefined > matches the snapshot 1`] = 
         <ul class="bulletList">
           <!--v-if-->
           <!--v-if-->
+          <li><span class="visuallyHidden">Track artists</span>
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </li>
           <!--v-if-->
-          <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>
@@ -140,7 +170,32 @@ exports[`TrackMeta > when track.artists is an empty array > matches the snapshot
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
-        <h4></h4>
+        <h4>queue-track-0-name</h4>
+      </div>
+    </div>
+  </div>
+  <div class="marqueeScroll smallFont mobileOnly mBXS">
+    <div class="bulletList inner">
+      <div class="content">
+        <ul class="bulletList">
+          <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+          <!--v-if-->
+          <!--v-if-->
+          <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackMeta > when track.author is defined > matches the snapshot 1`] = `
+"<div class="noTouchEvents">
+  <div class="marqueeScroll mBXS" inert="">
+    <div class="bulletList inner">
+      <div class="content">
+        <h4>title</h4>
       </div>
     </div>
   </div>
@@ -149,9 +204,110 @@ exports[`TrackMeta > when track.artists is an empty array > matches the snapshot
       <div class="content">
         <ul class="bulletList">
           <!--v-if-->
+          <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackMeta > when track.author is undefined > matches the snapshot 1`] = `
+"<div class="noTouchEvents">
+  <div class="marqueeScroll mBXS" inert="">
+    <div class="bulletList inner">
+      <div class="content">
+        <h4>title</h4>
+      </div>
+    </div>
+  </div>
+  <div class="marqueeScroll smallFont mobileOnly mBXS">
+    <div class="bulletList inner">
+      <div class="content">
+        <ul class="bulletList">
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
           <!--v-if-->
           <!--v-if-->
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackMeta > when track.duration is defined > when the track prop does not have a position key > matches the snapshot 1`] = `
+"<div class="noTouchEvents">
+  <div class="marqueeScroll mBXS" inert="">
+    <div class="bulletList inner">
+      <div class="content">
+        <h4>title</h4>
+      </div>
+    </div>
+  </div>
+  <div class="marqueeScroll smallFont mobileOnly mBXS">
+    <div class="bulletList inner">
+      <div class="content">
+        <ul class="bulletList">
           <!--v-if-->
+          <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackMeta > when track.duration is defined > when track.position is defined > matches the snapshot 1`] = `
+"<div class="noTouchEvents">
+  <div class="marqueeScroll mBXS" inert="">
+    <div class="bulletList inner">
+      <div class="content">
+        <h4>title</h4>
+      </div>
+    </div>
+  </div>
+  <div class="marqueeScroll smallFont mobileOnly mBXS">
+    <div class="bulletList inner">
+      <div class="content">
+        <ul class="bulletList">
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+          <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TrackMeta > when track.duration is defined > when track.position is undefined > matches the snapshot 1`] = `
+"<div class="noTouchEvents">
+  <div class="marqueeScroll mBXS" inert="">
+    <div class="bulletList inner">
+      <div class="content">
+        <h4>title</h4>
+      </div>
+    </div>
+  </div>
+  <div class="marqueeScroll smallFont mobileOnly mBXS">
+    <div class="bulletList inner">
+      <div class="content">
+        <ul class="bulletList">
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>
@@ -164,7 +320,7 @@ exports[`TrackMeta > when track.duration is undefined > matches the snapshot 1`]
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
-        <h4></h4>
+        <h4>queue-track-0-name</h4>
       </div>
     </div>
   </div>
@@ -172,8 +328,14 @@ exports[`TrackMeta > when track.duration is undefined > matches the snapshot 1`]
     <div class="bulletList inner">
       <div class="content">
         <ul class="bulletList">
+          <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
           <!--v-if-->
-          <!--v-if-->
+          <li><span class="visuallyHidden">Track artists</span>
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </li>
           <!--v-if-->
           <!--v-if-->
         </ul>
@@ -188,7 +350,7 @@ exports[`TrackMeta > when track.podcastName is undefined > matches the snapshot 
   <div class="marqueeScroll mBXS" inert="">
     <div class="bulletList inner">
       <div class="content">
-        <h4></h4>
+        <h4>title</h4>
       </div>
     </div>
   </div>
@@ -199,7 +361,8 @@ exports[`TrackMeta > when track.podcastName is undefined > matches the snapshot 
           <!--v-if-->
           <!--v-if-->
           <!--v-if-->
-          <!--v-if-->
+          <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+          <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
         </ul>
       </div>
     </div>

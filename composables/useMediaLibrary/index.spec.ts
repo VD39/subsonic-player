@@ -67,7 +67,7 @@ describe('useMediaLibrary', () => {
         startScan();
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith('Scan started.');
       });
     });

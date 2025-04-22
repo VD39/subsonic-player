@@ -218,7 +218,7 @@ describe('usePlaylist', () => {
         addPlaylist('name');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully added playlist name.',
         );
@@ -267,7 +267,7 @@ describe('usePlaylist', () => {
       });
 
       describe('when success message is not set', () => {
-        it('calls the addSuccessSnackMock function', () => {
+        it('calls the addSuccessSnack function', () => {
           expect(addSuccessSnackMock).toHaveBeenCalledWith(
             'Successfully updated playlist.',
           );
@@ -279,7 +279,7 @@ describe('usePlaylist', () => {
           updatePlaylist({} as PlaylistParam, 'Success message');
         });
 
-        it('calls the addSuccessSnackMock function', () => {
+        it('calls the addSuccessSnack function', () => {
           expect(addSuccessSnackMock).toHaveBeenCalledWith('Success message');
         });
       });
@@ -319,7 +319,7 @@ describe('usePlaylist', () => {
         deletePlaylist('id');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted playlist.',
         );

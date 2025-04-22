@@ -1,13 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RadioStationList > matches the snapshot 1`] = `
+exports[`RadioStationsList > matches the snapshot 1`] = `
 "<div class="column centerAll noMediaMessage">
   <phradio size="50"></phradio>
   <p>No radio stations found.</p>
 </div>"
 `;
 
-exports[`RadioStationList > when radioStations prop is not an empty array > matches the snapshot 1`] = `
+exports[`RadioStationsList > when radioStations prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Stations</div>

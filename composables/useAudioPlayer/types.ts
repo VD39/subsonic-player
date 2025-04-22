@@ -1,1 +1,1 @@
-export type QueueTrack = PodcastEpisode | RadioStation | Track;
+export type MixedTrack = PodcastEpisode | RadioStation | Track;

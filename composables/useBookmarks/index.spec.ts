@@ -1,0 +1,157 @@
+import type { DataMock } from '@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import { useBookmarks } from './index';
+
+const fetchDataMock = vi.fn<() => DataMock>(() => ({
+  data: null,
+}));
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: fetchDataMock,
+  getDownloadUrl: vi.fn((path) => path),
+}));
+
+const addSuccessSnackMock = vi.fn();
+
+mockNuxtImport('useSnack', () => () => ({
+  addSuccessSnack: addSuccessSnackMock,
+}));
+
+const { bookmarks, createBookmark, deleteBookmark, getBookmarks } =
+  useBookmarks();
+
+describe('useBookmarks', () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  describe('when the getBookmarks function is called', () => {
+    describe('when fetchData response returns null', () => {
+      beforeEach(async () => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        await getBookmarks();
+      });
+
+      it('sets the correct bookmarks value', () => {
+        expect(bookmarks.value).toEqual([]);
+      });
+    });
+
+    describe('when fetchData response returns an array', () => {
+      beforeEach(async () => {
+        fetchDataMock.mockResolvedValue({
+          data: [
+            {
+              name: 'name',
+            },
+          ],
+        });
+
+        await getBookmarks();
+      });
+
+      it('sets the correct bookmarks value', () => {
+        expect(bookmarks.value).toEqual([
+          {
+            name: 'name',
+          },
+        ]);
+      });
+    });
+  });
+
+  describe('when the createBookmark function is called', () => {
+    describe('when fetchData response returns null', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        createBookmark('id', 12345);
+      });
+
+      it('does not call the addSuccessSnackMock function', () => {
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getBookmarks function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getBookmarks',
+          expect.any(Object),
+        );
+      });
+    });
+
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            name: 'name',
+          },
+        });
+
+        createBookmark('id', 12345);
+      });
+
+      it('calls the getBookmarks function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getBookmarks',
+          expect.any(Object),
+        );
+      });
+    });
+  });
+
+  describe('when the deleteBookmark function is called', () => {
+    describe('when fetchData response returns null', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        deleteBookmark('id');
+      });
+
+      it('does not call the addSuccessSnackMock function', () => {
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getBookmarks function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getBookmarks',
+          expect.any(Object),
+        );
+      });
+    });
+
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            name: 'name',
+          },
+        });
+
+        deleteBookmark('id');
+      });
+
+      it('calls the addSuccessSnack function', () => {
+        expect(addSuccessSnackMock).toHaveBeenCalledWith(
+          'Successfully deleted bookmark.',
+        );
+      });
+
+      it('calls the getBookmarks function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getBookmarks',
+          expect.any(Object),
+        );
+      });
+    });
+  });
+});

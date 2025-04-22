@@ -3,6 +3,7 @@ export function useAudioPlayer() {
   const { resetQueueState } = useQueue();
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
+  const { createBookmark, deleteBookmark } = useBookmarks();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -57,7 +58,7 @@ export function useAudioPlayer() {
   const isMuted = computed(() => !volume.value);
 
   // Queue state.
-  const queueList = useState<QueueTrack[]>(
+  const queueList = useState<MixedTrack[]>(
     STATE_NAMES.playerQueueList,
     () => AUDIO_PLAYER_DEFAULT_STATES.queueList,
   );
@@ -92,8 +93,8 @@ export function useAudioPlayer() {
   );
 
   // Track states.
-  const currentTrack = computed<QueueTrack>(
-    () => queueList.value[currentQueueIndex.value] || ({} as QueueTrack),
+  const currentTrack = computed<MixedTrack>(
+    () => queueList.value[currentQueueIndex.value] || ({} as MixedTrack),
   );
 
   const isLastTrack = computed(
@@ -164,9 +165,15 @@ export function useAudioPlayer() {
     setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
   }
 
-  /* istanbul ignore next -- @preserve */
   function saveStateInterval() {
     saveState();
+
+    if (isPodcastEpisode.value) {
+      createBookmark(
+        currentTrack.value.id,
+        Math.floor(currentTime.value * 1000),
+      );
+    }
 
     if (
       isTrack.value &&
@@ -184,7 +191,7 @@ export function useAudioPlayer() {
 
   function setSaveInterval() {
     clearSaveInterval();
-    saveInterval.value = setInterval(saveStateInterval, 2000);
+    saveInterval.value = setInterval(saveStateInterval, SAVE_INTERVAL);
   }
 
   function isCurrentTrack(id: string) {
@@ -365,15 +372,16 @@ export function useAudioPlayer() {
     }
   }
 
-  function loadTrack(track: QueueTrack) {
+  function loadTrack(track: MixedTrack) {
     const url = getStreamUrl(track.streamUrlId!);
     audioPlayer.value?.load(url);
     setMediaMetadata();
   }
 
-  async function changeTrack(track: QueueTrack) {
+  async function changeTrack(track: MixedTrack) {
     trackHasScrobbled.value = false;
 
+    clearSaveInterval();
     loadTrack(track);
     await playTrack();
 
@@ -423,7 +431,7 @@ export function useAudioPlayer() {
     await changeTrack(track);
   }
 
-  async function playCurrentTrack(track: QueueTrack) {
+  async function playCurrentTrack(track: MixedTrack) {
     currentQueueIndex.value = getIndex(queueList.value, track.id);
     await changeTrack(track);
   }
@@ -500,7 +508,7 @@ export function useAudioPlayer() {
     currentQueueIndex.value = 0;
   }
 
-  async function shuffleTracks(tracks: QueueTrack[]) {
+  async function shuffleTracks(tracks: MixedTrack[]) {
     const queueIndex = Math.floor(Math.random() * tracks.length) - 1;
     playTracks(tracks, queueIndex);
     toggleShuffle();
@@ -580,11 +588,11 @@ export function useAudioPlayer() {
     saveState();
   }
 
-  function addTracksToQueueList(tracks: QueueTrack[]) {
+  function addTracksToQueueList(tracks: MixedTrack[]) {
     queueList.value.push(...tracks);
   }
 
-  async function addTracksToQueue(tracks: QueueTrack[]) {
+  async function addTracksToQueue(tracks: MixedTrack[]) {
     const tempQueueLength = queueList.value.length;
 
     addTracksToQueueList(tracks);
@@ -597,12 +605,12 @@ export function useAudioPlayer() {
     saveState();
   }
 
-  async function addTrackToQueue(track: QueueTrack) {
+  async function addTrackToQueue(track: MixedTrack) {
     await addTracksToQueue([track]);
   }
 
   async function playTracks(
-    tracks: QueueTrack[],
+    tracks: MixedTrack[],
     queueIndex = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
   ) {
     clearQueueList();
@@ -651,6 +659,10 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onEnded(async () => {
+      if (isPodcastEpisode.value) {
+        deleteBookmark(currentTrack.value.id);
+      }
+
       switch (repeat.value) {
         case 1:
           replayCurrent();
@@ -696,7 +708,6 @@ export function useAudioPlayer() {
     });
   });
 
-  /* istanbul ignore next -- @preserve */
   onBeforeUnmount(() => {
     if (!isPlaying.value) {
       clearSaveInterval();

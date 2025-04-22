@@ -1,0 +1,1525 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BookmarksTracksList > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Podcast</div>
+    <div class="trackCell trackSecondary">Author</div>
+    <div class="trackCell trackTime withPosition">Current/Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksList > when bookmarks prop is not an empty array > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Podcast</div>
+    <div class="trackCell trackSecondary">Author</div>
+    <div class="trackCell trackTime withPosition">Current/Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.author is defined > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Podcast</div>
+    <div class="trackCell trackSecondary">Author</div>
+    <div class="trackCell trackTime withPosition">Current/Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.author is undefined > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Podcast</div>
+    <div class="trackCell trackSecondary">Author</div>
+    <div class="trackCell trackTime withPosition">Current/Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.podcastName is defined > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Podcast</div>
+    <div class="trackCell trackSecondary">Author</div>
+    <div class="trackCell trackTime withPosition">Current/Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.podcastName is undefined > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Podcast</div>
+    <div class="trackCell trackSecondary">Author</div>
+    <div class="trackCell trackTime withPosition">Current/Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;

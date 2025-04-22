@@ -17,12 +17,14 @@ defineEmits<{
   editRadioStation: [value: RadioStation];
   playRadioStation: [value: RadioStation];
 }>();
+
+const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
 </script>
 
 <template>
   <div v-if="radioStations.length" ref="radioStationWrapper" class="trackTable">
     <div class="trackHeader">
-      <div class="trackCell">Stations</div>
+      <div class="trackCell">{{ trackHeaderNames[0] }}</div>
       <div class="trackCell trackOptions" />
     </div>
 

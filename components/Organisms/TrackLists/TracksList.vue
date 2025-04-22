@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
@@ -20,19 +21,22 @@ defineEmits<{
   mediaInformation: [value: Track];
   playTrack: [value: number];
 }>();
+
+const trackHeaderNames = TRACK_HEADER_NAMES.tracks;
 </script>
 
 <template>
-  <div v-if="tracks.length" ref="tracksWrapper" class="trackTable">
+  <div v-if="tracks.length" ref="tracksWrapper" class="trackTable withPreview">
     <div class="trackHeader">
-      <div class="trackCell">Track</div>
-      <div class="trackCell trackSecondary">Artist</div>
-      <div class="trackCell trackTime">Time</div>
+      <div class="trackCell">{{ trackHeaderNames[0] }}</div>
+      <div class="trackCell trackSecondary">{{ trackHeaderNames[1] }}</div>
+      <div class="trackCell trackSecondary">{{ trackHeaderNames[2] }}</div>
+      <div class="trackCell trackTime">{{ trackHeaderNames[3] }}</div>
       <div class="trackCell trackOptions" />
     </div>
 
     <div
-      v-for="track in tracks"
+      v-for="(track, index) in tracks"
       :key="track.id"
       class="trackRow"
       data-test-id="track"
@@ -40,9 +44,10 @@ defineEmits<{
       <div class="trackCell">
         <div>
           <TrackPlayPause
+            :image="track.image"
             :track-id="track.id"
             :track-number="track.trackNumber"
-            @play-track="$emit('playTrack', track.index)"
+            @play-track="$emit('playTrack', index)"
           />
 
           <TrackMeta class="trackMeta" :track="track" />
@@ -56,14 +61,28 @@ defineEmits<{
       </div>
 
       <div class="trackCell trackSecondary">
+        <MarqueeScroll v-if="track.album" ref="albumMarqueeScroll">
+          <LinkOrText
+            :is-link="!!track.albumId"
+            :text="track.album"
+            :to="`/album/${track.albumId}`"
+          />
+        </MarqueeScroll>
+
+        <p v-else ref="albumElse">{{ DEFAULT_VALUE }}</p>
+      </div>
+
+      <div class="trackCell trackSecondary">
         <MarqueeScroll v-if="track.artists.length" ref="artistsMarqueeScroll">
           <ArtistsList :artists="track.artists" />
         </MarqueeScroll>
+
+        <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>
       </div>
 
-      <time class="trackCell trackTime">
-        {{ track.duration }}
-      </time>
+      <div class="trackCell trackTime">
+        <time>{{ track.duration }}</time>
+      </div>
 
       <div class="trackCell trackOptions">
         <DropdownMenu>
@@ -89,10 +108,7 @@ defineEmits<{
           <DropdownItem ref="addToQueue" @click="$emit('addToQueue', track)">
             Add to queue
           </DropdownItem>
-          <DropdownItem
-            ref="playTrack"
-            @click="$emit('playTrack', track.index)"
-          >
+          <DropdownItem ref="playTrack" @click="$emit('playTrack', index)">
             Play Track
           </DropdownItem>
         </DropdownMenu>

@@ -83,6 +83,17 @@ export function formatArtist(
   };
 }
 
+export function formatBookmark(bookmark: FormattedBookmark): Bookmark {
+  const rawPosition = (bookmark.position || 0) / 1000;
+
+  return {
+    ...formatPodcastEpisode(bookmark as unknown as ResponsePodcastEpisode),
+    position: secondsToHHMMSS(rawPosition),
+    rawPosition,
+    trackNumber: 0,
+  };
+}
+
 export function formatGenre(genre: ResponseGenre): Genre {
   const { albumCount, name, songCount: trackCount, value } = genre;
 

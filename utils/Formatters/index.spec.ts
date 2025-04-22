@@ -13,6 +13,7 @@ import {
   formatAlbum,
   formatAllMedia,
   formatArtist,
+  formatBookmark,
   formatGenre,
   formatPlaylist,
   formatPodcast,
@@ -853,6 +854,42 @@ describe('formatPlaylist', () => {
           ...playlistMock,
           [key]: undefined,
         }),
+      ).toEqual(expect.objectContaining(outcome));
+    });
+  });
+});
+
+describe('formatBookmark(', () => {
+  it('returns the correct values', () => {
+    expect(
+      formatBookmark({
+        ...podcastEpisodeMock,
+        position: 5654,
+      } as unknown as FormattedBookmark),
+    ).toEqual(
+      expect.objectContaining({
+        position: '00:05',
+        rawPosition: 5.654,
+        trackNumber: 0,
+      }),
+    );
+  });
+
+  describe.each([
+    [
+      'position',
+      {
+        position: '00:00',
+        rawPosition: 0,
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
+    it('returns the correct values', () => {
+      expect(
+        formatBookmark({
+          ...podcastEpisodeMock,
+          [key]: undefined,
+        } as unknown as FormattedBookmark),
       ).toEqual(expect.objectContaining(outcome));
     });
   });

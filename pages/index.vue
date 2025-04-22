@@ -7,7 +7,7 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import AlbumItem from '@/components/Organisms/AlbumItem.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
-import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
+import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
@@ -128,7 +128,7 @@ useHead({
           Favourite Tracks
         </HeaderSeeAllLink>
 
-        <TrackWithPreviewList
+        <TracksList
           :tracks="favourites.tracks.slice(0, 5)"
           @add-to-playlist="addToPlaylistModal"
           @add-to-queue="addTrackToQueue"

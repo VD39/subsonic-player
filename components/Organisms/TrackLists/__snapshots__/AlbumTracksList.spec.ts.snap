@@ -1,18 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TrackList > matches the snapshot 1`] = `
+exports[`AlbumTracksList > matches the snapshot 1`] = `
 "<div class="column centerAll noMediaMessage">
   <phmusicnotes size="50"></phmusicnotes>
   <p>No tracks found.</p>
 </div>"
 `;
 
-exports[`TrackList > when tracks prop is not an empty array > matches the snapshot 1`] = `
+exports[`AlbumTracksList > when tracks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Artist</div>
-    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -44,7 +44,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -122,7 +123,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -181,7 +183,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -240,7 +243,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -299,7 +303,8 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -332,12 +337,12 @@ exports[`TrackList > when tracks prop is not an empty array > matches the snapsh
 </div>"
 `;
 
-exports[`TrackList > when tracks prop is not an empty array > when track.artists is an empty array > matches the snapshot 1`] = `
+exports[`AlbumTracksList > when tracks prop is not an empty array > when track.artists is an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Artist</div>
-    <div class="trackCell trackTime">Time</div>
+    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -364,7 +369,8 @@ exports[`TrackList > when tracks prop is not an empty array > when track.artists
                   <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>

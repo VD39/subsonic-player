@@ -10,7 +10,7 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import PodcastList from '@/components/Organisms/PodcastList.vue';
+import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.podcast],
@@ -200,7 +200,7 @@ useHead({
 
       <PageNavigation :navigation="PODCAST_NAVIGATION" />
 
-      <PodcastList
+      <PodcastEpisodesList
         :podcast-episodes="podcastEpisodes"
         @add-to-playlist="addToPlaylistModal"
         @add-to-queue="addTrackToQueue"

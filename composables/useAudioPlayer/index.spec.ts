@@ -4,6 +4,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAudioPlayer } from './index';
 
+vi.useFakeTimers();
+
 const setPositionStateMock = vi.fn();
 
 Object.defineProperty(window.navigator, 'mediaSession', {
@@ -63,6 +65,18 @@ const resetQueueStateMock = vi.fn();
 
 mockNuxtImport('useQueue', () => () => ({
   resetQueueState: resetQueueStateMock,
+}));
+
+mockNuxtImport('useMediaLibrary', () => () => ({
+  scrobble: vi.fn(),
+}));
+
+const createBookmarkMock = vi.fn();
+const deleteBookmarkMock = vi.fn();
+
+mockNuxtImport('useBookmarks', () => () => ({
+  createBookmark: createBookmarkMock,
+  deleteBookmark: deleteBookmarkMock,
 }));
 
 const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
@@ -239,19 +253,27 @@ describe('useAudioPlayer', () => {
   });
 
   describe.each([
-    [MEDIA_TYPE.track, true, false, false],
-    [MEDIA_TYPE.podcastEpisode, false, true, false],
-    [MEDIA_TYPE.radioStation, false, false, true],
+    [MEDIA_TYPE.track, true, false, false, 0],
+    [MEDIA_TYPE.radioStation, false, false, true, 0],
+    [MEDIA_TYPE.podcastEpisode, false, true, false, 2],
   ])(
     'when track type is %s',
-    (type, isTrack, isPodcastEpisode, isRadioStation) => {
-      beforeAll(() => {
-        result.composable.playTracks([
+    (
+      type,
+      isTrack,
+      isPodcastEpisode,
+      isRadioStation,
+      createBookmarkCalledLength,
+    ) => {
+      beforeAll(async () => {
+        await result.composable.playTracks([
           {
             ...queueTrack,
             type,
           },
         ]);
+
+        vi.advanceTimersByTime(SAVE_INTERVAL * 2);
       });
 
       afterAll(() => {
@@ -268,6 +290,12 @@ describe('useAudioPlayer', () => {
 
       it('sets the the correct isRadioStation value', () => {
         expect(result.composable.isRadioStation.value).toBe(isRadioStation);
+      });
+
+      it(`${createBookmarkCalledLength ? 'calls' : 'does not call'} the createBookmark function`, () => {
+        expect(createBookmarkMock).toHaveBeenCalledTimes(
+          createBookmarkCalledLength,
+        );
       });
     },
   );
@@ -1487,7 +1515,28 @@ describe('useAudioPlayer', () => {
 
     describe('when onEnded event is called', () => {
       beforeAll(() => {
-        result.composable.playTracks(queueTracks);
+        result.composable.queueList.value = queueTracks;
+        onEndedCb();
+      });
+
+      describe('when track type is not a podcast episode', () => {
+        it('does not call the deleteBookmark function', () => {
+          expect(deleteBookmarkMock).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when track type is a podcast episode', () => {
+        beforeAll(() => {
+          result.composable.queueList.value = getFormattedQueueTracksMock(5, {
+            type: MEDIA_TYPE.podcastEpisode,
+          });
+
+          onEndedCb();
+        });
+
+        it('calls the deleteBookmark function', () => {
+          expect(deleteBookmarkMock).toHaveBeenCalled();
+        });
       });
 
       describe('when repeat value is 1', () => {
@@ -1521,7 +1570,6 @@ describe('useAudioPlayer', () => {
 
         describe('when track is the last track in queueList', () => {
           beforeAll(() => {
-            onEndedCb();
             onEndedCb();
             onEndedCb();
             vi.clearAllMocks();

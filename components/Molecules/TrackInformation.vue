@@ -45,7 +45,7 @@ defineProps<{
     </div>
 
     <div class="trackRow trackBorder">
-      <div :class="['trackCell', 'trackMeta', $style.title]">Track</div>
+      <div :class="['trackCell', 'trackMeta', $style.title]">Track Number</div>
 
       <div class="trackCell">
         <p>{{ track.trackNumber }}</p>

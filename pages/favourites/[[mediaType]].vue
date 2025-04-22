@@ -5,7 +5,7 @@ import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
-import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
+import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.favourites],
@@ -68,7 +68,7 @@ useHead({
       :artists="favourites.artists"
     />
 
-    <TrackWithPreviewList
+    <TracksList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
       :tracks="favourites.tracks"
       @add-to-playlist="addToPlaylistModal"

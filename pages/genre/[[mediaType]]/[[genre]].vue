@@ -3,7 +3,7 @@ import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
+import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.genre],
@@ -76,7 +76,7 @@ useHead({
       :albums="genreData.genreMedia"
     />
 
-    <TrackWithPreviewList
+    <TracksList
       v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
       :tracks="genreData.genreMedia"
       @add-to-playlist="addToPlaylistModal"

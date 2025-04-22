@@ -6,7 +6,7 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
-import PodcastList from '@/components/Organisms/PodcastList.vue';
+import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
 const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
@@ -88,7 +88,7 @@ useHead({
 
       <h3>Latest Podcast Episodes</h3>
 
-      <PodcastList
+      <PodcastEpisodesList
         :podcast-episodes="podcastData.newestPodcastEpisodes"
         @add-to-playlist="addToPlaylistModal"
         @add-to-queue="addTrackToQueue"

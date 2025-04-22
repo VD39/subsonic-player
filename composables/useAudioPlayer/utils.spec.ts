@@ -10,7 +10,7 @@ const arrayList = [
   {
     id: 'id2',
   },
-] as unknown as QueueTrack[];
+] as unknown as MixedTrack[];
 
 describe('shuffleArray', () => {
   describe.each([[undefined], [1], [2]])('when index is %s', (index) => {

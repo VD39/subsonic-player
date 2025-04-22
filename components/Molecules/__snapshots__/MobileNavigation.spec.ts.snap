@@ -12,6 +12,9 @@ exports[`MobileNavigation > matches the snapshot 1`] = `
     <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
         <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
       </a></li>
+    <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+      </a></li>
   </ul>
 </nav>"
 `;

@@ -24,6 +24,9 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
               <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
             </a></li>
+          <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
+            </a></li>
         </ul>
       </li>
       <li class="mBM">
@@ -83,6 +86,9 @@ exports[`SidebarNavigation > when collapsed is true > matches the snapshot 1`] =
             </a></li>
           <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
               <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden">Queue</span>
+            </a></li>
+          <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text visuallyHidden">Bookmarks</span>
             </a></li>
         </ul>
       </li>

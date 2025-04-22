@@ -44,8 +44,10 @@ const downloadedIcon = computed(() =>
       <div :class="['trackCell', 'trackMeta', $style.title]">Description</div>
 
       <div class="trackCell">
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="podcastEpisode.description" />
+        <div>
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div v-html="podcastEpisode.description" />
+        </div>
       </div>
     </div>
 

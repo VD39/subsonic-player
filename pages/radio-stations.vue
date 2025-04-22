@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import RadioStationList from '@/components/Organisms/RadioStationList.vue';
+import RadioStationsList from '@/components/Organisms/TrackLists/RadioStationsList.vue';
 
 const {
   addRadioStationModal,
@@ -60,7 +60,7 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status="status">
-    <RadioStationList
+    <RadioStationsList
       :radio-stations="radioStations"
       @add-to-queue="addTrackToQueue"
       @delete-radio-station="deleteRadioStation"

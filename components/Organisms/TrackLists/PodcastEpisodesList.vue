@@ -21,12 +21,14 @@ defineEmits<{
   episodeInformation: [value: PodcastEpisode];
   playEpisode: [value: PodcastEpisode];
 }>();
+
+const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
 </script>
 
 <template>
   <div v-if="podcastEpisodes.length" ref="tracksWrapper" class="trackTable">
     <div class="trackHeader">
-      <div class="trackCell">Episodes</div>
+      <div class="trackCell">{{ trackHeaderNames[0] }}</div>
       <div class="trackCell trackOptions" />
     </div>
 
@@ -71,9 +73,14 @@ defineEmits<{
               </p>
             </MarqueeScroll>
 
-            <p v-if="episode.description" ref="description" class="clamp2">
-              {{ episode.description }}
-            </p>
+            <!-- eslint-disable vue/no-v-html -->
+            <div
+              v-if="episode.description"
+              ref="description"
+              class="clamp2"
+              v-html="episode.description"
+            />
+            <!-- eslint-enable vue/no-v-html -->
           </div>
         </div>
 

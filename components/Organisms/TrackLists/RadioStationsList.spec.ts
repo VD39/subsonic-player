@@ -7,12 +7,12 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedRadioStationMock } from '@/test/helpers';
 import { mount } from '@vue/test-utils';
 
-import RadioStationList from './RadioStationList.vue';
+import RadioStationsList from './RadioStationsList.vue';
 
 const radioStations = getFormattedRadioStationMock(5);
 
 function factory(props = {}) {
-  const wrapper = mount(RadioStationList, {
+  const wrapper = mount(RadioStationsList, {
     props: {
       radioStations: [],
       ...props,
@@ -28,7 +28,7 @@ function factory(props = {}) {
   return wrapper;
 }
 
-describe('RadioStationList', () => {
+describe('RadioStationsList', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -77,7 +77,7 @@ describe('RadioStationList', () => {
         wrapper.findComponent({ ref: 'deleteRadioStation' }).vm.$emit('click');
       });
 
-      it('emits the deleteRadioStation event with track', () => {
+      it('emits the deleteRadioStation event with track id', () => {
         expect(wrapper.emitted('deleteRadioStation')).toEqual([
           [radioStations[0].id],
         ]);

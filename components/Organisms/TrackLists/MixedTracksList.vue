@@ -11,43 +11,41 @@ import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 
-const props = defineProps<{
-  inPlaylist?: boolean;
-  inQueue?: boolean;
-  tracks: (PodcastEpisode | QueueTrack | Track)[];
+defineProps<{
+  tracks: MixedTrack[];
 }>();
 
 defineEmits<{
   addToPlaylist: [value: string];
-  addToQueue: [value: PodcastEpisode | QueueTrack | Track];
+  addToQueue: [value: MixedTrack];
   downloadMedia: [value: string];
-  mediaInformation: [value: PodcastEpisode | QueueTrack | Track];
+  mediaInformation: [value: MixedTrack];
   playTrack: [value: number];
-  removeFromPlaylist: [value: number];
-  removeFromQueue: [value: string];
+  remove: [
+    value: {
+      id: string;
+      index: number;
+    },
+  ];
 }>();
 
-const TRACK_HEADER = {
-  mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],
-  track: ['Track', 'Album', 'Artists', 'Duration'],
-};
+const trackHeaderNames = TRACK_HEADER_NAMES.mix;
 
-const trackHeader = computed(() => {
-  if (props.inPlaylist || props.inQueue) {
-    return TRACK_HEADER.mix;
-  }
-
-  return TRACK_HEADER.track;
-});
+const hasAddToQueueEvent = computed(
+  () => !!getCurrentInstance()?.vnode.props?.onAddToQueue,
+);
 </script>
 
 <template>
   <div v-if="tracks.length" ref="tracksWrapper" class="trackTable withPreview">
     <div class="trackHeader">
-      <div class="trackCell">{{ trackHeader[0] }}</div>
-      <div class="trackCell trackSecondary">{{ trackHeader[1] }}</div>
-      <div class="trackCell trackSecondary">{{ trackHeader[2] }}</div>
-      <div class="trackCell trackTime">{{ trackHeader[3] }}</div>
+      <div class="trackCell">{{ trackHeaderNames[0] }}</div>
+      <div class="trackCell trackSecondary">{{ trackHeaderNames[1] }}</div>
+      <div class="trackCell trackSecondary">{{ trackHeaderNames[2] }}</div>
+      <div ref="trackTime" class="trackCell trackTime">
+        {{ trackHeaderNames[3] }}
+      </div>
+      <div class="trackCell trackOptions" />
       <div class="trackCell trackOptions" />
     </div>
 
@@ -122,33 +120,24 @@ const trackHeader = computed(() => {
         <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>
       </div>
 
-      <div class="trackCell trackTime">
-        <time>{{ track.duration }}</time>
-      </div>
+      <time class="trackCell trackTime">
+        {{ track.duration }}
+      </time>
 
       <div class="trackCell trackOptions">
-        <ButtonLink
-          v-if="inQueue"
-          ref="removeFromQueue"
-          icon="PhX"
-          icon-size="small"
-          icon-weight="bold"
-          title="Remove item from queue"
-          @click="$emit('removeFromQueue', track.id)"
-        >
-          Remove item from queue
-        </ButtonLink>
-
-        <DropdownMenu v-else>
+        <DropdownMenu>
           <DropdownItem
-            v-if="inPlaylist"
-            ref="removeFromPlaylist"
-            @click="$emit('removeFromPlaylist', index)"
+            ref="dropdownItemRemove"
+            @click="
+              $emit('remove', {
+                id: track.id,
+                index,
+              })
+            "
           >
-            Remove from Playlist
+            Remove track
           </DropdownItem>
           <DropdownItem
-            v-else
             ref="addToPlaylist"
             @click="$emit('addToPlaylist', track.id)"
           >
@@ -167,13 +156,35 @@ const trackHeader = computed(() => {
             Download track
           </DropdownItem>
           <DropdownDivider />
-          <DropdownItem ref="addToQueue" @click="$emit('addToQueue', track)">
+          <DropdownItem
+            v-if="hasAddToQueueEvent"
+            ref="addToQueue"
+            @click="$emit('addToQueue', track)"
+          >
             Add to queue
           </DropdownItem>
           <DropdownItem ref="playTrack" @click="$emit('playTrack', index)">
             Play Track
           </DropdownItem>
         </DropdownMenu>
+      </div>
+
+      <div class="trackCell trackOptions">
+        <ButtonLink
+          ref="removeButton"
+          icon="PhX"
+          icon-size="small"
+          icon-weight="bold"
+          title="Remove track"
+          @click="
+            $emit('remove', {
+              id: track.id,
+              index,
+            })
+          "
+        >
+          Remove track
+        </ButtonLink>
       </div>
     </div>
   </div>

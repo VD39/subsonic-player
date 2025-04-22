@@ -256,6 +256,12 @@ export const formattedPodcastEpisodeMock = {
   type: MEDIA_TYPE.podcastEpisode,
 } as PodcastEpisode;
 
+export const formattedBookmarkMock = {
+  ...formattedPodcastEpisodeMock,
+  position: '1',
+  rawPosition: 1,
+} as Bookmark;
+
 export const formattedPodcastMock = {
   description: 'description',
   episodes: {

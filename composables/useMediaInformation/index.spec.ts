@@ -50,7 +50,7 @@ describe('useMediaInformation', () => {
       ],
     ])('when track type is %s', (track, modalType, attrs) => {
       beforeEach(() => {
-        openTrackInformationModal(track as unknown as QueueTrack);
+        openTrackInformationModal(track as unknown as MixedTrack);
       });
 
       it('calls the openModal with correct parameters', () => {
@@ -60,7 +60,7 @@ describe('useMediaInformation', () => {
 
     describe('when track type is not defined', () => {
       beforeEach(() => {
-        openTrackInformationModal(trackMock as unknown as QueueTrack);
+        openTrackInformationModal(trackMock as unknown as MixedTrack);
       });
 
       it('does not call the openModal', () => {

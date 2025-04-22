@@ -12,6 +12,7 @@ export const COOKIE_NAMES = {
 export const DAYS_COOKIE_EXPIRES = 60;
 
 export const STATE_NAMES = {
+  bookmarks: 'bookmarks',
   currentUser: 'current-user',
   favouriteIds: 'favourite-ids',
   favourites: 'favourites',
@@ -63,6 +64,7 @@ export const STATES_TO_CLEAR = [
 
 export const ASYNC_DATA_NAMES = {
   artists: 'artists',
+  bookmarks: 'bookmarks',
   favourites: 'favourites',
   genres: 'genres',
   index: 'index',
@@ -121,6 +123,7 @@ export const ICONS = {
   add: 'PhPlusCircle',
   album: 'PhVinylRecord',
   artist: 'PhUsersThree',
+  bookmark: 'PhBookmarks',
   clear: 'PhTrash',
   close: 'PhX',
   darkTheme: 'PhSun',
@@ -185,4 +188,13 @@ export const DEFAULT_ALL_MEDIA = {
   albums: [],
   artists: [],
   tracks: [],
+};
+
+export const TRACK_HEADER_NAMES = {
+  albumTracks: ['Track', 'Artists', 'Duration'],
+  bookmarkTracks: ['Track', 'Podcast', 'Author', 'Current/Duration'],
+  mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],
+  podcastEpisodes: ['Episodes'],
+  radioStations: ['Stations'],
+  tracks: ['Track', 'Album', 'Artists', 'Duration'],
 };

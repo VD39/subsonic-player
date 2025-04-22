@@ -1,1104 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TrackWithPreviewList > matches the snapshot 1`] = `
-"<div class="trackTable withPreview">
-  <div class="trackHeader">
-    <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
-    <div class="trackCell trackTime">Duration</div>
-    <div class="trackCell trackOptions"></div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-0</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <div class="dropdown fade-enter-from fade-enter-active">
-          <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to playlist </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Media information </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Download track </span>
-              </button></li>
-            <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Play Track </span>
-              </button></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-1" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-1</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-2" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-2</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-3" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-3</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-4" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-4</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > matches the snapshot 1`] = `
-"<div class="trackTable withPreview">
-  <div class="trackHeader">
-    <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
-    <div class="trackCell trackTime">Duration</div>
-    <div class="trackCell trackOptions"></div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-0</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <div class="dropdown fade-enter-from fade-enter-active">
-          <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to playlist </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Media information </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Download track </span>
-              </button></li>
-            <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Play Track </span>
-              </button></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-1" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-1</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-2" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-2</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-3" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-3</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-4" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-4</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when inQueue prop is false > when inPlaylist prop is false > matches the snapshot 1`] = `
-"<div class="trackTable withPreview">
-  <div class="trackHeader">
-    <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
-    <div class="trackCell trackTime">Duration</div>
-    <div class="trackCell trackOptions"></div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-0</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <div class="dropdown fade-enter-from fade-enter-active">
-          <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to playlist </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Media information </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Download track </span>
-              </button></li>
-            <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Play Track </span>
-              </button></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-1" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-1</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-2" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-2</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-3" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-3</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-  <div class="trackRow" data-test-id="track">
-    <div class="trackCell">
-      <div>
-        <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-4" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
-            </button></div>
-        </div>
-        <div class="noTouchEvents trackMeta">
-          <div class="marqueeScroll mBXS" inert="">
-            <div class="bulletList inner">
-              <div class="content">
-                <h4>track-4</h4>
-              </div>
-            </div>
-          </div>
-          <div class="marqueeScroll smallFont mobileOnly mBXS">
-            <div class="bulletList inner">
-              <div class="content">
-                <ul class="bulletList">
-                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
-                  <!--v-if-->
-                  <li><span class="visuallyHidden">Track artists</span>
-                    <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                    </ul>
-                  </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-        </button>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content"><a class="link" data-test-id="link">album</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackSecondary">
-      <div class="marqueeScroll">
-        <div class="bulletList inner">
-          <div class="content">
-            <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-        </button>
-        <!--v-if-->
-      </div>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when inQueue prop is false > when inPlaylist prop is true > matches the snapshot 1`] = `
+exports[`MixedTracksList > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
@@ -1106,6 +8,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
     <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
@@ -1136,7 +39,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1164,8 +68,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1173,7 +76,10 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Remove from Playlist </span>
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
@@ -1182,9 +88,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -1192,6 +96,9 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
@@ -1222,7 +129,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1250,8 +158,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1259,6 +166,9 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
         <!--v-if-->
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
@@ -1289,7 +199,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1317,8 +228,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1326,6 +236,9 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
         <!--v-if-->
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
@@ -1356,7 +269,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1384,8 +298,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1393,6 +306,9 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
         <!--v-if-->
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
@@ -1423,7 +339,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1451,8 +368,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1460,11 +376,14 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
         <!--v-if-->
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when inQueue prop is true > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
@@ -1472,6 +391,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
     <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
     <div class="trackCell">
@@ -1502,7 +422,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1530,10 +451,36 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <!--v-if-->
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -1565,7 +512,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1593,10 +541,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
     </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -1628,7 +582,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1656,10 +611,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
     </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -1691,7 +652,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1719,10 +681,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
     </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -1754,7 +722,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1782,22 +751,29 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when in
           </div>
         </div>
       </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
     </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove item from queue">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove item from queue </span>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when the track does not have a favourite key > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when the AddToQueue event is attached > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -1829,7 +805,391 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when th
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <!--v-if-->
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-1" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-1</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-2" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-2</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-3" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-3</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-4" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-4</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">00:19</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`MixedTracksList > when tracks prop is not an empty array > when the track does not have a favourite key > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow" data-test-id="track">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-0</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1856,14 +1216,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when th
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -1874,9 +1236,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when th
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -1884,17 +1244,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when th
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -1926,7 +1290,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1950,14 +1315,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -1968,9 +1335,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -1978,17 +1343,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is defined > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is defined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2015,7 +1384,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <!--v-if-->
                   <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2039,14 +1409,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2057,9 +1429,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2067,17 +1437,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is undefined > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does have an podcastName key > when track.podcastName is undefined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2104,7 +1478,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <!--v-if-->
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2124,14 +1499,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2142,9 +1519,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2152,17 +1527,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does not have an podcastName key > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an album key > when track.album is undefined > when track does not have an podcastName key > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2189,7 +1568,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <!--v-if-->
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2209,14 +1589,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2227,9 +1609,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2237,17 +1617,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2274,7 +1658,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2293,14 +1678,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
     </div>
     <div class="trackCell trackSecondary">
       <p>--</p>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2311,9 +1698,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2321,17 +1706,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is defined > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is defined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2358,7 +1747,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <!--v-if-->
                   <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2382,14 +1772,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2400,9 +1792,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2410,17 +1800,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is undefined > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does have an author key > when track.author is undefined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2447,7 +1841,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <!--v-if-->
                   <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2465,14 +1860,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
     </div>
     <div class="trackCell trackSecondary">
       <p>--</p>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2483,9 +1880,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2493,17 +1888,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does not have an author key > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does have an artists key > when track.artists is an empty array > when track does not have an author key > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2530,7 +1929,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <!--v-if-->
                   <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2548,14 +1948,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
     </div>
     <div class="trackCell trackSecondary">
       <p>--</p>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2566,9 +1968,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2576,17 +1976,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does not have an album key > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does not have an album key > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2618,7 +2022,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                     </ul>
                   </li>
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2642,14 +2047,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
           </div>
         </div>
       </div>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2660,9 +2067,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2670,17 +2075,21 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;
 
-exports[`TrackWithPreviewList > when tracks prop is not an empty array > when track does not have an artists key > matches the snapshot 1`] = `
+exports[`MixedTracksList > when tracks prop is not an empty array > when track does not have an artists key > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
-    <div class="trackCell trackSecondary">Album</div>
-    <div class="trackCell trackSecondary">Artists</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
     <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="trackRow" data-test-id="track">
@@ -2707,7 +2116,8 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                   <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><time>00:19</time></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2726,14 +2136,16 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
     </div>
     <div class="trackCell trackSecondary">
       <p>--</p>
-    </div>
-    <div class="trackCell trackTime"><time>00:19</time></div>
+    </div><time class="trackCell trackTime">00:19</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
@@ -2744,9 +2156,7 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
-                <!--v-if--><span class="clamp text"> Add to queue </span>
-              </button></li>
+            <!--v-if-->
             <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
@@ -2754,6 +2164,9 @@ exports[`TrackWithPreviewList > when tracks prop is not an empty array > when tr
         </div>
       </div>
     </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
   </div>
 </div>"
 `;

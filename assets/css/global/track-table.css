@@ -29,6 +29,7 @@
   --track-cell-padding: var(--default-space) 0 var(--default-space)
     calc(var(--default-space) * 2);
   --track-cell-width: auto;
+  --track-cell-child-gap: var(--default-space);
 
   display: table-cell;
   width: var(--track-cell-width);
@@ -40,7 +41,7 @@
   > * {
     @extend .centerItems;
 
-    gap: var(--default-space);
+    gap: var(--track-cell-child-gap);
   }
 
   @media (--tablet-up) {
@@ -112,6 +113,11 @@
 
   --track-cell-width: 100px;
   --track-secondary-position: unset;
+}
+
+.withPosition {
+  --track-cell-width: 175px;
+  --track-cell-child-gap: var(--space-2);
 }
 
 .trackOptions {

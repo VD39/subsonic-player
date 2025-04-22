@@ -13,14 +13,19 @@ export function usePodcast() {
     return fetchData('/getPodcasts', {
       params,
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        (response.podcasts.channel || []).map(formatPodcast),
+        (response.podcasts.channel || [])
+          .map(formatPodcast)
+          .sort((podcastA, podcastB) =>
+            podcastA.name
+              .toLowerCase()
+              .localeCompare(podcastB.name.toLowerCase()),
+          ),
     });
   }
 
   async function getPodcasts() {
     const { data: podcastsData } = await getPodcastsData();
-    podcasts.value =
-      (podcastsData?.length && sortPodcastsByName(podcastsData)) || [];
+    podcasts.value = podcastsData || [];
   }
 
   async function getPodcast(id: string) {

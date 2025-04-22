@@ -7,14 +7,14 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 import { mount } from '@vue/test-utils';
 
-import TrackList from './TrackList.vue';
+import TracksList from './TracksList.vue';
 
 const tracks = getFormattedTracksMock(5);
 
 function factory(props = {}) {
-  const wrapper = mount(TrackList, {
+  const wrapper = mount(TracksList, {
     props: {
-      tracks: [],
+      tracks,
       ...props,
     },
   });
@@ -28,7 +28,7 @@ function factory(props = {}) {
   return wrapper;
 }
 
-describe('TrackList', () => {
+describe('TracksList', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -40,6 +40,12 @@ describe('TrackList', () => {
   });
 
   describe('when tracks prop is an empty array', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        tracks: [],
+      });
+    });
+
     it('does not show the tracks wrapper element', () => {
       expect(wrapper.find({ ref: 'tracksWrapper' }).exists()).toBe(false);
     });
@@ -50,12 +56,6 @@ describe('TrackList', () => {
   });
 
   describe('when tracks prop is not an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        tracks,
-      });
-    });
-
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -68,8 +68,56 @@ describe('TrackList', () => {
       expect(wrapper.findAll('[data-test-id="track"]').length).toBe(5);
     });
 
-    it('does not show the NoMediaMessage component', () => {
+    it('does not show the NoMediaArtistsListMessage component', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
+    });
+
+    describe('when track.album is defined', () => {
+      it('shows the MarqueeScroll component containing the album details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'albumMarqueeScroll' }).exists(),
+        ).toBe(true);
+      });
+
+      it('does not show the album else element', () => {
+        expect(wrapper.find({ ref: 'albumElse' }).exists()).toBe(false);
+      });
+    });
+
+    describe('when track.album is undefined', () => {
+      beforeEach(() => {
+        wrapper = factory({
+          tracks: getFormattedTracksMock(1, {
+            album: undefined,
+          }),
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the MarqueeScroll component containing the album details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'albumMarqueeScroll' }).exists(),
+        ).toBe(false);
+      });
+
+      it('shows the album else element', () => {
+        expect(wrapper.find({ ref: 'albumElse' }).exists()).toBe(true);
+      });
+    });
+
+    describe('when track.artists is not an empty array', () => {
+      it('shows the MarqueeScroll component containing the artists details', () => {
+        expect(
+          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
+        ).toBe(true);
+      });
+
+      it('does not show the artists else element', () => {
+        expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(false);
+      });
     });
 
     describe('when track.artists is an empty array', () => {
@@ -90,13 +138,9 @@ describe('TrackList', () => {
           wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
         ).toBe(false);
       });
-    });
 
-    describe('when track.artists is not empty array', () => {
-      it('shows the MarqueeScroll component containing the artists details', () => {
-        expect(
-          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
-        ).toBe(true);
+      it('shows the artists else element', () => {
+        expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(true);
       });
     });
 
@@ -115,7 +159,7 @@ describe('TrackList', () => {
         wrapper.findComponent({ ref: 'mediaInformation' }).vm.$emit('click');
       });
 
-      it('emits the addToPlaylist event with track', () => {
+      it('emits the mediaInformation event with track', () => {
         expect(wrapper.emitted('mediaInformation')).toEqual([[tracks[0]]]);
       });
     });

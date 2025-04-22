@@ -11,12 +11,30 @@ import {
 } from '@/test/helpers';
 import { mount } from '@vue/test-utils';
 
-import TrackWithPreviewList from './TrackWithPreviewList.vue';
+import MixedTracksList from './MixedTracksList.vue';
+
+let onAddToQueueMock: typeof vi.fn | undefined = undefined;
+
+vi.mock('vue', async () => {
+  const vue = await vi.importActual<typeof import('vue')>('vue');
+
+  return {
+    ...vue,
+    getCurrentInstance: vi.fn(() => ({
+      ...vue.getCurrentInstance(),
+      vnode: {
+        props: {
+          onAddToQueue: onAddToQueueMock,
+        },
+      },
+    })),
+  };
+});
 
 const tracks = getFormattedTracksMock(5);
 
 function factory(props = {}) {
-  const wrapper = mount(TrackWithPreviewList, {
+  const wrapper = mount(MixedTracksList, {
     props: {
       tracks,
       ...props,
@@ -32,7 +50,7 @@ function factory(props = {}) {
   return wrapper;
 }
 
-describe('TrackWithPreviewList', () => {
+describe('MixedTracksList', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -418,35 +436,27 @@ describe('TrackWithPreviewList', () => {
       });
     });
 
-    describe('when inQueue prop is false', () => {
-      it('does not show the remove from queue ButtonLink component', () => {
-        expect(wrapper.findComponent({ ref: 'removeFromQueue' }).exists()).toBe(
+    describe('when the AddToQueue event is not attached', () => {
+      it('does not show the add to queue DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
           false,
         );
       });
+    });
 
-      it('shows the DropdownMenu component', () => {
-        expect(wrapper.findComponent(DropdownMenu).exists()).toBe(true);
+    describe('when the AddToQueue event is attached', () => {
+      beforeEach(() => {
+        onAddToQueueMock = vi.fn();
       });
 
-      describe('when the media information DropdownItem component emits the click event', () => {
-        beforeEach(() => {
-          wrapper.findComponent({ ref: 'mediaInformation' }).vm.$emit('click');
-        });
-
-        it('emits the mediaInformation event with track', () => {
-          expect(wrapper.emitted('mediaInformation')).toEqual([[tracks[0]]]);
-        });
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
       });
 
-      describe('when the download media DropdownItem component emits the click event', () => {
-        beforeEach(() => {
-          wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
-        });
-
-        it('emits the downloadMedia event with track', () => {
-          expect(wrapper.emitted('downloadMedia')).toEqual([[tracks[0].id]]);
-        });
+      it('shows the add to queue DropdownItem component', () => {
+        expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
+          true,
+        );
       });
 
       describe('when the add to queue DropdownItem component emits the click event', () => {
@@ -458,122 +468,89 @@ describe('TrackWithPreviewList', () => {
           expect(wrapper.emitted('addToQueue')).toEqual([[tracks[0]]]);
         });
       });
+    });
 
-      describe('when the play track DropdownItem component emits the click event', () => {
-        beforeEach(() => {
-          wrapper.findComponent({ ref: 'playTrack' }).vm.$emit('click');
-        });
-
-        it('emits the playTrack event with track', () => {
-          expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-        });
+    describe('when the remove DropdownItem component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'dropdownItemRemove' }).vm.$emit('click');
       });
 
-      describe('when the TrackPlayPause component emits the playTrack event', () => {
-        beforeEach(() => {
-          wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
-        });
-
-        it('emits the playTrack event with track', () => {
-          expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-        });
-      });
-
-      describe('when inPlaylist prop is false', () => {
-        it('matches the snapshot', () => {
-          expect(wrapper.html()).toMatchSnapshot();
-        });
-
-        it('does not show the remove from playlist DropdownItem component', () => {
-          expect(
-            wrapper.findComponent({ ref: 'removeFromPlaylist' }).exists(),
-          ).toBe(false);
-        });
-
-        it('shows the add to playlist DropdownItem component', () => {
-          expect(wrapper.findComponent({ ref: 'addToPlaylist' }).exists()).toBe(
-            true,
-          );
-        });
-
-        describe('when the add to playlist DropdownItem component emits the click event', () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
-          });
-
-          it('emits the addToPlaylist event with track', () => {
-            expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id]]);
-          });
-        });
-      });
-
-      describe('when inPlaylist prop is true', () => {
-        beforeEach(() => {
-          wrapper = factory({
-            inPlaylist: true,
-            tracks,
-          });
-        });
-
-        it('matches the snapshot', () => {
-          expect(wrapper.html()).toMatchSnapshot();
-        });
-
-        it('shows the remove from playlist DropdownItem component', () => {
-          expect(
-            wrapper.findComponent({ ref: 'removeFromPlaylist' }).exists(),
-          ).toBe(true);
-        });
-
-        it('does not show the add to playlist DropdownItem component', () => {
-          expect(wrapper.findComponent({ ref: 'addToPlaylist' }).exists()).toBe(
-            false,
-          );
-        });
-
-        describe('when the remove from playlist DropdownItem component emits the click event', () => {
-          beforeEach(() => {
-            wrapper
-              .findComponent({ ref: 'removeFromPlaylist' })
-              .vm.$emit('click');
-          });
-
-          it('emits the removeFromPlaylist event with track', () => {
-            expect(wrapper.emitted('removeFromPlaylist')).toEqual([[0]]);
-          });
-        });
+      it('emits the remove event with track', () => {
+        expect(wrapper.emitted('remove')).toEqual([
+          [
+            {
+              id: tracks[0].id,
+              index: 0,
+            },
+          ],
+        ]);
       });
     });
 
-    describe('when inQueue prop is true', () => {
+    describe('when the add to playlist DropdownItem component emits the click event', () => {
       beforeEach(() => {
-        wrapper = factory({
-          inQueue: true,
-        });
+        wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
       });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
+      it('emits the addToPlaylist event with track', () => {
+        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id]]);
+      });
+    });
+
+    describe('when the media information DropdownItem component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'mediaInformation' }).vm.$emit('click');
       });
 
-      it('shows the remove from queue ButtonLink component', () => {
-        expect(wrapper.findComponent({ ref: 'removeFromQueue' }).exists()).toBe(
-          true,
-        );
+      it('emits the mediaInformation event with track', () => {
+        expect(wrapper.emitted('mediaInformation')).toEqual([[tracks[0]]]);
+      });
+    });
+
+    describe('when the download media DropdownItem component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
       });
 
-      it('does not show the DropdownMenu component', () => {
-        expect(wrapper.findComponent(DropdownMenu).exists()).toBe(false);
+      it('emits the downloadMedia event with track', () => {
+        expect(wrapper.emitted('downloadMedia')).toEqual([[tracks[0].id]]);
+      });
+    });
+
+    describe('when the play track DropdownItem component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'playTrack' }).vm.$emit('click');
       });
 
-      describe('when the remove from queue ButtonLink component emits the click event', () => {
-        beforeEach(() => {
-          wrapper.findComponent({ ref: 'removeFromQueue' }).vm.$emit('click');
-        });
+      it('emits the playTrack event with track', () => {
+        expect(wrapper.emitted('playTrack')).toEqual([[0]]);
+      });
+    });
 
-        it('emits the removeFromQueue event with track', () => {
-          expect(wrapper.emitted('removeFromQueue')).toEqual([[tracks[0].id]]);
-        });
+    describe('when the TrackPlayPause component emits the playTrack event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
+      });
+
+      it('emits the playTrack event with track', () => {
+        expect(wrapper.emitted('playTrack')).toEqual([[0]]);
+      });
+    });
+
+    describe('when the remove ButtonLink component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'removeButton' }).vm.$emit('click');
+      });
+
+      it('emits the remove event with track id', () => {
+        expect(wrapper.emitted('remove')).toEqual([
+          [
+            {
+              id: tracks[0].id,
+              index: 0,
+            },
+          ],
+        ]);
       });
     });
   });

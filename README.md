@@ -32,6 +32,7 @@ Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source app
 
 3. Advanced Functionality
 
+   - Bookmarking podcast episode to keep track of the listening position across multiple sessions.
    - MediaSession Integration.
    - Advanced Search capabilities.
    - Dark/Light Mode support.

@@ -8,7 +8,7 @@ import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import TrackList from '@/components/Organisms/TrackList.vue';
+import AlbumTracksList from '@/components/Organisms/TrackLists/AlbumTracksList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.album],
@@ -133,7 +133,7 @@ useHead({
           {{ disc }}
         </h3>
 
-        <TrackList
+        <AlbumTracksList
           :tracks="tracks"
           @add-to-playlist="addToPlaylistModal"
           @add-to-queue="addTrackToQueue"

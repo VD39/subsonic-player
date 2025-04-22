@@ -21,8 +21,10 @@ exports[`PodcastEpisodeInformation > matches the snapshot 1`] = `
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Description</div>
     <div class="trackCell">
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <div>description</div>
+      <div>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div>description</div>
+      </div>
     </div>
   </div>
   <div class="trackRow trackBorder">
@@ -64,8 +66,10 @@ exports[`PodcastEpisodeInformation > when episode is not downloaded > matches th
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Description</div>
     <div class="trackCell">
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <div>description</div>
+      <div>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div>description</div>
+      </div>
     </div>
   </div>
   <div class="trackRow trackBorder">

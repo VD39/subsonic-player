@@ -6,6 +6,7 @@ export class AudioPlayer {
     this.audio.volume = 1;
     this.addEventListeners();
   }
+
   changePlaybackRate(rate: number) {
     this.audio.playbackRate = rate;
   }
@@ -15,12 +16,15 @@ export class AudioPlayer {
     this.audio.setAttribute('src', source);
     this.audio.load();
   }
+
   onBuffered(callback: (bufferedTime: number) => void) {
     this.bufferedCallback = callback;
   }
+
   onCanPlay(callback: () => void) {
     this.canPlayCallback = callback;
   }
+
   onEnded(callback: () => void) {
     this.endedCallback = callback;
   }

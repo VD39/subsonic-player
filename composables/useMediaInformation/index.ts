@@ -1,7 +1,7 @@
 export function useMediaInformation() {
   const { openModal } = useModal();
 
-  function openTrackInformationModal(track: Artist | Podcast | QueueTrack) {
+  function openTrackInformationModal(track: Artist | MixedTrack | Podcast) {
     switch (track.type) {
       case MEDIA_TYPE.podcastEpisode:
         openModal(MODAL_TYPE.podcastEpisodeInformationModal, {

@@ -115,17 +115,8 @@ export interface Base {
   year?: number;
 }
 
-export interface Bookmark {
-  changed: Date;
-  comment?: string;
-  created: Date;
-  entry: Base;
-  position: number;
-  username: string;
-}
-
 export interface Bookmarks {
-  bookmark?: Bookmark[];
+  bookmark?: ResponseBookmark[];
 }
 
 export interface Captions {
@@ -297,6 +288,15 @@ export interface ResponseArtist extends ArtistID3 {
   name: string;
   starred?: Date;
   userRating?: number;
+}
+
+export interface ResponseBookmark {
+  changed: Date;
+  comment?: string;
+  created: Date;
+  entry: Base;
+  position: number;
+  username: string;
 }
 
 export interface ResponseGenre {

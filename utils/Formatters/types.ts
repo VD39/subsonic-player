@@ -41,6 +41,11 @@ export interface BaseArtist {
   name: string;
 }
 
+export interface Bookmark extends PodcastEpisode {
+  position: string;
+  rawPosition: number;
+}
+
 export interface Genre {
   albumCount?: number;
   name: string;

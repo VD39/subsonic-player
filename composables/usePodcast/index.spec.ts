@@ -137,7 +137,7 @@ describe('usePodcast', () => {
         addPodcast('url');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully added podcast.',
         );
@@ -185,7 +185,7 @@ describe('usePodcast', () => {
         deletePodcast('id');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted podcast.',
         );
@@ -226,7 +226,7 @@ describe('usePodcast', () => {
         deletePodcastEpisode('id');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted podcast episode from server.',
         );
@@ -260,7 +260,7 @@ describe('usePodcast', () => {
         downloadPodcastEpisode('id');
       });
 
-      it('calls the addSuccessSnackMock function', () => {
+      it('calls the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Download has begun on the server.',
         );

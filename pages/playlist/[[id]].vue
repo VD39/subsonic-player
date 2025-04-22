@@ -7,7 +7,7 @@ import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import TrackWithPreviewList from '@/components/Organisms/TrackWithPreviewList.vue';
+import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.playlist],
@@ -17,6 +17,7 @@ const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 const {
+  addToPlaylistModal,
   deletePlaylist,
   getPlaylistTracksById,
   playlist,
@@ -127,14 +128,14 @@ useHead({
         </div>
       </EntryHeader>
 
-      <TrackWithPreviewList
-        in-playlist
+      <MixedTracksList
         :tracks="playlist.tracks"
+        @add-to-playlist="addToPlaylistModal"
         @add-to-queue="addTrackToQueue"
         @download-media="downloadMedia"
         @media-information="openTrackInformationModal"
         @play-track="playTrack"
-        @remove-from-playlist="removeTrackFromPlaylist"
+        @remove="({ index }) => removeTrackFromPlaylist(index)"
       />
     </div>
 

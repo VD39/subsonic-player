@@ -77,7 +77,7 @@ describe('PlaylistsList', () => {
         wrapper.findComponent({ ref: 'deletePlaylist' }).vm.$emit('click');
       });
 
-      it('emits the deletePlaylist event with track', () => {
+      it('emits the deletePlaylist event with track id', () => {
         expect(wrapper.emitted('deletePlaylist')).toEqual([[playlists[0].id]]);
       });
     });
