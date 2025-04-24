@@ -44,8 +44,8 @@ export function useBookmarks() {
     });
 
     if (bookmarkData) {
-      addSuccessSnack('Successfully deleted bookmark.');
       await getBookmarks();
+      addSuccessSnack('Successfully deleted bookmark.');
     }
   }
 

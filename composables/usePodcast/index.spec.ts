@@ -138,12 +138,12 @@ describe('usePodcast', () => {
 
   describe('when the addPodcast function is called', () => {
     describe('when fetchData response returns null', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
 
-        addPodcast('url');
+        await addPodcast('url');
       });
 
       it('does not call the addSuccessSnackMock function', () => {
@@ -166,14 +166,14 @@ describe('usePodcast', () => {
     });
 
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {
             name: 'name',
           },
         });
 
-        addPodcast('url');
+        await addPodcast('url');
       });
 
       it('calls the addSuccessSnack function', () => {
@@ -200,12 +200,12 @@ describe('usePodcast', () => {
 
   describe('when the deletePodcast function is called', () => {
     describe('when fetchData response returns null', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
 
-        deletePodcast('id');
+        await deletePodcast('id');
       });
 
       it('does not call the addSuccessSnackMock function', () => {
@@ -228,14 +228,14 @@ describe('usePodcast', () => {
     });
 
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {
             name: 'name',
           },
         });
 
-        deletePodcast('id');
+        await deletePodcast('id');
       });
 
       it('calls the addSuccessSnack function', () => {

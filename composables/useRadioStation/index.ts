@@ -32,8 +32,8 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      addSuccessSnack(`Successfully added radio station ${params.name}.`);
       await getRadioStations();
+      addSuccessSnack(`Successfully added radio station ${params.name}.`);
     }
   }
 
@@ -51,8 +51,8 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      addSuccessSnack(`Successfully updated radio station ${params.name}.`);
       await getRadioStations();
+      addSuccessSnack(`Successfully updated radio station ${params.name}.`);
     }
   }
 
@@ -67,8 +67,8 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      addSuccessSnack('Successfully deleted radio station.');
       await getRadioStations();
+      addSuccessSnack('Successfully deleted radio station.');
     }
   }
 
@@ -78,7 +78,6 @@ export function useRadioStation() {
       async onSubmit(radioStation: RadioStationParams) {
         await addRadioStation(radioStation);
         closeModal();
-        await getRadioStations();
       },
     });
   }
@@ -93,7 +92,6 @@ export function useRadioStation() {
         });
 
         closeModal();
-        await getRadioStations();
       },
       radioStation,
     });

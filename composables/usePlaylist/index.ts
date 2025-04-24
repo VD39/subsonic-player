@@ -77,7 +77,7 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      addSuccessSnack(`Successfully added playlist ${playlistData.name}.`);
+      addSuccessSnack(`Successfully added playlist ${name}.`);
       return playlistData;
     }
   }
@@ -92,8 +92,8 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      addSuccessSnack(successMessage);
       await getPlaylists();
+      addSuccessSnack(successMessage);
     }
   }
 
@@ -105,8 +105,8 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      addSuccessSnack('Successfully deleted playlist.');
       await getPlaylists();
+      addSuccessSnack('Successfully deleted playlist.');
     }
   }
 
@@ -127,7 +127,6 @@ export function usePlaylist() {
       /* istanbul ignore next -- @preserve */
       async onSubmit(playlistName: string) {
         await addPlaylist(playlistName);
-        await getPlaylists();
         closeModal();
       },
     });

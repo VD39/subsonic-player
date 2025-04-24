@@ -76,8 +76,8 @@ export function usePodcast() {
     });
 
     if (podcastData) {
-      addSuccessSnack('Successfully added podcast.');
       await getPodcastsAndNewestPodcastEpisodes();
+      addSuccessSnack('Successfully added podcast.');
     }
   }
 
@@ -89,8 +89,8 @@ export function usePodcast() {
     });
 
     if (podcastData) {
-      addSuccessSnack('Successfully deleted podcast.');
       await getPodcastsAndNewestPodcastEpisodes();
+      addSuccessSnack('Successfully deleted podcast.');
     }
   }
 
