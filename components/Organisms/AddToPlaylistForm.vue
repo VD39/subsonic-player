@@ -100,7 +100,12 @@ function removeFromSelectedPlaylist(playlistId: string) {
           <NuxtLink
             :aria-label="`Go to playlist ${playlist.name}`"
             :class="['mBS', $style.nuxtLink]"
-            :to="`/playlist/${playlist.id}`"
+            :to="{
+              name: ROUTE_NAMES.playlist,
+              params: {
+                [ROUTE_PARAM_KEYS.playlist.id]: playlist.id,
+              },
+            }"
           >
             {{ playlist.name }}
           </NuxtLink>

@@ -35,7 +35,7 @@ describe('app-global-middleware', () => {
       appGlobalMiddleware(
         {
           ...routeMock,
-          name: 'login',
+          name: ROUTE_NAMES.login,
         },
         routeMock,
       );
@@ -43,13 +43,13 @@ describe('app-global-middleware', () => {
       await flushPromises();
     });
 
-    describe('when route name is login', () => {
+    describe(`when route.to.name is ${ROUTE_NAMES.login}`, () => {
       it('does not call the navigateTo function', () => {
         expect(navigateToMock).not.toHaveBeenCalled();
       });
     });
 
-    describe('when route name is not login', () => {
+    describe(`when route.to.name is not ${ROUTE_NAMES.login}`, () => {
       beforeEach(async () => {
         appGlobalMiddleware(
           {
@@ -65,7 +65,7 @@ describe('app-global-middleware', () => {
 
       it('calls the navigateTo function with correct URL', () => {
         expect(navigateToMock).toHaveBeenCalledWith({
-          path: '/login',
+          name: ROUTE_NAMES.login,
           query: {
             redirect: 'about',
           },
@@ -85,12 +85,12 @@ describe('app-global-middleware', () => {
       isAuthenticated.value = true;
     });
 
-    describe('when route name is login', () => {
+    describe(`when route.to.name is ${ROUTE_NAMES.login}`, () => {
       beforeEach(async () => {
         appGlobalMiddleware(
           {
             ...routeMock,
-            name: 'login',
+            name: ROUTE_NAMES.login,
           },
           routeMock,
         );
@@ -99,11 +99,13 @@ describe('app-global-middleware', () => {
       });
 
       it('calls the navigateTo function with correct URL', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/');
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.index,
+        });
       });
     });
 
-    describe('when route name is not login', () => {
+    describe(`when route.to.name is not ${ROUTE_NAMES.login}`, () => {
       beforeEach(async () => {
         appGlobalMiddleware(
           {
@@ -127,7 +129,7 @@ describe('app-global-middleware', () => {
         appGlobalMiddleware(
           {
             ...routeMock,
-            name: 'login',
+            name: ROUTE_NAMES.login,
           },
           routeMock,
         );

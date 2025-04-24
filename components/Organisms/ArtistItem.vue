@@ -5,7 +5,12 @@ const props = defineProps<{
   artist: Artist | SimilarArtist;
 }>();
 
-const toLink = `/artist/${props.artist.id}`;
+const toLink = {
+  name: ROUTE_NAMES.artist,
+  params: {
+    [ROUTE_PARAM_KEYS.artist.id]: props.artist.id,
+  },
+};
 </script>
 
 <template>

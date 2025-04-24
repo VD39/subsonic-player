@@ -9,10 +9,15 @@ function factory(props = {}) {
   return mount(PageNavigation, {
     props: {
       navigation: {
-        param: 'mediaType',
-        routes: {
-          title: '/to',
-          title1: '/to1',
+        title: {
+          params: {
+            id: '/to',
+          },
+        },
+        title1: {
+          params: {
+            id: '/to1',
+          },
         },
       },
       ...props,
@@ -35,36 +40,18 @@ describe('PageNavigation', () => {
     expect(wrapper.findAllComponents(ButtonLink).length).toBe(2);
   });
 
-  describe('when param is defined', () => {
-    it('sets the correct to prop', () => {
-      expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual({
-        params: {
-          mediaType: '/to',
-        },
-      });
-    });
-  });
+  it('sets the correct to prop on ButtonLink component', () => {
+    const router = wrapper.findAllComponents(RouterLinkStub);
 
-  describe('when param is undefined', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        navigation: {
-          routes: {
-            title: '/to',
-            title1: '/to1',
-          },
-        },
-      });
+    expect(router[0].props('to')).toEqual({
+      params: {
+        id: '/to',
+      },
     });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('sets the correct to prop', () => {
-      expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual({
-        path: '/to',
-      });
+    expect(router[1].props('to')).toEqual({
+      params: {
+        id: '/to1',
+      },
     });
   });
 });

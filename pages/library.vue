@@ -58,7 +58,13 @@ useHead({
   <LoadingData :status="status">
     <template v-if="hasData">
       <template v-if="libraryData.randomAlbums.length">
-        <HeaderSeeAllLink to="/albums">Albums</HeaderSeeAllLink>
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.albums,
+          }"
+        >
+          Albums
+        </HeaderSeeAllLink>
 
         <CarouselSwiper>
           <swiper-slide
@@ -71,7 +77,13 @@ useHead({
       </template>
 
       <template v-if="libraryData.artists.length">
-        <HeaderSeeAllLink to="/artists">Artists</HeaderSeeAllLink>
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.artists,
+          }"
+        >
+          Artists
+        </HeaderSeeAllLink>
 
         <CarouselSwiper>
           <swiper-slide
@@ -84,7 +96,13 @@ useHead({
       </template>
 
       <template v-if="libraryData.genres.length">
-        <HeaderSeeAllLink to="/genres">Genres</HeaderSeeAllLink>
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.genres,
+          }"
+        >
+          Genres
+        </HeaderSeeAllLink>
 
         <CarouselSwiper v-if="libraryData.genres.length" :grid-rows="2">
           <swiper-slide
@@ -97,7 +115,13 @@ useHead({
       </template>
 
       <template v-if="playlists.length">
-        <HeaderSeeAllLink to="/playlists">Playlist</HeaderSeeAllLink>
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.playlists,
+          }"
+        >
+          Playlist
+        </HeaderSeeAllLink>
 
         <PlaylistsList :playlists="playlists.slice(0, 8)" />
       </template>

@@ -1,8 +1,8 @@
-const DEFAULT_FORMAT_OPTIONS = {
+const DEFAULT_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
   day: '2-digit',
   month: 'long',
   year: 'numeric',
-} as Intl.DateTimeFormatOptions;
+};
 
 export function formatDate(
   inputDate: Date | string | undefined,

@@ -11,14 +11,14 @@ definePageMeta({
 const route = useRoute();
 const { getAlbums } = useAlbum();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album>(
-  route.params.sortBy as string,
+  route.params[ROUTE_PARAM_KEYS.albums.sortBy] as string,
 );
 
 function fetchData() {
   return fetchMoreData((offset: number) =>
     getAlbums({
       offset,
-      type: route.params.sortBy as AlbumSortBy,
+      type: route.params[ROUTE_PARAM_KEYS.albums.sortBy] as AlbumSortBy,
     }),
   );
 }
@@ -48,7 +48,10 @@ const loadingStatus = computed(() =>
 );
 
 useHead({
-  title: () => [route.params.sortBy, 'Albums'].filter(Boolean).join(' - '),
+  title: () =>
+    [route.params[ROUTE_PARAM_KEYS.albums.sortBy], 'Albums']
+      .filter(Boolean)
+      .join(' - '),
 });
 </script>
 

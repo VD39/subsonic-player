@@ -12,25 +12,29 @@ describe('albums-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.sortBy is not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.albums.sortBy} is not defined`, () => {
     beforeEach(() => {
       albumsMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/albums/a-z');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.albums,
+        params: {
+          [ROUTE_PARAM_KEYS.albums.sortBy]: ROUTE_ALBUMS_SORT_BY_PARAMS['A-Z'],
+        },
+      });
     });
   });
 
-  describe('when to.params.sortBy is defined', () => {
-    describe('when to.params.sortBy is not key of ALBUMS_SORT_BY', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.albums.sortBy} is defined`, () => {
+    describe(`when to.params.${ROUTE_PARAM_KEYS.albums.sortBy} is not a value of ALBUMS_SORT_BY`, () => {
       beforeEach(() => {
         albumsMiddleware(
           {
             ...routeMock,
             params: {
-              ...routeMock.params,
-              sortBy: 'sortBy',
+              [ROUTE_PARAM_KEYS.albums.sortBy]: 'sortBy',
             },
           },
           routeMock,
@@ -38,20 +42,25 @@ describe('albums-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/albums/a-z');
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.albums,
+          params: {
+            [ROUTE_PARAM_KEYS.albums.sortBy]:
+              ROUTE_ALBUMS_SORT_BY_PARAMS['A-Z'],
+          },
+        });
       });
     });
 
     describe.each([...Object.keys(ALBUMS_SORT_BY)])(
-      'when when to.params.sortBy is %s',
+      `when when to.params.${ROUTE_PARAM_KEYS.albums.sortBy} is %s`,
       (sortBy) => {
         beforeEach(() => {
           albumsMiddleware(
             {
               ...routeMock,
               params: {
-                ...routeMock.params,
-                sortBy,
+                [ROUTE_PARAM_KEYS.albums.sortBy]: sortBy,
               },
             },
             routeMock,

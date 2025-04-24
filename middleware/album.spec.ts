@@ -12,24 +12,28 @@ describe('album-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.id is not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.album.id} is not defined`, () => {
     beforeEach(() => {
       albumMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/albums/a-z');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.albums,
+        params: {
+          [ROUTE_PARAM_KEYS.albums.sortBy]: ROUTE_ALBUMS_SORT_BY_PARAMS['A-Z'],
+        },
+      });
     });
   });
 
-  describe('when to.params.id is defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.album.id} is defined`, () => {
     beforeEach(() => {
       albumMiddleware(
         {
           ...routeMock,
           params: {
-            ...routeMock.params,
-            id: 'id',
+            [ROUTE_PARAM_KEYS.album.id]: 'id',
           },
         },
         routeMock,

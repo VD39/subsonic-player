@@ -30,7 +30,9 @@ const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
 const { refresh, status } = useAsyncData(
   route.fullPath,
   async () => {
-    await getPlaylistTracksById(route.params.id as string);
+    await getPlaylistTracksById(
+      route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
+    );
 
     return {
       playlist: playlist.value,
@@ -47,8 +49,10 @@ const { refresh, status } = useAsyncData(
 const hasTracks = computed(() => !!playlist.value?.tracks.length);
 
 async function deleteSelectedPlaylist() {
-  await deletePlaylist(route.params.id as string);
-  await navigateTo('/playlists');
+  await deletePlaylist(route.params[ROUTE_PARAM_KEYS.playlist.id] as string);
+  await navigateTo({
+    name: ROUTE_NAMES.playlists,
+  });
 }
 
 function playTrack(index: number) {
@@ -57,7 +61,7 @@ function playTrack(index: number) {
 
 async function removeTrackFromPlaylist(songIndexToRemove: number) {
   await removeFromPlaylist({
-    playlistId: route.params.id as string,
+    playlistId: route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
     songIndexToRemove,
   });
 }

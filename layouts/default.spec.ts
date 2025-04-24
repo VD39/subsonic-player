@@ -159,7 +159,13 @@ describe('Default', () => {
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/search/albums/query');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.search,
+        params: {
+          [ROUTE_PARAM_KEYS.search.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+          [ROUTE_PARAM_KEYS.search.query]: 'query',
+        },
+      });
     });
   });
 

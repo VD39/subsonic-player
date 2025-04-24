@@ -31,7 +31,12 @@ const buttonProps = computed<ButtonProps>(() => ({
   text: `Play album ${props.album.name}`,
 }));
 
-const toLink = `/album/${props.album.id}`;
+const toLink = {
+  name: ROUTE_NAMES.album,
+  params: {
+    [ROUTE_PARAM_KEYS.album.id]: props.album.id,
+  },
+};
 </script>
 
 <template>

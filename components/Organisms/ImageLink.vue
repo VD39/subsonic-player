@@ -4,7 +4,7 @@ import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 defineProps<{
   image: Image;
   title: string;
-  to: string;
+  to: ToProp;
 }>();
 </script>
 

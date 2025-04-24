@@ -1,15 +1,15 @@
 export default defineNuxtRouteMiddleware((to) => {
   if (
     !(
-      to.params.sortBy &&
-      to.params.id &&
-      [
-        ROUTE_PODCAST_SORT_BY_PARAMS.All,
-        ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded,
-        ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded'],
-      ].includes(to.params.sortBy as never)
+      to.params[ROUTE_PARAM_KEYS.podcast.sortBy] &&
+      to.params[ROUTE_PARAM_KEYS.podcast.id] &&
+      Object.values(ROUTE_PODCAST_SORT_BY_PARAMS).includes(
+        to.params[ROUTE_PARAM_KEYS.podcast.sortBy] as never,
+      )
     )
   ) {
-    return navigateTo('/podcasts');
+    return navigateTo({
+      name: ROUTE_NAMES.podcasts,
+    });
   }
 });

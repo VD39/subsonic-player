@@ -22,7 +22,12 @@ defineProps<{
           <LinkOrText
             :is-link="!!track.albumId"
             :text="track.album"
-            :to="`/album/${track.albumId}`"
+            :to="{
+              name: ROUTE_NAMES.album,
+              params: {
+                [ROUTE_PARAM_KEYS.album.id]: track.albumId,
+              },
+            }"
           />
         </li>
         <li
@@ -34,7 +39,14 @@ defineProps<{
           <LinkOrText
             :is-link="!!track.podcastId"
             :text="track.podcastName"
-            :to="`/podcast/all/${track.podcastId}`"
+            :to="{
+              name: ROUTE_NAMES.podcast,
+              params: {
+                [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                  ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                [ROUTE_PARAM_KEYS.podcast.id]: track.podcastId,
+              },
+            }"
           />
         </li>
         <li v-if="'artists' in track && track.artists.length" ref="artists">

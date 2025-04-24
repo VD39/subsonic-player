@@ -11,7 +11,13 @@ defineProps<{
     <ImageLink
       :image="podcast.image"
       :title="`Go to podcast ${podcast.name}`"
-      :to="`/podcast/all/${podcast.id}`"
+      :to="{
+        name: ROUTE_NAMES.podcast,
+        params: {
+          [ROUTE_PARAM_KEYS.podcast.sortBy]: ROUTE_PODCAST_SORT_BY_PARAMS.All,
+          [ROUTE_PARAM_KEYS.podcast.id]: podcast.id,
+        },
+      }"
     />
   </article>
 </template>

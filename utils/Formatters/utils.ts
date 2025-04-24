@@ -83,11 +83,11 @@ export function getSortedPodcastEpisodes(
   };
 }
 
-export function getTracksTotal(albums: AlbumID3[] = []) {
+export function getTracksTotal(albums: AlbumWithSongsID3[] = []) {
   return albums.reduce((sum, album) => sum + album.songCount, 0);
 }
 
-export function getUniqueGenres(albums: AlbumID3[] = []): Genre[] {
+export function getUniqueGenres(albums: AlbumWithSongsID3[] = []): Genre[] {
   const genresNames = albums.flatMap((album) =>
     (album.genres || []).map((genre) => genre.name),
   );
@@ -109,19 +109,19 @@ export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
 }
 
 export function groupTracksByDiscNumber(tracks: Track[] = []) {
-  return tracks.reduce<TracksByDiscNumber>((acc, item, index) => {
+  return tracks.reduce<TracksByDiscNumber>((previousValue, item, index) => {
     const discNumber = `Disc ${item.discNumber}`;
 
-    if (!acc[discNumber]) {
-      acc[discNumber] = [];
+    if (!previousValue[discNumber]) {
+      previousValue[discNumber] = [];
     }
 
-    acc[discNumber].push({
+    previousValue[discNumber].push({
       ...item,
       index,
     });
 
-    return acc;
+    return previousValue;
   }, {});
 }
 

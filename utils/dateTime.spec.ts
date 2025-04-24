@@ -1,10 +1,10 @@
 import { formatDate, secondsToHHMMSS, secondsToTimeFormat } from './dateTime';
 
-const DATE_OPTIONS = {
+const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
   day: 'numeric',
   month: 'short',
   year: '2-digit',
-} as Intl.DateTimeFormatOptions;
+};
 
 describe('formatDate', () => {
   describe.each([

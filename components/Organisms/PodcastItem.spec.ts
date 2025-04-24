@@ -27,8 +27,12 @@ describe('PodcastItem', () => {
   });
 
   it('sets the correct ImageLink to prop', () => {
-    expect(wrapper.findComponent(ImageLink).props('to')).toBe(
-      '/podcast/all/id',
-    );
+    expect(wrapper.findComponent(ImageLink).props('to')).toEqual({
+      name: ROUTE_NAMES.podcast,
+      params: {
+        [ROUTE_PARAM_KEYS.podcast.id]: 'id',
+        [ROUTE_PARAM_KEYS.podcast.sortBy]: ROUTE_PODCAST_SORT_BY_PARAMS.All,
+      },
+    });
   });
 });

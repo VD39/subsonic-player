@@ -1,4 +1,4 @@
-export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
+export function formatAlbum(album: AlbumWithSongsID3): Album {
   const {
     coverArt: image = IMAGE_DEFAULT_BY_TYPE.album,
     created,

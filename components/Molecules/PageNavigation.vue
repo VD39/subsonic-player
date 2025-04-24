@@ -11,24 +11,14 @@ defineProps<{
   <nav :class="$style.pageNavigation">
     <OverflowShadow>
       <ul :class="['centerItems', $style.navigation]">
-        <template v-for="(path, name) in navigation.routes" :key="name">
+        <template v-for="(path, name) in navigation" :key="name">
           <li :class="$style.item">
             <ButtonLink
               is="nuxt-link"
               class="link pageLink"
               exact-active-class="pageCurrentLink"
               show-text
-              :to="
-                !navigation.param
-                  ? {
-                      path,
-                    }
-                  : {
-                      params: {
-                        [navigation.param]: path,
-                      },
-                    }
-              "
+              :to="path"
             >
               {{ name }}
             </ButtonLink>

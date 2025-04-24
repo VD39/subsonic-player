@@ -16,14 +16,16 @@ const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
-  `${route.params.genre}-${route.params.mediaType}`,
+  `${route.params[ROUTE_PARAM_KEYS.genre.genre]}-${route.params[ROUTE_PARAM_KEYS.genre.mediaType]}`,
 );
 
 function fetchData() {
   return fetchMoreData((offset: number) =>
     getMediaByGenre({
-      genre: route.params.genre as string,
-      mediaType: route.params.mediaType as MediaTypeParam,
+      genre: route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
+      mediaType: route.params[
+        ROUTE_PARAM_KEYS.genre.mediaType
+      ] as MediaTypeParam,
       offset,
     }),
   );
@@ -59,25 +61,35 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [route.params.genre, route.params.mediaType, 'Genre']
+    [
+      route.params[ROUTE_PARAM_KEYS.genre.genre],
+      route.params[ROUTE_PARAM_KEYS.genre.mediaType],
+      'Genre',
+    ]
       .filter(Boolean)
       .join(' - '),
 });
 </script>
 
 <template>
-  <h1>{{ route.params.genre }}</h1>
+  <h1>{{ route.params[ROUTE_PARAM_KEYS.genre.genre] }}</h1>
 
   <PageNavigation :navigation="GENRE_NAVIGATION" />
 
   <LoadingData :status="loadingStatus">
     <AlbumsList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.genre.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Albums
+      "
       :albums="genreData.genreMedia"
     />
 
     <TracksList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.genre.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Tracks
+      "
       :tracks="genreData.genreMedia"
       @add-to-playlist="addToPlaylistModal"
       @add-to-queue="addTrackToQueue"

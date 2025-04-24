@@ -8,7 +8,9 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
     :icon="ICONS.logo"
     icon-size="large"
     title="Home"
-    to="/"
+    :to="{
+      name: ROUTE_NAMES.index,
+    }"
   >
     Home
   </ButtonLink>

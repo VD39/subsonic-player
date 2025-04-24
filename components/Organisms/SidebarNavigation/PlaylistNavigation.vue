@@ -24,7 +24,12 @@ defineEmits<{
           :collapsed="collapsed"
           :icon="ICONS.playlist"
           :title="playlist.name"
-          :to="`/playlist/${playlist.id}`"
+          :to="{
+            name: ROUTE_NAMES.playlist,
+            params: {
+              [ROUTE_PARAM_KEYS.playlist.id]: playlist.id,
+            },
+          }"
         />
       </template>
     </NavigationItem>

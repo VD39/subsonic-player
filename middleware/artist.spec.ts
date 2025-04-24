@@ -12,24 +12,25 @@ describe('artist-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.id is not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.artist.id} is not defined`, () => {
     beforeEach(() => {
       artistMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/artists');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.artists,
+      });
     });
   });
 
-  describe('when to.params.id is defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.artist.id} is defined`, () => {
     beforeEach(() => {
       artistMiddleware(
         {
           ...routeMock,
           params: {
-            ...routeMock.params,
-            id: 'id',
+            [ROUTE_PARAM_KEYS.artist.id]: 'id',
           },
         },
         routeMock,

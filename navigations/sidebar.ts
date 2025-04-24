@@ -4,27 +4,37 @@ export const SIDEBAR_DESKTOP_NAVIGATION = [
       {
         icon: ICONS.discover,
         title: 'Discover',
-        to: '/',
+        to: {
+          name: ROUTE_NAMES.index,
+        },
       },
       {
         icon: ICONS.podcast,
         title: 'Podcasts',
-        to: '/podcasts',
+        to: {
+          name: ROUTE_NAMES.podcasts,
+        },
       },
       {
         icon: ICONS.radioStation,
         title: 'Radio Stations',
-        to: '/radio-stations',
+        to: {
+          name: ROUTE_NAMES.radioStations,
+        },
       },
       {
         icon: ICONS.queue,
         title: 'Queue',
-        to: '/queue',
+        to: {
+          name: ROUTE_NAMES.queue,
+        },
       },
       {
         icon: ICONS.bookmark,
         title: 'Bookmarks',
-        to: '/bookmarks',
+        to: {
+          name: ROUTE_NAMES.bookmarks,
+        },
       },
     ],
     title: 'Browse',
@@ -34,27 +44,45 @@ export const SIDEBAR_DESKTOP_NAVIGATION = [
       {
         icon: ICONS.album,
         title: 'Albums',
-        to: '/albums',
+        to: {
+          name: ROUTE_NAMES.albums,
+          params: {
+            [ROUTE_PARAM_KEYS.albums.sortBy]:
+              ROUTE_ALBUMS_SORT_BY_PARAMS['A-Z'],
+          },
+        },
       },
       {
         icon: ICONS.artist,
         title: 'Artists',
-        to: '/artists',
+        to: {
+          name: ROUTE_NAMES.artists,
+        },
       },
       {
         icon: ICONS.playlist,
         title: 'Playlists',
-        to: '/playlists',
+        to: {
+          name: ROUTE_NAMES.playlists,
+        },
       },
       {
         icon: ICONS.favourite,
         title: 'Favourites',
-        to: '/favourites/albums',
+        to: {
+          name: ROUTE_NAMES.favourites,
+          params: {
+            [ROUTE_PARAM_KEYS.favourites.mediaType]:
+              ROUTE_MEDIA_TYPE_PARAMS.Albums,
+          },
+        },
       },
       {
         icon: ICONS.genre,
         title: 'Genres',
-        to: '/genres',
+        to: {
+          name: ROUTE_NAMES.genres,
+        },
       },
     ],
     title: 'Your library',

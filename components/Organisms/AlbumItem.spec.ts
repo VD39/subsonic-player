@@ -2,7 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import { formattedAlbumMock } from '@/test/fixtures';
+import { getFormattedAlbumsMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
@@ -17,11 +17,12 @@ mockNuxtImport('useAlbum', () => () => ({
 
 const { playTracksMock } = useAudioPlayerMock();
 
+const album = getFormattedAlbumsMock()[0];
+
 function factory(props = {}) {
   return mount(AlbumItem, {
     props: {
-      album: formattedAlbumMock,
-      hideArtist: false,
+      album,
       ...props,
     },
   });
@@ -61,10 +62,9 @@ describe('AlbumItem', () => {
   describe('when album artist is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
-        album: {
-          ...formattedAlbumMock,
+        album: getFormattedAlbumsMock(1, {
           artists: [],
-        },
+        })[0],
       });
     });
 
@@ -83,7 +83,7 @@ describe('AlbumItem', () => {
     });
 
     it('calls the getAlbum function', () => {
-      expect(getAlbumMock).toHaveBeenCalledWith(formattedAlbumMock.id);
+      expect(getAlbumMock).toHaveBeenCalledWith(album.id);
     });
 
     describe('when useAlbum album returns null', () => {
@@ -94,12 +94,12 @@ describe('AlbumItem', () => {
 
     describe('when useAlbum album returns track data', () => {
       beforeEach(async () => {
-        getAlbumMock.mockResolvedValue(formattedAlbumMock);
+        getAlbumMock.mockResolvedValue(album);
         await wrapper.findComponent(ButtonLink).trigger('click');
       });
 
       it('calls the playTracks function', () => {
-        expect(playTracksMock).toHaveBeenCalledWith(formattedAlbumMock.tracks);
+        expect(playTracksMock).toHaveBeenCalledWith(album.tracks);
       });
     });
   });

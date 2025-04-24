@@ -12,26 +12,27 @@ describe('podcast-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.sortBy and to.params.id are not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} and to.params.${ROUTE_PARAM_KEYS.podcast.id} are not defined`, () => {
     beforeEach(() => {
       podcastMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/podcasts');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.podcasts,
+      });
     });
   });
 
-  describe('when to.params.sortBy and to.params.id are defined', () => {
-    describe('when to.params.sortBy is not all/downloaded/not downloaded', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} and to.params.${ROUTE_PARAM_KEYS.podcast.id} are defined`, () => {
+    describe(`when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} is not a value of ROUTE_PODCAST_SORT_BY_PARAMS`, () => {
       beforeEach(() => {
         podcastMiddleware(
           {
             ...routeMock,
             params: {
-              ...routeMock.params,
-              id: 'id',
-              sortBy: 'Recent',
+              [ROUTE_PARAM_KEYS.podcast.id]: 'id',
+              [ROUTE_PARAM_KEYS.podcast.sortBy]: 'Recent',
             },
           },
           routeMock,
@@ -39,32 +40,32 @@ describe('podcast-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/podcasts');
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.podcasts,
+        });
       });
     });
 
-    describe.each([
-      ROUTE_PODCAST_SORT_BY_PARAMS.All,
-      ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded,
-      ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded'],
-    ])('when when to.params.sortBy is %s', (sortBy) => {
-      beforeEach(() => {
-        podcastMiddleware(
-          {
-            ...routeMock,
-            params: {
-              ...routeMock.params,
-              id: 'id',
-              sortBy,
+    describe.each([...Object.values(ROUTE_PODCAST_SORT_BY_PARAMS)])(
+      `when when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} is %s`,
+      (sortBy) => {
+        beforeEach(() => {
+          podcastMiddleware(
+            {
+              ...routeMock,
+              params: {
+                [ROUTE_PARAM_KEYS.podcast.id]: 'id',
+                [ROUTE_PARAM_KEYS.podcast.sortBy]: sortBy,
+              },
             },
-          },
-          routeMock,
-        );
-      });
+            routeMock,
+          );
+        });
 
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toHaveBeenCalled();
-      });
-    });
+        it('does not call the navigateTo function', () => {
+          expect(navigateToMock).not.toHaveBeenCalled();
+        });
+      },
+    );
   });
 });

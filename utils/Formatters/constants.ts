@@ -6,9 +6,9 @@ export const MEDIA_TYPE = {
   podcastEpisode: 'podcastEpisode',
   radioStation: 'radioStation',
   track: 'track',
-} as const;
+};
 
-export const IMAGE_DEFAULT_BY_TYPE = {
+export const IMAGE_DEFAULT_BY_TYPE: Record<string, Icon> = {
   album: ICONS.album,
   artist: ICONS.artist,
   folder: ICONS.folder,
@@ -21,4 +21,4 @@ export const IMAGE_DEFAULT_BY_TYPE = {
   podcastEpisode: ICONS.podcastEpisode,
   radioStation: ICONS.radioStation,
   track: ICONS.track,
-} as Readonly<Record<string, Icon>>;
+};

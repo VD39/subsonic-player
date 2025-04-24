@@ -66,10 +66,16 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
           ref="podcastNameMarqueeScroll"
         >
           <LinkOrText
-            ref=""
             :is-link="!!bookmark.podcastId"
             :text="bookmark.podcastName"
-            :to="`/podcast/all/${bookmark.podcastId}`"
+            :to="{
+              name: ROUTE_NAMES.podcast,
+              params: {
+                [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                  ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                [ROUTE_PARAM_KEYS.podcast.id]: bookmark.podcastId,
+              },
+            }"
           />
         </MarqueeScroll>
 

@@ -34,7 +34,7 @@ const {
   LOAD_SIZE,
   resetToDefaults,
 } = useInfinityLoading<PodcastEpisode>(
-  `${route.params.id}-${route.params.sortBy}`,
+  `${route.params[ROUTE_PARAM_KEYS.podcast.id]}-${route.params[ROUTE_PARAM_KEYS.podcast.sortBy]}`,
 );
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
@@ -42,7 +42,7 @@ function fetchData() {
   fetchMoreData((offset: number) =>
     sliceArrayBySizeAndOffset(
       podcastData.value.podcast?.episodes?.[
-        route.params.sortBy as PodcastSortByParam
+        route.params[ROUTE_PARAM_KEYS.podcast.sortBy] as PodcastSortByParam
       ] || [],
       LOAD_SIZE,
       offset,
@@ -55,9 +55,11 @@ const {
   refresh,
   status,
 } = await useAsyncData(
-  `${ASYNC_DATA_NAMES.podcast}-${route.params.id}`,
+  `${ASYNC_DATA_NAMES.podcast}-${route.params[ROUTE_PARAM_KEYS.podcast.id]}`,
   async () => {
-    const podcast = await getPodcast(route.params.id as string);
+    const podcast = await getPodcast(
+      route.params[ROUTE_PARAM_KEYS.podcast.id] as string,
+    );
 
     return {
       podcast,
@@ -83,7 +85,9 @@ function addDownloadedTracksToQueue() {
 
 async function deleteSelectedPodcast() {
   await deletePodcast(podcastData.value.podcast!.id);
-  await navigateTo('/podcasts');
+  await navigateTo({
+    name: ROUTE_NAMES.podcasts,
+  });
 }
 
 function getData() {
@@ -126,7 +130,11 @@ watch(
 
 useHead({
   title: () =>
-    [podcastData.value.podcast?.name, route.params.sortBy, 'Podcast']
+    [
+      podcastData.value.podcast?.name,
+      route.params[ROUTE_PARAM_KEYS.podcast.sortBy],
+      'Podcast',
+    ]
       .filter(Boolean)
       .join(' - '),
 });

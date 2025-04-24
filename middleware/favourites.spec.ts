@@ -12,25 +12,30 @@ describe('favourites-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.mediaType are not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.favourites.mediaType} is not defined`, () => {
     beforeEach(() => {
       favouritesMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/favourites/albums');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.favourites,
+        params: {
+          [ROUTE_PARAM_KEYS.favourites.mediaType]:
+            ROUTE_MEDIA_TYPE_PARAMS.Albums,
+        },
+      });
     });
   });
 
-  describe('when to.params.mediaType is defined', () => {
-    describe('when to.params.mediaType is not albums/artists/tracks', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.favourites.mediaType} is defined`, () => {
+    describe(`when to.params.${ROUTE_PARAM_KEYS.favourites.mediaType} is not a value of ROUTE_MEDIA_TYPE_PARAMS`, () => {
       beforeEach(() => {
         favouritesMiddleware(
           {
             ...routeMock,
             params: {
-              ...routeMock.params,
-              mediaType: 'podcast',
+              [ROUTE_PARAM_KEYS.favourites.mediaType]: 'podcast',
             },
           },
           routeMock,
@@ -38,31 +43,35 @@ describe('favourites-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/favourites/albums');
-      });
-    });
-
-    describe.each([
-      ROUTE_MEDIA_TYPE_PARAMS.Albums,
-      ROUTE_MEDIA_TYPE_PARAMS.Artists,
-      ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-    ])('when when to.params.mediaType is %s', (mediaType) => {
-      beforeEach(() => {
-        favouritesMiddleware(
-          {
-            ...routeMock,
-            params: {
-              ...routeMock.params,
-              mediaType,
-            },
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.favourites,
+          params: {
+            [ROUTE_PARAM_KEYS.favourites.mediaType]:
+              ROUTE_MEDIA_TYPE_PARAMS.Albums,
           },
-          routeMock,
-        );
-      });
-
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toHaveBeenCalled();
+        });
       });
     });
+
+    describe.each([...Object.values(ROUTE_MEDIA_TYPE_PARAMS)])(
+      `when when to.params.${ROUTE_PARAM_KEYS.favourites.mediaType} is %s`,
+      (mediaType) => {
+        beforeEach(() => {
+          favouritesMiddleware(
+            {
+              ...routeMock,
+              params: {
+                [ROUTE_PARAM_KEYS.favourites.mediaType]: mediaType,
+              },
+            },
+            routeMock,
+          );
+        });
+
+        it('does not call the navigateTo function', () => {
+          expect(navigateToMock).not.toHaveBeenCalled();
+        });
+      },
+    );
   });
 });

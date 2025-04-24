@@ -1,7 +1,7 @@
 export function createForm<T extends Inputs>(formInputs: T) {
   const fields = Object.entries(formInputs).reduce(
-    (previous, [name, { options, validationRules, value = '' }]) => {
-      previous[name as keyof T] = {
+    (previousValue, [name, { options, validationRules, value = '' }]) => {
+      previousValue[name as keyof T] = {
         error: ref(''),
         id: name,
         isValid: ref(true),
@@ -13,7 +13,7 @@ export function createForm<T extends Inputs>(formInputs: T) {
         value: ref(options ? [] : value),
       };
 
-      return previous;
+      return previousValue;
     },
     {} as Fields<T>,
   );

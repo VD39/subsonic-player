@@ -2,29 +2,29 @@ export const MOBILE_NAVIGATION = [
   {
     icon: ICONS.discover,
     title: 'Browse',
-    to: '/',
+    to: {
+      name: ROUTE_NAMES.index,
+    },
   },
   {
     icon: ICONS.music,
     title: 'Your library',
-    to: '/library',
+    to: {
+      name: ROUTE_NAMES.library,
+    },
   },
   {
     icon: ICONS.playlist,
     title: 'Playlists',
-    to: '/playlists',
+    to: {
+      name: ROUTE_NAMES.playlists,
+    },
   },
   {
     icon: ICONS.bookmark,
     title: 'Bookmarks',
-    to: '/bookmarks',
+    to: {
+      name: ROUTE_NAMES.bookmarks,
+    },
   },
 ];
-
-export const MOBILE_PAGE_NAVIGATION = {
-  routes: {
-    Discover: '/',
-    Podcasts: '/podcasts',
-    'Radio Stations': '/radio-stations',
-  },
-};

@@ -45,7 +45,7 @@ describe('getArtists', () => {
               name: 'name',
             },
           ],
-        } as AlbumID3),
+        } as AlbumWithSongsID3),
       ).toEqual([
         {
           id: 'id',
@@ -58,7 +58,7 @@ describe('getArtists', () => {
   describe('when artist is not an array', () => {
     describe('when artistId and artist are undefined', () => {
       it('returns the correct values', () => {
-        expect(getArtists({} as AlbumID3)).toEqual([]);
+        expect(getArtists({} as AlbumWithSongsID3)).toEqual([]);
       });
     });
 
@@ -68,7 +68,7 @@ describe('getArtists', () => {
           getArtists({
             artist: 'artist',
             artistId: 'artistId',
-          } as AlbumID3),
+          } as AlbumWithSongsID3),
         ).toEqual([
           {
             id: 'artistId',

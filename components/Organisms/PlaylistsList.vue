@@ -27,7 +27,12 @@ defineEmits<{
         :class="$style.imageLink"
         :image="ICONS.playlist"
         :title="`Go to playlist ${playlist.name}`"
-        :to="`/playlist/${playlist.id}`"
+        :to="{
+          name: ROUTE_NAMES.playlist,
+          params: {
+            [ROUTE_PARAM_KEYS.playlist.id]: playlist.id,
+          },
+        }"
       />
 
       <div class="spaceBetween">
@@ -36,7 +41,12 @@ defineEmits<{
             <NuxtLink
               :aria-label="`Go to playlist ${playlist.name}`"
               class="link globalLink"
-              :to="`/playlist/${playlist.id}`"
+              :to="{
+                name: ROUTE_NAMES.playlist,
+                params: {
+                  [ROUTE_PARAM_KEYS.playlist.id]: playlist.id,
+                },
+              }"
             >
               {{ playlist.name }}
             </NuxtLink>

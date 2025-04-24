@@ -4,7 +4,7 @@ const props = withDefaults(
     is?: Link;
     isLink: boolean;
     text: string;
-    to: unknown;
+    to: ToProp;
   }>(),
   {
     is: 'nuxt-link',

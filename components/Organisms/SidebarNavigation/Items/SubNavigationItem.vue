@@ -5,7 +5,7 @@ defineProps<{
   collapsed: boolean;
   icon: Icon;
   title: string;
-  to: string;
+  to: ToProp;
 }>();
 </script>
 

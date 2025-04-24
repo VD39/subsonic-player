@@ -83,7 +83,12 @@ const hasAddToQueueEvent = computed(
           <LinkOrText
             :is-link="!!track.albumId"
             :text="track.album"
-            :to="`/album/${track.albumId}`"
+            :to="{
+              name: ROUTE_NAMES.album,
+              params: {
+                [ROUTE_PARAM_KEYS.album.id]: track.albumId,
+              },
+            }"
           />
         </MarqueeScroll>
 
@@ -92,10 +97,16 @@ const hasAddToQueueEvent = computed(
           ref="podcastNameMarqueeScroll"
         >
           <LinkOrText
-            ref=""
             :is-link="!!track.podcastId"
             :text="track.podcastName"
-            :to="`/podcast/all/${track.podcastId}`"
+            :to="{
+              name: ROUTE_NAMES.podcast,
+              params: {
+                [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                  ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                [ROUTE_PARAM_KEYS.podcast.id]: track.podcastId,
+              },
+            }"
           />
         </MarqueeScroll>
 

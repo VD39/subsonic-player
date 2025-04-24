@@ -25,8 +25,13 @@ describe('GenreLink', () => {
   });
 
   it('sets the correct to prop value', () => {
-    expect(wrapper.findComponent(RouterLinkStub).props('to')).toBe(
-      '/genre/albums/name%202%20with%20%40%20special%20%2F%20characters',
-    );
+    expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual({
+      name: ROUTE_NAMES.genre,
+      params: {
+        [ROUTE_PARAM_KEYS.genre.genre]:
+          'name%202%20with%20%40%20special%20%2F%20characters',
+        [ROUTE_PARAM_KEYS.genre.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+      },
+    });
   });
 });

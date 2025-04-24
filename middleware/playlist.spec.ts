@@ -12,24 +12,25 @@ describe('playlist-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.id is not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.playlist.id} is not defined`, () => {
     beforeEach(() => {
       playlistMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/playlists');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.playlists,
+      });
     });
   });
 
-  describe('when to.params.id is defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.playlist.id} is defined`, () => {
     beforeEach(() => {
       playlistMiddleware(
         {
           ...routeMock,
           params: {
-            ...routeMock.params,
-            id: 'id',
+            [ROUTE_PARAM_KEYS.playlist.id]: 'id',
           },
         },
         routeMock,

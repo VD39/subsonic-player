@@ -47,7 +47,10 @@ function playEpisode(episode: PodcastEpisode) {
 }
 
 useHead({
-  title: () => [route.params.sortBy, 'Podcasts'].filter(Boolean).join(' - '),
+  title: () =>
+    [route.params[ROUTE_PARAM_KEYS.podcast.sortBy], 'Podcasts']
+      .filter(Boolean)
+      .join(' - '),
 });
 </script>
 

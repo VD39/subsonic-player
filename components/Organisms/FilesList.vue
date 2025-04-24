@@ -22,7 +22,11 @@ defineEmits<{
 
 <template>
   <div class="trackTable">
-    <div v-if="$route.params.id" ref="goBack" class="trackRow">
+    <div
+      v-if="$route.params[ROUTE_PARAM_KEYS.files.id]"
+      ref="goBack"
+      class="trackRow"
+    >
       <div :class="['trackCell', $style.trackCell]">
         <NuxtLink
           class="trackCell"

@@ -17,7 +17,7 @@ const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
 
 const query = replaceCharactersWithSpace(
-  sanitiseString(route.params.query as string),
+  sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
 );
 
 const { data: searchResultsData, status } = useAsyncData(
@@ -47,7 +47,9 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [query, route.params.mediaType, 'Search'].filter(Boolean).join(' - '),
+    [query, route.params[ROUTE_PARAM_KEYS.search.mediaType], 'Search']
+      .filter(Boolean)
+      .join(' - '),
 });
 </script>
 
@@ -58,17 +60,26 @@ useHead({
 
   <LoadingData :status="status">
     <AlbumsList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Albums
+      "
       :albums="searchResultsData.searchResults.albums"
     />
 
     <ArtistsList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Artists"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Artists
+      "
       :artists="searchResultsData.searchResults.artists"
     />
 
     <TracksList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Tracks
+      "
       :tracks="searchResultsData.searchResults.tracks"
       @add-to-playlist="addToPlaylistModal"
       @add-to-queue="addTrackToQueue"

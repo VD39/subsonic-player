@@ -42,7 +42,9 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [route.params.mediaType, 'Favourites'].filter(Boolean).join(' - '),
+    [route.params[ROUTE_PARAM_KEYS.favourites.mediaType], 'Favourites']
+      .filter(Boolean)
+      .join(' - '),
 });
 </script>
 
@@ -59,17 +61,26 @@ useHead({
 
   <LoadingData :status="status">
     <AlbumsList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Albums"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Albums
+      "
       :albums="favourites.albums"
     />
 
     <ArtistsList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Artists"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Artists
+      "
       :artists="favourites.artists"
     />
 
     <TracksList
-      v-if="route.params.mediaType === ROUTE_MEDIA_TYPE_PARAMS.Tracks"
+      v-if="
+        route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
+        ROUTE_MEDIA_TYPE_PARAMS.Tracks
+      "
       :tracks="favourites.tracks"
       @add-to-playlist="addToPlaylistModal"
       @add-to-queue="addTrackToQueue"

@@ -15,7 +15,11 @@ async function checkLogin() {
   if (isAuthenticated.value) {
     const redirect = route.query.redirect?.toString();
 
-    await navigateTo(redirect ?? '/');
+    await navigateTo(
+      redirect ?? {
+        name: ROUTE_NAMES.index,
+      },
+    );
   }
 }
 

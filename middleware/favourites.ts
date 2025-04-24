@@ -1,14 +1,17 @@
 export default defineNuxtRouteMiddleware((to) => {
   if (
     !(
-      to.params.mediaType &&
-      [
-        ROUTE_MEDIA_TYPE_PARAMS.Albums,
-        ROUTE_MEDIA_TYPE_PARAMS.Artists,
-        ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-      ].includes(to.params.mediaType as never)
+      to.params[ROUTE_PARAM_KEYS.favourites.mediaType] &&
+      Object.values(ROUTE_MEDIA_TYPE_PARAMS).includes(
+        to.params[ROUTE_PARAM_KEYS.favourites.mediaType] as never,
+      )
     )
   ) {
-    return navigateTo(`/favourites/${ROUTE_MEDIA_TYPE_PARAMS.Albums}`);
+    return navigateTo({
+      name: ROUTE_NAMES.favourites,
+      params: {
+        [ROUTE_PARAM_KEYS.favourites.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+      },
+    });
   }
 });

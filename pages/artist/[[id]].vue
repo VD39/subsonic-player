@@ -20,7 +20,9 @@ const { openModal } = useModal();
 const { data: artistData, status } = useAsyncData(
   route.fullPath,
   async () => {
-    const artist = await getArtist(route.params.id as string);
+    const artist = await getArtist(
+      route.params[ROUTE_PARAM_KEYS.artist.id] as string,
+    );
 
     return {
       artist,

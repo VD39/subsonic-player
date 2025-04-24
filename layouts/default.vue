@@ -19,15 +19,22 @@ const { startScan } = useMediaLibrary();
 async function logoutAndRedirect() {
   resetAudio();
   logout();
-  await navigateTo('/login');
+  await navigateTo({
+    name: ROUTE_NAMES.login,
+  });
 }
-
 async function search(term: string) {
-  await navigateTo(`/search/albums/${term}`);
+  await navigateTo({
+    name: ROUTE_NAMES.search,
+    params: {
+      [ROUTE_PARAM_KEYS.search.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+      [ROUTE_PARAM_KEYS.search.query]: term,
+    },
+  });
 }
 
 const showPageNavigation = computed(() =>
-  PAGE_NAVIGATION_ROUTES.includes(route.name as string),
+  PAGE_NAVIGATION_ROUTES.includes(route.name as RouteName),
 );
 </script>
 
@@ -56,10 +63,22 @@ const showPageNavigation = computed(() =>
               :text="user.username!"
               title="View account details"
             >
-              <DropdownItem is="nuxt-link" to="/user-profile">
+              <DropdownItem
+                is="nuxt-link"
+                :to="{
+                  name: ROUTE_NAMES.userProfile,
+                }"
+              >
                 Profile
               </DropdownItem>
-              <DropdownItem is="nuxt-link" to="/files">Files</DropdownItem>
+              <DropdownItem
+                is="nuxt-link"
+                :to="{
+                  name: ROUTE_NAMES.files,
+                }"
+              >
+                Files
+              </DropdownItem>
               <DropdownItem is="a" :href="user.server" target="_blank">
                 Server
               </DropdownItem>

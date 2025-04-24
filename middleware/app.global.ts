@@ -22,13 +22,15 @@ export default defineNuxtRouteMiddleware(async (to) => {
     await getPlaylists();
   }
 
-  if (to.name === 'login' && isAuthenticated.value) {
-    return navigateTo('/');
+  if (to.name === ROUTE_NAMES.login && isAuthenticated.value) {
+    return navigateTo({
+      name: ROUTE_NAMES.index,
+    });
   }
 
-  if (to.name !== 'login' && !isAuthenticated.value) {
+  if (to.name !== ROUTE_NAMES.login && !isAuthenticated.value) {
     return navigateTo({
-      path: '/login',
+      name: ROUTE_NAMES.login,
       query: {
         redirect: to.fullPath,
       },

@@ -2,7 +2,7 @@
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 
 defineProps<{
-  to: string;
+  to: ToProp;
 }>();
 </script>
 

@@ -8,7 +8,13 @@ defineProps<{
   <NuxtLink
     :aria-label="`View all albums with ${name} genre`"
     :class="['centerAll', $style.genreLink]"
-    :to="`/genre/albums/${encodeURIComponent(name)}`"
+    :to="{
+      name: ROUTE_NAMES.genre,
+      params: {
+        [ROUTE_PARAM_KEYS.genre.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+        [ROUTE_PARAM_KEYS.genre.genre]: encodeURIComponent(name),
+      },
+    }"
   >
     {{ name }}
   </NuxtLink>

@@ -27,7 +27,14 @@ const downloadedIcon = computed(() =>
         <LinkOrText
           :is-link="!!podcastEpisode.podcastId"
           :text="podcastEpisode.podcastName"
-          :to="`/podcast/all/${podcastEpisode.podcastId}`"
+          :to="{
+            name: ROUTE_NAMES.podcast,
+            params: {
+              [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                ROUTE_PODCAST_SORT_BY_PARAMS.All,
+              [ROUTE_PARAM_KEYS.podcast.id]: podcastEpisode.podcastId,
+            },
+          }"
         />
       </div>
     </div>

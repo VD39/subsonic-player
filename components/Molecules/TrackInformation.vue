@@ -25,7 +25,12 @@ defineProps<{
         <LinkOrText
           :is-link="!!track.albumId"
           :text="track.album"
-          :to="`/album/${track.albumId}`"
+          :to="{
+            name: ROUTE_NAMES.album,
+            params: {
+              [ROUTE_PARAM_KEYS.album.id]: track.albumId,
+            },
+          }"
         />
       </div>
     </div>

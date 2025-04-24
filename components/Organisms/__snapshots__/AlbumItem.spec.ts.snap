@@ -3,13 +3,13 @@
 exports[`AlbumItem > matches the snapshot 1`] = `
 "<article>
   <div class="albumImageWrapper">
-    <figure class="mBS"><a title="Go to album name">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album name" class="image" src="image" style="display: none;"></div>
-      </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album name">
-      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album name</span>
+    <figure class="mBS"><a title="Go to album album-0">
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" src="image" style="display: none;"></div>
+      </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-0">
+      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
     </button>
   </div>
-  <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album name" class="link">name</a></p>
+  <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="link">album-0</a></p>
   <ul class="commaList smallFont clamp2">
     <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
     <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
@@ -20,13 +20,13 @@ exports[`AlbumItem > matches the snapshot 1`] = `
 exports[`AlbumItem > when album artist is an empty array > matches the snapshot 1`] = `
 "<article>
   <div class="albumImageWrapper">
-    <figure class="mBS"><a title="Go to album name">
-        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album name" class="image" src="image" style="display: none;"></div>
-      </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album name">
-      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album name</span>
+    <figure class="mBS"><a title="Go to album album-0">
+        <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" src="image" style="display: none;"></div>
+      </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-0">
+      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
     </button>
   </div>
-  <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album name" class="link">name</a></p>
+  <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="link">album-0</a></p>
   <!--v-if-->
 </article>"
 `;

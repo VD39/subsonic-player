@@ -25,7 +25,9 @@ const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
 const { data: albumData, status } = useAsyncData(
   route.fullPath,
   async () => {
-    const album = await getAlbum(route.params.id as string);
+    const album = await getAlbum(
+      route.params[ROUTE_PARAM_KEYS.album.id] as string,
+    );
 
     return {
       album,

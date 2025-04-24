@@ -12,7 +12,10 @@ import {
   trackMock,
 } from './fixtures';
 
-export function getAlbumsMock(length = 1, params = {} as Partial<AlbumID3>) {
+export function getAlbumsMock(
+  length = 1,
+  params = {} as Partial<AlbumWithSongsID3>,
+) {
   return Array(length)
     .fill('')
     .map((_, index) => ({
@@ -139,7 +142,7 @@ export function getFormattedTracksMock(
 
 export function getPlaylistsMock(
   length = 1,
-  params = {} as Partial<ResponsePlaylist>,
+  params = {} as Partial<PlaylistWithSongs>,
 ) {
   return Array(length)
     .fill('')

@@ -12,26 +12,27 @@ describe('search-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.mediaType and to.params.query are not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.search.mediaType} and to.params.${ROUTE_PARAM_KEYS.search.query} are not defined`, () => {
     beforeEach(() => {
       searchMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.index,
+      });
     });
   });
 
-  describe('when to.params.mediaType and to.params.query are defined', () => {
-    describe('when to.params.mediaType is not albums/artists/tracks', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.search.mediaType} and to.params.${ROUTE_PARAM_KEYS.search.query} are defined`, () => {
+    describe(`when to.params.${ROUTE_PARAM_KEYS.search.mediaType} is not a value of ROUTE_MEDIA_TYPE_PARAMS`, () => {
       beforeEach(() => {
         searchMiddleware(
           {
             ...routeMock,
             params: {
-              ...routeMock.params,
-              mediaType: 'podcast',
-              query: 'query',
+              [ROUTE_PARAM_KEYS.search.mediaType]: 'podcast',
+              [ROUTE_PARAM_KEYS.search.query]: 'query',
             },
           },
           routeMock,
@@ -39,32 +40,32 @@ describe('search-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/');
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.index,
+        });
       });
     });
 
-    describe.each([
-      ROUTE_MEDIA_TYPE_PARAMS.Albums,
-      ROUTE_MEDIA_TYPE_PARAMS.Artists,
-      ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-    ])('when when to.params.mediaType is %s', (mediaType) => {
-      beforeEach(() => {
-        searchMiddleware(
-          {
-            ...routeMock,
-            params: {
-              ...routeMock.params,
-              mediaType,
-              query: 'query',
+    describe.each([...Object.values(ROUTE_MEDIA_TYPE_PARAMS)])(
+      `when when to.params.${ROUTE_PARAM_KEYS.search.mediaType} is %s`,
+      (mediaType) => {
+        beforeEach(() => {
+          searchMiddleware(
+            {
+              ...routeMock,
+              params: {
+                [ROUTE_PARAM_KEYS.search.mediaType]: mediaType,
+                [ROUTE_PARAM_KEYS.search.query]: 'query',
+              },
             },
-          },
-          routeMock,
-        );
-      });
+            routeMock,
+          );
+        });
 
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toHaveBeenCalled();
-      });
-    });
+        it('does not call the navigateTo function', () => {
+          expect(navigateToMock).not.toHaveBeenCalled();
+        });
+      },
+    );
   });
 });

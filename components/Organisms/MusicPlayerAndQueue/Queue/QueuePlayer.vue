@@ -69,7 +69,12 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
                   <LinkOrText
                     :is-link="!!currentTrack.albumId"
                     :text="currentTrack.album"
-                    :to="`/album/${currentTrack.albumId}`"
+                    :to="{
+                      name: ROUTE_NAMES.album,
+                      params: {
+                        [ROUTE_PARAM_KEYS.album.id]: currentTrack.albumId,
+                      },
+                    }"
                   />
                 </MarqueeScroll>
 
@@ -89,7 +94,14 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
                   ref="podcastLinkOrText"
                   :is-link="!!currentTrack.podcastId"
                   :text="currentTrack.podcastName"
-                  :to="`/podcast/all/${currentTrack.podcastId}`"
+                  :to="{
+                    name: ROUTE_NAMES.podcast,
+                    params: {
+                      [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                        ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                      [ROUTE_PARAM_KEYS.podcast.id]: currentTrack.podcastId,
+                    },
+                  }"
                 />
 
                 <MarqueeScroll

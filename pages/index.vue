@@ -79,7 +79,15 @@ useHead({
   <LoadingData :status="status">
     <template v-if="hasData">
       <template v-if="discoverData.newestAlbums.length">
-        <HeaderSeeAllLink to="/albums/recently-added">
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.albums,
+            params: {
+              [ROUTE_PARAM_KEYS.albums.sortBy]:
+                ROUTE_ALBUMS_SORT_BY_PARAMS['Recently added'],
+            },
+          }"
+        >
           Newest albums
         </HeaderSeeAllLink>
 
@@ -94,7 +102,15 @@ useHead({
       </template>
 
       <template v-if="discoverData.recentAlbums.length">
-        <HeaderSeeAllLink to="/albums/recently-played">
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.albums,
+            params: {
+              [ROUTE_PARAM_KEYS.albums.sortBy]:
+                ROUTE_ALBUMS_SORT_BY_PARAMS['Recently played'],
+            },
+          }"
+        >
           Recently Played albums
         </HeaderSeeAllLink>
 
@@ -109,7 +125,15 @@ useHead({
       </template>
 
       <template v-if="discoverData.frequentAlbums.length">
-        <HeaderSeeAllLink to="/albums/most-played">
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.albums,
+            params: {
+              [ROUTE_PARAM_KEYS.albums.sortBy]:
+                ROUTE_ALBUMS_SORT_BY_PARAMS['Most played'],
+            },
+          }"
+        >
           Most played albums
         </HeaderSeeAllLink>
 
@@ -124,7 +148,15 @@ useHead({
       </template>
 
       <template v-if="favourites.tracks.length">
-        <HeaderSeeAllLink to="/favourites/tracks">
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.favourites,
+            params: {
+              [ROUTE_PARAM_KEYS.favourites.mediaType]:
+                ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+            },
+          }"
+        >
           Favourite Tracks
         </HeaderSeeAllLink>
 
@@ -139,7 +171,15 @@ useHead({
       </template>
 
       <template v-if="favourites.albums.length">
-        <HeaderSeeAllLink to="/favourites/albums">
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.favourites,
+            params: {
+              [ROUTE_PARAM_KEYS.favourites.mediaType]:
+                ROUTE_MEDIA_TYPE_PARAMS.Albums,
+            },
+          }"
+        >
           Favourite Albums
         </HeaderSeeAllLink>
 
@@ -154,7 +194,15 @@ useHead({
       </template>
 
       <template v-if="favourites.artists.length">
-        <HeaderSeeAllLink to="/favourites/artists">
+        <HeaderSeeAllLink
+          :to="{
+            name: ROUTE_NAMES.favourites,
+            params: {
+              [ROUTE_PARAM_KEYS.favourites.mediaType]:
+                ROUTE_MEDIA_TYPE_PARAMS.Artists,
+            },
+          }"
+        >
           Favourite Artists
         </HeaderSeeAllLink>
 

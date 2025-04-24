@@ -12,26 +12,27 @@ describe('genre-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when to.params.mediaType and to.params.genre are not defined', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.genre.mediaType} and to.params.${ROUTE_PARAM_KEYS.genre.genre} are not defined`, () => {
     beforeEach(() => {
       genreMiddleware(routeMock, routeMock);
     });
 
     it('calls the navigateTo function', () => {
-      expect(navigateToMock).toHaveBeenCalledWith('/genres');
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.genres,
+      });
     });
   });
 
-  describe('when to.params.mediaType and to.params.genre are defined', () => {
-    describe('when to.params.mediaType is not albums/artists/tracks', () => {
+  describe(`when to.params.${ROUTE_PARAM_KEYS.genre.mediaType} and to.params.${ROUTE_PARAM_KEYS.genre.genre} are defined`, () => {
+    describe(`when to.params.${ROUTE_PARAM_KEYS.genre.mediaType} is not a value of ROUTE_MEDIA_TYPE_PARAMS`, () => {
       beforeEach(() => {
         genreMiddleware(
           {
             ...routeMock,
             params: {
-              ...routeMock.params,
-              genre: 'genre',
-              mediaType: 'podcast',
+              [ROUTE_PARAM_KEYS.genre.genre]: 'genre',
+              [ROUTE_PARAM_KEYS.genre.mediaType]: 'podcast',
             },
           },
           routeMock,
@@ -39,31 +40,35 @@ describe('genre-middleware', () => {
       });
 
       it('calls the navigateTo function', () => {
-        expect(navigateToMock).toHaveBeenCalledWith('/genres');
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.genres,
+        });
       });
     });
 
     describe.each([
       ROUTE_MEDIA_TYPE_PARAMS.Albums,
       ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-    ])('when when to.params.mediaType is %s', (mediaType) => {
-      beforeEach(() => {
-        genreMiddleware(
-          {
-            ...routeMock,
-            params: {
-              ...routeMock.params,
-              genre: 'genre',
-              mediaType,
+    ])(
+      `when when to.params.${ROUTE_PARAM_KEYS.genre.mediaType} is %s`,
+      (mediaType) => {
+        beforeEach(() => {
+          genreMiddleware(
+            {
+              ...routeMock,
+              params: {
+                [ROUTE_PARAM_KEYS.genre.genre]: 'genre',
+                [ROUTE_PARAM_KEYS.genre.mediaType]: mediaType,
+              },
             },
-          },
-          routeMock,
-        );
-      });
+            routeMock,
+          );
+        });
 
-      it('does not call the navigateTo function', () => {
-        expect(navigateToMock).not.toHaveBeenCalled();
-      });
-    });
+        it('does not call the navigateTo function', () => {
+          expect(navigateToMock).not.toHaveBeenCalled();
+        });
+      },
+    );
   });
 });
