@@ -6,8 +6,7 @@ import { mount } from '@vue/test-utils';
 
 import TrackSeeker from './TrackSeeker.vue';
 
-const { currentTimeMock, durationMock, setCurrentTimeMock } =
-  useAudioPlayerMock();
+const { currentTimeMock, setCurrentTimeMock } = useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(TrackSeeker, {
@@ -22,7 +21,6 @@ describe('TrackSeeker', () => {
 
   beforeEach(() => {
     currentTimeMock.value = 2;
-    durationMock.value = 10;
     wrapper = factory();
   });
 
@@ -32,7 +30,7 @@ describe('TrackSeeker', () => {
 
   it('sets the correct aria-valuetext attribute on the input range', () => {
     expect(wrapper.findComponent(InputRange).attributes('aria-valuetext')).toBe(
-      '00:02 of 00:10',
+      '00:02 of 02:00',
     );
   });
 

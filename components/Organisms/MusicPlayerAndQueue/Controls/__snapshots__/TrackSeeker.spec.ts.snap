@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`TrackSeeker > matches the snapshot 1`] = `
-"<div class="inputRange" aria-label="Seek" aria-valuetext="00:02 of 00:10">
+"<div class="inputRange" aria-label="Seek" aria-valuetext="00:02 of 02:00">
   <div class="centerItems slider">
     <div class="progressWrapper">
       <div class="process" style="width: 0px;"></div>

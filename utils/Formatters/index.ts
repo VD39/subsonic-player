@@ -1,4 +1,4 @@
-export function formatAlbum(album: AlbumWithSongsID3): Album {
+export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
   const {
     coverArt: image = IMAGE_DEFAULT_BY_TYPE.album,
     created,
@@ -18,8 +18,9 @@ export function formatAlbum(album: AlbumWithSongsID3): Album {
   return {
     artists: getArtists(album),
     created: formatDate(created),
-    duration: secondsToHHMMSS(duration),
+    duration,
     favourite: !!starred,
+    formattedDuration: secondsToHHMMSS(duration),
     genres: getGenres(album as unknown as Base),
     id,
     image,
@@ -84,12 +85,12 @@ export function formatArtist(
 }
 
 export function formatBookmark(bookmark: FormattedBookmark): Bookmark {
-  const rawPosition = (bookmark.position || 0) / 1000;
+  const position = (bookmark.position || 0) / 1000;
 
   return {
     ...formatPodcastEpisode(bookmark as unknown as ResponsePodcastEpisode),
-    position: secondsToHHMMSS(rawPosition),
-    rawPosition,
+    formattedPosition: secondsToHHMMSS(position),
+    position,
     trackNumber: 0,
   };
 }
@@ -125,7 +126,8 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
   );
 
   return {
-    duration: secondsToTimeFormat(duration),
+    duration,
+    formattedDuration: secondsToTimeFormat(duration),
     id,
     images: getUniqueImages(tracks),
     information: {
@@ -192,7 +194,8 @@ export function formatPodcastEpisode(
     author,
     description,
     downloaded: status === 'completed',
-    duration: secondsToHHMMSS(duration),
+    duration: duration!,
+    formattedDuration: secondsToHHMMSS(duration),
     genres: getGenres(episode),
     id,
     image,
@@ -223,7 +226,8 @@ export function formatRadioStation(
     : IMAGE_DEFAULT_BY_TYPE.radioStation;
 
   return {
-    duration: '',
+    duration: 0,
+    formattedDuration: '',
     homePageUrl: radioStationHomePageUrl || radioStationHomepageUrl,
     id,
     image,
@@ -263,8 +267,9 @@ export function formatTracks(track: Base, index: number): Track {
     albumId: albumId || parent,
     artists: getArtists(track),
     discNumber,
-    duration: secondsToHHMMSS(duration),
+    duration: duration!,
     favourite: !!starred,
+    formattedDuration: secondsToHHMMSS(duration),
     genres: getGenres(track),
     id,
     image,

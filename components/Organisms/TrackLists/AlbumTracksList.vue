@@ -64,7 +64,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
       </div>
 
       <time class="trackCell trackTime">
-        {{ track.duration }}
+        {{ track.formattedDuration }}
       </time>
 
       <div class="trackCell trackOptions">

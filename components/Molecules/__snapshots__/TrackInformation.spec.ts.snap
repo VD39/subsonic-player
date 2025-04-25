@@ -28,7 +28,7 @@ exports[`TrackInformation > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">02:00</time>
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Year</div>
@@ -115,7 +115,7 @@ exports[`TrackInformation > when artists is an empty array > matches the snapsho
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">02:00</time>
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Year</div>
@@ -205,7 +205,7 @@ exports[`TrackInformation > when genres is an empty array > matches the snapshot
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">00:19</time>
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">02:00</time>
   </div>
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Year</div>

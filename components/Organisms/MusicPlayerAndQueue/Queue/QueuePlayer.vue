@@ -12,14 +12,8 @@ import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/Re
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 
-const {
-  currentTime,
-  currentTrack,
-  duration,
-  isPodcastEpisode,
-  isRadioStation,
-  isTrack,
-} = useAudioPlayer();
+const { currentTime, currentTrack, isPodcastEpisode, isRadioStation, isTrack } =
+  useAudioPlayer();
 const { toggleQueueList, toggleQueuePlayer } = useQueue();
 </script>
 
@@ -120,12 +114,12 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
               <TrackSeeker class="fullWidth" />
 
               <div
-                v-if="!isRadioStation && duration"
+                v-if="!isRadioStation"
                 ref="timeProgress"
                 class="smallFont centerItems spaceBetween"
               >
                 <time>{{ secondsToHHMMSS(currentTime) }}</time>
-                <time>{{ secondsToHHMMSS(duration) }}</time>
+                <time>{{ currentTrack.formattedDuration }}</time>
               </div>
             </div>
 

@@ -8,12 +8,8 @@ import { mount } from '@vue/test-utils';
 
 import PlayerOptions from './PlayerOptions.vue';
 
-const {
-  currentTrackMock,
-  durationMock,
-  isPodcastEpisodeMock,
-  isRadioStationMock,
-} = useAudioPlayerMock();
+const { currentTrackMock, isPodcastEpisodeMock, isRadioStationMock } =
+  useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(PlayerOptions, {
@@ -61,24 +57,8 @@ describe('PlayerOptions', () => {
       expect(wrapper.findComponent(MediaInformation).exists()).toBe(true);
     });
 
-    describe('when duration value is 0', () => {
-      it('does not show the time progress element', () => {
-        expect(wrapper.find({ ref: 'timeProgress' }).exists()).toBe(false);
-      });
-    });
-
-    describe('when duration value is greater than 0', () => {
-      beforeEach(() => {
-        durationMock.value = 10;
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('shows the time progress element', () => {
-        expect(wrapper.find({ ref: 'timeProgress' }).exists()).toBe(true);
-      });
+    it('shows the time progress element', () => {
+      expect(wrapper.find({ ref: 'timeProgress' }).exists()).toBe(true);
     });
   });
 

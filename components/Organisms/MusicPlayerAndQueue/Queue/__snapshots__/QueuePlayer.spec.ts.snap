@@ -29,17 +29,17 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
-                <!--v-if-->
-                <!--v-if-->
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
               </div>
             </div>
-            <!--v-if-->
+            <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -121,7 +121,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             </div>
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -208,7 +208,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -296,7 +296,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -388,7 +388,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -476,7 +476,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -568,7 +568,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -656,7 +656,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -690,91 +690,6 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <!--v-if-->
             </div>
             <!--v-if-->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Open queue list">
-    <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
-  </button>
-</div>"
-`;
-
-exports[`QueuePlayer > when isRadioStation value is false > when duration value is greater than 0 > matches the snapshot 1`] = `
-"<div class="queueWrapper column"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue menu">
-    <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
-  </button>
-  <div class="column playerWrapper">
-    <div class="wrapper">
-      <div class="inner">
-        <div class="imageWrapper">
-          <div class="imageInner">
-            <div class="preloadImageWrapper">
-              <div class="centerAll preloadImage preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="trackDetailsWrapper">
-        <div class="mBAllL column trackDetails">
-          <div>
-            <div class="marqueeScroll" inert="">
-              <div class="bulletList inner">
-                <div class="content">
-                  <h2 class="strong mBXS">queue-track-0-name</h2>
-                </div>
-              </div>
-            </div>
-            <div class="marqueeScroll">
-              <div class="bulletList inner">
-                <div class="content"><a class="link" data-test-id="link">album</a></div>
-              </div>
-            </div>
-            <div class="marqueeScroll">
-              <div class="bulletList inner">
-                <div class="content">
-                  <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--v-if-->
-          </div>
-          <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
-              <div class="centerItems slider">
-                <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
-                  <div class="buffer" style="width: 0px;"></div>
-                </div>
-                <div class="thumb" style="left: -6px;"></div>
-                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
-              </div>
-            </div>
-            <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>00:10</time></div>
-          </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
-              <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
-            </button>
-            <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
-              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
-              <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
-            </button>
-          </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" type="button" title="Like track">
-              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-            </button><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
-              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
-            </button><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
-              <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
-            </button>
-            <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-            </button>
           </div>
         </div>
       </div>
@@ -828,7 +743,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:10">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -906,17 +821,17 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
-                <!--v-if-->
-                <!--v-if-->
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
               </div>
             </div>
-            <!--v-if-->
+            <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -982,17 +897,17 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
-                <!--v-if-->
-                <!--v-if-->
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
               </div>
             </div>
-            <!--v-if-->
+            <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -1063,17 +978,17 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
-                <!--v-if-->
-                <!--v-if-->
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
               </div>
             </div>
-            <!--v-if-->
+            <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -1139,17 +1054,17 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange standard fullWidth" aria-label="Seek" aria-valuetext="00:00 of 00:00">
+            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
-                <!--v-if-->
-                <!--v-if-->
+                <div class="thumb" style="left: -6px;"></div>
+                <div class="mBS strong smallFont tooltip" style="left: 0px;">00:00</div>
               </div>
             </div>
-            <!--v-if-->
+            <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
           <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>

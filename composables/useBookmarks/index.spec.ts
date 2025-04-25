@@ -141,13 +141,7 @@ describe('useBookmarks', () => {
           },
         });
 
-        deleteBookmark('id');
-      });
-
-      it('calls the addSuccessSnack function', () => {
-        expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully deleted bookmark.',
-        );
+        deleteBookmark('id', false);
       });
 
       it('calls the getBookmarks function', () => {
@@ -155,6 +149,24 @@ describe('useBookmarks', () => {
           '/getBookmarks',
           expect.any(Object),
         );
+      });
+
+      describe('when showMessage is false', () => {
+        it('does not call the addSuccessSnackMock function', () => {
+          expect(addSuccessSnackMock).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when showMessage is true', () => {
+        beforeEach(() => {
+          deleteBookmark('id');
+        });
+
+        it('calls the addSuccessSnack function', () => {
+          expect(addSuccessSnackMock).toHaveBeenCalledWith(
+            'Successfully deleted bookmark.',
+          );
+        });
       });
     });
   });

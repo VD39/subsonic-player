@@ -54,8 +54,8 @@ defineEmits<{
 
           <ul class="bulletList smallFont">
             <li>{{ playlist.trackCount }} tracks</li>
-            <li v-if="playlist.duration">
-              <time>{{ playlist.duration }}</time>
+            <li>
+              <time>{{ playlist.formattedDuration }}</time>
             </li>
           </ul>
         </div>

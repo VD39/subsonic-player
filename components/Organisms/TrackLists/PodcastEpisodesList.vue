@@ -123,7 +123,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
               </li>
               <li>
                 <span class="visually-hidden">Duration: </span>
-                <time>{{ episode.duration }}</time>
+                <time>{{ episode.formattedDuration }}</time>
               </li>
             </ul>
           </MarqueeScroll>

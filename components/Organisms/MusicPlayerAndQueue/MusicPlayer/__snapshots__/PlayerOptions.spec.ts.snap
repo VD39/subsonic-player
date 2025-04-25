@@ -2,7 +2,7 @@
 
 exports[`PlayerOptions > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
-  <!--v-if-->
+  <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
@@ -33,7 +33,7 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
 
 exports[`PlayerOptions > when currentTrack value does not have a favourite key > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
-  <p class="smallFont time">00:00 / 00:10</p>
+  <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
@@ -67,7 +67,7 @@ exports[`PlayerOptions > when currentTrack value does not have a favourite key >
 
 exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
-  <p class="smallFont time">00:00 / 00:10</p>
+  <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
@@ -91,37 +91,6 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
     </button>
     <!--v-if-->
   </div><button class="centerItems buttonLink" type="button" title="Media information">
-    <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-  </button><button class="centerItems buttonLink" type="button" title="Like track">
-    <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-  </button><button class="centerItems buttonLink" type="button" title="Open queue">
-    <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
-  </button>
-</div>"
-`;
-
-exports[`PlayerOptions > when isRadioStation value is false > when duration value is greater than 0 > matches the snapshot 1`] = `
-"<div class="centerAll playerOptions">
-  <p class="smallFont time">00:00 / 00:10</p>
-  <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
-      <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
-    </button>
-    <div class="centerItems smallFont volumeInputWrapper">
-      <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
-        <div class="centerItems slider">
-          <div class="progressWrapper">
-            <div class="process" style="width: 0px;"></div>
-            <!--v-if-->
-          </div>
-          <div class="thumb" style="left: -6px;"></div>
-          <!--v-if-->
-        </div>
-      </div>
-      <p aria-hidden="" class="currentVolume">100</p>
-      <p class="visuallyHidden"> Volume at 100% </p>
-    </div>
-  </div>
-  <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
     <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
   </button><button class="centerItems buttonLink" type="button" title="Like track">
     <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>

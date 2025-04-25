@@ -62,7 +62,7 @@ const downloadedIcon = computed(() =>
       <div :class="['trackCell', 'trackMeta', $style.title]">Duration</div>
 
       <time class="trackCell">
-        {{ podcastEpisode.duration }}
+        {{ podcastEpisode.formattedDuration }}
       </time>
     </div>
 

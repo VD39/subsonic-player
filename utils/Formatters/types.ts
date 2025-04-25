@@ -1,8 +1,9 @@
 export interface Album {
   artists: BaseArtist[];
   created: string;
-  duration: string;
+  duration: number;
   favourite: boolean;
+  formattedDuration: string;
   genres: Genre[];
   id: string;
   image: Image;
@@ -42,8 +43,8 @@ export interface BaseArtist {
 }
 
 export interface Bookmark extends PodcastEpisode {
-  position: string;
-  rawPosition: number;
+  formattedPosition: string;
+  position: number;
 }
 
 export interface Genre {
@@ -55,7 +56,8 @@ export interface Genre {
 export type MediaType = TypeofMediaType[keyof TypeofMediaType];
 
 export interface Playlist {
-  duration: string;
+  duration: number;
+  formattedDuration: string;
   id: string;
   images: string[];
   information: PlaylistInformation;
@@ -82,7 +84,8 @@ export interface PodcastEpisode {
   author: string;
   description?: string;
   downloaded: boolean;
-  duration: string;
+  duration: number;
+  formattedDuration: string;
   genres: Genre[];
   id: string;
   image: Image;
@@ -96,7 +99,8 @@ export interface PodcastEpisode {
 }
 
 export interface RadioStation {
-  duration: string;
+  duration: number;
+  formattedDuration: string;
   homePageUrl?: string;
   id: string;
   image: Image;
@@ -115,8 +119,9 @@ export interface Track {
   albumId?: string;
   artists: BaseArtist[];
   discNumber: number | string;
-  duration: string;
+  duration: number;
   favourite: boolean;
+  formattedDuration: string;
   genres: Genre[];
   id: string;
   image: Image;

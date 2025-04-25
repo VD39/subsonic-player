@@ -132,7 +132,7 @@ const hasAddToQueueEvent = computed(
       </div>
 
       <time class="trackCell trackTime">
-        {{ track.duration }}
+        {{ track.formattedDuration }}
       </time>
 
       <div class="trackCell trackOptions">

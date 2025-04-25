@@ -105,6 +105,7 @@ export class AudioPlayer {
 
   private setBufferProgress() {
     const duration = this.audio?.duration || 0;
+
     if (duration > 0) {
       for (let index = 0; index < this.audio.buffered.length; index++) {
         if (

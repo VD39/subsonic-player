@@ -27,8 +27,9 @@ describe('formatAlbum', () => {
     expect(formatAlbum(albumMock)).toEqual({
       artists: expect.any(Array),
       created: '01 January 2000',
-      duration: '03:25:45',
+      duration: 12345,
       favourite: true,
+      formattedDuration: '03:25:45',
       genres: expect.any(Array),
       id: 'id',
       image: 'coverArt',
@@ -144,8 +145,9 @@ describe('formatArtist', () => {
         {
           artists: expect.any(Array),
           created: '01 January 2000',
-          duration: '03:25:45',
+          duration: 12345,
           favourite: true,
+          formattedDuration: '03:25:45',
           genres: expect.any(Array),
           id: 'id',
           image: 'coverArt',
@@ -361,7 +363,8 @@ describe('formatPodcastEpisode', () => {
       author: 'artist',
       description: 'description',
       downloaded: true,
-      duration: '00:19',
+      duration: 19,
+      formattedDuration: '00:19',
       genres: [],
       id: 'id',
       image: 'coverArt',
@@ -438,7 +441,8 @@ describe('formatPodcast', () => {
             author: 'artist',
             description: 'description',
             downloaded: true,
-            duration: '00:19',
+            duration: 19,
+            formattedDuration: '00:19',
             genres: [],
             id: 'id',
             image: 'coverArt',
@@ -456,7 +460,8 @@ describe('formatPodcast', () => {
             author: 'artist',
             description: 'description',
             downloaded: true,
-            duration: '00:19',
+            duration: 19,
+            formattedDuration: '00:19',
             genres: [],
             id: 'id',
             image: 'coverArt',
@@ -547,7 +552,8 @@ describe('formatPodcast', () => {
 describe('formatRadioStation', () => {
   it('returns the correct values', () => {
     expect(formatRadioStation(radioStationMock)).toEqual({
-      duration: '',
+      duration: 0,
+      formattedDuration: '',
       homePageUrl: 'homepageUrl',
       id: 'id',
       image:
@@ -600,8 +606,9 @@ describe('formatTracks', () => {
       albumId: 'albumId',
       artists: expect.any(Array),
       discNumber: 1,
-      duration: '00:19',
+      duration: 19,
       favourite: true,
+      formattedDuration: '00:19',
       genres: [],
       id: 'id',
       image: 'coverArt',
@@ -782,7 +789,8 @@ describe('formatPlaylist', () => {
           entry: [podcastEpisodeMock],
         }),
       ).toEqual({
-        duration: '1s',
+        duration: 1,
+        formattedDuration: '1s',
         id: 'id',
         images: ['coverArt'],
         information: {
@@ -868,8 +876,8 @@ describe('formatBookmark(', () => {
       } as unknown as FormattedBookmark),
     ).toEqual(
       expect.objectContaining({
-        position: '00:05',
-        rawPosition: 5.654,
+        formattedPosition: '00:05',
+        position: 5.654,
         trackNumber: 0,
       }),
     );
@@ -879,8 +887,8 @@ describe('formatBookmark(', () => {
     [
       'position',
       {
-        position: '00:00',
-        rawPosition: 0,
+        formattedPosition: '00:00',
+        position: 0,
       },
     ],
   ])('when %s is undefined', (key, outcome) => {

@@ -220,11 +220,31 @@ describe('TrackMeta', () => {
     });
   });
 
-  describe('when track.duration is undefined', () => {
+  describe('when the track prop does not have a formattedPosition key', () => {
+    beforeEach(() => {
+      const track = getFormattedBookmarksMock(1)[0];
+
+      delete (track as Partial<Bookmark>).formattedPosition;
+
+      wrapper = factory({
+        track,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the formattedPosition', () => {
+      expect(wrapper.find({ ref: 'formattedPosition' }).exists()).toBe(false);
+    });
+  });
+
+  describe('when track.formattedPosition is undefined', () => {
     beforeEach(() => {
       wrapper = factory({
-        track: getFormattedQueueTracksMock(1, {
-          duration: undefined,
+        track: getFormattedBookmarksMock(1, {
+          formattedPosition: undefined,
         })[0],
       });
     });
@@ -233,68 +253,24 @@ describe('TrackMeta', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not show the duration', () => {
-      expect(wrapper.find({ ref: 'duration' }).exists()).toBe(false);
+    it('does not show the formattedPosition', () => {
+      expect(wrapper.find({ ref: 'formattedPosition' }).exists()).toBe(false);
     });
   });
 
-  describe('when track.duration is defined', () => {
-    it('shows the duration', () => {
-      expect(wrapper.find({ ref: 'duration' }).exists()).toBe(true);
-    });
-
-    describe('when the track prop does not have a position key', () => {
-      beforeEach(() => {
-        const track = getFormattedBookmarksMock(1)[0];
-
-        delete (track as Partial<Bookmark>).position;
-
-        wrapper = factory({
-          track,
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the position', () => {
-        expect(wrapper.find({ ref: 'position' }).exists()).toBe(false);
+  describe('when track.formattedPosition is defined', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        track: getFormattedBookmarksMock(1)[0],
       });
     });
 
-    describe('when track.position is undefined', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          track: getFormattedBookmarksMock(1, {
-            position: undefined,
-          })[0],
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the position', () => {
-        expect(wrapper.find({ ref: 'position' }).exists()).toBe(false);
-      });
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
     });
 
-    describe('when track.position is defined', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          track: getFormattedBookmarksMock(1)[0],
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('shows the position', () => {
-        expect(wrapper.find({ ref: 'position' }).exists()).toBe(true);
-      });
+    it('shows the formattedPosition', () => {
+      expect(wrapper.find({ ref: 'formattedPosition' }).exists()).toBe(true);
     });
   });
 });

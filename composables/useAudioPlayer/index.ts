@@ -32,11 +32,6 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
   );
 
-  const duration = useState(
-    STATE_NAMES.playerDuration,
-    () => AUDIO_PLAYER_DEFAULT_STATES.duration,
-  );
-
   // Play/Pause state.
   const isPlaying = useState(
     STATE_NAMES.playerIsPlaying,
@@ -116,7 +111,6 @@ export function useAudioPlayer() {
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
     currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
-    duration.value = AUDIO_PLAYER_DEFAULT_STATES.duration;
     isBuffering.value = AUDIO_PLAYER_DEFAULT_STATES.isBuffering;
     isPlaying.value = false;
     originalQueueList.value = AUDIO_PLAYER_DEFAULT_STATES.originalQueueList;
@@ -137,7 +131,6 @@ export function useAudioPlayer() {
     }
 
     currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
-    duration.value = SAVED_STATE.duration;
     queueList.value = SAVED_STATE.queueList;
     originalQueueList.value = SAVED_STATE.originalQueueList;
     repeat.value = SAVED_STATE.repeat;
@@ -153,7 +146,6 @@ export function useAudioPlayer() {
     const STATE_TO_SAVE = {
       currentQueueIndex: currentQueueIndex.value,
       currentTime: currentTime.value,
-      duration: duration.value,
       originalQueueList: originalQueueList.value,
       playbackRate: playbackRate.value,
       queueList: queueList.value,
@@ -178,7 +170,7 @@ export function useAudioPlayer() {
     if (
       isTrack.value &&
       !trackHasScrobbled.value &&
-      currentTime.value / duration.value > 0.8
+      currentTime.value / currentTrack.value.duration > 0.8
     ) {
       scrobble(currentTrack.value.id);
       trackHasScrobbled.value = true;
@@ -206,16 +198,16 @@ export function useAudioPlayer() {
   }
 
   function setMediaSessionPositionState() {
-    if (
-      !('setPositionState' in navigator.mediaSession && !isRadioStation.value)
-    ) {
+    if (!('mediaSession' in navigator && !isRadioStation.value)) {
       return;
     }
 
     navigator.mediaSession.setPositionState({
-      duration: duration.value,
+      duration: currentTrack.value.duration,
       playbackRate: playbackRate.value,
-      position: currentTime.value,
+      // trunc value as current time is a decimal. This should prevent an
+      // Uncaught TypeError of the position being more than the duration.
+      position: Math.trunc(currentTime.value),
     });
   }
 
@@ -383,6 +375,7 @@ export function useAudioPlayer() {
 
     clearSaveInterval();
     loadTrack(track);
+    setMediaSessionPositionState();
     await playTrack();
 
     if (isPodcastEpisode.value) {
@@ -451,7 +444,10 @@ export function useAudioPlayer() {
   }
 
   function fastForwardTrack() {
-    if (currentTime.value >= duration.value - FAST_FORWARD_TRACK_TIME) {
+    if (
+      currentTime.value >=
+      currentTrack.value.duration - FAST_FORWARD_TRACK_TIME
+    ) {
       return;
     }
 
@@ -622,7 +618,6 @@ export function useAudioPlayer() {
   function resetAudioStates() {
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
-    duration.value = AUDIO_PLAYER_DEFAULT_STATES.duration;
   }
 
   /* istanbul ignore next -- @preserve */
@@ -644,12 +639,6 @@ export function useAudioPlayer() {
       isBuffering.value = false;
     });
 
-    audioPlayer.value.onLoadedMetadata((newDuration: number) => {
-      const durationToNumber = Number(newDuration);
-      duration.value = Number.isFinite(durationToNumber) ? durationToNumber : 0;
-      setMediaSessionPositionState();
-    });
-
     audioPlayer.value.onBuffered((newBufferedDuration: number) => {
       bufferedDuration.value = newBufferedDuration;
     });
@@ -660,7 +649,7 @@ export function useAudioPlayer() {
 
     audioPlayer.value.onEnded(async () => {
       if (isPodcastEpisode.value) {
-        deleteBookmark(currentTrack.value.id);
+        deleteBookmark(currentTrack.value.id, false);
       }
 
       switch (repeat.value) {
@@ -721,7 +710,6 @@ export function useAudioPlayer() {
     clearQueueList,
     currentTime,
     currentTrack,
-    duration,
     fastForwardTrack,
     hasNextTrack,
     hasPreviousTrack,

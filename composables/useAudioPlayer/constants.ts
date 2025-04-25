@@ -8,7 +8,6 @@ export const AUDIO_PLAYER_DEFAULT_STATES = {
   bufferedDuration: 0,
   currentQueueIndex: -1,
   currentTime: 0,
-  duration: 0,
   isBuffering: false,
   isPlaying: false,
   originalQueueList: '',

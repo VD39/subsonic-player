@@ -36,7 +36,7 @@ export function useBookmarks() {
     }
   }
 
-  async function deleteBookmark(id: string) {
+  async function deleteBookmark(id: string, showMessage = true) {
     const { data: bookmarkData } = await fetchData('/deleteBookmark', {
       params: {
         id,
@@ -45,7 +45,10 @@ export function useBookmarks() {
 
     if (bookmarkData) {
       await getBookmarks();
-      addSuccessSnack('Successfully deleted bookmark.');
+
+      if (showMessage) {
+        addSuccessSnack('Successfully deleted bookmark.');
+      }
     }
   }
 

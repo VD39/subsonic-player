@@ -86,7 +86,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.tracks;
       </div>
 
       <div class="trackCell trackTime">
-        <time>{{ track.duration }}</time>
+        <time>{{ track.formattedDuration }}</time>
       </div>
 
       <div class="trackCell trackOptions">

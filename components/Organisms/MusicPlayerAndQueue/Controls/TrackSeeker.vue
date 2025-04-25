@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import InputRange from '@/components/Atoms/InputRange.vue';
 
-const { bufferedDuration, currentTime, duration, setCurrentTime } =
+const { bufferedDuration, currentTime, currentTrack, setCurrentTime } =
   useAudioPlayer();
 
 const ariaValueText = computed(
   () =>
-    `${secondsToHHMMSS(currentTime.value)} of ${secondsToHHMMSS(duration.value)}`,
+    `${secondsToHHMMSS(currentTime.value)} of ${currentTrack.value.formattedDuration}`,
 );
 </script>
 
@@ -18,7 +18,7 @@ const ariaValueText = computed(
     :aria-valuetext="ariaValueText"
     :buffer="bufferedDuration"
     delay
-    :max="duration"
+    :max="currentTrack.duration"
     :min="0"
     @change="setCurrentTime"
   >

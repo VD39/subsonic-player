@@ -84,7 +84,7 @@ useHead({
           </li>
           <li>
             <span class="visuallyHidden">Duration: </span>
-            <time>{{ albumData.album.duration }}</time>
+            <time>{{ albumData.album.formattedDuration }}</time>
           </li>
           <li>
             <span class="visuallyHidden">Size: </span>

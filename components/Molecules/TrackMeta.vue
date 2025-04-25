@@ -59,15 +59,17 @@ defineProps<{
 
           <span>{{ track.author }}</span>
         </li>
-        <li v-if="track.duration" ref="duration">
+        <li>
           <span class="visuallyHidden">Duration</span>
 
           <span>
-            <template v-if="'position' in track && track.position">
-              <time ref="position">{{ track.position }}</time>
+            <template
+              v-if="'formattedPosition' in track && track.formattedPosition"
+            >
+              <time ref="formattedPosition">{{ track.formattedPosition }}</time>
               <span>/</span>
             </template>
-            <time>{{ track.duration }}</time>
+            <time>{{ track.formattedDuration }}</time>
           </span>
         </li>
       </ul>

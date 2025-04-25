@@ -152,8 +152,9 @@ export const formattedTrackMock: Track = {
   albumId: 'albumId',
   artists,
   discNumber: 1,
-  duration: '00:19',
+  duration: 120,
   favourite: false,
+  formattedDuration: '02:00',
   genres,
   id: 'id',
   image: 'image',
@@ -177,7 +178,8 @@ export const formattedTrackMock: Track = {
 };
 
 export const formattedPlaylistMock: Playlist = {
-  duration: '00:01',
+  duration: 1,
+  formattedDuration: '00:01',
   id: 'id',
   images: ['image'],
   information: {
@@ -196,8 +198,9 @@ export const formattedPlaylistMock: Playlist = {
 export const formattedAlbumMock: Album = {
   artists,
   created: '01 January 2000',
-  duration: '03:25:45',
+  duration: 150,
   favourite: true,
+  formattedDuration: '03:25:45',
   genres,
   id: 'id',
   image: 'image',
@@ -236,7 +239,8 @@ export const formattedPodcastEpisodeMock: PodcastEpisode = {
   author: 'author',
   description: 'description',
   downloaded: true,
-  duration: '00:19',
+  duration: 19,
+  formattedDuration: '00:19',
   genres: [],
   id: 'id',
   image: 'image',
@@ -251,8 +255,8 @@ export const formattedPodcastEpisodeMock: PodcastEpisode = {
 
 export const formattedBookmarkMock: Bookmark = {
   ...formattedPodcastEpisodeMock,
-  position: '1',
-  rawPosition: 1,
+  formattedPosition: '1',
+  position: 1,
 };
 
 export const formattedPodcastMock: Podcast = {
@@ -275,7 +279,8 @@ export const formattedPodcastMock: Podcast = {
 };
 
 export const formattedRadioStationMock: RadioStation = {
-  duration: '00:00',
+  duration: 0,
+  formattedDuration: '00:00',
   homePageUrl: 'homepageUrl',
   id: 'id',
   image: 'image',

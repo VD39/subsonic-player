@@ -92,9 +92,9 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
 
       <div class="trackCell trackTime withPosition">
         <span>
-          <time ref="position">{{ bookmark.position }}</time>
+          <time>{{ bookmark.formattedPosition }}</time>
           <span>/</span>
-          <time>{{ bookmark.duration }}</time>
+          <time>{{ bookmark.formattedDuration }}</time>
         </span>
       </div>
 

@@ -61,7 +61,7 @@ defineProps<{
       <div :class="['trackCell', 'trackMeta', $style.title]">Duration</div>
 
       <time class="trackCell">
-        {{ track.duration }}
+        {{ track.formattedDuration }}
       </time>
     </div>
 

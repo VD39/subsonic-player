@@ -87,7 +87,7 @@ useHead({
           </li>
           <li>
             <span class="visuallyHidden">Duration: </span>
-            <time>{{ playlist.duration }}</time>
+            <time>{{ playlist.formattedDuration }}</time>
           </li>
         </ul>
 

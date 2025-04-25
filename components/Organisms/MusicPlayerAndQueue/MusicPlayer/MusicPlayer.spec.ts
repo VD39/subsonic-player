@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
-import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mount } from '@vue/test-utils';
@@ -12,6 +11,11 @@ const { currentTrackMock } = useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(MusicPlayer, {
+    global: {
+      stubs: {
+        TrackSeeker: true,
+      },
+    },
     props: {
       ...props,
     },
@@ -27,10 +31,6 @@ describe('MusicPlayer', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
-  });
-
-  it('shows the TrackSeeker component', () => {
-    expect(wrapper.findComponent(TrackSeeker).exists()).toBe(true);
   });
 
   describe('when currentTrack value does not have an albumId key', () => {

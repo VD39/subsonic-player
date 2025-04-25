@@ -5,23 +5,19 @@ import PlaybackRateButton from '@/components/Organisms/MusicPlayerAndQueue/Contr
 import QueueButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/QueueButton.vue';
 import VolumeControl from '@/components/Organisms/MusicPlayerAndQueue/Controls/VolumeControl.vue';
 
-const {
-  currentTime,
-  currentTrack,
-  duration,
-  isPodcastEpisode,
-  isRadioStation,
-} = useAudioPlayer();
+const { currentTime, currentTrack, isPodcastEpisode, isRadioStation } =
+  useAudioPlayer();
 </script>
 
 <template>
   <div :class="['centerAll', $style.playerOptions]">
     <p
-      v-if="!isRadioStation && duration"
+      v-if="!isRadioStation"
       ref="timeProgress"
       :class="['smallFont', $style.time]"
     >
-      {{ secondsToHHMMSS(currentTime) }} / {{ secondsToHHMMSS(duration) }}
+      {{ secondsToHHMMSS(currentTime) }} /
+      {{ currentTrack.formattedDuration }}
     </p>
 
     <VolumeControl />

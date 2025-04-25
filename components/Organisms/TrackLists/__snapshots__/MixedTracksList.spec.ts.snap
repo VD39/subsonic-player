@@ -40,7 +40,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -68,7 +68,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -130,7 +130,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -158,7 +158,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -200,7 +200,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -228,7 +228,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -270,7 +270,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -298,7 +298,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -340,7 +340,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -368,7 +368,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -423,7 +423,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -451,7 +451,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -513,7 +513,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -541,7 +541,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -583,7 +583,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -611,7 +611,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -653,7 +653,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -681,7 +681,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -723,7 +723,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -751,7 +751,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -806,7 +806,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -834,7 +834,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -896,7 +896,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -924,7 +924,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -966,7 +966,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -994,7 +994,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1036,7 +1036,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1064,7 +1064,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1106,7 +1106,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1134,7 +1134,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the Add
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1189,7 +1189,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the tra
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1216,7 +1216,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the tra
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1291,7 +1291,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1315,7 +1315,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1659,7 +1659,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
                   <!--v-if-->
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -1678,7 +1678,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     </div>
     <div class="trackCell trackSecondary">
       <p>--</p>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -2023,7 +2023,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
                     </ul>
                   </li>
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2047,7 +2047,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
           </div>
         </div>
       </div>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -2117,7 +2117,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
                   <!--v-if-->
                   <!--v-if-->
                   <!--v-if-->
-                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>00:19</time></span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
                 </ul>
               </div>
             </div>
@@ -2136,7 +2136,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     </div>
     <div class="trackCell trackSecondary">
       <p>--</p>
-    </div><time class="trackCell trackTime">00:19</time>
+    </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions">
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
