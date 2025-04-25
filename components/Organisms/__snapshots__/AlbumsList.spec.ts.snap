@@ -13,9 +13,12 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" src="image" style="display: none;"></div>
-        </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-0">
-        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-      </button>
+        </a></figure>
+      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-0">
+          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+        </button></div>
     </div>
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="link">album-0</a></p>
     <ul class="commaList smallFont clamp2">
@@ -27,9 +30,12 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" src="image" style="display: none;"></div>
-        </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-1">
-        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-      </button>
+        </a></figure>
+      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-1">
+          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+        </button></div>
     </div>
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="link">album-1</a></p>
     <ul class="commaList smallFont clamp2">
@@ -41,9 +47,12 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" src="image" style="display: none;"></div>
-        </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-2">
-        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
-      </button>
+        </a></figure>
+      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-2">
+          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
+        </button></div>
     </div>
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="link">album-2</a></p>
     <ul class="commaList smallFont clamp2">
@@ -55,9 +64,12 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" src="image" style="display: none;"></div>
-        </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-3">
-        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
-      </button>
+        </a></figure>
+      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-3">
+          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
+        </button></div>
     </div>
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="link">album-3</a></p>
     <ul class="commaList smallFont clamp2">
@@ -69,9 +81,12 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="albumImageWrapper">
       <figure class="mBS"><a title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" src="image" style="display: none;"></div>
-        </a></figure><button class="centerItems buttonLink themeHoverButton buttonLink themeHoverButton buttonLink" type="button" title="Play album album-4">
-        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
-      </button>
+        </a></figure>
+      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-4">
+          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
+        </button></div>
     </div>
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="link">album-4</a></p>
     <ul class="commaList smallFont clamp2">

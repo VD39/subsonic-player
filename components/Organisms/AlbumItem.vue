@@ -2,6 +2,7 @@
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
+import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import ImageLink from '@/components/Organisms/ImageLink.vue';
 
 const props = defineProps<{
@@ -49,14 +50,23 @@ const toLink = {
         :to="toLink"
       />
 
-      <ButtonLink
-        :class="['themeHoverButton', $style.buttonLink]"
-        :icon="buttonProps.icon"
-        :title="buttonProps.text"
-        @click="playAlbumTracks(album.id)"
-      >
-        {{ buttonProps.text }}
-      </ButtonLink>
+      <div :class="$style.actions">
+        <FavouriteButton
+          :id="album.id"
+          :favourite="album.favourite"
+          :type="album.type"
+        />
+
+        <ButtonLink
+          ref="playAlbumButtonLink"
+          class="themeHoverButton"
+          :icon="buttonProps.icon"
+          :title="buttonProps.text"
+          @click="playAlbumTracks(album.id)"
+        >
+          {{ buttonProps.text }}
+        </ButtonLink>
+      </div>
     </div>
 
     <p class="mBXS strong smallFont clamp2">
@@ -84,19 +94,21 @@ const toLink = {
   @media (hover: hover) {
     &:hover,
     &:focus {
-      .buttonLink {
-        --album-play-button-opacity: 1;
+      .actions {
+        --album-actions-opacity: 1;
       }
     }
   }
 }
 
-.buttonLink {
-  --album-play-button-opacity: 0;
+.actions {
+  --album-actions-opacity: 0;
 
   position: absolute;
   inset: auto var(--default-space) var(--default-space) auto;
-  opacity: var(--album-play-button-opacity);
+  display: flex;
+  gap: var(--default-space);
+  opacity: var(--album-actions-opacity);
   transition: opacity var(--transition);
 }
 </style>

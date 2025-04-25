@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import { getFormattedAlbumsMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
@@ -79,7 +78,9 @@ describe('AlbumItem', () => {
 
   describe('when ButtonLink component is clicked', () => {
     beforeEach(async () => {
-      await wrapper.findComponent(ButtonLink).trigger('click');
+      await wrapper
+        .findComponent({ ref: 'playAlbumButtonLink' })
+        .trigger('click');
     });
 
     it('calls the getAlbum function', () => {
@@ -95,7 +96,9 @@ describe('AlbumItem', () => {
     describe('when useAlbum album returns track data', () => {
       beforeEach(async () => {
         getAlbumMock.mockResolvedValue(album);
-        await wrapper.findComponent(ButtonLink).trigger('click');
+        await wrapper
+          .findComponent({ ref: 'playAlbumButtonLink' })
+          .trigger('click');
       });
 
       it('calls the playTracks function', () => {
