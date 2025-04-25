@@ -221,10 +221,10 @@ describe('QueuePlayer', () => {
   });
 
   describe('when isPodcastEpisode value is false', () => {
-    it('does not show the LinkOrText component containing the podcast name link', () => {
-      expect(wrapper.findComponent({ ref: 'podcastLinkOrText' }).exists()).toBe(
-        false,
-      );
+    it('does not show the MarqueeScroll component containing the podcast name link', () => {
+      expect(
+        wrapper.findComponent({ ref: 'podcastIdMarqueeScroll' }).exists(),
+      ).toBe(false);
     });
 
     it('does not show the MarqueeScroll component containing the author details', () => {
@@ -260,9 +260,9 @@ describe('QueuePlayer', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the LinkOrText component containing the podcast name link', () => {
+      it('does not show the MarqueeScroll component containing the podcast name link', () => {
         expect(
-          wrapper.findComponent({ ref: 'podcastLinkOrText' }).exists(),
+          wrapper.findComponent({ ref: 'podcastIdMarqueeScroll' }).exists(),
         ).toBe(false);
       });
     });
@@ -280,9 +280,9 @@ describe('QueuePlayer', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('does not show the LinkOrText component containing the podcast name link', () => {
+        it('does not show the MarqueeScroll component containing the podcast name link', () => {
           expect(
-            wrapper.findComponent({ ref: 'podcastLinkOrText' }).exists(),
+            wrapper.findComponent({ ref: 'podcastIdMarqueeScroll' }).exists(),
           ).toBe(false);
         });
       });
@@ -299,9 +299,9 @@ describe('QueuePlayer', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('shows the LinkOrText component containing the podcast name link', () => {
+        it('shows the MarqueeScroll component containing the podcast name link', () => {
           expect(
-            wrapper.findComponent({ ref: 'podcastLinkOrText' }).exists(),
+            wrapper.findComponent({ ref: 'podcastIdMarqueeScroll' }).exists(),
           ).toBe(true);
         });
       });

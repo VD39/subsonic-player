@@ -89,20 +89,23 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
               </template>
 
               <template v-if="isPodcastEpisode">
-                <LinkOrText
+                <MarqueeScroll
                   v-if="'podcastId' in currentTrack && currentTrack.podcastId"
-                  ref="podcastLinkOrText"
-                  :is-link="!!currentTrack.podcastId"
-                  :text="currentTrack.podcastName"
-                  :to="{
-                    name: ROUTE_NAMES.podcast,
-                    params: {
-                      [ROUTE_PARAM_KEYS.podcast.sortBy]:
-                        ROUTE_PODCAST_SORT_BY_PARAMS.All,
-                      [ROUTE_PARAM_KEYS.podcast.id]: currentTrack.podcastId,
-                    },
-                  }"
-                />
+                  ref="podcastIdMarqueeScroll"
+                >
+                  <LinkOrText
+                    :is-link="!!currentTrack.podcastId"
+                    :text="currentTrack.podcastName"
+                    :to="{
+                      name: ROUTE_NAMES.podcast,
+                      params: {
+                        [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                          ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                        [ROUTE_PARAM_KEYS.podcast.id]: currentTrack.podcastId,
+                      },
+                    }"
+                  />
+                </MarqueeScroll>
 
                 <MarqueeScroll
                   v-if="'author' in currentTrack && currentTrack.author"

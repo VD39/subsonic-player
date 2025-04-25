@@ -379,7 +379,12 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
                   </ul>
                 </div>
               </div>
-            </div><a class="link" data-test-id="link">podcastName</a>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+              </div>
+            </div>
             <!--v-if-->
           </div>
           <div class="fullWidth">
@@ -554,7 +559,12 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
                   </ul>
                 </div>
               </div>
-            </div><a class="link" data-test-id="link">podcastName</a>
+            </div>
+            <div class="marqueeScroll">
+              <div class="bulletList inner">
+                <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+              </div>
+            </div>
             <!--v-if-->
           </div>
           <div class="fullWidth">
