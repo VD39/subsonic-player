@@ -77,6 +77,7 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
+      await getPlaylists();
       addSuccessSnack(`Successfully added playlist ${name}.`);
       return playlistData;
     }

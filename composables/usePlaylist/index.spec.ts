@@ -202,6 +202,13 @@ describe('usePlaylist', () => {
         addPlaylist('name');
       });
 
+      it('does not call the getPlaylists function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPlaylists',
+          expect.any(Object),
+        );
+      });
+
       it('does not call the addSuccessSnackMock function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
@@ -216,6 +223,13 @@ describe('usePlaylist', () => {
         });
 
         addPlaylist('name');
+      });
+
+      it('calls the getPlaylists function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPlaylists',
+          expect.any(Object),
+        );
       });
 
       it('calls the addSuccessSnack function', () => {
