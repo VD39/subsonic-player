@@ -19,10 +19,14 @@ const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
   `${route.params[ROUTE_PARAM_KEYS.genre.genre]}-${route.params[ROUTE_PARAM_KEYS.genre.mediaType]}`,
 );
 
+const genre = decodeURIComponent(
+  route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
+);
+
 function fetchData() {
   return fetchMoreData((offset: number) =>
     getMediaByGenre({
-      genre: route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
+      genre,
       mediaType: route.params[
         ROUTE_PARAM_KEYS.genre.mediaType
       ] as MediaTypeParam,
@@ -61,18 +65,14 @@ function playTrack(index: number) {
 
 useHead({
   title: () =>
-    [
-      route.params[ROUTE_PARAM_KEYS.genre.genre],
-      route.params[ROUTE_PARAM_KEYS.genre.mediaType],
-      'Genre',
-    ]
+    [genre, route.params[ROUTE_PARAM_KEYS.genre.mediaType], 'Genre']
       .filter(Boolean)
       .join(' - '),
 });
 </script>
 
 <template>
-  <h1>{{ route.params[ROUTE_PARAM_KEYS.genre.genre] }}</h1>
+  <h1>{{ genre }}</h1>
 
   <PageNavigation :navigation="GENRE_NAVIGATION" />
 
