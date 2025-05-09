@@ -12,7 +12,7 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
     year = DEFAULT_VALUE,
   } = album;
 
-  const tracks = song.map(formatTracks);
+  const tracks = song.map(formatTrack);
   const tracksByDiscNumber = groupTracksByDiscNumber(tracks);
 
   return {
@@ -44,12 +44,17 @@ export function formatAllMedia(favourites: Starred2): AllMedia {
   return {
     albums: album.map(formatAlbum),
     artists: artist.map(formatArtist),
-    tracks: song.map(formatTracks),
+    tracks: song.map(formatTrack),
   };
 }
 
 export function formatArtist(
-  artistData: Partial<ArtistInfo2 & ArtistWithAlbumsID3>,
+  artistData: Partial<
+    { similarSongs: SimilarSongs2['song'] } & {
+      topSongs: TopSongs['song'];
+    } & ArtistInfo2 &
+      ArtistWithAlbumsID3
+  >,
 ): Artist {
   const {
     album = [],
@@ -62,7 +67,9 @@ export function formatArtist(
     musicBrainzId,
     name = DEFAULT_VALUE,
     similarArtist = [],
+    similarSongs = [],
     starred,
+    topSongs = [],
   } = artistData;
 
   return {
@@ -78,6 +85,8 @@ export function formatArtist(
       : undefined,
     name,
     similarArtist: similarArtist.map(formatSimilarArtist),
+    similarTracks: similarSongs.map(formatTrack),
+    topTracks: topSongs.map(formatTrack),
     totalAlbums,
     totalTracks: getTracksTotal(album),
     type: MEDIA_TYPE.artist,
@@ -122,7 +131,7 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
   const tracks = entry.map((media, index) =>
     media.type === 'podcastepisode'
       ? formatPodcastEpisode(media as ResponsePodcastEpisode)
-      : formatTracks(media, index),
+      : formatTrack(media, index),
   );
 
   return {
@@ -238,7 +247,7 @@ export function formatRadioStation(
   };
 }
 
-export function formatTracks(track: Base, index: number): Track {
+export function formatTrack(track: Base, index: number): Track {
   const {
     album = DEFAULT_VALUE,
     albumId,

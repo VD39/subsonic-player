@@ -44,16 +44,16 @@ describe('PlaylistItems', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    describe('when playlist value returned is less than 5', () => {
+    describe(`when playlist value returned is less than ${PREVIEW_PLAYLIST_COUNT}`, () => {
       it('shows the correct number of the SubNavigationItem component', () => {
         expect(wrapper.findAllComponents(SubNavigationItem).length).toBe(2);
       });
     });
 
-    describe('when playlist value returned is more than 5', () => {
+    describe(`when playlist value returned is more than ${PREVIEW_PLAYLIST_COUNT}`, () => {
       beforeEach(() => {
         wrapper = factory({
-          playlists: getFormattedPlaylistsMock(10),
+          playlists: getFormattedPlaylistsMock(PREVIEW_PLAYLIST_COUNT + 1),
         });
       });
 
@@ -62,7 +62,9 @@ describe('PlaylistItems', () => {
       });
 
       it('shows the correct number of the SubNavigationItem component', () => {
-        expect(wrapper.findAllComponents(SubNavigationItem).length).toBe(5);
+        expect(wrapper.findAllComponents(SubNavigationItem).length).toBe(
+          PREVIEW_PLAYLIST_COUNT,
+        );
       });
     });
   });

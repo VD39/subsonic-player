@@ -1,3 +1,4 @@
+import { COOKIE_MOCK } from '@/test/fixtures';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAPI } from './index';
@@ -16,13 +17,7 @@ mockNuxtImport('useSnack', () => () => ({
   addErrorSnack: addErrorSnackMock,
 }));
 
-mockNuxtImport(
-  'useCookie',
-  () => () =>
-    ref(
-      'token=token&salt=salt&server=https://www.server.com&username=username',
-    ),
-);
+mockNuxtImport('useCookie', () => () => ref(COOKIE_MOCK));
 
 const { fetchData, getDownloadUrl, getImageUrl, getStreamUrl } = useAPI();
 

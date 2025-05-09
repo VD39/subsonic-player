@@ -12,30 +12,20 @@ export function useArtist() {
     return artistsData || [];
   }
 
-  async function getArtist(id: string) {
-    const [{ data: artistInfoData }, { data: artistData }] = await Promise.all([
-      fetchData('/getArtistInfo2', {
-        params: {
-          id,
-        },
-      }),
-      fetchData('/getArtist', {
-        params: {
-          id,
-        },
-      }),
-    ]);
+  /* istanbul ignore next -- @preserve */
+  function getArtist(id: string) {
+    const route = useRoute();
 
-    if (!artistInfoData && !artistData) {
-      return null;
-    }
-
-    const mergedArtists = {
-      ...artistInfoData?.artistInfo2,
-      ...artistData?.artist,
-    };
-
-    return formatArtist(mergedArtists);
+    return useFetch('/api/artist', {
+      default: () => null,
+      getCachedData: (key, nuxtApp) =>
+        nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+      key: route.fullPath,
+      params: {
+        id,
+      },
+      transform: (response) => response.data,
+    });
   }
 
   return {

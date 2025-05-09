@@ -20,6 +20,9 @@ const genres = [
   },
 ];
 
+export const COOKIE_MOCK =
+  'token=token&salt=salt&server=https://www.server.com&username=username';
+
 export const API_DATE = new Date(2000, 0, 1);
 
 export const routeMock = {
@@ -230,6 +233,8 @@ export const formattedArtistMock: Artist = {
   musicBrainzUrl: undefined,
   name: 'name',
   similarArtist: [],
+  similarTracks: [],
+  topTracks: [],
   totalAlbums: 0,
   totalTracks: 4,
   type: MEDIA_TYPE.artist,

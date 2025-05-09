@@ -99,7 +99,7 @@ export function getUniqueGenres(albums: AlbumWithSongsID3[] = []): Genre[] {
 
 export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
   const coverArtIds = tracks.map((track) => track.image);
-  const images = [...new Set(coverArtIds)].splice(0, 4);
+  const images = [...new Set(coverArtIds)].slice(0, 4);
 
   if (!images.length) {
     return [IMAGE_DEFAULT_BY_TYPE.playlist];

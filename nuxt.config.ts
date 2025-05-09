@@ -1,6 +1,14 @@
 import { resolve } from 'node:path';
 import { defineNuxtConfig } from 'nuxt/config';
 
+const importDirectories = [
+  'components/**',
+  'composables/**',
+  'utils/**',
+  'navigations/**',
+  'settings/**',
+];
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   builder: 'vite',
@@ -13,15 +21,14 @@ export default defineNuxtConfig({
     resetAsyncDataToUndefined: false,
   },
   imports: {
-    dirs: [
-      'components/**',
-      'composables/**',
-      'utils/**',
-      'navigations/**',
-      'settings/**',
-    ],
+    dirs: importDirectories,
   },
   modules: ['@nuxt/eslint', 'nuxt-swiper', '@nuxtjs/storybook'],
+  nitro: {
+    imports: {
+      dirs: importDirectories,
+    },
+  },
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {

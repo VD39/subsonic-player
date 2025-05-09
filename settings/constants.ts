@@ -11,6 +11,12 @@ export const COOKIE_NAMES = {
 
 export const DAYS_COOKIE_EXPIRES = 60;
 
+export const PREVIEW_TRACK_COUNT = 8;
+
+export const PREVIEW_PLAYLIST_COUNT = 8;
+
+export const PREVIEW_ALBUM_COUNT = 15;
+
 export const STATE_NAMES = {
   bookmarks: 'bookmarks',
   currentUser: 'current-user',

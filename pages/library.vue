@@ -87,7 +87,7 @@ useHead({
 
         <CarouselSwiper>
           <swiper-slide
-            v-for="artist in libraryData.artists.slice(0, 15)"
+            v-for="artist in libraryData.artists.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="artist.name"
           >
             <ArtistItem :artist="artist" />
@@ -106,7 +106,7 @@ useHead({
 
         <CarouselSwiper v-if="libraryData.genres.length" :grid-rows="2">
           <swiper-slide
-            v-for="genre in libraryData.genres.slice(0, 15)"
+            v-for="genre in libraryData.genres.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="genre.name"
           >
             <GenreLink :name="genre.name" />
@@ -123,7 +123,9 @@ useHead({
           Playlist
         </HeaderSeeAllLink>
 
-        <PlaylistsList :playlists="playlists.slice(0, 8)" />
+        <PlaylistsList
+          :playlists="playlists.slice(0, PREVIEW_PLAYLIST_COUNT)"
+        />
       </template>
     </template>
 

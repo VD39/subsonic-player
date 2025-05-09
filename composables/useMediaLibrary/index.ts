@@ -40,7 +40,7 @@ export function useMediaLibrary() {
         folders: (response.indexes.index || [])
           .flatMap((index) => index.artist!)
           .map(formatArtist),
-        tracks: (response.indexes.child || []).map(formatTracks),
+        tracks: (response.indexes.child || []).map(formatTrack),
       }),
     });
 
@@ -56,10 +56,10 @@ export function useMediaLibrary() {
         const items = response.directory.child || [];
 
         return {
-          folders: items.filter((item) => item.isDir).map(formatTracks),
+          folders: items.filter((item) => item.isDir).map(formatTrack),
           tracks: items
             .filter((item) => !item.isDir && item.type === 'music')
-            .map(formatTracks),
+            .map(formatTrack),
         };
       },
     });

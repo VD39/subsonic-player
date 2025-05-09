@@ -19,7 +19,7 @@ defineEmits<{
     <NavigationItem :collapsed="collapsed" title="Playlist">
       <template v-if="playlists.length">
         <SubNavigationItem
-          v-for="playlist in playlists.slice(0, 5)"
+          v-for="playlist in playlists.slice(0, PREVIEW_PLAYLIST_COUNT)"
           :key="playlist.id"
           :collapsed="collapsed"
           :icon="ICONS.playlist"

@@ -13,6 +13,7 @@ export default defineVitestConfig({
         'composables/useAudioPlayer/player.ts',
         'error.vue',
         'navigations',
+        'nuxt.config.ts',
         'pages',
         'stories',
         ...coverageConfigDefaults.exclude,

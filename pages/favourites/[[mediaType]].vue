@@ -37,7 +37,7 @@ const { refresh, status } = useAsyncData(
 );
 
 function playTrack(index: number) {
-  playTracks([favourites.value!.tracks[index]], -1);
+  playTracks(favourites.value!.tracks, index - 1);
 }
 
 useHead({

@@ -35,3 +35,6 @@ config.global.stubs = {
   RouterLink: RouterLinkStub,
   teleport: true,
 };
+
+vi.stubGlobal('defineEventHandler', (func: unknown) => func);
+vi.stubGlobal('getQuery', () => ({ id: 'id' }));

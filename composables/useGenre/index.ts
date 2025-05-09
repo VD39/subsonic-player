@@ -31,7 +31,7 @@ export function useGenre() {
         offset: params.offset || 0,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        (response.songsByGenre.song || []).map(formatTracks),
+        (response.songsByGenre.song || []).map(formatTrack),
     });
 
     return tracksByGenreData;

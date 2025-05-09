@@ -1,4 +1,6 @@
-import { getAuthParams, loadSession } from './utils';
+import { COOKIE_MOCK } from '@/test/fixtures';
+
+import { getAuthParams, getBaseOptions, loadSession } from './utils';
 
 describe('getAuthParams', () => {
   describe('when params is an empty object', () => {
@@ -31,9 +33,9 @@ describe('getAuthParams', () => {
 });
 
 describe('loadSession', () => {
-  describe('when token is an undefined', () => {
+  describe('when token is not in a correct format', () => {
     it('returns correct value', () => {
-      expect(loadSession()).toEqual({
+      expect(loadSession('incorrect=value')).toEqual({
         salt: null,
         server: null,
         token: null,
@@ -42,15 +44,47 @@ describe('loadSession', () => {
     });
   });
 
-  describe('when token is defined', () => {
+  describe('when token is in a correct format', () => {
     it('returns correct value', () => {
-      expect(
-        loadSession('token=token&salt=salt&server=server&username=username'),
-      ).toEqual({
+      expect(loadSession(COOKIE_MOCK)).toEqual({
         salt: 'salt',
-        server: 'server',
+        server: 'https://www.server.com',
         token: 'token',
         username: 'username',
+      });
+    });
+  });
+});
+
+describe('getBaseOptions', () => {
+  describe('when cookie is not in a correct format', () => {
+    it('returns correct value', () => {
+      expect(getBaseOptions('incorrect=value')).toEqual({
+        baseParams: {
+          c: 'web',
+          f: 'json',
+          s: null,
+          t: null,
+          u: null,
+          v: '1.15.0',
+        },
+        baseURL: 'null/rest',
+      });
+    });
+  });
+
+  describe('when cookie is in a correct format', () => {
+    it('returns correct value', () => {
+      expect(getBaseOptions(COOKIE_MOCK)).toEqual({
+        baseParams: {
+          c: 'web',
+          f: 'json',
+          s: 'salt',
+          t: 'token',
+          u: 'username',
+          v: '1.15.0',
+        },
+        baseURL: 'https://www.server.com/rest',
       });
     });
   });

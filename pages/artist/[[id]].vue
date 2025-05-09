@@ -8,6 +8,7 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
+import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.artist],
@@ -16,81 +17,73 @@ definePageMeta({
 const route = useRoute();
 const { getArtist } = useArtist();
 const { openModal } = useModal();
+const { downloadMedia } = useMediaLibrary();
+const { addToPlaylistModal } = usePlaylist();
+const { openTrackInformationModal } = useMediaInformation();
+const { addTrackToQueue, playTracks } = useAudioPlayer();
 
-const { data: artistData, status } = useAsyncData(
-  route.fullPath,
-  async () => {
-    const artist = await getArtist(
-      route.params[ROUTE_PARAM_KEYS.artist.id] as string,
-    );
-
-    return {
-      artist,
-    };
-  },
-  {
-    default: () => ({
-      artist: null,
-    }),
-    getCachedData: (key, nuxtApp) =>
-      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
-  },
+const { data: artistData, status } = getArtist(
+  route.params[ROUTE_PARAM_KEYS.artist.id] as string,
 );
 
 function openArtistBiographyModal() {
   openModal(MODAL_TYPE.readMoreModal, {
-    text: artistData.value.artist!.biography,
+    text: artistData.value!.biography,
     title: 'Artist biography',
   });
 }
 
+function playSimilarTracksTrack(index: number) {
+  playTracks(artistData.value!.similarTracks, index - 1);
+}
+
+function playTopTracksTrack(index: number) {
+  playTracks(artistData.value!.topTracks, index - 1);
+}
+
 useHead({
-  title: () =>
-    [artistData.value.artist?.name, 'Artist'].filter(Boolean).join(' - '),
+  title: () => [artistData.value?.name, 'Artist'].filter(Boolean).join(' - '),
 });
 </script>
 
 <template>
   <LoadingData :status="status">
-    <div v-if="artistData.artist">
-      <EntryHeader
-        :images="[artistData.artist.image]"
-        :title="artistData.artist.name"
-      >
+    <div v-if="artistData">
+      <EntryHeader :images="[artistData.image]" :title="artistData.name">
         <TextClamp
-          v-if="artistData.artist.biography"
+          v-if="artistData.biography"
           :max-lines="2"
-          :text="artistData.artist.biography"
+          :text="artistData.biography"
           @more="openArtistBiographyModal"
         />
 
         <GenreList
-          v-if="artistData.artist.genres.length"
-          :genres="artistData.artist.genres"
+          v-if="artistData.genres.length"
+          :genres="artistData.genres"
         />
 
         <ul class="bulletList">
           <li>
-            <span class="strong">{{ artistData.artist.totalAlbums }}</span>
-            {{ artistData.artist.totalAlbums > 1 ? 'Albums' : 'Album' }}
+            <span class="strong">{{ artistData.totalAlbums }}</span>
+            {{ artistData.totalAlbums > 1 ? 'Albums' : 'Album' }}
           </li>
           <li>
-            <span class="strong">{{ artistData.artist.totalTracks }}</span>
-            {{ artistData.artist.totalTracks > 1 ? 'Tracks' : 'Track' }}
+            <span class="strong">{{ artistData.totalTracks }}</span>
+            {{ artistData.totalTracks > 1 ? 'Tracks' : 'Track' }}
           </li>
         </ul>
 
         <div class="list">
           <FavouriteButton
-            :id="artistData.artist.id"
-            :favourite="artistData.artist.favourite"
+            :id="artistData.id"
+            :favourite="artistData.favourite"
             type="artist"
           />
 
           <ButtonLink
             is="a"
-            v-if="artistData.artist.lastFmUrl"
-            :href="artistData.artist.lastFmUrl"
+            v-if="artistData.lastFmUrl"
+            :href="artistData.lastFmUrl"
             :icon="ICONS.lastFm"
             target="_blank"
             title="LastFm"
@@ -98,8 +91,8 @@ useHead({
 
           <ButtonLink
             is="a"
-            v-if="artistData.artist.musicBrainzUrl"
-            :href="artistData.artist.musicBrainzUrl"
+            v-if="artistData.musicBrainzUrl"
+            :href="artistData.musicBrainzUrl"
             :icon="ICONS.musicBrainz"
             target="_blank"
             title="MusicBrainz"
@@ -109,12 +102,38 @@ useHead({
 
       <h2>Albums</h2>
 
-      <AlbumsList :albums="artistData.artist.albums" hide-artist />
+      <AlbumsList :albums="artistData.albums" hide-artist />
 
-      <template v-if="artistData.artist.similarArtist.length">
+      <template v-if="artistData.topTracks.length">
+        <h2>Top Tracks</h2>
+
+        <TracksList
+          :tracks="artistData.topTracks"
+          @add-to-playlist="addToPlaylistModal"
+          @add-to-queue="addTrackToQueue"
+          @download-media="downloadMedia"
+          @media-information="openTrackInformationModal"
+          @play-track="playTopTracksTrack"
+        />
+      </template>
+
+      <template v-if="artistData.similarTracks.length">
+        <h2>Similar Tracks</h2>
+
+        <TracksList
+          :tracks="artistData.similarTracks"
+          @add-to-playlist="addToPlaylistModal"
+          @add-to-queue="addTrackToQueue"
+          @download-media="downloadMedia"
+          @media-information="openTrackInformationModal"
+          @play-track="playSimilarTracksTrack"
+        />
+      </template>
+
+      <template v-if="artistData.similarArtist.length">
         <h2>Similar Artists</h2>
 
-        <ArtistsList :artists="artistData.artist.similarArtist" />
+        <ArtistsList :artists="artistData.similarArtist" />
       </template>
     </div>
 

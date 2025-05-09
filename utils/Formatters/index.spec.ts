@@ -19,7 +19,7 @@ import {
   formatPodcast,
   formatPodcastEpisode,
   formatRadioStation,
-  formatTracks,
+  formatTrack,
 } from './index';
 
 describe('formatAlbum', () => {
@@ -173,6 +173,8 @@ describe('formatArtist', () => {
       musicBrainzUrl: undefined,
       name: 'name',
       similarArtist: [],
+      similarTracks: [],
+      topTracks: [],
       totalAlbums: 0,
       totalTracks: 4,
       type: 'artist',
@@ -208,6 +210,18 @@ describe('formatArtist', () => {
       'similarArtist',
       {
         similarArtist: [],
+      },
+    ],
+    [
+      'similarSongs',
+      {
+        similarTracks: [],
+      },
+    ],
+    [
+      'topSongs',
+      {
+        topTracks: [],
       },
     ],
   ])('when %s is undefined', (key, outcome) => {
@@ -599,9 +613,9 @@ describe('formatRadioStation', () => {
   });
 });
 
-describe('formatTracks', () => {
+describe('formatTrack', () => {
   it('returns the correct values', () => {
-    expect(formatTracks(trackMock, 0)).toEqual({
+    expect(formatTrack(trackMock, 0)).toEqual({
       album: 'album',
       albumId: 'albumId',
       artists: expect.any(Array),
@@ -728,7 +742,7 @@ describe('formatTracks', () => {
   ])('when %s is undefined', (key, outcome) => {
     it('returns the correct values', () => {
       expect(
-        formatTracks(
+        formatTrack(
           {
             ...trackMock,
             [key]: undefined,
@@ -743,7 +757,7 @@ describe('formatTracks', () => {
     describe('when station has a parent value', () => {
       it('returns the correct values', () => {
         expect(
-          formatTracks(
+          formatTrack(
             {
               ...trackMock,
               albumId: undefined,
@@ -762,7 +776,7 @@ describe('formatTracks', () => {
     describe('when station does not have a parent value', () => {
       it('returns the correct values', () => {
         expect(
-          formatTracks(
+          formatTrack(
             {
               ...trackMock,
               albumId: undefined,

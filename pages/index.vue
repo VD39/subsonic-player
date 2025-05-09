@@ -49,7 +49,7 @@ const {
 );
 
 function playTrack(index: number) {
-  playTracks([favourites.value!.tracks[index]], -1);
+  playTracks(favourites.value!.tracks, index - 1);
 }
 
 const hasData = computed(
@@ -161,7 +161,7 @@ useHead({
         </HeaderSeeAllLink>
 
         <TracksList
-          :tracks="favourites.tracks.slice(0, 5)"
+          :tracks="favourites.tracks.slice(0, PREVIEW_TRACK_COUNT)"
           @add-to-playlist="addToPlaylistModal"
           @add-to-queue="addTrackToQueue"
           @download-media="downloadMedia"
@@ -185,7 +185,7 @@ useHead({
 
         <CarouselSwiper>
           <swiper-slide
-            v-for="album in favourites.albums.slice(0, 15)"
+            v-for="album in favourites.albums.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="album.name"
           >
             <AlbumItem :album="album" />
@@ -208,7 +208,7 @@ useHead({
 
         <CarouselSwiper>
           <swiper-slide
-            v-for="artist in favourites.artists.slice(0, 15)"
+            v-for="artist in favourites.artists.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="artist.name"
           >
             <ArtistItem :artist="artist" />

@@ -6,6 +6,21 @@ export function getAuthParams(params: Record<string, null | string>) {
   };
 }
 
+export function getBaseOptions(cookie: string) {
+  const params = loadSession(cookie);
+
+  const baseURL = `${decodeURIComponent(params.server!)}/rest`;
+  const baseParams = {
+    ...getAuthParams(params),
+    ...getConfigParams(),
+  };
+
+  return {
+    baseParams,
+    baseURL,
+  };
+}
+
 /* istanbul ignore next -- @preserve */
 export function getConfigParams() {
   return {
@@ -15,7 +30,7 @@ export function getConfigParams() {
   };
 }
 
-export function loadSession(token = '') {
+export function loadSession(token: string) {
   const query = parseQueryString(token);
 
   return {

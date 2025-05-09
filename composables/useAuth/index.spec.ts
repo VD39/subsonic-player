@@ -1,5 +1,6 @@
 import type { DataMock } from '@/test/types';
 
+import { COOKIE_MOCK } from '@/test/fixtures';
 import { withSetup } from '@/test/withSetup';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
@@ -61,15 +62,14 @@ describe('useAuth', () => {
 
     describe('when cookie is defined', () => {
       beforeEach(() => {
-        useCookieMock.value =
-          'token=token&salt=salt&server=server&username=username';
+        useCookieMock.value = COOKIE_MOCK;
         result = withSetup(useAuth);
       });
 
       it('sets the user value bases on cookie', () => {
         expect(useUserMock.value).toEqual({
           salt: 'salt',
-          server: 'server',
+          server: 'https://www.server.com',
           token: 'token',
           username: 'username',
         });
@@ -118,7 +118,7 @@ describe('useAuth', () => {
         result = withSetup(useAuth);
         result.composable.login({
           password: 'password',
-          server: 'server',
+          server: 'https://www.server.com',
           username: 'username',
         });
       });
@@ -146,21 +146,21 @@ describe('useAuth', () => {
         result = withSetup(useAuth);
         result.composable.login({
           password: 'password',
-          server: 'server',
+          server: 'https://www.server.com',
           username: 'username',
         });
       });
 
       it('sets the correct useCookie value', () => {
         expect(useCookieMock.value).toBe(
-          'salt=randomString&server=server&token=MD5&username=username',
+          'salt=randomString&server=https%253A%252F%252Fwww.server.com&token=MD5&username=username',
         );
       });
 
       it('sets the correct user value', () => {
         expect(useUserMock.value).toEqual({
           salt: 'randomString',
-          server: 'server',
+          server: 'https://www.server.com',
           token: 'MD5',
           username: 'username',
         });

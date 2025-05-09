@@ -31,7 +31,7 @@ exports[`PlaylistItems > when playlist value returns playlists > matches the sna
 </ul>"
 `;
 
-exports[`PlaylistItems > when playlist value returns playlists > when playlist value returned is more than 5 > matches the snapshot 1`] = `
+exports[`PlaylistItems > when playlist value returns playlists > when playlist value returned is more than 8 > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
@@ -50,6 +50,15 @@ exports[`PlaylistItems > when playlist value returns playlists > when playlist v
         </a></li>
       <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-4">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-4</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-5">
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-5</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-6">
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-6</span>
+        </a></li>
+      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-7">
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-7</span>
         </a></li>
     </ul>
   </li>
