@@ -250,7 +250,7 @@ export const DEFAULT_ALL_MEDIA = {
 
 export const TRACK_HEADER_NAMES = {
   albumTracks: ['Track', 'Artists', 'Duration'],
-  bookmarkTracks: ['Track', 'Podcast', 'Author', 'Current/Duration'],
+  bookmarkTracks: ['Episode', 'Podcast', 'Author', 'Current/Duration'],
   mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],
   podcastEpisodes: ['Episodes'],
   radioStations: ['Stations'],

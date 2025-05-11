@@ -3,7 +3,7 @@
 exports[`BookmarksTracksList > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Track</div>
+    <div class="trackCell">Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
@@ -340,7 +340,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
 exports[`BookmarksTracksList > when bookmarks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Track</div>
+    <div class="trackCell">Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
@@ -677,7 +677,7 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
 exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.author is defined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Track</div>
+    <div class="trackCell">Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
@@ -1014,7 +1014,7 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
 exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.author is undefined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Track</div>
+    <div class="trackCell">Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
@@ -1101,7 +1101,7 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
 exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.podcastName is defined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Track</div>
+    <div class="trackCell">Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
@@ -1438,7 +1438,7 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
 exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when track.podcastName is undefined > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Track</div>
+    <div class="trackCell">Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
