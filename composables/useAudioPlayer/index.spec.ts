@@ -76,6 +76,12 @@ mockNuxtImport('useBookmarks', () => () => ({
   deleteBookmark: deleteBookmarkMock,
 }));
 
+const addErrorSnackMock = vi.fn();
+
+mockNuxtImport('useSnack', () => () => ({
+  addErrorSnack: addErrorSnackMock,
+}));
+
 const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
@@ -221,20 +227,39 @@ describe('useAudioPlayer', () => {
       expect(result.composable.volume.value).toBe(0.5);
     });
 
-    it('calls the audio load function', () => {
-      expect(loadMock).toHaveBeenCalledWith(queueList[1].streamUrlId);
+    describe('when queueList is set', () => {
+      it('calls the audio load function', () => {
+        expect(loadMock).toHaveBeenCalledWith(queueList[1].streamUrlId);
+      });
+
+      it('calls the audio setVolume function', () => {
+        expect(setVolumeMock).toHaveBeenCalledWith(0.5);
+      });
+
+      it('calls the audio setCurrentTime function', () => {
+        expect(setCurrentTimeMock).toHaveBeenCalledWith(55);
+      });
+
+      it('calls the audio changePlaybackRate function', () => {
+        expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
+      });
     });
 
-    it('calls the audio setVolume function', () => {
-      expect(setVolumeMock).toHaveBeenCalledWith(0.5);
-    });
+    describe('when queueList is not set', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
 
-    it('calls the audio setCurrentTime function', () => {
-      expect(setCurrentTimeMock).toHaveBeenCalledWith(55);
-    });
+        getLocalStorageMock.mockReturnValue({
+          ...AUDIO_PLAYER_DEFAULT_STATES,
+          queueList: [],
+        });
 
-    it('calls the audio changePlaybackRate function', () => {
-      expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
+        result = withSetup(useAudioPlayer);
+      });
+
+      it('does not call the audio load function', () => {
+        expect(loadMock).not.toHaveBeenCalled();
+      });
     });
   });
 
@@ -428,7 +453,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('does not update the currentTrack value', () => {
-          expect(result.composable.currentTrack.value.id).toBe(
+          expect(result.composable.currentTrack.value!.id).toBe(
             queueTracks[4].id,
           );
         });
@@ -457,7 +482,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('does not update the currentTrack value', () => {
-          expect(result.composable.currentTrack.value.id).toBe(
+          expect(result.composable.currentTrack.value!.id).toBe(
             queueTracks[4].id,
           );
         });
@@ -489,7 +514,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('updates the currentTrack value to correct value', () => {
-          expect(result.composable.currentTrack.value.id).toBe(
+          expect(result.composable.currentTrack.value!.id).toBe(
             queueTracks[2].id,
           );
         });
@@ -518,7 +543,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('updates the currentTrack value', () => {
-          expect(result.composable.currentTrack.value.id).toBe(
+          expect(result.composable.currentTrack.value!.id).toBe(
             queueTracks[0].id,
           );
         });
@@ -559,7 +584,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('updates the currentTrack value to correct value', () => {
-          expect(result.composable.currentTrack.value.id).toBe(undefined);
+          expect(result.composable.currentTrack.value).toEqual({});
         });
       });
     });
@@ -687,9 +712,35 @@ describe('useAudioPlayer', () => {
     },
   );
 
+  describe('when shuffleTracks function is called', () => {
+    beforeAll(() => {
+      result.composable.shuffleTracks([...queueTracksMore]);
+    });
+
+    it('calls the audio unload function', () => {
+      expect(unloadMock).toHaveBeenCalled();
+    });
+
+    it('calls the audio load function', () => {
+      expect(loadMock).toHaveBeenCalled();
+    });
+
+    it('calls the audio play function', () => {
+      expect(playMock).toHaveBeenCalled();
+    });
+
+    it('sets the the shuffle value', () => {
+      expect(result.composable.shuffle.value).toBe(true);
+    });
+
+    it('shuffles the queueList value', () => {
+      expect(result.composable.queueList.value).not.toEqual(queueTracksMore);
+    });
+  });
+
   describe('when toggleShuffle function is called', () => {
     beforeAll(() => {
-      result.composable.queueList.value = [...queueTracksMore];
+      result.composable.toggleShuffle();
       result.composable.toggleShuffle();
     });
 
@@ -722,32 +773,6 @@ describe('useAudioPlayer', () => {
       it('sets the original queueList value', () => {
         expect(result.composable.queueList.value).toEqual(queueTracksMore);
       });
-    });
-  });
-
-  describe('when shuffleTracks function is called', () => {
-    beforeAll(() => {
-      result.composable.shuffleTracks([...queueTracksMore]);
-    });
-
-    it('calls the audio unload function', () => {
-      expect(unloadMock).toHaveBeenCalled();
-    });
-
-    it('calls the audio load function', () => {
-      expect(loadMock).toHaveBeenCalled();
-    });
-
-    it('calls the audio play function', () => {
-      expect(playMock).toHaveBeenCalled();
-    });
-
-    it('sets the the shuffle value', () => {
-      expect(result.composable.shuffle.value).toBe(true);
-    });
-
-    it('shuffles the queueList value', () => {
-      expect(result.composable.queueList.value).not.toEqual(queueTracksMore);
     });
   });
 
@@ -962,6 +987,7 @@ describe('useAudioPlayer', () => {
           value: {},
         });
 
+        result.composable.queueList.value = [queueTrack];
         result.composable.playCurrentTrack(queueTrack);
       });
 
@@ -1070,6 +1096,12 @@ describe('useAudioPlayer', () => {
 
             result.composable.togglePlay();
             result.composable.togglePlay();
+          });
+
+          it('calls the addErrorSnack function', () => {
+            expect(addErrorSnackMock).toHaveBeenCalledWith(
+              `The track ${queueTrack.id} was not found on the server and removed from queue.`,
+            );
           });
 
           it('removes the current track from queueList', () => {
@@ -1344,13 +1376,49 @@ describe('useAudioPlayer', () => {
         expect(result.composable.currentTime.value).toBe(20);
       });
 
-      describe('when mediaSession is in navigator', () => {
-        it('calls the navigator mediaSession setPositionState function', () => {
-          expect(setPositionStateMock).toHaveBeenCalledWith(
-            expect.objectContaining({
-              position: 20,
-            }),
-          );
+      describe('when currentTrack value is set', () => {
+        describe('when track type is not a radio station', () => {
+          beforeAll(() => {
+            onTimeupdateCb(20);
+          });
+
+          describe('when mediaSession is in navigator', () => {
+            it('calls the navigator mediaSession setPositionState function', () => {
+              expect(setPositionStateMock).toHaveBeenCalledWith(
+                expect.objectContaining({
+                  position: 20,
+                }),
+              );
+            });
+          });
+        });
+
+        describe('when track type is a radio station', () => {
+          beforeAll(() => {
+            vi.clearAllMocks();
+            result.composable.queueList.value = getFormattedQueueTracksMock(5, {
+              type: MEDIA_TYPE.radioStation,
+            });
+
+            onTimeupdateCb(20);
+          });
+
+          it('does not call the navigator mediaSession setPositionState function', () => {
+            expect(setPositionStateMock).not.toHaveBeenCalled();
+          });
+        });
+      });
+
+      describe('when currentTrack value is not set', () => {
+        beforeAll(() => {
+          vi.clearAllMocks();
+          result.composable.queueList.value = [];
+
+          onTimeupdateCb(20);
+        });
+
+        it('does not call the navigator mediaSession setPositionState function', () => {
+          expect(setPositionStateMock).not.toHaveBeenCalled();
         });
       });
     });

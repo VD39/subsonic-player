@@ -92,6 +92,10 @@ export function useAudioPlayer() {
     () => queueList.value[currentQueueIndex.value] || ({} as MixedTrack),
   );
 
+  const hasCurrentTrack = computed(
+    () => Object.keys(currentTrack.value).length,
+  );
+
   const isLastTrack = computed(
     () => currentQueueIndex.value === queueList.value.length - 1,
   );
@@ -136,10 +140,13 @@ export function useAudioPlayer() {
     repeat.value = SAVED_STATE.repeat;
     shuffle.value = SAVED_STATE.shuffle;
 
-    loadTrack(currentTrack.value);
+    if (hasCurrentTrack.value) {
+      loadTrack(currentTrack.value);
+    }
+
     setVolume(SAVED_STATE.volume);
-    setCurrentTime(SAVED_STATE.currentTime);
     setPlaybackRate(SAVED_STATE.playbackRate);
+    setCurrentTime(SAVED_STATE.currentTime);
   }
 
   function saveState() {
@@ -198,16 +205,20 @@ export function useAudioPlayer() {
   }
 
   function setMediaSessionPositionState() {
-    if (!('mediaSession' in navigator && !isRadioStation.value)) {
+    if (
+      !(
+        'mediaSession' in navigator &&
+        hasCurrentTrack.value &&
+        !isRadioStation.value
+      )
+    ) {
       return;
     }
 
     navigator.mediaSession.setPositionState({
       duration: currentTrack.value.duration,
       playbackRate: playbackRate.value,
-      // trunc value as current time is a decimal. This should prevent an
-      // Uncaught TypeError of the position being more than the duration.
-      position: Math.trunc(currentTime.value),
+      position: currentTime.value,
     });
   }
 
@@ -341,7 +352,7 @@ export function useAudioPlayer() {
         errorMessage.message.includes('no supported source')
       ) {
         addErrorSnack(
-          `The track ${currentTrack.value.name} was not found on the server and removed from queue.`,
+          `The track ${currentTrack.value.id} was not found on the server and removed from queue.`,
         );
 
         removeTrackFromQueueList(currentTrack.value.id);
@@ -431,7 +442,12 @@ export function useAudioPlayer() {
 
   // Audio time actions.
   function setCurrentTime(time: number) {
-    audioPlayer.value?.setCurrentTime(time);
+    // trunc value as current time is a decimal. This should prevent an
+    // Uncaught TypeError of the position being more than the duration.
+    const truncTime = Math.trunc(time);
+
+    audioPlayer.value?.setCurrentTime(truncTime);
+    currentTime.value = truncTime;
     saveState();
   }
 

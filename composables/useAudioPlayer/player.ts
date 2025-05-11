@@ -74,7 +74,13 @@ export class AudioPlayer {
     this.audio.addEventListener('progress', this.setBufferProgress);
 
     this.audio.addEventListener('timeupdate', () => {
-      this.timeupdateCallback(this.audio.currentTime);
+      if (!this.audio.currentTime) {
+        return;
+      }
+
+      // trunc value as current time is a decimal. This should prevent an
+      // Uncaught TypeError of the position being more than the duration.
+      this.timeupdateCallback(Math.trunc(this.audio.currentTime));
       this.setBufferProgress();
     });
 
