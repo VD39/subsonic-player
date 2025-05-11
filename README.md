@@ -37,6 +37,10 @@ Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source app
    - Advanced Search capabilities.
    - Dark/Light Mode support.
 
+4. Progressive Web App (PWA) Feature
+   - Seamlessly download the app icon to the home screen, providing the convenience of launching the app just like a traditional native application.
+   - Benefit from a web-based app that reduces storage space on devices compared to traditional downloadable applications, while still providing robust functionality.
+
 ## 🚀 Installation Methods
 
 **Prerequisites:**

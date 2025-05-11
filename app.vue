@@ -3,14 +3,14 @@ import MainLoader from '@/components/Atoms/MainLoader.vue';
 import ModalWindow from '@/components/Molecules/ModalWindow.vue';
 import SnackBar from '@/components/Molecules/SnackBar.vue';
 
-const nuxtApp = useNuxtApp();
+const { hook } = useNuxtApp();
 const { isDarkTheme } = useTheme();
 const { width } = useSidebar();
 const { showMediaPlayer } = useAudioPlayer();
 
 const isLoading = ref(true);
 
-nuxtApp.hook('page:finish', () => {
+hook('page:finish', () => {
   isLoading.value = false;
 });
 
@@ -31,6 +31,8 @@ useHead({
 </script>
 
 <template>
+  <NuxtPwaAssets />
+
   <NuxtLayout>
     <div v-if="isLoading" class="fullscreen centerAll">
       <MainLoader />

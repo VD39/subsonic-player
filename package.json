@@ -22,6 +22,8 @@
     "@storybook/blocks": "8.4.7",
     "@storybook/test": "8.4.7",
     "@types/crypto-js": "^4.2.2",
+    "@vite-pwa/assets-generator": "^1.0.0",
+    "@vite-pwa/nuxt": "^1.0.0",
     "@vitest/coverage-istanbul": "3.1.1",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.24.0",
@@ -55,6 +57,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "build-storybook": "storybook build",
     "check-types": "vue-tsc --noEmit",
     "dev": "yarn postinstall && nuxt dev --open",
     "generate": "nuxt generate",
@@ -65,12 +68,11 @@
     "lint:styles": "stylelint --ignore-path .gitignore '**/*.{css,vue}'",
     "lint:styles:fix": "yarn lint:styles --fix",
     "postinstall": "nuxt prepare",
+    "prepare": "husky",
     "preview": "nuxt preview",
-    "test": "vitest",
-    "test:once": "yarn test --run",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "prepare": "husky"
+    "test": "vitest",
+    "test:once": "yarn test --run"
   },
   "type": "module"
 }

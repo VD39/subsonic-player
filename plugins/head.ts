@@ -3,10 +3,22 @@ export default defineNuxtPlugin(() => {
   const { MAIN_APP_TITLE } = config.public;
 
   useHead({
+    htmlAttrs: {
+      lang: 'en',
+    },
     meta: [
       {
         content: 'width=device-width, initial-scale=1',
         name: 'viewport',
+      },
+      {
+        content: '#6313bc',
+        name: 'theme-color',
+      },
+      {
+        content:
+          'A responsive, modern web-based client designed for Subsonic music servers.',
+        name: 'description',
       },
     ],
     titleTemplate: (titleChunk) => {
