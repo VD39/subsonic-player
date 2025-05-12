@@ -29,7 +29,7 @@
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-perfectionist": "^4.12.3",
-    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-vitest": "^0.5.4",
     "eslint-plugin-vue": "^9.33.0",
     "happy-dom": "^17.4.7",
