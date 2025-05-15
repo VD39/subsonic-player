@@ -74,6 +74,16 @@ exports[`MarqueeScroll > when intersectionObserver is intersecting > when events
 </div>"
 `;
 
+exports[`MarqueeScroll > when intersectionObserver is intersecting > when marquee scroll clientWidth is 0 > matches the snapshot 1`] = `
+"<div class="marqueeScroll">
+  <div class="bulletList inner">
+    <div class="content">
+      <div>Sample text.</div>
+    </div>
+  </div>
+</div>"
+`;
+
 exports[`MarqueeScroll > when intersectionObserver is intersecting > when marqueeContent element clientWidth is equal to the marqueeScroll element clientWidth > matches the snapshot 1`] = `
 "<div class="marqueeScroll animating" style="--animation-duration: 6000ms;">
   <div class="bulletList inner">

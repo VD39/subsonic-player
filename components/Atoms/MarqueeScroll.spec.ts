@@ -93,6 +93,38 @@ describe('MarqueeScroll', () => {
       );
     });
 
+    describe('when marquee scroll clientWidth is 0', () => {
+      beforeEach(() => {
+        const marqueeScroll = wrapper.find({ ref: 'marqueeScrollRef' });
+
+        Object.defineProperty(marqueeScroll.element, 'clientWidth', {
+          value: 0,
+        });
+
+        global.dispatchEvent(new CustomEvent('resize'));
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not clone the slot content', () => {
+        expect(wrapper.find('[data-test-id="cloned-item"]').exists()).toBe(
+          false,
+        );
+      });
+
+      it('does not add the animating class to wrapper element', () => {
+        expect(wrapper.classes('animating')).toBe(false);
+      });
+
+      it('sets the correct styles to wrapper element', () => {
+        expect(
+          wrapper.find({ ref: 'marqueeScrollRef' }).attributes('style'),
+        ).toBe(undefined);
+      });
+    });
+
     describe.each([
       ['less than', 199, false, undefined],
       ['equal to', 200, true, '--animation-duration: 6000ms;'],

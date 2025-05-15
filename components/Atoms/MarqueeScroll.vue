@@ -11,17 +11,21 @@ const mutationObserver = ref<MutationObserver | null>(null);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 function getCloneData() {
-  if (!marqueeContentRef.value || !marqueeScrollRef.value) {
+  if (
+    !marqueeContentRef.value ||
+    !marqueeScrollRef.value ||
+    !marqueeScrollRef.value.clientWidth
+  ) {
+    cloneLength.value = 0;
     return;
   }
 
   const isOverflowing =
     marqueeContentRef.value.clientWidth >= marqueeScrollRef.value.clientWidth;
 
-  const clonedLength =
-    Math.ceil(
-      marqueeContentRef.value.clientWidth / marqueeScrollRef.value.clientWidth,
-    ) || 0;
+  const clonedLength = Math.ceil(
+    marqueeContentRef.value.clientWidth / marqueeScrollRef.value.clientWidth,
+  );
 
   cloneLength.value = isOverflowing ? clonedLength : 0;
 
