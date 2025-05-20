@@ -1,4 +1,4 @@
-ARG NODE_VERSION=20.12.2
+ARG NODE_VERSION=20.19.0
 
 # Create build stage
 FROM node:${NODE_VERSION}-alpine AS base
