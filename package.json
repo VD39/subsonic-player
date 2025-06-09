@@ -23,7 +23,7 @@
     "@storybook/test": "8.4.7",
     "@types/crypto-js": "^4.2.2",
     "@vite-pwa/assets-generator": "^1.0.0",
-    "@vite-pwa/nuxt": "^1.0.0",
+    "@vite-pwa/nuxt": "^1.0.4",
     "@vitest/coverage-istanbul": "3.2.0",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.26.0",
