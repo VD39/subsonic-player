@@ -135,6 +135,7 @@ useHead({
       </EntryHeader>
 
       <MixedTracksList
+        :hide-remove-option="playlist.id === RANDOM_PLAYLIST.id"
         :tracks="playlist.tracks"
         @add-to-playlist="addToPlaylistModal"
         @add-to-queue="addTrackToQueue"

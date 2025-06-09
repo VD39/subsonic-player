@@ -12,6 +12,7 @@ import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 
 defineProps<{
+  hideRemoveOption?: boolean;
   tracks: MixedTrack[];
 }>();
 
@@ -46,7 +47,11 @@ const hasAddToQueueEvent = computed(
         {{ trackHeaderNames[3] }}
       </div>
       <div class="trackCell trackOptions" />
-      <div class="trackCell trackOptions" />
+      <div
+        v-if="!hideRemoveOption"
+        ref="trackRemoveHeader"
+        class="trackCell trackOptions"
+      />
     </div>
 
     <div
@@ -138,6 +143,7 @@ const hasAddToQueueEvent = computed(
       <div class="trackCell trackOptions">
         <DropdownMenu>
           <DropdownItem
+            v-if="!hideRemoveOption"
             ref="dropdownItemRemove"
             @click="
               $emit('remove', {
@@ -180,7 +186,11 @@ const hasAddToQueueEvent = computed(
         </DropdownMenu>
       </div>
 
-      <div class="trackCell trackOptions">
+      <div
+        v-if="!hideRemoveOption"
+        ref="trackRemoveRow"
+        class="trackCell trackOptions"
+      >
         <ButtonLink
           ref="removeButton"
           icon="PhX"

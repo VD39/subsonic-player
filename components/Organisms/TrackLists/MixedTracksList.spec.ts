@@ -437,6 +437,48 @@ describe('MixedTracksList', () => {
       });
     });
 
+    describe('when hideRemoveOption props is false', () => {
+      it('shows the track options element in track header', () => {
+        expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(true);
+      });
+
+      it('shows the remove DropdownItem component', () => {
+        expect(
+          wrapper.findComponent({ ref: 'dropdownItemRemove' }).exists(),
+        ).toBe(true);
+      });
+
+      it('shows the track options element in track row', () => {
+        expect(wrapper.find({ ref: 'trackRemoveRow' }).exists()).toBe(true);
+      });
+    });
+
+    describe('when hideRemoveOption props is true', () => {
+      beforeEach(() => {
+        wrapper = factory({
+          hideRemoveOption: true,
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the track options element in track header', () => {
+        expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(false);
+      });
+
+      it('does not show the remove DropdownItem component', () => {
+        expect(
+          wrapper.findComponent({ ref: 'dropdownItemRemove' }).exists(),
+        ).toBe(false);
+      });
+
+      it('does not show the track options element in track row', () => {
+        expect(wrapper.find({ ref: 'trackRemoveRow' }).exists()).toBe(false);
+      });
+    });
+
     describe('when the AddToQueue event is not attached', () => {
       it('does not show the add to queue DropdownItem component', () => {
         expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
