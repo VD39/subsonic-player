@@ -4232,10 +4232,10 @@
     sharp-ico "^0.1.5"
     unconfig "^7.3.1"
 
-"@vite-pwa/nuxt@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vite-pwa/nuxt/-/nuxt-1.0.0.tgz#8b1750c7a829dd7754c9037725c33d3f1827a387"
-  integrity sha512-iPqBIAv3M6SU/+r2K/+AI0eIbiPuSe3XpDUPJJceFaGueDOQtLn/7S6WCvFbOLt+We/BBi/sWwI6fHoUIKlvQA==
+"@vite-pwa/nuxt@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@vite-pwa/nuxt/-/nuxt-1.0.4.tgz#8370d94c426ebf961cb4700dd965aa9b2ec26005"
+  integrity sha512-afnNGawRmTK7MZc7gqI41ekMYG195uTWWdWSCY1wst3uQUpOoMtcs8h/wtrTwiUxv1paTKPIR5GS7vKNI07VnQ==
   dependencies:
     "@nuxt/kit" "^3.9.0"
     pathe "^1.1.1"
