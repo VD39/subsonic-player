@@ -37,7 +37,7 @@ async function onFormSubmit() {
   <form novalidate @submit.prevent="onFormSubmit">
     <div class="centerItems">
       <InputField
-        :id="form.fields.query.id"
+        :id="HOTKEY_ELEMENT_IDS.searchInput"
         v-model="form.fields.query.value.value"
         :class="$style.inputField"
         hide-label

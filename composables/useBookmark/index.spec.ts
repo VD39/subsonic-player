@@ -2,7 +2,7 @@ import type { DataMock } from '@/test/types';
 
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
-import { useBookmarks } from './index';
+import { useBookmark } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
@@ -20,9 +20,9 @@ mockNuxtImport('useSnack', () => () => ({
 }));
 
 const { bookmarks, createBookmark, deleteBookmark, getBookmarks } =
-  useBookmarks();
+  useBookmark();
 
-describe('useBookmarks', () => {
+describe('useBookmark', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });

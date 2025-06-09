@@ -177,6 +177,7 @@ useHead({
 
         <div class="list">
           <ButtonLink
+            :id="HOTKEY_ELEMENT_IDS.playAllButton"
             class="largeThemeHoverButton"
             :disabled="!hasDownloadedEpisodes"
             :icon="ICONS.play"

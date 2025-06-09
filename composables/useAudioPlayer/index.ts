@@ -3,7 +3,7 @@ export function useAudioPlayer() {
   const { resetQueueState } = useQueue();
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
-  const { createBookmark, deleteBookmark } = useBookmarks();
+  const { createBookmark, deleteBookmark } = useBookmark();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -50,6 +50,11 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.volume,
   );
 
+  const previousVolume = useState(
+    STATE_NAMES.previousVolume,
+    () => AUDIO_PLAYER_DEFAULT_STATES.volume,
+  );
+
   const isMuted = computed(() => !volume.value);
 
   // Queue state.
@@ -93,7 +98,7 @@ export function useAudioPlayer() {
   );
 
   const hasCurrentTrack = computed(
-    () => Object.keys(currentTrack.value).length,
+    () => !!Object.keys(currentTrack.value).length,
   );
 
   const isLastTrack = computed(
@@ -123,6 +128,7 @@ export function useAudioPlayer() {
     repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
     shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
     volume.value = AUDIO_PLAYER_DEFAULT_STATES.volume;
+    previousVolume.value = AUDIO_PLAYER_DEFAULT_STATES.volume;
 
     deleteLocalStorage(STATE_NAMES.playerState);
   }
@@ -142,11 +148,11 @@ export function useAudioPlayer() {
 
     if (hasCurrentTrack.value) {
       loadTrack(currentTrack.value);
+      setCurrentTime(SAVED_STATE.currentTime);
     }
 
     setVolume(SAVED_STATE.volume);
     setPlaybackRate(SAVED_STATE.playbackRate);
-    setCurrentTime(SAVED_STATE.currentTime);
   }
 
   function saveState() {
@@ -217,7 +223,7 @@ export function useAudioPlayer() {
 
     navigator.mediaSession.setPositionState({
       duration: currentTrack.value.duration,
-      playbackRate: playbackRate.value,
+      playbackRate: PLAYBACK_RATES[playbackRate.value].speed,
       position: currentTime.value,
     });
   }
@@ -456,6 +462,14 @@ export function useAudioPlayer() {
       return;
     }
 
+    // const time = Math.max(
+    //   0,
+    //   Math.min(
+    //     currentTrack.value.duration,
+    //     currentTime.value + -REWIND_TRACK_TIME,
+    //   ),
+    // );
+
     setCurrentTime(currentTime.value - REWIND_TRACK_TIME);
   }
 
@@ -528,27 +542,42 @@ export function useAudioPlayer() {
 
   // Volume actions.
   function setVolume(newVolume: number) {
+    previousVolume.value = volume.value;
     audioPlayer.value?.setVolume(newVolume);
     volume.value = newVolume;
     saveState();
   }
 
-  function unmuteVolume(previousVolume: number) {
-    const newVolume = previousVolume > 0 ? previousVolume : 0.1;
+  function setVolumeWithIncrement(change: number) {
+    const newVolume = Math.max(0, Math.min(1, volume.value + change));
     setVolume(newVolume);
   }
 
-  function toggleVolume(previousVolume: number) {
+  function unmuteVolume() {
+    const newVolume = Math.max(previousVolume.value, 0.1);
+    setVolume(newVolume);
+  }
+
+  function toggleVolume() {
     if (isMuted.value) {
-      unmuteVolume(previousVolume);
+      unmuteVolume();
     } else {
       setVolume(0);
     }
   }
 
-  function setPlaybackRate(newPlaybackRate: number) {
-    playbackRate.value = newPlaybackRate;
-    audioPlayer.value?.changePlaybackRate(newPlaybackRate);
+  function setPlaybackRateWithIncrement(change: number) {
+    const newPlaybackRateIndex = Math.max(
+      0,
+      Math.min(PLAYBACK_RATES.length - 1, playbackRate.value + change),
+    );
+
+    setPlaybackRate(newPlaybackRateIndex);
+  }
+
+  function setPlaybackRate(index: number) {
+    playbackRate.value = index;
+    audioPlayer.value?.changePlaybackRate(PLAYBACK_RATES[index].speed);
     saveState();
   }
 
@@ -727,6 +756,7 @@ export function useAudioPlayer() {
     currentTime,
     currentTrack,
     fastForwardTrack,
+    hasCurrentTrack,
     hasNextTrack,
     hasPreviousTrack,
     isBuffering,
@@ -749,8 +779,10 @@ export function useAudioPlayer() {
     rewindTrack,
     setCurrentTime,
     setPlaybackRate,
+    setPlaybackRateWithIncrement,
     setRepeat,
     setVolume,
+    setVolumeWithIncrement,
     showMediaPlayer,
     shuffle,
     shuffleTracks,

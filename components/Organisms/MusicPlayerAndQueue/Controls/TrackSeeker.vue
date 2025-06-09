@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import InputRange from '@/components/Atoms/InputRange.vue';
 
-const { bufferedDuration, currentTime, currentTrack, setCurrentTime } =
-  useAudioPlayer();
+const {
+  bufferedDuration,
+  currentTime,
+  currentTrack,
+  fastForwardTrack,
+  rewindTrack,
+  setCurrentTime,
+} = useAudioPlayer();
 
 const ariaValueText = computed(
   () =>
@@ -20,7 +26,10 @@ const ariaValueText = computed(
     delay
     :max="currentTrack.duration"
     :min="0"
+    tabindex="0"
     @change="setCurrentTime"
+    @keydown.arrow-left.prevent="rewindTrack"
+    @keydown.arrow-right.prevent="fastForwardTrack"
   >
     {{ secondsToHHMMSS(pendingValue) }}
   </InputRange>

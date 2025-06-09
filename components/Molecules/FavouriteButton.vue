@@ -7,11 +7,9 @@ const props = defineProps<{
   type: MediaType;
 }>();
 
-const { updateQueueTrackFavourite } = useAudioPlayer();
-const { addFavourite, addToFavouriteIds, favouriteIds, removeFavourite } =
-  useFavourite();
+const { addToFavouriteIds, favouriteIds, toggleFavourite } = useFavourite();
 
-const isFavourite = computed(() => favouriteIds.value[props.id]);
+const isFavourite = computed(() => !!favouriteIds.value[props.id]);
 
 const buttonProps = computed<ButtonProps>(() => ({
   iconColor: isFavourite.value ? 'var(--error-color)' : undefined,
@@ -19,21 +17,16 @@ const buttonProps = computed<ButtonProps>(() => ({
   text: `${isFavourite.value ? 'Unlike' : 'Like'} ${props.type}`,
 }));
 
-async function toggleFavourite() {
-  if (isFavourite.value) {
-    await removeFavourite(props);
-  } else {
-    await addFavourite(props);
-  }
-
-  updateQueueTrackFavourite(props.id, isFavourite.value);
+function toggleCurrentFavourite() {
+  // No need to pass isFavourite.value value, use props directly.
+  toggleFavourite(props, isFavourite.value);
 }
 
-const unwatch = watch(
-  () => props.favourite,
+watch(
+  () => props.id || props.favourite,
   () => {
+    // Check if id exists as a key, cannot check value as it could be false.
     if (props.id in favouriteIds.value) {
-      setTimeout(() => unwatch());
       return;
     }
 
@@ -53,7 +46,7 @@ const unwatch = watch(
     :icon-color="buttonProps.iconColor"
     :icon-weight="buttonProps.iconWeight"
     :title="buttonProps.text"
-    @click="toggleFavourite"
+    @click="toggleCurrentFavourite"
   >
     {{ buttonProps.text }}
   </ButtonLink>

@@ -8,7 +8,7 @@ const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks, setCurrentTime } = useAudioPlayer();
-const { bookmarks, deleteBookmark, getBookmarks } = useBookmarks();
+const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.bookmarks,

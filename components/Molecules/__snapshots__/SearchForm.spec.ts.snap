@@ -3,7 +3,7 @@
 exports[`SearchForm > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="centerItems">
-    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
       <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
@@ -15,7 +15,7 @@ exports[`SearchForm > matches the snapshot 1`] = `
 exports[`SearchForm > when form is valid > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="centerItems">
-    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="query">query <span class="required">*</span></label><input id="query" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
       <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>

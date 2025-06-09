@@ -4,8 +4,6 @@ import InputRange from '@/components/Atoms/InputRange.vue';
 
 const { isMuted, setVolume, toggleVolume, volume } = useAudioPlayer();
 
-const previousVolume = ref(volume.value);
-
 const ariaValueText = computed(() => `${volume.value} of 1`);
 const volumePercentage = computed(() => Math.floor(volume.value * 100));
 const volumeTitle = computed(() => (isMuted.value ? 'Unmute' : 'Mute'));
@@ -23,22 +21,13 @@ const volumeIcon = computed(() => {
 });
 
 function changeAudioVolume() {
-  previousVolume.value = volume.value;
   setVolume(volume.value);
-}
-
-function toggleAudioVolume() {
-  toggleVolume(previousVolume.value);
 }
 </script>
 
 <template>
   <div :class="['centerItems', $style.volumeControl]">
-    <ButtonLink
-      :icon="volumeIcon"
-      :title="volumeTitle"
-      @click="toggleAudioVolume"
-    >
+    <ButtonLink :icon="volumeIcon" :title="volumeTitle" @click="toggleVolume">
       {{ volumeTitle }}
     </ButtonLink>
 

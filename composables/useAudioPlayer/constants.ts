@@ -3,6 +3,33 @@ export const FAST_FORWARD_TRACK_TIME = 30;
 export const VOLUME_INCREASE = 0.02;
 export const SAVE_INTERVAL = 2000;
 
+export const PLAYBACK_RATES = [
+  {
+    speed: 0.5,
+    title: '0.5x',
+  },
+  {
+    speed: 0.75,
+    title: '0.75x',
+  },
+  {
+    speed: 1,
+    title: 'Normal',
+  },
+  {
+    speed: 1.5,
+    title: '1.5x',
+  },
+  {
+    speed: 2,
+    title: '2x',
+  },
+  {
+    speed: 2.5,
+    title: '2.5x',
+  },
+] as const;
+
 export const AUDIO_PLAYER_DEFAULT_STATES = {
   audioPlayer: null,
   bufferedDuration: 0,
@@ -11,7 +38,7 @@ export const AUDIO_PLAYER_DEFAULT_STATES = {
   isBuffering: false,
   isPlaying: false,
   originalQueueList: '',
-  playbackRate: 1,
+  playbackRate: PLAYBACK_RATES.findIndex((rate) => rate.title === 'Normal'),
   queueList: [] as MixedTrack[],
   repeat: -1,
   shuffle: false,

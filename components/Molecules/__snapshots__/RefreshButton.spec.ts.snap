@@ -1,21 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`RefreshButton > when status prop is error > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Refresh page data">
+"<button class="centerItems buttonLink" type="button" id="refresh-data-button" title="Refresh page data">
   <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
 </button>"
 `;
 
 exports[`RefreshButton > when status prop is idle > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Refresh page data">
+"<button class="centerItems buttonLink" type="button" id="refresh-data-button" title="Refresh page data">
   <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
 </button>"
 `;
 
-exports[`RefreshButton > when status prop is pending > matches the snapshot 1`] = `"<button class="centerItems buttonLink" type="button" title="Refreshing page data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="32"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Refreshing page data</span></button>"`;
+exports[`RefreshButton > when status prop is pending > matches the snapshot 1`] = `"<button class="centerItems buttonLink" type="button" id="refresh-data-button" title="Refreshing page data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="32"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Refreshing page data</span></button>"`;
 
 exports[`RefreshButton > when status prop is success > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Refresh page data">
+"<button class="centerItems buttonLink" type="button" id="refresh-data-button" title="Refresh page data">
   <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
 </button>"
 `;

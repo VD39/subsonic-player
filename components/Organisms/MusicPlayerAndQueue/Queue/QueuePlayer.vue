@@ -33,7 +33,7 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 
     <div :class="['column', $style.playerWrapper]">
       <div :class="$style.wrapper">
-        <div :class="$style.inner">
+        <div :class="['mBXL', $style.inner]">
           <div :class="$style.imageWrapper">
             <div :class="$style.imageInner">
               <div :class="$style.preloadImageWrapper">
@@ -180,7 +180,6 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 }
 
 .inner {
-  margin-bottom: var(--space-40);
   overflow: hidden;
 }
 

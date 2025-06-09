@@ -36,6 +36,7 @@ Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source app
    - MediaSession Integration.
    - Advanced Search capabilities.
    - Dark/Light Mode support.
+   - Keyboard shortcut (Press `h` to see menu).
 
 4. Progressive Web App (PWA) Feature
    - Seamlessly download the app icon to the home screen, providing the convenience of launching the app just like a traditional native application.

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import HotkeyMappings from '@/components/Atoms/HotkeyMappings.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
@@ -15,6 +16,7 @@ const user = useUser();
 const { logout } = useAuth();
 const { resetAudio } = useAudioPlayer();
 const { startScan } = useMediaLibrary();
+const { HOTKEYS_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
 
 async function logoutAndRedirect() {
   resetAudio();
@@ -23,6 +25,7 @@ async function logoutAndRedirect() {
     name: ROUTE_NAMES.login,
   });
 }
+
 async function search(term: string) {
   await navigateTo({
     name: ROUTE_NAMES.search,
@@ -127,6 +130,13 @@ const showPageNavigation = computed(() =>
 
     <footer>
       <MusicPlayerAndQueue />
+
+      <transition name="slide-up-down">
+        <HotkeyMappings
+          v-if="isHotkeyListOpened"
+          :key-mappings="HOTKEYS_MAPPINGS"
+        />
+      </transition>
     </footer>
   </div>
 </template>

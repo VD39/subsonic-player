@@ -8,7 +8,7 @@ import { mount } from '@vue/test-utils';
 
 import PlaybackRateButton from './PlaybackRateButton.vue';
 
-const { setPlaybackRateMock } = useAudioPlayerMock();
+const { playbackRateMock, setPlaybackRateMock } = useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(PlaybackRateButton, {
@@ -35,18 +35,18 @@ describe('PlaybackRateButton', () => {
   });
 
   it('shows the DropdownItem components', () => {
-    expect(wrapper.findAllComponents(DropdownItem).length).toBe(6);
+    expect(wrapper.findAllComponents(DropdownItem).length).toBe(
+      PLAYBACK_RATES.length,
+    );
   });
 
   describe('when playback speed matches the playbackRate', () => {
     it('sets correct selected prop', () => {
-      const dropdownItems = wrapper.findAllComponents(DropdownItem);
-      expect(dropdownItems[0].props('selected')).toBe(false);
-      expect(dropdownItems[1].props('selected')).toBe(false);
-      expect(dropdownItems[2].props('selected')).toBe(true);
-      expect(dropdownItems[3].props('selected')).toBe(false);
-      expect(dropdownItems[4].props('selected')).toBe(false);
-      expect(dropdownItems[5].props('selected')).toBe(false);
+      expect(
+        wrapper
+          .findAllComponents(DropdownItem)
+          [playbackRateMock.value].props('selected'),
+      ).toBe(true);
     });
   });
 
@@ -56,7 +56,7 @@ describe('PlaybackRateButton', () => {
     });
 
     it('calls the setPlaybackRate function', () => {
-      expect(setPlaybackRateMock).toHaveBeenCalledWith(1);
+      expect(setPlaybackRateMock).toHaveBeenCalledWith(2);
     });
   });
 });

@@ -96,6 +96,7 @@ describe('useAuth', () => {
               data: null,
               error: new Error('Error message.'),
             });
+
             result.composable.autoLogin();
           });
 
@@ -116,6 +117,7 @@ describe('useAuth', () => {
         });
 
         result = withSetup(useAuth);
+
         result.composable.login({
           password: 'password',
           server: 'https://www.server.com',

@@ -93,6 +93,7 @@ useHead({
 
         <div class="list">
           <ButtonLink
+            :id="HOTKEY_ELEMENT_IDS.playAllButton"
             class="largeThemeHoverButton"
             :disabled="!hasTracks"
             :icon="ICONS.play"
@@ -103,6 +104,7 @@ useHead({
           </ButtonLink>
 
           <ButtonLink
+            :id="HOTKEY_ELEMENT_IDS.shuffleAllButton"
             :disabled="!hasTracks"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"

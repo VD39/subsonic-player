@@ -1,4 +1,4 @@
-export function useBookmarks() {
+export function useBookmark() {
   const { fetchData } = useAPI();
   const { addSuccessSnack } = useSnack();
 

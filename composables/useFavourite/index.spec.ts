@@ -1,5 +1,6 @@
 import type { DataMock } from '@/test/types';
 
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useFavourite } from './index';
@@ -12,8 +13,15 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { addToFavouriteIds, favouriteIds, favourites, getFavourites } =
-  useFavourite();
+const { updateQueueTrackFavouriteMock } = useAudioPlayerMock();
+
+const {
+  addToFavouriteIds,
+  favouriteIds,
+  favourites,
+  getFavourites,
+  toggleFavourite,
+} = useFavourite();
 
 describe('useFavourite', () => {
   afterEach(() => {
@@ -110,6 +118,41 @@ describe('useFavourite', () => {
         expect(favouriteIds.value).toEqual({
           id: true,
         });
+      });
+    });
+  });
+
+  describe('when the toggleFavourite function is called', () => {
+    describe.each([
+      [true, '/unstar'],
+      [false, '/star'],
+    ])('when isFavourite is %s', (isFavourite, fetchUrl) => {
+      beforeEach(async () => {
+        await toggleFavourite(
+          {
+            id: 'track-id',
+            type: MEDIA_TYPE.track,
+          },
+          isFavourite,
+        );
+      });
+
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(fetchUrl, {
+          method: 'POST',
+          params: {
+            albumId: undefined,
+            artistId: undefined,
+            id: 'track-id',
+          },
+        });
+      });
+
+      it('calls the updateQueueTrackFavourite function with the correct parameters', () => {
+        expect(updateQueueTrackFavouriteMock).toHaveBeenCalledWith(
+          'track-id',
+          !isFavourite,
+        );
       });
     });
   });
