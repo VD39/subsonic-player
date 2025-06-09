@@ -113,7 +113,7 @@ export default defineNuxtConfig({
           sizes: PWA_ASSETS_SETTINGS.sizes,
         },
         transparent: {
-          favicons: [[48, 'favicon.ico']],
+          favicons: [[256, 'favicon.ico']],
           sizes: PWA_ASSETS_SETTINGS.sizes,
         },
       },
