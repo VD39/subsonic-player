@@ -26,7 +26,7 @@
     "@vite-pwa/nuxt": "^1.0.4",
     "@vitest/coverage-istanbul": "3.2.0",
     "@vue/test-utils": "^2.4.6",
-    "eslint": "^9.26.0",
+    "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-perfectionist": "^4.12.3",
     "eslint-plugin-prettier": "^5.4.1",
