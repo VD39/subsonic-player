@@ -2,6 +2,8 @@ import type { DataMock } from '@/test/types';
 
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
+import { getFormattedPlaylistsMock } from '~/test/helpers';
+
 import { usePlaylist } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -18,15 +20,26 @@ mockNuxtImport('useSnack', () => () => ({
   addSuccessSnack: addSuccessSnackMock,
 }));
 
+const openModalMock = vi.fn();
+
+mockNuxtImport('useModal', () => () => ({
+  openModal: (...args: unknown[]) => openModalMock(...args),
+}));
+
 const {
   addPlaylist,
+  addToPlaylist,
+  addToPlaylistModal,
   deletePlaylist,
   getPlaylists,
   getPlaylistTracksById,
   playlist,
   playlists,
+  removeFromPlaylist,
   updatePlaylist,
 } = usePlaylist();
+
+const playlistsMock = getFormattedPlaylistsMock(2);
 
 describe('usePlaylist', () => {
   afterEach(() => {
@@ -102,7 +115,7 @@ describe('usePlaylist', () => {
         getPlaylistTracksById();
       });
 
-      it('calls the fetchData with the correct path', () => {
+      it('calls the getRandomTracks function', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getRandomSongs',
           expect.any(Object),
@@ -147,7 +160,7 @@ describe('usePlaylist', () => {
         getPlaylistTracksById('playlistId');
       });
 
-      it('calls the fetchData with the correct path', () => {
+      it('calls the getPlaylistTracks function', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.objectContaining({
@@ -344,6 +357,318 @@ describe('usePlaylist', () => {
           '/getPlaylists',
           expect.any(Object),
         );
+      });
+    });
+  });
+
+  describe('when the addToPlaylist function is called', () => {
+    describe('when fetchPlaylistTracks is true', () => {
+      beforeEach(async () => {
+        await addToPlaylist({
+          playlistId: 'playlistId',
+        });
+      });
+
+      it('calls the updatePlaylist function with the correct Id', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/updatePlaylist',
+          expect.any(Object),
+        );
+      });
+
+      it('calls the getPlaylistTracksById function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPlaylist',
+          expect.any(Object),
+        );
+      });
+    });
+
+    describe('when fetchPlaylistTracks is false', () => {
+      beforeEach(async () => {
+        await addToPlaylist(
+          {
+            playlistId: 'playlistId',
+          },
+          false,
+        );
+      });
+
+      it('calls the updatePlaylist function with the correct Id', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/updatePlaylist',
+          expect.any(Object),
+        );
+      });
+
+      it('does not call getPlaylistTracksById function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPlaylist',
+          expect.any(Object),
+        );
+      });
+    });
+  });
+
+  describe('when the removeFromPlaylist function is called', () => {
+    describe('when fetchPlaylistTracks is true', () => {
+      beforeEach(async () => {
+        await removeFromPlaylist({
+          playlistId: 'playlistId',
+        });
+      });
+
+      it('calls the updatePlaylist function with the correct Id', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/updatePlaylist',
+          expect.any(Object),
+        );
+      });
+
+      it('calls the getPlaylistTracksById function', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPlaylist',
+          expect.any(Object),
+        );
+      });
+    });
+
+    describe('when fetchPlaylistTracks is false', () => {
+      beforeEach(async () => {
+        await removeFromPlaylist(
+          {
+            playlistId: 'playlistId',
+          },
+          false,
+        );
+      });
+
+      it('calls the updatePlaylist function with the correct Id', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/updatePlaylist',
+          expect.any(Object),
+        );
+      });
+
+      it('does not call getPlaylistTracksById function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPlaylist',
+          expect.any(Object),
+        );
+      });
+    });
+  });
+
+  describe('when the addToPlaylistModal function is called', () => {
+    let handlers: Record<string, (...args: unknown[]) => Promise<void> | Ref>;
+
+    beforeEach(() => {
+      addToPlaylistModal('trackId', 6);
+      handlers = openModalMock.mock.calls[0][1];
+    });
+
+    it('calls openModal with correct modal type and handlers', () => {
+      expect(openModalMock).toHaveBeenCalled();
+    });
+
+    describe('when the onAddToPlaylist function is called', () => {
+      beforeEach(() => {
+        playlist.value = playlistsMock[0];
+      });
+
+      describe('when playlist matches current playlist', () => {
+        beforeEach(async () => {
+          await handlers.onAddToPlaylist({
+            playlistId: playlistsMock[0].id,
+          });
+        });
+
+        it('calls the updatePlaylist function', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/updatePlaylist',
+            expect.any(Object),
+          );
+        });
+
+        it('calls the getPlaylistTracksById function', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/getPlaylist',
+            expect.any(Object),
+          );
+        });
+      });
+
+      describe('when playlist does not match current playlist', () => {
+        beforeEach(async () => {
+          await handlers.onAddToPlaylist({
+            playlistId: 'id',
+          });
+        });
+
+        it('calls the updatePlaylist function', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/updatePlaylist',
+            expect.any(Object),
+          );
+        });
+
+        it('does not call getPlaylistTracksById function', () => {
+          expect(fetchDataMock).not.toHaveBeenCalledWith(
+            '/getPlaylist',
+            expect.any(Object),
+          );
+        });
+      });
+    });
+
+    describe('when the onRemoveFromPlaylist function is called', () => {
+      beforeEach(() => {
+        playlists.value = playlistsMock;
+        playlist.value = playlistsMock[0];
+      });
+
+      describe('when playlist is not found', () => {
+        beforeEach(async () => {
+          await handlers.onRemoveFromPlaylist({
+            playlistId: 'id',
+          });
+        });
+
+        it('does not call the removeFromPlaylist function', () => {
+          expect(fetchDataMock).not.toHaveBeenCalledWith(
+            '/updatePlaylist',
+            expect.any(Object),
+          );
+        });
+      });
+
+      describe('when playlist is found', () => {
+        describe('when playlist matches current playlist', () => {
+          beforeEach(async () => {
+            await handlers.onRemoveFromPlaylist({
+              playlistId: playlistsMock[0].id,
+            });
+          });
+
+          it('calls the updatePlaylist function with the correct Id', () => {
+            expect(fetchDataMock).toHaveBeenCalledWith(
+              '/updatePlaylist',
+              expect.objectContaining({
+                params: expect.objectContaining({
+                  songIndexToRemove: 6,
+                }),
+              }),
+            );
+          });
+
+          it('calls the getPlaylistTracksById function', () => {
+            expect(fetchDataMock).toHaveBeenCalledWith(
+              '/getPlaylist',
+              expect.any(Object),
+            );
+          });
+        });
+
+        describe('when playlist does not match current playlist', () => {
+          beforeEach(async () => {
+            await handlers.onRemoveFromPlaylist({
+              playlistId: playlistsMock[1].id,
+            });
+          });
+
+          it('calls the updatePlaylist function with the correct Id', () => {
+            expect(fetchDataMock).toHaveBeenCalledWith(
+              '/updatePlaylist',
+              expect.objectContaining({
+                params: expect.objectContaining({
+                  songIndexToRemove: 0,
+                }),
+              }),
+            );
+          });
+
+          it('does not call getPlaylistTracksById function', () => {
+            expect(fetchDataMock).not.toHaveBeenCalledWith(
+              '/getPlaylist',
+              expect.any(Object),
+            );
+          });
+        });
+      });
+    });
+
+    describe('when the onSubmit function is called', () => {
+      describe('when fetchData response returns null', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+          });
+
+          await handlers.onSubmit('playlistName');
+        });
+
+        it('does not call the updatePlaylist function', () => {
+          expect(fetchDataMock).not.toHaveBeenCalledWith(
+            '/updatePlaylist',
+            expect.any(Object),
+          );
+        });
+      });
+
+      describe('when fetchData response returns a value', () => {
+        describe('when fetchData response returns no id', () => {
+          beforeEach(async () => {
+            fetchDataMock.mockResolvedValue({
+              data: {
+                id: null,
+              },
+            });
+
+            await handlers.onSubmit('playlistName');
+          });
+
+          it('does not call the updatePlaylist function', () => {
+            expect(fetchDataMock).not.toHaveBeenCalledWith(
+              '/updatePlaylist',
+              expect.any(Object),
+            );
+          });
+
+          it('sets the correct newlyCreatedPlaylistId value', () => {
+            expect(handlers.newlyCreatedPlaylistId).toEqual(
+              expect.objectContaining({
+                value: null,
+              }),
+            );
+          });
+        });
+
+        describe('when fetchData response returns an id', () => {
+          beforeEach(async () => {
+            fetchDataMock.mockResolvedValue({
+              data: {
+                id: 'id',
+              },
+            });
+
+            await handlers.onSubmit('playlistName');
+          });
+
+          it('calls the updatePlaylist function', () => {
+            expect(fetchDataMock).toHaveBeenCalledWith(
+              '/updatePlaylist',
+              expect.any(Object),
+            );
+          });
+
+          it('sets the correct newlyCreatedPlaylistId value', () => {
+            expect(handlers.newlyCreatedPlaylistId).toEqual(
+              expect.objectContaining({
+                value: 'id',
+              }),
+            );
+          });
+        });
       });
     });
   });

@@ -493,7 +493,7 @@ describe('MixedTracksList', () => {
       });
 
       it('emits the addToPlaylist event with track', () => {
-        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id]]);
+        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id, 0]]);
       });
     });
 

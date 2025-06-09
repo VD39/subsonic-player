@@ -54,12 +54,15 @@ export function usePlaylist() {
     return playlistData;
   }
 
-  async function getPlaylistTracksById(id = 'random', resetPlaylist = true) {
+  async function getPlaylistTracksById(
+    id = RANDOM_PLAYLIST.id,
+    resetPlaylist = true,
+  ) {
     if (resetPlaylist) {
       playlist.value = null;
     }
 
-    if (id === 'random') {
+    if (id === RANDOM_PLAYLIST.id) {
       playlist.value = await getRandomTracks();
     } else {
       playlist.value = await getPlaylistTracks(id);
@@ -111,15 +114,26 @@ export function usePlaylist() {
     }
   }
 
-  /* istanbul ignore next -- @preserve */
-  async function addToPlaylist(params: PlaylistParam) {
+  async function addToPlaylist(
+    params: PlaylistParam,
+    fetchPlaylistTracks = true,
+  ) {
     await updatePlaylist(params, 'Successfully added to playlist.');
+
+    if (fetchPlaylistTracks) {
+      await getPlaylistTracksById(params.playlistId, false);
+    }
   }
 
-  /* istanbul ignore next -- @preserve */
-  async function removeFromPlaylist(params: PlaylistParam) {
+  async function removeFromPlaylist(
+    params: PlaylistParam,
+    fetchPlaylistTracks = true,
+  ) {
     await updatePlaylist(params, 'Successfully removed from playlist.');
-    await getPlaylistTracksById(params.playlistId, false);
+
+    if (fetchPlaylistTracks) {
+      await getPlaylistTracksById(params.playlistId, false);
+    }
   }
 
   /* istanbul ignore next -- @preserve */
@@ -150,57 +164,77 @@ export function usePlaylist() {
     });
   }
 
-  /* istanbul ignore next -- @preserve */
-  function addToPlaylistModal(trackId: string) {
+  function addToPlaylistModal(trackId: string, index?: number) {
     const loading = ref(false);
+    const newlyCreatedPlaylistId = ref<null | string>(null);
 
     openModal(MODAL_TYPE.addToPlaylistModal, {
       loading,
-      /* istanbul ignore next -- @preserve */
+      newlyCreatedPlaylistId,
       async onAddToPlaylist(params: PlaylistParam) {
         loading.value = true;
+        newlyCreatedPlaylistId.value = null;
 
-        await addToPlaylist({
-          playlistId: params.playlistId,
-          songIdToAdd: trackId,
-        });
+        // Update playlist only if on the playlist page.
+        const isMatchingPlaylist = playlist.value?.id === params.playlistId;
+
+        await addToPlaylist(
+          {
+            playlistId: params.playlistId,
+            songIdToAdd: trackId,
+          },
+          isMatchingPlaylist,
+        );
 
         loading.value = false;
       },
-      /* istanbul ignore next -- @preserve */
       async onRemoveFromPlaylist(params: PlaylistParam) {
         loading.value = true;
+        newlyCreatedPlaylistId.value = null;
 
         const foundPlaylist = playlists.value.find(
           (playlist) => playlist.id === params.playlistId,
         );
 
         if (foundPlaylist) {
-          await removeFromPlaylist({
-            playlistId: params.playlistId,
-            songIndexToRemove: foundPlaylist.trackCount - 1,
-          });
+          // Update playlist only if on the playlist page.
+          const isMatchingPlaylist = playlist.value?.id === params.playlistId;
+
+          const songIndexToRemove = isMatchingPlaylist
+            ? index
+            : foundPlaylist.trackCount - 1;
+
+          await removeFromPlaylist(
+            {
+              playlistId: params.playlistId,
+              songIndexToRemove,
+            },
+            isMatchingPlaylist,
+          );
         }
 
         loading.value = false;
       },
-      /* istanbul ignore next -- @preserve */
       async onSubmit(playlistName: string) {
         loading.value = true;
 
         const playlistResponse = await addPlaylist(playlistName);
 
         if (playlistResponse?.id) {
-          await addToPlaylist({
-            playlistId: playlistResponse.id,
-            songIdToAdd: trackId,
-          });
+          await addToPlaylist(
+            {
+              playlistId: playlistResponse.id,
+              songIdToAdd: trackId,
+            },
+            false,
+          );
+
+          newlyCreatedPlaylistId.value = playlistResponse.id;
         }
 
         loading.value = false;
       },
       playlists,
-      trackId,
     });
   }
 

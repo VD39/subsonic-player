@@ -3,9 +3,18 @@ import type { VueWrapper } from '@vue/test-utils';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputField from '@/components/Atoms/InputField.vue';
 import { getFormattedPlaylistsMock } from '@/test/helpers';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import AddToPlaylistForm from './AddToPlaylistForm.vue';
+
+const { routeMock } = vi.hoisted(() => ({
+  routeMock: vi.fn().mockReturnValue({
+    params: {},
+  }),
+}));
+
+mockNuxtImport('useRoute', () => routeMock);
 
 const playlists = getFormattedPlaylistsMock(5);
 
@@ -13,19 +22,19 @@ function factory(props = {}) {
   return mount(AddToPlaylistForm, {
     props: {
       loading: false,
-      playlists: [],
-      trackId: 'trackId',
+      newlyCreatedPlaylistId: 'newlyCreatedPlaylistId',
+      playlists,
       ...props,
     },
   });
 }
 
 const buttonProps = {
-  false: {
+  add: {
     icon: ICONS.add,
     text: 'Add',
   },
-  true: {
+  remove: {
     icon: ICONS.remove,
     text: 'Remove',
   },
@@ -34,11 +43,17 @@ const buttonProps = {
 describe('AddToPlaylistForm', () => {
   let wrapper: VueWrapper;
 
-  beforeAll(() => {
+  beforeEach(async () => {
     wrapper = factory();
   });
 
   describe('when playlists prop is an empty array', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        playlists: [],
+      });
+    });
+
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -49,12 +64,6 @@ describe('AddToPlaylistForm', () => {
   });
 
   describe('when playlists prop is not an empty array', () => {
-    beforeAll(() => {
-      wrapper = factory({
-        playlists,
-      });
-    });
-
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -67,63 +76,36 @@ describe('AddToPlaylistForm', () => {
       expect(wrapper.findAll('[data-test-id="playlist"]').length).toBe(5);
     });
 
-    it('sets the correct icon prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-        buttonProps.false.icon,
-      );
-    });
-
-    it('sets the correct title attribute on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
-        buttonProps.false.text,
-      );
-    });
-
-    it('sets the correct slot data on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).text()).toContain(
-        buttonProps.false.text,
-      );
-    });
-
-    describe('when the ButtonLink component is clicked', () => {
-      beforeAll(() => {
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
+    describe('when playlist id is not random', () => {
+      it('shows the ButtonLink component', () => {
+        expect(
+          wrapper
+            .find('[data-test-id="playlist"]')
+            .findComponent(ButtonLink)
+            .exists(),
+        ).toBe(true);
       });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('emits addToPlaylist event with form values', () => {
-        expect(wrapper.emitted('addToPlaylist')).toEqual([
-          [
-            {
-              playlistId: 'playlist-0',
-            },
-          ],
-        ]);
-      });
-
-      it('updates the icon prop on the ButtonLink component', () => {
+      it('sets the correct icon prop on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-          buttonProps.true.icon,
+          buttonProps.add.icon,
         );
       });
 
-      it('updates the title attribute on the ButtonLink component', () => {
+      it('sets the correct title attribute on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
-          buttonProps.true.text,
+          buttonProps.add.text,
         );
       });
 
-      it('updates the slot data on the ButtonLink component', () => {
+      it('sets the correct slot data on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).text()).toContain(
-          buttonProps.true.text,
+          buttonProps.add.text,
         );
       });
 
-      describe('when the ButtonLink component is clicked again', () => {
-        beforeAll(() => {
+      describe('when the ButtonLink component is clicked', () => {
+        beforeEach(() => {
           wrapper.findComponent(ButtonLink).vm.$emit('click');
         });
 
@@ -131,8 +113,8 @@ describe('AddToPlaylistForm', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('emits removeFromPlaylist event with form values', () => {
-          expect(wrapper.emitted('removeFromPlaylist')).toEqual([
+        it('emits addToPlaylist event with form values', () => {
+          expect(wrapper.emitted('addToPlaylist')).toEqual([
             [
               {
                 playlistId: 'playlist-0',
@@ -143,27 +125,153 @@ describe('AddToPlaylistForm', () => {
 
         it('updates the icon prop on the ButtonLink component', () => {
           expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-            buttonProps.false.icon,
+            buttonProps.remove.icon,
           );
         });
 
         it('updates the title attribute on the ButtonLink component', () => {
           expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
-            buttonProps.false.text,
+            buttonProps.remove.text,
           );
         });
 
-        it('updates slot data on the ButtonLink component', () => {
+        it('updates the slot data on the ButtonLink component', () => {
           expect(wrapper.findComponent(ButtonLink).text()).toContain(
-            buttonProps.false.text,
+            buttonProps.remove.text,
           );
         });
+
+        describe('when the ButtonLink component is clicked again', () => {
+          beforeEach(() => {
+            wrapper.findComponent(ButtonLink).vm.$emit('click');
+          });
+
+          it('matches the snapshot', () => {
+            expect(wrapper.html()).toMatchSnapshot();
+          });
+
+          it('emits removeFromPlaylist event with form values', () => {
+            expect(wrapper.emitted('removeFromPlaylist')).toEqual([
+              [
+                {
+                  playlistId: 'playlist-0',
+                },
+              ],
+            ]);
+          });
+
+          it('updates the icon prop on the ButtonLink component', () => {
+            expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
+              buttonProps.add.icon,
+            );
+          });
+
+          it('updates the title attribute on the ButtonLink component', () => {
+            expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+              buttonProps.add.text,
+            );
+          });
+
+          it('updates slot data on the ButtonLink component', () => {
+            expect(wrapper.findComponent(ButtonLink).text()).toContain(
+              buttonProps.add.text,
+            );
+          });
+        });
+      });
+    });
+
+    describe('when playlist id is random', () => {
+      beforeEach(() => {
+        wrapper = factory({
+          playlists: [
+            {
+              ...getFormattedPlaylistsMock(1)[0],
+              id: 'random',
+            },
+          ],
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the ButtonLink component', () => {
+        expect(
+          wrapper
+            .find('[data-test-id="playlist"]')
+            .findComponent(ButtonLink)
+            .exists(),
+        ).toBe(false);
+      });
+    });
+
+    describe('when newlyCreatedPlaylistId prop is the same as the playlist id', () => {
+      beforeEach(() => {
+        wrapper = factory({
+          newlyCreatedPlaylistId: playlists[0].id,
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct icon prop on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
+          buttonProps.remove.icon,
+        );
+      });
+
+      it('sets the correct title attribute on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+          buttonProps.remove.text,
+        );
+      });
+
+      it('sets the correct slot data on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).text()).toContain(
+          buttonProps.remove.text,
+        );
+      });
+    });
+
+    describe('when router params has an id that matches the playlist id', () => {
+      beforeEach(() => {
+        routeMock.mockReturnValue({
+          params: {
+            [ROUTE_PARAM_KEYS.playlist.id]: playlists[0].id,
+          },
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct icon prop on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
+          buttonProps.remove.icon,
+        );
+      });
+
+      it('sets the correct title attribute on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+          buttonProps.remove.text,
+        );
+      });
+
+      it('sets the correct slot data on the ButtonLink component', () => {
+        expect(wrapper.findComponent(ButtonLink).text()).toContain(
+          buttonProps.remove.text,
+        );
       });
     });
   });
 
   describe('when form is invalid', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
       await wrapper.find({ ref: 'formWrapper' }).trigger('submit');
     });
 
@@ -173,7 +281,7 @@ describe('AddToPlaylistForm', () => {
   });
 
   describe('when form is valid', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
       wrapper
         .findComponent(InputField)
         .vm.$emit('update:modelValue', 'Playlist');

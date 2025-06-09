@@ -242,7 +242,7 @@ export const ICON_SIZE = {
   large: 32,
   medium: 24,
   small: 18,
-};
+} as const;
 
 export const DEFAULT_ALL_MEDIA = {
   albums: [],

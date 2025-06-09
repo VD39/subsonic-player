@@ -3,10 +3,10 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputField from '@/components/Atoms/InputField.vue';
 import SubmitButton from '@/components/Molecules/SubmitButton.vue';
 
-defineProps<{
+const props = defineProps<{
   loading: boolean;
+  newlyCreatedPlaylistId: string;
   playlists: Playlist[];
-  trackId: string;
 }>();
 
 const emit = defineEmits<{
@@ -23,7 +23,9 @@ const emit = defineEmits<{
   submit: [value: string | string[]];
 }>();
 
-const selectedItems = ref<string[]>([]);
+const route = useRoute();
+
+const selectedItems = ref(new Set<string>());
 
 const formInputs = {
   name: {
@@ -48,7 +50,7 @@ function addToSelectedPlaylist(playlistId: string) {
     playlistId,
   });
 
-  selectedItems.value.push(playlistId);
+  selectedItems.value.add(playlistId);
 }
 
 function getButtonProps(playlistId: string) {
@@ -68,10 +70,15 @@ function onFormSubmit() {
   }
 
   emit('submit', form.fields.name.value.value);
+
+  form.fields.name.value.value = '';
 }
 
 function playlistIdInSelectedItems(playlistId: string) {
-  return selectedItems.value.includes(playlistId);
+  return (
+    playlistId === props.newlyCreatedPlaylistId ||
+    selectedItems.value.has(playlistId)
+  );
 }
 
 function removeFromSelectedPlaylist(playlistId: string) {
@@ -79,8 +86,26 @@ function removeFromSelectedPlaylist(playlistId: string) {
     playlistId,
   });
 
-  selectedItems.value = selectedItems.value.filter((id) => id !== playlistId);
+  selectedItems.value.delete(playlistId);
 }
+
+watch(
+  [() => props.newlyCreatedPlaylistId, () => route.params],
+  () => {
+    if (props.newlyCreatedPlaylistId) {
+      selectedItems.value.add(props.newlyCreatedPlaylistId);
+    }
+
+    const playlistId = route.params[ROUTE_PARAM_KEYS.playlist.id] as string;
+
+    if (playlistId) {
+      selectedItems.value.add(playlistId);
+    }
+  },
+  {
+    immediate: true,
+  },
+);
 </script>
 
 <template>
@@ -119,6 +144,7 @@ function removeFromSelectedPlaylist(playlistId: string) {
 
         <div class="trackCell trackOptions">
           <ButtonLink
+            v-if="playlist.id !== RANDOM_PLAYLIST.id"
             :disabled="loading"
             :icon="getButtonProps(playlist.id).icon"
             :title="getButtonProps(playlist.id).text"

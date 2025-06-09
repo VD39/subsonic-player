@@ -16,7 +16,7 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToPlaylist: [value: string];
+  addToPlaylist: [value: string, index: number];
   addToQueue: [value: MixedTrack];
   downloadMedia: [value: string];
   mediaInformation: [value: MixedTrack];
@@ -150,7 +150,7 @@ const hasAddToQueueEvent = computed(
           </DropdownItem>
           <DropdownItem
             ref="addToPlaylist"
-            @click="$emit('addToPlaylist', track.id)"
+            @click="$emit('addToPlaylist', track.id, index)"
           >
             Add to playlist
           </DropdownItem>
