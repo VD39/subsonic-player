@@ -558,7 +558,7 @@ export function useAudioPlayer() {
     setVolume(newVolume);
   }
 
-  function toggleVolume() {
+  function toggleMute() {
     if (isMuted.value) {
       unmuteVolume();
     } else {
@@ -786,9 +786,9 @@ export function useAudioPlayer() {
     showMediaPlayer,
     shuffle,
     shuffleTracks,
+    toggleMute,
     togglePlay,
     toggleShuffle,
-    toggleVolume,
     updateQueueTrackFavourite,
     volume,
   };

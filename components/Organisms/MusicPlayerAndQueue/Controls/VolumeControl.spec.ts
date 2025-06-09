@@ -7,7 +7,7 @@ import { mount } from '@vue/test-utils';
 
 import VolumeControl from './VolumeControl.vue';
 
-const { isMutedMock, setVolumeMock, toggleVolumeMock, volumeMock } =
+const { isMutedMock, setVolumeMock, toggleMuteMock, volumeMock } =
   useAudioPlayerMock();
 
 function factory(props = {}) {
@@ -34,8 +34,8 @@ describe('VolumeControl', () => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
     });
 
-    it('calls the toggleVolume function', () => {
-      expect(toggleVolumeMock).toHaveBeenCalled();
+    it('calls the toggleMute function', () => {
+      expect(toggleMuteMock).toHaveBeenCalled();
     });
   });
 

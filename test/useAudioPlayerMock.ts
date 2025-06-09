@@ -40,8 +40,8 @@ const setRepeatMock = vi.fn();
 const setVolumeMock = vi.fn();
 const showMediaPlayerMock = ref(false);
 const shuffleMock = ref(false);
+const toggleMuteMock = vi.fn();
 const toggleShuffleMock = vi.fn();
-const toggleVolumeMock = vi.fn();
 const setVolumeWithIncrementMock = vi.fn();
 const updateQueueTrackFavouriteMock = vi.fn();
 const volumeMock = ref(1);
@@ -83,9 +83,9 @@ export function useAudioPlayerMock() {
     setVolumeWithIncrement: setVolumeWithIncrementMock,
     showMediaPlayer: showMediaPlayerMock,
     shuffle: shuffleMock,
+    toggleMute: toggleMuteMock,
     togglePlay: togglePlayMock,
     toggleShuffle: toggleShuffleMock,
-    toggleVolume: toggleVolumeMock,
     updateQueueTrackFavourite: updateQueueTrackFavouriteMock,
     volume: volumeMock,
   }));
@@ -126,9 +126,9 @@ export function useAudioPlayerMock() {
     setVolumeWithIncrementMock,
     showMediaPlayerMock,
     shuffleMock,
+    toggleMuteMock,
     togglePlayMock,
     toggleShuffleMock,
-    toggleVolumeMock,
     updateQueueTrackFavouriteMock,
     volumeMock,
   };

@@ -12,9 +12,9 @@ export function useHotkeyManager() {
     setPlaybackRateWithIncrement,
     setRepeat,
     setVolumeWithIncrement,
+    toggleMute,
     togglePlay,
     toggleShuffle,
-    toggleVolume,
   } = useAudioPlayer();
   const { modal } = useModal();
   const { toggleQueuePlayer } = useQueue();
@@ -330,7 +330,7 @@ export function useHotkeyManager() {
       {
         action: () => {
           callOnlyWithCurrentTrack(() => {
-            toggleVolume();
+            toggleMute();
           });
         },
         description: 'Mute or unmute the volume.',

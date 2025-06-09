@@ -2,7 +2,7 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputRange from '@/components/Atoms/InputRange.vue';
 
-const { isMuted, setVolume, toggleVolume, volume } = useAudioPlayer();
+const { isMuted, setVolume, toggleMute, volume } = useAudioPlayer();
 
 const ariaValueText = computed(() => `${volume.value} of 1`);
 const volumePercentage = computed(() => Math.floor(volume.value * 100));
@@ -27,7 +27,7 @@ function changeAudioVolume() {
 
 <template>
   <div :class="['centerItems', $style.volumeControl]">
-    <ButtonLink :icon="volumeIcon" :title="volumeTitle" @click="toggleVolume">
+    <ButtonLink :icon="volumeIcon" :title="volumeTitle" @click="toggleMute">
       {{ volumeTitle }}
     </ButtonLink>
 

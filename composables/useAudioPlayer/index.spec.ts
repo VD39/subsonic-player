@@ -887,10 +887,10 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when toggleVolume function is called', () => {
+  describe('when toggleMute function is called', () => {
     beforeAll(() => {
       vi.clearAllMocks();
-      result.composable.toggleVolume();
+      result.composable.toggleMute();
     });
 
     it('calls the audio setVolume function', () => {
@@ -914,10 +914,10 @@ describe('useAudioPlayer', () => {
       );
     });
 
-    describe('when toggleVolume function is called again', () => {
+    describe('when toggleMute function is called again', () => {
       describe('when volume is greater than 0', () => {
         beforeAll(() => {
-          result.composable.toggleVolume();
+          result.composable.toggleMute();
         });
 
         it('calls the audio setVolume function', () => {
@@ -945,7 +945,7 @@ describe('useAudioPlayer', () => {
       describe('when volume is 0', () => {
         beforeAll(() => {
           result.composable.volume.value = 0;
-          result.composable.toggleVolume();
+          result.composable.toggleMute();
         });
 
         it('calls the audio setVolume function', () => {

@@ -16,9 +16,9 @@ const {
   setPlaybackRateWithIncrementMock,
   setRepeatMock,
   setVolumeWithIncrementMock,
+  toggleMuteMock,
   togglePlayMock,
   toggleShuffleMock,
-  toggleVolumeMock,
 } = useAudioPlayerMock();
 
 const toggleFavouriteMock = vi.fn();
@@ -105,10 +105,10 @@ const ALL_MOCKS = {
   setRepeat: setRepeatMock,
   setVolumeWithIncrement: setVolumeWithIncrementMock,
   toggleFavourite: toggleFavouriteMock,
+  toggleMute: toggleMuteMock,
   togglePlay: togglePlayMock,
   toggleQueuePlayer: toggleQueuePlayerMock,
   toggleShuffle: toggleShuffleMock,
-  toggleVolume: toggleVolumeMock,
 };
 describe('useHotkeyManager', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useHotkeyManager>>>;
@@ -520,7 +520,7 @@ describe('useHotkeyManager', () => {
       [['Control', 'ArrowRight'], 'playNextTrack'],
       [['Shift', 'P'], 'toggleQueuePlayer'],
       [[' '], 'togglePlay'],
-      [['M'], 'toggleVolume'],
+      [['M'], 'toggleMute'],
       [['R'], 'setRepeat'],
       [['S'], 'toggleShuffle'],
     ])('when %s key is pressed', (keys, event, arg = undefined) => {
