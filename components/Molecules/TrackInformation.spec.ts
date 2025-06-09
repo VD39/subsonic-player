@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import GenreList from '@/components/Atoms/GenreList.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
-import { mount } from '@vue/test-utils';
 
 import TrackInformation from './TrackInformation.vue';
 

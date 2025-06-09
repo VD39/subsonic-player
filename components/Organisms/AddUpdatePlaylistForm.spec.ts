@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import InputField from '@/components/Atoms/InputField.vue';
 import SubmitButton from '@/components/Molecules/SubmitButton.vue';
 import { formattedPlaylistMock } from '@/test/fixtures';
-import { mount } from '@vue/test-utils';
 
 import AddUpdatePlaylistForm from './AddUpdatePlaylistForm.vue';
 

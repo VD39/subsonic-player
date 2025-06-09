@@ -1,8 +1,9 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import type { DataMock } from '@/test/types';
 
 import { COOKIE_MOCK } from '@/test/fixtures';
 import { withSetup } from '@/test/withSetup';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAuth } from './index';
 

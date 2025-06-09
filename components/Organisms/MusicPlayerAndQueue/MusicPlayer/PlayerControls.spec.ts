@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mount } from '@vue/test-utils';
 
 import PlayerControls from './PlayerControls.vue';
 

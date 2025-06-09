@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
+
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import MediaInformation from './MediaInformation.vue';
 

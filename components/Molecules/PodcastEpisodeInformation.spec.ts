@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 import { mount } from '@vue/test-utils';
+
+import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 
 import PodcastEpisodeInformation from './PodcastEpisodeInformation.vue';
 

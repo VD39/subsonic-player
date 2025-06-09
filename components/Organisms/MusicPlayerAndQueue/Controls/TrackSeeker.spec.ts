@@ -1,8 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import InputRange from '@/components/Atoms/InputRange.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mount } from '@vue/test-utils';
 
 import TrackSeeker from './TrackSeeker.vue';
 

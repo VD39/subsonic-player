@@ -1,8 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ImageLink from '@/components/Organisms/ImageLink.vue';
 import { formattedPodcastMock } from '@/test/fixtures';
-import { mount } from '@vue/test-utils';
 
 import PodcastItem from './PodcastItem.vue';
 

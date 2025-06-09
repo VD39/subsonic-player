@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mount } from '@vue/test-utils';
 
 import PlayPauseButton from './PlayPauseButton.vue';
 

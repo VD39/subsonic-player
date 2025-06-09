@@ -1,10 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount, RouterLinkStub } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
-import { mount, RouterLinkStub } from '@vue/test-utils';
 
 import FilesList from './FilesList.vue';
 

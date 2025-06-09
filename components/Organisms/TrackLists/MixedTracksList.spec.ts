@@ -1,5 +1,7 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
@@ -9,7 +11,6 @@ import {
   getFormattedPodcastEpisodesMock,
   getFormattedTracksMock,
 } from '@/test/helpers';
-import { mount } from '@vue/test-utils';
 
 import MixedTracksList from './MixedTracksList.vue';
 

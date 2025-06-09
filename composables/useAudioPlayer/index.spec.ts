@@ -1,6 +1,7 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { withSetup } from '@/test/withSetup';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAudioPlayer } from './index';
 

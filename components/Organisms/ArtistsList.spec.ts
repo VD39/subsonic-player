@@ -1,10 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 import { getFormattedArtistsMock } from '@/test/helpers';
-import { mount } from '@vue/test-utils';
 
 import ArtistsList from './ArtistsList.vue';
 

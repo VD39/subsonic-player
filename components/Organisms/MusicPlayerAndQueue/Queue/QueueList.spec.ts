@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
+
+import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import QueueList from './QueueList.vue';
 

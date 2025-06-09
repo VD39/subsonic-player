@@ -1,10 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { mount } from '@vue/test-utils';
+
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import { getFormattedAlbumsMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
 
 import AlbumItem from './AlbumItem.vue';
 

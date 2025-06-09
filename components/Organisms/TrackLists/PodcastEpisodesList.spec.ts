@@ -1,12 +1,13 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
-import { mount } from '@vue/test-utils';
 
 import PodcastEpisodesList from './PodcastEpisodesList.vue';
 

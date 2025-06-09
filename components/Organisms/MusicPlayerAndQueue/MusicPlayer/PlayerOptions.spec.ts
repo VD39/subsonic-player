@@ -1,10 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import MediaInformation from '@/components/Organisms/MusicPlayerAndQueue/Controls/MediaInformation.vue';
 import PlaybackRateButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/PlaybackRateButton.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mount } from '@vue/test-utils';
 
 import PlayerOptions from './PlayerOptions.vue';
 

@@ -1,6 +1,6 @@
-import type { DataMock } from '@/test/types';
-
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import type { DataMock } from '@/test/types';
 
 import { useGenre } from './index';
 

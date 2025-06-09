@@ -1,5 +1,6 @@
-import { routeMock } from '@/test/fixtures';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import { routeMock } from '@/test/fixtures';
 
 import playlistMiddleware from './playlist';
 

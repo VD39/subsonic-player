@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import MessageBar from '@/components/Atoms/MessageBar.vue';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
+
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import MessageBar from '@/components/Atoms/MessageBar.vue';
 
 import SnackBar from './SnackBar.vue';
 

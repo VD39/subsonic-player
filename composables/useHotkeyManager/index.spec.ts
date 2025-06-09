@@ -1,6 +1,7 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { withSetup } from '@/test/withSetup';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useHotkeyManager } from './index';
 

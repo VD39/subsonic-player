@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import DefaultImage from '@/components/Atoms/IconImage.vue';
 import { mount } from '@vue/test-utils';
+
+import DefaultImage from '@/components/Atoms/IconImage.vue';
 
 import PreloadImage from './PreloadImage.vue';
 

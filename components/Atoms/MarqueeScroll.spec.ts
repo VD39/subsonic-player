@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 import { mount } from '@vue/test-utils';
+
+import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
 import MarqueeScroll from './MarqueeScroll.vue';
 

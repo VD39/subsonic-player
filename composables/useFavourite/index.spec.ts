@@ -1,7 +1,8 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import type { DataMock } from '@/test/types';
 
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useFavourite } from './index';
 

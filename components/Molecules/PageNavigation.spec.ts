@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import { mount, RouterLinkStub } from '@vue/test-utils';
+
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 import PageNavigation from './PageNavigation.vue';
 

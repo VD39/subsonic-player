@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import InputField from '@/components/Atoms/InputField.vue';
 import { mount } from '@vue/test-utils';
+
+import InputField from '@/components/Atoms/InputField.vue';
 
 import SearchForm from './SearchForm.vue';
 

@@ -1,8 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import MessageBar from '@/components/Atoms/MessageBar.vue';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
+
+import MessageBar from '@/components/Atoms/MessageBar.vue';
 
 import LoginForm from './LoginForm.vue';
 

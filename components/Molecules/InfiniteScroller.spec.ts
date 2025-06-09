@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
-import { mount } from '@vue/test-utils';
 
 import InfiniteScroller from './InfiniteScroller.vue';
 

@@ -1,8 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import SubmitButton from '@/components/Molecules/SubmitButton.vue';
 import { formattedRadioStationMock } from '@/test/fixtures';
-import { mount } from '@vue/test-utils';
 
 import AddUpdateRadioStationForm from './AddUpdateRadioStationForm.vue';
 

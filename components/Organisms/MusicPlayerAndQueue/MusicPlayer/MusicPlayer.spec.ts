@@ -1,9 +1,10 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mount } from '@vue/test-utils';
 
 import MusicPlayer from './MusicPlayer.vue';
 

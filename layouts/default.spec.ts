@@ -1,12 +1,13 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import SearchForm from '@/components/Molecules/SearchForm.vue';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
 
 import DefaultLayout from './default.vue';
 

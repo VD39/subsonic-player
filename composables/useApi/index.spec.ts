@@ -1,5 +1,6 @@
-import { COOKIE_MOCK } from '@/test/fixtures';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import { COOKIE_MOCK } from '@/test/fixtures';
 
 import { useAPI } from './index';
 

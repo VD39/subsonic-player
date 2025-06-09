@@ -1,11 +1,12 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import {
   getFormattedBookmarksMock,
   getFormattedPodcastEpisodesMock,
   getFormattedQueueTracksMock,
 } from '@/test/helpers';
-import { mount } from '@vue/test-utils';
 
 import TrackMeta from './TrackMeta.vue';
 

@@ -1,6 +1,7 @@
-import { routeMock } from '@/test/fixtures';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { flushPromises } from '@vue/test-utils';
+
+import { routeMock } from '@/test/fixtures';
 
 import appGlobalMiddleware from './app.global';
 

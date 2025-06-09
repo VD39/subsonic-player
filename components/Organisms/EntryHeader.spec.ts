@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 import { mount } from '@vue/test-utils';
+
+import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 import EntryHeader from './EntryHeader.vue';
 

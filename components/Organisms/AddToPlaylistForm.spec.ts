@@ -1,10 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputField from '@/components/Atoms/InputField.vue';
 import { getFormattedPlaylistsMock } from '@/test/helpers';
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
 
 import AddToPlaylistForm from './AddToPlaylistForm.vue';
 

@@ -1,10 +1,11 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { mount } from '@vue/test-utils';
 
 import PlaybackRateButton from './PlaybackRateButton.vue';
 

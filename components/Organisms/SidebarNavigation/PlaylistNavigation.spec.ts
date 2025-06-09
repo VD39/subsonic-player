@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { getFormattedPlaylistsMock } from '@/test/helpers';
 import { mount } from '@vue/test-utils';
+
+import { getFormattedPlaylistsMock } from '@/test/helpers';
 
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PlaylistItems from './PlaylistNavigation.vue';

@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { formattedArtistMock } from '@/test/fixtures';
 import { mount } from '@vue/test-utils';
+
+import { formattedArtistMock } from '@/test/fixtures';
 
 import ArtistItem from './ArtistItem.vue';
 

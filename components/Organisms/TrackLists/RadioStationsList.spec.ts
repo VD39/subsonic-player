@@ -1,11 +1,12 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mount } from '@vue/test-utils';
+
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedRadioStationMock } from '@/test/helpers';
-import { mount } from '@vue/test-utils';
 
 import RadioStationsList from './RadioStationsList.vue';
 

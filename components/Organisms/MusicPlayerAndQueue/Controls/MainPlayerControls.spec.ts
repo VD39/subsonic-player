@@ -1,7 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { mount } from '@vue/test-utils';
+
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import MainPlayerControls from './MainPlayerControls.vue';
 
