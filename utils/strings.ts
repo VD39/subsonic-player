@@ -2,7 +2,18 @@ export function convertToTitleCase(str: string) {
   return str
     .toLowerCase()
     .split(' ')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => {
+      let i = 0;
+
+      while (i < part.length && !/[a-z]/i.test(part[i])) {
+        i++;
+      }
+
+      return (
+        part.slice(0, i) +
+        part.slice(i).replace(/\b\w/g, (c) => c.toUpperCase())
+      );
+    })
     .join(' ');
 }
 

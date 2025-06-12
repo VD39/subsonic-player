@@ -85,6 +85,11 @@ describe('convertToTitleCase', () => {
     ['Title Case', 'Title Case'],
     ['all lowercase', 'All Lowercase'],
     ['ALL UPPERCASE', 'All Uppercase'],
+    ['(Title) !Case', '(Title) !Case'],
+    ['+all+ -lowercase', '+All+ -Lowercase'],
+    ['!ALL /UPPERCASE/', '!All /Uppercase/'],
+    ['^all 23lowercase44', '^All 23Lowercase44'],
+    ['$ALL $$UPPERCASE', '$All $$Uppercase'],
   ])('when is string %s', (input, output) => {
     it('returns correct value', () => {
       expect(convertToTitleCase(input)).toBe(output);
