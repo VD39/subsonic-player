@@ -2,7 +2,7 @@
 
 exports[`ArtistsList > matches the snapshot 1`] = `
 "<ul class="commaList">
-  <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-  <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+  <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+  <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
 </ul>"
 `;

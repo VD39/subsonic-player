@@ -21,6 +21,7 @@ const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
+const { onDragStart } = useDragAndDrop();
 
 const { data: albumData, status } = useAsyncData(
   route.fullPath,
@@ -42,6 +43,10 @@ const { data: albumData, status } = useAsyncData(
   },
 );
 
+function dragItem(event: DragEvent) {
+  onDragStart(albumData.value.album!, event);
+}
+
 function playTrack(index: number) {
   playTracks(albumData.value.album!.tracks, index - 1);
 }
@@ -53,11 +58,12 @@ useHead({
 </script>
 
 <template>
-  <LoadingData :status="status">
+  <LoadingData :status>
     <div v-if="albumData.album">
       <EntryHeader
         :images="[albumData.album.image]"
         :title="albumData.album.name"
+        @dragStart="dragItem"
       >
         <ArtistsList
           v-if="albumData.album.artists.length"
@@ -138,12 +144,13 @@ useHead({
         </h3>
 
         <AlbumTracksList
-          :tracks="tracks"
-          @add-to-playlist="addToPlaylistModal"
-          @add-to-queue="addTrackToQueue"
-          @download-media="downloadMedia"
-          @media-information="openTrackInformationModal"
-          @play-track="playTrack"
+          :tracks
+          @addToPlaylist="addToPlaylistModal"
+          @addToQueue="addTrackToQueue"
+          @downloadMedia="downloadMedia"
+          @dragStart="onDragStart"
+          @mediaInformation="openTrackInformationModal"
+          @playTrack="playTrack"
         />
       </template>
     </div>

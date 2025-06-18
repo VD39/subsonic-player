@@ -2,12 +2,30 @@
 
 exports[`EntryHeader > matches the snapshot 1`] = `
 "<div class="entryHeader">
-  <div class="centerAll preloadImage backgroundImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
+  <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image" style="display: none;"></div>
   <div class="blur"></div>
 </div>
 <section class="mBXL content">
-  <figure class="figure">
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
+  <figure class="figure" draggable="false">
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image" style="display: none;"></div>
+  </figure>
+  <div class="mBAllM detailsWrapper">
+    <div class="centerItems spaceBetween">
+      <h1>title</h1>
+      <div class="centerItems">Actions slot content.</div>
+    </div>Default slot content.
+  </div>
+</section>"
+`;
+
+exports[`EntryHeader > when the onDragStart event is attached > matches the snapshot 1`] = `
+"<div class="entryHeader">
+  <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image" style="display: none;"></div>
+  <div class="blur"></div>
+</div>
+<section class="mBXL content">
+  <figure class="figure" draggable="false">
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image" style="display: none;"></div>
   </figure>
   <div class="mBAllM detailsWrapper">
     <div class="centerItems spaceBetween">
@@ -20,14 +38,14 @@ exports[`EntryHeader > matches the snapshot 1`] = `
 
 exports[`EntryHeader > when there are three images > matches the snapshot 1`] = `
 "<div class="entryHeader">
-  <div class="centerAll preloadImage backgroundImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
+  <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image" style="display: none;"></div>
   <div class="blur"></div>
 </div>
 <section class="mBXL content">
-  <figure class="figure">
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image" style="display: none;"></div>
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image1" style="display: none;"></div>
-    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" src="image2" style="display: none;"></div>
+  <figure class="figure" draggable="false">
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image" style="display: none;"></div>
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image1" style="display: none;"></div>
+    <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image2" style="display: none;"></div>
   </figure>
   <div class="mBAllM detailsWrapper">
     <div class="centerItems spaceBetween">

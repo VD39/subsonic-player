@@ -111,6 +111,7 @@ const ALL_MOCKS = {
   toggleQueuePlayer: toggleQueuePlayerMock,
   toggleShuffle: toggleShuffleMock,
 };
+
 describe('useHotkeyManager', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useHotkeyManager>>>;
 

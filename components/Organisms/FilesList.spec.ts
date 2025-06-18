@@ -140,59 +140,43 @@ describe('FilesList', () => {
       expect(wrapper.find({ ref: 'noFoldersFiles' }).exists()).toBe(false);
     });
 
+    describe.each([
+      [
+        'add to playlist DropdownItem',
+        'addToPlaylist',
+        'addToPlaylist',
+        [tracks[0].id],
+      ],
+      [
+        'media information DropdownItem',
+        'mediaInformation',
+        'mediaInformation',
+        [tracks[0]],
+      ],
+      [
+        'download media DropdownItem',
+        'downloadMedia',
+        'downloadMedia',
+        [tracks[0].id],
+      ],
+      ['add to queue DropdownItem', 'addToQueue', 'addToQueue', [tracks[0]]],
+      ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName, expectedArgs) => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('click');
+        });
+
+        it(`emits the ${emitEventName} event with the correct value`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        });
+      },
+    );
+
     describe('when the TrackPlayPause component emits the playTrack event', () => {
       beforeEach(() => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
-      });
-
-      it('emits the playTrack event with track', () => {
-        expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-      });
-    });
-
-    describe('when the add to playlist DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
-      });
-
-      it('emits the addToPlaylist event with track id', () => {
-        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id]]);
-      });
-    });
-
-    describe('when the media information DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'mediaInformation' }).vm.$emit('click');
-      });
-
-      it('emits the addToPlaylist event with track', () => {
-        expect(wrapper.emitted('mediaInformation')).toEqual([[tracks[0]]]);
-      });
-    });
-
-    describe('when the download media DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
-      });
-
-      it('emits the downloadMedia event with track id', () => {
-        expect(wrapper.emitted('downloadMedia')).toEqual([[tracks[0].id]]);
-      });
-    });
-
-    describe('when the add to queue DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
-      });
-
-      it('emits the addToQueue event with track', () => {
-        expect(wrapper.emitted('addToQueue')).toEqual([[tracks[0]]]);
-      });
-    });
-
-    describe('when the play track DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'playTrack' }).vm.$emit('click');
       });
 
       it('emits the playTrack event with track', () => {

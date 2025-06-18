@@ -16,8 +16,8 @@ defineProps<{
             <ButtonLink
               is="nuxt-link"
               class="link pageLink"
-              exact-active-class="pageCurrentLink"
-              show-text
+              exactActiveClass="pageCurrentLink"
+              showText
               :to="path"
             >
               {{ name }}

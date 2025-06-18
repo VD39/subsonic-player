@@ -4,28 +4,44 @@ exports[`PlaylistItems > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
-    <ul></ul>
+    <ul>
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-0">
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
+        </a></li>
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-1">
+          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
+        </a></li>
+    </ul>
   </li>
-  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
       <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
     </button></li>
 </ul>"
 `;
 
-exports[`PlaylistItems > when playlist value returns playlists > matches the snapshot 1`] = `
+exports[`PlaylistItems > when playlist id is random > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
     <ul>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-0">
+      <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-0">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
-        </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-1">
-          <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
         </a></li>
     </ul>
   </li>
-  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
+      <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
+    </button></li>
+</ul>"
+`;
+
+exports[`PlaylistItems > when playlist value is an empty array > matches the snapshot 1`] = `
+"<ul class="mBM">
+  <li>
+    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <ul></ul>
+  </li>
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
       <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
     </button></li>
 </ul>"
@@ -36,33 +52,33 @@ exports[`PlaylistItems > when playlist value returns playlists > when playlist v
   <li>
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
     <ul>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-0">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-0">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-1">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-1">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-1</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-2">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-2">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-2</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-3">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-3">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-3</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-4">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-4">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-4</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-5">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-5">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-5</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-6">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-6">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-6</span>
         </a></li>
-      <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="playlist-7">
+      <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-7">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-7</span>
         </a></li>
     </ul>
   </li>
-  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+  <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
       <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
     </button></li>
 </ul>"

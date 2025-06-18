@@ -99,8 +99,6 @@ async function onFormSubmit() {
       <p class="sentenceCase">{{ error }}</p>
     </MessageBar>
 
-    <SubmitButton class="formButton" full-width :loading="loading">
-      Login
-    </SubmitButton>
+    <SubmitButton class="formButton" fullWidth :loading> Login </SubmitButton>
   </form>
 </template>

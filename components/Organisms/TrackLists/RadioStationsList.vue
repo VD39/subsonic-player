@@ -38,16 +38,16 @@ const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
         <div>
           <TrackPlayPause
             :image="radioStation.image"
-            :track-id="radioStation.id"
-            :track-number="index + 1"
-            @play-track="$emit('playRadioStation', radioStation)"
+            :trackId="radioStation.id"
+            :trackNumber="index + 1"
+            @playTrack="$emit('playRadioStation', radioStation)"
           />
 
           <MarqueeScroll>
             <LinkOrText
               is="a"
               class="noTouchEvents"
-              :is-link="!!radioStation.homePageUrl"
+              :isLink="!!radioStation.homePageUrl"
               target="_blank"
               :text="radioStation.name"
               :to="radioStation.homePageUrl"

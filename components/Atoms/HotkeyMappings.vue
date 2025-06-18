@@ -27,7 +27,7 @@ defineProps<{
             <p class="visuallyHidden">{{ mapping.helpText }}</p>
 
             <div :class="$style.keys" :title="mapping.helpText">
-              <code v-for="key in mapping.keys" :key="key" :class="$style.key">
+              <code v-for="key in mapping.keys" :key :class="$style.key">
                 {{ key }}
               </code>
             </div>

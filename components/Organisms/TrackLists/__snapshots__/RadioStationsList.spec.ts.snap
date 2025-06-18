@@ -17,8 +17,9 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -30,25 +31,25 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
       </div>
     </div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" href="homepageUrl" target="_blank">
+            <li class="dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" href="homepageUrl" target="_blank">
                 <!--v-if--><span class="clamp text"> Visit station </span>
               </a></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Edit station </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Delete station </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play station </span>
               </button></li>
           </ul>
@@ -60,8 +61,9 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">2</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -73,7 +75,7 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
       </div>
     </div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -84,8 +86,9 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">3</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -97,7 +100,7 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
       </div>
     </div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -108,8 +111,9 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">4</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -121,7 +125,7 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
       </div>
     </div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -132,8 +136,9 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">5</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -145,7 +150,7 @@ exports[`RadioStationsList > when radioStations prop is not an empty array > mat
       </div>
     </div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->

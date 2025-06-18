@@ -187,7 +187,7 @@ onUnmounted(() => {
         :class="['mBS', 'strong', 'smallFont', $style.tooltip]"
         :style="{ left: `${hoverProgress}px` }"
       >
-        <slot :pending-value="hoverValue" />
+        <slot :pendingValue="hoverValue" />
       </div>
     </div>
   </div>

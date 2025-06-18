@@ -51,9 +51,9 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
         <div>
           <TrackPlayPause
             :image="bookmark.image"
-            :track-id="bookmark.id"
-            :track-number="bookmark.trackNumber"
-            @play-track="$emit('playTrack', index)"
+            :trackId="bookmark.id"
+            :trackNumber="bookmark.trackNumber"
+            @playTrack="$emit('playTrack', index)"
           />
 
           <TrackMeta class="trackMeta" :track="bookmark" />
@@ -66,7 +66,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
           ref="podcastNameMarqueeScroll"
         >
           <LinkOrText
-            :is-link="!!bookmark.podcastId"
+            :isLink="!!bookmark.podcastId"
             :text="bookmark.podcastName"
             :to="{
               name: ROUTE_NAMES.podcast,
@@ -135,8 +135,8 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
         <ButtonLink
           ref="removeButton"
           icon="PhX"
-          icon-size="small"
-          icon-weight="bold"
+          iconSize="small"
+          iconWeight="bold"
           title="Remove track from bookmarks"
           @click="$emit('remove', bookmark.id)"
         >

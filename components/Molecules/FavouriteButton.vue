@@ -43,8 +43,8 @@ watch(
 <template>
   <ButtonLink
     :icon="ICONS.favourite"
-    :icon-color="buttonProps.iconColor"
-    :icon-weight="buttonProps.iconWeight"
+    :iconColor="buttonProps.iconColor"
+    :iconWeight="buttonProps.iconWeight"
     :title="buttonProps.text"
     @click="toggleCurrentFavourite"
   >

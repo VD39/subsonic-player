@@ -11,7 +11,7 @@ exports[`ModalWindow > when modal values are set > matches the snapshot 1`] = `
   <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll fade-enter-from fade-enter-active" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
-        <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
             <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
@@ -28,7 +28,7 @@ exports[`ModalWindow > when modal values are set > when modal container is click
   <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll fade-leave-from fade-leave-active" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
-        <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
             <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
@@ -46,7 +46,7 @@ exports[`ModalWindow > when modal values are set > when modal content is clicked
   <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
-        <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
             <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
@@ -63,7 +63,7 @@ exports[`ModalWindow > when modal values are set > when the ButtonLink component
   <div aria-labelledby="modal-title" aria-modal="true" class="fullscreen centerAll fade-enter-from fade-leave-from fade-leave-active" role="dialog">
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
-        <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
             <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
@@ -82,7 +82,7 @@ exports[`ModalWindow > when modal values are set > when title is set > matches t
     <div class="modalContent" role="document">
       <div class="centerItems spaceBetween headerWithAction">
         <h3 class="title">Title</h3>
-        <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Close modal">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
             <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>

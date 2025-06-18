@@ -1,5 +1,3 @@
-const DURATION = 10000;
-
 export function useSnack() {
   const snacks = useState<Snack[]>(STATE_NAMES.snacks, () => []);
 
@@ -10,7 +8,7 @@ export function useSnack() {
     if (import.meta.client && snackData.auto) {
       timer = setTimeout(() => {
         removeSnack(id);
-      }, DURATION);
+      }, SNACK_ALIVE_DURATION);
     }
 
     snacks.value.push({

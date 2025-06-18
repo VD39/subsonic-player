@@ -14,6 +14,7 @@ defineProps<{
       <NuxtLink
         :aria-label="`View all albums with ${genre.name} genre`"
         class="link"
+        draggable="false"
         :to="{
           name: ROUTE_NAMES.genre,
           params: {

@@ -21,6 +21,7 @@ const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { onDragStart } = useDragAndDrop();
 
 const { data: artistData, status } = getArtist(
   route.params[ROUTE_PARAM_KEYS.artist.id] as string,
@@ -47,12 +48,12 @@ useHead({
 </script>
 
 <template>
-  <LoadingData :status="status">
+  <LoadingData :status>
     <div v-if="artistData">
       <EntryHeader :images="[artistData.image]" :title="artistData.name">
         <TextClamp
           v-if="artistData.biography"
-          :max-lines="2"
+          :maxLines="2"
           :text="artistData.biography"
           @more="openArtistBiographyModal"
         />
@@ -102,18 +103,23 @@ useHead({
 
       <h2>Albums</h2>
 
-      <AlbumsList :albums="artistData.albums" hide-artist />
+      <AlbumsList
+        :albums="artistData.albums"
+        hideArtist
+        @dragStart="onDragStart"
+      />
 
       <template v-if="artistData.topTracks.length">
         <h2>Top Tracks</h2>
 
         <TracksList
           :tracks="artistData.topTracks"
-          @add-to-playlist="addToPlaylistModal"
-          @add-to-queue="addTrackToQueue"
-          @download-media="downloadMedia"
-          @media-information="openTrackInformationModal"
-          @play-track="playTopTracksTrack"
+          @addToPlaylist="addToPlaylistModal"
+          @addToQueue="addTrackToQueue"
+          @downloadMedia="downloadMedia"
+          @dragStart="onDragStart"
+          @mediaInformation="openTrackInformationModal"
+          @playTrack="playTopTracksTrack"
         />
       </template>
 
@@ -122,11 +128,12 @@ useHead({
 
         <TracksList
           :tracks="artistData.similarTracks"
-          @add-to-playlist="addToPlaylistModal"
-          @add-to-queue="addTrackToQueue"
-          @download-media="downloadMedia"
-          @media-information="openTrackInformationModal"
-          @play-track="playSimilarTracksTrack"
+          @addToPlaylist="addToPlaylistModal"
+          @addToQueue="addTrackToQueue"
+          @downloadMedia="downloadMedia"
+          @dragStart="onDragStart"
+          @mediaInformation="openTrackInformationModal"
+          @playTrack="playSimilarTracksTrack"
         />
       </template>
 

@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import { getFormattedPlaylistsMock } from '@/test/helpers';
@@ -7,11 +8,19 @@ import { getFormattedPlaylistsMock } from '@/test/helpers';
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PlaylistItems from './PlaylistNavigation.vue';
 
+const onDropMock = vi.fn();
+
+mockNuxtImport('useDragAndDrop', () => () => ({
+  onDrop: onDropMock,
+}));
+
+const playlists = getFormattedPlaylistsMock(2);
+
 function factory(props = {}) {
   return mount(PlaylistItems, {
     props: {
       collapsed: false,
-      playlists: [],
+      playlists,
       ...props,
     },
   });
@@ -28,16 +37,10 @@ describe('PlaylistItems', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when playlist value returns null', () => {
-    it('does not show the SubNavigationItem component', () => {
-      expect(wrapper.findComponent(SubNavigationItem).exists()).toBe(false);
-    });
-  });
-
-  describe('when playlist value returns playlists', () => {
+  describe('when playlist value is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
-        playlists: getFormattedPlaylistsMock(2),
+        playlists: [],
       });
     });
 
@@ -45,6 +48,12 @@ describe('PlaylistItems', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
+    it('does not show the SubNavigationItem component', () => {
+      expect(wrapper.findComponent(SubNavigationItem).exists()).toBe(false);
+    });
+  });
+
+  describe('when playlist value returns playlists', () => {
     describe(`when playlist value returned is less than ${PREVIEW_PLAYLIST_COUNT}`, () => {
       it('shows the correct number of the SubNavigationItem component', () => {
         expect(wrapper.findAllComponents(SubNavigationItem).length).toBe(2);
@@ -67,6 +76,50 @@ describe('PlaylistItems', () => {
           PREVIEW_PLAYLIST_COUNT,
         );
       });
+    });
+  });
+
+  describe(`when playlist id is not ${RANDOM_PLAYLIST.id}`, () => {
+    it(`adds the ${DRAG_AND_DROP_CLASS_NAMES.isDroppable} class to the SubNavigationItem component`, () => {
+      expect(wrapper.findComponent(SubNavigationItem).classes()).toContain(
+        DRAG_AND_DROP_CLASS_NAMES.isDroppable,
+      );
+    });
+  });
+
+  describe(`when playlist id is ${RANDOM_PLAYLIST.id}`, () => {
+    beforeEach(() => {
+      wrapper = factory({
+        playlists: [
+          {
+            ...getFormattedPlaylistsMock(1)[0],
+            id: RANDOM_PLAYLIST.id,
+          },
+        ],
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it(`does not add the ${DRAG_AND_DROP_CLASS_NAMES.isDroppable} class to the SubNavigationItem component`, () => {
+      expect(wrapper.findComponent(SubNavigationItem).classes()).not.toContain(
+        DRAG_AND_DROP_CLASS_NAMES.isDroppable,
+      );
+    });
+  });
+
+  describe('when the SubNavigationItem component calls the drop action', () => {
+    beforeEach(async () => {
+      await wrapper.findComponent(SubNavigationItem).trigger('drop');
+    });
+
+    it('calls the onDrop function', () => {
+      expect(onDropMock).toHaveBeenCalledWith(
+        playlists[0].id,
+        expect.any(DragEvent),
+      );
     });
   });
 

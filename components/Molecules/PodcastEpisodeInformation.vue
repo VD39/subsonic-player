@@ -25,7 +25,7 @@ const downloadedIcon = computed(() =>
 
       <div class="trackCell">
         <LinkOrText
-          :is-link="!!podcastEpisode.podcastId"
+          :isLink="!!podcastEpisode.podcastId"
           :text="podcastEpisode.podcastName"
           :to="{
             name: ROUTE_NAMES.podcast,

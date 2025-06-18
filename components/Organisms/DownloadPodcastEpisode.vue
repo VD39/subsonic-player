@@ -13,7 +13,7 @@ defineEmits<{
 
 <template>
   <div :class="['overlapWrapper', $style.downloadPodcastEpisode]">
-    <PreloadImage class="overlap" :image="image" />
+    <PreloadImage class="overlap" :image />
 
     <ButtonLink
       :class="['overlap', $style.buttonLink]"

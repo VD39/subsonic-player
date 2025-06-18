@@ -18,6 +18,7 @@ defineEmits<{
   deleteEpisode: [value: string];
   downloadEpisode: [value: string];
   downloadMedia: [value: string];
+  dragStart: [track: PodcastEpisode, event: DragEvent];
   episodeInformation: [value: PodcastEpisode];
   playEpisode: [value: PodcastEpisode];
 }>();
@@ -37,13 +38,15 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
       :key="episode.id"
       class="trackRow trackBorder spaceBetween"
       data-test-id="track"
+      :draggable="episode.downloaded"
+      @dragstart="$emit('dragStart', episode, $event)"
     >
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <DownloadPodcastEpisode
             v-if="!episode.downloaded"
             :image="episode.image"
-            @download-episode="$emit('downloadEpisode', episode.id)"
+            @downloadEpisode="$emit('downloadEpisode', episode.id)"
           />
 
           <TrackPlayPause
@@ -51,9 +54,9 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
             :class="$style.trackPlayPause"
             :image="episode.image"
             large
-            :track-id="episode.id"
-            :track-number="index + 1"
-            @play-track="$emit('playEpisode', episode)"
+            :trackId="episode.id"
+            :trackNumber="index + 1"
+            @playTrack="$emit('playEpisode', episode)"
           />
 
           <div :class="$style.column">

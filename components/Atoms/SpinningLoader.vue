@@ -15,7 +15,7 @@ withDefaults(
       :is="ICONS.spinner"
       ref="spinnerIcon"
       :class="$style.icon"
-      :size="size"
+      :size
     />
 
     <span class="visuallyHidden">Loading...</span>

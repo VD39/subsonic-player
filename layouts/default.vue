@@ -62,7 +62,7 @@ const showPageNavigation = computed(() =>
 
           <div :class="$style.secondaryItem">
             <DropdownMenu
-              show-text
+              showText
               :text="user.username!"
               title="View account details"
             >
@@ -134,7 +134,7 @@ const showPageNavigation = computed(() =>
       <transition name="slide-up-down">
         <HotkeyMappings
           v-if="isHotkeyListOpened"
-          :key-mappings="HOTKEYS_MAPPINGS"
+          :keyMappings="HOTKEYS_MAPPINGS"
         />
       </transition>
     </footer>

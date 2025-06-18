@@ -26,6 +26,7 @@ const toLink = {
       <NuxtLink
         :aria-label="`Go to artist ${artist.name}`"
         class="link"
+        draggable="false"
         :to="toLink"
       >
         {{ artist.name }}

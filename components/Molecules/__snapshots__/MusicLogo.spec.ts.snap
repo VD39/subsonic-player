@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MusicLogo > matches the snapshot 1`] = `
-"<a class="centerItems buttonLink" title="Home">
+"<a class="centerItems buttonLink" draggable="false" title="Home">
   <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
 </a>"
 `;

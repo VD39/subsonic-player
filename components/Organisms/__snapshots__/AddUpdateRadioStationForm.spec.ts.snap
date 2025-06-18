@@ -14,7 +14,7 @@ exports[`AddUpdateRadioStationForm > matches the snapshot 1`] = `
       </label><input id="homepageUrl" autocomplete="off" class="input" placeholder="Enter radio station homepage URL" type="text">
       <!--v-if-->
     </div>
-  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
+  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text">Add radio station </span>
   </button>
 </form>"
@@ -34,7 +34,7 @@ exports[`AddUpdateRadioStationForm > when form is valid > matches the snapshot 1
       </label><input id="homepageUrl" autocomplete="off" class="input" placeholder="Enter radio station homepage URL" type="text">
       <!--v-if-->
     </div>
-  </div><button class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" type="submit" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
+  </div><button class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" draggable="false" type="submit" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add radio station </span></button>
 </form>"
 `;
 
@@ -52,7 +52,7 @@ exports[`AddUpdateRadioStationForm > when radioStation prop is set > matches the
       </label><input id="homepageUrl" autocomplete="off" class="input" placeholder="Enter radio station homepage URL" type="text">
       <!--v-if-->
     </div>
-  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
+  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text">Update radio station </span>
   </button>
 </form>"

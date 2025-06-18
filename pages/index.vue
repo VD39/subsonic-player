@@ -14,6 +14,7 @@ const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { onDragStart } = useDragAndDrop();
 const { getFrequentAlbums, getNewestAlbums, getRecentAlbums } = useAlbum();
 
 const {
@@ -72,11 +73,11 @@ useHead({
     <h1>Discover</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
     </template>
   </HeaderWithAction>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <template v-if="hasData">
       <template v-if="discoverData.newestAlbums.length">
         <HeaderSeeAllLink
@@ -96,7 +97,11 @@ useHead({
             v-for="album in discoverData.newestAlbums"
             :key="album.name"
           >
-            <AlbumItem :album="album" />
+            <AlbumItem
+              :album
+              draggable="true"
+              @dragstart="onDragStart(album, $event)"
+            />
           </swiper-slide>
         </CarouselSwiper>
       </template>
@@ -119,7 +124,11 @@ useHead({
             v-for="album in discoverData.recentAlbums"
             :key="album.name"
           >
-            <AlbumItem :album="album" />
+            <AlbumItem
+              :album
+              draggable="true"
+              @dragstart="onDragStart(album, $event)"
+            />
           </swiper-slide>
         </CarouselSwiper>
       </template>
@@ -142,7 +151,11 @@ useHead({
             v-for="album in discoverData.frequentAlbums"
             :key="album.name"
           >
-            <AlbumItem :album="album" />
+            <AlbumItem
+              :album
+              draggable="true"
+              @dragstart="onDragStart(album, $event)"
+            />
           </swiper-slide>
         </CarouselSwiper>
       </template>
@@ -162,11 +175,12 @@ useHead({
 
         <TracksList
           :tracks="favourites.tracks.slice(0, PREVIEW_TRACK_COUNT)"
-          @add-to-playlist="addToPlaylistModal"
-          @add-to-queue="addTrackToQueue"
-          @download-media="downloadMedia"
-          @media-information="openTrackInformationModal"
-          @play-track="playTrack"
+          @addToPlaylist="addToPlaylistModal"
+          @addToQueue="addTrackToQueue"
+          @downloadMedia="downloadMedia"
+          @dragStart="onDragStart"
+          @mediaInformation="openTrackInformationModal"
+          @playTrack="playTrack"
         />
       </template>
 
@@ -188,7 +202,11 @@ useHead({
             v-for="album in favourites.albums.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="album.name"
           >
-            <AlbumItem :album="album" />
+            <AlbumItem
+              :album
+              draggable="true"
+              @dragstart="onDragStart(album, $event)"
+            />
           </swiper-slide>
         </CarouselSwiper>
       </template>
@@ -211,7 +229,7 @@ useHead({
             v-for="artist in favourites.artists.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="artist.name"
           >
-            <ArtistItem :artist="artist" />
+            <ArtistItem :artist />
           </swiper-slide>
         </CarouselSwiper>
       </template>

@@ -10,8 +10,8 @@ defineProps<{
 
 <template>
   <figure>
-    <NuxtLink :title="title" :to="to">
-      <PreloadImage :alt="title" :image="image" />
+    <NuxtLink draggable="false" :title :to>
+      <PreloadImage :alt="title" :image />
     </NuxtLink>
   </figure>
 </template>

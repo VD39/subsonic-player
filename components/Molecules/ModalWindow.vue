@@ -31,8 +31,8 @@ const { closeModal, modal } = useModal();
             <template #actions>
               <ButtonLink
                 :icon="ICONS.close"
-                icon-size="large"
-                icon-weight="bold"
+                iconSize="large"
+                iconWeight="bold"
                 title="Close modal"
                 @click="closeModal"
               >

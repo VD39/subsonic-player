@@ -13,6 +13,7 @@ const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { onDragStart } = useDragAndDrop();
 const {
   addPodcastModal,
   deletePodcastEpisode,
@@ -59,11 +60,11 @@ useHead({
     <h1>Podcasts</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
 
       <ButtonLink
         :icon="ICONS.add"
-        icon-size="large"
+        iconSize="large"
         title="Add podcast"
         @click="addPodcastModal"
       >
@@ -72,27 +73,30 @@ useHead({
     </template>
   </HeaderWithAction>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <div v-if="podcasts.length">
       <MediaListWrapper>
         <PodcastItem
           v-for="podcast in podcasts"
           :key="podcast.id"
-          :podcast="podcast"
+          draggable="true"
+          :podcast
+          @dragstart="onDragStart(podcast, $event)"
         />
       </MediaListWrapper>
 
       <h3>Latest Podcast Episodes</h3>
 
       <PodcastEpisodesList
-        :podcast-episodes="newestPodcastEpisodes"
-        @add-to-playlist="addToPlaylistModal"
-        @add-to-queue="addTrackToQueue"
-        @delete-episode="deletePodcastEpisode"
-        @download-episode="downloadPodcastEpisode"
-        @download-media="downloadMedia"
-        @episode-information="openTrackInformationModal"
-        @play-episode="playEpisode"
+        :podcastEpisodes="newestPodcastEpisodes"
+        @addToPlaylist="addToPlaylistModal"
+        @addToQueue="addTrackToQueue"
+        @deleteEpisode="deletePodcastEpisode"
+        @downloadEpisode="downloadPodcastEpisode"
+        @downloadMedia="downloadMedia"
+        @dragStart="onDragStart"
+        @episodeInformation="openTrackInformationModal"
+        @playEpisode="playEpisode"
       />
     </div>
 

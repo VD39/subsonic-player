@@ -23,7 +23,7 @@ defineProps<{
 
       <div class="trackCell">
         <LinkOrText
-          :is-link="!!track.albumId"
+          :isLink="!!track.albumId"
           :text="track.album"
           :to="{
             name: ROUTE_NAMES.album,

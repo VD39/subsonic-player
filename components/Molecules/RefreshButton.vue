@@ -26,7 +26,7 @@ const buttonProps = computed<ButtonProps>(() => {
   <ButtonLink
     :id="HOTKEY_ELEMENT_IDS.refreshDataButton"
     :icon="buttonProps.icon"
-    icon-size="large"
+    iconSize="large"
     :title="buttonProps.text"
     @click="$emit('refresh')"
   >

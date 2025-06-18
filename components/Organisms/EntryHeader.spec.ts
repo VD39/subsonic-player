@@ -6,6 +6,24 @@ import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 import EntryHeader from './EntryHeader.vue';
 
+let onDragStartMock: typeof vi.fn | undefined = undefined;
+
+vi.mock('vue', async () => {
+  const vue = await vi.importActual<typeof import('vue')>('vue');
+
+  return {
+    ...vue,
+    getCurrentInstance: vi.fn(() => ({
+      ...vue.getCurrentInstance(),
+      vnode: {
+        props: {
+          onDragStart: onDragStartMock,
+        },
+      },
+    })),
+  };
+});
+
 function factory(props = {}) {
   return mount(EntryHeader, {
     props: {
@@ -48,6 +66,50 @@ describe('EntryHeader', () => {
 
     it('shows the correct number of PreloadImage components', () => {
       expect(wrapper.findAll('[data-test-id="image"]').length).toBe(3);
+    });
+  });
+
+  describe('when the onDragStart event is not attached', () => {
+    it('sets the correct draggable attribute value on figure element', () => {
+      expect(wrapper.find({ ref: 'figure' }).attributes('draggable')).toBe(
+        'false',
+      );
+    });
+
+    describe('when a track item is dragged', () => {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'figure' }).trigger('dragstart');
+      });
+
+      it('does not emit the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toBe(undefined);
+      });
+    });
+  });
+
+  describe('when the onDragStart event is attached', () => {
+    beforeEach(() => {
+      onDragStartMock = vi.fn();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct draggable attribute value on figure element', () => {
+      expect(wrapper.find({ ref: 'figure' }).attributes('draggable')).toBe(
+        'true',
+      );
+    });
+
+    describe('when a track item is dragged', () => {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'figure' }).trigger('dragstart');
+      });
+
+      it('emits the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toEqual([[expect.any(DragEvent)]]);
+      });
     });
   });
 });

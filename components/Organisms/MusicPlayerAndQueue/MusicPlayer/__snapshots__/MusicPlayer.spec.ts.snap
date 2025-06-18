@@ -4,11 +4,11 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" src="image" style="display: none;"></div>
+      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -22,40 +22,40 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -69,11 +69,11 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -85,11 +85,11 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" src="image" style="display: none;"></div>
+      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -102,32 +102,32 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
         <!--v-if-->
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -141,11 +141,11 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -157,11 +157,11 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" src="image" style="display: none;"></div>
+      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -175,40 +175,40 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -222,11 +222,11 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -238,10 +238,10 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -254,40 +254,40 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -301,11 +301,11 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -317,11 +317,11 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a title="Go to podcast undefined">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" src="image" style="display: none;"></div>
+      <figure class="image"><a draggable="false" title="Go to podcast undefined">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -335,40 +335,40 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -382,11 +382,11 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -398,10 +398,10 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -414,40 +414,40 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -461,11 +461,11 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -477,10 +477,10 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -493,40 +493,40 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -540,11 +540,11 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -556,10 +556,10 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -572,40 +572,40 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -619,11 +619,11 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -635,11 +635,11 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a title="Go to podcast undefined">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" src="image" style="display: none;"></div>
+      <figure class="image"><a draggable="false" title="Go to podcast undefined">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -652,32 +652,32 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
         <!--v-if-->
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -691,11 +691,11 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>
@@ -707,11 +707,11 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
-    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" type="button" title="Open queue">
+    <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" src="image" style="display: none;"></div>
+      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -725,40 +725,40 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
         <!--v-if-->
       </div>
-    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" type="button" title="Play current track">
+    </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" type="button" title="Switch shuffle off">
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
         <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
       </button>
-      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+      <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+        <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
         </button>
-        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+        <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
           <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
         </button>
-      </div><button class="centerItems buttonLink" type="button" title="Turn on repeat all">
+      </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
         <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
       </button>
     </div>
     <div class="centerAll playerOptions desktopOnly playerOptions">
       <p class="smallFont time">00:00 / 02:00</p>
-      <div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+      <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
           <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
         </button>
         <div class="centerItems smallFont volumeInputWrapper">
-          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+          <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
                 <div class="process" style="width: 0px;"></div>
@@ -772,11 +772,11 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
           <p class="visuallyHidden"> Volume at 100% </p>
         </div>
       </div>
-      <!--v-if--><button class="centerItems buttonLink" type="button" title="Media information">
+      <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" type="button" title="Like track">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-      </button><button class="centerItems buttonLink" type="button" title="Open queue">
+      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
     </div>

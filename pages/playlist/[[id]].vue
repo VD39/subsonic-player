@@ -24,6 +24,7 @@ const {
   removeFromPlaylist,
   updatePlaylistModal,
 } = usePlaylist();
+const { onDragStart } = useDragAndDrop();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
@@ -55,6 +56,10 @@ async function deleteSelectedPlaylist() {
   });
 }
 
+function dragItem(event: DragEvent) {
+  onDragStart(playlist.value!, event);
+}
+
 function playTrack(index: number) {
   playTracks(playlist.value!.tracks, index - 1);
 }
@@ -72,11 +77,15 @@ useHead({
 </script>
 
 <template>
-  <LoadingData :status="status">
+  <LoadingData :status>
     <div v-if="playlist">
-      <EntryHeader :images="playlist.images" :title="playlist.name">
+      <EntryHeader
+        :images="playlist.images"
+        :title="playlist.name"
+        @dragStart="dragItem"
+      >
         <template #actions>
-          <RefreshButton :status="status" @refresh="refresh" />
+          <RefreshButton :status @refresh="refresh" />
         </template>
 
         <ul class="bulletList">
@@ -135,13 +144,14 @@ useHead({
       </EntryHeader>
 
       <MixedTracksList
-        :hide-remove-option="playlist.id === RANDOM_PLAYLIST.id"
+        :hideRemoveOption="playlist.id === RANDOM_PLAYLIST.id"
         :tracks="playlist.tracks"
-        @add-to-playlist="addToPlaylistModal"
-        @add-to-queue="addTrackToQueue"
-        @download-media="downloadMedia"
-        @media-information="openTrackInformationModal"
-        @play-track="playTrack"
+        @addToPlaylist="addToPlaylistModal"
+        @addToQueue="addTrackToQueue"
+        @downloadMedia="downloadMedia"
+        @dragStart="onDragStart"
+        @mediaInformation="openTrackInformationModal"
+        @playTrack="playTrack"
         @remove="({ index }) => removeTrackFromPlaylist(index)"
       />
     </div>

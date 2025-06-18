@@ -1,4 +1,4 @@
-export const MOBILE_NAVIGATION = [
+export const MOBILE_NAVIGATION: SidebarItem[] = [
   {
     icon: ICONS.discover,
     title: 'Browse',

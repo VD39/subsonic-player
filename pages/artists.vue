@@ -30,7 +30,7 @@ useHead({
 <template>
   <h1>Artists</h1>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <ArtistsList :artists="artistsData.artists" />
   </LoadingData>
 </template>

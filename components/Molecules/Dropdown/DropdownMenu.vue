@@ -84,10 +84,10 @@ async function toggleDropdown() {
   <div ref="dropdownMenuRef" :class="['centerItems', $style.dropdownMenu]">
     <ButtonLink
       :class="$style.buttonLink"
-      :icon="icon"
-      icon-position="right"
-      :show-text="showText"
-      :title="title"
+      :icon
+      iconPosition="right"
+      :showText
+      :title
       @click="toggleDropdown"
     >
       {{ text }}

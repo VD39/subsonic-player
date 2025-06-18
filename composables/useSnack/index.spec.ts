@@ -157,9 +157,9 @@ describe('useSnack', () => {
       ]);
     });
 
-    describe('when 5 seconds have passed', () => {
+    describe(`when more than ${SNACK_ALIVE_DURATION}ms have passed`, () => {
       beforeEach(() => {
-        vi.advanceTimersByTime(10000);
+        vi.advanceTimersByTime(SNACK_ALIVE_DURATION + 1);
       });
 
       it('clears the snacks value', () => {
@@ -184,9 +184,9 @@ describe('useSnack', () => {
       ]);
     });
 
-    describe('when 5 seconds have passed', () => {
+    describe(`when less than ${SNACK_ALIVE_DURATION}ms have passed`, () => {
       beforeEach(() => {
-        vi.advanceTimersByTime(5000);
+        vi.advanceTimersByTime(SNACK_ALIVE_DURATION - 1);
       });
 
       it('does not clears the snacks value', () => {

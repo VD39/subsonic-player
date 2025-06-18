@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <MediaListWrapper v-if="artists.length">
-    <ArtistItem v-for="artist in artists" :key="artist.id" :artist="artist" />
+    <ArtistItem v-for="artist in artists" :key="artist.id" :artist />
   </MediaListWrapper>
 
   <NoMediaMessage

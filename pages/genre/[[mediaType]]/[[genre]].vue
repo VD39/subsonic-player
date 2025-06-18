@@ -18,6 +18,7 @@ const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
   `${route.params[ROUTE_PARAM_KEYS.genre.genre]}-${route.params[ROUTE_PARAM_KEYS.genre.mediaType]}`,
 );
+const { onDragStart } = useDragAndDrop();
 
 const genre = decodeURIComponent(
   route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
@@ -83,6 +84,7 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="genreData.genreMedia"
+      @dragStart="onDragStart"
     />
 
     <TracksList
@@ -91,17 +93,18 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
       "
       :tracks="genreData.genreMedia"
-      @add-to-playlist="addToPlaylistModal"
-      @add-to-queue="addTrackToQueue"
-      @download-media="downloadMedia"
-      @media-information="openTrackInformationModal"
-      @play-track="playTrack"
+      @addToPlaylist="addToPlaylistModal"
+      @addToQueue="addTrackToQueue"
+      @downloadMedia="downloadMedia"
+      @dragStart="onDragStart"
+      @mediaInformation="openTrackInformationModal"
+      @playTrack="playTrack"
     />
 
     <InfiniteScroller
-      :has-more="hasMore"
+      :hasMore
       :loading="status === 'pending'"
-      @load-more="refresh"
+      @loadMore="refresh"
     />
   </LoadingData>
 </template>

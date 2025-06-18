@@ -13,6 +13,7 @@ const { isBufferingMock, isCurrentTrackMock, isPlayingMock } =
 function factory(props = {}) {
   return mount(TrackPlayPause, {
     props: {
+      image: 'image',
       trackId: 'trackId',
       trackNumber: 1,
       ...props,
@@ -53,24 +54,28 @@ describe('TrackPlayPause', () => {
     });
   });
 
-  describe('when image prop is not set', () => {
-    it('does not add the withImage class to the wrapper element', () => {
-      expect(wrapper.classes()).not.toContain('withImage');
+  describe('when hideImage prop is not set', () => {
+    it('adds the withImage class to the wrapper element', () => {
+      expect(wrapper.classes()).toContain('withImage');
     });
 
-    it('does not show the PreloadImage component', () => {
-      expect(wrapper.findComponent(PreloadImage).exists()).toBe(false);
+    it('adds the visuallyHidden class to the track number element', () => {
+      expect(wrapper.find({ ref: 'trackNumber' }).classes()).toContain(
+        'visuallyHidden',
+      );
     });
 
-    it('shows the track number element', () => {
-      expect(wrapper.find({ ref: 'trackNumber' }).exists()).toBe(true);
+    it('does not add the visuallyHidden class to the PreloadImage component', () => {
+      expect(wrapper.findComponent(PreloadImage).classes()).not.toContain(
+        'visuallyHidden',
+      );
     });
   });
 
-  describe('when image prop is set', () => {
+  describe('when hideImage prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
-        image: 'image',
+        hideImage: true,
       });
     });
 
@@ -78,16 +83,20 @@ describe('TrackPlayPause', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('adds the withImage class to the wrapper element', () => {
-      expect(wrapper.classes()).toContain('withImage');
+    it('does not add the withImage class to the wrapper element', () => {
+      expect(wrapper.classes()).not.toContain('withImage');
     });
 
-    it('shows the PreloadImage component', () => {
-      expect(wrapper.findComponent(PreloadImage).exists()).toBe(true);
+    it('does not add the visuallyHidden class to the track number element', () => {
+      expect(wrapper.find({ ref: 'trackNumber' }).classes()).not.toContain(
+        'visuallyHidden',
+      );
     });
 
-    it('does not show the track number element', () => {
-      expect(wrapper.find({ ref: 'trackNumber' }).exists()).toBe(false);
+    it('adds the visuallyHidden class to the PreloadImage component', () => {
+      expect(wrapper.findComponent(PreloadImage).classes()).toContain(
+        'visuallyHidden',
+      );
     });
   });
 
@@ -109,7 +118,7 @@ describe('TrackPlayPause', () => {
         wrapper.findComponent({ ref: 'play' }).vm.$emit('click');
       });
 
-      it('emits the playTrack event with track', () => {
+      it('emits the playTrack event', () => {
         expect(wrapper.emitted('playTrack')).toEqual([[]]);
       });
     });

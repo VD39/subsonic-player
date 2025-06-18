@@ -11,6 +11,7 @@ import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
 const { getRandomAlbums } = useAlbum();
 const { getArtists } = useArtist();
 const { getGenres } = useGenre();
+const { onDragStart } = useDragAndDrop();
 const { getPlaylists, playlists } = usePlaylist();
 
 const { data: libraryData, status } = useAsyncData(
@@ -55,7 +56,7 @@ useHead({
 </script>
 
 <template>
-  <LoadingData :status="status">
+  <LoadingData :status>
     <template v-if="hasData">
       <template v-if="libraryData.randomAlbums.length">
         <HeaderSeeAllLink
@@ -71,7 +72,11 @@ useHead({
             v-for="album in libraryData.randomAlbums"
             :key="album.name"
           >
-            <AlbumItem :album="album" />
+            <AlbumItem
+              :album
+              draggable="true"
+              @dragstart="onDragStart(album, $event)"
+            />
           </swiper-slide>
         </CarouselSwiper>
       </template>
@@ -90,7 +95,7 @@ useHead({
             v-for="artist in libraryData.artists.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="artist.name"
           >
-            <ArtistItem :artist="artist" />
+            <ArtistItem :artist />
           </swiper-slide>
         </CarouselSwiper>
       </template>
@@ -104,7 +109,7 @@ useHead({
           Genres
         </HeaderSeeAllLink>
 
-        <CarouselSwiper v-if="libraryData.genres.length" :grid-rows="2">
+        <CarouselSwiper v-if="libraryData.genres.length" :gridRows="2">
           <swiper-slide
             v-for="genre in libraryData.genres.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="genre.name"

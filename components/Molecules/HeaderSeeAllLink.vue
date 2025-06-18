@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <HeaderWithAction>
     <h3 :class="$style.header">
-      <NuxtLink :to="to">
+      <NuxtLink draggable="false" :to>
         <slot />
 
         <component
@@ -22,7 +22,9 @@ defineProps<{
     </h3>
 
     <template #actions>
-      <NuxtLink class="mobileOnly link" :to="to">See all</NuxtLink>
+      <NuxtLink class="mobileOnly link" draggable="false" :to>
+        See all
+      </NuxtLink>
     </template>
   </HeaderWithAction>
 </template>

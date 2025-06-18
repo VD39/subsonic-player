@@ -5,7 +5,8 @@ import PlayPauseButton from '@/components/Molecules/PlayPauseButton.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 defineProps<{
-  image?: string;
+  hideImage?: boolean;
+  image: string;
   large?: boolean;
   trackId: string;
   trackNumber: number | string;
@@ -26,18 +27,32 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
       $style.trackPlayPause,
       {
         [$style.large]: large,
-        [$style.withImage]: image,
+        [$style.withImage]: image && !hideImage,
         [$style.currentTrack]: isCurrentTrack(trackId),
       },
     ]"
   >
     <PreloadImage
-      v-if="image"
-      :class="['overlap', $style.preloadImage]"
-      :image="image"
+      :class="[
+        'overlap',
+        $style.preloadImage,
+        {
+          visuallyHidden: hideImage,
+        },
+      ]"
+      :image
     />
 
-    <p v-else ref="trackNumber" :class="['overlap', $style.trackNumber]">
+    <p
+      ref="trackNumber"
+      :class="[
+        'overlap',
+        $style.trackNumber,
+        {
+          visuallyHidden: !hideImage,
+        },
+      ]"
+    >
       {{ trackNumber }}
     </p>
 

@@ -89,6 +89,7 @@ export function usePlaylist() {
   async function updatePlaylist(
     params: PlaylistParam,
     successMessage = 'Successfully updated playlist.',
+    showMessage = true,
   ) {
     const { data: playlistData } = await fetchData('/updatePlaylist', {
       method: 'POST',
@@ -97,7 +98,10 @@ export function usePlaylist() {
 
     if (playlistData) {
       await getPlaylists();
-      addSuccessSnack(successMessage);
+
+      if (showMessage) {
+        addSuccessSnack(successMessage);
+      }
     }
   }
 
@@ -117,8 +121,13 @@ export function usePlaylist() {
   async function addToPlaylist(
     params: PlaylistParam,
     fetchPlaylistTracks = true,
+    showMessage = true,
   ) {
-    await updatePlaylist(params, 'Successfully added to playlist.');
+    await updatePlaylist(
+      params,
+      'Successfully added to playlist.',
+      showMessage,
+    );
 
     if (fetchPlaylistTracks) {
       await getPlaylistTracksById(params.playlistId, false);

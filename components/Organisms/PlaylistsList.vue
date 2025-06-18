@@ -41,6 +41,7 @@ defineEmits<{
             <NuxtLink
               :aria-label="`Go to playlist ${playlist.name}`"
               class="link globalLink"
+              draggable="false"
               :to="{
                 name: ROUTE_NAMES.playlist,
                 params: {

@@ -12,16 +12,29 @@ defineProps<{
 defineEmits<{
   addPlaylist: [];
 }>();
+
+const { onDrop } = useDragAndDrop();
+
+function isRandomPlaylist(playlistId: string) {
+  return playlistId === RANDOM_PLAYLIST.id;
+}
 </script>
 
 <template>
   <ul class="mBM">
-    <NavigationItem :collapsed="collapsed" title="Playlist">
+    <NavigationItem :collapsed title="Playlist">
       <template v-if="playlists.length">
         <SubNavigationItem
           v-for="playlist in playlists.slice(0, PREVIEW_PLAYLIST_COUNT)"
           :key="playlist.id"
-          :collapsed="collapsed"
+          :class="[
+            {
+              [DRAG_AND_DROP_CLASS_NAMES.isDroppable]: !isRandomPlaylist(
+                playlist.id,
+              ),
+            },
+          ]"
+          :collapsed
           :icon="ICONS.playlist"
           :title="playlist.name"
           :to="{
@@ -30,6 +43,7 @@ defineEmits<{
               [ROUTE_PARAM_KEYS.playlist.id]: playlist.id,
             },
           }"
+          @drop="onDrop(playlist.id, $event)"
         />
       </template>
     </NavigationItem>
@@ -38,9 +52,9 @@ defineEmits<{
       <ButtonLink
         ref="addPlaylist"
         class="sidebarLink"
-        full-width
+        fullWidth
         :icon="ICONS.playlistAdd"
-        :show-text="!collapsed"
+        :showText="!collapsed"
         title="Add playlist"
         @click="$emit('addPlaylist')"
       >

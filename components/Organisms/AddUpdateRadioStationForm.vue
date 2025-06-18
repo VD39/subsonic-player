@@ -97,7 +97,7 @@ async function onFormSubmit() {
       />
     </div>
 
-    <SubmitButton class="formButton" :loading="loading">
+    <SubmitButton class="formButton" :loading>
       {{ radioStation?.name ? 'Update' : 'Add' }} radio station
     </SubmitButton>
   </form>

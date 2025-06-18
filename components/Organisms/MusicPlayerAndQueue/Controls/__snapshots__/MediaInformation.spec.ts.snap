@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MediaInformation > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Media information">
+"<button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
   <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
 </button>"
 `;

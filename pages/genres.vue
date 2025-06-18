@@ -32,7 +32,7 @@ useHead({
 <template>
   <h1>Genres</h1>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <MediaListWrapper v-if="genresData.genres.length">
       <GenreLink
         v-for="genre in genresData.genres"

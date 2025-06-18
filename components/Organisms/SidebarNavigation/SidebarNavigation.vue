@@ -39,12 +39,12 @@ const buttonProps = computed<ButtonProps>(() => ({
     </div>
 
     <nav class="fullWidth">
-      <PrimaryNavigation :collapsed="collapsed" />
+      <PrimaryNavigation :collapsed />
 
       <PlaylistNavigation
-        :collapsed="collapsed"
-        :playlists="playlists"
-        @add-playlist="addPlaylistModal"
+        :collapsed
+        :playlists
+        @addPlaylist="addPlaylistModal"
       />
     </nav>
   </div>

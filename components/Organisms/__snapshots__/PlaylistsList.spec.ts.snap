@@ -10,7 +10,7 @@ exports[`PlaylistsList > matches the snapshot 1`] = `
 exports[`PlaylistsList > when playlists prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 1; --loop-rows-tablet: 2; --loop-rows-desktop: 2;">
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to playlist playlist-0">
+    <figure class="imageLink"><a draggable="false" title="Go to playlist playlist-0">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -19,21 +19,21 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <h4 class="mBS"><a aria-label="Go to playlist playlist-0" class="link globalLink">playlist-0</a></h4>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-0" class="link globalLink" draggable="false">playlist-0</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Edit playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Delete playlist </span>
               </button></li>
           </ul>
@@ -42,7 +42,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to playlist playlist-1">
+    <figure class="imageLink"><a draggable="false" title="Go to playlist playlist-1">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -51,13 +51,13 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <h4 class="mBS"><a aria-label="Go to playlist playlist-1" class="link globalLink">playlist-1</a></h4>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-1" class="link globalLink" draggable="false">playlist-1</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -65,7 +65,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to playlist playlist-2">
+    <figure class="imageLink"><a draggable="false" title="Go to playlist playlist-2">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -74,13 +74,13 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <h4 class="mBS"><a aria-label="Go to playlist playlist-2" class="link globalLink">playlist-2</a></h4>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-2" class="link globalLink" draggable="false">playlist-2</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -88,7 +88,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to playlist playlist-3">
+    <figure class="imageLink"><a draggable="false" title="Go to playlist playlist-3">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -97,13 +97,13 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <h4 class="mBS"><a aria-label="Go to playlist playlist-3" class="link globalLink">playlist-3</a></h4>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-3" class="link globalLink" draggable="false">playlist-3</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -111,7 +111,7 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
     </div>
   </article>
   <article class="centerItems playlist" data-test-id="playlist">
-    <figure class="imageLink"><a title="Go to playlist playlist-4">
+    <figure class="imageLink"><a draggable="false" title="Go to playlist playlist-4">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>
@@ -120,13 +120,13 @@ exports[`PlaylistsList > when playlists prop is not an empty array > matches the
       </a></figure>
     <div class="spaceBetween">
       <div>
-        <h4 class="mBS"><a aria-label="Go to playlist playlist-4" class="link globalLink">playlist-4</a></h4>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-4" class="link globalLink" draggable="false">playlist-4</a></h4>
         <ul class="bulletList smallFont">
           <li>1 tracks</li>
           <li><time>00:01</time></li>
         </ul>
       </div>
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->

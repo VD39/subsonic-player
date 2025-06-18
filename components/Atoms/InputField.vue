@@ -47,14 +47,14 @@ const internalModal = defineModel<string | string[]>();
     </label>
 
     <input
-      :id="id"
+      :id
       ref="input"
       v-model="internalModal"
       autocomplete="off"
       :class="$style.input"
-      :placeholder="placeholder"
-      :required="required"
-      :type="type"
+      :placeholder
+      :required
+      :type
     />
 
     <p v-if="error" ref="error" class="smallFont sentenceCase">

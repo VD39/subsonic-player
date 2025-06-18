@@ -14,7 +14,7 @@ import {
 
 export function getAlbumsMock(
   length = 1,
-  params = {} as Partial<AlbumWithSongsID3>,
+  params: Partial<AlbumWithSongsID3> = {},
 ) {
   return Array(length)
     .fill('')
@@ -27,7 +27,7 @@ export function getAlbumsMock(
 
 export function getFormattedAlbumsMock(
   length = 1,
-  params = {} as Partial<Album>,
+  params: Partial<Album> = {},
 ) {
   return Array(length)
     .fill('')
@@ -41,7 +41,7 @@ export function getFormattedAlbumsMock(
 
 export function getFormattedArtistsMock(
   length = 1,
-  params = {} as Partial<Artist>,
+  params: Partial<Artist> = {},
 ) {
   return Array(length)
     .fill('')
@@ -55,7 +55,7 @@ export function getFormattedArtistsMock(
 
 export function getFormattedBookmarksMock(
   length = 1,
-  params = {} as Partial<Bookmark>,
+  params: Partial<Bookmark> = {},
 ) {
   return Array(length)
     .fill('')
@@ -68,7 +68,7 @@ export function getFormattedBookmarksMock(
 
 export function getFormattedPlaylistsMock(
   length = 1,
-  params = {} as Partial<Playlist>,
+  params: Partial<Playlist> = {},
 ) {
   return Array(length)
     .fill('')
@@ -82,7 +82,7 @@ export function getFormattedPlaylistsMock(
 
 export function getFormattedPodcastEpisodesMock(
   length = 1,
-  params = {} as Partial<PodcastEpisode>,
+  params: Partial<PodcastEpisode> = {},
 ) {
   return Array(length)
     .fill('')
@@ -95,25 +95,22 @@ export function getFormattedPodcastEpisodesMock(
 
 export function getFormattedQueueTracksMock(
   length = 1,
-  params = {} as Partial<MixedTrack>,
+  params: Partial<MixedTrack> = {},
 ) {
   return Array(length)
     .fill('')
-    .map(
-      (_, index) =>
-        ({
-          ...formattedTrackMock,
-          ...params,
-          id: `queue-${params.type || formattedTrackMock.type}-${index}-id`,
-          name: `queue-${params.type || formattedTrackMock.type}-${index}-name`,
-          streamUrlId: `queue-streamUrlId${index}`,
-        }) as MixedTrack,
-    );
+    .map<MixedTrack>((_, index) => ({
+      ...formattedTrackMock,
+      ...params,
+      id: `queue-${params.type || formattedTrackMock.type}-${index}-id`,
+      name: `queue-${params.type || formattedTrackMock.type}-${index}-name`,
+      streamUrlId: `queue-streamUrlId${index}`,
+    }));
 }
 
 export function getFormattedRadioStationMock(
   length = 1,
-  params = {} as Partial<RadioStation>,
+  params: Partial<RadioStation> = {},
 ) {
   return Array(length)
     .fill('')
@@ -127,7 +124,7 @@ export function getFormattedRadioStationMock(
 
 export function getFormattedTracksMock(
   length = 1,
-  params = {} as Partial<Track>,
+  params: Partial<Track> = {},
 ) {
   return Array(length)
     .fill('')
@@ -142,7 +139,7 @@ export function getFormattedTracksMock(
 
 export function getPlaylistsMock(
   length = 1,
-  params = {} as Partial<PlaylistWithSongs>,
+  params: Partial<PlaylistWithSongs> = {},
 ) {
   return Array(length)
     .fill('')
@@ -155,7 +152,7 @@ export function getPlaylistsMock(
 
 export function getPodcastEpisodesMock(
   length = 1,
-  params = {} as Partial<ResponsePodcastEpisode>,
+  params: Partial<ResponsePodcastEpisode> = {},
 ) {
   return Array(length)
     .fill('')
@@ -166,7 +163,7 @@ export function getPodcastEpisodesMock(
     }));
 }
 
-export function getTracksMock(length = 1, params = {} as Partial<Base>) {
+export function getTracksMock(length = 1, params: Partial<Base> = {}) {
   return Array(length)
     .fill('')
     .map((_, index) => ({

@@ -50,7 +50,7 @@ describe('AddPodcastForm', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('emits submit event with form values', () => {
+    it('emits submit event with the form values', () => {
       expect(wrapper.emitted('submit')).toEqual([['https://www.test.com']]);
     });
   });

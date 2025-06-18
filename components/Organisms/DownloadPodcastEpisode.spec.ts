@@ -31,7 +31,7 @@ describe('DownloadPodcastEpisode', () => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
     });
 
-    it('emits the downloadEpisode event with track', () => {
+    it('emits the downloadEpisode event', () => {
       expect(wrapper.emitted('downloadEpisode')).toEqual([[]]);
     });
   });

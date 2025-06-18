@@ -22,9 +22,9 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
     <ButtonLink
       ref="closeQueueMenu"
       class="queueAction"
-      full-width
+      fullWidth
       :icon="ICONS.queueClose"
-      icon-weight="bold"
+      iconWeight="bold"
       title="Close queue menu"
       @click="toggleQueuePlayer"
     >
@@ -61,7 +61,7 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
                   ref="albumMarqueeScroll"
                 >
                   <LinkOrText
-                    :is-link="!!currentTrack.albumId"
+                    :isLink="!!currentTrack.albumId"
                     :text="currentTrack.album"
                     :to="{
                       name: ROUTE_NAMES.album,
@@ -88,7 +88,7 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
                   ref="podcastIdMarqueeScroll"
                 >
                   <LinkOrText
-                    :is-link="!!currentTrack.podcastId"
+                    :isLink="!!currentTrack.podcastId"
                     :text="currentTrack.podcastName"
                     :to="{
                       name: ROUTE_NAMES.podcast,
@@ -153,9 +153,9 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
     <ButtonLink
       ref="openQueueList"
       class="queueAction"
-      full-width
+      fullWidth
       :icon="ICONS.playlist"
-      icon-weight="bold"
+      iconWeight="bold"
       title="Open queue list"
       @click="toggleQueueList"
     >

@@ -30,6 +30,7 @@ defineEmits<{
       <div :class="['trackCell', $style.trackCell]">
         <NuxtLink
           class="trackCell"
+          draggable="false"
           :to="$route.fullPath.split('/').slice(0, -1).join('/')"
         >
           <PreloadImage
@@ -52,7 +53,11 @@ defineEmits<{
           data-test-id="folder"
         >
           <div :class="['trackCell', $style.trackCell]">
-            <NuxtLink class="trackCell" :to="`${$route.fullPath}/${folder.id}`">
+            <NuxtLink
+              class="trackCell"
+              draggable="false"
+              :to="`${$route.fullPath}/${folder.id}`"
+            >
               <PreloadImage
                 :alt="folder.name"
                 :class="$style.trackImage"
@@ -78,9 +83,9 @@ defineEmits<{
             <div>
               <TrackPlayPause
                 :image="track.image"
-                :track-id="track.id"
-                :track-number="track.trackNumber"
-                @play-track="$emit('playTrack', index)"
+                :trackId="track.id"
+                :trackNumber="track.trackNumber"
+                @playTrack="$emit('playTrack', index)"
               />
 
               <MarqueeScroll class="mBXS" inert>

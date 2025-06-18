@@ -2,7 +2,7 @@
 
 exports[`GenreList > matches the snapshot 1`] = `
 "<ul class="commaList">
-  <li data-test-id="genre-list-item"><a aria-label="View all albums with name genre" class="link">name</a></li>
-  <li data-test-id="genre-list-item"><a aria-label="View all albums with name1 genre" class="link">name1</a></li>
+  <li data-test-id="genre-list-item"><a aria-label="View all albums with name genre" class="link" draggable="false">name</a></li>
+  <li data-test-id="genre-list-item"><a aria-label="View all albums with name1 genre" class="link" draggable="false">name1</a></li>
 </ul>"
 `;

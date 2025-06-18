@@ -1,9 +1,313 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PodcastEpisodesList > matches the snapshot 1`] = `
-"<div class="column centerAll noMediaMessage">
-  <phapplepodcastslogo size="50"></phapplepodcastslogo>
-  <p>No episodes found.</p>
+"<div class="trackTable">
+  <div class="trackHeader">
+    <div class="trackCell">Episodes</div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Delete episode </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Download episode </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Episode information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Play Episode </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">2</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">3</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">4</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">5</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 
@@ -13,12 +317,13 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -44,7 +349,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -61,28 +366,28 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Delete episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Episode </span>
               </button></li>
           </ul>
@@ -90,12 +395,13 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">2</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -121,7 +427,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -138,19 +444,20 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">3</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -176,7 +483,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -193,19 +500,20 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">4</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -231,7 +539,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -248,19 +556,20 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">5</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -286,7 +595,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -303,7 +612,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -319,12 +628,13 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -350,7 +660,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -367,28 +677,28 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Delete episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Episode </span>
               </button></li>
           </ul>
@@ -396,12 +706,13 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">2</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -427,7 +738,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -444,19 +755,20 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">3</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -482,7 +794,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -499,19 +811,20 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">4</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -537,7 +850,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -554,19 +867,20 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">5</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -592,7 +906,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -609,7 +923,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -625,11 +939,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
-          <div class="centerAll preloadImage overlap"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" type="button" title="Download episode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
           </button>
         </div>
@@ -652,9 +966,9 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         </div>
       </div>
       <div class="centerItems podcastOptions">
-        <div class="centerItems"><button class="centerItems buttonLink" type="button" title="Download episode">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
-          </button><button class="centerItems buttonLink" type="button" title="Episode information">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button></div>
         <div class="marqueeScroll">
@@ -670,15 +984,15 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
             <!--v-if-->
@@ -696,12 +1010,13 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -722,7 +1037,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -739,28 +1054,28 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Delete episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Episode </span>
               </button></li>
           </ul>
@@ -777,12 +1092,13 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track">
+  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -809,7 +1125,7 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" type="button" title="Episode information">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
           </button>
         </div>
@@ -826,28 +1142,28 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Delete episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download episode </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Episode information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Episode </span>
               </button></li>
           </ul>

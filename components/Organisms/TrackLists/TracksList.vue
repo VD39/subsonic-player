@@ -18,6 +18,7 @@ defineEmits<{
   addToPlaylist: [value: string];
   addToQueue: [value: Track];
   downloadMedia: [value: string];
+  dragStart: [track: Track, event: DragEvent];
   mediaInformation: [value: Track];
   playTrack: [value: number];
 }>();
@@ -40,17 +41,19 @@ const trackHeaderNames = TRACK_HEADER_NAMES.tracks;
       :key="track.id"
       class="trackRow"
       data-test-id="track"
+      draggable="true"
+      @dragstart="$emit('dragStart', track, $event)"
     >
       <div class="trackCell">
         <div>
           <TrackPlayPause
             :image="track.image"
-            :track-id="track.id"
-            :track-number="track.trackNumber"
-            @play-track="$emit('playTrack', index)"
+            :trackId="track.id"
+            :trackNumber="track.trackNumber"
+            @playTrack="$emit('playTrack', index)"
           />
 
-          <TrackMeta class="trackMeta" :track="track" />
+          <TrackMeta class="trackMeta" :track />
 
           <FavouriteButton
             :id="track.id"
@@ -63,7 +66,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.tracks;
       <div class="trackCell trackSecondary">
         <MarqueeScroll v-if="track.album" ref="albumMarqueeScroll">
           <LinkOrText
-            :is-link="!!track.albumId"
+            :isLink="!!track.albumId"
             :text="track.album"
             :to="{
               name: ROUTE_NAMES.album,

@@ -40,7 +40,7 @@ async function onFormSubmit() {
         :id="HOTKEY_ELEMENT_IDS.searchInput"
         v-model="form.fields.query.value.value"
         :class="$style.inputField"
-        hide-label
+        hideLabel
         :label="form.fields.query.label"
         placeholder="Enter query"
         :required="form.fields.query.required"

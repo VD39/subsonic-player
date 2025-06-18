@@ -15,7 +15,7 @@ defineEmits<{
 <template>
   <li :class="$style.dropdownItem">
     <ButtonLink
-      :is="is"
+      :is
       :class="[
         'spaceBetween',
         $style.buttonLink,
@@ -23,10 +23,10 @@ defineEmits<{
           [$style.selected]: selected,
         },
       ]"
-      full-width
-      :icon="icon"
-      icon-position="right"
-      show-text
+      fullWidth
+      :icon
+      iconPosition="right"
+      showText
       v-bind="$attrs"
       @click="$emit('click')"
     >

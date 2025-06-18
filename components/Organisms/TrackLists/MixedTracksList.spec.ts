@@ -15,6 +15,7 @@ import {
 import MixedTracksList from './MixedTracksList.vue';
 
 let onAddToQueueMock: typeof vi.fn | undefined = undefined;
+let onDragStartMock: typeof vi.fn | undefined = undefined;
 
 vi.mock('vue', async () => {
   const vue = await vi.importActual<typeof import('vue')>('vue');
@@ -26,6 +27,7 @@ vi.mock('vue', async () => {
       vnode: {
         props: {
           onAddToQueue: onAddToQueueMock,
+          onDragStart: onDragStartMock,
         },
       },
     })),
@@ -479,7 +481,7 @@ describe('MixedTracksList', () => {
       });
     });
 
-    describe('when the AddToQueue event is not attached', () => {
+    describe('when the onAddToQueue event is not attached', () => {
       it('does not show the add to queue DropdownItem component', () => {
         expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
           false,
@@ -487,7 +489,7 @@ describe('MixedTracksList', () => {
       });
     });
 
-    describe('when the AddToQueue event is attached', () => {
+    describe('when the onAddToQueue event is attached', () => {
       beforeEach(() => {
         onAddToQueueMock = vi.fn();
       });
@@ -507,93 +509,120 @@ describe('MixedTracksList', () => {
           wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
         });
 
-        it('emits the addToQueue event with track', () => {
+        it('emits the addToQueue event with the correct value', () => {
           expect(wrapper.emitted('addToQueue')).toEqual([[tracks[0]]]);
         });
       });
     });
 
-    describe('when the remove DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'dropdownItemRemove' }).vm.$emit('click');
-      });
+    describe.each([
+      [
+        'remove DropdownItem',
+        'dropdownItemRemove',
+        'remove',
+        [
+          {
+            id: tracks[0].id,
+            index: 0,
+          },
+        ],
+      ],
+      [
+        'add to playlist DropdownItem',
+        'addToPlaylist',
+        'addToPlaylist',
+        [tracks[0].id, 0],
+      ],
+      [
+        'media information DropdownItem',
+        'mediaInformation',
+        'mediaInformation',
+        [tracks[0]],
+      ],
+      [
+        'download media DropdownItem',
+        'downloadMedia',
+        'downloadMedia',
+        [tracks[0].id],
+      ],
+      ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
+      [
+        'remove ButtonLink',
+        'removeButton',
+        'remove',
+        [
+          {
+            id: tracks[0].id,
+            index: 0,
+          },
+        ],
+      ],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName, expectedArgs) => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('click');
+        });
 
-      it('emits the remove event with track', () => {
-        expect(wrapper.emitted('remove')).toEqual([
-          [
-            {
-              id: tracks[0].id,
-              index: 0,
-            },
-          ],
-        ]);
-      });
-    });
-
-    describe('when the add to playlist DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
-      });
-
-      it('emits the addToPlaylist event with track', () => {
-        expect(wrapper.emitted('addToPlaylist')).toEqual([[tracks[0].id, 0]]);
-      });
-    });
-
-    describe('when the media information DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'mediaInformation' }).vm.$emit('click');
-      });
-
-      it('emits the mediaInformation event with track', () => {
-        expect(wrapper.emitted('mediaInformation')).toEqual([[tracks[0]]]);
-      });
-    });
-
-    describe('when the download media DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
-      });
-
-      it('emits the downloadMedia event with track', () => {
-        expect(wrapper.emitted('downloadMedia')).toEqual([[tracks[0].id]]);
-      });
-    });
-
-    describe('when the play track DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'playTrack' }).vm.$emit('click');
-      });
-
-      it('emits the playTrack event with track', () => {
-        expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-      });
-    });
+        it(`emits the ${emitEventName} event with the correct value`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        });
+      },
+    );
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
       beforeEach(() => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 
-      it('emits the playTrack event with track', () => {
+      it('emits the playTrack event with the correct value', () => {
         expect(wrapper.emitted('playTrack')).toEqual([[0]]);
       });
     });
 
-    describe('when the remove ButtonLink component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'removeButton' }).vm.$emit('click');
+    describe('when the onDragStart event is not attached', () => {
+      it('sets the correct draggable attribute value on track element', () => {
+        expect(
+          wrapper.find('[data-test-id="track"]').attributes('draggable'),
+        ).toBe('false');
       });
 
-      it('emits the remove event with track id', () => {
-        expect(wrapper.emitted('remove')).toEqual([
-          [
-            {
-              id: tracks[0].id,
-              index: 0,
-            },
-          ],
-        ]);
+      describe('when a track item is dragged', () => {
+        beforeEach(async () => {
+          await wrapper.find('[data-test-id="track"]').trigger('dragstart');
+        });
+
+        it('does not emit the dragStart event', () => {
+          expect(wrapper.emitted('dragStart')).toBe(undefined);
+        });
+      });
+    });
+
+    describe('when the onDragStart event is attached', () => {
+      beforeEach(() => {
+        onDragStartMock = vi.fn();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct draggable attribute value on track element', () => {
+        expect(
+          wrapper.find('[data-test-id="track"]').attributes('draggable'),
+        ).toBe('true');
+      });
+
+      describe('when a track item is dragged', () => {
+        beforeEach(async () => {
+          await wrapper.find('[data-test-id="track"]').trigger('dragstart');
+        });
+
+        it('emits the dragStart event', () => {
+          expect(wrapper.emitted('dragStart')).toEqual([
+            [tracks[0], expect.any(DragEvent)],
+          ]);
+        });
       });
     });
   });

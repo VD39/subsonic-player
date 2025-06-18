@@ -9,89 +9,89 @@ exports[`AlbumsList > matches the snapshot 1`] = `
 
 exports[`AlbumsList > when albums prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5;">
-  <article>
+  <article draggable="true">
     <div class="albumImageWrapper">
-      <figure class="mBS"><a title="Go to album album-0">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" src="image" style="display: none;"></div>
+      <figure class="mBS"><a draggable="false" title="Go to album album-0">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
           <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-0">
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button></div>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="link">album-0</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="link" draggable="false">album-0</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
     </ul>
   </article>
-  <article>
+  <article draggable="true">
     <div class="albumImageWrapper">
-      <figure class="mBS"><a title="Go to album album-1">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" src="image" style="display: none;"></div>
+      <figure class="mBS"><a draggable="false" title="Go to album album-1">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
           <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-1">
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
         </button></div>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="link">album-1</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="link" draggable="false">album-1</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
     </ul>
   </article>
-  <article>
+  <article draggable="true">
     <div class="albumImageWrapper">
-      <figure class="mBS"><a title="Go to album album-2">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" src="image" style="display: none;"></div>
+      <figure class="mBS"><a draggable="false" title="Go to album album-2">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
           <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-2">
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
         </button></div>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="link">album-2</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="link" draggable="false">album-2</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
     </ul>
   </article>
-  <article>
+  <article draggable="true">
     <div class="albumImageWrapper">
-      <figure class="mBS"><a title="Go to album album-3">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" src="image" style="display: none;"></div>
+      <figure class="mBS"><a draggable="false" title="Go to album album-3">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
           <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-3">
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
         </button></div>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="link">album-3</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="link" draggable="false">album-3</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
     </ul>
   </article>
-  <article>
+  <article draggable="true">
     <div class="albumImageWrapper">
-      <figure class="mBS"><a title="Go to album album-4">
-          <div class="centerAll preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" src="image" style="display: none;"></div>
+      <figure class="mBS"><a draggable="false" title="Go to album album-4">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" src="image" style="display: none;"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" type="button" title="Unlike album">
+      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
           <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" type="button" title="Play album album-4">
+        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
         </button></div>
     </div>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="link">album-4</a></p>
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="link" draggable="false">album-4</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
     </ul>
   </article>
 </section>"

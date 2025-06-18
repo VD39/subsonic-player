@@ -49,7 +49,7 @@ async function onFormSubmit() {
       />
     </div>
 
-    <SubmitButton class="formButton" :loading="loading">
+    <SubmitButton class="formButton" :loading>
       {{ playlist?.name ? 'Update' : 'Add' }} playlist
     </SubmitButton>
   </form>

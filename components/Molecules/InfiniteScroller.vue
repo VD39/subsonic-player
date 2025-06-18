@@ -60,7 +60,7 @@ onUnmounted(() => {
       :class="['centerAll', $style.buttonLink]"
       :disabled="loading"
       :icon="buttonProps.icon"
-      :show-text="!loading"
+      :showText="!loading"
       :title="buttonProps.text"
       @click="loadMore"
     >

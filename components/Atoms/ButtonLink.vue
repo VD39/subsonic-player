@@ -41,8 +41,9 @@ const isComponent =
         'centerAll fullWidth': fullWidth,
       },
     ]"
-    :disabled="disabled"
-    :type="type"
+    :disabled
+    draggable="false"
+    :type
     v-bind="$attrs"
   >
     <component

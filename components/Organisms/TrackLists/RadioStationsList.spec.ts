@@ -73,58 +73,50 @@ describe('RadioStationsList', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when the delete radio station DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'deleteRadioStation' }).vm.$emit('click');
-      });
+    describe.each([
+      [
+        'delete radio station DropdownItem',
+        'deleteRadioStation',
+        'deleteRadioStation',
+        [radioStations[0].id],
+      ],
+      [
+        'edit radio station DropdownItem',
+        'editRadioStation',
+        'editRadioStation',
+        [radioStations[0]],
+      ],
+      [
+        'add to queue DropdownItem',
+        'addToQueue',
+        'addToQueue',
+        [radioStations[0]],
+      ],
+      [
+        'play radio station DropdownItem',
+        'playRadioStation',
+        'playRadioStation',
+        [radioStations[0]],
+      ],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName, expectedArgs) => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('click');
+        });
 
-      it('emits the deleteRadioStation event with track id', () => {
-        expect(wrapper.emitted('deleteRadioStation')).toEqual([
-          [radioStations[0].id],
-        ]);
-      });
-    });
-
-    describe('when the edit radio station DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'editRadioStation' }).vm.$emit('click');
-      });
-
-      it('emits the editRadioStation event with track', () => {
-        expect(wrapper.emitted('editRadioStation')).toEqual([
-          [radioStations[0]],
-        ]);
-      });
-    });
-
-    describe('when the add to queue DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
-      });
-
-      it('emits the addToQueue event with track', () => {
-        expect(wrapper.emitted('addToQueue')).toEqual([[radioStations[0]]]);
-      });
-    });
-
-    describe('when the play radio station DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'playRadioStation' }).vm.$emit('click');
-      });
-
-      it('emits the playRadioStation event with track', () => {
-        expect(wrapper.emitted('playRadioStation')).toEqual([
-          [radioStations[0]],
-        ]);
-      });
-    });
+        it(`emits the ${emitEventName} event with the correct value`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        });
+      },
+    );
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
       beforeEach(() => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 
-      it('emits the playRadioStation event with track', () => {
+      it('emits the playRadioStation event with the correct value', () => {
         expect(wrapper.emitted('playRadioStation')).toEqual([
           [radioStations[0]],
         ]);

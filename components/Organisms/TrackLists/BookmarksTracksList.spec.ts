@@ -154,73 +154,48 @@ describe('BookmarksTracksList', () => {
     });
   });
 
-  describe('when the remove DropdownItem component emits the click event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'dropdownItemRemove' }).vm.$emit('click');
-    });
+  describe.each([
+    ['remove DropdownItem', 'dropdownItemRemove', 'remove', [bookmarks[0].id]],
+    [
+      'add to playlist DropdownItem',
+      'addToPlaylist',
+      'addToPlaylist',
+      [bookmarks[0].id],
+    ],
+    [
+      'media information DropdownItem',
+      'mediaInformation',
+      'mediaInformation',
+      [bookmarks[0]],
+    ],
+    [
+      'download media DropdownItem',
+      'downloadMedia',
+      'downloadMedia',
+      [bookmarks[0].id],
+    ],
+    ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
+    ['remove ButtonLink', 'removeButton', 'remove', [bookmarks[0].id]],
+  ])(
+    'when the %s component emits the click event',
+    (_text, ref, emitEventName, expectedArgs) => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref }).vm.$emit('click');
+      });
 
-    it('emits the remove event with track', () => {
-      expect(wrapper.emitted('remove')).toEqual([[bookmarks[0].id]]);
-    });
-  });
-
-  describe('when the add to playlist DropdownItem component emits the click event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'addToPlaylist' }).vm.$emit('click');
-    });
-
-    it('emits the addToPlaylist event with track', () => {
-      expect(wrapper.emitted('addToPlaylist')).toEqual([[bookmarks[0].id]]);
-    });
-  });
-
-  describe('when the media information DropdownItem component emits the click event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'mediaInformation' }).vm.$emit('click');
-    });
-
-    it('emits the mediaInformation event with track', () => {
-      expect(wrapper.emitted('mediaInformation')).toEqual([[bookmarks[0]]]);
-    });
-  });
-
-  describe('when the download media DropdownItem component emits the click event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'downloadMedia' }).vm.$emit('click');
-    });
-
-    it('emits the downloadMedia event with track', () => {
-      expect(wrapper.emitted('downloadMedia')).toEqual([[bookmarks[0].id]]);
-    });
-  });
-
-  describe('when the play track DropdownItem component emits the click event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'playTrack' }).vm.$emit('click');
-    });
-
-    it('emits the playTrack event with track', () => {
-      expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-    });
-  });
+      it(`emits the ${emitEventName} event with the correct value`, () => {
+        expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+      });
+    },
+  );
 
   describe('when the TrackPlayPause component emits the playTrack event', () => {
     beforeEach(() => {
       wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
     });
 
-    it('emits the playTrack event with track', () => {
+    it('emits the playTrack event with the correct value', () => {
       expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-    });
-  });
-
-  describe('when the remove ButtonLink component emits the click event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'removeButton' }).vm.$emit('click');
-    });
-
-    it('emits the remove event with track id', () => {
-      expect(wrapper.emitted('remove')).toEqual([[bookmarks[0].id]]);
     });
   });
 });

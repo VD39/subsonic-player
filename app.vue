@@ -8,10 +8,10 @@ const { isDarkTheme } = useTheme();
 const { width } = useSidebar();
 const { showMediaPlayer } = useAudioPlayer();
 
-const isLoading = ref(true);
+const loading = ref(true);
 
 hook('page:finish', () => {
-  isLoading.value = false;
+  loading.value = false;
 });
 
 useHead({
@@ -34,7 +34,7 @@ useHead({
   <NuxtPwaAssets />
 
   <NuxtLayout>
-    <div v-if="isLoading" class="fullscreen centerAll">
+    <div v-if="loading" class="fullscreen centerAll">
       <MainLoader />
     </div>
 

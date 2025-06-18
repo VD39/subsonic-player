@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`GenreLink > matches the snapshot 1`] = `"<a aria-label="View all albums with name 2 with @ special / characters genre" class="centerAll genreLink">name 2 with @ special / characters</a>"`;
+exports[`GenreLink > matches the snapshot 1`] = `"<a aria-label="View all albums with name 2 with @ special / characters genre" class="centerAll genreLink" draggable="false">name 2 with @ special / characters</a>"`;

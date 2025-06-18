@@ -47,19 +47,19 @@ useHead({
     <h1>Media Library</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
     </template>
   </HeaderWithAction>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <FilesList
       :folders="musicDirectoryData.musicDirectory.folders"
       :tracks="musicDirectoryData.musicDirectory.tracks"
-      @add-to-playlist="addToPlaylistModal"
-      @add-to-queue="addTrackToQueue"
-      @download-media="downloadMedia"
-      @media-information="openTrackInformationModal"
-      @play-track="playTrack"
+      @addToPlaylist="addToPlaylistModal"
+      @addToQueue="addTrackToQueue"
+      @downloadMedia="downloadMedia"
+      @mediaInformation="openTrackInformationModal"
+      @playTrack="playTrack"
     />
   </LoadingData>
 </template>

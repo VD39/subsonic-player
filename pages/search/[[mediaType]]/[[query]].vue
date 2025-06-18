@@ -15,6 +15,7 @@ const { search } = useSearch();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
+const { onDragStart } = useDragAndDrop();
 
 const query = replaceCharactersWithSpace(
   sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
@@ -58,13 +59,14 @@ useHead({
 
   <PageNavigation :navigation="SEARCH_NAVIGATION" />
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <AlbumsList
       v-if="
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="searchResultsData.searchResults.albums"
+      @dragStart="onDragStart"
     />
 
     <ArtistsList
@@ -81,11 +83,12 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
       "
       :tracks="searchResultsData.searchResults.tracks"
-      @add-to-playlist="addToPlaylistModal"
-      @add-to-queue="addTrackToQueue"
-      @download-media="downloadMedia"
-      @media-information="openTrackInformationModal"
-      @play-track="playTrack"
+      @addToPlaylist="addToPlaylistModal"
+      @addToQueue="addTrackToQueue"
+      @downloadMedia="downloadMedia"
+      @dragStart="onDragStart"
+      @mediaInformation="openTrackInformationModal"
+      @playTrack="playTrack"
     />
   </LoadingData>
 </template>

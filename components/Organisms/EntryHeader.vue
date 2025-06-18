@@ -6,6 +6,22 @@ defineProps<{
   images: string[];
   title: string;
 }>();
+
+const emit = defineEmits<{
+  dragStart: [event: DragEvent];
+}>();
+
+const hasDragStartEvent = computed(
+  () => !!getCurrentInstance()?.vnode.props?.onDragStart,
+);
+
+function onDragStart(event: DragEvent) {
+  if (!hasDragStartEvent.value) {
+    return;
+  }
+
+  emit('dragStart', event);
+}
 </script>
 
 <template>
@@ -20,14 +36,19 @@ defineProps<{
   </div>
 
   <section :class="['mBXL', $style.content]">
-    <figure :class="$style.figure">
+    <figure
+      ref="figure"
+      :class="$style.figure"
+      :draggable="hasDragStartEvent"
+      @dragstart="onDragStart($event)"
+    >
       <PreloadImage
         v-for="image in images"
         :key="image"
         :alt="title"
         :class="$style.preloadImage"
         data-test-id="image"
-        :image="image"
+        :image
       />
     </figure>
 

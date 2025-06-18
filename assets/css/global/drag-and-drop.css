@@ -1,0 +1,24 @@
+.validDropZone {
+  border: 1px solid var(--success-color) !important;
+}
+
+.draggableClone {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  background-color: var(--track-hover-background-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--border-radius-medium) !important;
+  will-change: transform !important;
+}
+
+.isDroppable {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}

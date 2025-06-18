@@ -13,8 +13,8 @@ const buttonProps = computed<ButtonProps>(() => ({
 <template>
   <ButtonLink
     :icon="ICONS.shuffle"
-    :icon-color="buttonProps.iconColor"
-    :icon-weight="buttonProps.iconWeight"
+    :iconColor="buttonProps.iconColor"
+    :iconWeight="buttonProps.iconWeight"
     :title="buttonProps.text"
     @click="toggleShuffle"
   >

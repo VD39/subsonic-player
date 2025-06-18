@@ -114,7 +114,7 @@ describe('AddToPlaylistForm', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('emits addToPlaylist event with form values', () => {
+        it('emits addToPlaylist event with the form values', () => {
           expect(wrapper.emitted('addToPlaylist')).toEqual([
             [
               {
@@ -151,7 +151,7 @@ describe('AddToPlaylistForm', () => {
             expect(wrapper.html()).toMatchSnapshot();
           });
 
-          it('emits removeFromPlaylist event with form values', () => {
+          it('emits removeFromPlaylist event with the form values', () => {
             expect(wrapper.emitted('removeFromPlaylist')).toEqual([
               [
                 {
@@ -293,7 +293,7 @@ describe('AddToPlaylistForm', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('emits submit event with form values', () => {
+    it('emits submit event with the form values', () => {
       expect(wrapper.emitted('submit')).toEqual([['Playlist']]);
     });
   });

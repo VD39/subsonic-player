@@ -5,6 +5,8 @@ import SubNavigationItem from './Items/SubNavigationItem.vue';
 defineProps<{
   collapsed: boolean;
 }>();
+
+const { onDrop } = useDragAndDrop();
 </script>
 
 <template>
@@ -13,16 +15,22 @@ defineProps<{
       v-for="items in SIDEBAR_DESKTOP_NAVIGATION"
       :key="`navigation-${items.title}`"
       class="mBM"
-      :collapsed="collapsed"
+      :collapsed
       :title="items.title"
     >
       <SubNavigationItem
         v-for="item in items.items"
         :key="`item-${item.title}`"
-        :collapsed="collapsed"
+        :class="[
+          {
+            [DRAG_AND_DROP_CLASS_NAMES.isDroppable]: item.isDroppable,
+          },
+        ]"
+        :collapsed
         :icon="item.icon"
         :title="item.title"
         :to="item.to"
+        @drop="onDrop(QUEUE_ID, $event)"
       />
     </NavigationItem>
   </ul>

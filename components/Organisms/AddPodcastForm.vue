@@ -45,8 +45,6 @@ async function onFormSubmit() {
       />
     </div>
 
-    <SubmitButton class="formButton" :loading="loading">
-      Add podcast
-    </SubmitButton>
+    <SubmitButton class="formButton" :loading> Add podcast </SubmitButton>
   </form>
 </template>

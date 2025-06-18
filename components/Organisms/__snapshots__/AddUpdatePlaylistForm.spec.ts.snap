@@ -6,7 +6,7 @@ exports[`AddUpdatePlaylistForm > matches the snapshot 1`] = `
     <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" autocomplete="off" class="input" placeholder="Enter playlist name" required="" type="text">
       <!--v-if-->
     </div>
-  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
+  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text">Add playlist </span>
   </button>
 </form>"
@@ -18,7 +18,7 @@ exports[`AddUpdatePlaylistForm > when form is valid > matches the snapshot 1`] =
     <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" autocomplete="off" class="input" placeholder="Enter playlist name" required="" type="text">
       <!--v-if-->
     </div>
-  </div><button class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" type="submit" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add playlist </span></button>
+  </div><button class="centerItems buttonLink alignRight disabled submitButton formButton submitButton formButton" draggable="false" type="submit" disabled=""><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text">Add playlist </span></button>
 </form>"
 `;
 
@@ -28,7 +28,7 @@ exports[`AddUpdatePlaylistForm > when playlist prop is set > matches the snapsho
     <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" autocomplete="off" class="input" placeholder="Enter playlist name" required="" type="text">
       <!--v-if-->
     </div>
-  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" type="submit">
+  </div><button class="centerItems buttonLink submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text">Update playlist </span>
   </button>
 </form>"

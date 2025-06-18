@@ -2,11 +2,11 @@
 
 exports[`QueueList > matches the snapshot 1`] = `
 "<div class="queueWrapper">
-  <div class="centerAll"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" type="button" title="Close queue list">
+  <div class="centerAll"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue list">
       <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue list </span>
     </button></div>
   <div class="spaceBetween">
-    <div></div><button class="centerItems buttonLink" type="button" title="Clear queue">
+    <div></div><button class="centerItems buttonLink" draggable="false" type="button" title="Clear queue">
       <phtrash aria-hidden="true" class="icon" size="24" weight="regular"></phtrash><span class="clamp text visuallyHidden"> Clear queue </span>
     </button>
   </div>
@@ -20,12 +20,13 @@ exports[`QueueList > matches the snapshot 1`] = `
       <div class="trackCell trackOptions"></div>
       <div class="trackCell trackOptions"></div>
     </div>
-    <div class="trackRow" data-test-id="track">
+    <div class="trackRow" data-test-id="track" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+            <p class="overlap trackNumber visuallyHidden">1</p>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -45,8 +46,8 @@ exports[`QueueList > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -55,7 +56,7 @@ exports[`QueueList > matches the snapshot 1`] = `
                 </div>
               </div>
             </div>
-          </div><button class="centerItems buttonLink" type="button" title="Like track">
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
             <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
@@ -72,21 +73,21 @@ exports[`QueueList > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
               </ul>
             </div>
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
       <div class="trackCell trackOptions">
-        <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+        <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
           <!--v-if-->
         </div>
       </div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
     </div>

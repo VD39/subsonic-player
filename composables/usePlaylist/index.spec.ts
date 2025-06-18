@@ -293,21 +293,34 @@ describe('usePlaylist', () => {
         );
       });
 
-      describe('when success message is not set', () => {
-        it('calls the addSuccessSnack function', () => {
-          expect(addSuccessSnackMock).toHaveBeenCalledWith(
-            'Successfully updated playlist.',
-          );
+      describe('when showMessage parameter is true', () => {
+        describe('when success message is not set', () => {
+          it('calls the addSuccessSnack function', () => {
+            expect(addSuccessSnackMock).toHaveBeenCalledWith(
+              'Successfully updated playlist.',
+            );
+          });
+        });
+
+        describe('when success message is set', () => {
+          beforeEach(() => {
+            updatePlaylist({} as PlaylistParam, 'Success message');
+          });
+
+          it('calls the addSuccessSnack function', () => {
+            expect(addSuccessSnackMock).toHaveBeenCalledWith('Success message');
+          });
         });
       });
 
-      describe('when success message is set', () => {
+      describe('when showMessage parameter is false', () => {
         beforeEach(() => {
-          updatePlaylist({} as PlaylistParam, 'Success message');
+          vi.clearAllMocks();
+          updatePlaylist({} as PlaylistParam, 'Success message', false);
         });
 
-        it('calls the addSuccessSnack function', () => {
-          expect(addSuccessSnackMock).toHaveBeenCalledWith('Success message');
+        it('does not call the addSuccessSnackMock function', () => {
+          expect(addSuccessSnackMock).not.toHaveBeenCalled();
         });
       });
     });

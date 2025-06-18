@@ -14,8 +14,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -61,32 +62,32 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Remove track </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -94,8 +95,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -141,13 +143,13 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -155,8 +157,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -202,13 +205,13 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -216,8 +219,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -263,13 +267,13 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -277,8 +281,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -324,13 +329,13 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -351,8 +356,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -398,32 +404,32 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Remove track </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -431,8 +437,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -478,13 +485,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -492,8 +499,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -539,13 +547,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -553,8 +561,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -600,13 +609,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -614,8 +623,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -661,13 +671,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > match
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -688,8 +698,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -735,32 +746,32 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Remove track </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -768,8 +779,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -815,13 +827,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -829,8 +841,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -876,13 +889,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -890,8 +903,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -937,13 +951,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -951,8 +965,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -998,13 +1013,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1025,8 +1040,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1066,32 +1082,32 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Remove track </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1112,8 +1128,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1159,32 +1176,32 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Remove track </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1192,8 +1209,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1239,13 +1257,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1253,8 +1271,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1300,13 +1319,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1314,8 +1333,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1361,13 +1381,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1375,8 +1395,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1422,13 +1443,13 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
@@ -1449,8 +1470,9 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -1492,32 +1514,32 @@ exports[`BookmarksTracksList > when bookmarks prop is not an empty array > when 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Remove track </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" type="button" title="Remove track from bookmarks">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>

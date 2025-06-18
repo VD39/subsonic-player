@@ -1,28 +1,28 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MainPlayerControls > matches the snapshot 1`] = `
-"<div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+"<div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
     <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
   </button>
-  <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+  <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
     <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
   </button>
-  <!--v-if--><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+  <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
     <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
   </button>
 </div>"
 `;
 
 exports[`MainPlayerControls > when isPodcastEpisode value is true > matches the snapshot 1`] = `
-"<div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" type="button" title="Previous track">
+"<div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
     <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
-  </button><button class="centerItems buttonLink" type="button" title="Rewind back 10 seconds">
+  </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
     <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
-  </button><button class="centerItems buttonLink playPauseButton playPauseButton" type="button" title="Play current track">
+  </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
     <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-  </button><button class="centerItems buttonLink" type="button" title="Fast forward back 30 seconds">
+  </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
     <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
-  </button><button class="centerItems buttonLink disabled" disabled="" type="button" title="Next track">
+  </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
     <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
   </button></div>"
 `;

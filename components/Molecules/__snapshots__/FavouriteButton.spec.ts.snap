@@ -1,13 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`FavouriteButton > when favouriteIds id key is false > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Like album">
+"<button class="centerItems buttonLink" draggable="false" type="button" title="Like album">
   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like album</span>
 </button>"
 `;
 
 exports[`FavouriteButton > when favouriteIds id key is true > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Unlike album">
+"<button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
   <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
 </button>"
 `;

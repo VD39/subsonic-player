@@ -32,6 +32,7 @@ export default withNuxt(
       'no-unused-vars': 'off',
       'object-shorthand': ['error', 'always'],
       'prefer-const': 'error',
+      'vue/attribute-hyphenation': ['error', 'never'],
       'vue/attributes-order': [
         'error',
         {
@@ -41,6 +42,20 @@ export default withNuxt(
       'vue/component-name-in-template-casing': ['error', 'PascalCase'],
       'vue/define-emits-declaration': ['error', 'type-literal'],
       'vue/no-multiple-template-root': 'off',
+      'vue/v-bind-style': [
+        'error',
+        'shorthand',
+        {
+          sameNameShorthand: 'always',
+        },
+      ],
+      'vue/v-on-event-hyphenation': [
+        'error',
+        'never',
+        {
+          autofix: true,
+        },
+      ],
     },
   },
   {

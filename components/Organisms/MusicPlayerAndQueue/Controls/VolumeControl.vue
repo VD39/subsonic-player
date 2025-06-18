@@ -36,7 +36,6 @@ function changeAudioVolume() {
         v-model="volume"
         aria-label="Volume"
         :aria-valuetext="ariaValueText"
-        hide-thumb
         :max="1"
         :min="0"
         @change="changeAudioVolume"

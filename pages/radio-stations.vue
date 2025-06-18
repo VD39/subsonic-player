@@ -46,11 +46,11 @@ useHead({
     <h1>Radio Stations</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
 
       <ButtonLink
         :icon="ICONS.add"
-        icon-size="large"
+        iconSize="large"
         title="Add radio station"
         @click="addRadioStationModal"
       >
@@ -59,13 +59,13 @@ useHead({
     </template>
   </HeaderWithAction>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <RadioStationsList
-      :radio-stations="radioStations"
-      @add-to-queue="addTrackToQueue"
-      @delete-radio-station="deleteRadioStation"
-      @edit-radio-station="updateRadioStationModal"
-      @play-radio-station="playRadioStation"
+      :radioStations
+      @addToQueue="addTrackToQueue"
+      @deleteRadioStation="deleteRadioStation"
+      @editRadioStation="updateRadioStationModal"
+      @playRadioStation="playRadioStation"
     />
   </LoadingData>
 </template>

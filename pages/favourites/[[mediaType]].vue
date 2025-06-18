@@ -17,6 +17,7 @@ const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { onDragStart } = useDragAndDrop();
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.favourites,
@@ -53,19 +54,20 @@ useHead({
     <h1>Favourites</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
     </template>
   </HeaderWithAction>
 
   <PageNavigation :navigation="FAVOURITES_NAVIGATION" />
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <AlbumsList
       v-if="
         route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="favourites.albums"
+      @dragStart="onDragStart"
     />
 
     <ArtistsList
@@ -82,11 +84,12 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
       "
       :tracks="favourites.tracks"
-      @add-to-playlist="addToPlaylistModal"
-      @add-to-queue="addTrackToQueue"
-      @download-media="downloadMedia"
-      @media-information="openTrackInformationModal"
-      @play-track="playTrack"
+      @addToPlaylist="addToPlaylistModal"
+      @addToQueue="addTrackToQueue"
+      @downloadMedia="downloadMedia"
+      @dragStart="onDragStart"
+      @mediaInformation="openTrackInformationModal"
+      @playTrack="playTrack"
     />
   </LoadingData>
 </template>

@@ -17,7 +17,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
           v-if="item.icon"
           class="link smallFont column centerAll"
           :icon="item.icon"
-          show-text
+          showText
           :title="item.title"
           :to="item.to"
         >

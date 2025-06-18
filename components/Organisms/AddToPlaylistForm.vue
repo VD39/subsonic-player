@@ -125,6 +125,7 @@ watch(
           <NuxtLink
             :aria-label="`Go to playlist ${playlist.name}`"
             :class="['mBS', $style.nuxtLink]"
+            draggable="false"
             :to="{
               name: ROUTE_NAMES.playlist,
               params: {
@@ -165,12 +166,12 @@ watch(
         v-model="form.fields.name.value.value"
         class="formField"
         :error="form.fields.name.error.value"
-        hide-label
+        hideLabel
         :label="form.fields.name.label"
         placeholder="Add Playlist"
       />
 
-      <SubmitButton :loading="loading">Add</SubmitButton>
+      <SubmitButton :loading>Add</SubmitButton>
     </div>
   </form>
 </template>

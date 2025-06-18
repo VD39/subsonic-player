@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PlaybackRateButton > matches the snapshot 1`] = `
-"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
     <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
   </button>
   <div class="dropdown fade-enter-from fade-enter-active">
@@ -10,22 +10,22 @@ exports[`PlaybackRateButton > matches the snapshot 1`] = `
         <p class="strong smallFont">Playback speed</p>
       </li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
           <!--v-if--><span class="clamp text">0.5x</span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
           <!--v-if--><span class="clamp text">0.75x</span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink selected spaceBetween buttonLink selected" type="button">
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink selected spaceBetween buttonLink selected" draggable="false" type="button">
           <!--v-if--><span class="clamp text">Normal</span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
           <!--v-if--><span class="clamp text">1.5x</span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
           <!--v-if--><span class="clamp text">2x</span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
           <!--v-if--><span class="clamp text">2.5x</span>
         </button></li>
     </ul>

@@ -73,6 +73,7 @@ const toLink = {
       <NuxtLink
         :aria-label="`Go to album ${album.name}`"
         class="link"
+        draggable="false"
         :to="toLink"
       >
         {{ album.name }}
@@ -96,6 +97,7 @@ const toLink = {
     &:focus {
       .actions {
         --album-actions-opacity: 1;
+        --album-actions-z-index: 0;
       }
     }
   }
@@ -103,9 +105,11 @@ const toLink = {
 
 .actions {
   --album-actions-opacity: 0;
+  --album-actions-z-index: -2;
 
   position: absolute;
   inset: auto var(--default-space) var(--default-space) auto;
+  z-index: var(--album-actions-z-index);
   display: flex;
   gap: var(--default-space);
   opacity: var(--album-actions-opacity);

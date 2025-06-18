@@ -17,6 +17,7 @@ defineEmits<{
   addToPlaylist: [value: string];
   addToQueue: [value: Track];
   downloadMedia: [value: string];
+  dragStart: [track: Track, event: DragEvent];
   mediaInformation: [value: Track];
   playTrack: [value: number];
 }>();
@@ -38,16 +39,20 @@ const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
       :key="track.id"
       class="trackRow"
       data-test-id="track"
+      draggable="true"
+      @dragstart="$emit('dragStart', track, $event)"
     >
       <div class="trackCell">
         <div>
           <TrackPlayPause
-            :track-id="track.id"
-            :track-number="track.trackNumber"
-            @play-track="$emit('playTrack', track.index)"
+            hideImage
+            :image="track.image"
+            :trackId="track.id"
+            :trackNumber="track.trackNumber"
+            @playTrack="$emit('playTrack', track.index)"
           />
 
-          <TrackMeta class="trackMeta" :track="track" />
+          <TrackMeta class="trackMeta" :track />
 
           <FavouriteButton
             :id="track.id"

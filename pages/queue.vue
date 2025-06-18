@@ -12,6 +12,7 @@ const {
 const { addToPlaylistModal } = usePlaylist();
 const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
+const { onDragStart } = useDragAndDrop();
 
 useHead({
   title: 'Queue',
@@ -36,10 +37,11 @@ useHead({
 
   <MixedTracksList
     :tracks="queueList"
-    @add-to-playlist="addToPlaylistModal"
-    @download-media="downloadMedia"
-    @media-information="openTrackInformationModal"
-    @play-track="playTrackFromQueueList"
+    @addToPlaylist="addToPlaylistModal"
+    @downloadMedia="downloadMedia"
+    @dragStart="onDragStart"
+    @mediaInformation="openTrackInformationModal"
+    @playTrack="playTrackFromQueueList"
     @remove="({ id }) => removeTrackFromQueueList(id)"
   />
 </template>

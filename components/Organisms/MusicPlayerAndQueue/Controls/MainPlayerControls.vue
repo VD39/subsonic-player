@@ -24,7 +24,7 @@ const rewindFastForwardTitle = {
       ref="previousTrack"
       :disabled="!hasPreviousTrack"
       :icon="ICONS.skipBack"
-      icon-weight="fill"
+      iconWeight="fill"
       title="Previous track"
       @click="playPreviousTrack"
     >
@@ -57,7 +57,7 @@ const rewindFastForwardTitle = {
       ref="nextTrack"
       :disabled="!hasNextTrack"
       :icon="ICONS.skipForward"
-      icon-weight="fill"
+      iconWeight="fill"
       title="Next track"
       @click="playNextTrack"
     >

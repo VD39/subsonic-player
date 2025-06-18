@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SubNavigationItem > matches the snapshot 1`] = `
-"<li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="title">
+"<li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="title">
     <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text">title</span>
   </a></li>"
 `;

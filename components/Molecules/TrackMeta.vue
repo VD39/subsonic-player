@@ -20,7 +20,7 @@ defineProps<{
           <span class="visuallyHidden">Track album</span>
 
           <LinkOrText
-            :is-link="!!track.albumId"
+            :isLink="!!track.albumId"
             :text="track.album"
             :to="{
               name: ROUTE_NAMES.album,
@@ -37,7 +37,7 @@ defineProps<{
           <span class="visuallyHidden">Podcast name</span>
 
           <LinkOrText
-            :is-link="!!track.podcastId"
+            :isLink="!!track.podcastId"
             :text="track.podcastName"
             :to="{
               name: ROUTE_NAMES.podcast,

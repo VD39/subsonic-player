@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`QueueButton > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" type="button" title="Open queue">
+"<button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
 </button>"
 `;

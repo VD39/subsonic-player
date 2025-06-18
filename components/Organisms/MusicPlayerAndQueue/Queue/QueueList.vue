@@ -20,9 +20,9 @@ const { openTrackInformationModal } = useMediaInformation();
       <ButtonLink
         ref="closeQueueList"
         class="queueAction"
-        full-width
+        fullWidth
         :icon="ICONS.queueClose"
-        icon-weight="bold"
+        iconWeight="bold"
         title="Close queue list"
         @click="toggleQueueList"
       >
@@ -47,10 +47,10 @@ const { openTrackInformationModal } = useMediaInformation();
 
     <MixedTracksList
       :tracks="queueList"
-      @add-to-playlist="addToPlaylistModal"
-      @download-media="downloadMedia"
-      @media-information="openTrackInformationModal"
-      @play-track="playTrackFromQueueList"
+      @addToPlaylist="addToPlaylistModal"
+      @downloadMedia="downloadMedia"
+      @mediaInformation="openTrackInformationModal"
+      @playTrack="playTrackFromQueueList"
       @remove="({ id }) => removeTrackFromQueueList(id)"
     />
   </div>

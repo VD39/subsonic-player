@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`VolumeControl > matches the snapshot 1`] = `
-"<div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Mute">
+"<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
     <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -22,11 +22,11 @@ exports[`VolumeControl > matches the snapshot 1`] = `
 `;
 
 exports[`VolumeControl > when isMuted value is true > matches the snapshot 1`] = `
-"<div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Unmute">
+"<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1" hide-thumb="">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="1 of 1">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -43,11 +43,11 @@ exports[`VolumeControl > when isMuted value is true > matches the snapshot 1`] =
 `;
 
 exports[`VolumeControl > when volume value is 0 > matches the snapshot 1`] = `
-"<div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Unmute">
+"<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerx aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerx><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" aria-valuetext="0 of 1" hide-thumb="">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0 of 1">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -64,11 +64,11 @@ exports[`VolumeControl > when volume value is 0 > matches the snapshot 1`] = `
 `;
 
 exports[`VolumeControl > when volume value is 0.1 > matches the snapshot 1`] = `
-"<div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Unmute">
+"<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakernone aria-hidden="true" class="icon" size="24" weight="regular"></phspeakernone><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" aria-valuetext="0.1 of 1" hide-thumb="">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0.1 of 1">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -85,11 +85,11 @@ exports[`VolumeControl > when volume value is 0.1 > matches the snapshot 1`] = `
 `;
 
 exports[`VolumeControl > when volume value is 0.3 > matches the snapshot 1`] = `
-"<div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Unmute">
+"<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerlow aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerlow><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" aria-valuetext="0.3 of 1" hide-thumb="">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0.3 of 1">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>
@@ -106,11 +106,11 @@ exports[`VolumeControl > when volume value is 0.3 > matches the snapshot 1`] = `
 `;
 
 exports[`VolumeControl > when volume value is 0.6 > matches the snapshot 1`] = `
-"<div class="centerItems volumeControl"><button class="centerItems buttonLink" type="button" title="Unmute">
+"<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Unmute</span>
   </button>
   <div class="centerItems smallFont volumeInputWrapper">
-    <div class="inputRange" aria-label="Volume" aria-valuetext="0.6 of 1" hide-thumb="">
+    <div class="inputRange" aria-label="Volume" aria-valuetext="0.6 of 1">
       <div class="centerItems slider">
         <div class="progressWrapper">
           <div class="process" style="width: 0px;"></div>

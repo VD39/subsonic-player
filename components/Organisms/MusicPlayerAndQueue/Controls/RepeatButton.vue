@@ -28,9 +28,9 @@ const title = computed(() => {
 <template>
   <ButtonLink
     :icon="buttonProps.icon"
-    :icon-color="buttonProps.iconColor"
-    :icon-weight="buttonProps.iconWeight"
-    :title="title"
+    :iconColor="buttonProps.iconColor"
+    :iconWeight="buttonProps.iconWeight"
+    :title
     @click="setRepeat"
   >
     {{ title }}

@@ -41,11 +41,11 @@ useHead({
     <h1>Playlists</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
 
       <ButtonLink
         :icon="ICONS.add"
-        icon-size="large"
+        iconSize="large"
         title="Add playlist"
         @click="addPlaylistModal"
       >
@@ -54,11 +54,11 @@ useHead({
     </template>
   </HeaderWithAction>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <PlaylistsList
-      :playlists="playlists"
-      @delete-playlist="deletePlaylist"
-      @edit-playlist="updatePlaylistModal"
+      :playlists
+      @deletePlaylist="deletePlaylist"
+      @editPlaylist="updatePlaylistModal"
     />
   </LoadingData>
 </template>

@@ -43,7 +43,7 @@ useHead({
     <h1>Bookmarks ({{ bookmarks.length }})</h1>
 
     <template #actions>
-      <RefreshButton :status="status" @refresh="refresh" />
+      <RefreshButton :status @refresh="refresh" />
     </template>
   </HeaderWithAction>
 
@@ -53,14 +53,14 @@ useHead({
     compatible with all supported apps.
   </p>
 
-  <LoadingData :status="status">
+  <LoadingData :status>
     <BookmarksTracksList
-      :bookmarks="bookmarks"
-      @add-to-playlist="addToPlaylistModal"
-      @add-to-queue="addTrackToQueue"
-      @download-media="downloadMedia"
-      @media-information="openTrackInformationModal"
-      @play-track="playEpisodeFromBookmarks"
+      :bookmarks
+      @addToPlaylist="addToPlaylistModal"
+      @addToQueue="addTrackToQueue"
+      @downloadMedia="downloadMedia"
+      @mediaInformation="openTrackInformationModal"
+      @playTrack="playEpisodeFromBookmarks"
       @remove="deleteBookmark"
     />
   </LoadingData>

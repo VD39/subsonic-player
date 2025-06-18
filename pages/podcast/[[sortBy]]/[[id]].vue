@@ -21,6 +21,7 @@ const { openModal } = useModal();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
+const { onDragStart } = useDragAndDrop();
 const {
   deletePodcast,
   deletePodcastEpisode,
@@ -121,6 +122,10 @@ async function refreshPodcast() {
 
 getData();
 
+function dragItem(event: DragEvent) {
+  onDragStart(podcastData.value.podcast!, event);
+}
+
 watch(
   () => podcastData.value.podcast,
   () => {
@@ -141,14 +146,15 @@ useHead({
 </script>
 
 <template>
-  <LoadingData :status="status">
+  <LoadingData :status>
     <div v-if="podcastData.podcast">
       <EntryHeader
         :images="[podcastData.podcast.image]"
         :title="podcastData.podcast.name"
+        @dragStart="dragItem"
       >
         <template #actions>
-          <RefreshButton :status="status" @refresh="refreshPodcast" />
+          <RefreshButton :status @refresh="refreshPodcast" />
         </template>
 
         <ul class="bulletList">
@@ -170,7 +176,7 @@ useHead({
 
         <TextClamp
           v-if="podcastData.podcast.description"
-          :max-lines="3"
+          :maxLines="3"
           :text="podcastData.podcast.description"
           @more="openPodcastDescriptionModal"
         />
@@ -210,21 +216,18 @@ useHead({
       <PageNavigation :navigation="PODCAST_NAVIGATION" />
 
       <PodcastEpisodesList
-        :podcast-episodes="podcastEpisodes"
-        @add-to-playlist="addToPlaylistModal"
-        @add-to-queue="addTrackToQueue"
-        @delete-episode="deletePodcastEpisode"
-        @download-episode="downloadPodcastEpisode"
-        @download-media="downloadMedia"
-        @episode-information="openTrackInformationModal"
-        @play-episode="playEpisode"
+        :podcastEpisodes
+        @addToPlaylist="addToPlaylistModal"
+        @addToQueue="addTrackToQueue"
+        @deleteEpisode="deletePodcastEpisode"
+        @downloadEpisode="downloadPodcastEpisode"
+        @downloadMedia="downloadMedia"
+        @dragStart="onDragStart"
+        @episodeInformation="openTrackInformationModal"
+        @playEpisode="playEpisode"
       />
 
-      <InfiniteScroller
-        :has-more="hasMore"
-        :loading="false"
-        @load-more="fetchData"
-      />
+      <InfiniteScroller :hasMore :loading="false" @loadMore="fetchData" />
     </div>
 
     <NoMediaMessage

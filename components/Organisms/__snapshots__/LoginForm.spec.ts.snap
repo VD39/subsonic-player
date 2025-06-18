@@ -13,7 +13,7 @@ exports[`LoginForm > matches the snapshot 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text"> Login </span>
   </button>
 </form>"
@@ -32,7 +32,7 @@ exports[`LoginForm > when form is valid > matches the snapshot 1`] = `
       <!--v-if-->
     </div>
   </div>
-  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text"> Login </span>
   </button>
 </form>"
@@ -53,7 +53,7 @@ exports[`LoginForm > when form is valid > when error prop is set > matches the s
   </div>
   <div class="strong smallFont centerItems spaceBetween error messageBar mBM">
     <p class="sentenceCase">Error message</p>
-  </div><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+  </div><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text"> Login </span>
   </button>
 </form>"
@@ -70,7 +70,7 @@ exports[`LoginForm > when serverUrl in config is defined > matches the snapshot 
       <!--v-if-->
     </div>
   </div>
-  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" type="submit">
+  <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text"> Login </span>
   </button>
 </form>"

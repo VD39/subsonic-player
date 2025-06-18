@@ -9,12 +9,13 @@ exports[`TracksList > matches the snapshot 1`] = `
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -34,8 +35,8 @@ exports[`TracksList > matches the snapshot 1`] = `
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -44,7 +45,7 @@ exports[`TracksList > matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -61,8 +62,8 @@ exports[`TracksList > matches the snapshot 1`] = `
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -70,25 +71,25 @@ exports[`TracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
@@ -96,12 +97,13 @@ exports[`TracksList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-1" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -121,8 +123,8 @@ exports[`TracksList > matches the snapshot 1`] = `
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -131,7 +133,7 @@ exports[`TracksList > matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -148,8 +150,8 @@ exports[`TracksList > matches the snapshot 1`] = `
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -157,19 +159,20 @@ exports[`TracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-2" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -189,8 +192,8 @@ exports[`TracksList > matches the snapshot 1`] = `
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -199,7 +202,7 @@ exports[`TracksList > matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -216,8 +219,8 @@ exports[`TracksList > matches the snapshot 1`] = `
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -225,19 +228,20 @@ exports[`TracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-3" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -257,8 +261,8 @@ exports[`TracksList > matches the snapshot 1`] = `
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -267,7 +271,7 @@ exports[`TracksList > matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -284,8 +288,8 @@ exports[`TracksList > matches the snapshot 1`] = `
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -293,19 +297,20 @@ exports[`TracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-4" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -325,8 +330,8 @@ exports[`TracksList > matches the snapshot 1`] = `
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -335,7 +340,7 @@ exports[`TracksList > matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -352,8 +357,8 @@ exports[`TracksList > matches the snapshot 1`] = `
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -361,7 +366,7 @@ exports[`TracksList > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -380,12 +385,13 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -405,8 +411,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -415,7 +421,7 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -432,8 +438,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -441,25 +447,25 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
@@ -467,12 +473,13 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-1" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -492,8 +499,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -502,7 +509,7 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -519,8 +526,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -528,19 +535,20 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-2" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -560,8 +568,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -570,7 +578,7 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -587,8 +595,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -596,19 +604,20 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-3" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -628,8 +637,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -638,7 +647,7 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -655,8 +664,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -664,19 +673,20 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-4" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -696,8 +706,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -706,7 +716,7 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -723,8 +733,8 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -732,7 +742,7 @@ exports[`TracksList > when tracks prop is not an empty array > matches the snaps
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <!--v-if-->
@@ -751,12 +761,13 @@ exports[`TracksList > when tracks prop is not an empty array > when track.album 
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -776,8 +787,8 @@ exports[`TracksList > when tracks prop is not an empty array > when track.album 
                   <!--v-if-->
                   <li><span class="visuallyHidden">Track artists</span>
                     <ul class="commaList">
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
                     </ul>
                   </li>
                   <!--v-if-->
@@ -786,7 +797,7 @@ exports[`TracksList > when tracks prop is not an empty array > when track.album 
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -799,8 +810,8 @@ exports[`TracksList > when tracks prop is not an empty array > when track.album 
         <div class="bulletList inner">
           <div class="content">
             <ul class="commaList">
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
             </ul>
           </div>
         </div>
@@ -808,25 +819,25 @@ exports[`TracksList > when tracks prop is not an empty array > when track.album 
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>
@@ -846,12 +857,13 @@ exports[`TracksList > when tracks prop is not an empty array > when track.artist
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track">
+  <div class="trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="imageLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" src="image-0" style="display: none;"></div>
-          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" type="button">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0" style="display: none;"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
             </button></div>
         </div>
@@ -876,7 +888,7 @@ exports[`TracksList > when tracks prop is not an empty array > when track.artist
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink" type="button" title="Like track">
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -893,25 +905,25 @@ exports[`TracksList > when tracks prop is not an empty array > when track.artist
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions">
-      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="More">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
         <div class="dropdown fade-enter-from fade-enter-active">
           <ul>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to playlist </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Media information </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Download track </span>
               </button></li>
             <li aria-hidden="true" class="divider"></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Add to queue </span>
               </button></li>
-            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                 <!--v-if--><span class="clamp text"> Play Track </span>
               </button></li>
           </ul>

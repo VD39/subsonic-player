@@ -73,24 +73,30 @@ describe('PlaylistsList', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when the delete playlist DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'deletePlaylist' }).vm.$emit('click');
-      });
+    describe.each([
+      [
+        'delete playlist DropdownItem',
+        'deletePlaylist',
+        'deletePlaylist',
+        [playlists[0].id],
+      ],
+      [
+        'edit playlist DropdownItem',
+        'editPlaylist',
+        'editPlaylist',
+        [playlists[0]],
+      ],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName, expectedArgs) => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('click');
+        });
 
-      it('emits the deletePlaylist event with track id', () => {
-        expect(wrapper.emitted('deletePlaylist')).toEqual([[playlists[0].id]]);
-      });
-    });
-
-    describe('when the edit playlist DropdownItem component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'editPlaylist' }).vm.$emit('click');
-      });
-
-      it('emits the editPlaylist event with track', () => {
-        expect(wrapper.emitted('editPlaylist')).toEqual([[playlists[0]]]);
-      });
-    });
+        it(`emits the ${emitEventName} event with the correct value`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        });
+      },
+    );
   });
 });

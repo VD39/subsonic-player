@@ -7,6 +7,10 @@ defineProps<{
   albums: Album[];
   hideArtist?: boolean;
 }>();
+
+defineEmits<{
+  dragStart: [album: Album, event: DragEvent];
+}>();
 </script>
 
 <template>
@@ -14,8 +18,10 @@ defineProps<{
     <AlbumItem
       v-for="album in albums"
       :key="album.name"
-      :album="album"
-      :hide-artist="hideArtist"
+      :album
+      draggable="true"
+      :hideArtist
+      @dragstart="$emit('dragStart', album, $event)"
     />
   </MediaListWrapper>
 

@@ -5,10 +5,10 @@ exports[`PageNavigation > matches the snapshot 1`] = `
   <div class="overflowShadow">
     <div class="content">
       <ul class="centerItems navigation">
-        <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+        <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
             <!--v-if--><span class="clamp text">title</span>
           </a></li>
-        <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+        <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
             <!--v-if--><span class="clamp text">title1</span>
           </a></li>
       </ul>

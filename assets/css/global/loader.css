@@ -1,0 +1,30 @@
+.skeletonLoader {
+  display: block;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    height: var(--width-height-100);
+    content: '';
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--border-color),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: skeleton-loader 1.5s infinite;
+  }
+}
+
+@keyframes skeleton-loader {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}

@@ -3,7 +3,7 @@
 exports[`Default > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -11,7 +11,7 @@ exports[`Default > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
@@ -22,9 +22,9 @@ exports[`Default > matches the snapshot 1`] = `
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -32,19 +32,19 @@ exports[`Default > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -52,19 +52,19 @@ exports[`Default > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -75,7 +75,7 @@ exports[`Default > matches the snapshot 1`] = `
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -83,16 +83,16 @@ exports[`Default > matches the snapshot 1`] = `
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
@@ -114,7 +114,7 @@ exports[`Default > matches the snapshot 1`] = `
 exports[`Default > when route name is index > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -122,18 +122,18 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
             <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
             <!--v-if-->
@@ -144,9 +144,9 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -154,19 +154,19 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -174,19 +174,19 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -197,7 +197,7 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -205,16 +205,16 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
@@ -226,13 +226,13 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
         <div class="overflowShadow">
           <div class="content">
             <ul class="centerItems navigation">
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Discover</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Radio Stations</span>
                 </a></li>
             </ul>
@@ -252,7 +252,7 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
 exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -260,18 +260,18 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
             <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
             <!--v-if-->
@@ -282,9 +282,9 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -292,19 +292,19 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -312,19 +312,19 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -335,7 +335,7 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -343,16 +343,16 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
@@ -364,13 +364,13 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
         <div class="overflowShadow">
           <div class="content">
             <ul class="centerItems navigation">
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Discover</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Radio Stations</span>
                 </a></li>
             </ul>
@@ -390,7 +390,7 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
 exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -398,18 +398,18 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
             <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
             <!--v-if-->
@@ -420,9 +420,9 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -430,19 +430,19 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -450,19 +450,19 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -473,7 +473,7 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -481,16 +481,16 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
@@ -502,13 +502,13 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
         <div class="overflowShadow">
           <div class="content">
             <ul class="centerItems navigation">
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Discover</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Radio Stations</span>
                 </a></li>
             </ul>
@@ -528,7 +528,7 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
 exports[`Default > when route name is radio-stations > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -536,18 +536,18 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
             <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
             <!--v-if-->
@@ -558,9 +558,9 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -568,19 +568,19 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -588,19 +588,19 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -611,7 +611,7 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -619,16 +619,16 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
@@ -640,13 +640,13 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
         <div class="overflowShadow">
           <div class="content">
             <ul class="centerItems navigation">
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Discover</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink">
+              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
                   <!--v-if--><span class="clamp text">Radio Stations</span>
                 </a></li>
             </ul>
@@ -666,7 +666,7 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
 exports[`Default > when user is defined > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -674,18 +674,18 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
             <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
             <!--v-if-->
@@ -696,9 +696,9 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -706,19 +706,19 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -726,19 +726,19 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -749,7 +749,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -757,16 +757,16 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>
@@ -788,7 +788,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
 exports[`Default > when user is defined > when the DropdownMenu component is clicked > matches the snapshot 1`] = `
 "<div class="mainLayout">
   <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" title="Home">
+    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
@@ -796,36 +796,36 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
           <div class="centerItems">
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" type="submit">
+            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
               <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
             </button>
           </div>
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" type="button" title="Activate dark mode">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
             <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
           </button></div>
         <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" type="button" title="View account details">
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
             <div class="dropdown fade-enter-from fade-enter-active">
               <ul>
-                <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink">
+                <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false">
                     <!--v-if--><span class="clamp text"> Profile </span>
                   </a></li>
-                <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink">
+                <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false">
                     <!--v-if--><span class="clamp text"> Files </span>
                   </a></li>
-                <li class="dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" href="server" target="_blank">
+                <li class="dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" href="server" target="_blank">
                     <!--v-if--><span class="clamp text"> Server </span>
                   </a></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                     <!--v-if--><span class="clamp text">Scan</span>
                   </button></li>
                 <li aria-hidden="true" class="divider"></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" type="button">
+                <li class="dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
                     <phsignout aria-hidden="true" class="icon" size="24" weight="regular"></phsignout><span class="clamp text"> Log out </span>
                   </button></li>
               </ul>
@@ -837,9 +837,9 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
   </header>
   <aside>
     <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" title="Home">
+      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" type="button" title="Close Navigation">
+        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
       <nav class="fullWidth">
@@ -847,19 +847,19 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Browse</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Discover">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Podcasts">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
                   <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Radio Stations">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
                   <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Queue">
+              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
                   <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Bookmarks">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
                   <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
                 </a></li>
             </ul>
@@ -867,19 +867,19 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
           <li class="mBM">
             <h4 class="strong mBM sidebarTitle">Your library</h4>
             <ul>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Albums">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Artists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
                   <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Playlists">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
                   <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Favourites">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
                   <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
                 </a></li>
-              <li><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" title="Genres">
+              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
                   <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
                 </a></li>
             </ul>
@@ -890,7 +890,7 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
             <h4 class="strong mBM sidebarTitle">Playlist</h4>
             <ul></ul>
           </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" type="button" title="Add playlist">
+          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
               <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
             </button></li>
         </ul>
@@ -898,16 +898,16 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
     </div>
     <nav class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Browse">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Your library">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
             <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Playlists">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
             <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
           </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" title="Bookmarks">
+        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
             <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
           </a></li>
       </ul>

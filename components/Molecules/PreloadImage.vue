@@ -35,7 +35,7 @@ const imageSrc = computed(() => {
 <template>
   <div :class="['centerAll', $style.preloadImage]">
     <template v-if="imageSrc">
-      <span v-show="loading" ref="imageLoader" :class="$style.imageLoader">
+      <span v-show="loading" ref="imageLoader" class="skeletonLoader">
         <span class="visuallyHidden">Loading image</span>
       </span>
 
@@ -43,8 +43,9 @@ const imageSrc = computed(() => {
         <img
           v-show="!loading"
           ref="img"
-          :alt="alt"
+          :alt
           :class="$style.image"
+          draggable="false"
           :src="imageSrc"
           @load="onImageLoad"
         />
@@ -78,36 +79,5 @@ const imageSrc = computed(() => {
 .image {
   height: var(--width-height-100);
   object-fit: cover;
-}
-
-.imageLoader {
-  display: block;
-  overflow: hidden;
-
-  &::after {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    height: var(--width-height-100);
-    content: '';
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--border-color),
-      transparent
-    );
-    transform: translateX(-100%);
-    animation: image-loader 1.5s infinite;
-  }
-}
-
-@keyframes image-loader {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(100%);
-  }
 }
 </style>

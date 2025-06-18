@@ -1,4 +1,4 @@
-export const SIDEBAR_DESKTOP_NAVIGATION = [
+export const SIDEBAR_DESKTOP_NAVIGATION: SidebarNavigation[] = [
   {
     items: [
       {
@@ -24,6 +24,7 @@ export const SIDEBAR_DESKTOP_NAVIGATION = [
       },
       {
         icon: ICONS.queue,
+        isDroppable: true,
         title: 'Queue',
         to: {
           name: ROUTE_NAMES.queue,
