@@ -46,7 +46,7 @@
     "storybook": "8.6.12",
     "stylelint": "^16.21.1",
     "stylelint-config-recess-order": "^6.1.0",
-    "stylelint-config-recommended-vue": "^1.6.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
     "stylelint-config-standard": "^38.0.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.0",

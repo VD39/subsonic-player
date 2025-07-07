@@ -11384,10 +11384,10 @@ stylelint-config-recess-order@^6.1.0:
   dependencies:
     stylelint-order "^6.0.4"
 
-stylelint-config-recommended-vue@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-vue/-/stylelint-config-recommended-vue-1.6.0.tgz#e5d34d9f11417922a24dbd21438c6c058843fa20"
-  integrity sha512-syk1adIHvbH2T1OiR/spUK4oQy35PZIDw8Zmc7E0+eVK9Z9SK3tdMpGRT/bgGnAPpMt/WaL9K1u0tlF6xM0sMQ==
+stylelint-config-recommended-vue@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-vue/-/stylelint-config-recommended-vue-1.6.1.tgz#6a93082ce4a5c1f64793b789175a833c57ce8309"
+  integrity sha512-lLW7hTIMBiTfjenGuDq2kyHA6fBWd/+Df7MO4/AWOxiFeXP9clbpKgg27kHfwA3H7UNMGC7aeP3mNlZB5LMmEQ==
   dependencies:
     semver "^7.3.5"
     stylelint-config-html ">=1.0.0"
