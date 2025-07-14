@@ -5,7 +5,7 @@
   "dependencies": {
     "@phosphor-icons/vue": "^2.2.1",
     "crypto-js": "^4.2.0",
-    "nuxt": "^3.17.6",
+    "nuxt": "^3.17.7",
     "nuxt-swiper": "^2.0.1",
     "vue": "latest"
   },
