@@ -1,0 +1,1 @@
+export const SNACK_ALIVE_DURATION = 5000;

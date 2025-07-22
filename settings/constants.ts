@@ -5,17 +5,9 @@ export const DEFAULT_VALUE = '--';
 export const DEFAULT_ERROR_MESSAGE =
   'Sorry, something went wrong. Please try again.';
 
-export const COOKIE_NAMES = {
-  auth: 'auth-params',
-} as const;
-
-export const DAYS_COOKIE_EXPIRES = 60;
-
 export const PREVIEW_TRACK_COUNT = 8;
 export const PREVIEW_PLAYLIST_COUNT = 8;
 export const PREVIEW_ALBUM_COUNT = 15;
-
-export const SNACK_ALIVE_DURATION = 5000;
 
 export const STATE_NAMES = {
   bookmarks: 'bookmarks',
@@ -59,17 +51,6 @@ export const STATE_NAMES = {
   theme: 'theme',
   userAuthenticated: 'user-authenticated',
 } as const;
-
-export const STATES_TO_CLEAR = [
-  STATE_NAMES.currentUser,
-  STATE_NAMES.favouriteIds,
-  STATE_NAMES.favourites,
-  STATE_NAMES.genres,
-  STATE_NAMES.playlist,
-  STATE_NAMES.playlists,
-  STATE_NAMES.radioStations,
-  STATE_NAMES.userAuthenticated,
-];
 
 export const ASYNC_DATA_NAMES = {
   artists: 'artists',
