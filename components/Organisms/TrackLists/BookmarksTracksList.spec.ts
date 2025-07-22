@@ -11,6 +11,7 @@ import { getFormattedBookmarksMock } from '@/test/helpers';
 import BookmarksTracksList from './BookmarksTracksList.vue';
 
 const bookmarks = getFormattedBookmarksMock(5);
+const bookmark = bookmarks[0];
 
 function factory(props = {}) {
   const wrapper = mount(BookmarksTracksList, {
@@ -155,27 +156,27 @@ describe('BookmarksTracksList', () => {
   });
 
   describe.each([
-    ['remove DropdownItem', 'dropdownItemRemove', 'remove', [bookmarks[0].id]],
+    ['remove DropdownItem', 'dropdownItemRemove', 'remove', [bookmark.id]],
     [
       'add to playlist DropdownItem',
       'addToPlaylist',
       'addToPlaylist',
-      [bookmarks[0].id],
+      [bookmark.id],
     ],
     [
       'media information DropdownItem',
       'mediaInformation',
       'mediaInformation',
-      [bookmarks[0]],
+      [bookmark],
     ],
     [
       'download media DropdownItem',
       'downloadMedia',
       'downloadMedia',
-      [bookmarks[0].id],
+      [bookmark],
     ],
     ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
-    ['remove ButtonLink', 'removeButton', 'remove', [bookmarks[0].id]],
+    ['remove ButtonLink', 'removeButton', 'remove', [bookmark.id]],
   ])(
     'when the %s component emits the click event',
     (_text, ref, emitEventName, expectedArgs) => {

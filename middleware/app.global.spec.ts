@@ -75,7 +75,7 @@ describe('app-global-middleware', () => {
     });
 
     describe('when playlists value is an empty array', () => {
-      it('does not call the getPlaylistsMock function', () => {
+      it('does not call the getPlaylists function', () => {
         expect(getPlaylistsMock).not.toHaveBeenCalled();
       });
     });
@@ -138,7 +138,7 @@ describe('app-global-middleware', () => {
         await flushPromises();
       });
 
-      it('calls the getPlaylistsMock function', () => {
+      it('calls the getPlaylists function', () => {
         expect(getPlaylistsMock).toHaveBeenCalled();
       });
     });
@@ -159,7 +159,7 @@ describe('app-global-middleware', () => {
         await flushPromises();
       });
 
-      it('does not call the getPlaylistsMock function', () => {
+      it('does not call the getPlaylists function', () => {
         expect(getPlaylistsMock).not.toHaveBeenCalled();
       });
     });

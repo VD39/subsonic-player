@@ -14,7 +14,7 @@ defineProps<{
 defineEmits<{
   addToPlaylist: [value: string];
   addToQueue: [value: Track];
-  downloadMedia: [value: string];
+  downloadMedia: [track: Track];
   mediaInformation: [value: Track];
   playTrack: [value: number];
 }>();
@@ -109,7 +109,7 @@ defineEmits<{
                 </DropdownItem>
                 <DropdownItem
                   ref="downloadMedia"
-                  @click="$emit('downloadMedia', track.id)"
+                  @click="$emit('downloadMedia', track)"
                 >
                   Download track
                 </DropdownItem>

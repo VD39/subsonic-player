@@ -1,3 +1,5 @@
+export type DownloadTrack = MixedTrack | PodcastEpisode | Track;
+
 export interface FilesParams {
   id?: string;
   slug?: string[];

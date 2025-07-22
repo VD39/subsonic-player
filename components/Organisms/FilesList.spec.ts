@@ -16,6 +16,7 @@ const routeMock = ref<Record<string, unknown>>({
 });
 
 const tracks = getFormattedTracksMock(5);
+const track = tracks[0];
 
 function factory(props = {}) {
   const wrapper = mount(FilesList, {
@@ -145,21 +146,21 @@ describe('FilesList', () => {
         'add to playlist DropdownItem',
         'addToPlaylist',
         'addToPlaylist',
-        [tracks[0].id],
+        [track.id],
       ],
       [
         'media information DropdownItem',
         'mediaInformation',
         'mediaInformation',
-        [tracks[0]],
+        [track],
       ],
       [
         'download media DropdownItem',
         'downloadMedia',
         'downloadMedia',
-        [tracks[0].id],
+        [track],
       ],
-      ['add to queue DropdownItem', 'addToQueue', 'addToQueue', [tracks[0]]],
+      ['add to queue DropdownItem', 'addToQueue', 'addToQueue', [track]],
       ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
     ])(
       'when the %s component emits the click event',

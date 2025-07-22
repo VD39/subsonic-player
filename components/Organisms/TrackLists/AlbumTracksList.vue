@@ -16,7 +16,7 @@ defineProps<{
 defineEmits<{
   addToPlaylist: [value: string];
   addToQueue: [value: Track];
-  downloadMedia: [value: string];
+  downloadMedia: [value: Track];
   dragStart: [track: Track, event: DragEvent];
   mediaInformation: [value: Track];
   playTrack: [value: number];
@@ -88,7 +88,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
           </DropdownItem>
           <DropdownItem
             ref="downloadMedia"
-            @click="$emit('downloadMedia', track.id)"
+            @click="$emit('downloadMedia', track)"
           >
             Download track
           </DropdownItem>

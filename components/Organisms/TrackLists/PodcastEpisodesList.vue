@@ -17,7 +17,7 @@ defineEmits<{
   addToQueue: [value: PodcastEpisode];
   deleteEpisode: [value: string];
   downloadEpisode: [value: string];
-  downloadMedia: [value: string];
+  downloadMedia: [value: PodcastEpisode];
   dragStart: [track: PodcastEpisode, event: DragEvent];
   episodeInformation: [value: PodcastEpisode];
   playEpisode: [value: PodcastEpisode];
@@ -144,7 +144,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
             </DropdownItem>
             <DropdownItem
               ref="downloadMedia"
-              @click="$emit('downloadMedia', episode.streamUrlId!)"
+              @click="$emit('downloadMedia', episode)"
             >
               Download episode
             </DropdownItem>

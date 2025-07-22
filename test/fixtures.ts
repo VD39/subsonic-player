@@ -25,6 +25,8 @@ export const COOKIE_MOCK =
 
 export const API_DATE = new Date(2000, 0, 1);
 
+export const TRACK_BLOB = new Blob(['track content'], { type: 'audio/mp3' });
+
 export const routeMock = {
   fullPath: 'login?param=param&param1=param1',
   hash: '',

@@ -12,6 +12,7 @@ import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 import PodcastEpisodesList from './PodcastEpisodesList.vue';
 
 let podcastEpisodes = getFormattedPodcastEpisodesMock(5);
+const podcastEpisode = podcastEpisodes[0];
 
 function factory(props = {}) {
   const wrapper = mount(PodcastEpisodesList, {
@@ -201,31 +202,31 @@ describe('PodcastEpisodesList', () => {
           'delete episode DropdownItem',
           'deleteEpisode',
           'deleteEpisode',
-          [podcastEpisodes[0].id],
+          [podcastEpisode.id],
         ],
         [
           'download media DropdownItem',
           'downloadMedia',
           'downloadMedia',
-          [podcastEpisodes[0].streamUrlId],
+          [podcastEpisode],
         ],
         [
           'add to playlist DropdownItem',
           'addToPlaylist',
           'addToPlaylist',
-          [podcastEpisodes[0].id],
+          [podcastEpisode.id],
         ],
         [
           'add to queue DropdownItem',
           'addToQueue',
           'addToQueue',
-          [podcastEpisodes[0]],
+          [podcastEpisode],
         ],
         [
           'play episode DropdownItem',
           'playEpisode',
           'playEpisode',
-          [podcastEpisodes[0]],
+          [podcastEpisode],
         ],
       ])(
         'when the %s component emits the click event',
@@ -246,9 +247,7 @@ describe('PodcastEpisodesList', () => {
         });
 
         it('emits the playEpisode event with the correct value', () => {
-          expect(wrapper.emitted('playEpisode')).toEqual([
-            [podcastEpisodes[0]],
-          ]);
+          expect(wrapper.emitted('playEpisode')).toEqual([[podcastEpisode]]);
         });
       });
     });
@@ -337,13 +336,13 @@ describe('PodcastEpisodesList', () => {
           'download episode ButtonLink',
           'downloadEpisodeButton',
           'downloadEpisode',
-          [podcastEpisodes[0].id],
+          [podcastEpisode.id],
         ],
         [
           'download episode DropdownItem',
           'downloadEpisodeDropdownItem',
           'downloadEpisode',
-          [podcastEpisodes[0].id],
+          [podcastEpisode.id],
         ],
       ])(
         'when the %s component emits the click event',
@@ -367,7 +366,7 @@ describe('PodcastEpisodesList', () => {
 
         it('emits the downloadEpisode event with the correct value id', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
-            [podcastEpisodes[0].id],
+            [podcastEpisode.id],
           ]);
         });
       });
@@ -378,13 +377,13 @@ describe('PodcastEpisodesList', () => {
         'episode information ButtonLink',
         'episodeInformationButton',
         'episodeInformation',
-        [podcastEpisodes[0]],
+        [podcastEpisode],
       ],
       [
         'episode information DropdownItem',
         'episodeInformationDropdownItem',
         'episodeInformation',
-        [podcastEpisodes[0]],
+        [podcastEpisode],
       ],
     ])(
       'when the %s component emits the click event',
@@ -406,7 +405,7 @@ describe('PodcastEpisodesList', () => {
 
       it('emits the dragStart event', () => {
         expect(wrapper.emitted('dragStart')).toEqual([
-          [podcastEpisodes[0], expect.any(DragEvent)],
+          [podcastEpisode, expect.any(DragEvent)],
         ]);
       });
     });

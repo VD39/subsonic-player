@@ -2,9 +2,10 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
-import { useMediaLibrary } from './index';
+import { TRACK_BLOB } from '@/test/fixtures';
+import { getFormattedTracksMock } from '@/test/helpers';
 
-const windowLocationAssignSpy = vi.spyOn(window.location, 'assign');
+import { useMediaLibrary } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
@@ -21,6 +22,12 @@ mockNuxtImport('useSnack', () => () => ({
   addSuccessSnack: addSuccessSnackMock,
 }));
 
+const downloadFileFromBlobMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('downloadFileFromBlob', () => downloadFileFromBlobMock);
+
+const track = getFormattedTracksMock()[0];
+
 const {
   downloadMedia,
   getFiles,
@@ -32,12 +39,32 @@ const {
 
 describe('useMediaLibrary', () => {
   describe('when the downloadMedia function is called', () => {
-    beforeEach(() => {
-      downloadMedia('download-id');
+    describe('when fetchData response returns null', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        downloadMedia(track);
+      });
+
+      it('does not call the downloadFileFromBlob function', () => {
+        expect(downloadFileFromBlobMock).not.toHaveBeenCalled();
+      });
     });
 
-    it('calls the window.location.assign with the correct value', () => {
-      expect(windowLocationAssignSpy).toHaveBeenCalledWith('download-id');
+    describe('when fetchData response returns a value', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: TRACK_BLOB,
+        });
+
+        downloadMedia(track);
+      });
+
+      it('calls the downloadFileFromBlob function', () => {
+        expect(downloadFileFromBlobMock).toHaveBeenCalled();
+      });
     });
   });
 
@@ -51,7 +78,7 @@ describe('useMediaLibrary', () => {
         startScan();
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });

@@ -4,6 +4,10 @@ export default defineNuxtPlugin(() => {
       Accept: 'application/json',
     },
     onResponse({ response }) {
+      if (response._data instanceof Blob) {
+        return response._data;
+      }
+
       const subsonicResponse = response._data['subsonic-response'];
 
       if (!subsonicResponse || subsonicResponse.status !== 'ok') {
@@ -13,9 +17,9 @@ export default defineNuxtPlugin(() => {
       }
 
       if (subsonicResponse.status === 'ok') {
-        response._data = {
+        return (response._data = {
           ...subsonicResponse,
-        };
+        });
       }
     },
   });

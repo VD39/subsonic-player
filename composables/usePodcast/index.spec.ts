@@ -146,7 +146,7 @@ describe('usePodcast', () => {
         await addPodcast('url');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -208,7 +208,7 @@ describe('usePodcast', () => {
         await deletePodcast('id');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -270,7 +270,7 @@ describe('usePodcast', () => {
         deletePodcastEpisode('id');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
@@ -304,7 +304,7 @@ describe('usePodcast', () => {
         downloadPodcastEpisode('id');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });

@@ -35,6 +35,7 @@ vi.mock('vue', async () => {
 });
 
 const tracks = getFormattedTracksMock(5);
+const track = tracks[0];
 
 function factory(props = {}) {
   const wrapper = mount(MixedTracksList, {
@@ -522,7 +523,7 @@ describe('MixedTracksList', () => {
         'remove',
         [
           {
-            id: tracks[0].id,
+            id: track.id,
             index: 0,
           },
         ],
@@ -531,19 +532,19 @@ describe('MixedTracksList', () => {
         'add to playlist DropdownItem',
         'addToPlaylist',
         'addToPlaylist',
-        [tracks[0].id, 0],
+        [track.id, 0],
       ],
       [
         'media information DropdownItem',
         'mediaInformation',
         'mediaInformation',
-        [tracks[0]],
+        [track],
       ],
       [
         'download media DropdownItem',
         'downloadMedia',
         'downloadMedia',
-        [tracks[0].id],
+        [track],
       ],
       ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
       [
@@ -552,7 +553,7 @@ describe('MixedTracksList', () => {
         'remove',
         [
           {
-            id: tracks[0].id,
+            id: track.id,
             index: 0,
           },
         ],
@@ -620,7 +621,7 @@ describe('MixedTracksList', () => {
 
         it('emits the dragStart event', () => {
           expect(wrapper.emitted('dragStart')).toEqual([
-            [tracks[0], expect.any(DragEvent)],
+            [track, expect.any(DragEvent)],
           ]);
         });
       });

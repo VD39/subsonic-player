@@ -83,7 +83,7 @@ describe('useRadioStation', () => {
         addRadioStation({} as RadioStationParams);
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -167,7 +167,7 @@ describe('useRadioStation', () => {
         updateRadioStation({} as RadioStationParams);
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -217,7 +217,7 @@ describe('useRadioStation', () => {
         deleteRadioStation('id');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 

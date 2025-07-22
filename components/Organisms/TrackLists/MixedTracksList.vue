@@ -19,7 +19,7 @@ defineProps<{
 const emit = defineEmits<{
   addToPlaylist: [value: string, index: number];
   addToQueue: [value: MixedTrack];
-  downloadMedia: [value: string];
+  downloadMedia: [value: MixedTrack];
   dragStart: [track: MixedTrack, event: DragEvent];
   mediaInformation: [value: MixedTrack];
   playTrack: [value: number];
@@ -183,7 +183,7 @@ function onDragStart(track: MixedTrack, event: DragEvent) {
           </DropdownItem>
           <DropdownItem
             ref="downloadMedia"
-            @click="$emit('downloadMedia', track.id)"
+            @click="$emit('downloadMedia', track)"
           >
             Download track
           </DropdownItem>

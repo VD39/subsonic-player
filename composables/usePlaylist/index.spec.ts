@@ -222,7 +222,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
@@ -263,7 +263,7 @@ describe('usePlaylist', () => {
         updatePlaylist({} as PlaylistParam);
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -319,7 +319,7 @@ describe('usePlaylist', () => {
           updatePlaylist({} as PlaylistParam, 'Success message', false);
         });
 
-        it('does not call the addSuccessSnackMock function', () => {
+        it('does not call the addSuccessSnack function', () => {
           expect(addSuccessSnackMock).not.toHaveBeenCalled();
         });
       });
@@ -336,7 +336,7 @@ describe('usePlaylist', () => {
         deletePlaylist('id');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 

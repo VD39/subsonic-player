@@ -15,7 +15,7 @@ defineProps<{
 
 defineEmits<{
   addToPlaylist: [value: string];
-  downloadMedia: [value: string];
+  downloadMedia: [value: Bookmark];
   mediaInformation: [value: Bookmark];
   playTrack: [value: number];
   remove: [value: string];
@@ -120,7 +120,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
           </DropdownItem>
           <DropdownItem
             ref="downloadMedia"
-            @click="$emit('downloadMedia', bookmark.id)"
+            @click="$emit('downloadMedia', bookmark)"
           >
             Download track
           </DropdownItem>

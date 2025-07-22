@@ -79,7 +79,7 @@ describe('useBookmark', () => {
         createBookmark('id', 12345);
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -121,7 +121,7 @@ describe('useBookmark', () => {
         deleteBookmark('id');
       });
 
-      it('does not call the addSuccessSnackMock function', () => {
+      it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
 
@@ -152,7 +152,7 @@ describe('useBookmark', () => {
       });
 
       describe('when showMessage is false', () => {
-        it('does not call the addSuccessSnackMock function', () => {
+        it('does not call the addSuccessSnack function', () => {
           expect(addSuccessSnackMock).not.toHaveBeenCalled();
         });
       });
