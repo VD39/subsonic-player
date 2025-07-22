@@ -11,7 +11,8 @@ const emit = defineEmits<{
   loadMore: [];
 }>();
 
-const infiniteScrollerRef = ref<HTMLElement | null>(null);
+const infiniteScrollerRef = useTemplateRef('infiniteScrollerRef');
+
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 const buttonProps = computed<ButtonProps>(() => ({

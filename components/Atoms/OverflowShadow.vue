@@ -2,7 +2,7 @@
 const showStart = ref(false);
 const showEnd = ref(false);
 
-const containerRef = ref<HTMLElement | null>(null);
+const containerRef = useTemplateRef('containerRef');
 
 function onScroll() {
   if (!containerRef.value) {

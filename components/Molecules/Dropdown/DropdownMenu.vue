@@ -20,10 +20,11 @@ const emit = defineEmits<{
   opened: [];
 }>();
 
+const dropdownRef = useTemplateRef('dropdownRef');
+const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
+
 const isOpen = ref(false);
 const showAbove = ref(false);
-const dropdownRef = ref<HTMLElement | null>(null);
-const dropdownMenuRef = ref<HTMLElement | null>(null);
 
 function checkIfOutsideScreen() {
   if (!dropdownRef.value) {

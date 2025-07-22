@@ -8,9 +8,10 @@ defineEmits<{
   more: [];
 }>();
 
-const showButton = ref(false);
-const textRef = ref<HTMLElement | null>(null);
+const textRef = useTemplateRef('textRef');
+
 const tempText = ref('');
+const showButton = ref(false);
 
 async function updateClamp() {
   if (!textRef.value) {

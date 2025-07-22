@@ -12,8 +12,7 @@ const emit = defineEmits<{
 
 const internalModal = defineModel<number>();
 
-const sliderRef = ref<HTMLElement | null>(null);
-const thumbRef = ref<HTMLElement | null>(null);
+const sliderRef = useTemplateRef('sliderRef');
 
 const isSeeking = ref(false);
 const isHovering = ref(false);
@@ -174,7 +173,7 @@ onUnmounted(() => {
 
       <div
         v-if="!isStandard"
-        ref="thumbRef"
+        ref="thumb"
         :class="$style.thumb"
         :style="{ left: `${progress - 6}px` }"
         @mousedown.stop.prevent="onSliderMouseDown"

@@ -5,8 +5,9 @@ const cloneLength = ref(0);
 // Disable cloned content links so tabbing works as expected.
 const disableClonedContent = ref(true);
 
-const marqueeScrollRef = ref<HTMLElement | null>(null);
-const marqueeContentRef = ref<HTMLElement | null>(null);
+const marqueeScrollRef = useTemplateRef('marqueeScrollRef');
+const marqueeContentRef = useTemplateRef('marqueeContentRef');
+
 const mutationObserver = ref<MutationObserver | null>(null);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 

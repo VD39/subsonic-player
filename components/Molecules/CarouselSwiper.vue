@@ -11,7 +11,6 @@ const props = withDefaults(
 );
 
 const swiperRef = ref(null);
-const swiperWrapperRef = ref<HTMLElement | null>(null);
 
 function breakpointsSettings(slides = 2) {
   return {
@@ -40,7 +39,7 @@ const swiper = useSwiper(swiperRef, {
 </script>
 
 <template>
-  <div ref="swiperWrapperRef" :class="['mBL', $style.carouselSwiper]">
+  <div :class="['mBL', $style.carouselSwiper]">
     <swiper-container ref="swiperRef">
       <slot />
     </swiper-container>

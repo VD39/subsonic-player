@@ -120,7 +120,7 @@ describe('InputRange', () => {
     });
 
     it('shows the thumb element', () => {
-      expect(wrapper.find({ ref: 'thumbRef' }).exists()).toBe(true);
+      expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(true);
     });
 
     it('sets the correct progress bar style value', () => {
@@ -146,7 +146,7 @@ describe('InputRange', () => {
     });
 
     it('does not show the thumb element', () => {
-      expect(wrapper.find({ ref: 'thumbRef' }).exists()).toBe(false);
+      expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(false);
     });
 
     it('sets the correct progress bar style value', () => {
@@ -284,7 +284,7 @@ describe('InputRange', () => {
       });
 
       it('sets the correct thumb style value', () => {
-        expect(wrapper.find({ ref: 'thumbRef' }).attributes('style')).toBe(
+        expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
           'left: 24px;',
         );
       });
@@ -396,7 +396,7 @@ describe('InputRange', () => {
       });
 
       it('sets the correct thumb style value', () => {
-        expect(wrapper.find({ ref: 'thumbRef' }).attributes('style')).toBe(
+        expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
           'left: 24px;',
         );
       });
