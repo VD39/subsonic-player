@@ -3,6 +3,7 @@
     "defaults"
   ],
   "dependencies": {
+    "@dragdroptouch/drag-drop-touch": "^2.0.3",
     "@phosphor-icons/vue": "^2.2.1",
     "crypto-js": "^4.2.0",
     "nuxt": "^3.17.6",

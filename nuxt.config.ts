@@ -17,9 +17,10 @@ const PWA_ASSETS_SETTINGS = {
 const IMPORT_DIRECTORIES = [
   'components/**',
   'composables/**',
-  'utils/**',
   'navigations/**',
   'settings/**',
+  'types/**',
+  'utils/**',
 ];
 
 const ENVIRONMENT_VARIABLES = {
