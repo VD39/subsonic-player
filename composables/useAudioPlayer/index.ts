@@ -462,14 +462,6 @@ export function useAudioPlayer() {
       return;
     }
 
-    // const time = Math.max(
-    //   0,
-    //   Math.min(
-    //     currentTrack.value.duration,
-    //     currentTime.value + -REWIND_TRACK_TIME,
-    //   ),
-    // );
-
     setCurrentTime(currentTime.value - REWIND_TRACK_TIME);
   }
 
@@ -520,7 +512,10 @@ export function useAudioPlayer() {
 
   function resetQueueTracks() {
     const tempCurrentTrackId = currentTrack.value.id;
-    queueList.value = [...JSON.parse(originalQueueList.value)];
+    queueList.value = removeRemovedTracksFromOriginalQueue(
+      [...queueList.value],
+      [...JSON.parse(originalQueueList.value)],
+    );
     originalQueueList.value = AUDIO_PLAYER_DEFAULT_STATES.originalQueueList;
     const index = getIndex(queueList.value, tempCurrentTrackId);
     currentQueueIndex.value = index;
@@ -530,7 +525,7 @@ export function useAudioPlayer() {
     const queueClone = [...queueList.value];
     originalQueueList.value = JSON.stringify(queueClone);
     const index = getIndex(queueList.value, currentTrack.value.id);
-    queueList.value = shuffleArray(queueClone, index);
+    queueList.value = shuffleTrackInQueue(queueClone, index);
     currentQueueIndex.value = 0;
   }
 
@@ -600,6 +595,7 @@ export function useAudioPlayer() {
 
   async function removeTrackFromQueueList(id: string) {
     const tempCurrentTrackId = currentTrack.value.id;
+    const removedTrackWasPlaying = isPlaying.value;
 
     if (queueList.value.length === 1) {
       clearQueueList();
@@ -624,6 +620,12 @@ export function useAudioPlayer() {
       audioPlayer.value?.unload();
       currentQueueIndex.value -= 1;
       await playNextTrack();
+
+      // Pause the track if the track removed was not playing.
+      // Keep state as before.
+      if (!removedTrackWasPlaying) {
+        pauseTrack();
+      }
     }
 
     saveState();
