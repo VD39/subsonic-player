@@ -36,7 +36,7 @@
     "happy-dom": "^18.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
-    "playwright-core": "^1.53.2",
+    "playwright-core": "^1.54.2",
     "postcss-custom-media": "^11.0.5",
     "postcss-extend-rule": "^4.0.0",
     "postcss-html": "^1.8.0",
