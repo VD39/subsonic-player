@@ -27,7 +27,6 @@ defineProps<{
     calc(var(--default-space) * 2);
   color: var(--white-color);
   word-break: normal;
-  word-wrap: break-word;
   overflow-wrap: anywhere;
   border-radius: var(--border-radius-small);
 }

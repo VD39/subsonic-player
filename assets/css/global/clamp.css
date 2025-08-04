@@ -3,6 +3,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
+  /* stylelint-disable-next-line property-no-deprecated */
   -webkit-box-orient: vertical;
 
   > * {
