@@ -97,7 +97,7 @@ describe('MusicPlayerAndQueue', () => {
     });
 
     it('does not show the QueueList component', () => {
-      expect(wrapper.findComponent(QueueList).exists()).toBe(false);
+      expect(wrapper.findComponent(QueueList).isVisible()).toBe(false);
     });
   });
 
@@ -111,7 +111,7 @@ describe('MusicPlayerAndQueue', () => {
     });
 
     it('shows the QueueList component', () => {
-      expect(wrapper.findComponent(QueueList).exists()).toBe(true);
+      expect(wrapper.findComponent(QueueList).isVisible()).toBe(true);
     });
   });
 });

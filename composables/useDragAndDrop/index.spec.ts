@@ -112,7 +112,7 @@ mockNuxtImport('usePodcast', () => () => ({
   getPodcast: getPodcastMock,
 }));
 
-const { addTrackToQueueMock } = useAudioPlayerMock();
+const { addTracksToQueueMock } = useAudioPlayerMock();
 
 const mediaMock = getFormattedQueueTracksMock()[0];
 
@@ -121,11 +121,11 @@ vi.useFakeTimers();
 const { onDragStart, onDrop } = useDragAndDrop();
 
 describe('useDragAndDrop', () => {
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   describe('when onDrop function is called', () => {
+    afterEach(() => {
+      vi.clearAllMocks();
+    });
+
     beforeEach(() => {
       onDrop('drop-id', createOnDropDragEvent(false));
     });
@@ -167,8 +167,8 @@ describe('useDragAndDrop', () => {
             );
           });
 
-          it('does not call then addTrackToQueue function', () => {
-            expect(addTrackToQueueMock).not.toHaveBeenCalled();
+          it('does not call then addTracksToQueue function', () => {
+            expect(addTracksToQueueMock).not.toHaveBeenCalled();
           });
 
           it('does not call then addToPlaylist function', () => {
@@ -209,8 +209,8 @@ describe('useDragAndDrop', () => {
               },
             ],
           ])(
-            'with dropId %s',
-            (dropId, addTrackToQueueTimes, addToPlaylistTimes) => {
+            'when dropId is %s',
+            (dropId, addTracksToQueueTimes, addToPlaylistTimes) => {
               describe(`when media type is ${MEDIA_TYPE.album}`, () => {
                 describe('when tracks is not an empty array', () => {
                   beforeEach(() => {
@@ -227,31 +227,19 @@ describe('useDragAndDrop', () => {
                     );
                   });
 
-                  it('calls the target.classList.add function', () => {
-                    expect(addClassMock).toHaveBeenCalledWith(
-                      DRAG_AND_DROP_CLASS_NAMES.droppedInZone,
-                    );
-                  });
-
                   it('does not call getAlbum function', () => {
                     expect(getAlbumMock).not.toHaveBeenCalled();
                   });
 
-                  it(`${addTrackToQueueTimes.album > 0 ? 'calls' : 'does not call'} the addTrackToQueue function`, () => {
-                    expect(addTrackToQueueMock).toHaveBeenCalledTimes(
-                      addTrackToQueueTimes.album,
+                  it(`${addTracksToQueueTimes.album > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
+                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
+                      addTracksToQueueTimes.album > 0 ? 1 : 0,
                     );
                   });
 
                   it(`${addToPlaylistTimes.album > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
                     expect(addToPlaylistMock).toHaveBeenCalledTimes(
                       addToPlaylistTimes.album,
-                    );
-                  });
-
-                  it('calls the target.classList.remove function', () => {
-                    expect(removeClassMock).toHaveBeenCalledWith(
-                      DRAG_AND_DROP_CLASS_NAMES.droppedInZone,
                     );
                   });
                 });
@@ -278,8 +266,8 @@ describe('useDragAndDrop', () => {
                       expect(getAlbumMock).toHaveBeenCalled();
                     });
 
-                    it('does not call addTrackToQueue function', () => {
-                      expect(addTrackToQueueMock).not.toHaveBeenCalled();
+                    it('does not call addTracksToQueue function', () => {
+                      expect(addTracksToQueueMock).not.toHaveBeenCalled();
                     });
 
                     it('does not call addToPlaylist function', () => {
@@ -312,9 +300,9 @@ describe('useDragAndDrop', () => {
                       expect(getAlbumMock).toHaveBeenCalled();
                     });
 
-                    it(`${addTrackToQueueTimes.album > 0 ? 'calls' : 'does not call'} the addTrackToQueue function`, () => {
-                      expect(addTrackToQueueMock).toHaveBeenCalledTimes(
-                        addTrackToQueueTimes.album,
+                    it(`${addTracksToQueueTimes.album > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
+                      expect(addTracksToQueueMock).toHaveBeenCalledTimes(
+                        addTracksToQueueTimes.album > 0 ? 1 : 0,
                       );
                     });
 
@@ -347,9 +335,9 @@ describe('useDragAndDrop', () => {
                     expect(getAlbumMock).not.toHaveBeenCalled();
                   });
 
-                  it(`${addTrackToQueueTimes.playlist > 0 ? 'calls' : 'does not call'} the addTrackToQueue function`, () => {
-                    expect(addTrackToQueueMock).toHaveBeenCalledTimes(
-                      addTrackToQueueTimes.playlist,
+                  it(`${addTracksToQueueTimes.playlist > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
+                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
+                      addTracksToQueueTimes.playlist > 0 ? 1 : 0,
                     );
                   });
 
@@ -375,8 +363,8 @@ describe('useDragAndDrop', () => {
                     );
                   });
 
-                  it('does not call then addTrackToQueue function', () => {
-                    expect(addTrackToQueueMock).not.toHaveBeenCalled();
+                  it('does not call then addTracksToQueue function', () => {
+                    expect(addTracksToQueueMock).not.toHaveBeenCalled();
                   });
 
                   it('does not call then addToPlaylist function', () => {
@@ -406,8 +394,8 @@ describe('useDragAndDrop', () => {
                 });
 
                 describe('when getPodcast does not return data', () => {
-                  it('does not call then addTrackToQueue function', () => {
-                    expect(addTrackToQueueMock).not.toHaveBeenCalled();
+                  it('does not call then addTracksToQueue function', () => {
+                    expect(addTracksToQueueMock).not.toHaveBeenCalled();
                   });
 
                   it('does not call then addToPlaylist function', () => {
@@ -437,9 +425,9 @@ describe('useDragAndDrop', () => {
                     );
                   });
 
-                  it(`${addTrackToQueueTimes.podcast > 0 ? 'calls' : 'does not call'} the addTrackToQueue function`, () => {
-                    expect(addTrackToQueueMock).toHaveBeenCalledTimes(
-                      addTrackToQueueTimes.podcast,
+                  it(`${addTracksToQueueTimes.podcast > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
+                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
+                      addTracksToQueueTimes.podcast > 0 ? 1 : 0,
                     );
                   });
 
@@ -467,9 +455,9 @@ describe('useDragAndDrop', () => {
                     );
                   });
 
-                  it(`${addTrackToQueueTimes.podcastEpisodeTracks > 0 ? 'calls' : 'does not call'} the addTrackToQueue function`, () => {
-                    expect(addTrackToQueueMock).toHaveBeenCalledTimes(
-                      addTrackToQueueTimes.podcastEpisodeTracks,
+                  it(`${addTracksToQueueTimes.podcastEpisodeTracks > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
+                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
+                      addTracksToQueueTimes.podcastEpisodeTracks > 0 ? 1 : 0,
                     );
                   });
 
@@ -495,8 +483,8 @@ describe('useDragAndDrop', () => {
                   );
                 });
 
-                it('does not call then addTrackToQueue function', () => {
-                  expect(addTrackToQueueMock).not.toHaveBeenCalled();
+                it('does not call then addTracksToQueue function', () => {
+                  expect(addTracksToQueueMock).not.toHaveBeenCalled();
                 });
 
                 it('does not call then addToPlaylist function', () => {
@@ -508,8 +496,6 @@ describe('useDragAndDrop', () => {
 
           describe('when onDrop is called multiple times', () => {
             beforeEach(() => {
-              vi.clearAllMocks();
-
               onDrop(
                 'drop-id',
                 createOnDropDragEvent(
@@ -567,6 +553,7 @@ describe('useDragAndDrop', () => {
   describe('when onDragStart function is called', () => {
     describe('when dataTransfer is not defined', () => {
       beforeEach(() => {
+        const { onDragStart } = useDragAndDrop();
         onDragStart(mediaMock, createOnDragStartDragEvent(false));
       });
 
@@ -577,6 +564,7 @@ describe('useDragAndDrop', () => {
 
     describe('when media is not valid', () => {
       beforeEach(() => {
+        const { onDragStart } = useDragAndDrop();
         onDragStart({} as never, createOnDragStartDragEvent());
       });
 
@@ -587,6 +575,7 @@ describe('useDragAndDrop', () => {
 
     describe('when dataTransfer is defined and media is valid', () => {
       beforeEach(() => {
+        const { onDragStart } = useDragAndDrop();
         onDragStart(mediaMock, createOnDragStartDragEvent(true, null));
       });
 
@@ -602,6 +591,7 @@ describe('useDragAndDrop', () => {
 
       describe('when querySelector does return a value', () => {
         beforeEach(() => {
+          const { onDragStart } = useDragAndDrop();
           onDragStart(mediaMock, createOnDragStartDragEvent(true));
         });
 
@@ -656,10 +646,54 @@ describe('useDragAndDrop', () => {
         });
       });
     });
+
+    describe('when onDragStart is called multiple times', () => {
+      beforeEach(() => {
+        const { onDragStart } = useDragAndDrop();
+        onDragStart(mediaMock, createOnDragStartDragEvent(false));
+        vi.clearAllMocks();
+        onDragStart(mediaMock, createOnDragStartDragEvent(false));
+      });
+
+      it('does not call the clonedEl.classList.add function', () => {
+        expect(addClassMock).not.toHaveBeenCalledWith(
+          DRAG_AND_DROP_CLASS_NAMES.clonedElement,
+        );
+      });
+
+      it('does not call the document.createElement function', () => {
+        expect(createElementSpy).not.toHaveBeenCalledWith('div');
+      });
+
+      it('does not add the dragover event listener function', () => {
+        expect(documentAddEventListenerSpy).not.toHaveBeenCalledWith(
+          'dragover',
+          expect.any(Function),
+        );
+      });
+
+      it('does not add dragenter event listener function', () => {
+        expect(documentAddEventListenerSpy).not.toHaveBeenCalledWith(
+          'dragenter',
+          expect.any(Function),
+        );
+      });
+
+      it('does not add dragend event listener function', () => {
+        expect(documentAddEventListenerSpy).not.toHaveBeenCalledWith(
+          'dragend',
+          expect.any(Function),
+        );
+      });
+    });
   });
 
   describe('when event listeners are attached', () => {
     describe('when dragover event is called', () => {
+      afterEach(() => {
+        vi.clearAllMocks();
+      });
+
       beforeEach(() => {
         documentEvents.dragover({
           clientX: 20,
@@ -700,6 +734,10 @@ describe('useDragAndDrop', () => {
     });
 
     describe('when dragenter event is called', () => {
+      afterEach(() => {
+        vi.clearAllMocks();
+      });
+
       describe('when closest does not return a value', () => {
         beforeEach(() => {
           closestSpy.mockReturnValue(null);
@@ -794,12 +832,8 @@ describe('useDragAndDrop', () => {
     });
 
     describe('when dragend event is called', () => {
-      beforeEach(() => {
-        documentEvents.dragend();
-      });
-
-      afterAll(() => {
-        vi.advanceTimersByTime(TRANSFORM_SPEED);
+      beforeEach(async () => {
+        await documentEvents.dragend();
       });
 
       it('removes the dragover event listener function', () => {
@@ -831,6 +865,7 @@ describe('useDragAndDrop', () => {
 
       describe('when animationFrameId is defined', () => {
         beforeEach(() => {
+          onDragStart(mediaMock, createOnDragStartDragEvent(true));
           documentEvents.dragover({
             clientX: 20,
             clientY: 10,

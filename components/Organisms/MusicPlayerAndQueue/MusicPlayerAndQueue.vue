@@ -17,6 +17,6 @@ const { isQueueListOpened, isQueuePlayerOpened } = useQueue();
   </transition>
 
   <transition name="slide-up-down">
-    <QueueList v-if="isQueueListOpened" />
+    <QueueList v-show="isQueueListOpened" />
   </transition>
 </template>

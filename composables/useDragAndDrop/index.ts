@@ -3,7 +3,7 @@ export function useDragAndDrop() {
   const { getAlbum } = useAlbum();
   const { addToPlaylist } = usePlaylist();
   const { getPodcast } = usePodcast();
-  const { addTrackToQueue } = useAudioPlayer();
+  const { addTracksToQueue } = useAudioPlayer();
 
   const draggedElement = ref<HTMLElement | null>(null);
   const clonedElement = ref<HTMLElement | null>(null);
@@ -15,13 +15,13 @@ export function useDragAndDrop() {
     target: HTMLElement | undefined,
     dropId: string,
   ) {
+    if (dropId === QUEUE_ID) {
+      await addTracksToQueue(tracksToAdd);
+      return;
+    }
+
     for (const [index, track] of tracksToAdd.entries()) {
       target?.classList.add(DRAG_AND_DROP_CLASS_NAMES.droppedInZone);
-
-      if (dropId === QUEUE_ID) {
-        await addTrackToQueue(track);
-        continue;
-      }
 
       // Update playlist only if on the playlist page.
       const isMatchingPlaylist =
@@ -101,12 +101,12 @@ export function useDragAndDrop() {
     return media && 'type' in media;
   }
 
-  function onDragEnd() {
+  async function onDragEnd() {
     if (!clonedElement.value) {
       return;
     }
 
-    // Cancel any pending animation frame
+    // Cancel any pending animation frame.
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
       animationFrameId = null;
@@ -114,7 +114,7 @@ export function useDragAndDrop() {
 
     const { height, left, top, width } = originalPosition.value;
 
-    // Animate back to original position
+    // Animate back to original position.
     Object.assign(clonedElement.value.style, {
       height: `${height}px`,
       transform: `translate(${left}px, ${top}px)`,
@@ -122,14 +122,17 @@ export function useDragAndDrop() {
       width: `${width}px`,
     });
 
-    setTimeout(() => {
+    // Update to use a promise to make sure that element is removed from the DOM.
+    await new Promise<void>((resolve) => {
       clonedElement.value?.remove();
-      if (draggedElement.value) {
-        draggedElement.value.style.opacity = '1';
-      }
-      draggedElement.value = null;
-      clonedElement.value = null;
-    }, TRANSFORM_SPEED);
+      resolve();
+    });
+
+    if (draggedElement.value) {
+      draggedElement.value.style.opacity = '1';
+    }
+    draggedElement.value = null;
+    clonedElement.value = null;
 
     document.removeEventListener('dragover', onDragOver);
     document.removeEventListener('dragenter', onDragEnter);
@@ -153,7 +156,7 @@ export function useDragAndDrop() {
     const element = event.currentTarget as HTMLElement;
     const toElement = event.relatedTarget as HTMLElement;
 
-    // If still inside the dropzone or its descendants, don't remove highlight
+    // If still inside the dropzone or its descendants, don't remove highlight.
     if (toElement && element?.contains(toElement)) {
       return;
     }
@@ -169,13 +172,13 @@ export function useDragAndDrop() {
 
     event.preventDefault();
 
-    // Use requestAnimationFrame for smoother animation
+    // Use requestAnimationFrame for smoother animation.
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }
 
     animationFrameId = requestAnimationFrame(() => {
-      // Calculate centred position
+      // Calculate centred position.
       const halfImageSize = IMAGE_HEIGHT_WIDTH / 2;
       const x = event.clientX - halfImageSize;
       const y = event.clientY - halfImageSize;
@@ -186,7 +189,7 @@ export function useDragAndDrop() {
   }
 
   function onDragStart(media: DragAndDropMedia, event: DragEvent) {
-    if (!event.dataTransfer || !isValidMedia(media)) {
+    if (!event.dataTransfer || draggedElement.value || !isValidMedia(media)) {
       return;
     }
 
@@ -211,6 +214,7 @@ export function useDragAndDrop() {
     document.addEventListener('dragenter', onDragEnter);
     document.addEventListener('dragend', onDragEnd);
   }
+
   async function onDrop(dropId: string, event: DragEvent) {
     event.preventDefault();
 
@@ -235,6 +239,10 @@ export function useDragAndDrop() {
     }
 
     const tracksToAdd = await getTracksToAdd(media);
+
+    if (!tracksToAdd.length) {
+      return;
+    }
 
     await addTracks(tracksToAdd, target, dropId);
   }

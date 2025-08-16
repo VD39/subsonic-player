@@ -3,7 +3,7 @@
 exports[`MusicPlayerAndQueue > when isQueueListOpened is false > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <queue-player-stub></queue-player-stub>
-<!--v-if-->"
+<queue-list-stub style="display: none;"></queue-list-stub>"
 `;
 
 exports[`MusicPlayerAndQueue > when isQueueListOpened is true > matches the snapshot 1`] = `
@@ -15,23 +15,23 @@ exports[`MusicPlayerAndQueue > when isQueueListOpened is true > matches the snap
 exports[`MusicPlayerAndQueue > when isQueuePlayerOpened is false > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <!--v-if-->
-<!--v-if-->"
+<queue-list-stub style="display: none;"></queue-list-stub>"
 `;
 
 exports[`MusicPlayerAndQueue > when isQueuePlayerOpened is true > matches the snapshot 1`] = `
 "<music-player-stub></music-player-stub>
 <queue-player-stub class="slide-up-down-enter-from slide-up-down-enter-active"></queue-player-stub>
-<!--v-if-->"
+<queue-list-stub style="display: none;"></queue-list-stub>"
 `;
 
 exports[`MusicPlayerAndQueue > when showMediaPlayer value is false > matches the snapshot 1`] = `
 "<!--v-if-->
 <!--v-if-->
-<!--v-if-->"
+<queue-list-stub style="display: none;"></queue-list-stub>"
 `;
 
 exports[`MusicPlayerAndQueue > when showMediaPlayer value is true > matches the snapshot 1`] = `
 "<music-player-stub class="slide-up-down-enter-from slide-up-down-enter-active"></music-player-stub>
 <!--v-if-->
-<!--v-if-->"
+<queue-list-stub style="display: none;"></queue-list-stub>"
 `;
