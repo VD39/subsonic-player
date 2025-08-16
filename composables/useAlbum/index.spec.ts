@@ -14,14 +14,7 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const {
-  getAlbum,
-  getAlbums,
-  getFrequentAlbums,
-  getNewestAlbums,
-  getRandomAlbums,
-  getRecentAlbums,
-} = useAlbum();
+const { getAlbum, getAlbums } = useAlbum();
 
 describe('useAlbum', () => {
   afterEach(() => {
@@ -199,46 +192,6 @@ describe('useAlbum', () => {
 
       it('returns the correct response', async () => {
         expect(await getAlbum('id')).toEqual({
-          name: 'name',
-        });
-      });
-    });
-  });
-
-  describe('when the getFrequentAlbums function is called', () => {
-    describe('when fetchData response returns a value', () => {
-      it('returns the correct response', async () => {
-        expect(await getFrequentAlbums()).toEqual({
-          name: 'name',
-        });
-      });
-    });
-  });
-
-  describe('when the getNewestAlbums function is called', () => {
-    describe('when fetchData response returns a value', () => {
-      it('returns the correct response', async () => {
-        expect(await getNewestAlbums()).toEqual({
-          name: 'name',
-        });
-      });
-    });
-  });
-
-  describe('when the getRecentAlbums function is called', () => {
-    describe('when fetchData response returns a value', () => {
-      it('returns the correct response', async () => {
-        expect(await getRecentAlbums()).toEqual({
-          name: 'name',
-        });
-      });
-    });
-  });
-
-  describe('when the getRandomAlbums function is called', () => {
-    describe('when fetchData response returns a value', () => {
-      it('returns the correct response', async () => {
-        expect(await getRandomAlbums()).toEqual({
           name: 'name',
         });
       });

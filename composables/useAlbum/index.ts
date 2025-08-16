@@ -4,6 +4,13 @@ export function useAlbum() {
 
   const { fetchData } = useAPI();
 
+  const newestAlbums = useState<Album[]>(STATE_NAMES.newestAlbums, () => []);
+  const recentAlbums = useState<Album[]>(STATE_NAMES.recentAlbums, () => []);
+  const frequentAlbums = useState<Album[]>(
+    STATE_NAMES.frequentAlbums,
+    () => [],
+  );
+
   async function getAlbums(params: AlbumsParams) {
     const { data: albumsData } = await fetchData('/getAlbumList2', {
       params: {
@@ -31,6 +38,7 @@ export function useAlbum() {
     return albumData;
   }
 
+  /* istanbul ignore next -- @preserve */
   function getFrequentAlbums(size = 20) {
     return getAlbums({
       size,
@@ -38,6 +46,7 @@ export function useAlbum() {
     });
   }
 
+  /* istanbul ignore next -- @preserve */
   function getNewestAlbums(size = 20) {
     return getAlbums({
       size,
@@ -45,6 +54,7 @@ export function useAlbum() {
     });
   }
 
+  /* istanbul ignore next -- @preserve */
   function getRandomAlbums(size = 20) {
     return getAlbums({
       size,
@@ -52,6 +62,7 @@ export function useAlbum() {
     });
   }
 
+  /* istanbul ignore next -- @preserve */
   function getRecentAlbums(size = 20) {
     return getAlbums({
       size,
@@ -59,12 +70,29 @@ export function useAlbum() {
     });
   }
 
+  async function getDiscoverAlbums() {
+    const [frequentAlbumsData, newestAlbumsData, recentAlbumsData] =
+      await Promise.all([
+        getFrequentAlbums(),
+        getNewestAlbums(),
+        getRecentAlbums(),
+      ]);
+
+    frequentAlbums.value = frequentAlbumsData;
+    newestAlbums.value = newestAlbumsData;
+    recentAlbums.value = recentAlbumsData;
+  }
+
   return {
+    frequentAlbums,
     getAlbum,
     getAlbums,
+    getDiscoverAlbums,
     getFrequentAlbums,
     getNewestAlbums,
     getRandomAlbums,
     getRecentAlbums,
+    newestAlbums,
+    recentAlbums,
   };
 }

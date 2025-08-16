@@ -30,19 +30,11 @@ const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
 
 const { refresh, status } = useAsyncData(
   route.fullPath,
-  async () => {
+  async () =>
     await getPlaylistTracksById(
       route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
-    );
-
-    return {
-      playlist: playlist.value,
-    };
-  },
+    ),
   {
-    default: () => ({
-      playlist: null,
-    }),
     getCachedData: undefined,
   },
 );

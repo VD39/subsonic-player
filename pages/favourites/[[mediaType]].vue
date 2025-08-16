@@ -21,17 +21,8 @@ const { onDragStart } = useDragAndDrop();
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.favourites,
-  async () => {
-    await getFavourites();
-
-    return {
-      favourites: favourites.value,
-    };
-  },
+  async () => await getFavourites(),
   {
-    default: () => ({
-      favourites: DEFAULT_ALL_MEDIA,
-    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },

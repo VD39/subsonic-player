@@ -4,6 +4,7 @@ export function useAudioPlayer() {
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
   const { createBookmark, deleteBookmark } = useBookmark();
+  const { getDiscoverAlbums } = useAlbum();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -695,6 +696,8 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onEnded(async () => {
+      getDiscoverAlbums();
+
       if (isPodcastEpisode.value) {
         deleteBookmark(currentTrack.value.id, false);
       }

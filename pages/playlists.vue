@@ -15,17 +15,8 @@ const {
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.playlists,
-  async () => {
-    await getPlaylists();
-
-    return {
-      playlists: playlists.value,
-    };
-  },
+  async () => await getPlaylists(),
   {
-    default: () => ({
-      playlists: [],
-    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },

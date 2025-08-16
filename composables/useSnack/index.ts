@@ -2,10 +2,14 @@ export function useSnack() {
   const snacks = useState<Snack[]>(STATE_NAMES.snacks, () => []);
 
   function addSnack(snackData: Omit<Snack, 'id'>) {
+    if (import.meta.server) {
+      return;
+    }
+
     let timer = null;
     const id = generateRandomString(50);
 
-    if (import.meta.client && snackData.auto) {
+    if (snackData.auto) {
       timer = setTimeout(() => {
         removeSnack(id);
       }, SNACK_ALIVE_DURATION);

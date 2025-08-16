@@ -15,37 +15,16 @@ const { favourites, getFavourites } = useFavourite();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { onDragStart } = useDragAndDrop();
-const { getFrequentAlbums, getNewestAlbums, getRecentAlbums } = useAlbum();
+const { frequentAlbums, getDiscoverAlbums, newestAlbums, recentAlbums } =
+  useAlbum();
 
-const {
-  data: discoverData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = await useAsyncData(
   ASYNC_DATA_NAMES.index,
-  async () => {
-    const [frequentAlbums, newestAlbums, recentAlbums] = await Promise.all([
-      getFrequentAlbums(),
-      getNewestAlbums(),
-      getRecentAlbums(),
-      getFavourites(),
-    ]);
-
-    return {
-      favourites: favourites.value,
-      frequentAlbums,
-      newestAlbums,
-      recentAlbums,
-    };
-  },
+  async () => await Promise.all([getDiscoverAlbums(), getFavourites()]),
   {
-    default: () => ({
-      frequentAlbums: [],
-      newestAlbums: [],
-      recentAlbums: [],
-    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    lazy: true,
   },
 );
 
@@ -55,9 +34,9 @@ function playTrack(index: number) {
 
 const hasData = computed(
   () =>
-    discoverData.value.frequentAlbums.length ||
-    discoverData.value.newestAlbums.length ||
-    discoverData.value.recentAlbums.length ||
+    frequentAlbums.value.length ||
+    newestAlbums.value.length ||
+    recentAlbums.value.length ||
     favourites.value.tracks.length ||
     favourites.value.albums.length ||
     favourites.value.artists.length,
@@ -79,7 +58,7 @@ useHead({
 
   <LoadingData :status>
     <template v-if="hasData">
-      <template v-if="discoverData.newestAlbums.length">
+      <template v-if="newestAlbums.length">
         <HeaderSeeAllLink
           :to="{
             name: ROUTE_NAMES.albums,
@@ -93,10 +72,7 @@ useHead({
         </HeaderSeeAllLink>
 
         <CarouselSwiper>
-          <swiper-slide
-            v-for="album in discoverData.newestAlbums"
-            :key="album.name"
-          >
+          <swiper-slide v-for="album in newestAlbums" :key="album.name">
             <AlbumItem
               :album
               draggable="true"
@@ -106,7 +82,7 @@ useHead({
         </CarouselSwiper>
       </template>
 
-      <template v-if="discoverData.recentAlbums.length">
+      <template v-if="recentAlbums.length">
         <HeaderSeeAllLink
           :to="{
             name: ROUTE_NAMES.albums,
@@ -120,10 +96,7 @@ useHead({
         </HeaderSeeAllLink>
 
         <CarouselSwiper>
-          <swiper-slide
-            v-for="album in discoverData.recentAlbums"
-            :key="album.name"
-          >
+          <swiper-slide v-for="album in recentAlbums" :key="album.name">
             <AlbumItem
               :album
               draggable="true"
@@ -133,7 +106,7 @@ useHead({
         </CarouselSwiper>
       </template>
 
-      <template v-if="discoverData.frequentAlbums.length">
+      <template v-if="frequentAlbums.length">
         <HeaderSeeAllLink
           :to="{
             name: ROUTE_NAMES.albums,
@@ -147,10 +120,7 @@ useHead({
         </HeaderSeeAllLink>
 
         <CarouselSwiper>
-          <swiper-slide
-            v-for="album in discoverData.frequentAlbums"
-            :key="album.name"
-          >
+          <swiper-slide v-for="album in frequentAlbums" :key="album.name">
             <AlbumItem
               :album
               draggable="true"

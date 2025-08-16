@@ -27,7 +27,6 @@ const { data: libraryData, status } = useAsyncData(
     return {
       artists,
       genres,
-      playlists: playlists.value,
       randomAlbums,
     };
   },

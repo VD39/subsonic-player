@@ -25,19 +25,8 @@ const {
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.podcasts,
-  async () => {
-    await getPodcastsAndNewestPodcastEpisodes();
-
-    return {
-      newestPodcastEpisodes: newestPodcastEpisodes.value,
-      podcasts: podcasts.value,
-    };
-  },
+  async () => await getPodcastsAndNewestPodcastEpisodes(),
   {
-    default: () => ({
-      newestPodcastEpisodes: [],
-      podcasts: [],
-    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },

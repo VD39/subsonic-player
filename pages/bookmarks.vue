@@ -12,17 +12,8 @@ const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.bookmarks,
-  async () => {
-    await getBookmarks();
-
-    return {
-      bookmarks: bookmarks.value,
-    };
-  },
+  async () => await getBookmarks(),
   {
-    default: () => ({
-      bookmarks: [],
-    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },

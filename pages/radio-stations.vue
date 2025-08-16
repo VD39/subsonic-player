@@ -16,17 +16,8 @@ const { addTrackToQueue, playTracks } = useAudioPlayer();
 
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.radioStations,
-  async () => {
-    await getRadioStations();
-
-    return {
-      radioStations: radioStations.value,
-    };
-  },
+  async () => await getRadioStations(),
   {
-    default: () => ({
-      radioStations: [],
-    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
