@@ -4,7 +4,7 @@ exports[`AlbumItem > matches the snapshot 1`] = `
 "<article>
   <div class="albumImageWrapper">
     <figure class="mBS"><a draggable="false" title="Go to album album-0">
-        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
       </a></figure>
     <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
         <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
@@ -24,7 +24,7 @@ exports[`AlbumItem > when album artist is an empty array > matches the snapshot 
 "<article>
   <div class="albumImageWrapper">
     <figure class="mBS"><a draggable="false" title="Go to album album-0">
-        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image" style="display: none;"></div>
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
       </a></figure>
     <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
         <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>

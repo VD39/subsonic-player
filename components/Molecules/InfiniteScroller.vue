@@ -30,12 +30,12 @@ onMounted(() => {
   }
 
   intersectionObserver.value = new IntersectionObserver(
-    ([entry]) => {
+    ([entry], observer) => {
       if (entry && entry.isIntersecting) {
         if (props.hasMore && !props.loading) {
           loadMore();
         } else {
-          intersectionObserver.value?.disconnect();
+          observer?.disconnect();
         }
       }
     },

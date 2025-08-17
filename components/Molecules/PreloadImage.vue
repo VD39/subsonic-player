@@ -13,7 +13,11 @@ const props = withDefaults(
 
 const { getImageUrl } = useAPI();
 
+const preloadImageRef = useTemplateRef('preloadImageRef');
+
 const loading = ref(true);
+const loadImage = ref(false);
+const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 function onImageLoad() {
   loading.value = false;
@@ -30,22 +34,52 @@ const imageSrc = computed(() => {
 
   return getImageUrl(props.image);
 });
+
+onMounted(async () => {
+  if (!preloadImageRef.value || !imageSrc.value) {
+    return;
+  }
+
+  intersectionObserver.value = new IntersectionObserver(
+    ([entry], observer) => {
+      if (entry && entry.isIntersecting) {
+        loadImage.value = true;
+        observer?.disconnect();
+      }
+    },
+    {
+      root: null,
+      threshold: 0.1,
+    },
+  );
+
+  intersectionObserver.value.observe(preloadImageRef.value);
+});
+
+onUnmounted(() => {
+  intersectionObserver.value?.disconnect();
+});
 </script>
 
 <template>
-  <div :class="['centerAll', $style.preloadImage]">
+  <div ref="preloadImageRef" :class="['centerAll', $style.preloadImage]">
     <template v-if="imageSrc">
-      <span v-show="loading" ref="imageLoader" class="skeletonLoader">
+      <span
+        v-show="loading || !loadImage"
+        ref="imageLoader"
+        class="skeletonLoader"
+      >
         <span class="visuallyHidden">Loading image</span>
       </span>
 
       <ClientOnly>
         <img
-          v-show="!loading"
+          v-show="!loading || loadImage"
           ref="img"
           :alt
           :class="$style.image"
           draggable="false"
+          loading="lazy"
           :src="imageSrc"
           @load="onImageLoad"
         />

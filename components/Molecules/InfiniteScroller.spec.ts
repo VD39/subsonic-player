@@ -141,16 +141,25 @@ describe('InfiniteScroller', () => {
       it('does not call the loadMore event', () => {
         expect(wrapper.emitted('loadMore')).toEqual(undefined);
       });
+
+      it('disconnects the IntersectionObserver function', () => {
+        expect(iOMock.observerDisconnectMock).toHaveBeenCalled();
+      });
     });
 
     describe('when hasMore prop is true', () => {
       describe('when loading prop is false', () => {
         beforeEach(() => {
+          vi.clearAllMocks();
           wrapper = factory();
         });
 
         it('calls the loadMore event', () => {
           expect(wrapper.emitted('loadMore')).toEqual([[]]);
+        });
+
+        it('does not disconnect the IntersectionObserver function', () => {
+          expect(iOMock.observerDisconnectMock).not.toHaveBeenCalled();
         });
       });
 
@@ -163,6 +172,10 @@ describe('InfiniteScroller', () => {
 
         it('does not call the loadMore event', () => {
           expect(wrapper.emitted('loadMore')).toEqual(undefined);
+        });
+
+        it('disconnects the IntersectionObserver function', () => {
+          expect(iOMock.observerDisconnectMock).toHaveBeenCalled();
         });
       });
     });

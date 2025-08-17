@@ -5,9 +5,12 @@ export function intersectionObserverMock(
 ) {
   const disconnectMock = vi.fn();
   const observeMock = vi.fn();
+  const observerDisconnectMock = vi.hoisted(() => vi.fn());
 
   const intersectionObserverMock = vi.fn((cb) => {
-    cb(entry);
+    cb(entry, {
+      disconnect: observerDisconnectMock,
+    });
 
     return {
       disconnect: disconnectMock,
@@ -24,5 +27,6 @@ export function intersectionObserverMock(
   return {
     disconnectMock,
     observeMock,
+    observerDisconnectMock,
   };
 }
