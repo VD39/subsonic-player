@@ -5,9 +5,11 @@ const props = withDefaults(
   defineProps<{
     alt?: string;
     image: Image;
+    lazyLoad?: boolean;
   }>(),
   {
     alt: 'Image',
+    lazyLoad: true,
   },
 );
 
@@ -36,7 +38,7 @@ const imageSrc = computed(() => {
 });
 
 onMounted(async () => {
-  if (!preloadImageRef.value || !imageSrc.value) {
+  if (!preloadImageRef.value || !imageSrc.value || !props.lazyLoad) {
     return;
   }
 

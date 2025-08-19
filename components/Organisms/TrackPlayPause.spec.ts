@@ -70,6 +70,10 @@ describe('TrackPlayPause', () => {
         'visuallyHidden',
       );
     });
+
+    it('sets the lazyLoad prop to true on the PreloadImage component', () => {
+      expect(wrapper.findComponent(PreloadImage).props('lazyLoad')).toBe(true);
+    });
   });
 
   describe('when hideImage prop is set to true', () => {
@@ -97,6 +101,10 @@ describe('TrackPlayPause', () => {
       expect(wrapper.findComponent(PreloadImage).classes()).toContain(
         'visuallyHidden',
       );
+    });
+
+    it('sets the lazyLoad prop to false on the PreloadImage component', () => {
+      expect(wrapper.findComponent(PreloadImage).props('lazyLoad')).toBe(false);
     });
   });
 
