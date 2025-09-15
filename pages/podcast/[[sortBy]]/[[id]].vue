@@ -5,7 +5,6 @@ import TextClamp from '@/components/Atoms/TextClamp.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
@@ -28,28 +27,7 @@ const {
   downloadPodcastEpisode,
   getPodcast,
 } = usePodcast();
-const {
-  fetchMoreData,
-  hasMore,
-  items: podcastEpisodes,
-  LOAD_SIZE,
-  resetToDefaults,
-} = useInfinityLoading<PodcastEpisode>(
-  `${route.params[ROUTE_PARAM_KEYS.podcast.id]}-${route.params[ROUTE_PARAM_KEYS.podcast.sortBy]}`,
-);
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
-
-function fetchData() {
-  fetchMoreData((offset: number) =>
-    sliceArrayBySizeAndOffset(
-      podcastData.value.podcast?.episodes?.[
-        route.params[ROUTE_PARAM_KEYS.podcast.sortBy] as PodcastSortByParam
-      ] || [],
-      LOAD_SIZE,
-      offset,
-    ),
-  );
-}
 
 const {
   data: podcastData,
@@ -91,9 +69,8 @@ async function deleteSelectedPodcast() {
   });
 }
 
-function getData() {
-  resetToDefaults();
-  fetchData();
+function dragItem(event: DragEvent) {
+  onDragStart(podcastData.value.podcast!, event);
 }
 
 function openPodcastDescriptionModal() {
@@ -117,20 +94,13 @@ function playLatestsEpisodes() {
 
 async function refreshPodcast() {
   await refresh();
-  resetToDefaults();
 }
 
-getData();
-
-function dragItem(event: DragEvent) {
-  onDragStart(podcastData.value.podcast!, event);
-}
-
-watch(
-  () => podcastData.value.podcast,
-  () => {
-    getData();
-  },
+const podcastEpisodes = computed(
+  () =>
+    podcastData.value.podcast?.episodes?.[
+      route.params[ROUTE_PARAM_KEYS.podcast.sortBy] as PodcastSortByParam
+    ] || [],
 );
 
 useHead({
@@ -226,8 +196,6 @@ useHead({
         @episodeInformation="openTrackInformationModal"
         @playEpisode="playEpisode"
       />
-
-      <InfiniteScroller :hasMore :loading="false" @loadMore="fetchData" />
     </div>
 
     <NoMediaMessage

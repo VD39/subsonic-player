@@ -18,7 +18,7 @@ const routeMock = ref<Record<string, unknown>>({
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
 
-function factory(props = {}) {
+async function factory(props = {}) {
   const wrapper = mount(FilesList, {
     global: {
       mocks: {
@@ -32,6 +32,8 @@ function factory(props = {}) {
     },
   });
 
+  await wrapper.vm.$nextTick();
+
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
   if (dropdownMenu.exists()) {
@@ -44,8 +46,8 @@ function factory(props = {}) {
 describe('FilesList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   it('matches the snapshot', () => {
@@ -59,7 +61,7 @@ describe('FilesList', () => {
   });
 
   describe('when route params does have an Id', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       routeMock.value = {
         fullPath: '/files/0/al-1/al-2/al-3',
         params: {
@@ -67,7 +69,7 @@ describe('FilesList', () => {
         },
       };
 
-      wrapper = factory();
+      wrapper = await factory();
     });
 
     it('matches the snapshot', () => {
@@ -103,8 +105,8 @@ describe('FilesList', () => {
   });
 
   describe('when folders is not an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         folders: tracks,
       });
     });
@@ -123,8 +125,8 @@ describe('FilesList', () => {
   });
 
   describe('when tracks is not an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         tracks,
       });
     });
@@ -165,7 +167,7 @@ describe('FilesList', () => {
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent({ ref }).vm.$emit('click');
         });
 
@@ -176,7 +178,7 @@ describe('FilesList', () => {
     );
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 

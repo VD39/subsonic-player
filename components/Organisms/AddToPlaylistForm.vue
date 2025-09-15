@@ -10,16 +10,8 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  addToPlaylist: [
-    value: {
-      playlistId: string;
-    },
-  ];
-  removeFromPlaylist: [
-    value: {
-      playlistId: string;
-    },
-  ];
+  addToPlaylist: [playlistId: string];
+  removeFromPlaylist: [playlistId: string];
   submit: [value: string | string[]];
 }>();
 
@@ -46,10 +38,7 @@ function addToRemoveFromPlaylist(playlistId: string) {
 }
 
 function addToSelectedPlaylist(playlistId: string) {
-  emit('addToPlaylist', {
-    playlistId,
-  });
-
+  emit('addToPlaylist', playlistId);
   selectedItems.value.add(playlistId);
 }
 
@@ -82,10 +71,7 @@ function playlistIdInSelectedItems(playlistId: string) {
 }
 
 function removeFromSelectedPlaylist(playlistId: string) {
-  emit('removeFromPlaylist', {
-    playlistId,
-  });
-
+  emit('removeFromPlaylist', playlistId);
   selectedItems.value.delete(playlistId);
 }
 

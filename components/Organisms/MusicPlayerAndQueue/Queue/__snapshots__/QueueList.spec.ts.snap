@@ -20,11 +20,11 @@ exports[`QueueList > matches the snapshot 1`] = `
       <div class="trackCell trackOptions"></div>
       <div class="trackCell trackOptions"></div>
     </div>
-    <div class="trackRow" data-test-id="track" draggable="false">
+    <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>

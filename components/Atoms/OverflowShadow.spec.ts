@@ -10,7 +10,7 @@ const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
 function factory(slots = {}) {
   return mount(OverflowShadow, {
     slots: {
-      default: '<div>Sample text.</div>',
+      default: 'Default slot content.',
       ...slots,
     },
   });

@@ -33,7 +33,7 @@ defineProps<{
 .pageNavigation {
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: var(--width-height-100);
 }
 
 .navigation {

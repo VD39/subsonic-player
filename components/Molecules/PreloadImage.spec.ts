@@ -92,7 +92,7 @@ describe('Default', () => {
 
       describe('when intersectionObserver is intersecting', () => {
         beforeEach(() => {
-          intersectionObserverMock([
+          iOMock = intersectionObserverMock([
             {
               isIntersecting: true,
             } as never,

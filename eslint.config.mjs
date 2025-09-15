@@ -41,6 +41,7 @@ export default withNuxt(
       ],
       'vue/component-name-in-template-casing': ['error', 'PascalCase'],
       'vue/define-emits-declaration': ['error', 'type-literal'],
+      'vue/define-props-declaration': ['error', 'type-based'],
       'vue/no-multiple-template-root': 'off',
       'vue/v-bind-style': [
         'error',

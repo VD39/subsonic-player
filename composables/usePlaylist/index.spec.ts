@@ -491,9 +491,7 @@ describe('usePlaylist', () => {
 
       describe('when playlist matches current playlist', () => {
         beforeEach(async () => {
-          await handlers.onAddToPlaylist({
-            playlistId: playlistsMock[0].id,
-          });
+          await handlers.onAddToPlaylist(playlistsMock[0].id);
         });
 
         it('calls the updatePlaylist function', () => {
@@ -513,9 +511,7 @@ describe('usePlaylist', () => {
 
       describe('when playlist does not match current playlist', () => {
         beforeEach(async () => {
-          await handlers.onAddToPlaylist({
-            playlistId: 'id',
-          });
+          await handlers.onAddToPlaylist('id');
         });
 
         it('calls the updatePlaylist function', () => {
@@ -542,9 +538,7 @@ describe('usePlaylist', () => {
 
       describe('when playlist is not found', () => {
         beforeEach(async () => {
-          await handlers.onRemoveFromPlaylist({
-            playlistId: 'id',
-          });
+          await handlers.onRemoveFromPlaylist('id');
         });
 
         it('does not call the removeFromPlaylist function', () => {
@@ -558,9 +552,7 @@ describe('usePlaylist', () => {
       describe('when playlist is found', () => {
         describe('when playlist matches current playlist', () => {
           beforeEach(async () => {
-            await handlers.onRemoveFromPlaylist({
-              playlistId: playlistsMock[0].id,
-            });
+            await handlers.onRemoveFromPlaylist(playlistsMock[0].id);
           });
 
           it('calls the updatePlaylist function with the correct Id', () => {
@@ -584,9 +576,7 @@ describe('usePlaylist', () => {
 
         describe('when playlist does not match current playlist', () => {
           beforeEach(async () => {
-            await handlers.onRemoveFromPlaylist({
-              playlistId: playlistsMock[1].id,
-            });
+            await handlers.onRemoveFromPlaylist(playlistsMock[1].id);
           });
 
           it('calls the updatePlaylist function with the correct Id', () => {

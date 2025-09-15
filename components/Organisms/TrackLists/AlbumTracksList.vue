@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
@@ -14,12 +15,12 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToPlaylist: [value: string];
-  addToQueue: [value: Track];
-  downloadMedia: [value: Track];
+  addToPlaylist: [trackId: string];
+  addToQueue: [track: Track];
+  downloadMedia: [track: Track];
   dragStart: [track: Track, event: DragEvent];
-  mediaInformation: [value: Track];
-  playTrack: [value: number];
+  mediaInformation: [track: Track];
+  playTrack: [index: number];
 }>();
 
 const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
@@ -34,7 +35,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
       <div class="trackCell trackOptions" />
     </div>
 
-    <div
+    <LazyLoadContent
       v-for="track in tracks"
       :key="track.id"
       class="trackRow"
@@ -104,7 +105,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
           </DropdownItem>
         </DropdownMenu>
       </div>
-    </div>
+    </LazyLoadContent>
   </div>
 
   <NoMediaMessage

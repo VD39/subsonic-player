@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -12,10 +13,10 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToQueue: [value: RadioStation];
-  deleteRadioStation: [value: string];
-  editRadioStation: [value: RadioStation];
-  playRadioStation: [value: RadioStation];
+  addToQueue: [radioStation: RadioStation];
+  deleteRadioStation: [radioStationId: string];
+  editRadioStation: [radioStation: RadioStation];
+  playRadioStation: [radioStation: RadioStation];
 }>();
 
 const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
@@ -28,7 +29,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
       <div class="trackCell trackOptions" />
     </div>
 
-    <div
+    <LazyLoadContent
       v-for="(radioStation, index) in radioStations"
       :key="radioStation.id"
       class="trackRow"
@@ -93,7 +94,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
           </DropdownItem>
         </DropdownMenu>
       </div>
-    </div>
+    </LazyLoadContent>
   </div>
 
   <NoMediaMessage

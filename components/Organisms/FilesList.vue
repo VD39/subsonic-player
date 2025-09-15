@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
@@ -12,11 +13,11 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToPlaylist: [value: string];
-  addToQueue: [value: Track];
+  addToPlaylist: [trackId: string];
+  addToQueue: [track: Track];
   downloadMedia: [track: Track];
-  mediaInformation: [value: Track];
-  playTrack: [value: number];
+  mediaInformation: [track: Track];
+  playTrack: [index: number];
 }>();
 </script>
 
@@ -46,7 +47,7 @@ defineEmits<{
 
     <template v-if="folders.length || tracks.length">
       <template v-if="folders.length">
-        <div
+        <LazyLoadContent
           v-for="folder in folders"
           :key="folder.id"
           class="trackRow"
@@ -69,11 +70,11 @@ defineEmits<{
               </MarqueeScroll>
             </NuxtLink>
           </div>
-        </div>
+        </LazyLoadContent>
       </template>
 
       <template v-if="tracks.length">
-        <div
+        <LazyLoadContent
           v-for="(track, index) in tracks"
           :key="track.id"
           class="trackRow"
@@ -129,7 +130,7 @@ defineEmits<{
               </DropdownMenu>
             </div>
           </div>
-        </div>
+        </LazyLoadContent>
       </template>
     </template>
 

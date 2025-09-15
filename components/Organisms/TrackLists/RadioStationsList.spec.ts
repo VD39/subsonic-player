@@ -12,13 +12,15 @@ import RadioStationsList from './RadioStationsList.vue';
 
 const radioStations = getFormattedRadioStationMock(5);
 
-function factory(props = {}) {
+async function factory(props = {}) {
   const wrapper = mount(RadioStationsList, {
     props: {
       radioStations: [],
       ...props,
     },
   });
+
+  await wrapper.vm.$nextTick();
 
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
@@ -32,8 +34,8 @@ function factory(props = {}) {
 describe('RadioStationsList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   it('matches the snapshot', () => {
@@ -51,8 +53,8 @@ describe('RadioStationsList', () => {
   });
 
   describe('when radioStations prop is not an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         radioStations,
       });
     });
@@ -101,7 +103,7 @@ describe('RadioStationsList', () => {
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent({ ref }).vm.$emit('click');
         });
 
@@ -112,7 +114,7 @@ describe('RadioStationsList', () => {
     );
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 

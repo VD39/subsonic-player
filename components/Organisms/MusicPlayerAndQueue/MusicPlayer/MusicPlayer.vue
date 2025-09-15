@@ -116,7 +116,7 @@ const { currentTrack } = useAudioPlayer();
 
 .inner {
   position: relative;
-  height: 100%;
+  height: var(--width-height-100);
 
   @media (--tablet-up) {
     display: grid;

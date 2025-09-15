@@ -115,13 +115,7 @@ describe('AddToPlaylistForm', () => {
         });
 
         it('emits addToPlaylist event with the form values', () => {
-          expect(wrapper.emitted('addToPlaylist')).toEqual([
-            [
-              {
-                playlistId: 'playlist-0',
-              },
-            ],
-          ]);
+          expect(wrapper.emitted('addToPlaylist')).toEqual([['playlist-0']]);
         });
 
         it('updates the icon prop on the ButtonLink component', () => {
@@ -153,11 +147,7 @@ describe('AddToPlaylistForm', () => {
 
           it('emits removeFromPlaylist event with the form values', () => {
             expect(wrapper.emitted('removeFromPlaylist')).toEqual([
-              [
-                {
-                  playlistId: 'playlist-0',
-                },
-              ],
+              ['playlist-0'],
             ]);
           });
 

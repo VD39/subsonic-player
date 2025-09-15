@@ -6,11 +6,11 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -84,11 +84,11 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">2</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -140,11 +140,11 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">3</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -196,11 +196,11 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">4</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -252,11 +252,11 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">5</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -317,11 +317,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -395,11 +395,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">2</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -451,11 +451,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">3</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -507,11 +507,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">4</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -563,11 +563,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">5</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -628,11 +628,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -706,11 +706,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">2</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -762,11 +762,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">3</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -818,11 +818,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">4</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -874,11 +874,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">5</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -939,11 +939,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
-          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
           </button>
         </div>
@@ -1010,11 +1010,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1092,11 +1092,11 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
     <div class="trackCell">Episodes</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="true">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper trackPlayPause large withImage trackPlayPause">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>

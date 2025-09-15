@@ -19,7 +19,7 @@
 }
 
 .mBAllM {
-  height: 100%;
+  height: var(--width-height-100);
 
   > *:not(:last-child) {
     margin-bottom: var(--space-16);
@@ -27,7 +27,7 @@
 }
 
 .mBAllL {
-  height: 100%;
+  height: var(--width-height-100);
 
   > *:not(:last-child) {
     margin-bottom: var(--space-32);

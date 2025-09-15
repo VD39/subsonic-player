@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -17,14 +18,14 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  addToPlaylist: [value: string, index: number];
-  addToQueue: [value: MixedTrack];
-  downloadMedia: [value: MixedTrack];
+  addToPlaylist: [trackId: string, index: number];
+  addToQueue: [track: MixedTrack];
+  downloadMedia: [track: MixedTrack];
   dragStart: [track: MixedTrack, event: DragEvent];
-  mediaInformation: [value: MixedTrack];
-  playTrack: [value: number];
+  mediaInformation: [track: MixedTrack];
+  playTrack: [index: number];
   remove: [
-    value: {
+    removeArgs: {
       id: string;
       index: number;
     },
@@ -67,7 +68,7 @@ function onDragStart(track: MixedTrack, event: DragEvent) {
       />
     </div>
 
-    <div
+    <LazyLoadContent
       v-for="(track, index) in tracks"
       :key="track.id"
       class="trackRow"
@@ -222,7 +223,7 @@ function onDragStart(track: MixedTrack, event: DragEvent) {
           Remove track
         </ButtonLink>
       </div>
-    </div>
+    </LazyLoadContent>
   </div>
 
   <NoMediaMessage

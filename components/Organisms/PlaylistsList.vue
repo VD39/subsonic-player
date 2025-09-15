@@ -10,8 +10,8 @@ defineProps<{
 }>();
 
 defineEmits<{
-  deletePlaylist: [value: string];
-  editPlaylist: [value: Playlist];
+  deletePlaylist: [trackId: string];
+  editPlaylist: [playlist: Playlist];
 }>();
 </script>
 

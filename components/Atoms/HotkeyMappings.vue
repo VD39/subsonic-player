@@ -43,7 +43,7 @@ defineProps<{
   position: fixed;
   inset: 0;
   z-index: 99;
-  width: 100%;
+  width: var(--width-height-100);
   height: 100vh;
   padding: var(--space-16) 0;
   overflow-y: auto;

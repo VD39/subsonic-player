@@ -13,13 +13,15 @@ import TracksList from './TracksList.vue';
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
 
-function factory(props = {}) {
+async function factory(props = {}) {
   const wrapper = mount(TracksList, {
     props: {
       tracks,
       ...props,
     },
   });
+
+  await wrapper.vm.$nextTick();
 
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
@@ -33,8 +35,8 @@ function factory(props = {}) {
 describe('TracksList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   it('matches the snapshot', () => {
@@ -42,8 +44,8 @@ describe('TracksList', () => {
   });
 
   describe('when tracks prop is an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         tracks: [],
       });
     });
@@ -87,8 +89,8 @@ describe('TracksList', () => {
     });
 
     describe('when track.album is undefined', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           tracks: getFormattedTracksMock(1, {
             album: undefined,
           }),
@@ -123,8 +125,8 @@ describe('TracksList', () => {
     });
 
     describe('when track.artists is an empty array', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           tracks: getFormattedTracksMock(1, {
             artists: [],
           }),
@@ -170,7 +172,7 @@ describe('TracksList', () => {
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent({ ref }).vm.$emit('click');
         });
 
@@ -181,7 +183,7 @@ describe('TracksList', () => {
     );
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 

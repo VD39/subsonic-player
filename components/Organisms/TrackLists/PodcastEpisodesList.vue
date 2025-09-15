@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
@@ -13,14 +14,14 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToPlaylist: [value: string];
-  addToQueue: [value: PodcastEpisode];
-  deleteEpisode: [value: string];
-  downloadEpisode: [value: string];
-  downloadMedia: [value: PodcastEpisode];
-  dragStart: [track: PodcastEpisode, event: DragEvent];
-  episodeInformation: [value: PodcastEpisode];
-  playEpisode: [value: PodcastEpisode];
+  addToPlaylist: [episodeId: string];
+  addToQueue: [episode: PodcastEpisode];
+  deleteEpisode: [episodeId: string];
+  downloadEpisode: [episodeId: string];
+  downloadMedia: [episode: PodcastEpisode];
+  dragStart: [episode: PodcastEpisode, event: DragEvent];
+  episodeInformation: [episode: PodcastEpisode];
+  playEpisode: [episode: PodcastEpisode];
 }>();
 
 const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
@@ -33,7 +34,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
       <div class="trackCell trackOptions" />
     </div>
 
-    <div
+    <LazyLoadContent
       v-for="(episode, index) in podcastEpisodes"
       :key="episode.id"
       class="trackRow trackBorder spaceBetween"
@@ -185,7 +186,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
           </template>
         </DropdownMenu>
       </div>
-    </div>
+    </LazyLoadContent>
   </div>
 
   <NoMediaMessage

@@ -10,11 +10,11 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -101,11 +101,11 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -172,11 +172,11 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -243,11 +243,11 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -314,11 +314,11 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -398,11 +398,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -489,11 +489,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -560,11 +560,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -631,11 +631,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -702,11 +702,399 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-4</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">02:00</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`MixedTracksList > when tracks prop is not an empty array > when hideRemoveOption props is false > matches the snapshot 1`] = `
+"<div class="trackTable withPreview">
+  <div class="trackHeader">
+    <div class="trackCell">Track</div>
+    <div class="trackCell trackSecondary">Album/Podcast</div>
+    <div class="trackCell trackSecondary">Artists/Author</div>
+    <div class="trackCell trackTime">Duration</div>
+    <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-0</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">02:00</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Remove track </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <!--v-if-->
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-1</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">02:00</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-2</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">02:00</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
+          <p class="overlap trackNumber visuallyHidden">1</p>
+          <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+              <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+            </button></div>
+        </div>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-3</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div><time class="trackCell trackTime">02:00</time>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
+    <div class="trackCell">
+      <div>
+        <div class="overlapWrapper trackPlayPause withImage">
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -786,11 +1174,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
     <div class="trackCell trackOptions"></div>
     <!--v-if-->
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -873,11 +1261,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
     </div>
     <!--v-if-->
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -942,11 +1330,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
     </div>
     <!--v-if-->
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1011,11 +1399,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
     </div>
     <!--v-if-->
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1080,11 +1468,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
     </div>
     <!--v-if-->
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1162,11 +1550,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onA
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1253,11 +1641,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onA
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1324,11 +1712,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onA
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1395,11 +1783,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onA
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1466,11 +1854,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onA
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1550,11 +1938,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1643,11 +2031,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1714,11 +2102,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1785,11 +2173,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1856,11 +2244,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -1940,11 +2328,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the tra
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2043,11 +2431,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2143,11 +2531,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2238,11 +2626,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2329,11 +2717,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2420,11 +2808,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2510,11 +2898,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2605,11 +2993,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2694,11 +3082,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2783,11 +3171,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -2883,11 +3271,11 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when track d
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="false">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="false">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause withImage">
-          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+          <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
           <p class="overlap trackNumber visuallyHidden">1</p>
           <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>

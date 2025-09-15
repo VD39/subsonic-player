@@ -17,6 +17,11 @@ const track = getFormattedQueueTracksMock(1, {
 
 function factory(props = {}) {
   return mount(TrackMeta, {
+    global: {
+      stubs: {
+        MarqueeScroll: false,
+      },
+    },
     props: {
       track,
       ...props,

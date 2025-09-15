@@ -180,16 +180,16 @@ export function usePlaylist() {
     openModal(MODAL_TYPE.addToPlaylistModal, {
       loading,
       newlyCreatedPlaylistId,
-      async onAddToPlaylist(params: PlaylistParam) {
+      async onAddToPlaylist(playlistId: string) {
         loading.value = true;
         newlyCreatedPlaylistId.value = null;
 
         // Update playlist only if on the playlist page.
-        const isMatchingPlaylist = playlist.value?.id === params.playlistId;
+        const isMatchingPlaylist = playlist.value?.id === playlistId;
 
         await addToPlaylist(
           {
-            playlistId: params.playlistId,
+            playlistId,
             songIdToAdd: trackId,
           },
           isMatchingPlaylist,
@@ -197,17 +197,17 @@ export function usePlaylist() {
 
         loading.value = false;
       },
-      async onRemoveFromPlaylist(params: PlaylistParam) {
+      async onRemoveFromPlaylist(playlistId: string) {
         loading.value = true;
         newlyCreatedPlaylistId.value = null;
 
         const foundPlaylist = playlists.value.find(
-          (playlist) => playlist.id === params.playlistId,
+          (playlist) => playlist.id === playlistId,
         );
 
         if (foundPlaylist) {
           // Update playlist only if on the playlist page.
-          const isMatchingPlaylist = playlist.value?.id === params.playlistId;
+          const isMatchingPlaylist = playlist.value?.id === playlistId;
 
           const songIndexToRemove = isMatchingPlaylist
             ? index
@@ -215,7 +215,7 @@ export function usePlaylist() {
 
           await removeFromPlaylist(
             {
-              playlistId: params.playlistId,
+              playlistId,
               songIndexToRemove,
             },
             isMatchingPlaylist,

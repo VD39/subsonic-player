@@ -1,6 +1,14 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { config, RouterLinkStub } from '@vue/test-utils';
 
+import { intersectionObserverMock } from '@/test/intersectionObserverMock';
+
+intersectionObserverMock([
+  {
+    isIntersecting: true,
+  } as never,
+]);
+
 window.MutationObserver = vi.fn().mockImplementation(() => ({
   disconnect: vi.fn(),
   observe: vi.fn(),

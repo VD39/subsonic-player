@@ -13,13 +13,15 @@ import BookmarksTracksList from './BookmarksTracksList.vue';
 const bookmarks = getFormattedBookmarksMock(5);
 const bookmark = bookmarks[0];
 
-function factory(props = {}) {
+async function factory(props = {}) {
   const wrapper = mount(BookmarksTracksList, {
     props: {
       bookmarks,
       ...props,
     },
   });
+
+  await wrapper.vm.$nextTick();
 
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
@@ -33,8 +35,8 @@ function factory(props = {}) {
 describe('BookmarksTracksList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   it('matches the snapshot', () => {
@@ -42,8 +44,8 @@ describe('BookmarksTracksList', () => {
   });
 
   describe('when bookmarks prop is an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         bookmarks: [],
       });
     });
@@ -75,8 +77,8 @@ describe('BookmarksTracksList', () => {
     });
 
     describe('when track.author is undefined', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           bookmarks: getFormattedBookmarksMock(1, {
             author: undefined,
           }),
@@ -115,8 +117,8 @@ describe('BookmarksTracksList', () => {
     });
 
     describe('when track.podcastName is undefined', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           bookmarks: getFormattedBookmarksMock(1, {
             podcastName: undefined,
           }),
@@ -180,7 +182,7 @@ describe('BookmarksTracksList', () => {
   ])(
     'when the %s component emits the click event',
     (_text, ref, emitEventName, expectedArgs) => {
-      beforeEach(() => {
+      beforeEach(async () => {
         wrapper.findComponent({ ref }).vm.$emit('click');
       });
 
@@ -191,7 +193,7 @@ describe('BookmarksTracksList', () => {
   );
 
   describe('when the TrackPlayPause component emits the playTrack event', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
     });
 

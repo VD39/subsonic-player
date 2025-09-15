@@ -8,7 +8,7 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
       <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -89,7 +89,7 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
       <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -161,7 +161,7 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
       <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -241,7 +241,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -321,7 +321,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
       <figure class="image"><a draggable="false" title="Go to podcast undefined">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -401,7 +401,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -480,7 +480,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -559,7 +559,7 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+      <div class="centerAll preloadImage image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
       <div class="trackDetails">
         <div class="marqueeScroll">
           <div class="bulletList inner">
@@ -639,7 +639,7 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
       <figure class="image"><a draggable="false" title="Go to podcast undefined">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -711,7 +711,7 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
       <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">

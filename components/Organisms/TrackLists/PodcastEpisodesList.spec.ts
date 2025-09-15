@@ -14,13 +14,15 @@ import PodcastEpisodesList from './PodcastEpisodesList.vue';
 let podcastEpisodes = getFormattedPodcastEpisodesMock(5);
 const podcastEpisode = podcastEpisodes[0];
 
-function factory(props = {}) {
+async function factory(props = {}) {
   const wrapper = mount(PodcastEpisodesList, {
     props: {
       podcastEpisodes,
       ...props,
     },
   });
+
+  await wrapper.vm.$nextTick();
 
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
@@ -34,9 +36,9 @@ function factory(props = {}) {
 describe('PodcastEpisodesList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     podcastEpisodes = getFormattedPodcastEpisodesMock(5);
-    wrapper = factory();
+    wrapper = await factory();
   });
 
   it('matches the snapshot', () => {
@@ -44,8 +46,8 @@ describe('PodcastEpisodesList', () => {
   });
 
   describe('when podcastEpisodes prop is an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         podcastEpisodes: [],
       });
     });
@@ -84,7 +86,7 @@ describe('PodcastEpisodesList', () => {
 
     describe('when the episode has no description', () => {
       beforeEach(async () => {
-        wrapper = factory({
+        wrapper = await factory({
           podcastEpisodes: getFormattedPodcastEpisodesMock(1, {
             description: undefined,
           }),
@@ -110,7 +112,7 @@ describe('PodcastEpisodesList', () => {
 
     describe('when the episode has no author', () => {
       beforeEach(async () => {
-        wrapper = factory({
+        wrapper = await factory({
           podcastEpisodes: getFormattedPodcastEpisodesMock(1, {
             author: undefined,
           }),
@@ -231,7 +233,7 @@ describe('PodcastEpisodesList', () => {
       ])(
         'when the %s component emits the click event',
         (_text, ref, emitEventName, expectedArgs) => {
-          beforeEach(() => {
+          beforeEach(async () => {
             wrapper.findComponent({ ref }).vm.$emit('click');
           });
 
@@ -242,7 +244,7 @@ describe('PodcastEpisodesList', () => {
       );
 
       describe('when the TrackPlayPause component emits the playTrack event', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
         });
 
@@ -253,12 +255,12 @@ describe('PodcastEpisodesList', () => {
     });
 
     describe('when episode is not downloaded', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         podcastEpisodes = getFormattedPodcastEpisodesMock(1, {
           downloaded: false,
         });
 
-        wrapper = factory({
+        wrapper = await factory({
           podcastEpisodes,
         });
       });
@@ -347,7 +349,7 @@ describe('PodcastEpisodesList', () => {
       ])(
         'when the %s component emits the click event',
         (_text, ref, emitEventName, expectedArgs) => {
-          beforeEach(() => {
+          beforeEach(async () => {
             wrapper.findComponent({ ref }).vm.$emit('click');
           });
 
@@ -358,7 +360,7 @@ describe('PodcastEpisodesList', () => {
       );
 
       describe('when the DownloadPodcastEpisode component emits the click event', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper
             .findComponent(DownloadPodcastEpisode)
             .vm.$emit('downloadEpisode');
@@ -388,7 +390,7 @@ describe('PodcastEpisodesList', () => {
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent({ ref }).vm.$emit('click');
         });
 

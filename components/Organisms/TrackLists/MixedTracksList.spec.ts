@@ -37,13 +37,15 @@ vi.mock('vue', async () => {
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
 
-function factory(props = {}) {
+async function factory(props = {}) {
   const wrapper = mount(MixedTracksList, {
     props: {
       tracks,
       ...props,
     },
   });
+
+  await wrapper.vm.$nextTick();
 
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
@@ -57,8 +59,8 @@ function factory(props = {}) {
 describe('MixedTracksList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   it('matches the snapshot', () => {
@@ -66,8 +68,8 @@ describe('MixedTracksList', () => {
   });
 
   describe('when tracks prop is an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         tracks: [],
       });
     });
@@ -105,12 +107,12 @@ describe('MixedTracksList', () => {
     });
 
     describe('when the track does not have a favourite key', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         const tracks = getFormattedTracksMock(1);
 
         delete (tracks[0] as Partial<Track>).favourite;
 
-        wrapper = factory({
+        wrapper = await factory({
           tracks,
         });
       });
@@ -125,12 +127,12 @@ describe('MixedTracksList', () => {
     });
 
     describe('when track does not have an album key', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         const tracks = getFormattedTracksMock(1);
 
         delete (tracks[0] as Partial<Track>).album;
 
-        wrapper = factory({
+        wrapper = await factory({
           tracks,
         });
       });
@@ -166,8 +168,8 @@ describe('MixedTracksList', () => {
       });
 
       describe('when track.album is undefined', () => {
-        beforeEach(() => {
-          wrapper = factory({
+        beforeEach(async () => {
+          wrapper = await factory({
             tracks: getFormattedTracksMock(1, {
               album: undefined,
             }),
@@ -185,12 +187,12 @@ describe('MixedTracksList', () => {
         });
 
         describe('when track does not have an podcastName key', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             const tracks = getFormattedPodcastEpisodesMock(1);
 
             delete (tracks[0] as Partial<PodcastEpisode>).podcastName;
 
-            wrapper = factory({
+            wrapper = await factory({
               tracks,
             });
           });
@@ -220,8 +222,8 @@ describe('MixedTracksList', () => {
 
         describe('when track does have an podcastName key', () => {
           describe('when track.podcastName is undefined', () => {
-            beforeEach(() => {
-              wrapper = factory({
+            beforeEach(async () => {
+              wrapper = await factory({
                 tracks: getFormattedPodcastEpisodesMock(1, {
                   podcastName: undefined,
                 }),
@@ -252,8 +254,8 @@ describe('MixedTracksList', () => {
           });
 
           describe('when track.podcastName is defined', () => {
-            beforeEach(() => {
-              wrapper = factory({
+            beforeEach(async () => {
+              wrapper = await factory({
                 tracks: getFormattedPodcastEpisodesMock(1),
               });
             });
@@ -285,12 +287,12 @@ describe('MixedTracksList', () => {
     });
 
     describe('when track does not have an artists key', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         const tracks = getFormattedTracksMock(1);
 
         delete (tracks[0] as Partial<Track>).artists;
 
-        wrapper = factory({
+        wrapper = await factory({
           tracks,
         });
       });
@@ -326,8 +328,8 @@ describe('MixedTracksList', () => {
       });
 
       describe('when track.artists is an empty array', () => {
-        beforeEach(() => {
-          wrapper = factory({
+        beforeEach(async () => {
+          wrapper = await factory({
             tracks: getFormattedTracksMock(1, {
               artists: [],
             }),
@@ -345,12 +347,12 @@ describe('MixedTracksList', () => {
         });
 
         describe('when track does not have an author key', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             const tracks = getFormattedPodcastEpisodesMock(1);
 
             delete (tracks[0] as Partial<PodcastEpisode>).author;
 
-            wrapper = factory({
+            wrapper = await factory({
               tracks,
             });
           });
@@ -378,8 +380,8 @@ describe('MixedTracksList', () => {
 
         describe('when track does have an author key', () => {
           describe('when track.author is undefined', () => {
-            beforeEach(() => {
-              wrapper = factory({
+            beforeEach(async () => {
+              wrapper = await factory({
                 tracks: getFormattedPodcastEpisodesMock(1, {
                   author: undefined,
                 }),
@@ -408,8 +410,8 @@ describe('MixedTracksList', () => {
           });
 
           describe('when track.author is defined', () => {
-            beforeEach(() => {
-              wrapper = factory({
+            beforeEach(async () => {
+              wrapper = await factory({
                 tracks: getFormattedPodcastEpisodesMock(1, {
                   author: 'author',
                 }),
@@ -454,11 +456,15 @@ describe('MixedTracksList', () => {
       it('shows the track options element in track row', () => {
         expect(wrapper.find({ ref: 'trackRemoveRow' }).exists()).toBe(true);
       });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
     });
 
     describe('when hideRemoveOption props is true', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           hideRemoveOption: true,
         });
       });
@@ -491,7 +497,7 @@ describe('MixedTracksList', () => {
     });
 
     describe('when the onAddToQueue event is attached', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         onAddToQueueMock = vi.fn();
       });
 
@@ -506,7 +512,7 @@ describe('MixedTracksList', () => {
       });
 
       describe('when the add to queue DropdownItem component emits the click event', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
         });
 
@@ -561,7 +567,7 @@ describe('MixedTracksList', () => {
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper.findComponent({ ref }).vm.$emit('click');
         });
 
@@ -572,7 +578,7 @@ describe('MixedTracksList', () => {
     );
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 
@@ -600,7 +606,7 @@ describe('MixedTracksList', () => {
     });
 
     describe('when the onDragStart event is attached', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         onDragStartMock = vi.fn();
       });
 

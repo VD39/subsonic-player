@@ -15,7 +15,7 @@ exports[`AlbumTracksList > when tracks prop is not an empty array > matches the 
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
@@ -95,7 +95,7 @@ exports[`AlbumTracksList > when tracks prop is not an empty array > matches the 
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
@@ -156,7 +156,7 @@ exports[`AlbumTracksList > when tracks prop is not an empty array > matches the 
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
@@ -217,7 +217,7 @@ exports[`AlbumTracksList > when tracks prop is not an empty array > matches the 
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
@@ -278,7 +278,7 @@ exports[`AlbumTracksList > when tracks prop is not an empty array > matches the 
       </div>
     </div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">
@@ -350,7 +350,7 @@ exports[`AlbumTracksList > when tracks prop is not an empty array > when track.a
     <div class="trackCell trackTime">Duration</div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="trackRow" data-test-id="track" draggable="true">
+  <div class="lazyLoadContent trackRow" data-test-id="track" draggable="true">
     <div class="trackCell">
       <div>
         <div class="overlapWrapper trackPlayPause">

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -14,11 +15,11 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToPlaylist: [value: string];
-  downloadMedia: [value: Bookmark];
-  mediaInformation: [value: Bookmark];
-  playTrack: [value: number];
-  remove: [value: string];
+  addToPlaylist: [bookmarkId: string];
+  downloadMedia: [bookmark: Bookmark];
+  mediaInformation: [bookmark: Bookmark];
+  playTrack: [index: number];
+  remove: [bookmarkId: string];
 }>();
 
 const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
@@ -41,7 +42,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
       <div class="trackCell trackOptions" />
     </div>
 
-    <div
+    <LazyLoadContent
       v-for="(bookmark, index) in bookmarks"
       :key="bookmark.id"
       class="trackRow"
@@ -143,7 +144,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
           Remove track from bookmarks
         </ButtonLink>
       </div>
-    </div>
+    </LazyLoadContent>
   </div>
 
   <NoMediaMessage
