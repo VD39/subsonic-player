@@ -1,9 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`LazyLoadContent > matches the snapshot 1`] = `
+exports[`LazyLoadContent > when nuxtApp isHydrating is false > matches the snapshot 1`] = `
 "<div class="lazyLoadContent">
   <div class="skeletonLoader preloadImage"><span class="visuallyHidden">Loading data</span></div>
 </div>"
 `;
 
-exports[`LazyLoadContent > when intersectionObserver is intersecting > matches the snapshot 1`] = `"<div class="lazyLoadContent">Default slot content.</div>"`;
+exports[`LazyLoadContent > when nuxtApp isHydrating is false > when intersectionObserver is intersecting > matches the snapshot 1`] = `"<div class="lazyLoadContent">Default slot content.</div>"`;
+
+exports[`LazyLoadContent > when nuxtApp isHydrating is true > matches the snapshot 1`] = `"<div class="lazyLoadContent">Default slot content.</div>"`;

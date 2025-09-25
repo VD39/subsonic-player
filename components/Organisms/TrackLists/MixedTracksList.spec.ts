@@ -39,6 +39,13 @@ const track = tracks[0];
 
 async function factory(props = {}) {
   const wrapper = mount(MixedTracksList, {
+    global: {
+      stubs: {
+        ArtistsList: true,
+        MarqueeScroll: true,
+        TrackMeta: true,
+      },
+    },
     props: {
       tracks,
       ...props,

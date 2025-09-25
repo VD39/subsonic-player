@@ -1,11 +1,13 @@
 <script setup lang="ts">
+const { isHydrating } = useNuxtApp();
+
 const rootRef = useTemplateRef('rootRef');
 
-const loadSlot = ref(false);
+const loadSlot = ref(!!import.meta.server || !!isHydrating);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 onMounted(() => {
-  if (!rootRef.value) {
+  if (!rootRef.value || !!isHydrating) {
     return;
   }
 
