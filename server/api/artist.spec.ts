@@ -1,6 +1,6 @@
 import type { MockInstance } from 'vitest';
 
-import { COOKIE_MOCK } from '@/test/fixtures';
+import { cookieMock } from '@/test/fixtures';
 
 import artistApi from './artist';
 
@@ -8,7 +8,7 @@ const $fetchMock = vi.spyOn(global, '$fetch') as MockInstance;
 
 describe('artist-api', () => {
   afterEach(() => {
-    vi.stubGlobal('getCookie', () => COOKIE_MOCK);
+    vi.stubGlobal('getCookie', () => cookieMock);
   });
 
   describe('when getCookie returns undefined', () => {

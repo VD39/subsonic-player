@@ -40,7 +40,7 @@ describe('MediaInformation', () => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
     });
 
-    it('calls the openModal function with correct parameters', () => {
+    it('calls the openModal function with the correct parameters', () => {
       expect(openTrackInformationModalMock).toHaveBeenCalledWith(
         currentTrackMock.value,
       );

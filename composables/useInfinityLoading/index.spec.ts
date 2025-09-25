@@ -1,6 +1,16 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { getPlaylistsMock } from '@/test/helpers';
 
 import { useInfinityLoading } from './index';
+
+const config = vi.hoisted(() => ({
+  public: {
+    LOAD_SIZE: 35,
+  },
+}));
+
+mockNuxtImport('useRuntimeConfig', () => () => config);
 
 const mockData = {
   playlist25: getPlaylistsMock(25),
@@ -21,7 +31,7 @@ describe('useInfinityLoading', () => {
   });
 
   it('sets the LOAD_SIZE value based on environment variable', () => {
-    expect(LOAD_SIZE).toBe(50);
+    expect(LOAD_SIZE).toBe(35);
   });
 
   describe('when fetchMoreData function is called', () => {
@@ -39,7 +49,7 @@ describe('useInfinityLoading', () => {
       });
     });
 
-    describe('when dataToFetch function returns more than the LOAD_SIZE', () => {
+    describe(`when dataToFetch function returns more than the ${LOAD_SIZE}`, () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(mockData.playlist55));
       });
@@ -53,7 +63,7 @@ describe('useInfinityLoading', () => {
       });
     });
 
-    describe('when dataToFetch function returns the same as the LOAD_SIZE', () => {
+    describe(`when dataToFetch function returns the same as the ${LOAD_SIZE}`, () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(mockData.playlist50));
       });
@@ -70,7 +80,7 @@ describe('useInfinityLoading', () => {
       });
     });
 
-    describe('when dataToFetch function returns the less than the LOAD_SIZE', () => {
+    describe(`when dataToFetch function returns the less than the ${LOAD_SIZE}`, () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(mockData.playlist25));
       });

@@ -9,19 +9,19 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const isAuthenticated = ref(false);
+const isAuthenticatedMock = ref(false);
 
 mockNuxtImport('useAuth', () => () => ({
   autoLogin: vi.fn(),
-  isAuthenticated,
+  isAuthenticated: isAuthenticatedMock,
 }));
 
-const playlists = ref([]);
+const playlistsMock = ref([]);
 const getPlaylistsMock = vi.fn();
 
 mockNuxtImport('usePlaylist', () => () => ({
   getPlaylists: getPlaylistsMock,
-  playlists,
+  playlists: playlistsMock,
 }));
 
 describe('app-global-middleware', () => {
@@ -31,7 +31,7 @@ describe('app-global-middleware', () => {
 
   describe('when isAuthenticated is false', () => {
     beforeEach(async () => {
-      isAuthenticated.value = false;
+      isAuthenticatedMock.value = false;
 
       appGlobalMiddleware(
         {
@@ -64,7 +64,7 @@ describe('app-global-middleware', () => {
         await flushPromises();
       });
 
-      it('calls the navigateTo function with correct URL', () => {
+      it('calls the navigateTo function with correct parameters', () => {
         expect(navigateToMock).toHaveBeenCalledWith({
           name: ROUTE_NAMES.login,
           query: {
@@ -83,7 +83,7 @@ describe('app-global-middleware', () => {
 
   describe('when isAuthenticated is true', () => {
     beforeEach(() => {
-      isAuthenticated.value = true;
+      isAuthenticatedMock.value = true;
     });
 
     describe(`when route.to.name is ${ROUTE_NAMES.login}`, () => {
@@ -99,7 +99,7 @@ describe('app-global-middleware', () => {
         await flushPromises();
       });
 
-      it('calls the navigateTo function with correct URL', () => {
+      it('calls the navigateTo function with correct parameters', () => {
         expect(navigateToMock).toHaveBeenCalledWith({
           name: ROUTE_NAMES.index,
         });
@@ -145,7 +145,7 @@ describe('app-global-middleware', () => {
 
     describe('when playlists value is not an empty array', () => {
       beforeEach(async () => {
-        playlists.value = [{} as never];
+        playlistsMock.value = [{} as never];
 
         appGlobalMiddleware(
           {

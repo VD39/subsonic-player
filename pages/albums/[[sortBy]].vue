@@ -10,11 +10,12 @@ definePageMeta({
 
 const route = useRoute();
 const { getAlbums } = useAlbum();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album>(
   route.params[ROUTE_PARAM_KEYS.albums.sortBy] as string,
 );
 
+/* istanbul ignore next -- @preserve */
 function fetchData() {
   return fetchMoreData((offset: number) =>
     getAlbums({
@@ -24,6 +25,7 @@ function fetchData() {
   );
 }
 
+/* istanbul ignore next -- @preserve */
 const {
   data: albumsData,
   refresh,
@@ -62,7 +64,7 @@ useHead({
   <PageNavigation :navigation="ALBUMS_NAVIGATION" />
 
   <LoadingData :status="loadingStatus">
-    <AlbumsList :albums="albumsData.albums" @dragStart="onDragStart" />
+    <AlbumsList :albums="albumsData.albums" @dragStart="dragStart" />
 
     <InfiniteScroller
       :hasMore

@@ -1,4 +1,4 @@
-import { COOKIE_MOCK } from '@/test/fixtures';
+import { cookieMock } from '@/test/fixtures';
 
 import { getAuthParams, getBaseOptions, loadSession } from './utils';
 
@@ -46,7 +46,7 @@ describe('loadSession', () => {
 
   describe('when token is in a correct format', () => {
     it('returns correct value', () => {
-      expect(loadSession(COOKIE_MOCK)).toEqual({
+      expect(loadSession(cookieMock)).toEqual({
         salt: 'salt',
         server: 'https://www.server.com',
         token: 'token',
@@ -75,7 +75,7 @@ describe('getBaseOptions', () => {
 
   describe('when cookie is in a correct format', () => {
     it('returns correct value', () => {
-      expect(getBaseOptions(COOKIE_MOCK)).toEqual({
+      expect(getBaseOptions(cookieMock)).toEqual({
         baseParams: {
           c: 'web',
           f: 'json',

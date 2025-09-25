@@ -60,7 +60,7 @@ describe('QueueList', () => {
       });
     });
 
-    it('calls the removeTrackFromQueueList function', () => {
+    it('calls the removeTrackFromQueueList function with the correct parameters', () => {
       expect(removeTrackFromQueueListMock).toHaveBeenCalledWith('id');
     });
   });

@@ -14,17 +14,35 @@ const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 const { frequentAlbums, getDiscoverAlbums, newestAlbums, recentAlbums } =
   useAlbum();
 
-const { refresh, status } = await useAsyncData(
+/* istanbul ignore next -- @preserve */
+const { refresh, status } = useLazyAsyncData(
   ASYNC_DATA_NAMES.index,
-  async () => await Promise.all([getDiscoverAlbums(), getFavourites()]),
+  async () => {
+    const [, favourites] = await Promise.all([
+      getDiscoverAlbums(),
+      getFavourites(),
+    ]);
+
+    return {
+      favourites: favourites.value,
+      frequentAlbums: frequentAlbums.value,
+      newestAlbums: newestAlbums.value,
+      recentAlbums: recentAlbums.value,
+    };
+  },
   {
+    default: () => ({
+      favourites: [],
+      frequentAlbums: [],
+      newestAlbums: [],
+      recentAlbums: [],
+    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
-    lazy: true,
   },
 );
 
@@ -71,12 +89,16 @@ useHead({
           Newest albums
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
-          <swiper-slide v-for="album in newestAlbums" :key="album.name">
+        <CarouselSwiper ref="newestAlbumsCarouselSwiper">
+          <swiper-slide
+            v-for="album in newestAlbums"
+            :key="album.name"
+            data-test-id="newest-album-item"
+          >
             <AlbumItem
               :album
               draggable="true"
-              @dragstart="onDragStart(album, $event)"
+              @dragstart="dragStart(album, $event)"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -95,12 +117,16 @@ useHead({
           Recently Played albums
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
-          <swiper-slide v-for="album in recentAlbums" :key="album.name">
+        <CarouselSwiper ref="recentAlbumsCarouselSwiper">
+          <swiper-slide
+            v-for="album in recentAlbums"
+            :key="album.name"
+            data-test-id="recent-album-item"
+          >
             <AlbumItem
               :album
               draggable="true"
-              @dragstart="onDragStart(album, $event)"
+              @dragstart="dragStart(album, $event)"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -119,12 +145,16 @@ useHead({
           Most played albums
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
-          <swiper-slide v-for="album in frequentAlbums" :key="album.name">
+        <CarouselSwiper ref="frequentAlbumsCarouselSwiper">
+          <swiper-slide
+            v-for="album in frequentAlbums"
+            :key="album.name"
+            data-test-id="frequent-album-item"
+          >
             <AlbumItem
               :album
               draggable="true"
-              @dragstart="onDragStart(album, $event)"
+              @dragstart="dragStart(album, $event)"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -148,7 +178,7 @@ useHead({
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadMedia"
-          @dragStart="onDragStart"
+          @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="playTrack"
         />
@@ -167,15 +197,16 @@ useHead({
           Favourite Albums
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
+        <CarouselSwiper ref="favouriteAlbumsCarouselSwiper">
           <swiper-slide
             v-for="album in favourites.albums.slice(0, PREVIEW_ALBUM_COUNT)"
             :key="album.name"
+            data-test-id="favourite-album-item"
           >
             <AlbumItem
               :album
               draggable="true"
-              @dragstart="onDragStart(album, $event)"
+              @dragstart="dragStart(album, $event)"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -194,10 +225,11 @@ useHead({
           Favourite Artists
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
+        <CarouselSwiper ref="favouriteArtistsCarouselSwiper">
           <swiper-slide
-            v-for="artist in favourites.artists.slice(0, PREVIEW_ALBUM_COUNT)"
+            v-for="artist in favourites.artists.slice(0, PREVIEW_ARTIST_COUNT)"
             :key="artist.name"
+            data-test-id="favourite-artist-item"
           >
             <ArtistItem :artist />
           </swiper-slide>

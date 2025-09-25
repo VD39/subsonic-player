@@ -17,12 +17,22 @@ const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 
+/* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.favourites,
-  async () => await getFavourites(),
+  async () => {
+    await getFavourites();
+
+    return {
+      favourites: favourites.value,
+    };
+  },
   {
+    default: () => ({
+      favourites: DEFAULT_ALL_MEDIA,
+    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
@@ -58,7 +68,7 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="favourites.albums"
-      @dragStart="onDragStart"
+      @dragStart="dragStart"
     />
 
     <ArtistsList
@@ -78,7 +88,7 @@ useHead({
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
-      @dragStart="onDragStart"
+      @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playTrack"
     />

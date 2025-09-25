@@ -1,6 +1,6 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
-import { COOKIE_MOCK } from '@/test/fixtures';
+import { cookieMock } from '@/test/fixtures';
 
 import { useAPI } from './index';
 
@@ -18,7 +18,7 @@ mockNuxtImport('useSnack', () => () => ({
   addErrorSnack: addErrorSnackMock,
 }));
 
-mockNuxtImport('useCookie', () => () => ref(COOKIE_MOCK));
+mockNuxtImport('useCookie', () => () => ref(cookieMock));
 
 const { fetchData, getDownloadUrl, getImageUrl, getStreamUrl } = useAPI();
 
@@ -113,7 +113,7 @@ describe('useAPI', () => {
           result = await fetchData('/path');
         });
 
-        it('calls the addErrorSnack function', () => {
+        it('calls the addErrorSnack function with the correct parameters', () => {
           expect(addErrorSnackMock).toHaveBeenCalledWith(DEFAULT_ERROR_MESSAGE);
         });
 
@@ -165,7 +165,7 @@ describe('useAPI', () => {
             result = await fetchData('/path');
           });
 
-          it('calls the addErrorSnack function', () => {
+          it('calls the addErrorSnack function with the correct parameters', () => {
             expect(addErrorSnackMock).toHaveBeenCalledWith('Error message.');
           });
 
@@ -186,7 +186,7 @@ describe('useAPI', () => {
             result = await fetchData('/path');
           });
 
-          it('calls the addErrorSnack function', () => {
+          it('calls the addErrorSnack function with the correct parameters', () => {
             expect(addErrorSnackMock).toHaveBeenCalledWith(
               'new Error message.',
             );

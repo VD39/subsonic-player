@@ -18,7 +18,7 @@ describe('favourites-middleware', () => {
       favouritesMiddleware(routeMock, routeMock);
     });
 
-    it('calls the navigateTo function', () => {
+    it('calls the navigateTo function with the correct parameters', () => {
       expect(navigateToMock).toHaveBeenCalledWith({
         name: ROUTE_NAMES.favourites,
         params: {
@@ -43,7 +43,7 @@ describe('favourites-middleware', () => {
         );
       });
 
-      it('calls the navigateTo function', () => {
+      it('calls the navigateTo function with the correct parameters', () => {
         expect(navigateToMock).toHaveBeenCalledWith({
           name: ROUTE_NAMES.favourites,
           params: {

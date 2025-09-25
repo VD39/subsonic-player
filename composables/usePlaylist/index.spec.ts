@@ -115,7 +115,7 @@ describe('usePlaylist', () => {
         getPlaylistTracksById();
       });
 
-      it('calls the getRandomTracks function', () => {
+      it('calls the getRandomTracks function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getRandomSongs',
           expect.any(Object),
@@ -160,7 +160,7 @@ describe('usePlaylist', () => {
         getPlaylistTracksById('playlistId');
       });
 
-      it('calls the getPlaylistTracks function', () => {
+      it('calls the getPlaylistTracks function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.objectContaining({
@@ -238,14 +238,14 @@ describe('usePlaylist', () => {
         addPlaylist('name');
       });
 
-      it('calls the getPlaylists function', () => {
+      it('calls the getPlaylists function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylists',
           expect.any(Object),
         );
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully added playlist name.',
         );
@@ -286,7 +286,7 @@ describe('usePlaylist', () => {
         updatePlaylist({} as PlaylistParam);
       });
 
-      it('calls the getPlaylists function', () => {
+      it('calls the getPlaylists function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylists',
           expect.any(Object),
@@ -295,7 +295,7 @@ describe('usePlaylist', () => {
 
       describe('when showMessage parameter is true', () => {
         describe('when success message is not set', () => {
-          it('calls the addSuccessSnack function', () => {
+          it('calls the addSuccessSnack function with the correct parameters', () => {
             expect(addSuccessSnackMock).toHaveBeenCalledWith(
               'Successfully updated playlist.',
             );
@@ -307,7 +307,7 @@ describe('usePlaylist', () => {
             updatePlaylist({} as PlaylistParam, 'Success message');
           });
 
-          it('calls the addSuccessSnack function', () => {
+          it('calls the addSuccessSnack function with the correct parameters', () => {
             expect(addSuccessSnackMock).toHaveBeenCalledWith('Success message');
           });
         });
@@ -359,13 +359,13 @@ describe('usePlaylist', () => {
         deletePlaylist('id');
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted playlist.',
         );
       });
 
-      it('calls the getPlaylists function', () => {
+      it('calls the getPlaylists function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylists',
           expect.any(Object),
@@ -389,7 +389,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('calls the getPlaylistTracksById function', () => {
+      it('calls the getPlaylistTracksById function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -438,7 +438,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('calls the getPlaylistTracksById function', () => {
+      it('calls the getPlaylistTracksById function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -494,14 +494,14 @@ describe('usePlaylist', () => {
           await handlers.onAddToPlaylist(playlistsMock[0].id);
         });
 
-        it('calls the updatePlaylist function', () => {
+        it('calls the updatePlaylist function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith(
             '/updatePlaylist',
             expect.any(Object),
           );
         });
 
-        it('calls the getPlaylistTracksById function', () => {
+        it('calls the getPlaylistTracksById function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith(
             '/getPlaylist',
             expect.any(Object),
@@ -514,7 +514,7 @@ describe('usePlaylist', () => {
           await handlers.onAddToPlaylist('id');
         });
 
-        it('calls the updatePlaylist function', () => {
+        it('calls the updatePlaylist function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith(
             '/updatePlaylist',
             expect.any(Object),
@@ -566,7 +566,7 @@ describe('usePlaylist', () => {
             );
           });
 
-          it('calls the getPlaylistTracksById function', () => {
+          it('calls the getPlaylistTracksById function with the correct parameters', () => {
             expect(fetchDataMock).toHaveBeenCalledWith(
               '/getPlaylist',
               expect.any(Object),
@@ -657,7 +657,7 @@ describe('usePlaylist', () => {
             await handlers.onSubmit('playlistName');
           });
 
-          it('calls the updatePlaylist function', () => {
+          it('calls the updatePlaylist function with the correct parameters', () => {
             expect(fetchDataMock).toHaveBeenCalledWith(
               '/updatePlaylist',
               expect.any(Object),

@@ -45,13 +45,13 @@ describe('SidebarNavigation', () => {
       expect(wrapper.classes()).not.toContain('collapsed');
     });
 
-    it('sets the correct icon on the toggle button', () => {
+    it('sets the correct icon prop on the toggle button component', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
         'PhTextOutdent',
       );
     });
 
-    it('sets the correct title attribute on the toggle button', () => {
+    it('sets the correct title attribute on the toggle button component', () => {
       expect(
         wrapper.findComponent({ ref: 'toggleButton' }).attributes('title'),
       ).toBe('Close Navigation');
@@ -78,13 +78,13 @@ describe('SidebarNavigation', () => {
       expect(wrapper.classes()).toContain('collapsed');
     });
 
-    it('sets the correct icon on the toggle button', () => {
+    it('sets the correct icon prop on the toggle button component', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
         'PhTextIndent',
       );
     });
 
-    it('sets the correct title attribute on the toggle button', () => {
+    it('sets the correct title attribute on the toggle button component', () => {
       expect(
         wrapper.findComponent({ ref: 'toggleButton' }).attributes('title'),
       ).toBe('Open Navigation');

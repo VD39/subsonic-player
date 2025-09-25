@@ -12,7 +12,7 @@ const {
 const { addToPlaylistModal } = usePlaylist();
 const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 
 useHead({
   title: 'Queue',
@@ -21,11 +21,11 @@ useHead({
 
 <template>
   <HeaderWithAction>
-    <h1>Queue ({{ queueList.length }})</h1>
+    <h1 ref="title">Queue ({{ queueList.length }})</h1>
 
     <template #actions>
       <ButtonLink
-        ref="clearQueue"
+        ref="clearQueueButton"
         :icon="ICONS.clear"
         title="Clear queue"
         @click="clearQueueList"
@@ -39,7 +39,7 @@ useHead({
     :tracks="queueList"
     @addToPlaylist="addToPlaylistModal"
     @downloadMedia="downloadMedia"
-    @dragStart="onDragStart"
+    @dragStart="dragStart"
     @mediaInformation="openTrackInformationModal"
     @playTrack="playTrackFromQueueList"
     @remove="({ id }) => removeTrackFromQueueList(id)"

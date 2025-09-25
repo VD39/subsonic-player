@@ -135,7 +135,7 @@ describe('PodcastEpisodesList', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct draggable attribute value on track element', () => {
+      it('sets the correct draggable attribute on the track element', () => {
         expect(
           wrapper.find('[data-test-id="track"]').attributes('draggable'),
         ).toBe('true');
@@ -269,7 +269,7 @@ describe('PodcastEpisodesList', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct draggable attribute value on track element', () => {
+      it('sets the correct draggable attribute on the track element', () => {
         expect(
           wrapper.find('[data-test-id="track"]').attributes('draggable'),
         ).toBe('false');

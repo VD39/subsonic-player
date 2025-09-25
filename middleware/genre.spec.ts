@@ -18,7 +18,7 @@ describe('genre-middleware', () => {
       genreMiddleware(routeMock, routeMock);
     });
 
-    it('calls the navigateTo function', () => {
+    it('calls the navigateTo function with the correct parameters', () => {
       expect(navigateToMock).toHaveBeenCalledWith({
         name: ROUTE_NAMES.genres,
       });
@@ -40,7 +40,7 @@ describe('genre-middleware', () => {
         );
       });
 
-      it('calls the navigateTo function', () => {
+      it('calls the navigateTo function with the correct parameters', () => {
         expect(navigateToMock).toHaveBeenCalledWith({
           name: ROUTE_NAMES.genres,
         });

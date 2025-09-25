@@ -24,7 +24,7 @@ describe('SpinningLoader', () => {
   });
 
   describe('when size prop is not set', () => {
-    it('sets the default size prop to icon component', () => {
+    it('sets the correct size attribute on the icon component', () => {
       expect(wrapper.find({ ref: 'spinnerIcon' }).attributes('size')).toBe(
         ICON_SIZE.medium.toString(),
       );
@@ -42,7 +42,7 @@ describe('SpinningLoader', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the default size prop to icon component', () => {
+    it('sets the correct size attribute on the icon component', () => {
       expect(wrapper.find({ ref: 'spinnerIcon' }).attributes('size')).toBe(
         ICON_SIZE.large.toString(),
       );

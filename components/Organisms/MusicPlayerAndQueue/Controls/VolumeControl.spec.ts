@@ -51,7 +51,7 @@ describe('VolumeControl', () => {
   });
 
   describe('when isMuted value is false', () => {
-    it('sets the correct title attribute on ButtonLink component', () => {
+    it('sets the correct title attribute on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
         'Mute',
       );
@@ -71,7 +71,7 @@ describe('VolumeControl', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct title attribute on ButtonLink component', () => {
+    it('sets the correct title attribute on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
         'Unmute',
       );
@@ -96,11 +96,11 @@ describe('VolumeControl', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct icon on button component', () => {
+    it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(icon);
     });
 
-    it('sets the correct aria-valuetext on the input range', () => {
+    it('sets the correct aria-valuetext attribute on the InputRange component', () => {
       expect(
         wrapper.findComponent(InputRange).attributes('aria-valuetext'),
       ).toBe(`${volume} of 1`);

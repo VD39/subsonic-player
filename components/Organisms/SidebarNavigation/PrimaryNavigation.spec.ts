@@ -6,10 +6,10 @@ import { mount } from '@vue/test-utils';
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PrimaryNavigation from './PrimaryNavigation.vue';
 
-const onDropMock = vi.fn();
+const dropMock = vi.fn();
 
 mockNuxtImport('useDragAndDrop', () => () => ({
-  onDrop: onDropMock,
+  drop: dropMock,
 }));
 
 function factory(props = {}) {
@@ -53,8 +53,8 @@ describe('PrimaryNavigation', () => {
       await wrapper.findComponent(SubNavigationItem).trigger('drop');
     });
 
-    it('calls the onDrop function', () => {
-      expect(onDropMock).toHaveBeenCalledWith(QUEUE_ID, expect.any(DragEvent));
+    it('calls the drop function with the correct parameters', () => {
+      expect(dropMock).toHaveBeenCalledWith(QUEUE_ID, expect.any(DragEvent));
     });
   });
 });

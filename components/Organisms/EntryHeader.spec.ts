@@ -49,7 +49,7 @@ describe('EntryHeader', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('sets the first PreloadImage component with the correct image prop', () => {
+  it('sets the correct image prop on the PreloadImage component', () => {
     expect(wrapper.findComponent(PreloadImage).props('image')).toBe('image');
   });
 
@@ -64,13 +64,13 @@ describe('EntryHeader', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('shows the correct number of PreloadImage components', () => {
+    it('shows the correct number of the PreloadImage component', () => {
       expect(wrapper.findAll('[data-test-id="image"]').length).toBe(3);
     });
   });
 
   describe('when the onDragStart event is not attached', () => {
-    it('sets the correct draggable attribute value on figure element', () => {
+    it('sets the correct draggable attribute on the figure element', () => {
       expect(wrapper.find({ ref: 'figure' }).attributes('draggable')).toBe(
         'false',
       );
@@ -96,7 +96,7 @@ describe('EntryHeader', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct draggable attribute value on figure element', () => {
+    it('sets the correct draggable attribute on the figure element', () => {
       expect(wrapper.find({ ref: 'figure' }).attributes('draggable')).toBe(
         'true',
       );

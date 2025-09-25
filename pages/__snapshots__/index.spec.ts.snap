@@ -1,0 +1,1100 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="column centerAll noMediaMessage">
+    <phwaveformslash size="50"></phwaveformslash>
+    <p>No media found.</p>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when favourites albums is an empty array > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <!--v-if-->
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when favourites albums is not an empty array > when favourites albums has more than 15 items > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when favourites artists is an empty array > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`index > when data returns a value > when favourites artists is not an empty array > when favourites artists has more than 15 items > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when favourites tracks is an empty array > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <!--v-if-->
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when favourites tracks is not an empty array > when favourites tracks has more than 8 items > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when frequentAlbums is an empty array > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <!--v-if-->
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when newestAlbums is an empty array > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <!--v-if-->
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Recently Played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="recent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;
+
+exports[`index > when data returns a value > when recentAlbums is an empty array > matches the snapshot 1`] = `
+"<div class="centerItems spaceBetween">
+  <h1>Discover</h1>
+  <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
+      <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
+    </button></div>
+</div>
+<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Newest albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="newest-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <!--v-if-->
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Most played albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="frequent-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-album-item">
+        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+  <div class="centerItems spaceBetween">
+    <h3 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h3>
+    <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
+  </div>
+  <div class="mBL carouselSwiper">
+    <swiper-container>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+      <swiper-slide data-test-id="favourite-artist-item">
+        <artist-item-stub artist="[object Object]"></artist-item-stub>
+      </swiper-slide>
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+    </button>
+  </div>
+</div>"
+`;

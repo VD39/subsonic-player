@@ -101,7 +101,7 @@ export function useDragAndDrop() {
     return media && 'type' in media;
   }
 
-  async function onDragEnd() {
+  async function dragEnd() {
     if (!clonedElement.value) {
       return;
     }
@@ -134,12 +134,12 @@ export function useDragAndDrop() {
     draggedElement.value = null;
     clonedElement.value = null;
 
-    document.removeEventListener('dragover', onDragOver);
-    document.removeEventListener('dragenter', onDragEnter);
-    document.removeEventListener('dragend', onDragEnd);
+    document.removeEventListener('dragover', dragOver);
+    document.removeEventListener('dragenter', dragEnter);
+    document.removeEventListener('dragend', dragEnd);
   }
 
-  function onDragEnter(event: DragEvent) {
+  function dragEnter(event: DragEvent) {
     event.preventDefault();
 
     const element = (event.target as HTMLElement)?.closest(
@@ -147,10 +147,10 @@ export function useDragAndDrop() {
     ) as HTMLElement;
 
     element?.classList.add(DRAG_AND_DROP_CLASS_NAMES.validDropZone);
-    element?.addEventListener('dragleave', onDragLeave);
+    element?.addEventListener('dragleave', dragLeave);
   }
 
-  function onDragLeave(event: DragEvent) {
+  function dragLeave(event: DragEvent) {
     event.preventDefault();
 
     const element = event.currentTarget as HTMLElement;
@@ -162,10 +162,10 @@ export function useDragAndDrop() {
     }
 
     element?.classList.remove(DRAG_AND_DROP_CLASS_NAMES.validDropZone);
-    element?.removeEventListener('dragleave', onDragLeave);
+    element?.removeEventListener('dragleave', dragLeave);
   }
 
-  function onDragOver(event: DragEvent) {
+  function dragOver(event: DragEvent) {
     if (!clonedElement.value) {
       return;
     }
@@ -188,7 +188,7 @@ export function useDragAndDrop() {
     });
   }
 
-  function onDragStart(media: DragAndDropMedia, event: DragEvent) {
+  function dragStart(media: DragAndDropMedia, event: DragEvent) {
     if (!event.dataTransfer || draggedElement.value || !isValidMedia(media)) {
       return;
     }
@@ -210,12 +210,12 @@ export function useDragAndDrop() {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData(DATA_TRANSFER_MEDIA_ID, JSON.stringify(media));
 
-    document.addEventListener('dragover', onDragOver);
-    document.addEventListener('dragenter', onDragEnter);
-    document.addEventListener('dragend', onDragEnd);
+    document.addEventListener('dragover', dragOver);
+    document.addEventListener('dragenter', dragEnter);
+    document.addEventListener('dragend', dragEnd);
   }
 
-  async function onDrop(dropId: string, event: DragEvent) {
+  async function drop(dropId: string, event: DragEvent) {
     event.preventDefault();
 
     const target = event.currentTarget as HTMLElement;
@@ -248,7 +248,7 @@ export function useDragAndDrop() {
   }
 
   return {
-    onDragStart,
-    onDrop,
+    dragStart,
+    drop,
   };
 }

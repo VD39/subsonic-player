@@ -7,13 +7,23 @@ import BookmarksTracksList from '@/components/Organisms/TrackLists/BookmarksTrac
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks, setCurrentTime } = useAudioPlayer();
+const { playTracks, setCurrentTime } = useAudioPlayer();
 const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
+/* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.bookmarks,
-  async () => await getBookmarks(),
+  async () => {
+    await getBookmarks();
+
+    return {
+      bookmarks: bookmarks.value,
+    };
+  },
   {
+    default: () => ({
+      bookmarks: [],
+    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
@@ -31,7 +41,7 @@ useHead({
 
 <template>
   <HeaderWithAction>
-    <h1>Bookmarks ({{ bookmarks.length }})</h1>
+    <h1 ref="title">Bookmarks ({{ bookmarks.length }})</h1>
 
     <template #actions>
       <RefreshButton :status @refresh="refresh" />
@@ -48,7 +58,6 @@ useHead({
     <BookmarksTracksList
       :bookmarks
       @addToPlaylist="addToPlaylistModal"
-      @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playEpisodeFromBookmarks"

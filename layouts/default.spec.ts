@@ -117,11 +117,11 @@ describe('Default', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('shows the DropdownItem components', () => {
+      it('shows the correct number of DropdownItem component', () => {
         expect(wrapper.findAllComponents(DropdownItem).length).toBe(5);
       });
 
-      describe('when the scan DropdownItem component is clicked', () => {
+      describe('when the scan DropdownItem component emits the click event', () => {
         beforeEach(async () => {
           wrapper.findComponent({ ref: 'scan' }).vm.$emit('click');
           await wrapper.vm.$nextTick();
@@ -132,7 +132,7 @@ describe('Default', () => {
         });
       });
 
-      describe('when the logout DropdownItem component is clicked', () => {
+      describe('when the logout DropdownItem component emits the click event', () => {
         beforeEach(async () => {
           wrapper.findComponent({ ref: 'logoutButton' }).vm.$emit('click');
           await wrapper.vm.$nextTick();
@@ -146,8 +146,10 @@ describe('Default', () => {
           expect(resetAudioMock).toHaveBeenCalled();
         });
 
-        it('calls the navigateTo function', () => {
-          expect(navigateToMock).toHaveBeenCalled();
+        it('calls the navigateTo function with the correct parameters', () => {
+          expect(navigateToMock).toHaveBeenCalledWith({
+            name: ROUTE_NAMES.login,
+          });
         });
       });
     });
@@ -159,7 +161,7 @@ describe('Default', () => {
       await wrapper.vm.$nextTick();
     });
 
-    it('calls the navigateTo function', () => {
+    it('calls the navigateTo function with the correct parameters', () => {
       expect(navigateToMock).toHaveBeenCalledWith({
         name: ROUTE_NAMES.search,
         params: {

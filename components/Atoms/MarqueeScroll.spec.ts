@@ -119,7 +119,7 @@ describe('MarqueeScroll', () => {
         expect(wrapper.classes('animating')).toBe(false);
       });
 
-      it('sets the correct styles to wrapper element', () => {
+      it('sets the correct style attribute on the wrapper element', () => {
         expect(
           wrapper.find({ ref: 'marqueeScrollRef' }).attributes('style'),
         ).toBe(undefined);
@@ -162,7 +162,7 @@ describe('MarqueeScroll', () => {
           expect(wrapper.classes('animating')).toBe(clonesSlot);
         });
 
-        it('sets the correct styles to wrapper element', () => {
+        it('sets the correct style attribute on the wrapper element', () => {
           expect(
             wrapper.find({ ref: 'marqueeScrollRef' }).attributes('style'),
           ).toBe(style);
@@ -195,7 +195,7 @@ describe('MarqueeScroll', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('removes the inert attribute', () => {
+        it('sets the correct inert attribute on the cloned item element', () => {
           expect(
             wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
           ).not.toBeDefined();
@@ -211,7 +211,7 @@ describe('MarqueeScroll', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('removes the inert attribute', () => {
+        it('sets the correct inert attribute on the cloned item element', () => {
           expect(
             wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
           ).not.toBeDefined();
@@ -227,7 +227,7 @@ describe('MarqueeScroll', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('adds the inert attribute', () => {
+        it('sets the correct inert attribute on the cloned item element', () => {
           expect(
             wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
           ).toBeDefined();
@@ -243,7 +243,7 @@ describe('MarqueeScroll', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('adds the inert attribute', () => {
+        it('sets the correct inert attribute on the MarqueeScroll component', () => {
           expect(
             wrapper.find('[data-test-id="cloned-item"]').attributes('inert'),
           ).toBeDefined();

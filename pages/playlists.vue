@@ -13,10 +13,20 @@ const {
   updatePlaylistModal,
 } = usePlaylist();
 
+/* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.playlists,
-  async () => await getPlaylists(),
+  async () => {
+    await getPlaylists();
+
+    return {
+      playlists: playlists.value,
+    };
+  },
   {
+    default: () => ({
+      playlists: [],
+    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
@@ -35,6 +45,7 @@ useHead({
       <RefreshButton :status @refresh="refresh" />
 
       <ButtonLink
+        ref="addPlaylistButton"
         :icon="ICONS.add"
         iconSize="large"
         title="Add playlist"

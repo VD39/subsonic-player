@@ -54,7 +54,7 @@ describe('AlbumsList', () => {
       expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(true);
     });
 
-    it('shows the correct number of AlbumItem components', () => {
+    it('shows the correct number of the AlbumItem component', () => {
       expect(wrapper.findAllComponents(AlbumItem).length).toBe(5);
     });
 

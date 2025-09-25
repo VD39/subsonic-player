@@ -43,7 +43,7 @@ describe('TextClamp', () => {
     );
   });
 
-  it('sets the correct styles', () => {
+  it('sets the correct style attribute on the clamp element', () => {
     expect(wrapper.find({ ref: 'clamp' }).attributes('style')).toBe(
       '--truncate-line-clamp: 2;',
     );

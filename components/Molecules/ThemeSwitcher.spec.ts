@@ -25,13 +25,13 @@ describe('ThemeSwitcher', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('shows the correct icon prop', () => {
+  it('sets the correct icon prop on the ButtonLink component', () => {
     expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
       ICONS.lightTheme,
     );
   });
 
-  it('shows the correct title prop', () => {
+  it('sets the correct title attribute on the ButtonLink component', () => {
     expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
       'Activate dark mode',
     );
@@ -51,13 +51,13 @@ describe('ThemeSwitcher', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('updates the correct icon prop', () => {
+    it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
         ICONS.darkTheme,
       );
     });
 
-    it('updates the correct title prop', () => {
+    it('sets the correct title attribute on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
         'Activate light mode',
       );

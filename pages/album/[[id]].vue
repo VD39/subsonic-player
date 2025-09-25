@@ -21,8 +21,9 @@ const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 
+/* istanbul ignore next -- @preserve */
 const { data: albumData, status } = useAsyncData(
   route.fullPath,
   async () => {
@@ -44,7 +45,7 @@ const { data: albumData, status } = useAsyncData(
 );
 
 function dragItem(event: DragEvent) {
-  onDragStart(albumData.value.album!, event);
+  dragStart(albumData.value.album!, event);
 }
 
 function playTrack(index: number) {
@@ -59,7 +60,7 @@ useHead({
 
 <template>
   <LoadingData :status>
-    <div v-if="albumData.album">
+    <div v-if="albumData.album" ref="albumContent">
       <EntryHeader
         :images="[albumData.album.image]"
         :title="albumData.album.name"
@@ -80,11 +81,11 @@ useHead({
             <span class="visuallyHidden">Year: </span>
             {{ albumData.album.year }}
           </li>
-          <li>
+          <li ref="trackCount">
             <span class="strong">{{ albumData.album.trackCount }}</span>
             {{ albumData.album.trackCount > 1 ? ' Tracks' : ' Track' }}
           </li>
-          <li>
+          <li ref="discCount">
             <span class="strong">{{ albumData.album.totalDiscNumber }}</span>
             {{ albumData.album.totalDiscNumber > 1 ? ' Discs' : ' Disc' }}
           </li>
@@ -101,6 +102,7 @@ useHead({
         <div class="list">
           <ButtonLink
             :id="HOTKEY_ELEMENT_IDS.playAllButton"
+            ref="playTracksButton"
             class="largeThemeHoverButton"
             :icon="ICONS.play"
             title="Play tracks"
@@ -111,6 +113,7 @@ useHead({
 
           <ButtonLink
             :id="HOTKEY_ELEMENT_IDS.shuffleAllButton"
+            ref="shuffleTracksButton"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
             @click="shuffleTracks(albumData.album.tracks)"
@@ -125,10 +128,16 @@ useHead({
           />
 
           <DropdownMenu>
-            <DropdownItem @click="addTracksToQueue(albumData.album.tracks)">
+            <DropdownItem
+              ref="addToQueueDropdownItem"
+              @click="addTracksToQueue(albumData.album.tracks)"
+            >
               Add to queue
             </DropdownItem>
-            <DropdownItem @click="playTracks(albumData.album.tracks)">
+            <DropdownItem
+              ref="playTracksDropdownItem"
+              @click="playTracks(albumData.album.tracks)"
+            >
               Play Tracks
             </DropdownItem>
           </DropdownMenu>
@@ -139,7 +148,10 @@ useHead({
         v-for="(tracks, disc) in albumData.album.tracksByDiscNumber"
         :key="disc"
       >
-        <h3 v-if="albumData.album.totalDiscNumber > 1">
+        <h3
+          v-if="albumData.album.totalDiscNumber > 1"
+          data-test-id="disc-number-title"
+        >
           {{ disc }}
         </h3>
 
@@ -148,7 +160,7 @@ useHead({
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadMedia"
-          @dragStart="onDragStart"
+          @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="playTrack"
         />

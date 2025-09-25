@@ -11,6 +11,7 @@ const { downloadMedia, getFiles } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
+/* istanbul ignore next -- @preserve */
 const {
   data: musicDirectoryData,
   refresh,

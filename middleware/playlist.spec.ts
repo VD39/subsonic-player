@@ -18,7 +18,7 @@ describe('playlist-middleware', () => {
       playlistMiddleware(routeMock, routeMock);
     });
 
-    it('calls the navigateTo function', () => {
+    it('calls the navigateTo function with the correct parameters', () => {
       expect(navigateToMock).toHaveBeenCalledWith({
         name: ROUTE_NAMES.playlists,
       });

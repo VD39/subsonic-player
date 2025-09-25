@@ -14,7 +14,6 @@ export default defineVitestConfig({
         'error.vue',
         'navigations',
         'nuxt.config.ts',
-        'pages',
         'stories',
         ...coverageConfigDefaults.exclude,
       ],

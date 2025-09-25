@@ -69,7 +69,7 @@ describe('QueuePlayer', () => {
 
     describe('when the track does not have an album key', () => {
       beforeEach(() => {
-        currentTrackMock.value = getFormattedQueueTracksMock(1)[0];
+        currentTrackMock.value = getFormattedQueueTracksMock()[0];
 
         delete (currentTrackMock.value as Partial<Track>).album;
       });
@@ -105,7 +105,7 @@ describe('QueuePlayer', () => {
 
     describe('when currentTrackMock.album is defined', () => {
       beforeEach(async () => {
-        currentTrackMock.value = getFormattedQueueTracksMock(1)[0];
+        currentTrackMock.value = getFormattedQueueTracksMock()[0];
         wrapper = factory();
         await wrapper.vm.$nextTick();
       });
@@ -153,7 +153,7 @@ describe('QueuePlayer', () => {
 
     describe('when currentTrackMock.artists is not an empty array', () => {
       beforeEach(() => {
-        currentTrackMock.value = getFormattedQueueTracksMock(1)[0];
+        currentTrackMock.value = getFormattedQueueTracksMock()[0];
       });
 
       it('shows the MarqueeScroll component containing the artists details', () => {

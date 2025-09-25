@@ -35,14 +35,14 @@ describe('PlaybackRateButton', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('shows the DropdownItem components', () => {
+  it('shows the correct number of the DropdownItem component', () => {
     expect(wrapper.findAllComponents(DropdownItem).length).toBe(
       PLAYBACK_RATES.length,
     );
   });
 
   describe('when playback speed matches the playbackRate', () => {
-    it('sets correct selected prop', () => {
+    it('sets the correct selected prop on the DropdownItem component', () => {
       expect(
         wrapper
           .findAllComponents(DropdownItem)
@@ -51,12 +51,12 @@ describe('PlaybackRateButton', () => {
     });
   });
 
-  describe('when the DropdownItem component is clicked', () => {
+  describe('when the DropdownItem component emits the click event', () => {
     beforeEach(() => {
       wrapper.findAllComponents(DropdownItem)[2].vm.$emit('click');
     });
 
-    it('calls the setPlaybackRate function', () => {
+    it('calls the setPlaybackRate function with the correct parameters', () => {
       expect(setPlaybackRateMock).toHaveBeenCalledWith(2);
     });
   });

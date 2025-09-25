@@ -13,7 +13,7 @@ defineEmits<{
   addPlaylist: [];
 }>();
 
-const { onDrop } = useDragAndDrop();
+const { drop } = useDragAndDrop();
 
 function isRandomPlaylist(playlistId: string) {
   return playlistId === RANDOM_PLAYLIST.id;
@@ -43,7 +43,7 @@ function isRandomPlaylist(playlistId: string) {
               [ROUTE_PARAM_KEYS.playlist.id]: playlist.id,
             },
           }"
-          @drop="onDrop(playlist.id, $event)"
+          @drop="drop(playlist.id, $event)"
         />
       </template>
     </NavigationItem>

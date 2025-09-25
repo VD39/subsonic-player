@@ -6,7 +6,7 @@ defineProps<{
   collapsed: boolean;
 }>();
 
-const { onDrop } = useDragAndDrop();
+const { drop } = useDragAndDrop();
 </script>
 
 <template>
@@ -30,7 +30,7 @@ const { onDrop } = useDragAndDrop();
         :icon="item.icon"
         :title="item.title"
         :to="item.to"
-        @drop="onDrop(QUEUE_ID, $event)"
+        @drop="drop(QUEUE_ID, $event)"
       />
     </NavigationItem>
   </ul>

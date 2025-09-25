@@ -5,8 +5,8 @@ import { getFormattedQueueTracksMock } from './helpers';
 
 const queueTrack = getFormattedQueueTracksMock();
 
-const addTrackToQueueMock = vi.fn();
 const addTracksToQueueMock = vi.fn();
+const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
 const clearQueueListMock = vi.fn();
 const currentTimeMock = ref(0);
@@ -40,6 +40,7 @@ const setRepeatMock = vi.fn();
 const setVolumeMock = vi.fn();
 const showMediaPlayerMock = ref(false);
 const shuffleMock = ref(false);
+const shuffleTracksMock = vi.fn();
 const toggleMuteMock = vi.fn();
 const toggleShuffleMock = vi.fn();
 const setVolumeWithIncrementMock = vi.fn();
@@ -83,6 +84,7 @@ export function useAudioPlayerMock() {
     setVolumeWithIncrement: setVolumeWithIncrementMock,
     showMediaPlayer: showMediaPlayerMock,
     shuffle: shuffleMock,
+    shuffleTracks: shuffleTracksMock,
     toggleMute: toggleMuteMock,
     togglePlay: togglePlayMock,
     toggleShuffle: toggleShuffleMock,
@@ -126,6 +128,7 @@ export function useAudioPlayerMock() {
     setVolumeWithIncrementMock,
     showMediaPlayerMock,
     shuffleMock,
+    shuffleTracksMock,
     toggleMuteMock,
     togglePlayMock,
     toggleShuffleMock,

@@ -88,7 +88,7 @@ describe('setLocalStorage', () => {
       });
     });
 
-    it('calls the console.error function', () => {
+    it('calls the console.error function with the correct parameters', () => {
       expect(consoleErrorSpy).toHaveBeenCalledWith(
         'Error setting local storage data for key "testKey":',
         expect.any(Error),

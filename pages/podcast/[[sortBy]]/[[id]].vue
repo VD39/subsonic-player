@@ -20,7 +20,7 @@ const { openModal } = useModal();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 const {
   deletePodcast,
   deletePodcastEpisode,
@@ -29,11 +29,12 @@ const {
 } = usePodcast();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
+/* istanbul ignore next -- @preserve */
 const {
   data: podcastData,
   refresh,
   status,
-} = await useAsyncData(
+} = useAsyncData(
   `${ASYNC_DATA_NAMES.podcast}-${route.params[ROUTE_PARAM_KEYS.podcast.id]}`,
   async () => {
     const podcast = await getPodcast(
@@ -50,12 +51,11 @@ const {
     }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
-    lazy: true,
   },
 );
 
 const hasDownloadedEpisodes = computed(
-  () => podcastData.value.podcast!.totalDownloadedEpisodes > 0,
+  () => Number(podcastData.value.podcast?.totalDownloadedEpisodes) > 0,
 );
 
 function addDownloadedTracksToQueue() {
@@ -70,7 +70,7 @@ async function deleteSelectedPodcast() {
 }
 
 function dragItem(event: DragEvent) {
-  onDragStart(podcastData.value.podcast!, event);
+  dragStart(podcastData.value.podcast!, event);
 }
 
 function openPodcastDescriptionModal() {
@@ -100,7 +100,7 @@ const podcastEpisodes = computed(
   () =>
     podcastData.value.podcast?.episodes?.[
       route.params[ROUTE_PARAM_KEYS.podcast.sortBy] as PodcastSortByParam
-    ] || [],
+    ] as PodcastEpisode[],
 );
 
 useHead({
@@ -117,7 +117,7 @@ useHead({
 
 <template>
   <LoadingData :status>
-    <div v-if="podcastData.podcast">
+    <div v-if="podcastData.podcast" ref="podcastContent">
       <EntryHeader
         :images="[podcastData.podcast.image]"
         :title="podcastData.podcast.name"
@@ -154,6 +154,7 @@ useHead({
         <div class="list">
           <ButtonLink
             :id="HOTKEY_ELEMENT_IDS.playAllButton"
+            ref="playAllEpisodesButton"
             class="largeThemeHoverButton"
             :disabled="!hasDownloadedEpisodes"
             :icon="ICONS.play"
@@ -164,18 +165,31 @@ useHead({
           </ButtonLink>
 
           <DropdownMenu>
-            <DropdownItem @click="deleteSelectedPodcast">
+            <DropdownItem
+              ref="deletePodcastDropdownItem"
+              @click="deleteSelectedPodcast"
+            >
               Delete podcast
             </DropdownItem>
+
             <template v-if="hasDownloadedEpisodes">
               <DropdownDivider />
-              <DropdownItem @click="addDownloadedTracksToQueue">
+              <DropdownItem
+                ref="addDownloadedEpisodesToQueueDropdownItem"
+                @click="addDownloadedTracksToQueue"
+              >
                 Add episodes to queue
               </DropdownItem>
-              <DropdownItem @click="playLatestsEpisodes">
+              <DropdownItem
+                ref="playLatestsEpisodeDropdownItem"
+                @click="playLatestsEpisodes"
+              >
                 Play latests episode
               </DropdownItem>
-              <DropdownItem @click="playAllEpisodes">
+              <DropdownItem
+                ref="playAllEpisodesDropdownItem"
+                @click="playAllEpisodes"
+              >
                 Play all episodes
               </DropdownItem>
             </template>
@@ -192,7 +206,7 @@ useHead({
         @deleteEpisode="deletePodcastEpisode"
         @downloadEpisode="downloadPodcastEpisode"
         @downloadMedia="downloadMedia"
-        @dragStart="onDragStart"
+        @dragStart="dragStart"
         @episodeInformation="openTrackInformationModal"
         @playEpisode="playEpisode"
       />

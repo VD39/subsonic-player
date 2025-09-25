@@ -4,6 +4,7 @@ import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 
 const { getArtists } = useArtist();
 
+/* istanbul ignore next -- @preserve */
 const { data: artistsData, status } = useAsyncData(
   ASYNC_DATA_NAMES.artists,
   async () => {

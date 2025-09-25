@@ -2,7 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
-import { TRACK_BLOB } from '@/test/fixtures';
+import { trackBlobMock } from '@/test/fixtures';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import { useMediaLibrary } from './index';
@@ -56,7 +56,7 @@ describe('useMediaLibrary', () => {
     describe('when fetchData response returns a value', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
-          data: TRACK_BLOB,
+          data: trackBlobMock,
         });
 
         downloadMedia(track);
@@ -94,7 +94,7 @@ describe('useMediaLibrary', () => {
         startScan();
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith('Scan started.');
       });
     });
@@ -140,7 +140,7 @@ describe('useMediaLibrary', () => {
         getFiles();
       });
 
-      it('calls the getMusicFolders function', () => {
+      it('calls the getMusicFolders function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getMusicFolders', {
           transform: expect.any(Function),
         });
@@ -154,7 +154,7 @@ describe('useMediaLibrary', () => {
         });
       });
 
-      it('calls the getIndexes function with correct params', () => {
+      it('calls the getIndexes function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getIndexes', {
           params: {
             musicFolderId: 'id',
@@ -171,7 +171,7 @@ describe('useMediaLibrary', () => {
         });
       });
 
-      it('calls the getMusicDirectory function with correct params', () => {
+      it('calls the getMusicDirectory function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getMusicDirectory', {
           params: {
             id: 'slug3',
@@ -189,7 +189,7 @@ describe('useMediaLibrary', () => {
         });
       });
 
-      it('calls the getMusicDirectory function with correct params', () => {
+      it('calls the getMusicDirectory function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getMusicDirectory', {
           params: {
             id: 'slug2',

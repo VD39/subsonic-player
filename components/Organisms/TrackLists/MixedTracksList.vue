@@ -42,7 +42,7 @@ const hasDragStartEvent = computed(
   () => !!getCurrentInstance()?.vnode.props?.onDragStart,
 );
 
-function onDragStart(track: MixedTrack, event: DragEvent) {
+function dragStart(track: MixedTrack, event: DragEvent) {
   if (!hasDragStartEvent.value) {
     return;
   }
@@ -74,7 +74,7 @@ function onDragStart(track: MixedTrack, event: DragEvent) {
       class="trackRow"
       data-test-id="track"
       :draggable="hasDragStartEvent"
-      @dragstart="onDragStart(track, $event)"
+      @dragstart="dragStart(track, $event)"
     >
       <div class="trackCell">
         <div>

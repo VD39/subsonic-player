@@ -8,10 +8,10 @@ import { getFormattedPlaylistsMock } from '@/test/helpers';
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PlaylistItems from './PlaylistNavigation.vue';
 
-const onDropMock = vi.fn();
+const dropMock = vi.fn();
 
 mockNuxtImport('useDragAndDrop', () => () => ({
-  onDrop: onDropMock,
+  drop: dropMock,
 }));
 
 const playlists = getFormattedPlaylistsMock(2);
@@ -92,7 +92,7 @@ describe('PlaylistItems', () => {
       wrapper = factory({
         playlists: [
           {
-            ...getFormattedPlaylistsMock(1)[0],
+            ...getFormattedPlaylistsMock()[0],
             id: RANDOM_PLAYLIST.id,
           },
         ],
@@ -115,8 +115,8 @@ describe('PlaylistItems', () => {
       await wrapper.findComponent(SubNavigationItem).trigger('drop');
     });
 
-    it('calls the onDrop function', () => {
-      expect(onDropMock).toHaveBeenCalledWith(
+    it('calls the drop function with the correct parameters', () => {
+      expect(dropMock).toHaveBeenCalledWith(
         playlists[0].id,
         expect.any(DragEvent),
       );

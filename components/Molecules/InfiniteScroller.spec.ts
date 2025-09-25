@@ -102,8 +102,8 @@ describe('InfiniteScroller', () => {
     });
 
     describe('when ButtonLink component is clicked', () => {
-      beforeEach(async () => {
-        await wrapper.findComponent(ButtonLink).trigger('click');
+      beforeEach(() => {
+        wrapper.findComponent(ButtonLink).vm.$emit('click');
       });
 
       it('calls the loadMore event', () => {

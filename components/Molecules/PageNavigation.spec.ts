@@ -37,11 +37,11 @@ describe('PageNavigation', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('shows the correct number of ButtonLink components', () => {
+  it('shows the correct number of the ButtonLink component', () => {
     expect(wrapper.findAllComponents(ButtonLink).length).toBe(2);
   });
 
-  it('sets the correct to prop on ButtonLink component', () => {
+  it('sets the correct to prop on the RouterLinkStub component', () => {
     const router = wrapper.findAllComponents(RouterLinkStub);
 
     expect(router[0].props('to')).toEqual({

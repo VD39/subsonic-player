@@ -18,12 +18,13 @@ const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
   `${route.params[ROUTE_PARAM_KEYS.genre.genre]}-${route.params[ROUTE_PARAM_KEYS.genre.mediaType]}`,
 );
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 
 const genre = decodeURIComponent(
   route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
 );
 
+/* istanbul ignore next -- @preserve */
 function fetchData() {
   return fetchMoreData((offset: number) =>
     getMediaByGenre({
@@ -36,6 +37,7 @@ function fetchData() {
   );
 }
 
+/* istanbul ignore next -- @preserve */
 const {
   data: genreData,
   refresh,
@@ -73,7 +75,7 @@ useHead({
 </script>
 
 <template>
-  <h1>{{ genre }}</h1>
+  <h1 ref="title">{{ genre }}</h1>
 
   <PageNavigation :navigation="GENRE_NAVIGATION" />
 
@@ -84,7 +86,7 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="genreData.genreMedia"
-      @dragStart="onDragStart"
+      @dragStart="dragStart"
     />
 
     <TracksList
@@ -96,7 +98,7 @@ useHead({
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
-      @dragStart="onDragStart"
+      @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playTrack"
     />

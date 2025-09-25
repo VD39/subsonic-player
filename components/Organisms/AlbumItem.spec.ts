@@ -78,13 +78,11 @@ describe('AlbumItem', () => {
   });
 
   describe('when ButtonLink component is clicked', () => {
-    beforeEach(async () => {
-      await wrapper
-        .findComponent({ ref: 'playAlbumButtonLink' })
-        .trigger('click');
+    beforeEach(() => {
+      wrapper.findComponent({ ref: 'playAlbumButtonLink' }).vm.$emit('click');
     });
 
-    it('calls the getAlbum function', () => {
+    it('calls the getAlbum function with the correct parameters', () => {
       expect(getAlbumMock).toHaveBeenCalledWith(album.id);
     });
 
@@ -95,14 +93,12 @@ describe('AlbumItem', () => {
     });
 
     describe('when useAlbum album returns track data', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         getAlbumMock.mockResolvedValue(album);
-        await wrapper
-          .findComponent({ ref: 'playAlbumButtonLink' })
-          .trigger('click');
+        wrapper.findComponent({ ref: 'playAlbumButtonLink' }).vm.$emit('click');
       });
 
-      it('calls the playTracks function', () => {
+      it('calls the playTracks function with the correct parameters', () => {
         expect(playTracksMock).toHaveBeenCalledWith(album.tracks);
       });
     });

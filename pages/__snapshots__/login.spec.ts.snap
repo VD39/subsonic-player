@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`login > matches the snapshot 1`] = `
+"<div class="mBAllM inner login">
+  <div class="centerItems spaceBetween">
+    <h3>Login</h3>
+    <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
+        <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
+      </button></div>
+  </div>
+  <form novalidate="">
+    <div class="formFields">
+      <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="server">server <span class="required">*</span></label><input id="server" autocomplete="off" class="input" placeholder="Enter your server URL" required="" type="text">
+        <!--v-if-->
+      </div>
+      <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="username">username <span class="required">*</span></label><input id="username" autocomplete="off" class="input" placeholder="Enter your username" required="" type="text">
+        <!--v-if-->
+      </div>
+      <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label" for="password">password <span class="required">*</span></label><input id="password" autocomplete="off" class="input" placeholder="Enter your password" required="" type="password">
+        <!--v-if-->
+      </div>
+    </div>
+    <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" draggable="false" type="submit">
+      <!--v-if--><span class="clamp text"> Login </span>
+    </button>
+  </form>
+</div>"
+`;

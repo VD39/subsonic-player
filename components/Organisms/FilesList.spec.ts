@@ -80,7 +80,7 @@ describe('FilesList', () => {
       expect(wrapper.find({ ref: 'goBack' }).exists()).toBe(true);
     });
 
-    it('sets the correct link attribute on go back element', () => {
+    it('sets the correct to prop on the RouterLinkStub component', () => {
       expect(
         wrapper
           .find({ ref: 'goBack' })

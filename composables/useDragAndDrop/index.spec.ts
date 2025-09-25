@@ -60,7 +60,7 @@ HTMLElement.prototype.getBoundingClientRect = () =>
 const getDataMock = vi.fn();
 const setDataMock = vi.fn();
 
-function createOnDragStartDragEvent(
+function createDragStartDragEvent(
   hasDataTransfer = true,
   querySelectorValue: HTMLImageElement | null = document.createElement('img'),
 ) {
@@ -79,7 +79,7 @@ function createOnDragStartDragEvent(
   } as unknown as DragEvent;
 }
 
-function createOnDropDragEvent(
+function createDropDragEvent(
   isDroppable = true,
   dataReturned: null | string = null,
 ) {
@@ -118,16 +118,16 @@ const mediaMock = getFormattedQueueTracksMock()[0];
 
 vi.useFakeTimers();
 
-const { onDragStart, onDrop } = useDragAndDrop();
+const { dragStart, drop } = useDragAndDrop();
 
 describe('useDragAndDrop', () => {
-  describe('when onDrop function is called', () => {
+  describe('when drop function is called', () => {
     afterEach(() => {
       vi.clearAllMocks();
     });
 
     beforeEach(() => {
-      onDrop('drop-id', createOnDropDragEvent(false));
+      drop('drop-id', createDropDragEvent(false));
     });
 
     it('calls the target.classList.remove function', () => {
@@ -145,7 +145,7 @@ describe('useDragAndDrop', () => {
     describe(`when element does have a ${DRAG_AND_DROP_CLASS_NAMES.isDroppable} class`, () => {
       describe('when event.dataTransfer.getData does not return any data', () => {
         beforeEach(() => {
-          onDrop('drop-id', createOnDropDragEvent());
+          drop('drop-id', createDropDragEvent());
         });
 
         it('does not call then JSON.parse function', () => {
@@ -156,9 +156,9 @@ describe('useDragAndDrop', () => {
       describe('when event.dataTransfer.getData does return data', () => {
         describe('when dataTransfer data return is not valid', () => {
           beforeEach(() => {
-            onDrop(
+            drop(
               'drop-id',
-              createOnDropDragEvent(
+              createDropDragEvent(
                 true,
                 JSON.stringify({
                   id: 'id',
@@ -214,9 +214,9 @@ describe('useDragAndDrop', () => {
               describe(`when media type is ${MEDIA_TYPE.album}`, () => {
                 describe('when tracks is not an empty array', () => {
                   beforeEach(() => {
-                    onDrop(
+                    drop(
                       dropId,
-                      createOnDropDragEvent(
+                      createDropDragEvent(
                         true,
                         JSON.stringify({
                           id: 'id',
@@ -249,9 +249,9 @@ describe('useDragAndDrop', () => {
                     beforeEach(() => {
                       getAlbumMock.mockResolvedValue(null);
 
-                      onDrop(
+                      drop(
                         dropId,
-                        createOnDropDragEvent(
+                        createDropDragEvent(
                           true,
                           JSON.stringify({
                             id: 'id',
@@ -283,9 +283,9 @@ describe('useDragAndDrop', () => {
                         type: MEDIA_TYPE.album,
                       });
 
-                      onDrop(
+                      drop(
                         dropId,
-                        createOnDropDragEvent(
+                        createDropDragEvent(
                           true,
                           JSON.stringify({
                             id: 'id',
@@ -318,9 +318,9 @@ describe('useDragAndDrop', () => {
               describe(`when media type is ${MEDIA_TYPE.playlist}`, () => {
                 describe('when tracks is not an empty array', () => {
                   beforeEach(() => {
-                    onDrop(
+                    drop(
                       dropId,
-                      createOnDropDragEvent(
+                      createDropDragEvent(
                         true,
                         JSON.stringify({
                           id: 'id',
@@ -350,9 +350,9 @@ describe('useDragAndDrop', () => {
 
                 describe('when tracks is an empty array', () => {
                   beforeEach(() => {
-                    onDrop(
+                    drop(
                       dropId,
-                      createOnDropDragEvent(
+                      createDropDragEvent(
                         true,
                         JSON.stringify({
                           id: 'id',
@@ -377,9 +377,9 @@ describe('useDragAndDrop', () => {
                 beforeEach(() => {
                   getPodcastMock.mockResolvedValue(null);
 
-                  onDrop(
+                  drop(
                     dropId,
-                    createOnDropDragEvent(
+                    createDropDragEvent(
                       true,
                       JSON.stringify({
                         id: 'id',
@@ -413,9 +413,9 @@ describe('useDragAndDrop', () => {
                       type: MEDIA_TYPE.podcast,
                     });
 
-                    onDrop(
+                    drop(
                       dropId,
-                      createOnDropDragEvent(
+                      createDropDragEvent(
                         true,
                         JSON.stringify({
                           id: 'id',
@@ -443,9 +443,9 @@ describe('useDragAndDrop', () => {
                 'with media type %s',
                 (mediaType) => {
                   beforeEach(() => {
-                    onDrop(
+                    drop(
                       dropId,
-                      createOnDropDragEvent(
+                      createDropDragEvent(
                         true,
                         JSON.stringify({
                           id: 'id',
@@ -471,9 +471,9 @@ describe('useDragAndDrop', () => {
 
               describe(`when media type is ${MEDIA_TYPE.radioStation}`, () => {
                 beforeEach(() => {
-                  onDrop(
+                  drop(
                     'drop-id',
-                    createOnDropDragEvent(
+                    createDropDragEvent(
                       true,
                       JSON.stringify({
                         id: 'id',
@@ -494,11 +494,11 @@ describe('useDragAndDrop', () => {
             },
           );
 
-          describe('when onDrop is called multiple times', () => {
+          describe('when drop is called multiple times', () => {
             beforeEach(() => {
-              onDrop(
+              drop(
                 'drop-id',
-                createOnDropDragEvent(
+                createDropDragEvent(
                   true,
                   JSON.stringify({
                     id: 'id',
@@ -508,9 +508,9 @@ describe('useDragAndDrop', () => {
                 ),
               );
 
-              onDrop(
+              drop(
                 'drop-id',
-                createOnDropDragEvent(
+                createDropDragEvent(
                   true,
                   JSON.stringify({
                     id: 'id',
@@ -520,9 +520,9 @@ describe('useDragAndDrop', () => {
                 ),
               );
 
-              onDrop(
+              drop(
                 'drop-id',
-                createOnDropDragEvent(
+                createDropDragEvent(
                   true,
                   JSON.stringify({
                     id: 'id',
@@ -550,11 +550,11 @@ describe('useDragAndDrop', () => {
     });
   });
 
-  describe('when onDragStart function is called', () => {
+  describe('when dragStart function is called', () => {
     describe('when dataTransfer is not defined', () => {
       beforeEach(() => {
-        const { onDragStart } = useDragAndDrop();
-        onDragStart(mediaMock, createOnDragStartDragEvent(false));
+        const { dragStart } = useDragAndDrop();
+        dragStart(mediaMock, createDragStartDragEvent(false));
       });
 
       it('does not call the querySelector function', () => {
@@ -564,8 +564,8 @@ describe('useDragAndDrop', () => {
 
     describe('when media is not valid', () => {
       beforeEach(() => {
-        const { onDragStart } = useDragAndDrop();
-        onDragStart({} as never, createOnDragStartDragEvent());
+        const { dragStart } = useDragAndDrop();
+        dragStart({} as never, createDragStartDragEvent());
       });
 
       it('does not call the querySelector function', () => {
@@ -575,8 +575,8 @@ describe('useDragAndDrop', () => {
 
     describe('when dataTransfer is defined and media is valid', () => {
       beforeEach(() => {
-        const { onDragStart } = useDragAndDrop();
-        onDragStart(mediaMock, createOnDragStartDragEvent(true, null));
+        const { dragStart } = useDragAndDrop();
+        dragStart(mediaMock, createDragStartDragEvent(true, null));
       });
 
       it('calls the querySelector function', () => {
@@ -591,8 +591,8 @@ describe('useDragAndDrop', () => {
 
       describe('when querySelector does return a value', () => {
         beforeEach(() => {
-          const { onDragStart } = useDragAndDrop();
-          onDragStart(mediaMock, createOnDragStartDragEvent(true));
+          const { dragStart } = useDragAndDrop();
+          dragStart(mediaMock, createDragStartDragEvent(true));
         });
 
         it('calls the clonedEl.classList.add function', () => {
@@ -617,7 +617,7 @@ describe('useDragAndDrop', () => {
           expect(createElementSpy).toHaveBeenCalledWith('div');
         });
 
-        it('calls the event.dataTransfer.setData function with correct parameters', () => {
+        it('calls the event.dataTransfer.setData function with the correct parameters', () => {
           expect(setDataMock).toHaveBeenCalledWith(
             DATA_TRANSFER_MEDIA_ID,
             JSON.stringify(mediaMock),
@@ -647,12 +647,12 @@ describe('useDragAndDrop', () => {
       });
     });
 
-    describe('when onDragStart is called multiple times', () => {
+    describe('when dragStart is called multiple times', () => {
       beforeEach(() => {
-        const { onDragStart } = useDragAndDrop();
-        onDragStart(mediaMock, createOnDragStartDragEvent(false));
+        const { dragStart } = useDragAndDrop();
+        dragStart(mediaMock, createDragStartDragEvent(false));
         vi.clearAllMocks();
-        onDragStart(mediaMock, createOnDragStartDragEvent(false));
+        dragStart(mediaMock, createDragStartDragEvent(false));
       });
 
       it('does not call the clonedEl.classList.add function', () => {
@@ -865,7 +865,7 @@ describe('useDragAndDrop', () => {
 
       describe('when animationFrameId is defined', () => {
         beforeEach(() => {
-          onDragStart(mediaMock, createOnDragStartDragEvent(true));
+          dragStart(mediaMock, createDragStartDragEvent(true));
           documentEvents.dragover({
             clientX: 20,
             clientY: 10,

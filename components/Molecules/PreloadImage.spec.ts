@@ -139,7 +139,7 @@ describe('Default', () => {
         });
 
         describe('when alt prop is not set', () => {
-          it('adds the default alt attribute', () => {
+          it('sets the correct alt attribute on the img element', () => {
             expect(wrapper.find({ ref: 'img' }).attributes('alt')).toBe(
               'Image',
             );
@@ -158,7 +158,7 @@ describe('Default', () => {
             expect(wrapper.html()).toMatchSnapshot();
           });
 
-          it('adds the correct alt attribute', () => {
+          it('sets the correct alt attribute on the img element', () => {
             expect(wrapper.find({ ref: 'img' }).attributes('alt')).toBe(
               'Alt text for image',
             );

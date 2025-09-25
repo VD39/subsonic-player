@@ -27,7 +27,7 @@ describe('PodcastItem', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('sets the correct ImageLink to prop', () => {
+  it('sets the correct to prop on the ImageLink component', () => {
     expect(wrapper.findComponent(ImageLink).props('to')).toEqual({
       name: ROUTE_NAMES.podcast,
       params: {

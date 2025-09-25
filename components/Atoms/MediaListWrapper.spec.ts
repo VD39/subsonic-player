@@ -28,7 +28,7 @@ describe('MediaListWrapper', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the default styles', () => {
+    it('sets the correct style attribute on the wrapper element', () => {
       expect(wrapper.attributes('style')).toContain(
         `--loop-rows-${prop}: ${defaultValue};`,
       );
@@ -50,7 +50,7 @@ describe('MediaListWrapper', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct style attribute', () => {
+    it('sets the correct style attribute on the wrapper element', () => {
       expect(wrapper.attributes('style')).toContain(
         `--loop-rows-${prop}: ${value};`,
       );

@@ -11,9 +11,10 @@ import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
 const { getRandomAlbums } = useAlbum();
 const { getArtists } = useArtist();
 const { getGenres } = useGenre();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 const { getPlaylists, playlists } = usePlaylist();
 
+/* istanbul ignore next -- @preserve */
 const { data: libraryData, status } = useAsyncData(
   ASYNC_DATA_NAMES.library,
   async () => {
@@ -66,15 +67,16 @@ useHead({
           Albums
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
+        <CarouselSwiper ref="randomAlbumCarouselSwiper">
           <swiper-slide
             v-for="album in libraryData.randomAlbums"
             :key="album.name"
+            data-test-id="random-album-item"
           >
             <AlbumItem
               :album
               draggable="true"
-              @dragstart="onDragStart(album, $event)"
+              @dragstart="dragStart(album, $event)"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -89,10 +91,11 @@ useHead({
           Artists
         </HeaderSeeAllLink>
 
-        <CarouselSwiper>
+        <CarouselSwiper ref="artistCarouselSwiper">
           <swiper-slide
-            v-for="artist in libraryData.artists.slice(0, PREVIEW_ALBUM_COUNT)"
+            v-for="artist in libraryData.artists.slice(0, PREVIEW_ARTIST_COUNT)"
             :key="artist.name"
+            data-test-id="random-artist-item"
           >
             <ArtistItem :artist />
           </swiper-slide>
@@ -108,10 +111,15 @@ useHead({
           Genres
         </HeaderSeeAllLink>
 
-        <CarouselSwiper v-if="libraryData.genres.length" :gridRows="2">
+        <CarouselSwiper
+          v-if="libraryData.genres.length"
+          ref="genreCarouselSwiper"
+          :gridRows="2"
+        >
           <swiper-slide
-            v-for="genre in libraryData.genres.slice(0, PREVIEW_ALBUM_COUNT)"
+            v-for="genre in libraryData.genres.slice(0, PREVIEW_GENRES_COUNT)"
             :key="genre.name"
+            data-test-id="random-genre-item"
           >
             <GenreLink :name="genre.name" />
           </swiper-slide>

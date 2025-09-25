@@ -1,4 +1,4 @@
-import { TRACK_BLOB } from '@/test/fixtures';
+import { trackBlobMock } from '@/test/fixtures';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import { downloadFileFromBlob } from './utils';
@@ -18,11 +18,11 @@ const track = getFormattedTracksMock()[0];
 
 describe('downloadFileFromBlob', () => {
   beforeAll(() => {
-    downloadFileFromBlob(TRACK_BLOB, track);
+    downloadFileFromBlob(trackBlobMock, track);
   });
 
   it('calls the createObjectURL with blob', () => {
-    expect(createObjectURLSpy).toHaveBeenCalledWith(TRACK_BLOB);
+    expect(createObjectURLSpy).toHaveBeenCalledWith(trackBlobMock);
   });
 
   it('sets the anchor element with correct attributes', () => {
@@ -33,7 +33,7 @@ describe('downloadFileFromBlob', () => {
     expect(appendedAnchor.download).toBe(track.name);
   });
 
-  it('calls the document.body.appendChild function', () => {
+  it('calls the document.body.appendChild function with the correct parameters', () => {
     expect(appendChildSpy).toHaveBeenCalledWith(anchor);
   });
 
@@ -41,17 +41,17 @@ describe('downloadFileFromBlob', () => {
     expect(clickSpy).toHaveBeenCalled();
   });
 
-  it('calls the document.body.removeChild function', () => {
+  it('calls the document.body.removeChild function with the correct parameters', () => {
     expect(removeChildSpy).toHaveBeenCalledWith(anchor);
   });
 
-  it('calls the window.URL.revokeObjectURL function', () => {
+  it('calls the window.URL.revokeObjectURL function with the correct parameters', () => {
     expect(revokeObjectURLSpy).toHaveBeenCalledWith('blob:url');
   });
 
   describe('when track name is longer than 50 characters', () => {
     beforeAll(() => {
-      downloadFileFromBlob(TRACK_BLOB, {
+      downloadFileFromBlob(trackBlobMock, {
         ...track,
         name: 'name '.repeat(100),
       });

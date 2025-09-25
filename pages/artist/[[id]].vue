@@ -21,7 +21,7 @@ const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 
 const { data: artistData, status } = getArtist(
   route.params[ROUTE_PARAM_KEYS.artist.id] as string,
@@ -49,7 +49,7 @@ useHead({
 
 <template>
   <LoadingData :status>
-    <div v-if="artistData">
+    <div v-if="artistData" ref="artistContent">
       <EntryHeader :images="[artistData.image]" :title="artistData.name">
         <TextClamp
           v-if="artistData.biography"
@@ -64,11 +64,11 @@ useHead({
         />
 
         <ul class="bulletList">
-          <li>
+          <li ref="albumCount">
             <span class="strong">{{ artistData.totalAlbums }}</span>
             {{ artistData.totalAlbums > 1 ? 'Albums' : 'Album' }}
           </li>
-          <li>
+          <li ref="trackCount">
             <span class="strong">{{ artistData.totalTracks }}</span>
             {{ artistData.totalTracks > 1 ? 'Tracks' : 'Track' }}
           </li>
@@ -84,6 +84,7 @@ useHead({
           <ButtonLink
             is="a"
             v-if="artistData.lastFmUrl"
+            ref="lastFmButton"
             :href="artistData.lastFmUrl"
             :icon="ICONS.lastFm"
             target="_blank"
@@ -93,6 +94,7 @@ useHead({
           <ButtonLink
             is="a"
             v-if="artistData.musicBrainzUrl"
+            ref="musicBrainzButton"
             :href="artistData.musicBrainzUrl"
             :icon="ICONS.musicBrainz"
             target="_blank"
@@ -106,18 +108,19 @@ useHead({
       <AlbumsList
         :albums="artistData.albums"
         hideArtist
-        @dragStart="onDragStart"
+        @dragStart="dragStart"
       />
 
       <template v-if="artistData.topTracks.length">
         <h2>Top Tracks</h2>
 
         <TracksList
+          ref="topTracksTracksList"
           :tracks="artistData.topTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadMedia"
-          @dragStart="onDragStart"
+          @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="playTopTracksTrack"
         />
@@ -127,11 +130,12 @@ useHead({
         <h2>Similar Tracks</h2>
 
         <TracksList
+          ref="similarTracksTracksList"
           :tracks="artistData.similarTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadMedia"
-          @dragStart="onDragStart"
+          @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="playSimilarTracksTrack"
         />

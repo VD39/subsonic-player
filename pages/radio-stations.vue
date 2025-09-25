@@ -14,10 +14,20 @@ const {
 } = useRadioStation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
+/* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.radioStations,
-  async () => await getRadioStations(),
+  async () => {
+    await getRadioStations();
+
+    return {
+      radioStations: radioStations.value,
+    };
+  },
   {
+    default: () => ({
+      radioStations: [],
+    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
@@ -40,6 +50,7 @@ useHead({
       <RefreshButton :status @refresh="refresh" />
 
       <ButtonLink
+        ref="addRadioStationButton"
         :icon="ICONS.add"
         iconSize="large"
         title="Add radio station"

@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`user-profile > when currentUser is defined > matches the snapshot 1`] = `"<h1>Hello username</h1>"`;
+
+exports[`user-profile > when currentUser is undefined > matches the snapshot 1`] = `"<!--v-if-->"`;

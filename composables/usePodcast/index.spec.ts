@@ -176,20 +176,20 @@ describe('usePodcast', () => {
         await addPodcast('url');
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully added podcast.',
         );
       });
 
-      it('calls the getPodcasts function', () => {
+      it('calls the getPodcasts function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPodcasts',
           expect.any(Object),
         );
       });
 
-      it('calls the getNewestPodcasts function', () => {
+      it('calls the getNewestPodcasts function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getNewestPodcasts',
           expect.any(Object),
@@ -238,20 +238,20 @@ describe('usePodcast', () => {
         await deletePodcast('id');
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted podcast.',
         );
       });
 
-      it('calls the getPodcasts function', () => {
+      it('calls the getPodcasts function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPodcasts',
           expect.any(Object),
         );
       });
 
-      it('calls the getNewestPodcasts function', () => {
+      it('calls the getNewestPodcasts function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getNewestPodcasts',
           expect.any(Object),
@@ -286,7 +286,7 @@ describe('usePodcast', () => {
         deletePodcastEpisode('id');
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted podcast episode from server.',
         );
@@ -320,7 +320,7 @@ describe('usePodcast', () => {
         downloadPodcastEpisode('id');
       });
 
-      it('calls the addSuccessSnack function', () => {
+      it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Download has begun on the server.',
         );

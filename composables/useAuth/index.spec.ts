@@ -2,7 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
-import { COOKIE_MOCK } from '@/test/fixtures';
+import { cookieMock } from '@/test/fixtures';
 import { withSetup } from '@/test/withSetup';
 
 import { useAuth } from './index';
@@ -63,7 +63,7 @@ describe('useAuth', () => {
 
     describe('when cookie is defined', () => {
       beforeEach(() => {
-        useCookieMock.value = COOKIE_MOCK;
+        useCookieMock.value = cookieMock;
         result = withSetup(useAuth);
       });
 

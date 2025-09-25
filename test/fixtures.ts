@@ -20,12 +20,18 @@ const genres = [
   },
 ];
 
-export const COOKIE_MOCK =
+export const authDataMock = {
+  password: 'password',
+  server: 'server',
+  username: 'username',
+};
+
+export const cookieMock =
   'token=token&salt=salt&server=https://www.server.com&username=username';
 
-export const API_DATE = new Date(2000, 0, 1);
+export const apiDateMock = new Date(2000, 0, 1);
 
-export const TRACK_BLOB = new Blob(['track content'], { type: 'audio/mp3' });
+export const trackBlobMock = new Blob(['track content'], { type: 'audio/mp3' });
 
 export const routeMock = {
   fullPath: 'login?param=param&param1=param1',
@@ -49,6 +55,12 @@ export const genreMock = {
   value: 'genre',
 };
 
+export const formattedGenreMock = {
+  albumCount: 10,
+  name: 'Rock',
+  trackCount: 100,
+};
+
 export const radioStationMock: InternetRadioStation = {
   homepageUrl: 'homepageUrl',
   id: 'id',
@@ -64,7 +76,7 @@ export const trackMock: Base = {
   bitRate: 15,
   contentType: 'contentType',
   coverArt: 'coverArt',
-  created: API_DATE,
+  created: apiDateMock,
   discNumber: 1,
   duration: 19,
   id: 'id',
@@ -74,7 +86,7 @@ export const trackMock: Base = {
   path: 'path',
   playCount: 0,
   size: 16,
-  starred: API_DATE,
+  starred: apiDateMock,
   suffix: 'suffix',
   title: 'title',
   track: 1,
@@ -89,7 +101,7 @@ export const albumMock: AlbumWithSongsID3 = {
   artistId: 'id2',
   artists,
   coverArt: 'coverArt',
-  created: API_DATE,
+  created: apiDateMock,
   duration: 12345,
   genre: 'genre',
   genres,
@@ -98,7 +110,7 @@ export const albumMock: AlbumWithSongsID3 = {
   playCount: 1,
   song: [trackMock],
   songCount: 4,
-  starred: API_DATE,
+  starred: apiDateMock,
   year: 2024,
 };
 
@@ -109,13 +121,13 @@ export const artistMock: ArtistWithAlbumsID3 = {
   coverArt: 'coverArt',
   id: 'id',
   name: 'name',
-  starred: API_DATE,
+  starred: apiDateMock,
 };
 
 export const playlistMock: PlaylistWithSongs = {
-  changed: API_DATE,
+  changed: apiDateMock,
   comment: '',
-  created: API_DATE,
+  created: apiDateMock,
   duration: 1,
   entry: [trackMock],
   id: 'id',
@@ -134,7 +146,7 @@ export const podcastEpisodeMock: ResponsePodcastEpisode = {
   duration: 19,
   id: 'id',
   isDir: false,
-  publishDate: API_DATE,
+  publishDate: apiDateMock,
   status: 'completed',
   streamId: 'streamId',
   title: 'title',
@@ -237,8 +249,8 @@ export const formattedArtistMock: Artist = {
   similarArtist: [],
   similarTracks: [],
   topTracks: [],
-  totalAlbums: 0,
-  totalTracks: 4,
+  totalAlbums: 1,
+  totalTracks: 1,
   type: MEDIA_TYPE.artist,
 };
 

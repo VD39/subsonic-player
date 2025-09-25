@@ -1,0 +1,380 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`[[id]] > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div class="column centerAll noMediaMessage">
+    <phusersthree size="50"></phusersthree>
+    <p>No artist found.</p>
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > _ > when artistData.similarTracks is not an empty array > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <h2>Similar Tracks</h2>
+    <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > _ > when artistData.topTracks is not an empty array > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <h2>Top Tracks</h2>
+    <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.biography is set > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <div class="textClamp">
+          <div class="clamp lineClamp" style="--truncate-line-clamp: 2;"><span>biography</span>
+            <!--v-if-->
+          </div>
+        </div>
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.genres is an empty array > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <!--v-if-->
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.lastFmUrl is set > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button><a class="centerItems buttonLink" draggable="false" href="lastFmUrl" target="_blank" title="LastFm">
+            <phlastfmlogo aria-hidden="true" class="icon" size="24" weight="regular"></phlastfmlogo><span class="clamp text visuallyHidden"></span>
+          </a>
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.musicBrainzUrl is set > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if--><a class="centerItems buttonLink" draggable="false" href="musicBrainzUrl" target="_blank" title="MusicBrainz">
+            <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text visuallyHidden"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.similarArtist is not an empty array > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <h2>Similar Artists</h2>
+    <artists-list-stub artists="[object Object]"></artists-list-stub>
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.totalAlbums is greater than 1 > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">5</span> Albums</li>
+          <li><span class="strong">1</span> Track</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`[[id]] > when getArtist does returns data > when artistData.totalTracks is greater than 1 > matches the snapshot 1`] = `
+"<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
+<div class="mainContent">
+  <div>
+    <div class="entryHeader">
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="blur"></div>
+    </div>
+    <section class="mBXL content">
+      <figure class="figure" draggable="false">
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </figure>
+      <div class="mBAllM detailsWrapper">
+        <div class="centerItems spaceBetween">
+          <h1>artist-0</h1>
+          <div class="centerItems"></div>
+        </div>
+        <!--v-if-->
+        <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
+        <ul class="bulletList">
+          <li><span class="strong">1</span> Album</li>
+          <li><span class="strong">10</span> Tracks</li>
+        </ul>
+        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          </button>
+          <!--v-if-->
+          <!--v-if-->
+        </div>
+      </div>
+    </section>
+    <h2>Albums</h2>
+    <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
+    <!--v-if-->
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;

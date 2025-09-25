@@ -57,7 +57,7 @@ describe('LinkOrText', () => {
     });
 
     describe('when is prop is undefined', () => {
-      it('sets the correct link attribute', () => {
+      it('sets the correct attributes on the RouterLinkStub component', () => {
         expect(wrapper.findComponent(RouterLinkStub).props('to')).toBeDefined();
         expect(
           wrapper.findComponent(RouterLinkStub).attributes('href'),
@@ -66,7 +66,7 @@ describe('LinkOrText', () => {
     });
 
     describe('when is prop is nuxt-link', () => {
-      it('sets the correct link attribute', () => {
+      it('sets the correct attributes on the RouterLinkStub component', () => {
         expect(wrapper.findComponent(RouterLinkStub).props('to')).toBeDefined();
         expect(
           wrapper.findComponent(RouterLinkStub).attributes('href'),
@@ -81,7 +81,7 @@ describe('LinkOrText', () => {
         });
       });
 
-      it('sets the correct link attribute', () => {
+      it('sets the correct attributes on the link element', () => {
         expect(
           wrapper.find('[data-test-id="link"]').attributes('to'),
         ).not.toBeDefined();

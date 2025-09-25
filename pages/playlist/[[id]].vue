@@ -24,17 +24,26 @@ const {
   removeFromPlaylist,
   updatePlaylistModal,
 } = usePlaylist();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
   useAudioPlayer();
 
+/* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
   route.fullPath,
-  async () =>
+  async () => {
     await getPlaylistTracksById(
       route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
-    ),
+    );
+
+    return {
+      playlist: playlist.value,
+    };
+  },
   {
+    default: () => ({
+      playlist: null,
+    }),
     getCachedData: undefined,
   },
 );
@@ -49,7 +58,7 @@ async function deleteSelectedPlaylist() {
 }
 
 function dragItem(event: DragEvent) {
-  onDragStart(playlist.value!, event);
+  dragStart(playlist.value!, event);
 }
 
 function playTrack(index: number) {
@@ -70,7 +79,7 @@ useHead({
 
 <template>
   <LoadingData :status>
-    <div v-if="playlist">
+    <div v-if="playlist" ref="playlistContent">
       <EntryHeader
         :images="playlist.images"
         :title="playlist.name"
@@ -82,7 +91,7 @@ useHead({
 
         <ul class="bulletList">
           <li>Playlist</li>
-          <li>
+          <li ref="trackCount">
             <span class="strong">{{ playlist.trackCount }}</span>
             {{ playlist.trackCount > 1 ? 'Tracks' : 'Track' }}
           </li>
@@ -95,6 +104,7 @@ useHead({
         <div class="list">
           <ButtonLink
             :id="HOTKEY_ELEMENT_IDS.playAllButton"
+            ref="playTracksButton"
             class="largeThemeHoverButton"
             :disabled="!hasTracks"
             :icon="ICONS.play"
@@ -106,6 +116,7 @@ useHead({
 
           <ButtonLink
             :id="HOTKEY_ELEMENT_IDS.shuffleAllButton"
+            ref="shuffleTracksButton"
             :disabled="!hasTracks"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
@@ -115,19 +126,31 @@ useHead({
           </ButtonLink>
 
           <DropdownMenu>
-            <DropdownItem @click="updatePlaylistModal(playlist)">
+            <DropdownItem
+              ref="updatePlaylistDropdownItem"
+              @click="updatePlaylistModal(playlist)"
+            >
               Edit Playlist
             </DropdownItem>
-            <DropdownItem @click="deleteSelectedPlaylist">
+            <DropdownItem
+              ref="deletePlaylistDropdownItem"
+              @click="deleteSelectedPlaylist"
+            >
               Delete Playlist
             </DropdownItem>
 
             <template v-if="hasTracks">
               <DropdownDivider />
-              <DropdownItem @click="addTracksToQueue(playlist.tracks)">
+              <DropdownItem
+                ref="addToQueueDropdownItem"
+                @click="addTracksToQueue(playlist.tracks)"
+              >
                 Add to queue
               </DropdownItem>
-              <DropdownItem @click="playTracks(playlist.tracks)">
+              <DropdownItem
+                ref="playTracksDropdownItem"
+                @click="playTracks(playlist.tracks)"
+              >
                 Play Tracks
               </DropdownItem>
             </template>
@@ -141,7 +164,7 @@ useHead({
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
         @downloadMedia="downloadMedia"
-        @dragStart="onDragStart"
+        @dragStart="dragStart"
         @mediaInformation="openTrackInformationModal"
         @playTrack="playTrack"
         @remove="({ index }) => removeTrackFromPlaylist(index)"

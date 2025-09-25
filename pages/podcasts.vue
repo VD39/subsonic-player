@@ -8,12 +8,11 @@ import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
-const route = useRoute();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 const {
   addPodcastModal,
   deletePodcastEpisode,
@@ -23,10 +22,22 @@ const {
   podcasts,
 } = usePodcast();
 
+/* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.podcasts,
-  async () => await getPodcastsAndNewestPodcastEpisodes(),
+  async () => {
+    await getPodcastsAndNewestPodcastEpisodes();
+
+    return {
+      newestPodcastEpisodes: newestPodcastEpisodes.value,
+      podcasts: podcasts.value,
+    };
+  },
   {
+    default: () => ({
+      newestPodcastEpisodes: [],
+      podcasts: [],
+    }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
@@ -37,10 +48,7 @@ function playEpisode(episode: PodcastEpisode) {
 }
 
 useHead({
-  title: () =>
-    [route.params[ROUTE_PARAM_KEYS.podcast.sortBy], 'Podcasts']
-      .filter(Boolean)
-      .join(' - '),
+  title: () => ['Podcasts'].filter(Boolean).join(' - '),
 });
 </script>
 
@@ -52,6 +60,7 @@ useHead({
       <RefreshButton :status @refresh="refresh" />
 
       <ButtonLink
+        ref="addPodcastButton"
         :icon="ICONS.add"
         iconSize="large"
         title="Add podcast"
@@ -63,14 +72,14 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status>
-    <div v-if="podcasts.length">
+    <div v-if="podcasts.length" ref="podcastsContent">
       <MediaListWrapper>
         <PodcastItem
           v-for="podcast in podcasts"
           :key="podcast.id"
           draggable="true"
           :podcast
-          @dragstart="onDragStart(podcast, $event)"
+          @dragstart="dragStart(podcast, $event)"
         />
       </MediaListWrapper>
 
@@ -83,7 +92,7 @@ useHead({
         @deleteEpisode="deletePodcastEpisode"
         @downloadEpisode="downloadPodcastEpisode"
         @downloadMedia="downloadMedia"
-        @dragStart="onDragStart"
+        @dragStart="dragStart"
         @episodeInformation="openTrackInformationModal"
         @playEpisode="playEpisode"
       />

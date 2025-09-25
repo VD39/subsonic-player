@@ -42,7 +42,7 @@ describe('TrackMeta', () => {
 
   describe('when the track prop does not have an album key', () => {
     beforeEach(() => {
-      const track = getFormattedQueueTracksMock(1)[0];
+      const track = getFormattedQueueTracksMock()[0];
 
       delete (track as Partial<Track>).album;
 
@@ -86,7 +86,7 @@ describe('TrackMeta', () => {
 
   describe('when the track prop does not have a podcastName key', () => {
     beforeEach(() => {
-      const track = getFormattedPodcastEpisodesMock(1)[0];
+      const track = getFormattedPodcastEpisodesMock()[0];
 
       delete (track as Partial<PodcastEpisode>).podcastName;
 
@@ -130,7 +130,7 @@ describe('TrackMeta', () => {
 
   describe('when the track prop does not have a author key', () => {
     beforeEach(() => {
-      const track = getFormattedPodcastEpisodesMock(1)[0];
+      const track = getFormattedPodcastEpisodesMock()[0];
 
       delete (track as Partial<PodcastEpisode>).author;
 
@@ -169,7 +169,7 @@ describe('TrackMeta', () => {
   describe('when track.author is defined', () => {
     beforeEach(() => {
       wrapper = factory({
-        track: getFormattedPodcastEpisodesMock(1)[0],
+        track: getFormattedPodcastEpisodesMock()[0],
       });
     });
 
@@ -184,7 +184,7 @@ describe('TrackMeta', () => {
 
   describe('when the track prop does not have an artists key', () => {
     beforeEach(() => {
-      const track = getFormattedQueueTracksMock(1)[0];
+      const track = getFormattedQueueTracksMock()[0];
 
       delete (track as Partial<Track>).artists;
 
@@ -228,7 +228,7 @@ describe('TrackMeta', () => {
 
   describe('when the track prop does not have a formattedPosition key', () => {
     beforeEach(() => {
-      const track = getFormattedBookmarksMock(1)[0];
+      const track = getFormattedBookmarksMock()[0];
 
       delete (track as Partial<Bookmark>).formattedPosition;
 
@@ -267,7 +267,7 @@ describe('TrackMeta', () => {
   describe('when track.formattedPosition is defined', () => {
     beforeEach(() => {
       wrapper = factory({
-        track: getFormattedBookmarksMock(1)[0],
+        track: getFormattedBookmarksMock()[0],
       });
     });
 

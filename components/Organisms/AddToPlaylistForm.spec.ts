@@ -177,7 +177,7 @@ describe('AddToPlaylistForm', () => {
         wrapper = factory({
           playlists: [
             {
-              ...getFormattedPlaylistsMock(1)[0],
+              ...getFormattedPlaylistsMock()[0],
               id: 'random',
             },
           ],

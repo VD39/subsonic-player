@@ -30,7 +30,7 @@ describe('SubmitButton', () => {
   });
 
   describe('when fullWidth prop is not set', () => {
-    it('sets the correct ButtonLink fullWidth prop', () => {
+    it('sets the correct fullWidth prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('fullWidth')).toBe(false);
     });
   });
@@ -46,17 +46,17 @@ describe('SubmitButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct ButtonLink fullWidth prop', () => {
+    it('sets the correct fullWidth prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('fullWidth')).toBe(true);
     });
   });
 
   describe('when loading prop is not set', () => {
-    it('sets the correct ButtonLink icon prop', () => {
+    it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).not.toBeDefined();
     });
 
-    it('sets the correct ButtonLink disabled prop', () => {
+    it('sets the correct disabled prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('disabled')).toBe(false);
     });
   });
@@ -72,13 +72,13 @@ describe('SubmitButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct ButtonLink icon prop', () => {
+    it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
         SpinningLoader,
       );
     });
 
-    it('sets the correct ButtonLink disabled prop', () => {
+    it('sets the correct disabled prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('disabled')).toBe(true);
     });
   });

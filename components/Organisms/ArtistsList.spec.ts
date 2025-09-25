@@ -54,7 +54,7 @@ describe('ArtistsList', () => {
       expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(true);
     });
 
-    it('shows the correct number of ArtistItem components', () => {
+    it('shows the correct number of the ArtistItem component', () => {
       expect(wrapper.findAllComponents(ArtistItem).length).toBe(5);
     });
 

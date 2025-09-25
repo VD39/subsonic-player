@@ -15,12 +15,13 @@ const { search } = useSearch();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
-const { onDragStart } = useDragAndDrop();
+const { dragStart } = useDragAndDrop();
 
 const query = replaceCharactersWithSpace(
   sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
 );
 
+/* istanbul ignore next -- @preserve */
 const { data: searchResultsData, status } = useAsyncData(
   route.fullPath,
   async () => {
@@ -55,7 +56,7 @@ useHead({
 </script>
 
 <template>
-  <h1>Search results for: {{ convertToTitleCase(query) }}</h1>
+  <h1 ref="title">Search results for: {{ convertToTitleCase(query) }}</h1>
 
   <PageNavigation :navigation="SEARCH_NAVIGATION" />
 
@@ -66,7 +67,7 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="searchResultsData.searchResults.albums"
-      @dragStart="onDragStart"
+      @dragStart="dragStart"
     />
 
     <ArtistsList
@@ -86,7 +87,7 @@ useHead({
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
-      @dragStart="onDragStart"
+      @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playTrack"
     />

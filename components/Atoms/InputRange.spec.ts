@@ -63,7 +63,7 @@ describe('InputRange', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct progress bar style value', () => {
+    it('sets the correct style attribute on the progress bar element', () => {
       expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
         'width: 50px;',
       );
@@ -91,7 +91,7 @@ describe('InputRange', () => {
       expect(wrapper.find({ ref: 'bufferBar' }).exists()).toBe(true);
     });
 
-    it('sets the correct buffer bar style value', () => {
+    it('sets the correct style attribute on the buffer bar element', () => {
       expect(wrapper.find({ ref: 'bufferBar' }).attributes('style')).toBe(
         'width: 50px;',
       );
@@ -106,7 +106,7 @@ describe('InputRange', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct buffer bar style value', () => {
+      it('sets the correct style attribute on the buffer bar element', () => {
         expect(wrapper.find({ ref: 'bufferBar' }).attributes('style')).toBe(
           'width: 75px;',
         );
@@ -123,7 +123,7 @@ describe('InputRange', () => {
       expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(true);
     });
 
-    it('sets the correct progress bar style value', () => {
+    it('sets the correct style attribute on the progress bar element', () => {
       expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
         'width: 25px;',
       );
@@ -149,7 +149,7 @@ describe('InputRange', () => {
       expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(false);
     });
 
-    it('sets the correct progress bar style value', () => {
+    it('sets the correct style attribute on the progress bar element', () => {
       expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
         'width: 100px;',
       );
@@ -207,7 +207,7 @@ describe('InputRange', () => {
             expect(wrapper.html()).toMatchSnapshot();
           });
 
-          it('does not update the pending value', () => {
+          it('sets the correct style attribute on the tooltip element', () => {
             expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
               'left: 25px;',
             );
@@ -227,7 +227,7 @@ describe('InputRange', () => {
             expect(wrapper.html()).toMatchSnapshot();
           });
 
-          it('updates the pending value', () => {
+          it('sets the correct style attribute on the tooltip element', () => {
             expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
               'left: 80px;',
             );
@@ -277,13 +277,13 @@ describe('InputRange', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct progress bar style value', () => {
+      it('sets the correct style attribute on the progress bar element', () => {
         expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
           'width: 30px;',
         );
       });
 
-      it('sets the correct thumb style value', () => {
+      it('sets the correct style attribute on the thumb element', () => {
         expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
           'left: 24px;',
         );
@@ -389,13 +389,13 @@ describe('InputRange', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the correct progress bar style value', () => {
+      it('sets the correct style attribute on the progress bar element', () => {
         expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
           'width: 30px;',
         );
       });
 
-      it('sets the correct thumb style value', () => {
+      it('sets the correct style attribute on the thumb element', () => {
         expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
           'left: 24px;',
         );
@@ -476,7 +476,7 @@ describe('InputRange', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct progress bar style value', () => {
+    it('sets the correct style attribute on the progress bar element', () => {
       expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
         'width: 50px;',
       );

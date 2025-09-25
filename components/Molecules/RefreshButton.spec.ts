@@ -46,7 +46,7 @@ describe('RefreshButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct icon on the ButtonLink component', () => {
+    it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
         currentProps.icon,
       );
