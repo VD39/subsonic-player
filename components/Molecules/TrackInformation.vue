@@ -157,7 +157,7 @@ defineProps<{
 }
 
 .title {
-  width: 25%;
+  min-width: 25%;
 }
 
 .list {

@@ -104,10 +104,10 @@ watch(
       <div
         v-for="playlist in playlists"
         :key="playlist.id"
-        class="trackRow trackBorder"
+        class="trackRow trackBorder spaceBetween"
         data-test-id="playlist"
       >
-        <div class="trackCell">
+        <div :class="['column', $style.playlistDetails]">
           <NuxtLink
             :aria-label="`Go to playlist ${playlist.name}`"
             :class="['mBS', $style.nuxtLink]"
@@ -129,7 +129,7 @@ watch(
           </div>
         </div>
 
-        <div class="trackCell trackOptions">
+        <div class="centerAll">
           <ButtonLink
             v-if="playlist.id !== RANDOM_PLAYLIST.id"
             :disabled="loading"
@@ -166,6 +166,10 @@ watch(
 .playlists {
   max-height: 60vh;
   overflow-x: auto;
+}
+
+.playlistDetails {
+  margin: auto 0 auto var(--default-space);
 }
 
 .nuxtLink {

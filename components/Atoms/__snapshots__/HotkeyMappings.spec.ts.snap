@@ -7,7 +7,7 @@ exports[`HotkeyMappings > matches the snapshot 1`] = `
     <div class="mBM category">
       <h3 class="mBM categoryTitle">Test</h3>
       <ul class="list">
-        <li class="item">
+        <li class="spaceBetween item">
           <p>Description 1</p>
           <p class="visuallyHidden">Help text 1</p>
           <div class="keys" title="Help text 1"><code class="key">Any</code><code class="key">Key</code></div>
@@ -17,7 +17,7 @@ exports[`HotkeyMappings > matches the snapshot 1`] = `
     <div class="mBM category">
       <h3 class="mBM categoryTitle">Test1</h3>
       <ul class="list">
-        <li class="item">
+        <li class="spaceBetween item">
           <p>Description 2</p>
           <p class="visuallyHidden">Help text 2</p>
           <div class="keys" title="Help text 2"><code class="key">Key</code></div>

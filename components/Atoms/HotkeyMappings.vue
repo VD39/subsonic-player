@@ -20,7 +20,7 @@ defineProps<{
           <li
             v-for="mapping in mappings"
             :key="mapping.description"
-            :class="$style.item"
+            :class="['spaceBetween', $style.item]"
           >
             <p>{{ mapping.description }}</p>
 
@@ -88,10 +88,8 @@ defineProps<{
 }
 
 .item {
-  display: flex;
   gap: var(--space-4);
   align-items: center;
-  justify-content: space-between;
   padding: var(--space-8);
   background-color: var(--modal-background-color);
   border: 1px solid var(--invert-color);
