@@ -33,7 +33,7 @@
     "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-vitest": "^0.5.4",
     "eslint-plugin-vue": "^9.33.0",
-    "happy-dom": "^18.0.1",
+    "happy-dom": "^19.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.4",
     "playwright-core": "^1.54.2",
