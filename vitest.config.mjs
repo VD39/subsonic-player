@@ -1,21 +1,21 @@
 import { defineVitestConfig } from '@nuxt/test-utils/config';
-import { coverageConfigDefaults } from 'vitest/config';
+import { configDefaults, coverageConfigDefaults } from 'vitest/config';
 
 export default defineVitestConfig({
   test: {
     coverage: {
       enabled: true,
       exclude: [
-        '**/config/**',
+        ...coverageConfigDefaults.exclude,
+        '**/navigations/**',
         '**/plugins/**',
+        '**/previews/**',
+        '**/stories/**',
         'app.vue',
         'components/Molecules/CarouselSwiper.vue',
         'composables/useAudioPlayer/player.ts',
         'error.vue',
-        'navigations',
         'nuxt.config.ts',
-        'stories',
-        ...coverageConfigDefaults.exclude,
       ],
       include: ['**/*.ts', '**/*.vue'],
       provider: 'istanbul',
@@ -31,6 +31,7 @@ export default defineVitestConfig({
       },
     },
     environment: 'nuxt',
+    exclude: [...configDefaults.exclude, '**/previews/**'],
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
   },
