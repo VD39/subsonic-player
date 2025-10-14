@@ -3,6 +3,7 @@ import type { Page, TestInfo } from '@playwright/test';
 import { test } from '@nuxt/test-utils/playwright';
 
 const TEST_SETTINGS = {
+  imagePath: 'docs/images',
   loginDetails: {
     password: 'demodemo',
     server: 'https://demo.ampache.dev',
@@ -10,6 +11,10 @@ const TEST_SETTINGS = {
   },
   videoPath: 'docs/videos',
 };
+
+function getPath(rootPath: string, device: string, isDark = false) {
+  return `${rootPath}/${device}${isDark ? '-dark' : '-light'}`;
+}
 
 async function goToAlbumPage(page: Page, device: string) {
   await goToPage(page, 5, device);
@@ -21,16 +26,25 @@ async function goToArtistPage(page: Page, device: string) {
   await goToSubPage(page);
 }
 
-async function goToPage(page: Page, index: number, device: string) {
+async function goToPage(
+  page: Page,
+  index: number,
+  device: string,
+  isDark = false,
+) {
   const tag = device === 'mobile' ? 'mobileOnly' : 'desktopOnly';
 
   await page.locator(`aside .${tag} ul a`).nth(index).click();
   await page.waitForTimeout(10000);
+
+  if (index === 0) {
+    await takeScreenshot(page, device, isDark);
+  }
 }
 
-async function goToPagesDesktop(page: Page, device: string) {
+async function goToPagesDesktop(page: Page, device: string, isDark = false) {
   for (const index of [0, 2, 4, 7, 9, 10]) {
-    await goToPage(page, index, device);
+    await goToPage(page, index, device, isDark);
   }
 
   await goToAlbumPage(page, device);
@@ -38,9 +52,9 @@ async function goToPagesDesktop(page: Page, device: string) {
   await goToPodcastsPageDesktop(page, device);
 }
 
-async function goToPagesMobile(page: Page, device: string) {
+async function goToPagesMobile(page: Page, device: string, isDark = false) {
   for (const index of [0, 1, 3, 0]) {
-    await goToPage(page, index, device);
+    await goToPage(page, index, device, isDark);
   }
 
   await goToPodcastsPageMobile(page);
@@ -99,14 +113,14 @@ async function runTest(page: Page, workerInfo: TestInfo, isDark = false) {
 
   const goToPages = device === 'mobile' ? goToPagesMobile : goToPagesDesktop;
 
-  await goToPages(page, device);
+  await goToPages(page, device, isDark);
   await playMusic(page, device);
   await page.close();
   await saveVideo(page, device, isDark);
 }
 
 async function saveVideo(page: Page, device: string, isDark = false) {
-  const fullPath = `${TEST_SETTINGS.videoPath}/${device}${isDark ? '-dark' : '-light'}.mp4`;
+  const fullPath = `${getPath(TEST_SETTINGS.videoPath, device, isDark)}.mp4`;
 
   try {
     await page.video()?.saveAs(fullPath);
@@ -119,6 +133,14 @@ async function saveVideo(page: Page, device: string, isDark = false) {
 async function selectDarkThemeMode(page: Page) {
   await page.locator('[title="Activate dark mode"]').click();
   await page.waitForTimeout(500);
+}
+
+async function takeScreenshot(page: Page, device: string, isDark = false) {
+  const fullPath = `${getPath(TEST_SETTINGS.imagePath, device, isDark)}.png`;
+
+  await page.screenshot({
+    path: fullPath,
+  });
 }
 
 test('Dark Theme', async ({ page }, workerInfo) => {

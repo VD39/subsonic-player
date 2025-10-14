@@ -40,9 +40,25 @@ Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source app
    - Easily drag and drop your favorite tracks, albums, and podcast episodes right into the queue or your playlist in the sidebar (available only on desktop).
 
 4. Progressive Web App (PWA) Feature
-   
+
    - Seamlessly download the app icon to the home screen, providing the convenience of launching the app just like a traditional native application.
    - Benefit from a web-based app that reduces storage space on devices compared to traditional downloadable applications, while still providing robust functionality.
+
+## 📷 Previews
+
+Click on the images to see video of the app in action.
+
+### Dark theme
+
+| Desktop                                             | Mobile                                           |
+| --------------------------------------------------- | ------------------------------------------------ |
+| [![Desktop Dark][desktop-dark]][desktop-dark-video] | [![Mobile Dark][mobile-dark]][mobile-dark-video] |
+
+### Light theme
+
+| Desktop                                                | Mobile                                              |
+| ------------------------------------------------------ | --------------------------------------------------- |
+| [![Desktop Light][desktop-light]][desktop-light-video] | [![Mobile Light][mobile-light]][mobile-light-video] |
 
 ## 🚀 Installation Methods
 
@@ -171,3 +187,17 @@ This project is licensed under the AGPLv3 license. Full license details availabl
 [action-workflow]: https://img.shields.io/github/actions/workflow/status/VD39/subsonic-player/ci.yml?logo=githubactions&style=flat-square
 [docker-pulls]: https://img.shields.io/docker/pulls/vd39/subsonic-player?logo=githubactions&style=flat-square
 [github-license]: https://img.shields.io/github/license/VD39/subsonic-player?logo=githubactions&style=flat-square
+
+<!-- Images -->
+
+[desktop-dark]: docs/images/desktop-dark.png
+[mobile-dark]: docs/images/mobile-dark.png
+[desktop-light]: docs/images/desktop-light.png
+[mobile-light]: docs/images/mobile-light.png
+
+<!-- Videos -->
+
+[desktop-dark-video]: https://vd39.github.io/subsonic-player/videos/desktop-dark.mp4
+[mobile-dark-video]: https://vd39.github.io/subsonic-player/videos/mobile-dark.mp4
+[desktop-light-video]: https://vd39.github.io/subsonic-player/videos/desktop-light.mp4
+[mobile-light-video]: https://vd39.github.io/subsonic-player/videos/mobile-light.mp4
