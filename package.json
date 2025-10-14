@@ -45,7 +45,7 @@
     "postcss-rem": "^3.0.0",
     "prettier": "^3.6.2",
     "storybook": "8.6.12",
-    "stylelint": "^16.23.0",
+    "stylelint": "^16.25.0",
     "stylelint-config-recess-order": "^6.1.0",
     "stylelint-config-recommended-vue": "^1.6.1",
     "stylelint-config-standard": "^39.0.0",
