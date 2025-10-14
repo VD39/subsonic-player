@@ -8,7 +8,7 @@ const TEST_SETTINGS = {
     server: 'https://demo.ampache.dev',
     username: 'demo',
   },
-  videoPath: 'previews/videos',
+  videoPath: 'docs/videos',
 };
 
 async function goToAlbumPage(page: Page, device: string) {
