@@ -5,7 +5,7 @@ export function useSearch() {
   const { fetchData } = useAPI();
 
   async function search(params: SearchParams) {
-    const { offset, query } = params;
+    const { mediaType, offset, query } = params;
 
     const { data: searchData } = await fetchData('/search3', {
       params: {
@@ -21,7 +21,7 @@ export function useSearch() {
         formatAllMedia(response.searchResult3),
     });
 
-    return searchData || DEFAULT_ALL_MEDIA;
+    return searchData?.[mediaType] || DEFAULT_ALL_MEDIA[mediaType];
   }
 
   return {

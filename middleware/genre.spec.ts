@@ -51,7 +51,7 @@ describe('genre-middleware', () => {
       ROUTE_MEDIA_TYPE_PARAMS.Albums,
       ROUTE_MEDIA_TYPE_PARAMS.Tracks,
     ])(
-      `when when to.params.${ROUTE_PARAM_KEYS.genre.mediaType} is %s`,
+      `when to.params.${ROUTE_PARAM_KEYS.genre.mediaType} is %s`,
       (mediaType) => {
         beforeEach(() => {
           genreMiddleware(

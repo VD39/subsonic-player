@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
@@ -16,19 +17,34 @@ const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
 const { dragStart } = useDragAndDrop();
+const { fetchMoreData, hasMore } = useInfinityLoading<SearchResultByType>(
+  `search-${route.params[ROUTE_PARAM_KEYS.search.mediaType]}-${route.params[ROUTE_PARAM_KEYS.search.query]}`,
+);
 
 const query = replaceCharactersWithSpace(
   sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
 );
 
+function fetchData(mediaType: MediaTypeParam) {
+  return fetchMoreData((offset: number) =>
+    search({
+      mediaType,
+      offset,
+      query,
+    }),
+  );
+}
+
 /* istanbul ignore next -- @preserve */
-const { data: searchResultsData, status } = useAsyncData(
+const {
+  data: searchResultsData,
+  refresh,
+  status,
+} = useAsyncData(
   route.fullPath,
   async () => {
-    const searchResults = await search({
-      offset: 0,
-      query,
-    });
+    const mediaType = route.params[ROUTE_PARAM_KEYS.search.mediaType];
+    const searchResults = await fetchData(mediaType as MediaTypeParam);
 
     return {
       searchResults,
@@ -36,15 +52,20 @@ const { data: searchResultsData, status } = useAsyncData(
   },
   {
     default: () => ({
-      searchResults: DEFAULT_ALL_MEDIA,
+      searchResults: [],
     }),
-    getCachedData: (key, nuxtApp) =>
-      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
   },
 );
 
+const loadingStatus = computed(() =>
+  searchResultsData.value.searchResults.length ? 'success' : status.value,
+);
+
 function playTrack(index: number) {
-  playTracks([searchResultsData.value.searchResults!.tracks[index]], -1);
+  playTracks(
+    [(searchResultsData.value.searchResults as MixedTrack[])[index]],
+    -1,
+  );
 }
 
 useHead({
@@ -60,13 +81,13 @@ useHead({
 
   <PageNavigation :navigation="SEARCH_NAVIGATION" />
 
-  <LoadingData :status>
+  <LoadingData :status="loadingStatus">
     <AlbumsList
       v-if="
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
-      :albums="searchResultsData.searchResults.albums"
+      :albums="searchResultsData.searchResults as Album[]"
       @dragStart="dragStart"
     />
 
@@ -75,7 +96,7 @@ useHead({
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Artists
       "
-      :artists="searchResultsData.searchResults.artists"
+      :artists="searchResultsData.searchResults as Artist[]"
     />
 
     <TracksList
@@ -83,13 +104,19 @@ useHead({
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
       "
-      :tracks="searchResultsData.searchResults.tracks"
+      :tracks="searchResultsData.searchResults as Track[]"
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playTrack"
+    />
+
+    <InfiniteScroller
+      :hasMore
+      :loading="status === 'pending'"
+      @loadMore="refresh"
     />
   </LoadingData>
 </template>

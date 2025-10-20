@@ -55,7 +55,7 @@ describe('favourites-middleware', () => {
     });
 
     describe.each([...Object.values(ROUTE_MEDIA_TYPE_PARAMS)])(
-      `when when to.params.${ROUTE_PARAM_KEYS.favourites.mediaType} is %s`,
+      `when to.params.${ROUTE_PARAM_KEYS.favourites.mediaType} is %s`,
       (mediaType) => {
         beforeEach(() => {
           favouritesMiddleware(

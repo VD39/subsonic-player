@@ -132,29 +132,25 @@ describe('[[sortBy]]', () => {
     });
   });
 
-  describe.each([
-    ['a-z'],
-    ['by-artist'],
-    ['most-played'],
-    ['random'],
-    ['recently-added'],
-    ['recently-played'],
-  ])('when the sortBy route param is %s', (sortBy) => {
-    beforeEach(() => {
-      routeMock.mockReturnValue({
-        fullPath: `/albums/${sortBy}`,
-        params: {
-          sortBy,
-        },
+  describe.each([...Object.values(ROUTE_ALBUMS_SORT_BY_PARAMS)])(
+    'when the sortBy route param is %s',
+    (sortBy) => {
+      beforeEach(() => {
+        routeMock.mockReturnValue({
+          fullPath: `/albums/${sortBy}`,
+          params: {
+            sortBy,
+          },
+        });
+
+        wrapper = factory();
       });
 
-      wrapper = factory();
-    });
-
-    it('sets the useHead function with correct title', () => {
-      expect(useHeadTitleMock.value).toBe(`${sortBy} - Albums`);
-    });
-  });
+      it('sets the useHead function with correct title', () => {
+        expect(useHeadTitleMock.value).toBe(`${sortBy} - Albums`);
+      });
+    },
+  );
 
   describe.each([['pending'], ['error'], ['success']])(
     'when status is %s',

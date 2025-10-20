@@ -23,6 +23,7 @@ describe('useSearch', () => {
     describe('when offset is not set', () => {
       beforeEach(() => {
         search({
+          mediaType: 'albums',
           query: 'query',
         } as SearchParams);
       });
@@ -47,6 +48,7 @@ describe('useSearch', () => {
       describe('when offset is 1', () => {
         beforeEach(() => {
           search({
+            mediaType: 'albums',
             offset: 1,
             query: 'query',
           } as SearchParams);
@@ -69,58 +71,73 @@ describe('useSearch', () => {
       });
     });
 
-    describe('when fetchData response returns null', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
+    describe.each([
+      [
+        ROUTE_MEDIA_TYPE_PARAMS.Albums,
+        {
+          id: 'albums',
+        },
+      ],
+      [
+        ROUTE_MEDIA_TYPE_PARAMS.Artists,
+        {
+          id: 'artists',
+        },
+      ],
+      [
+        ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+        {
+          id: 'tracks',
+        },
+      ],
+    ])(`when mediaType is %s`, (mediaType, outcome) => {
+      describe('when fetchData response returns null', () => {
+        beforeEach(() => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+          });
+        });
+
+        it('returns the correct response', async () => {
+          expect(
+            await search({
+              mediaType,
+              query: 'query',
+            } as SearchParams),
+          ).toEqual([]);
         });
       });
 
-      it('returns the correct response', async () => {
-        expect(await search({} as SearchParams)).toEqual(DEFAULT_ALL_MEDIA);
-      });
-    });
-
-    describe('when fetchData response returns an array', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: {
-            album: [
-              {
-                id: 'album',
-              },
-            ],
-            artist: [
-              {
-                id: 'album',
-              },
-            ],
-            song: [
-              {
-                id: 'album',
-              },
-            ],
-          },
+      describe('when fetchData response returns an array', () => {
+        beforeEach(() => {
+          fetchDataMock.mockResolvedValue({
+            data: {
+              albums: [
+                {
+                  id: 'albums',
+                },
+              ],
+              artists: [
+                {
+                  id: 'artists',
+                },
+              ],
+              tracks: [
+                {
+                  id: 'tracks',
+                },
+              ],
+            },
+          });
         });
-      });
 
-      it('returns the correct response', async () => {
-        expect(await search({} as SearchParams)).toEqual({
-          album: [
-            {
-              id: 'album',
-            },
-          ],
-          artist: [
-            {
-              id: 'album',
-            },
-          ],
-          song: [
-            {
-              id: 'album',
-            },
-          ],
+        it('returns the correct response', async () => {
+          expect(
+            await search({
+              mediaType,
+              query: 'query',
+            } as SearchParams),
+          ).toEqual([outcome]);
         });
       });
     });

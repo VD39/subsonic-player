@@ -3,11 +3,17 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
+import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
+import LoadingData from '@/components/Molecules/LoadingData.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 import { ROUTE_MEDIA_TYPE_PARAMS } from '@/settings/constants';
-import { getFormattedAlbumsMock, getFormattedTracksMock } from '@/test/helpers';
+import {
+  getFormattedAlbumsMock,
+  getFormattedArtistsMock,
+  getFormattedTracksMock,
+} from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
 
@@ -43,19 +49,18 @@ mockNuxtImport('useDragAndDrop', () => () => ({
   dragStart: dragStartMock,
 }));
 
+const refreshMock = vi.fn();
+const statusMock = ref('success');
 const searchResultsDataMock = ref<{
-  searchResults: AllMedia;
+  searchResults: SearchResultByType[];
 }>({
-  searchResults: {
-    albums: [],
-    artists: [],
-    tracks: getFormattedTracksMock(2),
-  },
+  searchResults: getFormattedAlbumsMock(2),
 });
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: searchResultsDataMock,
-  status: ref('success'),
+  refresh: refreshMock,
+  status: statusMock,
 }));
 
 const { routeMock } = vi.hoisted(() => ({
@@ -116,6 +121,41 @@ describe('[[query]]', () => {
     );
   });
 
+  describe('when status is not pending', () => {
+    it('sets the correct loading prop on the InfiniteScroller component', () => {
+      expect(wrapper.findComponent(InfiniteScroller).props('loading')).toBe(
+        false,
+      );
+    });
+  });
+
+  describe('when status is pending', () => {
+    beforeEach(() => {
+      statusMock.value = 'pending';
+      wrapper = factory();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct loading prop on the InfiniteScroller component', () => {
+      expect(wrapper.findComponent(InfiniteScroller).props('loading')).toBe(
+        true,
+      );
+    });
+  });
+
+  describe('when InfiniteScroller emits loadMore event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(InfiniteScroller).vm.$emit('loadMore');
+    });
+
+    it('calls the refresh function', () => {
+      expect(refreshMock).toHaveBeenCalled();
+    });
+  });
+
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
     beforeEach(() => {
       wrapper = factory();
@@ -150,6 +190,10 @@ describe('[[query]]', () => {
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Artists}`, () => {
     beforeEach(() => {
+      searchResultsDataMock.value = {
+        searchResults: getFormattedArtistsMock(2),
+      };
+
       routeMock.mockReturnValue({
         fullPath: '/search/artists/test-query',
         params: {
@@ -184,6 +228,10 @@ describe('[[query]]', () => {
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
     beforeEach(() => {
+      searchResultsDataMock.value = {
+        searchResults: getFormattedTracksMock(2),
+      };
+
       routeMock.mockReturnValue({
         fullPath: '/search/tracks/test-query',
         params: {
@@ -272,10 +320,59 @@ describe('[[query]]', () => {
 
       it('calls the playTracks function with the correct parameters', () => {
         expect(playTracksMock).toHaveBeenCalledWith(
-          [searchResultsDataMock.value.searchResults.tracks[1]],
+          [searchResultsDataMock.value.searchResults[1]],
           -1,
         );
       });
     });
   });
+
+  describe.each([['pending'], ['error'], ['success']])(
+    'when status is %s',
+    (status) => {
+      beforeEach(() => {
+        statusMock.value = status;
+      });
+
+      describe('when searchResults is not an empty array', () => {
+        beforeEach(() => {
+          searchResultsDataMock.value = {
+            searchResults: getFormattedTracksMock(2),
+          };
+
+          wrapper = factory();
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('sets the correct status prop on the LoadingData component', () => {
+          expect(wrapper.findComponent(LoadingData).props('status')).toBe(
+            'success',
+          );
+        });
+      });
+
+      describe('when searchResults is an empty array', () => {
+        beforeEach(() => {
+          searchResultsDataMock.value = {
+            searchResults: [],
+          };
+
+          wrapper = factory();
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('sets the correct status prop on the LoadingData component', () => {
+          expect(wrapper.findComponent(LoadingData).props('status')).toBe(
+            status,
+          );
+        });
+      });
+    },
+  );
 });
