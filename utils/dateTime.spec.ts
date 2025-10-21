@@ -34,7 +34,7 @@ describe('convertSecondsToHHMMSS', () => {
     ['600', '10:00'],
     ['3690', '01:01:30'],
     ['number', '00:00'],
-    [NaN, '00:00'],
+    [Number.NaN, '00:00'],
     [undefined, '00:00'],
   ])('when input is %i seconds', (seconds, output) => {
     it('returns the correct format', () => {
@@ -55,7 +55,7 @@ describe('secondsToTimeFormat', () => {
     [7200, '2h'],
     [7321, '2h 2m 1s'],
     ['number', '0s'],
-    [NaN, '0s'],
+    [Number.NaN, '0s'],
     [undefined, '0s'],
   ])('when input is %i seconds', (input, output) => {
     it('returns the correct format', () => {

@@ -4,7 +4,7 @@ import IconImage from '@/components/Atoms/IconImage.vue';
 const props = withDefaults(
   defineProps<{
     alt?: string;
-    image: Image;
+    image: string;
     lazyLoad?: boolean;
   }>(),
   {

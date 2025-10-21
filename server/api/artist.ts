@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
       const authCookie = getCookie(event, COOKIE_NAMES.auth);
 
       if (!authCookie) {
-        throw new Error();
+        throw new Error(`No ${COOKIE_NAMES.auth} cookie found.`);
       }
 
       const { baseParams, baseURL } = getBaseOptions(authCookie);
@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
       const subsonicResponse = response['subsonic-response'];
 
       if (!subsonicResponse || subsonicResponse.status !== 'ok') {
-        throw new Error();
+        throw new Error('No response from server.');
       }
 
       if (subsonicResponse.status === 'ok') {

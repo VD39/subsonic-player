@@ -22,12 +22,12 @@ const formInputs = {
     },
   },
   server: {
-    validationRules: !SERVER_URL
-      ? {
+    validationRules: SERVER_URL
+      ? {}
+      : {
           isUrl: true,
           required: true,
-        }
-      : {},
+        },
     value: SERVER_URL,
   },
   username: {

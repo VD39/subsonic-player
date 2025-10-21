@@ -22,7 +22,7 @@ describe('getLocalStorage', () => {
   describe('when key is in localStorage', () => {
     describe('when value is a valid JSON', () => {
       beforeEach(() => {
-        window.localStorage.setItem(
+        globalThis.localStorage.setItem(
           'key',
           JSON.stringify({
             storage: 'storage',
@@ -41,7 +41,7 @@ describe('getLocalStorage', () => {
 
     describe('when value is not valid JSON', () => {
       beforeEach(() => {
-        window.localStorage.setItem('key', '{//}');
+        globalThis.localStorage.setItem('key', '{//}');
         storage = getLocalStorage('key');
       });
 
@@ -69,7 +69,7 @@ describe('setLocalStorage', () => {
     });
 
     it('sets the value to localStorage', () => {
-      expect(window.localStorage.getItem('testKey')).toEqual(
+      expect(globalThis.localStorage.getItem('testKey')).toEqual(
         JSON.stringify({
           storage: 'storage',
         }),
@@ -79,9 +79,11 @@ describe('setLocalStorage', () => {
 
   describe('when invalid data is passed', () => {
     beforeEach(() => {
-      vi.spyOn(window.localStorage, 'setItem').mockImplementationOnce(() => {
-        throw new Error('new Error message.');
-      });
+      vi.spyOn(globalThis.localStorage, 'setItem').mockImplementationOnce(
+        () => {
+          throw new Error('new Error message.');
+        },
+      );
 
       setLocalStorage('testKey', {
         storage: 'storage',
@@ -101,13 +103,13 @@ describe('deleteLocalStorage', () => {
   describe('when deleteLocalStorage function is called', () => {
     describe('with a parameter', () => {
       beforeEach(() => {
-        window.localStorage.setItem('key1', 'key');
-        window.localStorage.setItem('key2', 'key');
+        globalThis.localStorage.setItem('key1', 'key');
+        globalThis.localStorage.setItem('key2', 'key');
         deleteLocalStorage('key2');
       });
 
       it('deletes the key from localStorage', () => {
-        expect(window.localStorage).toEqual({
+        expect(globalThis.localStorage).toEqual({
           key1: 'key',
           testKey: '{"storage":"storage"}',
         });
@@ -121,7 +123,7 @@ describe('deleteLocalStorage', () => {
     });
 
     it('resets the localStorage', () => {
-      expect(window.localStorage).toEqual({});
+      expect(globalThis.localStorage).toEqual({});
     });
   });
 });

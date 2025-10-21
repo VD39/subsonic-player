@@ -81,11 +81,14 @@ Object.defineProperty(document, 'visibilityState', {
 const windowEvents: any = {};
 
 const windowAddEventListenerSpy = vi
-  .spyOn(window, 'addEventListener')
+  .spyOn(globalThis, 'addEventListener')
   .mockImplementation((event, cb) => {
     windowEvents[event] = cb;
   });
-const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(
+  globalThis,
+  'removeEventListener',
+);
 
 const focusMock = vi.fn();
 const clickMock = vi.fn();
@@ -117,18 +120,18 @@ describe('useHotkeyManager', () => {
 
   function setEvents(keys: string[]) {
     beforeAll(() => {
-      keys.forEach((key) => {
+      for (const key of keys) {
         documentEvents.keydown({
           key,
           preventDefault: vi.fn(),
         });
-      });
+      }
     });
 
     afterAll(() => {
-      keys.forEach((key) => {
+      for (const key of keys) {
         documentEvents.keyup({ key });
-      });
+      }
 
       vi.clearAllMocks();
     });
@@ -139,7 +142,7 @@ describe('useHotkeyManager', () => {
   ) {
     const { searchInput, ...ids } = HOTKEY_ELEMENT_IDS;
 
-    Object.values(ids).forEach((id) => {
+    for (const id of Object.values(ids)) {
       if (exceptId === id) {
         it(`calls the document.getElementById function with ${id}`, () => {
           expect(getElementByIdSpy).toHaveBeenCalledWith(id);
@@ -149,7 +152,7 @@ describe('useHotkeyManager', () => {
           expect(getElementByIdSpy).not.toHaveBeenCalledWith(id);
         });
       }
-    });
+    }
   }
 
   function expectClickElementByIdMock(
@@ -252,12 +255,8 @@ describe('useHotkeyManager', () => {
     exceptFunctionName?: keyof typeof ALL_MOCKS,
     exceptFunctionArg?: number | string | unknown[],
   ) {
-    Object.entries(ALL_MOCKS).forEach(([name, mock]) => {
-      if (exceptFunctionName !== name) {
-        it(`does not call the ${name} function`, () => {
-          expect(mock).not.toHaveBeenCalled();
-        });
-      } else {
+    for (const [name, mock] of Object.entries(ALL_MOCKS)) {
+      if (exceptFunctionName === name) {
         it(`calls the ${name} function`, () => {
           if (exceptFunctionArg) {
             expect(mock).toHaveBeenCalledWith(exceptFunctionArg);
@@ -265,8 +264,12 @@ describe('useHotkeyManager', () => {
             expect(mock).toHaveBeenCalled();
           }
         });
+      } else {
+        it(`does not call the ${name} function`, () => {
+          expect(mock).not.toHaveBeenCalled();
+        });
       }
-    });
+    }
   }
 
   beforeAll(() => {

@@ -20,7 +20,7 @@ export function formatDate(
 export function secondsToHHMMSS(seconds: number | string | undefined) {
   const totalSeconds = Number(seconds);
 
-  if (!seconds || isNaN(totalSeconds)) {
+  if (!seconds || Number.isNaN(totalSeconds)) {
     return '00:00';
   }
 
@@ -39,7 +39,7 @@ export function secondsToHHMMSS(seconds: number | string | undefined) {
 export function secondsToTimeFormat(seconds: number | string | undefined) {
   const totalSeconds = Number(seconds);
 
-  if (!seconds || isNaN(totalSeconds)) {
+  if (!seconds || Number.isNaN(totalSeconds)) {
     return '0s';
   }
 

@@ -18,7 +18,7 @@ export function useInfinityLoading<T>(id: string) {
     if (Array.isArray(values)) {
       items.value.push(...values);
       offset.value = items.value.length;
-      hasMore.value = !(values.length < Number(LOAD_SIZE));
+      hasMore.value = values.length >= Number(LOAD_SIZE);
     }
 
     return items.value;

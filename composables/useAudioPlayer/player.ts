@@ -1,5 +1,5 @@
 export class AudioPlayer {
-  private audio: HTMLAudioElement;
+  private readonly audio: HTMLAudioElement;
 
   constructor() {
     this.audio = new Audio();
@@ -54,8 +54,7 @@ export class AudioPlayer {
   }
 
   setVolume(volume: number) {
-    let adjustedVolume = volume >= 0 ? volume : 0;
-    adjustedVolume = adjustedVolume <= 1 ? adjustedVolume : 1;
+    const adjustedVolume = Math.max(0, Math.min(volume, 1));
     this.audio.volume = adjustedVolume;
   }
 

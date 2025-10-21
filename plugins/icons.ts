@@ -113,7 +113,7 @@ const ICONS = [
 ];
 
 export default defineNuxtPlugin((nuxtApp) => {
-  ICONS.forEach((icon) => {
+  for (const icon of ICONS) {
     nuxtApp.vueApp.component(icon.name!, icon);
-  });
+  }
 });

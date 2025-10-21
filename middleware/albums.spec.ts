@@ -53,7 +53,7 @@ describe('albums-middleware', () => {
       });
     });
 
-    describe.each([...Object.keys(ALBUMS_SORT_BY)])(
+    describe.each(Object.keys(ALBUMS_SORT_BY))(
       `when to.params.${ROUTE_PARAM_KEYS.albums.sortBy} is %s`,
       (sortBy) => {
         beforeEach(() => {

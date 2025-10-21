@@ -120,7 +120,7 @@ describe('useAPI', () => {
         it('returns the correct response', () => {
           expect(result).toEqual({
             data: null,
-            error: Error(DEFAULT_ERROR_MESSAGE),
+            error: new Error(DEFAULT_ERROR_MESSAGE),
           });
         });
       });

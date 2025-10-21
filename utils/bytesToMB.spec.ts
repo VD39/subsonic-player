@@ -9,7 +9,7 @@ describe('bytesToMB', () => {
     ['1073741824', '1.00 GB'],
     ['1024', '1.00 KB'],
     [undefined, DEFAULT_VALUE],
-    [NaN, DEFAULT_VALUE],
+    [Number.NaN, DEFAULT_VALUE],
     ['invalid', DEFAULT_VALUE],
     ['', DEFAULT_VALUE],
   ])('when bytes is %s', (input, expected) => {

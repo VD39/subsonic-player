@@ -14,7 +14,7 @@ export function useTheme() {
       return;
     }
 
-    const userPrefersDarkTheme = window.matchMedia(
+    const userPrefersDarkTheme = globalThis.matchMedia(
       '(prefers-color-scheme: dark)',
     )?.matches;
 

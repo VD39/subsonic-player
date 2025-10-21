@@ -36,7 +36,7 @@ export function getEarliestDate(episodes: ResponsePodcastEpisode[] = []) {
 
       return new Date(episode.publishDate).getTime();
     })
-    .filter((episode) => episode);
+    .filter(Boolean);
 
   if (!dates.length) {
     return;

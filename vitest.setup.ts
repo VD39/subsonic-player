@@ -9,7 +9,7 @@ intersectionObserverMock([
   } as never,
 ]);
 
-window.MutationObserver = vi.fn().mockImplementation(() => ({
+globalThis.MutationObserver = vi.fn().mockImplementation(() => ({
   disconnect: vi.fn(),
   observe: vi.fn(),
 }));

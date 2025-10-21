@@ -4,8 +4,11 @@ import { mount } from '@vue/test-utils';
 
 import InputRange from './InputRange.vue';
 
-const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(
+  globalThis,
+  'removeEventListener',
+);
 const documentAddEventListenerSpy = vi.spyOn(document, 'addEventListener');
 const documentRemoveEventListenerSpy = vi.spyOn(
   document,
@@ -469,7 +472,7 @@ describe('InputRange', () => {
           width: 200,
         }) as DOMRect;
 
-      global.dispatchEvent(new CustomEvent('resize'));
+      globalThis.dispatchEvent(new CustomEvent('resize'));
     });
 
     it('matches the snapshot', () => {

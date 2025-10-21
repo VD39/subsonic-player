@@ -7,8 +7,11 @@ import TextClamp from './TextClamp.vue';
 const TEXT_TO_CLAMP =
   'This is a long test text that will definitely exceed the max lines set by the component.';
 
-const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(
+  globalThis,
+  'removeEventListener',
+);
 
 function factory(props = {}) {
   return mount(TextClamp, {
@@ -126,7 +129,7 @@ describe('TextClamp', () => {
               length: 1,
             }) as DOMRectList,
         );
-        global.dispatchEvent(new CustomEvent('resize'));
+        globalThis.dispatchEvent(new CustomEvent('resize'));
       });
 
       it('does not show the read more button element', () => {

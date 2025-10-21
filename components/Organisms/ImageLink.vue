@@ -2,7 +2,7 @@
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 defineProps<{
-  image: Image;
+  image: string;
   title: string;
   to: ToProp;
 }>();

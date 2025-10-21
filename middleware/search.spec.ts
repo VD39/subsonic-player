@@ -47,7 +47,7 @@ describe('search-middleware', () => {
       });
     });
 
-    describe.each([...Object.values(ROUTE_MEDIA_TYPE_PARAMS)])(
+    describe.each(Object.values(ROUTE_MEDIA_TYPE_PARAMS))(
       `when to.params.${ROUTE_PARAM_KEYS.search.mediaType} is %s`,
       (mediaType) => {
         beforeEach(() => {

@@ -467,7 +467,7 @@ describe('sortPodcastEpisodes', () => {
 describe('getSortedPodcastEpisodes', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct response', () => {
-      expect(getSortedPodcastEpisodes(undefined)).toEqual({
+      expect(getSortedPodcastEpisodes()).toEqual({
         [ROUTE_PODCAST_SORT_BY_PARAMS.All]: [],
         [ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded]: [],
         [ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']]: [],

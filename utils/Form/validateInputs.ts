@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function validateInputs<T extends Form<any>>(form: T) {
-  Object.values(form.fields).forEach((field) => {
+  for (const field of Object.values(form.fields)) {
     let value = field.value.value;
 
     if (typeof value === 'string') {
@@ -9,13 +9,13 @@ export function validateInputs<T extends Form<any>>(form: T) {
       if (field.validationRules?.required && !value) {
         field.isValid.value = false;
         field.error.value = `${field.label} is required`;
-        return;
+        continue;
       }
 
       if (value && field.validationRules?.isUrl && !isUrl(value)) {
         field.isValid.value = false;
         field.error.value = `${field.label} is not a valid URL`;
-        return;
+        continue;
       }
     }
 
@@ -23,13 +23,13 @@ export function validateInputs<T extends Form<any>>(form: T) {
       if (field.validationRules?.required && !value.length) {
         field.isValid.value = false;
         field.error.value = `${field.label} is required`;
-        return;
+        continue;
       }
     }
 
     field.isValid.value = true;
     field.error.value = '';
-  });
+  }
 
   form.isValid.value = checkFormIsInvalid(form.fields);
 }

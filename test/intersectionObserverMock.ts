@@ -18,7 +18,7 @@ export function intersectionObserverMock(
     };
   });
 
-  Object.defineProperty(window, 'IntersectionObserver', {
+  Object.defineProperty(globalThis, 'IntersectionObserver', {
     configurable: true,
     value: intersectionObserverMock,
     writable: true,

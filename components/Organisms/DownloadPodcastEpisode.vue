@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 defineProps<{
-  image: Image;
+  image: string;
 }>();
 
 defineEmits<{

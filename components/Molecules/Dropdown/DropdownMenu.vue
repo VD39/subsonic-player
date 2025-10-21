@@ -32,7 +32,7 @@ function checkIfOutsideScreen() {
   }
 
   const dropdownHeight = dropdownRef.value.clientHeight;
-  const windowHeight = window.innerHeight;
+  const windowHeight = globalThis.innerHeight;
   const dropdownTop = dropdownRef.value.getBoundingClientRect().top;
 
   showAbove.value = windowHeight - dropdownTop < dropdownHeight;
@@ -47,7 +47,7 @@ function onClick(event: MouseEvent) {
 
     emit('closed');
 
-    window.removeEventListener('click', onClick);
+    globalThis.removeEventListener('click', onClick);
     document.removeEventListener('keydown', onKeydown);
   }
 }
@@ -56,7 +56,7 @@ function onKeydown(event: KeyboardEvent) {
   if (event.key === 'Escape') {
     isOpen.value = false;
 
-    window.removeEventListener('click', onClick);
+    globalThis.removeEventListener('click', onClick);
     document.removeEventListener('keydown', onKeydown);
   }
 }
@@ -70,7 +70,7 @@ async function toggleDropdown() {
   if (isOpen.value) {
     emit('opened');
 
-    window.addEventListener('click', onClick);
+    globalThis.addEventListener('click', onClick);
     document.addEventListener('keydown', onKeydown);
 
     checkIfOutsideScreen();

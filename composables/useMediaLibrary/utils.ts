@@ -1,5 +1,5 @@
 export function downloadFileFromBlob(blob: Blob, track: DownloadTrack) {
-  const url = window.URL.createObjectURL(blob);
+  const url = globalThis.URL.createObjectURL(blob);
   const anchor = document.createElement('a');
 
   anchor.href = url;
@@ -9,6 +9,6 @@ export function downloadFileFromBlob(blob: Blob, track: DownloadTrack) {
   anchor.click();
 
   // Clean up from DOM.
-  document.body.removeChild(anchor);
-  window.URL.revokeObjectURL(url);
+  anchor.remove();
+  globalThis.URL.revokeObjectURL(url);
 }

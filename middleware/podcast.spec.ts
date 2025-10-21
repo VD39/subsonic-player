@@ -47,7 +47,7 @@ describe('podcast-middleware', () => {
       });
     });
 
-    describe.each([...Object.values(ROUTE_PODCAST_SORT_BY_PARAMS)])(
+    describe.each(Object.values(ROUTE_PODCAST_SORT_BY_PARAMS))(
       `when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} is %s`,
       (sortBy) => {
         beforeEach(() => {

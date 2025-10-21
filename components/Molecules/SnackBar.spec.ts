@@ -95,13 +95,11 @@ describe('SnackBar', () => {
 
     describe('when snacks values are more than 1', () => {
       beforeEach(() => {
-        snacksMock.value = Array(4)
-          .fill('')
-          .map((_item, index) => ({
-            content: `content-${index}`,
-            id: `snack-${index}`,
-            type: 'error',
-          }));
+        snacksMock.value = Array.from({ length: 4 }, (_item, index) => ({
+          content: `content-${index}`,
+          id: `snack-${index}`,
+          type: 'error',
+        }));
       });
 
       it('matches the snapshot', () => {

@@ -9,8 +9,11 @@ import DropdownMenu from './DropdownMenu.vue';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const events: any = {};
 
-const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(
+  globalThis,
+  'removeEventListener',
+);
 const documentAddEventListenerSpy = vi
   .spyOn(document, 'addEventListener')
   .mockImplementation((event, cb) => {
@@ -102,7 +105,7 @@ describe('DropdownMenu', () => {
 
     describe('when dropdown height is less than window height', () => {
       beforeEach(async () => {
-        window.innerHeight = 10;
+        globalThis.innerHeight = 10;
         Object.defineProperties(HTMLElement.prototype, {
           clientHeight: {
             configurable: true,

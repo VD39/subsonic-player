@@ -6,9 +6,9 @@ import { downloadFileFromBlob } from './utils';
 const appendChildSpy = vi.spyOn(document.body, 'appendChild');
 const removeChildSpy = vi.spyOn(document.body, 'removeChild');
 const createObjectURLSpy = vi
-  .spyOn(window.URL, 'createObjectURL')
+  .spyOn(globalThis.URL, 'createObjectURL')
   .mockReturnValue('blob:url');
-const revokeObjectURLSpy = vi.spyOn(window.URL, 'revokeObjectURL');
+const revokeObjectURLSpy = vi.spyOn(globalThis.URL, 'revokeObjectURL');
 
 const anchor = document.createElement('a');
 const clickSpy = vi.spyOn(anchor, 'click');
@@ -45,7 +45,7 @@ describe('downloadFileFromBlob', () => {
     expect(removeChildSpy).toHaveBeenCalledWith(anchor);
   });
 
-  it('calls the window.URL.revokeObjectURL function with the correct parameters', () => {
+  it('calls the globalThis.URL.revokeObjectURL function with the correct parameters', () => {
     expect(revokeObjectURLSpy).toHaveBeenCalledWith('blob:url');
   });
 

@@ -5,7 +5,7 @@ const props = withDefaults(
     fullWidth?: boolean;
     icon?: Component | Icon;
     iconColor?: string;
-    iconPosition?: IconPosition;
+    iconPosition?: 'left' | 'right';
     iconSize?: IconSize;
     iconWeight?: IconWeight;
     is?: ButtonLink;

@@ -6,7 +6,7 @@ export interface Album {
   formattedDuration: string;
   genres: Genre[];
   id: string;
-  image: Image;
+  image: string;
   information: AlbumTrack;
   name: string;
   size: string;
@@ -28,7 +28,7 @@ export interface Artist extends BaseArtist {
   biography?: string;
   favourite: boolean;
   genres: Genre[];
-  image: Image;
+  image: string;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
   similarArtist: SimilarArtist[];
@@ -73,7 +73,7 @@ export interface Podcast {
   description?: string;
   episodes: Record<PodcastSortByParam, PodcastEpisode[]>;
   id: string;
-  image: Image;
+  image: string;
   lastUpdated: string;
   name: string;
   totalDownloadedEpisodes: number;
@@ -90,7 +90,7 @@ export interface PodcastEpisode {
   formattedDuration: string;
   genres: Genre[];
   id: string;
-  image: Image;
+  image: string;
   name: string;
   podcastId?: string;
   podcastName: string;
@@ -105,7 +105,7 @@ export interface RadioStation {
   formattedDuration: string;
   homePageUrl?: string;
   id: string;
-  image: Image;
+  image: string;
   name: string;
   streamUrlId: string;
   trackNumber: number | string;
@@ -126,7 +126,7 @@ export interface Track {
   formattedDuration: string;
   genres: Genre[];
   id: string;
-  image: Image;
+  image: string;
   index: number;
   information: TrackInformation;
   name: string;

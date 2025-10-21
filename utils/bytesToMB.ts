@@ -1,7 +1,7 @@
 export function bytesToMB(bytes: number | string = '') {
   const sizeInBytes = Number(bytes);
 
-  if (!bytes || isNaN(sizeInBytes)) {
+  if (!bytes || Number.isNaN(sizeInBytes)) {
     return DEFAULT_VALUE;
   }
 

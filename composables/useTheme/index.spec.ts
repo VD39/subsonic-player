@@ -4,7 +4,7 @@ import { useTheme } from './index';
 
 const matchesMock = ref(false);
 
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(globalThis, 'matchMedia', {
   value: vi.fn(() => ({
     matches: matchesMock.value,
   })),

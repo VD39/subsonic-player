@@ -4,7 +4,7 @@ import { cookieMock } from '@/test/fixtures';
 
 import artistApi from './artist';
 
-const $fetchMock = vi.spyOn(global, '$fetch') as MockInstance;
+const $fetchMock = vi.spyOn(globalThis, '$fetch') as MockInstance;
 
 describe('artist-api', () => {
   afterEach(() => {

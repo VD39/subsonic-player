@@ -4,8 +4,11 @@ import { mount } from '@vue/test-utils';
 
 import OverflowShadow from './OverflowShadow.vue';
 
-const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(
+  globalThis,
+  'removeEventListener',
+);
 
 function factory(slots = {}) {
   return mount(OverflowShadow, {
@@ -56,7 +59,7 @@ describe('OverflowShadow', () => {
         value: 1000,
       });
 
-      global.dispatchEvent(new CustomEvent('resize'));
+      globalThis.dispatchEvent(new CustomEvent('resize'));
     });
 
     it('matches the snapshot', () => {

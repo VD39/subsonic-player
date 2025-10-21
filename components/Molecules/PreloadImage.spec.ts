@@ -26,7 +26,7 @@ describe('Default', () => {
   });
 
   describe('when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon', () => {
-    describe.each([...Object.values(IMAGE_DEFAULT_BY_TYPE)])(
+    describe.each(Object.values(IMAGE_DEFAULT_BY_TYPE))(
       'when image prop is set to %s',
       (image) => {
         beforeEach(() => {

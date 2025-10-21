@@ -52,7 +52,7 @@ export function useHotkeyManager() {
   function joinKeys(keys: Set<string> | string[]) {
     return [...keys]
       .map((k) => normaliseKey(k))
-      .sort()
+      .sort((a, b) => a.localeCompare(b))
       .join('+');
   }
 
@@ -100,8 +100,7 @@ export function useHotkeyManager() {
     pressedKeys.add(event.key);
 
     for (const category in HOTKEYS_MAPPINGS) {
-      const mappings =
-        HOTKEYS_MAPPINGS[category as keyof typeof HOTKEYS_MAPPINGS];
+      const mappings = HOTKEYS_MAPPINGS[category];
 
       for (const mapping of mappings) {
         if (isKeysMatchingPressedKeys(mapping.keys)) {
@@ -155,14 +154,14 @@ export function useHotkeyManager() {
   }
 
   onMounted(() => {
-    window.addEventListener('blur', onBlur);
+    globalThis.addEventListener('blur', onBlur);
     document.addEventListener('keydown', onKeydown, true);
     document.addEventListener('keyup', onKeyup, true);
     document.addEventListener('visibilitychange', onVisibilityChange);
   });
 
   onUnmounted(() => {
-    window.removeEventListener('blur', onBlur);
+    globalThis.removeEventListener('blur', onBlur);
     document.removeEventListener('keydown', onKeydown, true);
     document.removeEventListener('keyup', onKeyup, true);
     document.removeEventListener('visibilitychange', onVisibilityChange);

@@ -12,7 +12,10 @@ export function debounce<T extends (...args: Parameters<T>) => ReturnType<T>>(
         try {
           resolve(callback(...args));
         } catch (error) {
-          reject(error);
+          const errorMessage =
+            error instanceof Error ? error : new Error(error as string);
+
+          reject(errorMessage);
         }
       }, delay);
     });

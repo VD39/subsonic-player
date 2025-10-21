@@ -72,9 +72,9 @@ onMounted(() => {
     ([entry]) => {
       if (entry && entry.isIntersecting) {
         getCloneData();
-        window.addEventListener('resize', onResize);
+        globalThis.addEventListener('resize', onResize);
       } else {
-        window.removeEventListener('resize', onResize);
+        globalThis.removeEventListener('resize', onResize);
         cloneLength.value = 0;
       }
     },
@@ -95,7 +95,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', onResize);
+  globalThis.removeEventListener('resize', onResize);
   mutationObserver.value?.disconnect();
   intersectionObserver.value?.disconnect();
 });

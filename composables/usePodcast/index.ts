@@ -9,13 +9,13 @@ export function usePodcast() {
     () => [],
   );
 
-  function getPodcastsData(
-    params: PodcastsParams = {
+  function getPodcastsData(params?: PodcastsParams) {
+    const finalParams = params || {
       includeEpisodes: false,
-    },
-  ) {
+    };
+
     return fetchData('/getPodcasts', {
-      params,
+      params: finalParams,
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.podcasts.channel || [])
           .map(formatPodcast)

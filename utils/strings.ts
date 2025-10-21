@@ -11,36 +11,36 @@ export function convertToTitleCase(str: string) {
 
       return (
         part.slice(0, i) +
-        part.slice(i).replace(/\b\w/g, (c) => c.toUpperCase())
+        part.slice(i).replaceAll(/\b\w/g, (c) => c.toUpperCase())
       );
     })
     .join(' ');
 }
 
 export function generateRandomString(length = 15) {
-  return [...Array(length)]
-    .map(() => Math.random().toString(36).charAt(2))
-    .join('');
+  return Array.from({ length }, () =>
+    Math.random().toString(36).charAt(2),
+  ).join('');
 }
 
 export function replaceCharactersWithSpace(
   str: string,
   replaceCharacter = '-',
 ) {
-  return str.replace(new RegExp(replaceCharacter, 'g'), ' ');
+  return str.replaceAll(replaceCharacter, ' ');
 }
 
 export function replaceSpacesWithCharacter(
   str: string,
   replaceCharacter = '-',
 ) {
-  return str.replace(/ +/g, replaceCharacter);
+  return str.replaceAll(/ +/g, replaceCharacter);
 }
 
 export function sanitiseString(str: string) {
-  return str.replace(/\W|_/g, ' ').replace(/ +/g, ' ').trim();
+  return str.replaceAll(/\W|_/g, ' ').replaceAll(/ +/g, ' ').trim();
 }
 
 export function splitCamelCase(str: string) {
-  return str.replace(/([A-Z])/g, ' $1');
+  return str.replaceAll(/([A-Z])/g, ' $1');
 }

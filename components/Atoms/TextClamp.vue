@@ -53,11 +53,11 @@ onMounted(() => {
 
   updateClamp();
 
-  window.addEventListener('resize', onResize);
+  globalThis.addEventListener('resize', onResize);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', onResize);
+  globalThis.removeEventListener('resize', onResize);
 });
 </script>
 

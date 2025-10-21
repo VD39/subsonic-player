@@ -4,7 +4,7 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 
 defineProps<{
-  artists: Artist[] | SimilarArtist[];
+  artists: (Artist | SimilarArtist)[];
 }>();
 </script>
 

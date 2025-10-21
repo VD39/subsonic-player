@@ -9,7 +9,7 @@ vi.useFakeTimers();
 
 const setPositionStateMock = vi.fn();
 
-Object.defineProperty(window.navigator, 'mediaSession', {
+Object.defineProperty(globalThis.navigator, 'mediaSession', {
   configurable: true,
   value: {
     playbackState: '',
@@ -19,7 +19,7 @@ Object.defineProperty(window.navigator, 'mediaSession', {
   writable: true,
 });
 
-window.MediaMetadata = vi.fn();
+globalThis.MediaMetadata = vi.fn();
 
 type CB = (...args: unknown[]) => void;
 
@@ -475,7 +475,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('does not update the currentTrack value', () => {
-          expect(result.composable.currentTrack.value!.id).toBe(
+          expect(result.composable.currentTrack.value.id).toBe(
             queueTracks[4].id,
           );
         });
@@ -505,7 +505,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('does not update the currentTrack value', () => {
-          expect(result.composable.currentTrack.value!.id).toBe(
+          expect(result.composable.currentTrack.value.id).toBe(
             queueTracks[4].id,
           );
         });
@@ -538,7 +538,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('updates the currentTrack value to correct value', () => {
-          expect(result.composable.currentTrack.value!.id).toBe(
+          expect(result.composable.currentTrack.value.id).toBe(
             queueTracks[5].id,
           );
         });
@@ -585,7 +585,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('updates the currentTrack value', () => {
-          expect(result.composable.currentTrack.value!.id).toBe(
+          expect(result.composable.currentTrack.value.id).toBe(
             queueTracks[0].id,
           );
         });
@@ -1146,7 +1146,7 @@ describe('useAudioPlayer', () => {
     describe('when mediaSession is in navigator', () => {
       describe('when track type is a track', () => {
         it('calls the MediaMetadata function with the correct parameters', () => {
-          expect(window.MediaMetadata).toHaveBeenCalledWith({
+          expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
             album: (queueTracks[0] as Track).album,
             artist: expect.any(String),
             artwork: expect.any(Array),
@@ -1167,7 +1167,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('calls the MediaMetadata function with the correct parameters', () => {
-          expect(window.MediaMetadata).toHaveBeenCalledWith({
+          expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
             artwork: expect.any(Array),
             title: radioStations[0].name,
           });
@@ -1187,7 +1187,7 @@ describe('useAudioPlayer', () => {
         });
 
         it('calls the MediaMetadata function with the correct parameters', () => {
-          expect(window.MediaMetadata).toHaveBeenCalledWith({
+          expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
             album: (podcastEpisodes[0] as PodcastEpisode).podcastName,
             artwork: expect.any(Array),
             title: podcastEpisodes[0].name,
@@ -1199,7 +1199,7 @@ describe('useAudioPlayer', () => {
     describe('when mediaSession is not in navigator', () => {
       beforeAll(() => {
         vi.clearAllMocks();
-        Object.defineProperty(window, 'navigator', {
+        Object.defineProperty(globalThis, 'navigator', {
           value: {},
         });
 
@@ -1208,7 +1208,7 @@ describe('useAudioPlayer', () => {
       });
 
       afterAll(() => {
-        Object.defineProperty(window.navigator, 'mediaSession', {
+        Object.defineProperty(globalThis.navigator, 'mediaSession', {
           configurable: true,
           value: {
             playbackState: '',
@@ -1220,7 +1220,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('does not call the MediaMetadata function', () => {
-        expect(window.MediaMetadata).not.toHaveBeenCalled();
+        expect(globalThis.MediaMetadata).not.toHaveBeenCalled();
       });
     });
   });
@@ -1282,7 +1282,7 @@ describe('useAudioPlayer', () => {
 
       describe('when navigator.onLine is true', () => {
         beforeAll(() => {
-          Object.defineProperty(window.navigator, 'onLine', {
+          Object.defineProperty(globalThis.navigator, 'onLine', {
             configurable: true,
             value: true,
             writable: true,
