@@ -132,7 +132,7 @@ describe('[[sortBy]]', () => {
     });
   });
 
-  describe.each([...Object.values(ROUTE_ALBUMS_SORT_BY_PARAMS)])(
+  describe.each(Object.values(ROUTE_ALBUMS_SORT_BY_PARAMS))(
     'when the sortBy route param is %s',
     (sortBy) => {
       beforeEach(() => {
