@@ -459,11 +459,8 @@ export function useAudioPlayer() {
   }
 
   function rewindTrack() {
-    if (currentTime.value <= REWIND_TRACK_TIME) {
-      return;
-    }
-
-    setCurrentTime(currentTime.value - REWIND_TRACK_TIME);
+    const time = Math.max(0, currentTime.value - REWIND_TRACK_TIME);
+    setCurrentTime(time);
   }
 
   function fastForwardTrack() {

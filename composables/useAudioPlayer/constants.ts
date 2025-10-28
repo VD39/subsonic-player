@@ -55,3 +55,8 @@ export const MEDIA_SESSION_ACTION_DETAILS = {
   seekForward: 'seekforward',
   seekTo: 'seekto',
 } as const;
+
+export const REWIND_FAST_FORWARD_TITLES = {
+  fastForward: `Fast forward back ${FAST_FORWARD_TRACK_TIME} seconds`,
+  rewind: `Rewind back ${REWIND_TRACK_TIME} seconds`,
+} as const;

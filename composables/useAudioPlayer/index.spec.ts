@@ -1438,8 +1438,8 @@ describe('useAudioPlayer', () => {
         result.composable.rewindTrack();
       });
 
-      it('does not call the audio setCurrentTime function', () => {
-        expect(setCurrentTimeMock).not.toHaveBeenCalled();
+      it('calls the audio setCurrentTime function with the correct parameters', () => {
+        expect(setCurrentTimeMock).toHaveBeenCalledWith(0);
       });
     });
 
@@ -1449,8 +1449,8 @@ describe('useAudioPlayer', () => {
         result.composable.rewindTrack();
       });
 
-      it('does not call the audio setCurrentTime function', () => {
-        expect(setCurrentTimeMock).not.toHaveBeenCalled();
+      it('calls the audio setCurrentTime function with the correct parameters', () => {
+        expect(setCurrentTimeMock).toHaveBeenCalledWith(0);
       });
     });
   });

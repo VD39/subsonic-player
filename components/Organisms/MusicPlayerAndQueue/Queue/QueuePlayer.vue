@@ -12,8 +12,15 @@ import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/Re
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 
-const { currentTime, currentTrack, isPodcastEpisode, isRadioStation, isTrack } =
-  useAudioPlayer();
+const {
+  currentTime,
+  currentTrack,
+  fastForwardTrack,
+  isPodcastEpisode,
+  isRadioStation,
+  isTrack,
+  rewindTrack,
+} = useAudioPlayer();
 const { toggleQueueList, toggleQueuePlayer } = useQueue();
 </script>
 
@@ -37,6 +44,27 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
           <div :class="$style.imageWrapper">
             <div :class="$style.imageInner">
               <div :class="$style.preloadImageWrapper">
+                <button
+                  ref="rewindButton"
+                  :class="[$style.rewindFastForwardButton, $style.rewindButton]"
+                  @click="doubleClick(rewindTrack)"
+                >
+                  <span class="visuallyHidden">
+                    {{ REWIND_FAST_FORWARD_TITLES.rewind }}
+                  </span>
+                </button>
+                <button
+                  ref="fastForwardButton"
+                  :class="[
+                    $style.rewindFastForwardButton,
+                    $style.fastForwardButton,
+                  ]"
+                  @click="doubleClick(fastForwardTrack)"
+                >
+                  <span class="visuallyHidden">
+                    {{ REWIND_FAST_FORWARD_TITLES.fastForward }}
+                  </span>
+                </button>
                 <PreloadImage
                   :class="$style.preloadImage"
                   :image="currentTrack.image"
@@ -206,6 +234,24 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 .preloadImageWrapper,
 .preloadImage {
   height: var(--width-height-100);
+}
+
+.rewindFastForwardButton {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 50%;
+}
+
+.rewindButton {
+  left: 0;
+}
+
+.fastForwardButton {
+  right: 0;
 }
 
 .trackDetailsWrapper {

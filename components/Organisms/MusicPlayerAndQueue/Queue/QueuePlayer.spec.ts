@@ -13,6 +13,8 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import QueuePlayer from './QueuePlayer.vue';
 
+vi.useFakeTimers();
+
 const toggleQueueListMock = vi.fn();
 const toggleQueuePlayerMock = vi.fn();
 
@@ -23,9 +25,11 @@ mockNuxtImport('useQueue', () => () => ({
 
 const {
   currentTrackMock,
+  fastForwardTrackMock,
   isPodcastEpisodeMock,
   isRadioStationMock,
   isTrackMock,
+  rewindTrackMock,
 } = useAudioPlayerMock();
 
 function factory(props = {}) {
@@ -42,6 +46,10 @@ describe('QueuePlayer', () => {
 
   beforeEach(() => {
     wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it('matches the snapshot', () => {
@@ -363,6 +371,49 @@ describe('QueuePlayer', () => {
 
     it('does not show the FavouriteButton component', () => {
       expect(wrapper.findComponent(FavouriteButton).exists()).toBe(false);
+    });
+  });
+
+  describe('when the rewind button is clicked once', () => {
+    beforeEach(async () => {
+      await wrapper.find({ ref: 'rewindButton' }).trigger('click');
+    });
+
+    it('does not call the rewindTrack function', () => {
+      expect(rewindTrackMock).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when the rewind button is clicked twice rapidly', () => {
+    beforeEach(async () => {
+      await wrapper.find({ ref: 'rewindButton' }).trigger('click');
+      await wrapper.find({ ref: 'rewindButton' }).trigger('click');
+      vi.advanceTimersByTime(300);
+    });
+
+    it('calls the rewindTrack function', () => {
+      expect(rewindTrackMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the fast forward button is clicked once', () => {
+    beforeEach(async () => {
+      await wrapper.find({ ref: 'fastForwardButton' }).trigger('click');
+    });
+
+    it('does not call the fastForwardTrack function', () => {
+      expect(fastForwardTrackMock).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when the fast forward button is clicked twice rapidly', () => {
+    beforeEach(async () => {
+      await wrapper.find({ ref: 'fastForwardButton' }).trigger('click');
+      await wrapper.find({ ref: 'fastForwardButton' }).trigger('click');
+    });
+
+    it('calls the fastForwardTrack function', () => {
+      expect(fastForwardTrackMock).toHaveBeenCalled();
     });
   });
 

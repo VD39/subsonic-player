@@ -11,11 +11,6 @@ const {
   playPreviousTrack,
   rewindTrack,
 } = useAudioPlayer();
-
-const rewindFastForwardTitle = {
-  fastForward: `Fast forward back ${FAST_FORWARD_TRACK_TIME} seconds`,
-  rewind: `Rewind back ${REWIND_TRACK_TIME} seconds`,
-};
 </script>
 
 <template>
@@ -35,10 +30,10 @@ const rewindFastForwardTitle = {
       v-if="isPodcastEpisode"
       ref="rewind"
       :icon="ICONS.rewind"
-      :title="rewindFastForwardTitle.rewind"
+      :title="REWIND_FAST_FORWARD_TITLES.rewind"
       @click="rewindTrack"
     >
-      {{ rewindFastForwardTitle.rewind }}
+      {{ REWIND_FAST_FORWARD_TITLES.rewind }}
     </ButtonLink>
 
     <PlayPauseButton :class="$style.playPauseButton" />
@@ -47,10 +42,10 @@ const rewindFastForwardTitle = {
       v-if="isPodcastEpisode"
       ref="fastForward"
       :icon="ICONS.fastForward"
-      :title="rewindFastForwardTitle.fastForward"
+      :title="REWIND_FAST_FORWARD_TITLES.fastForward"
       @click="fastForwardTrack"
     >
-      {{ rewindFastForwardTitle.fastForward }}
+      {{ REWIND_FAST_FORWARD_TITLES.fastForward }}
     </ButtonLink>
 
     <ButtonLink
