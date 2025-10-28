@@ -3,14 +3,14 @@ export function useTheme() {
 
   function toggleTheme() {
     isDarkTheme.value = !isDarkTheme.value;
-    setLocalStorage(STATE_NAMES.theme, JSON.stringify(isDarkTheme.value));
+    setLocalStorage(STATE_NAMES.theme, isDarkTheme.value);
   }
 
   function setDefaultTheme() {
     const localTheme = getLocalStorage(STATE_NAMES.theme);
 
-    if (localTheme) {
-      isDarkTheme.value = JSON.parse(localTheme);
+    if (typeof localTheme === 'boolean') {
+      isDarkTheme.value = localTheme;
       return;
     }
 

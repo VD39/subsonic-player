@@ -36,10 +36,7 @@ describe('useTheme', () => {
     });
 
     it('calls the localStorage.setItem with correct parameters', () => {
-      expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.theme,
-        'true',
-      );
+      expect(setLocalStorageMock).toHaveBeenCalledWith(STATE_NAMES.theme, true);
     });
 
     it('updates the isDarkTheme value with true', () => {
@@ -54,7 +51,7 @@ describe('useTheme', () => {
       it('calls the localStorage.setItem with correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
           STATE_NAMES.theme,
-          'false',
+          false,
         );
       });
 
@@ -88,19 +85,19 @@ describe('useTheme', () => {
     });
 
     describe('when theme in local storage is set', () => {
-      describe.each([
-        ['true', true],
-        ['false', false],
-      ])('when localStorage returns is %s', (localStorage, theme) => {
-        beforeAll(() => {
-          getLocalStorageMock.mockReturnValue(localStorage);
-          setDefaultTheme();
-        });
+      describe.each([[true], [false]])(
+        'when localStorage returns is %s',
+        (localStorage) => {
+          beforeAll(() => {
+            getLocalStorageMock.mockReturnValue(localStorage);
+            setDefaultTheme();
+          });
 
-        it('sets the correct isDarkTheme value', () => {
-          expect(isDarkTheme.value).toBe(theme);
-        });
-      });
+          it('sets the correct isDarkTheme value', () => {
+            expect(isDarkTheme.value).toBe(localStorage);
+          });
+        },
+      );
     });
   });
 });
