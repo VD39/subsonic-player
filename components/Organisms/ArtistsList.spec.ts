@@ -2,7 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 import { getFormattedArtistsMock } from '@/test/helpers';
@@ -30,8 +30,8 @@ describe('ArtistsList', () => {
   });
 
   describe('when artists prop is an empty array', () => {
-    it('does not show the MediaListWrapper component', () => {
-      expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(false);
+    it('does not show the GridWrapper component', () => {
+      expect(wrapper.findComponent(GridWrapper).exists()).toBe(false);
     });
 
     it('shows the NoMediaMessage component', () => {
@@ -50,8 +50,8 @@ describe('ArtistsList', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('shows the MediaListWrapper component', () => {
-      expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(true);
+    it('shows the GridWrapper component', () => {
+      expect(wrapper.findComponent(GridWrapper).exists()).toBe(true);
     });
 
     it('shows the correct number of the ArtistItem component', () => {

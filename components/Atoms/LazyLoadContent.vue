@@ -37,7 +37,7 @@ onUnmounted(() => {
     <div
       v-if="!loadSlot"
       ref="loading"
-      :class="['skeletonLoader', $style.preloadImage]"
+      :class="['skeletonLoader', $style.skeletonLoader]"
     >
       <span class="visuallyHidden">Loading data</span>
     </div>
@@ -51,7 +51,7 @@ onUnmounted(() => {
   height: inherit;
 }
 
-.preloadImage {
+.skeletonLoader {
   position: relative;
   width: var(--width-height-100);
   height: inherit;

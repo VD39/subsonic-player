@@ -3,7 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import { getFormattedGenresMock } from '@/test/helpers';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -63,8 +63,8 @@ describe('genres', () => {
   });
 
   describe('when getGenres does not return any data', () => {
-    it('does not show the MediaListWrapper component', () => {
-      expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(false);
+    it('does not show the GridWrapper component', () => {
+      expect(wrapper.findComponent(GridWrapper).exists()).toBe(false);
     });
 
     it('shows the NoMediaMessage component', () => {
@@ -85,14 +85,14 @@ describe('genres', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('shows the MediaListWrapper component', () => {
-      expect(wrapper.findComponent(MediaListWrapper).exists()).toBe(true);
+    it('shows the GridWrapper component', () => {
+      expect(wrapper.findComponent(GridWrapper).exists()).toBe(true);
     });
 
     it('shows the correct number of genre items', () => {
       expect(
         wrapper
-          .findComponent({ ref: 'genresMediaListWrapper' })
+          .findComponent(GridWrapper)
           .findAll('[data-test-id="genre-item"]').length,
       ).toBe(3);
     });

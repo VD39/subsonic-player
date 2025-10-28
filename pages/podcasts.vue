@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
@@ -73,7 +73,7 @@ useHead({
 
   <LoadingData :status>
     <div v-if="podcasts.length" ref="podcastsContent">
-      <MediaListWrapper>
+      <GridWrapper>
         <PodcastItem
           v-for="podcast in podcasts"
           :key="podcast.id"
@@ -81,7 +81,7 @@ useHead({
           :podcast
           @dragstart="dragStart(podcast, $event)"
         />
-      </MediaListWrapper>
+      </GridWrapper>
 
       <h3>Latest Podcast Episodes</h3>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import AlbumItem from '@/components/Organisms/AlbumItem.vue';
 
@@ -14,7 +14,7 @@ defineEmits<{
 </script>
 
 <template>
-  <MediaListWrapper v-if="albums.length">
+  <GridWrapper v-if="albums.length">
     <AlbumItem
       v-for="album in albums"
       :key="album.name"
@@ -23,7 +23,7 @@ defineEmits<{
       :hideArtist
       @dragstart="$emit('dragStart', album, $event)"
     />
-  </MediaListWrapper>
+  </GridWrapper>
 
   <NoMediaMessage
     v-else

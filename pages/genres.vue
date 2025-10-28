@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GenreLink from '@/components/Atoms/GenreLink.vue';
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 
@@ -34,17 +34,14 @@ useHead({
   <h1>Genres</h1>
 
   <LoadingData :status>
-    <MediaListWrapper
-      v-if="genresData.genres.length"
-      ref="genresMediaListWrapper"
-    >
+    <GridWrapper v-if="genresData.genres.length">
       <GenreLink
         v-for="genre in genresData.genres"
         :key="genre.name"
         data-test-id="genre-item"
         :name="genre.name"
       />
-    </MediaListWrapper>
+    </GridWrapper>
 
     <NoMediaMessage
       v-else

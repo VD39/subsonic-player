@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
@@ -16,7 +16,7 @@ defineEmits<{
 </script>
 
 <template>
-  <MediaListWrapper v-if="playlists.length" desktop="2" mobile="1" tablet="2">
+  <GridWrapper v-if="playlists.length" desktop="2" mobile="1" tablet="2">
     <article
       v-for="playlist in playlists"
       :key="playlist.id"
@@ -77,7 +77,7 @@ defineEmits<{
         </DropdownMenu>
       </div>
     </article>
-  </MediaListWrapper>
+  </GridWrapper>
 
   <NoMediaMessage
     v-else

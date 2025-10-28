@@ -2,7 +2,7 @@
 
 exports[`LazyLoadContent > when nuxtApp isHydrating is false > matches the snapshot 1`] = `
 "<div class="lazyLoadContent">
-  <div class="skeletonLoader preloadImage"><span class="visuallyHidden">Loading data</span></div>
+  <div class="skeletonLoader skeletonLoader"><span class="visuallyHidden">Loading data</span></div>
 </div>"
 `;
 

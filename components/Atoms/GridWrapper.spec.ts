@@ -2,17 +2,17 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import MediaListWrapper from './MediaListWrapper.vue';
+import GridWrapper from './GridWrapper.vue';
 
 function factory(props = {}) {
-  return mount(MediaListWrapper, {
+  return mount(GridWrapper, {
     props: {
       ...props,
     },
   });
 }
 
-describe('MediaListWrapper', () => {
+describe('GridWrapper', () => {
   let wrapper: VueWrapper;
 
   describe.each([

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MediaListWrapper from '@/components/Atoms/MediaListWrapper.vue';
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 
@@ -9,9 +9,9 @@ defineProps<{
 </script>
 
 <template>
-  <MediaListWrapper v-if="artists.length">
+  <GridWrapper v-if="artists.length">
     <ArtistItem v-for="artist in artists" :key="artist.id" :artist />
-  </MediaListWrapper>
+  </GridWrapper>
 
   <NoMediaMessage
     v-else
