@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
 
       const subsonicResponse = response['subsonic-response'];
 
-      if (!subsonicResponse || subsonicResponse.status !== 'ok') {
+      if (subsonicResponse?.status !== 'ok') {
         throw new Error('No response from server.');
       }
 
