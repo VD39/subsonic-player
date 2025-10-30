@@ -21,7 +21,7 @@ exports[`FilesList > matches the snapshot 1`] = `
 exports[`FilesList > when folders is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackRow">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
             <pharrowurightup class="icon"></pharrowurightup>
@@ -30,7 +30,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
       </a></div>
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-0" class="image" draggable="false" loading="lazy" src="image-0"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
@@ -40,7 +40,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
       </a></div>
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-1" class="image" draggable="false" loading="lazy" src="image-1"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
@@ -50,7 +50,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
       </a></div>
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-2" class="image" draggable="false" loading="lazy" src="image-2"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
@@ -60,7 +60,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
       </a></div>
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-3" class="image" draggable="false" loading="lazy" src="image-3"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
@@ -70,7 +70,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
       </a></div>
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-4" class="image" draggable="false" loading="lazy" src="image-4"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
@@ -86,7 +86,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
 exports[`FilesList > when route params does have an Id > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackRow">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
             <pharrowurightup class="icon"></pharrowurightup>
@@ -112,7 +112,7 @@ exports[`FilesList > when route params does have an Id > matches the snapshot 1`
 exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackRow">
-    <div class="trackCell trackCell"><a class="trackCell" draggable="false">
+    <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
             <pharrowurightup class="icon"></pharrowurightup>
@@ -138,29 +138,31 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
             </div>
           </div>
         </div>
-        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-          </button>
-          <div class="dropdown fade-enter-from fade-enter-active">
-            <ul>
-              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                  <!--v-if--><span class="clamp text"> Add to playlist </span>
-                </button></li>
-              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                  <!--v-if--><span class="clamp text"> Media information </span>
-                </button></li>
-              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                  <!--v-if--><span class="clamp text"> Download track </span>
-                </button></li>
-              <li aria-hidden="true" class="divider"></li>
-              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                  <!--v-if--><span class="clamp text"> Add to queue </span>
-                </button></li>
-              <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                  <!--v-if--><span class="clamp text"> Play Track </span>
-                </button></li>
-            </ul>
-          </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <div class="dropdown fade-enter-from fade-enter-active">
+          <ul>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Add to playlist </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Media information </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Download track </span>
+              </button></li>
+            <li aria-hidden="true" class="divider"></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Add to queue </span>
+              </button></li>
+            <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <!--v-if--><span class="clamp text"> Play Track </span>
+              </button></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -182,11 +184,13 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
             </div>
           </div>
         </div>
-        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-          </button>
-          <!--v-if-->
-        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
       </div>
     </div>
   </div>
@@ -207,11 +211,13 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
             </div>
           </div>
         </div>
-        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-          </button>
-          <!--v-if-->
-        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
       </div>
     </div>
   </div>
@@ -232,11 +238,13 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
             </div>
           </div>
         </div>
-        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-          </button>
-          <!--v-if-->
-        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
       </div>
     </div>
   </div>
@@ -257,11 +265,13 @@ exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`
             </div>
           </div>
         </div>
-        <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
-          </button>
-          <!--v-if-->
-        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div class="centerItems dropdownMenu dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
       </div>
     </div>
   </div>

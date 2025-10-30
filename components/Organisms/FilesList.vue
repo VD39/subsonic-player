@@ -28,9 +28,8 @@ defineEmits<{
       ref="goBack"
       class="trackRow"
     >
-      <div :class="['trackCell', $style.trackCell]">
+      <div class="trackCell">
         <NuxtLink
-          class="trackCell"
           draggable="false"
           :to="$route.fullPath.split('/').slice(0, -1).join('/')"
         >
@@ -53,12 +52,8 @@ defineEmits<{
           class="trackRow"
           data-test-id="folder"
         >
-          <div :class="['trackCell', $style.trackCell]">
-            <NuxtLink
-              class="trackCell"
-              draggable="false"
-              :to="`${$route.fullPath}/${folder.id}`"
-            >
+          <div class="trackCell">
+            <NuxtLink draggable="false" :to="`${$route.fullPath}/${folder.id}`">
               <PreloadImage
                 :alt="folder.name"
                 :class="$style.trackImage"
@@ -94,41 +89,40 @@ defineEmits<{
                   {{ track.name }}
                 </h4>
               </MarqueeScroll>
-
-              <DropdownMenu :class="$style.dropdownMenu">
-                <DropdownItem
-                  ref="addToPlaylist"
-                  @click="$emit('addToPlaylist', track.id)"
-                >
-                  Add to playlist
-                </DropdownItem>
-                <DropdownItem
-                  ref="mediaInformation"
-                  @click="$emit('mediaInformation', track)"
-                >
-                  Media information
-                </DropdownItem>
-                <DropdownItem
-                  ref="downloadMedia"
-                  @click="$emit('downloadMedia', track)"
-                >
-                  Download track
-                </DropdownItem>
-                <DropdownDivider />
-                <DropdownItem
-                  ref="addToQueue"
-                  @click="$emit('addToQueue', track)"
-                >
-                  Add to queue
-                </DropdownItem>
-                <DropdownItem
-                  ref="playTrack"
-                  @click="$emit('playTrack', index)"
-                >
-                  Play Track
-                </DropdownItem>
-              </DropdownMenu>
             </div>
+          </div>
+
+          <div class="trackCell trackOptions">
+            <DropdownMenu :class="$style.dropdownMenu">
+              <DropdownItem
+                ref="addToPlaylist"
+                @click="$emit('addToPlaylist', track.id)"
+              >
+                Add to playlist
+              </DropdownItem>
+              <DropdownItem
+                ref="mediaInformation"
+                @click="$emit('mediaInformation', track)"
+              >
+                Media information
+              </DropdownItem>
+              <DropdownItem
+                ref="downloadMedia"
+                @click="$emit('downloadMedia', track)"
+              >
+                Download track
+              </DropdownItem>
+              <DropdownDivider />
+              <DropdownItem
+                ref="addToQueue"
+                @click="$emit('addToQueue', track)"
+              >
+                Add to queue
+              </DropdownItem>
+              <DropdownItem ref="playTrack" @click="$emit('playTrack', index)">
+                Play Track
+              </DropdownItem>
+            </DropdownMenu>
           </div>
         </LazyLoadContent>
       </template>
@@ -152,11 +146,11 @@ defineEmits<{
 
 <style module>
 .trackCell {
-  --track-cell-padding: 0;
+  /* --track-cell-padding: 0; */
 
-  @media (--tablet-up) {
+  /* @media (--tablet-up) {
     --track-cell-padding: 0;
-  }
+  } */
 }
 
 .trackImage {
