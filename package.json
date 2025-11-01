@@ -23,7 +23,7 @@
     "@storybook/blocks": "8.6.12",
     "@storybook/test": "8.6.12",
     "@types/crypto-js": "^4.2.2",
-    "@types/node": "^24.7.2",
+    "@types/node": "^24.9.2",
     "@vite-pwa/assets-generator": "^1.0.2",
     "@vite-pwa/nuxt": "^1.0.7",
     "@vitest/coverage-istanbul": "3.2.4",
