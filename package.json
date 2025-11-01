@@ -17,7 +17,7 @@
     "@nuxt/test-utils": "^3.19.2",
     "@nuxtjs/storybook": "8.3.5",
     "@nuxtjs/stylelint-module": "^5.2.1",
-    "@playwright/test": "^1.56.0",
+    "@playwright/test": "^1.56.1",
     "@storybook/addon-essentials": "8.6.12",
     "@storybook/addon-links": "8.6.12",
     "@storybook/blocks": "8.6.12",
