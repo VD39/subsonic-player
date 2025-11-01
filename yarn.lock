@@ -4318,10 +4318,10 @@
     picomatch "^4.0.2"
     resolve-from "^5.0.0"
 
-"@vite-pwa/assets-generator@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@vite-pwa/assets-generator/-/assets-generator-1.0.1.tgz#89338aa471f8f2b3761cc21e4ba9c4f71ab7147f"
-  integrity sha512-p2KHvsyuv/njmLSwDjpok0CFYKmAdV5ckWjVSxktNXbKAuHX3+WCTy4X3LuwWl0RGsCWBPerSUVNvE/02D565w==
+"@vite-pwa/assets-generator@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@vite-pwa/assets-generator/-/assets-generator-1.0.2.tgz#ba5e7f835feda599f2b32a8fc7749eae1fa56d14"
+  integrity sha512-MCbrb508JZHqe7bUibmZj/lyojdhLRnfkmyXnkrCM2zVrjTgL89U8UEfInpKTvPeTnxsw2hmyZxnhsdNR6yhwg==
   dependencies:
     cac "^6.7.14"
     colorette "^2.0.20"
