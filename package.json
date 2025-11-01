@@ -13,7 +13,7 @@
     "@chromatic-com/storybook": "3.2.7",
     "@csstools/postcss-global-data": "^3.1.0",
     "@eslint/compat": "^1.4.1",
-    "@nuxt/eslint": "^1.9.0",
+    "@nuxt/eslint": "^1.10.0",
     "@nuxt/test-utils": "^3.20.1",
     "@nuxtjs/storybook": "8.3.5",
     "@nuxtjs/stylelint-module": "^5.2.1",
