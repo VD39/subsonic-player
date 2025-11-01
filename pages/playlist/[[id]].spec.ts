@@ -30,10 +30,9 @@ mockNuxtImport('useMediaInformation', () => () => ({
 const addToPlaylistModalMock = vi.fn();
 const deletePlaylistMock = vi.fn();
 const getPlaylistTracksByIdMock = vi.fn();
+const playlistMock = ref<null | Playlist>(null);
 const removeFromPlaylistMock = vi.fn();
 const updatePlaylistModalMock = vi.fn();
-
-const playlistMock = ref<null | Playlist>(null);
 
 mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylistModal: addToPlaylistModalMock,

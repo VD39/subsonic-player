@@ -4,6 +4,8 @@ import type { DataMock } from '@/test/types';
 
 import { usePodcast } from './index';
 
+vi.useFakeTimers();
+
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
 }));
@@ -26,6 +28,7 @@ const {
   getPodcast,
   getPodcastsAndNewestPodcastEpisodes,
   newestPodcastEpisodes,
+  podcast,
   podcasts,
 } = usePodcast();
 
@@ -36,6 +39,10 @@ describe('usePodcast', () => {
 
   it('sets the default podcasts value', () => {
     expect(podcasts.value).toEqual([]);
+  });
+
+  it('sets the default podcast value', () => {
+    expect(podcast.value).toEqual({});
   });
 
   it('sets the default newestPodcastEpisodes value', () => {
@@ -106,19 +113,23 @@ describe('usePodcast', () => {
 
   describe('when the getPodcast function is called', () => {
     describe('when fetchData response returns non array value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
+
+        await getPodcast('id');
       });
 
-      it('returns the correct response', async () => {
-        expect(await getPodcast('id')).toEqual(null);
+      it('sets the correct podcast value', () => {
+        expect(podcast.value).toEqual({
+          id: null,
+        });
       });
     });
 
     describe('when fetchData response returns an array', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: [
             {
@@ -126,11 +137,40 @@ describe('usePodcast', () => {
             },
           ],
         });
+
+        await getPodcast('id');
       });
 
-      it('returns the correct response', async () => {
-        expect(await getPodcast('id')).toEqual({
-          name: 'name',
+      it('sets the correct podcast value', () => {
+        expect(podcast.value).toEqual({
+          id: {
+            name: 'name',
+          },
+        });
+      });
+    });
+
+    describe('when getPodcast is called again with a different id', () => {
+      beforeEach(async () => {
+        fetchDataMock.mockResolvedValue({
+          data: [
+            {
+              name: 'name1',
+            },
+          ],
+        });
+
+        await getPodcast('id1');
+      });
+
+      it('sets the correct podcast value', () => {
+        expect(podcast.value).toEqual({
+          id: {
+            name: 'name',
+          },
+          id1: {
+            name: 'name1',
+          },
         });
       });
     });
@@ -262,33 +302,57 @@ describe('usePodcast', () => {
 
   describe('when the deletePodcastEpisode function is called', () => {
     describe('when fetchData response returns null', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
 
-        deletePodcastEpisode('id');
+        await deletePodcastEpisode({
+          id: 'id',
+          podcastId: 'podcastId',
+        } as PodcastEpisode);
+
+        vi.runAllTimers();
       });
 
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
+
+      it('does not call the getPodcast function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {
             name: 'name',
           },
         });
 
-        deletePodcastEpisode('id');
+        await deletePodcastEpisode({
+          id: 'id',
+          podcastId: 'podcastId',
+        } as PodcastEpisode);
+
+        vi.runAllTimers();
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully deleted podcast episode from server.',
+          'Successfully deleted podcast episode from server. Podcast will update automatically.',
+        );
+      });
+
+      it('calls the getPodcast function with the correct parameters after 15 seconds', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
         );
       });
     });
@@ -301,11 +365,23 @@ describe('usePodcast', () => {
           data: null,
         });
 
-        downloadPodcastEpisode('id');
+        downloadPodcastEpisode({
+          id: 'id',
+          podcastId: 'podcastId',
+        } as PodcastEpisode);
+
+        vi.runAllTimers();
       });
 
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the getPodcast function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
       });
     });
 
@@ -317,12 +393,24 @@ describe('usePodcast', () => {
           },
         });
 
-        downloadPodcastEpisode('id');
+        downloadPodcastEpisode({
+          id: 'id',
+          podcastId: 'podcastId',
+        } as PodcastEpisode);
+
+        vi.runAllTimers();
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Download has begun on the server.',
+          'Download has begun on the server. Podcast will update automatically.',
+        );
+      });
+
+      it('calls the getPodcast function with the correct parameters after 15 seconds', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
         );
       });
     });

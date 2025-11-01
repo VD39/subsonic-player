@@ -16,8 +16,8 @@ defineProps<{
 defineEmits<{
   addToPlaylist: [episodeId: string];
   addToQueue: [episode: PodcastEpisode];
-  deleteEpisode: [episodeId: string];
-  downloadEpisode: [episodeId: string];
+  deleteEpisode: [episode: PodcastEpisode];
+  downloadEpisode: [episode: PodcastEpisode];
   downloadMedia: [episode: PodcastEpisode];
   dragStart: [episode: PodcastEpisode, event: DragEvent];
   episodeInformation: [episode: PodcastEpisode];
@@ -47,7 +47,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
           <DownloadPodcastEpisode
             v-if="!episode.downloaded"
             :image="episode.image"
-            @downloadEpisode="$emit('downloadEpisode', episode.id)"
+            @downloadEpisode="$emit('downloadEpisode', episode)"
           />
 
           <TrackPlayPause
@@ -95,7 +95,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
               ref="downloadEpisodeButton"
               :icon="ICONS.download"
               title="Download episode"
-              @click="$emit('downloadEpisode', episode.id)"
+              @click="$emit('downloadEpisode', episode)"
             >
               Download episode
             </ButtonLink>
@@ -139,7 +139,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
           <template v-if="episode.downloaded">
             <DropdownItem
               ref="deleteEpisode"
-              @click="$emit('deleteEpisode', episode.id)"
+              @click="$emit('deleteEpisode', episode)"
             >
               Delete episode
             </DropdownItem>
@@ -153,7 +153,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
           <DropdownItem
             v-else
             ref="downloadEpisodeDropdownItem"
-            @click="$emit('downloadEpisode', episode.id)"
+            @click="$emit('downloadEpisode', episode)"
           >
             Download episode
           </DropdownItem>

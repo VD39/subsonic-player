@@ -1001,6 +1001,214 @@ exports[`PodcastEpisodesList > when podcastEpisodes prop is not an empty array >
       </div>
     </div>
   </div>
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper downloadPodcastEpisode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button></div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper downloadPodcastEpisode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button></div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper downloadPodcastEpisode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button></div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween" data-test-id="track" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <div class="overlapWrapper downloadPodcastEpisode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button>
+        </div>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button></div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+        </button>
+        <!--v-if-->
+      </div>
+    </div>
+  </div>
 </div>"
 `;
 

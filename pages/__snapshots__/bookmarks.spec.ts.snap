@@ -17,7 +17,7 @@ exports[`bookmarks > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`bookmarks > when bookmarks is not an empty array > matches the snapshot 1`] = `
+exports[`bookmarks > when getBookmarks does return data > matches the snapshot 1`] = `
 "<div class="centerItems spaceBetween">
   <h1>Bookmarks (2)</h1>
   <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">

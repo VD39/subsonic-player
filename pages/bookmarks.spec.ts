@@ -78,13 +78,13 @@ describe('bookmarks', () => {
     expect(useHeadTitleMock.value).toBe('Bookmarks');
   });
 
-  describe('when bookmarks is an empty array', () => {
+  describe('when getBookmarks does not return data', () => {
     it('displays zero bookmark count in the title', () => {
       expect(wrapper.find({ ref: 'title' }).text()).toBe('Bookmarks (0)');
     });
   });
 
-  describe('when bookmarks is not an empty array', () => {
+  describe('when getBookmarks does return data', () => {
     beforeEach(() => {
       bookmarksMock.value = getFormattedBookmarksMock(2);
     });

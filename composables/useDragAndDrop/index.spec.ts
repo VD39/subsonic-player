@@ -5,6 +5,8 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import { useDragAndDrop } from './index';
 
+vi.useFakeTimers();
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const documentEvents: any = {};
 
@@ -115,8 +117,6 @@ mockNuxtImport('usePodcast', () => () => ({
 const { addTracksToQueueMock } = useAudioPlayerMock();
 
 const mediaMock = getFormattedQueueTracksMock()[0];
-
-vi.useFakeTimers();
 
 const { dragStart, drop } = useDragAndDrop();
 

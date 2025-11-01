@@ -11,13 +11,17 @@ import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 
 import PodcastEpisodesList from './PodcastEpisodesList.vue';
 
-let podcastEpisodes = getFormattedPodcastEpisodesMock(5);
-const podcastEpisode = podcastEpisodes[0];
+const downloadedPodcastEpisodes = getFormattedPodcastEpisodesMock(5);
+const noneDownloadedPodcastEpisodes = getFormattedPodcastEpisodesMock(5, {
+  downloaded: false,
+});
+const downloadedPodcastEpisode = downloadedPodcastEpisodes[0];
+const noneDownloadedPodcastEpisode = noneDownloadedPodcastEpisodes[0];
 
 async function factory(props = {}) {
   const wrapper = mount(PodcastEpisodesList, {
     props: {
-      podcastEpisodes,
+      podcastEpisodes: downloadedPodcastEpisodes,
       ...props,
     },
   });
@@ -37,7 +41,6 @@ describe('PodcastEpisodesList', () => {
   let wrapper: VueWrapper;
 
   beforeEach(async () => {
-    podcastEpisodes = getFormattedPodcastEpisodesMock(5);
     wrapper = await factory();
   });
 
@@ -204,36 +207,36 @@ describe('PodcastEpisodesList', () => {
           'delete episode DropdownItem',
           'deleteEpisode',
           'deleteEpisode',
-          [podcastEpisode.id],
+          [downloadedPodcastEpisode],
         ],
         [
           'download media DropdownItem',
           'downloadMedia',
           'downloadMedia',
-          [podcastEpisode],
+          [downloadedPodcastEpisode],
         ],
         [
           'add to playlist DropdownItem',
           'addToPlaylist',
           'addToPlaylist',
-          [podcastEpisode.id],
+          [downloadedPodcastEpisode.id],
         ],
         [
           'add to queue DropdownItem',
           'addToQueue',
           'addToQueue',
-          [podcastEpisode],
+          [downloadedPodcastEpisode],
         ],
         [
           'play episode DropdownItem',
           'playEpisode',
           'playEpisode',
-          [podcastEpisode],
+          [downloadedPodcastEpisode],
         ],
       ])(
         'when the %s component emits the click event',
         (_text, ref, emitEventName, expectedArgs) => {
-          beforeEach(async () => {
+          beforeEach(() => {
             wrapper.findComponent({ ref }).vm.$emit('click');
           });
 
@@ -244,24 +247,22 @@ describe('PodcastEpisodesList', () => {
       );
 
       describe('when the TrackPlayPause component emits the playTrack event', () => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
         });
 
         it('emits the playEpisode event with the correct value', () => {
-          expect(wrapper.emitted('playEpisode')).toEqual([[podcastEpisode]]);
+          expect(wrapper.emitted('playEpisode')).toEqual([
+            [downloadedPodcastEpisode],
+          ]);
         });
       });
     });
 
     describe('when episode is not downloaded', () => {
       beforeEach(async () => {
-        podcastEpisodes = getFormattedPodcastEpisodesMock(1, {
-          downloaded: false,
-        });
-
         wrapper = await factory({
-          podcastEpisodes,
+          podcastEpisodes: noneDownloadedPodcastEpisodes,
         });
       });
 
@@ -338,18 +339,18 @@ describe('PodcastEpisodesList', () => {
           'download episode ButtonLink',
           'downloadEpisodeButton',
           'downloadEpisode',
-          [podcastEpisode.id],
+          [noneDownloadedPodcastEpisode],
         ],
         [
           'download episode DropdownItem',
           'downloadEpisodeDropdownItem',
           'downloadEpisode',
-          [podcastEpisode.id],
+          [noneDownloadedPodcastEpisode],
         ],
       ])(
         'when the %s component emits the click event',
         (_text, ref, emitEventName, expectedArgs) => {
-          beforeEach(async () => {
+          beforeEach(() => {
             wrapper.findComponent({ ref }).vm.$emit('click');
           });
 
@@ -360,7 +361,7 @@ describe('PodcastEpisodesList', () => {
       );
 
       describe('when the DownloadPodcastEpisode component emits the click event', () => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper
             .findComponent(DownloadPodcastEpisode)
             .vm.$emit('downloadEpisode');
@@ -368,7 +369,7 @@ describe('PodcastEpisodesList', () => {
 
         it('emits the downloadEpisode event with the correct value id', () => {
           expect(wrapper.emitted('downloadEpisode')).toEqual([
-            [podcastEpisode.id],
+            [noneDownloadedPodcastEpisode],
           ]);
         });
       });
@@ -379,18 +380,18 @@ describe('PodcastEpisodesList', () => {
         'episode information ButtonLink',
         'episodeInformationButton',
         'episodeInformation',
-        [podcastEpisode],
+        [downloadedPodcastEpisode],
       ],
       [
         'episode information DropdownItem',
         'episodeInformationDropdownItem',
         'episodeInformation',
-        [podcastEpisode],
+        [downloadedPodcastEpisode],
       ],
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent({ ref }).vm.$emit('click');
         });
 
@@ -407,7 +408,7 @@ describe('PodcastEpisodesList', () => {
 
       it('emits the dragStart event', () => {
         expect(wrapper.emitted('dragStart')).toEqual([
-          [podcastEpisode, expect.any(DragEvent)],
+          [downloadedPodcastEpisode, expect.any(DragEvent)],
         ]);
       });
     });

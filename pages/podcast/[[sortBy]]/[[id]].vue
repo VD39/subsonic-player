@@ -26,23 +26,19 @@ const {
   deletePodcastEpisode,
   downloadPodcastEpisode,
   getPodcast,
+  podcast: podcastState,
 } = usePodcast();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
 /* istanbul ignore next -- @preserve */
-const {
-  data: podcastData,
-  refresh,
-  status,
-} = useAsyncData(
+const { refresh, status } = useAsyncData(
   `${ASYNC_DATA_NAMES.podcast}-${route.params[ROUTE_PARAM_KEYS.podcast.id]}`,
   async () => {
-    const podcast = await getPodcast(
-      route.params[ROUTE_PARAM_KEYS.podcast.id] as string,
-    );
+    const podcastId = route.params[ROUTE_PARAM_KEYS.podcast.id] as string;
+    await getPodcast(podcastId);
 
     return {
-      podcast,
+      podcast: podcastState.value,
     };
   },
   {
@@ -54,34 +50,39 @@ const {
   },
 );
 
+const podcast = computed(
+  () =>
+    podcastState.value?.[route.params[ROUTE_PARAM_KEYS.podcast.id] as string],
+);
+
 const hasDownloadedEpisodes = computed(
-  () => Number(podcastData.value.podcast?.totalDownloadedEpisodes) > 0,
+  () => Number(podcast.value?.totalDownloadedEpisodes) > 0,
 );
 
 function addDownloadedTracksToQueue() {
-  addTracksToQueue(podcastData.value.podcast!.episodes.downloaded);
+  addTracksToQueue(podcast.value!.episodes.downloaded);
 }
 
 async function deleteSelectedPodcast() {
-  await deletePodcast(podcastData.value.podcast!.id);
+  await deletePodcast(podcast.value!.id);
   await navigateTo({
     name: ROUTE_NAMES.podcasts,
   });
 }
 
 function dragItem(event: DragEvent) {
-  dragStart(podcastData.value.podcast!, event);
+  dragStart(podcast.value!, event);
 }
 
 function openPodcastDescriptionModal() {
   openModal(MODAL_TYPE.readMoreModal, {
-    text: podcastData.value.podcast!.description,
+    text: podcast.value!.description,
     title: 'Description',
   });
 }
 
 function playAllEpisodes() {
-  playTracks(podcastData.value.podcast!.episodes.downloaded, -1);
+  playTracks(podcast.value!.episodes.downloaded, -1);
 }
 
 function playEpisode(episode: PodcastEpisode) {
@@ -89,16 +90,12 @@ function playEpisode(episode: PodcastEpisode) {
 }
 
 function playLatestsEpisodes() {
-  playEpisode(podcastData.value.podcast!.episodes.downloaded[0]);
-}
-
-async function refreshPodcast() {
-  await refresh();
+  playEpisode(podcast.value!.episodes.downloaded[0]);
 }
 
 const podcastEpisodes = computed(
   () =>
-    podcastData.value.podcast?.episodes?.[
+    podcast.value?.episodes?.[
       route.params[ROUTE_PARAM_KEYS.podcast.sortBy] as PodcastSortByParam
     ] as PodcastEpisode[],
 );
@@ -106,7 +103,7 @@ const podcastEpisodes = computed(
 useHead({
   title: () =>
     [
-      podcastData.value.podcast?.name,
+      podcast.value?.name,
       route.params[ROUTE_PARAM_KEYS.podcast.sortBy],
       'Podcast',
     ]
@@ -117,37 +114,37 @@ useHead({
 
 <template>
   <LoadingData :status>
-    <div v-if="podcastData.podcast" ref="podcastContent">
+    <div v-if="podcast" ref="podcastContent">
       <EntryHeader
-        :images="[podcastData.podcast.image]"
-        :title="podcastData.podcast.name"
+        :images="[podcast.image]"
+        :title="podcast.name"
         @dragStart="dragItem"
       >
         <template #actions>
-          <RefreshButton :status @refresh="refreshPodcast" />
+          <RefreshButton :status @refresh="refresh" />
         </template>
 
         <ul class="bulletList">
           <li>
             Episodes:
-            <span class="strong">{{ podcastData.podcast.totalEpisodes }}</span>
+            <span class="strong">{{ podcast.totalEpisodes }}</span>
           </li>
           <li>
             Last updated:
-            <span class="strong">{{ podcastData.podcast.lastUpdated }}</span>
+            <span class="strong">{{ podcast.lastUpdated }}</span>
           </li>
           <li>
             Downloaded episodes:
             <span class="strong">
-              {{ podcastData.podcast.totalDownloadedEpisodes }}
+              {{ podcast.totalDownloadedEpisodes }}
             </span>
           </li>
         </ul>
 
         <TextClamp
-          v-if="podcastData.podcast.description"
+          v-if="podcast.description"
           :maxLines="3"
-          :text="podcastData.podcast.description"
+          :text="podcast.description"
           @more="openPodcastDescriptionModal"
         />
 
