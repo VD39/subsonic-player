@@ -36,7 +36,7 @@
     "eslint-plugin-vue": "^9.33.0",
     "happy-dom": "^20.0.10",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.4",
+    "lint-staged": "^16.2.6",
     "playwright-core": "^1.56.1",
     "postcss-custom-media": "^11.0.5",
     "postcss-extend-rule": "^4.0.0",
