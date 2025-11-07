@@ -147,6 +147,7 @@ export function usePodcast() {
   function updatePodcast(podcastId: string) {
     setTimeout(() => {
       getPodcast(podcastId);
+      getNewestPodcastEpisodes();
     }, 15000);
   }
 

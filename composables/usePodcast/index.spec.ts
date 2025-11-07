@@ -325,6 +325,13 @@ describe('usePodcast', () => {
           expect.any(Object),
         );
       });
+
+      it('does not call the getNewestPodcastEpisodes function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -349,11 +356,20 @@ describe('usePodcast', () => {
         );
       });
 
-      it('calls the getPodcast function with the correct parameters after 15 seconds', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
+      describe('when 15 seconds passes', () => {
+        it('calls the getPodcast function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/getPodcasts',
+            expect.any(Object),
+          );
+        });
+
+        it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/getNewestPodcasts',
+            expect.any(Object),
+          );
+        });
       });
     });
   });
@@ -383,6 +399,13 @@ describe('usePodcast', () => {
           expect.any(Object),
         );
       });
+
+      it('does not call the getNewestPodcastEpisodes function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
+      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -407,11 +430,20 @@ describe('usePodcast', () => {
         );
       });
 
-      it('calls the getPodcast function with the correct parameters after 15 seconds', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
+      describe('when 15 seconds passes', () => {
+        it('calls the getPodcast function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/getPodcasts',
+            expect.any(Object),
+          );
+        });
+
+        it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith(
+            '/getNewestPodcasts',
+            expect.any(Object),
+          );
+        });
       });
     });
   });
