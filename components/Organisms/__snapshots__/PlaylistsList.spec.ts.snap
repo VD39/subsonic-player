@@ -8,7 +8,7 @@ exports[`PlaylistsList > matches the snapshot 1`] = `
 `;
 
 exports[`PlaylistsList > when playlists prop is not an empty array > matches the snapshot 1`] = `
-"<section class="mediaListWrapper" style="--loop-rows-mobile: 1; --loop-rows-tablet: 2; --loop-rows-desktop: 2;">
+"<section class="mediaListWrapper" style="--loop-rows-mobile: 1; --loop-rows-tablet: 2; --loop-rows-desktop: 2; --loop-grid-gap: 24px;">
   <article class="centerItems playlist" data-test-id="playlist">
     <figure class="imageLink"><a draggable="false" title="Go to playlist playlist-0">
         <div class="centerAll preloadImage">

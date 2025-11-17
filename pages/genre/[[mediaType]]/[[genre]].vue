@@ -10,6 +10,7 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { viewLayout } = useViewLayout();
 const { getMediaByGenre } = useGenre();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
@@ -79,7 +80,7 @@ useHead({
 
   <PageNavigation :navigation="GENRE_NAVIGATION" />
 
-  <LoadingData :status="loadingStatus">
+  <LoadingData :class="viewLayout" :status="loadingStatus">
     <AlbumsList
       v-if="
         route.params[ROUTE_PARAM_KEYS.genre.mediaType] ===

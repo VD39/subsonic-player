@@ -1,9 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PodcastItem > matches the snapshot 1`] = `
-"<article>
-  <figure><a draggable="false" title="Go to podcast title">
+"<article class="layoutItem">
+  <figure class="layoutImage"><a draggable="false" title="Go to podcast title">
       <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" loading="lazy" src="image"></div>
     </a></figure>
+  <div class="layoutContent">
+    <p class="strong smallFont clamp2"><a aria-label="Go to podcast title" class="layoutLink" draggable="false">title</a></p>
+  </div>
 </article>"
 `;

@@ -11,10 +11,22 @@ defineProps<{
 defineEmits<{
   dragStart: [album: Album, event: DragEvent];
 }>();
+
+const { viewLayout } = useViewLayout();
+
+const gridWrapperProps = computed(() =>
+  viewLayout.value === 'gridLayout' ? undefined : '0',
+);
 </script>
 
 <template>
-  <GridWrapper v-if="albums.length">
+  <GridWrapper
+    v-if="albums.length"
+    :desktop="gridWrapperProps"
+    :mobile="gridWrapperProps"
+    :spacing="gridWrapperProps"
+    :tablet="gridWrapperProps"
+  >
     <AlbumItem
       v-for="album in albums"
       :key="album.name"

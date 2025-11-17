@@ -4,7 +4,7 @@ import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 
 const { isBuffering, isPlaying, togglePlay } = useAudioPlayer();
 
-const buttonProps = computed<ButtonProps>(() => ({
+const buttonProps = computed(() => ({
   icon: isPlaying.value ? ICONS.pause : ICONS.play,
   text: `${isPlaying.value ? 'Pause' : 'Play'} current track`,
 }));

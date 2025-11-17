@@ -30,7 +30,7 @@ describe('useTheme', () => {
     expect(isDarkTheme.value).toBe(false);
   });
 
-  describe('when toggleTheme function is called', () => {
+  describe('when the toggleTheme function is called', () => {
     beforeAll(() => {
       toggleTheme();
     });
@@ -43,7 +43,7 @@ describe('useTheme', () => {
       expect(isDarkTheme.value).toBe(true);
     });
 
-    describe('when toggleTheme function is called again', () => {
+    describe('when the toggleTheme function is called again', () => {
       beforeAll(() => {
         toggleTheme();
       });
@@ -61,7 +61,7 @@ describe('useTheme', () => {
     });
   });
 
-  describe('when setDefaultTheme function is called', () => {
+  describe('when the setDefaultTheme function is called', () => {
     describe('when theme in local storage and system preference are not set', () => {
       beforeEach(() => {
         getLocalStorageMock.mockReturnValue(null);
@@ -73,7 +73,7 @@ describe('useTheme', () => {
       });
     });
 
-    describe('when theme in local storage is not set and system preference is set', () => {
+    describe('when the theme in local storage is not set and system preference is set', () => {
       beforeEach(() => {
         matchesMock.value = true;
         setDefaultTheme();
@@ -84,9 +84,9 @@ describe('useTheme', () => {
       });
     });
 
-    describe('when theme in local storage is set', () => {
+    describe('when the theme in local storage is set', () => {
       describe.each([[true], [false]])(
-        'when localStorage returns is %s',
+        'when then localStorage returns %s',
         (localStorage) => {
           beforeAll(() => {
             getLocalStorageMock.mockReturnValue(localStorage);

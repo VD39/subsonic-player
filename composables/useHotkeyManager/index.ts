@@ -204,6 +204,15 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
+          clickElementById(HOTKEY_ELEMENT_IDS.viewLayoutButton);
+        },
+        description: 'Change the layout of the album/artist view.',
+        helpText:
+          "Press 'Shift' and 'L' keys together to change the layout of the album/artist view.",
+        keys: ['Shift', 'L'],
+      },
+      {
+        action: () => {
           clickElementById(HOTKEY_ELEMENT_IDS.refreshDataButton);
         },
         description: 'Refresh the data.',

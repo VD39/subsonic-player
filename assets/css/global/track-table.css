@@ -1,20 +1,17 @@
 .trackTable {
-  --track-header-row-height: 55px;
-
   position: relative;
   width: var(--width-height-100);
   table-layout: fixed;
   border-collapse: collapse;
 }
 
-.trackHeader,
 .trackRow {
   --track-row-background-color: var(--hover-selected-color);
 
   position: relative;
   display: flex;
   width: var(--width-height-100);
-  min-height: var(--track-header-row-height);
+  min-height: var(--track-table-header-row-height);
 
   &:nth-child(2n + 1) {
     background-color: var(--track-row-background-color);
@@ -37,7 +34,7 @@
   align-items: center;
   width: var(--width-height-100);
   max-width: var(--track-cell-width);
-  min-height: var(--track-header-row-height);
+  min-height: var(--track-table-header-row-height);
   padding: var(--track-cell-padding);
   overflow: hidden;
   vertical-align: middle;
@@ -60,9 +57,11 @@
 }
 
 .trackHeader {
+  @extend .trackRow;
+
   --track-row-background-color: transparent;
 
-  min-height: var(--track-header-row-height);
+  min-height: var(--track-table-header-row-height);
   font-weight: var(--font-weight-bold);
   border-bottom: 1px solid var(--border-color);
 

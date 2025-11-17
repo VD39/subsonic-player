@@ -8,36 +8,136 @@ exports[`ArtistsList > matches the snapshot 1`] = `
 `;
 
 exports[`ArtistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
-"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5;">
-  <article>
-    <figure class="mBS"><a draggable="false" title="Go to artist artist-0">
+"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="link" draggable="false">artist-0</a></p>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+    </div>
   </article>
-  <article>
-    <figure class="mBS"><a draggable="false" title="Go to artist artist-1">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-1">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="link" draggable="false">artist-1</a></p>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+    </div>
   </article>
-  <article>
-    <figure class="mBS"><a draggable="false" title="Go to artist artist-2">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-2">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="link" draggable="false">artist-2</a></p>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+    </div>
   </article>
-  <article>
-    <figure class="mBS"><a draggable="false" title="Go to artist artist-3">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-3">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="link" draggable="false">artist-3</a></p>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
+    </div>
   </article>
-  <article>
-    <figure class="mBS"><a draggable="false" title="Go to artist artist-4">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-4">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="link" draggable="false">artist-4</a></p>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
+    </div>
+  </article>
+</section>"
+`;
+
+exports[`ArtistsList > when artists prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
+"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-0">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-1">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-2">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-3">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-4">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
+    </div>
+  </article>
+</section>"
+`;
+
+exports[`ArtistsList > when artists prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
+"<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-0">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-1">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-2">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-3">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
+    </div>
+  </article>
+  <article class="layoutItem">
+    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-4">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
+    </div>
   </article>
 </section>"
 `;

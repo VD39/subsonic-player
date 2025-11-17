@@ -8,6 +8,7 @@ import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
+const { viewLayout } = useViewLayout();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
@@ -43,6 +44,10 @@ const { refresh, status } = useAsyncData(
   },
 );
 
+const gridWrapperProps = computed(() =>
+  viewLayout.value === 'gridLayout' ? undefined : '0',
+);
+
 function playEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
 }
@@ -72,8 +77,13 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status>
-    <div v-if="podcasts.length" ref="podcastsContent">
-      <GridWrapper>
+    <div v-if="podcasts.length" ref="podcastsContent" :class="viewLayout">
+      <GridWrapper
+        :desktop="gridWrapperProps"
+        :mobile="gridWrapperProps"
+        :spacing="gridWrapperProps"
+        :tablet="gridWrapperProps"
+      >
         <PodcastItem
           v-for="podcast in podcasts"
           :key="podcast.id"

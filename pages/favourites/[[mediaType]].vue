@@ -12,6 +12,7 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { viewLayout } = useViewLayout();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
@@ -61,7 +62,7 @@ useHead({
 
   <PageNavigation :navigation="FAVOURITES_NAVIGATION" />
 
-  <LoadingData :status>
+  <LoadingData :class="viewLayout" :status>
     <AlbumsList
       v-if="
         route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===

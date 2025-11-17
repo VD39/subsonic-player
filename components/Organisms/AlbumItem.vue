@@ -27,27 +27,30 @@ async function playAlbumTracks(albumId: string) {
   loading.value = false;
 }
 
-const buttonProps = computed<ButtonProps>(() => ({
+const albumProps = computed(() => ({
+  title: `Go to album ${props.album.name}`,
+  toLink: {
+    name: ROUTE_NAMES.album,
+    params: {
+      [ROUTE_PARAM_KEYS.album.id]: props.album.id,
+    },
+  },
+}));
+
+const buttonProps = computed(() => ({
   icon: loading.value ? SpinningLoader : ICONS.play,
   text: `Play album ${props.album.name}`,
 }));
-
-const toLink = {
-  name: ROUTE_NAMES.album,
-  params: {
-    [ROUTE_PARAM_KEYS.album.id]: props.album.id,
-  },
-};
 </script>
 
 <template>
-  <article>
+  <article class="layoutItem">
     <div :class="$style.albumImageWrapper">
       <ImageLink
-        class="mBS"
+        class="layoutImage"
         :image="album.image"
-        :title="`Go to album ${album.name}`"
-        :to="toLink"
+        :title="albumProps.title"
+        :to="albumProps.toLink"
       />
 
       <div :class="$style.actions">
@@ -69,22 +72,24 @@ const toLink = {
       </div>
     </div>
 
-    <p class="mBXS strong smallFont clamp2">
-      <NuxtLink
-        :aria-label="`Go to album ${album.name}`"
-        class="link"
-        draggable="false"
-        :to="toLink"
-      >
-        {{ album.name }}
-      </NuxtLink>
-    </p>
+    <div class="layoutContent">
+      <p class="mBXS strong smallFont clamp2">
+        <NuxtLink
+          :aria-label="albumProps.title"
+          class="layoutLink"
+          draggable="false"
+          :to="albumProps.toLink"
+        >
+          {{ album.name }}
+        </NuxtLink>
+      </p>
 
-    <ArtistsList
-      v-if="!hideArtist && album.artists.length"
-      :artists="album.artists"
-      class="smallFont clamp2"
-    />
+      <ArtistsList
+        v-if="!hideArtist && album.artists.length"
+        :artists="album.artists"
+        class="smallFont clamp2"
+      />
+    </div>
   </article>
 </template>
 
@@ -94,7 +99,8 @@ const toLink = {
 
   @media (hover: hover) {
     &:hover,
-    &:focus {
+    &:focus,
+    &:focus-within {
       .actions {
         --album-actions-opacity: 1;
         --album-actions-z-index: 0;
@@ -114,5 +120,9 @@ const toLink = {
   gap: var(--default-space);
   opacity: var(--album-actions-opacity);
   transition: opacity var(--transition);
+
+  :global(.listLayout) & {
+    display: none;
+  }
 }
 </style>

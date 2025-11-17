@@ -29,7 +29,7 @@ exports[`[[sortBy]] > matches the snapshot 1`] = `
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="[object Object],[object Object],[object Object],[object Object],[object Object]" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" draggable="false" type="button" title="Load more">
       <!--v-if--><span class="clamp text">Load more</span>
@@ -66,7 +66,7 @@ exports[`[[sortBy]] > when status is error > when albumsData.album is an empty a
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" draggable="false" type="button" title="Load more">
       <!--v-if--><span class="clamp text">Load more</span>
@@ -103,7 +103,7 @@ exports[`[[sortBy]] > when status is error > when albumsData.album is not an emp
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="[object Object],[object Object],[object Object],[object Object],[object Object]" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" draggable="false" type="button" title="Load more">
       <!--v-if--><span class="clamp text">Load more</span>
@@ -140,7 +140,7 @@ exports[`[[sortBy]] > when status is pending > matches the snapshot 1`] = `
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="[object Object],[object Object],[object Object],[object Object],[object Object]" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" draggable="false" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>
 </div>"
@@ -175,7 +175,7 @@ exports[`[[sortBy]] > when status is pending > when albumsData.album is an empty
   </div>
 </nav>
 <div class="column centerAll loadingData"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent" style="display: none;">
+<div class="mainContent gridLayout" style="display: none;">
   <albums-list-stub albums="" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" draggable="false" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>
 </div>"
@@ -210,7 +210,7 @@ exports[`[[sortBy]] > when status is pending > when albumsData.album is not an e
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="[object Object],[object Object],[object Object],[object Object],[object Object]" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" draggable="false" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>
 </div>"
@@ -245,7 +245,7 @@ exports[`[[sortBy]] > when status is success > when albumsData.album is an empty
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" draggable="false" type="button" title="Load more">
       <!--v-if--><span class="clamp text">Load more</span>
@@ -282,7 +282,7 @@ exports[`[[sortBy]] > when status is success > when albumsData.album is not an e
   </div>
 </nav>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
-<div class="mainContent">
+<div class="mainContent gridLayout">
   <albums-list-stub albums="[object Object],[object Object],[object Object],[object Object],[object Object]" hideartist="false"></albums-list-stub>
   <div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" draggable="false" type="button" title="Load more">
       <!--v-if--><span class="clamp text">Load more</span>

@@ -8,7 +8,7 @@ import PrimaryNavigation from './PrimaryNavigation.vue';
 const { collapsed, toggle } = useSidebar();
 const { addPlaylistModal, playlists } = usePlaylist();
 
-const buttonProps = computed<ButtonProps>(() => ({
+const buttonProps = computed(() => ({
   icon: collapsed.value ? ICONS.sidebarCollapsed : ICONS.sidebarNotCollapsed,
   text: collapsed.value ? 'Open Navigation' : 'Close Navigation',
 }));

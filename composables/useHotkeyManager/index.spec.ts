@@ -251,7 +251,7 @@ describe('useHotkeyManager', () => {
     });
   }
 
-  function expectMockToBeCalled(
+  function expectMockToBeOrNotToBeCalled(
     exceptFunctionName?: keyof typeof ALL_MOCKS,
     exceptFunctionArg?: number | string | unknown[],
   ) {
@@ -319,7 +319,7 @@ describe('useHotkeyManager', () => {
 
     setEvents(['Shift', 'P']);
 
-    expectMockToBeCalled();
+    expectMockToBeOrNotToBeCalled();
     expectGetElementByIdMock();
   });
 
@@ -330,7 +330,7 @@ describe('useHotkeyManager', () => {
 
     setEvents(['Shift', 'P']);
 
-    expectMockToBeCalled();
+    expectMockToBeOrNotToBeCalled();
     expectGetElementByIdMock();
   });
 
@@ -357,7 +357,7 @@ describe('useHotkeyManager', () => {
         expect(result.composable.isHotkeyListOpened.value).toBe(true);
       });
 
-      expectMockToBeCalled();
+      expectMockToBeOrNotToBeCalled();
       expectGetElementByIdMock();
 
       describe('when the same key is pressed again', () => {
@@ -381,7 +381,7 @@ describe('useHotkeyManager', () => {
           expect(focusMock).not.toHaveBeenCalled();
         });
 
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
       });
 
       describe('when element is found', () => {
@@ -405,7 +405,7 @@ describe('useHotkeyManager', () => {
           expect(focusMock).toHaveBeenCalled();
         });
 
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
       });
     });
 
@@ -417,7 +417,9 @@ describe('useHotkeyManager', () => {
       setEvents(keys);
 
       expectGetElementByIdMock();
-      expectMockToBeCalled(exceptFunctionName as keyof typeof ALL_MOCKS);
+      expectMockToBeOrNotToBeCalled(
+        exceptFunctionName as keyof typeof ALL_MOCKS,
+      );
     });
 
     describe.each([
@@ -428,7 +430,7 @@ describe('useHotkeyManager', () => {
       setEvents(keys);
 
       expectClickElementByIdMock(keys, exceptId);
-      expectMockToBeCalled();
+      expectMockToBeOrNotToBeCalled();
     });
 
     describe('when L key is pressed', () => {
@@ -440,7 +442,7 @@ describe('useHotkeyManager', () => {
         setEvents(['L']);
 
         expectGetElementByIdMock();
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
       });
 
       describe('when hasCurrentTrack value is true', () => {
@@ -456,7 +458,7 @@ describe('useHotkeyManager', () => {
           setEvents(['L']);
 
           expectGetElementByIdMock();
-          expectMockToBeCalled();
+          expectMockToBeOrNotToBeCalled();
         });
 
         describe('when isTrack value is true', () => {
@@ -467,7 +469,7 @@ describe('useHotkeyManager', () => {
           setEvents(['L']);
 
           expectGetElementByIdMock();
-          expectMockToBeCalled('toggleFavourite');
+          expectMockToBeOrNotToBeCalled('toggleFavourite');
         });
       });
     });
@@ -484,7 +486,7 @@ describe('useHotkeyManager', () => {
         setEvents(keys);
 
         expectGetElementByIdMock();
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
       });
 
       describe('when hasCurrentTrack value is true', () => {
@@ -500,7 +502,7 @@ describe('useHotkeyManager', () => {
           setEvents(keys);
 
           expectGetElementByIdMock();
-          expectMockToBeCalled();
+          expectMockToBeOrNotToBeCalled();
         });
 
         describe('when isPodcastEpisode value is true', () => {
@@ -511,7 +513,7 @@ describe('useHotkeyManager', () => {
           setEvents(keys);
 
           expectGetElementByIdMock();
-          expectMockToBeCalled('setPlaybackRateWithIncrement', arg);
+          expectMockToBeOrNotToBeCalled('setPlaybackRateWithIncrement', arg);
         });
       });
     });
@@ -536,7 +538,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(keys);
 
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
         expectGetElementByIdMock();
       });
 
@@ -547,7 +549,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(keys);
 
-        expectMockToBeCalled(event as keyof typeof ALL_MOCKS, arg);
+        expectMockToBeOrNotToBeCalled(event as keyof typeof ALL_MOCKS, arg);
         expectGetElementByIdMock();
       });
     });
@@ -571,7 +573,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(keys);
 
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
         expectGetElementByIdMock();
       });
 
@@ -582,7 +584,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(keys);
 
-        expectMockToBeCalled('setCurrentTime', time);
+        expectMockToBeOrNotToBeCalled('setCurrentTime', time);
         expectGetElementByIdMock();
       });
     });
@@ -595,7 +597,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(['Shift', 'ArrowDown', 'P']);
 
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
         expectGetElementByIdMock();
       });
 
@@ -606,7 +608,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(['Shift', 'E', 'P']);
 
-        expectMockToBeCalled();
+        expectMockToBeOrNotToBeCalled();
         expectGetElementByIdMock();
       });
     });

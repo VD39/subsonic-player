@@ -3,16 +3,23 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
+import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
-import { formattedPodcastMock } from '@/test/fixtures';
+import { formattedPodcastMock, gridWrapperPropsMock } from '@/test/fixtures';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
 import { getFormattedPodcastEpisodesMock } from '~/test/helpers';
 
 import PodcastsPage from './podcasts.vue';
+
+const viewLayoutMock = ref<Layout>('gridLayout');
+
+mockNuxtImport('useViewLayout', () => () => ({
+  viewLayout: viewLayoutMock,
+}));
 
 const addToPlaylistModalMock = vi.fn();
 
@@ -161,6 +168,43 @@ describe('podcasts', () => {
 
     it('shows the PodcastEpisodesList component', () => {
       expect(wrapper.findComponent(PodcastEpisodesList).exists()).toBe(true);
+    });
+
+    describe.each([
+      ['gridLayout', gridWrapperPropsMock.gridView],
+      ['listLayout', gridWrapperPropsMock.listView],
+    ])('when viewLayout is %s', (layout, expectedProps) => {
+      beforeEach(() => {
+        viewLayoutMock.value = layout as Layout;
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct desktop prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('desktop')).toBe(
+          expectedProps.desktop,
+        );
+      });
+
+      it('sets the correct mobile prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('mobile')).toBe(
+          expectedProps.mobile,
+        );
+      });
+
+      it('sets the correct spacing prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('spacing')).toBe(
+          expectedProps.spacing,
+        );
+      });
+
+      it('sets the correct tablet prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('tablet')).toBe(
+          expectedProps.tablet,
+        );
+      });
     });
 
     describe('when the PodcastItem component triggers the dragstart event', () => {

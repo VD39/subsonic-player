@@ -51,4 +51,18 @@ describe('LoadingData', () => {
       });
     },
   );
+
+  describe('when a class attribute is passed', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        class: 'my-custom-class',
+      });
+    });
+
+    it('adds the class attribute to the component', () => {
+      expect(
+        wrapper.find({ ref: 'mainContent' }).attributes('class'),
+      ).toContain('my-custom-class');
+    });
+  });
 });

@@ -15,7 +15,7 @@ const infiniteScrollerRef = useTemplateRef('infiniteScrollerRef');
 
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
-const buttonProps = computed<ButtonProps>(() => ({
+const buttonProps = computed(() => ({
   icon: props.loading ? SpinningLoader : undefined,
   text: props.loading ? 'Loading data' : 'Load more',
 }));

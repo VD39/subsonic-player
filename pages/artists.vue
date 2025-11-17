@@ -3,6 +3,7 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 
 const { getArtists } = useArtist();
+const { viewLayout } = useViewLayout();
 
 /* istanbul ignore next -- @preserve */
 const { data: artistsData, status } = useAsyncData(
@@ -31,7 +32,7 @@ useHead({
 <template>
   <h1>Artists</h1>
 
-  <LoadingData :status>
+  <LoadingData :class="viewLayout" :status>
     <ArtistsList :artists="artistsData.artists" />
   </LoadingData>
 </template>

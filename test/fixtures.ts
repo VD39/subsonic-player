@@ -308,3 +308,18 @@ export const formattedRadioStationMock: RadioStation = {
   trackNumber: 0,
   type: MEDIA_TYPE.radioStation,
 };
+
+export const gridWrapperPropsMock = {
+  gridView: {
+    desktop: '5',
+    mobile: '2',
+    spacing: '24',
+    tablet: '3',
+  },
+  listView: {
+    desktop: '0',
+    mobile: '0',
+    spacing: '0',
+    tablet: '0',
+  },
+};

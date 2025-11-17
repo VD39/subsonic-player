@@ -1,0 +1,40 @@
+.layoutItem {
+  position: relative;
+}
+
+.layoutImage {
+  @extend .mBS;
+}
+
+.layoutLink {
+  @extend .link;
+}
+
+.listLayout {
+  .layoutItem {
+    @extend .trackRow;
+
+    gap: var(--space-8);
+    align-items: center;
+    padding: var(--default-space);
+  }
+
+  .layoutImage {
+    --track-width-height: var(--track-width-height-default);
+
+    flex: 1;
+    width: 100%;
+    min-width: var(--track-width-height);
+    max-width: var(--track-width-height);
+    max-height: var(--track-width-height);
+    aspect-ratio: 1;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius-medium);
+  }
+
+  .layoutLink {
+    @extend .globalLink;
+  }
+}

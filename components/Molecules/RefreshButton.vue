@@ -12,7 +12,7 @@ defineEmits<{
   refresh: [];
 }>();
 
-const buttonProps = computed<ButtonProps>(() => {
+const buttonProps = computed(() => {
   const loading = props.status === 'pending';
 
   return {

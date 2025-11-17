@@ -19,7 +19,12 @@ const showLoader = computed(() => props.status === 'pending');
     <MainLoader />
   </div>
 
-  <div v-show="!showLoader" ref="mainContent" class="mainContent">
+  <div
+    v-show="!showLoader"
+    ref="mainContent"
+    class="mainContent"
+    v-bind="$attrs"
+  >
     <slot />
   </div>
 </template>

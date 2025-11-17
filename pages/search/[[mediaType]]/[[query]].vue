@@ -11,6 +11,7 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { viewLayout } = useViewLayout();
 const { addToPlaylistModal } = usePlaylist();
 const { search } = useSearch();
 const { openTrackInformationModal } = useMediaInformation();
@@ -25,6 +26,7 @@ const query = replaceCharactersWithSpace(
   sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
 );
 
+/* istanbul ignore next -- @preserve */
 function fetchData(mediaType: MediaTypeParam) {
   return fetchMoreData((offset: number) =>
     search({
@@ -81,7 +83,7 @@ useHead({
 
   <PageNavigation :navigation="SEARCH_NAVIGATION" />
 
-  <LoadingData :status="loadingStatus">
+  <LoadingData :class="viewLayout" :status="loadingStatus">
     <AlbumsList
       v-if="
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===

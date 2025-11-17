@@ -14,8 +14,9 @@
       var(--border-color),
       transparent
     );
+    opacity: 0.35;
     transform: translateX(-100%);
-    animation: skeleton-loader 1.5s infinite;
+    animation: skeleton-loader 2s infinite;
   }
 }
 

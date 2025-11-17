@@ -8,9 +8,12 @@
   /* 100% width/heights. */
   --width-height-100: 100%;
 
-  /* track play/pause. */
+  /* Track play/pause. */
   --track-width-height-default: 40px;
   --track-width-height-large: 95px;
+
+  /* Track table. */
+  --track-table-header-row-height: 55px;
 }
 
 @media (--tablet-up) {

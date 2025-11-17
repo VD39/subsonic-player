@@ -56,4 +56,34 @@ describe('GridWrapper', () => {
       );
     });
   });
+
+  describe('when spacing prop is not set', () => {
+    beforeEach(() => {
+      wrapper = factory();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct style attribute on the wrapper element', () => {
+      expect(wrapper.attributes('style')).toContain('--loop-grid-gap: 24px;');
+    });
+  });
+
+  describe('when spacing prop is set', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        spacing: '12',
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct style attribute on the wrapper element', () => {
+      expect(wrapper.attributes('style')).toContain('--loop-grid-gap: 12px;');
+    });
+  });
 });

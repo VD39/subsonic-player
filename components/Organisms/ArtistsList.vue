@@ -6,10 +6,22 @@ import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 defineProps<{
   artists: (Artist | SimilarArtist)[];
 }>();
+
+const { viewLayout } = useViewLayout();
+
+const gridWrapperProps = computed(() =>
+  viewLayout.value === 'gridLayout' ? undefined : '0',
+);
 </script>
 
 <template>
-  <GridWrapper v-if="artists.length">
+  <GridWrapper
+    v-if="artists.length"
+    :desktop="gridWrapperProps"
+    :mobile="gridWrapperProps"
+    :spacing="gridWrapperProps"
+    :tablet="gridWrapperProps"
+  >
     <ArtistItem v-for="artist in artists" :key="artist.id" :artist />
   </GridWrapper>
 

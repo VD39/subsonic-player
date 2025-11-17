@@ -11,6 +11,7 @@ definePageMeta({
 const route = useRoute();
 const { getAlbums } = useAlbum();
 const { dragStart } = useDragAndDrop();
+const { viewLayout } = useViewLayout();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album>(
   route.params[ROUTE_PARAM_KEYS.albums.sortBy] as string,
 );
@@ -63,7 +64,7 @@ useHead({
 
   <PageNavigation :navigation="ALBUMS_NAVIGATION" />
 
-  <LoadingData :status="loadingStatus">
+  <LoadingData :class="viewLayout" :status="loadingStatus">
     <AlbumsList :albums="albumsData.albums" @dragStart="dragStart" />
 
     <InfiniteScroller

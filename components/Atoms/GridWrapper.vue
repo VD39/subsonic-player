@@ -3,11 +3,13 @@ withDefaults(
   defineProps<{
     desktop?: string;
     mobile?: string;
+    spacing?: string;
     tablet?: string;
   }>(),
   {
     desktop: '5',
     mobile: '2',
+    spacing: '24',
     tablet: '3',
   },
 );
@@ -20,6 +22,7 @@ withDefaults(
       '--loop-rows-mobile': mobile,
       '--loop-rows-tablet': tablet,
       '--loop-rows-desktop': desktop,
+      '--loop-grid-gap': `${spacing}px`,
     }"
   >
     <slot />
@@ -29,7 +32,6 @@ withDefaults(
 <style module>
 .mediaListWrapper {
   --loop-columns: var(--loop-rows-mobile);
-  --loop-grid-gap: var(--space-24);
 
   position: relative;
   display: grid;

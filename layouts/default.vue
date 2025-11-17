@@ -3,6 +3,7 @@ import HotkeyMappings from '@/components/Atoms/HotkeyMappings.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import LayoutButton from '@/components/Molecules/LayoutButton.vue';
 import MobileNavigation from '@/components/Molecules/MobileNavigation.vue';
 import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
@@ -56,6 +57,10 @@ const showPageNavigation = computed(() =>
           ref="userDetails"
           :class="['centerItems', $style.secondary]"
         >
+          <div :class="$style.secondaryItem">
+            <LayoutButton />
+          </div>
+
           <div :class="$style.secondaryItem">
             <ThemeSwitcher />
           </div>

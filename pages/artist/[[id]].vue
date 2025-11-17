@@ -15,6 +15,7 @@ definePageMeta({
 });
 
 const route = useRoute();
+const { viewLayout } = useViewLayout();
 const { getArtist } = useArtist();
 const { openModal } = useModal();
 const { downloadMedia } = useMediaLibrary();
@@ -48,7 +49,7 @@ useHead({
 </script>
 
 <template>
-  <LoadingData :status>
+  <LoadingData :class="viewLayout" :status>
     <div v-if="artistData" ref="artistContent">
       <EntryHeader :images="[artistData.image]" :title="artistData.name">
         <TextClamp

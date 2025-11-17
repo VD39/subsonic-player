@@ -98,7 +98,7 @@ const downloadedIcon = computed(() =>
 }
 
 .title {
-  width: 25%;
+  min-width: 25%;
 }
 
 .list {

@@ -5,32 +5,37 @@ const props = defineProps<{
   artist: Artist | SimilarArtist;
 }>();
 
-const toLink = {
-  name: ROUTE_NAMES.artist,
-  params: {
-    [ROUTE_PARAM_KEYS.artist.id]: props.artist.id,
+const artistProps = computed(() => ({
+  title: `Go to artist ${props.artist.name}`,
+  toLink: {
+    name: ROUTE_NAMES.artist,
+    params: {
+      [ROUTE_PARAM_KEYS.artist.id]: props.artist.id,
+    },
   },
-};
+}));
 </script>
 
 <template>
-  <article>
+  <article class="layoutItem">
     <ImageLink
-      class="mBS"
+      class="layoutImage"
       :image="artist.image"
-      :title="`Go to artist ${artist.name}`"
-      :to="toLink"
+      :title="artistProps.title"
+      :to="artistProps.toLink"
     />
 
-    <p class="mBXS strong smallFont clamp2">
-      <NuxtLink
-        :aria-label="`Go to artist ${artist.name}`"
-        class="link"
-        draggable="false"
-        :to="toLink"
-      >
-        {{ artist.name }}
-      </NuxtLink>
-    </p>
+    <div class="layoutContent">
+      <p class="strong smallFont clamp2">
+        <NuxtLink
+          :aria-label="artistProps.title"
+          class="layoutLink"
+          draggable="false"
+          :to="artistProps.toLink"
+        >
+          {{ artist.name }}
+        </NuxtLink>
+      </p>
+    </div>
   </article>
 </template>
