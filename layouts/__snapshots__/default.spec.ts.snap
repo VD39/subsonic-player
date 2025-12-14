@@ -130,7 +130,7 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
             <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
           </button></div>
         <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
@@ -274,7 +274,7 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
             <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
           </button></div>
         <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
@@ -418,7 +418,7 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
             <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
           </button></div>
         <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
@@ -562,7 +562,7 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
             <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
           </button></div>
         <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
@@ -706,7 +706,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
             <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
           </button></div>
         <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
@@ -834,7 +834,7 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
         </form>
       </div>
       <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
             <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
           </button></div>
         <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">

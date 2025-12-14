@@ -9,7 +9,25 @@ export function getAuthParams(params: Record<string, null | string>) {
 export function getBaseOptions(cookie: string) {
   const params = loadSession(cookie);
 
-  const baseURL = `${decodeURIComponent(params.server!)}/rest`;
+  // Handle case where server is null/undefined (can happen with file:// protocol on webOS)
+  const serverUrl = params.server ? decodeURIComponent(params.server) : '';
+
+  // Validate that we have a proper HTTP(S) URL
+  if (
+    !serverUrl ||
+    (!serverUrl.startsWith('http://') && !serverUrl.startsWith('https://'))
+  ) {
+    console.warn('[useApi] Invalid or missing server URL:', serverUrl);
+    return {
+      baseParams: {
+        ...getAuthParams(params),
+        ...getConfigParams(),
+      },
+      baseURL: '',
+    };
+  }
+
+  const baseURL = `${serverUrl}/rest`;
   const baseParams = {
     ...getAuthParams(params),
     ...getConfigParams(),

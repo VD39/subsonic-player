@@ -21,7 +21,9 @@ const { frequentAlbums, getDiscoverAlbums, newestAlbums, recentAlbums } =
 const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
-const { refresh, status } = useLazyAsyncData(
+// Use useLazyAsyncData for normal web, but ensure immediate execution on WebOS
+const isWebOS = import.meta.client && window?.location?.protocol === 'file:';
+const { refresh, status } = (isWebOS ? useAsyncData : useLazyAsyncData)(
   ASYNC_DATA_NAMES.index,
   async () => {
     const [, favourites] = await Promise.all([
@@ -82,6 +84,10 @@ const hasData = computed(
     favourites.value.albums.length ||
     favourites.value.artists.length,
 );
+
+useHead({
+  title: 'Discover',
+});
 
 useHead({
   title: 'Discover',

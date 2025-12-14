@@ -11,6 +11,10 @@ const {
   playPreviousTrack,
   rewindTrack,
 } = useAudioPlayer();
+
+// Detect if running on webOS TV
+const isWebOS =
+  typeof window !== 'undefined' && window.location.protocol === 'file:';
 </script>
 
 <template>
@@ -27,7 +31,7 @@ const {
     </ButtonLink>
 
     <ButtonLink
-      v-if="isPodcastEpisode"
+      v-if="isPodcastEpisode || isWebOS"
       ref="rewind"
       :icon="ICONS.rewind"
       :title="REWIND_FAST_FORWARD_TITLES.rewind"
@@ -39,7 +43,7 @@ const {
     <PlayPauseButton :class="$style.playPauseButton" />
 
     <ButtonLink
-      v-if="isPodcastEpisode"
+      v-if="isPodcastEpisode || isWebOS"
       ref="fastForward"
       :icon="ICONS.fastForward"
       :title="REWIND_FAST_FORWARD_TITLES.fastForward"

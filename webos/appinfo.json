@@ -1,0 +1,16 @@
+{
+  "appDescription": "A web-based Subsonic music player.",
+  "id": "com.subsonic.player",
+  "version": "1.0.0",
+  "vendor": "Subsonic Player",
+  "type": "web",
+  "main": "index.html",
+  "title": "Subsonic Player",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "splashBackground": "assets/splash.jpg",
+  "bgImage": "icon.png",
+  "transparency": false,
+  "inspectable": true,
+  "disableBackHistoryAPI": true
+}

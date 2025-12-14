@@ -2,6 +2,11 @@ export const COOKIE_NAMES = {
   auth: 'subsonic_auth_params',
 } as const;
 
+// Storage key for webOS localStorage (cookies don't work with file:// protocol)
+export const STORAGE_KEYS = {
+  auth: 'subsonic_auth_params',
+} as const;
+
 export const DAYS_COOKIE_EXPIRES = 60;
 
 export const STATES_TO_CLEAR = [

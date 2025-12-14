@@ -68,7 +68,8 @@ describe('getBaseOptions', () => {
           u: null,
           v: '1.15.0',
         },
-        baseURL: 'null/rest',
+        // Returns empty string for invalid/missing server URL (defensive fix)
+        baseURL: '',
       });
     });
   });

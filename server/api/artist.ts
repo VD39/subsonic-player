@@ -1,5 +1,13 @@
 import type { UseFetchOptions } from 'nuxt/app';
 
+import { defineEventHandler, getCookie, getQuery } from 'h3';
+import { $fetch } from 'ofetch';
+
+import { getBaseOptions } from '@/composables/useApi/utils';
+import { COOKIE_NAMES } from '@/composables/useAuth/constant';
+import { PREVIEW_TRACK_COUNT } from '@/settings/constants';
+import { formatArtist } from '@/utils/Formatters';
+
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
 
@@ -16,15 +24,13 @@ export default defineEventHandler(async (event) => {
 
       const { baseParams, baseURL } = getBaseOptions(authCookie);
 
-      const response = await $fetch<{
-        'subsonic-response': SubsonicResponse;
-      }>(url, {
+      const response = (await $fetch(url, {
         baseURL,
         query: {
           ...baseParams,
           ...options.query,
         },
-      });
+      })) as { 'subsonic-response': SubsonicResponse };
 
       const subsonicResponse = response['subsonic-response'];
 

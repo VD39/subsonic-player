@@ -1,12 +1,11 @@
-# 🎵 Subsonic Player: A Modern Subsonic Client
+# 🎵 Subsonic Player WebOS
 
 ![GitHub Actions Workflow Status][action-workflow]
-[![Docker Pulls][docker-pulls]][docker-hub]
 [![GitHub License][github-license]][license]
 
 ## 📝 Overview
 
-Subsonic player is a responsive, modern web-based client designed for [Subsonic music servers][subsonic].
+Subsonic Player WebOS is a minimal fork of [Subsonic player][subsonic-player], designed to stay closely compatible with upstream while adding essential enhancements for LG webOS TVs.
 
 Built with [Nuxt 4][nuxt], a modern [Vue 3][vue] framework, this open-source application provides a seamless and enjoyable music listening experience across all devices.
 
@@ -174,12 +173,12 @@ This project is licensed under the AGPLv3 license. Full license details availabl
 
 <!-- Links -->
 
+[subsonic-player]: https://github.com/VD39/subsonic-player
 [nuxt]: https://nuxt.com/
 [vue]: https://vuejs.org/
 [gonic]: https://github.com/sentriz/gonic/
 [airsonic]: https://github.com/airsonic-advanced/airsonic-advanced/
 [navidrome]: https://github.com/navidrome/navidrome/
-[subsonic]: https://github.com/topics/subsonic/
 [docker]: https://www.docker.com/
 [nodejs]: https://nodejs.org/
 [yarn]: https://yarnpkg.com/

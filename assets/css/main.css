@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com');
-@import url('https://fonts.gstatic.com');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Local fonts for webOS compatibility (Google Fonts doesn't work with file:// protocol) */
+@import url('./local-fonts.css');
 
 /* Import all base styles. */
 @import url('./reset.css');
@@ -8,3 +7,6 @@
 @import url('./global/global.css');
 @import url('./transitions.css');
 @import url('./typography.css');
+
+/* Import webOS TV optimizations */
+@import url('./global/webos-tv.css');

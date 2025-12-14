@@ -15,10 +15,20 @@ async function checkLogin() {
   if (isAuthenticated.value) {
     const redirect = route.query.redirect?.toString();
 
+    // For webOS file:// protocol, ignore redirect query as it may contain file system paths
+    const isWebOS = import.meta.client && window.location.protocol === 'file:';
+    const isValidRedirect =
+      redirect &&
+      !redirect.includes('/media/') &&
+      !redirect.includes('/usr/palm/') &&
+      redirect.startsWith('/');
+
     await navigateTo(
-      redirect ?? {
-        name: ROUTE_NAMES.index,
-      },
+      !isWebOS && isValidRedirect
+        ? redirect
+        : {
+            name: ROUTE_NAMES.index,
+          },
     );
   }
 }

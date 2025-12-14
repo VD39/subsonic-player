@@ -21,11 +21,24 @@ const ENVIRONMENT_VARIABLES = {
 };
 
 export default defineNuxtConfig({
+  app: {
+    baseURL: './',
+    buildAssetsDir: '_nuxt/',
+    head: {},
+  },
   builder: 'vite',
   compatibilityDate: '2024-04-03',
   css: ['@/assets/css/main.css'],
   devtools: {
     enabled: true,
+  },
+  experimental: {
+    appManifest: false,
+    payloadExtraction: false,
+    resetAsyncDataToUndefined: false,
+  },
+  features: {
+    inlineStyles: process.env.WEBOS_BUILD !== 'true',
   },
   future: {
     compatibilityVersion: 5,
@@ -39,11 +52,10 @@ export default defineNuxtConfig({
     imports: {
       dirs: IMPORT_DIRECTORIES,
     },
-    ...(ENVIRONMENT_VARIABLES.SPA_MODE && {
-      prerender: {
-        routes: ['/'],
-      },
-    }),
+    output: {
+      publicDir: '.output/public',
+    },
+    preset: 'static',
   },
   postcss: {
     plugins: {
@@ -65,12 +77,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  ...createPWAConfig(ENVIRONMENT_VARIABLES.MAIN_APP_TITLE),
   runtimeConfig: {
     public: {
       ...ENVIRONMENT_VARIABLES,
     },
   },
-  ssr: !ENVIRONMENT_VARIABLES.SPA_MODE,
+  ssr: false,
   typescript: {
     strict: true,
     tsConfig: {
@@ -80,5 +93,9 @@ export default defineNuxtConfig({
     },
     typeCheck: 'build',
   },
-  ...createPWAConfig(ENVIRONMENT_VARIABLES.MAIN_APP_TITLE),
+  vite: {
+    build: {
+      assetsDir: '_nuxt',
+    },
+  },
 });

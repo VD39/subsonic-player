@@ -1,0 +1,416 @@
+/**
+ * webOS TV Optimizations
+ *
+ * Simple styles for TV navigation.
+ * Uses the .webosTV body class added dynamically when running on webOS.
+ *
+ * Note: Tablet layout is triggered by setting viewport width to 1024px
+ * in the webos-input plugin. Hover effects are disabled since TV has no mouse.
+ */
+
+/* ============================================
+   Hide cursor on TV
+   ============================================ */
+
+body.webosTV,
+body.webosTV * {
+  cursor: none !important;
+}
+
+body.webosTV input,
+body.webosTV textarea,
+body.webosTV select {
+  cursor: text !important;
+}
+
+/* ============================================
+   Simplified Sidebar Navigation for TV
+   Replace desktop sidebar with mobile-style vertical menu on left
+   ============================================ */
+
+/* Override sidebar width for TV - make it narrower like mobile bottom bar */
+body.webosTV {
+  --sidebar-width: 100px !important;
+
+  scroll-behavior: smooth;
+}
+
+/* Hide desktop sidebar components that are too complex for TV */
+body.webosTV .desktopOnly {
+  display: none !important;
+}
+
+/* ============================================
+   Music Player Layout for TV
+   Show desktop controls in proper positions
+   ============================================ */
+
+/* EXCEPT: Show player controls on TV (they're marked desktopOnly but we need them) */
+body.webosTV .desktopOnly[class*='PlayerControls'],
+body.webosTV .desktopOnly[class*='playerControls'] {
+  display: flex !important;
+}
+
+/* Show player options (favourite, volume, etc.) on TV */
+body.webosTV .desktopOnly[class*='playerOptions'] {
+  display: flex !important;
+}
+
+/* Show track seeker (progress bar) on TV */
+body.webosTV .desktopOnly[class*='trackSeeker'] {
+  display: block !important;
+}
+
+/* Hide the mobile play/pause button on TV (we use the desktop controls) */
+body.webosTV .mobileOnly[class*='playPauseButton'] {
+  display: none !important;
+}
+
+/* Hide the mobile queue button overlay on TV */
+body.webosTV .mobileOnly[class*='queueControl'] {
+  display: none !important;
+}
+
+/* Hide bookmark-related elements on TV (not needed) */
+body.webosTV [class*='bookmark'],
+body.webosTV [class*='Bookmark'] {
+  display: none !important;
+}
+
+/* Hide bookmarks navigation link on TV */
+body.webosTV a[title='Bookmarks'],
+body.webosTV a[href*='bookmarks'] {
+  display: none !important;
+}
+
+/* Make track seeker completely non-selectable/non-focusable - use skip buttons instead */
+body.webosTV .desktopOnly[class*='trackSeeker'],
+body.webosTV .desktopOnly[class*='trackSeeker'] * {
+  pointer-events: none !important;
+  cursor: none !important;
+  user-select: none !important;
+}
+
+body.webosTV .desktopOnly[class*='trackSeeker'] input:focus,
+body.webosTV .desktopOnly[class*='trackSeeker'] input:focus-visible,
+body.webosTV .desktopOnly[class*='trackSeeker'] *:focus,
+body.webosTV .desktopOnly[class*='trackSeeker'] *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Show mobile navigation but reposition it to the left side */
+body.webosTV .mobileOnly {
+  display: flex !important;
+}
+
+/* Transform mobile bottom navigation into left vertical navigation for TV */
+body.webosTV nav ul[class*='mobileNavigation'] {
+  /* Change from bottom horizontal to left vertical */
+  position: fixed;
+  inset: 0 auto 0 0 !important;
+  z-index: 9 !important;
+  flex-direction: column !important;
+  gap: var(--space-16) !important;
+  width: 100px !important;
+  height: 100vh !important;
+  padding: var(--space-24) var(--space-8) !important;
+  border-top: none !important;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+/* Adjust mobile navigation items for vertical layout */
+body.webosTV nav ul[class*='mobileNavigation'] li {
+  flex: 0 !important;
+  width: 100% !important;
+}
+
+/* Stack icon and text vertically */
+body.webosTV nav ul[class*='mobileNavigation'] a {
+  flex-direction: column !important;
+  gap: var(--space-4) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: var(--space-12) var(--space-4) !important;
+  font-size: 0.7rem !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+}
+
+/* Make icons larger for TV */
+body.webosTV nav ul[class*='mobileNavigation'] svg {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Adjust main content to account for left sidebar */
+body.webosTV main[class*='mainContent'] {
+  margin-left: 100px !important;
+}
+
+body.webosTV header[class*='header'] {
+  margin-left: 100px !important;
+}
+
+/* Hide the music logo in mobile header on TV (we don't need it) */
+body.webosTV .mobileOnly[class*='MusicLogo'] {
+  display: none !important;
+}
+
+/* ============================================
+   Top Bar Modifications for TV
+   ============================================ */
+
+/* Hide logo completely on TV - not needed since we have sidebar navigation */
+body.webosTV header a[title='Home'] {
+  display: none !important;
+}
+
+/* Hide layout switcher button on TV */
+body.webosTV button[id='view-layout-button'],
+body.webosTV button[id*='viewLayout'] {
+  display: none !important;
+}
+
+/* Search form modifications for TV */
+body.webosTV form {
+  position: relative;
+}
+
+/* Target the search input wrapper (added via JS) */
+/* stylelint-disable-next-line selector-class-pattern */
+body.webosTV .webos-search-wrapper {
+  width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Also hide the input itself */
+body.webosTV input[id='search-input'] {
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* When search is expanded (via JS class) - show wrapper */
+/* stylelint-disable-next-line selector-class-pattern */
+body.webosTV form.searchExpanded .webos-search-wrapper {
+  width: 300px !important;
+  min-width: 300px !important;
+  margin-right: var(--space-8) !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+}
+
+/* When search is expanded - show and style input */
+body.webosTV form.searchExpanded input[id='search-input'] {
+  width: 100% !important;
+  min-width: 100% !important;
+  padding: calc(var(--space-12) - 2px) var(--space-12) !important;
+  border: 1px solid var(--border-color) !important;
+  opacity: 1 !important;
+}
+
+/* Search button should always be visible */
+body.webosTV form button[type='submit'] {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* ============================================
+   Hide "See All" Links - Not useful on TV
+   ============================================ */
+
+/* Hide the mobile "See all" text links */
+body.webosTV a.mobileOnly.link {
+  display: none !important;
+}
+
+/* Hide the header section links (both desktop and mobile "See all") */
+body.webosTV h3 a {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* Hide the "more" icon specifically */
+body.webosTV h3 a svg {
+  display: none !important;
+}
+
+/* ============================================
+   Simple Focus States for TV Remote
+   Uses theme color - works with light/dark themes
+   ============================================ */
+
+body.webosTV :focus,
+body.webosTV :focus-visible,
+body.webosTV nav ul[class*='mobileNavigation'] a:focus,
+body.webosTV nav ul[class*='mobileNavigation'] a:focus-visible {
+  outline: none;
+  border-radius: var(--border-radius-small);
+  box-shadow: 0 0 0 4px var(--theme-color);
+}
+
+body.webosTV .trackRow a:focus,
+body.webosTV .trackRow a:focus-visible {
+  box-shadow: none !important;
+}
+
+/* Enhanced focus for album/artist/playlist image links */
+
+/* Use inset outline + box-shadow to prevent clipping */
+body.webosTV .layoutImage a:focus,
+body.webosTV .layoutImage a:focus-visible {
+  display: block;
+  border-radius: var(--border-radius-large);
+  box-shadow: 0 0 0 4px var(--theme-color) !important;
+}
+
+/* Ensure album image links and genres are block-level for proper focus and dimensions */
+body.webosTV .layoutImage,
+body.webosTV swiper-slide[data-test-id="random-genre-item"] {
+  padding: 4px !important;
+}
+
+body.webosTV .layoutImage a {
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+body.webosTV .layoutImage figure {
+  display: block !important;
+}
+
+/* Make h2 headings focusable for section navigation on TV */
+body.webosTV h2 {
+  outline: none;
+}
+
+body.webosTV h2:focus,
+body.webosTV h2:focus-visible {
+  border-radius: var(--border-radius-small);
+  box-shadow: 0 0 0 3px var(--theme-color) !important;
+}
+
+/* Enhanced focus for entire playlist card */
+body.webosTV article[data-test-id='playlist'] a:focus,
+body.webosTV article[data-test-id='playlist'] a:focus-visible {
+  box-shadow: 0 0 25px color-mix(in oklab, var(--theme-color) 60%, transparent) !important;
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+/* ============================================
+   Disable hover effects on TV (no mouse)
+   Hide elements that only appear on hover
+   ============================================ */
+
+/* Hide hover-only action buttons (like play/favourite on albums) */
+body.webosTV [class*='actions'] {
+  display: none !important;
+}
+
+/* Hide dropdown menus on playlists list (not needed for TV navigation) */
+body.webosTV article[data-test-id='playlist'] [class*='dropdown'] {
+  display: none !important;
+}
+
+/* Hide carousel navigation buttons (Previous/Next slide) on TV */
+body.webosTV [class*='carouselSwiper'] button[class*='previous'],
+body.webosTV [class*='carouselSwiper'] button[class*='next'] {
+  display: none !important;
+}
+
+/* ============================================
+   Simplified Navigation for Albums/Artists/etc
+   Only album images are focusable, not titles or artist links
+   ============================================ */
+
+/* Make title/artist links inside layout items not interactive */
+body.webosTV .layoutContent a,
+body.webosTV .layoutContent button {
+  pointer-events: none;
+}
+
+/* Ensure these links can't receive focus */
+body.webosTV .layoutContent a:focus,
+body.webosTV .layoutContent button:focus {
+  outline: none !important;
+}
+
+/* ============================================
+   Enhanced Track Row Focus for Navigation
+   Make focused track rows clearly visible
+   ============================================ */
+
+/* When a button inside a track row has focus, highlight the entire row */
+body.webosTV .trackRow:focus-within {
+  position: relative;
+  z-index: 1;
+  background-color: color-mix(
+    in oklab,
+    var(--theme-color) 20%,
+    transparent
+  ) !important;
+}
+
+/* Extra emphasis on the focused play button */
+body.webosTV .trackRow button:focus,
+body.webosTV .trackRow button:focus-visible {
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+/* Hide the bulletList (album/artist links) in track meta on TV */
+body.webosTV .trackRow .mobileOnly {
+  display: none !important;
+}
+
+/* Make play button cover the entire track row for easier focus on TV */
+body.webosTV .trackRow {
+  position: relative;
+}
+
+body.webosTV .trackRow [class*='playPauseWrapper'] {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1;
+  visibility: visible !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  transform: unset !important;
+}
+
+/* The button inside should also cover the area */
+body.webosTV .trackRow [class*='playPauseWrapper'] button {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+}
+
+/* ============================================
+   Enhanced Page Navigation Focus
+   Add background highlight to focused page nav buttons
+   ============================================ */
+
+/* SUPER VISIBLE TEST - Enhanced focus for page navigation buttons (Discover, Podcasts, Radio) */
+body.webosTV .pageLink:focus,
+body.webosTV .pageLink:focus-visible {
+  font-weight: var(--font-weight-bold) !important;
+  outline: 0 !important;
+
+  /* Very obvious background for testing */
+  background-color: color-mix(
+    in oklab,
+    var(--theme-color) 40%,
+    transparent
+  ) !important;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}

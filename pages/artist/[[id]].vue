@@ -26,8 +26,12 @@ const { openAlbumInformationModal, openTrackInformationModal } =
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 
-const { data: artistData, status } = getArtist(
-  route.params[ROUTE_PARAM_KEYS.artist.id] as string,
+const { data: artistData, status } = await useAsyncData(
+  route.fullPath,
+  () => getArtist(route.params[ROUTE_PARAM_KEYS.artist.id] as string),
+  {
+    transform: (response) => response.data,
+  },
 );
 
 async function addAlbumToQueue(album: Album) {

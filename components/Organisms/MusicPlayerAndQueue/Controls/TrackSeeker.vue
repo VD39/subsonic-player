@@ -14,6 +14,11 @@ const ariaValueText = computed(
   () =>
     `${secondsToHHMMSS(currentTime.value)} of ${currentTrack.value.formattedDuration}`,
 );
+
+// On webOS TV, make the seeker non-focusable (use skip buttons instead)
+const isWebOS =
+  typeof window !== 'undefined' && window.location.protocol === 'file:';
+const seekerTabindex = isWebOS ? -1 : 0;
 </script>
 
 <template>
@@ -27,7 +32,7 @@ const ariaValueText = computed(
     delay
     :max="currentTrack.duration"
     :min="0"
-    tabindex="0"
+    :tabindex="seekerTabindex"
     @change="setCurrentTime"
     @keydown.arrow-left.prevent="rewindTrack"
     @keydown.arrow-right.prevent="fastForwardTrack"

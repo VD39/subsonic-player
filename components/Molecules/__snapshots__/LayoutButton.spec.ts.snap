@@ -1,13 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`LayoutButton > when layout value is gridLayout > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
+"<button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
   <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
 </button>"
 `;
 
 exports[`LayoutButton > when layout value is listLayout > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to grid layout">
+"<button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to grid layout">
   <phgridfour aria-hidden="true" class="icon" size="24" weight="regular"></phgridfour><span class="clamp text visuallyHidden">Switch to grid layout</span>
 </button>"
 `;

@@ -47,3 +47,12 @@ coverage
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# webOS build artifacts
+*.ipk
+webos/*
+# Keep only source files
+!webos/appinfo.json
+!webos/*.sh
+!webos/*.md
+!webos/assets
