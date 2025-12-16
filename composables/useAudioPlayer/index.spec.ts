@@ -43,20 +43,22 @@ const setCurrentTimeMock = vi.fn();
 const unloadMock = vi.fn();
 
 mockNuxtImport('AudioPlayer', () =>
-  vi.fn(() => ({
-    changePlaybackRate: changePlaybackRateMock,
-    load: loadMock,
-    onBuffered: onBufferedMock,
-    onCanPlay: onCanPlayMock,
-    onEnded: onEndedMock,
-    onTimeupdate: onTimeupdateMock,
-    onWaiting: onWaitingMock,
-    pause: pauseMock,
-    play: playMock,
-    setCurrentTime: setCurrentTimeMock,
-    setVolume: setVolumeMock,
-    unload: unloadMock,
-  })),
+  vi.fn(function () {
+    return {
+      changePlaybackRate: changePlaybackRateMock,
+      load: loadMock,
+      onBuffered: onBufferedMock,
+      onCanPlay: onCanPlayMock,
+      onEnded: onEndedMock,
+      onTimeupdate: onTimeupdateMock,
+      onWaiting: onWaitingMock,
+      pause: pauseMock,
+      play: playMock,
+      setCurrentTime: setCurrentTimeMock,
+      setVolume: setVolumeMock,
+      unload: unloadMock,
+    };
+  }),
 );
 
 const resetQueueStateMock = vi.fn();

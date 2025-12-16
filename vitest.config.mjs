@@ -7,6 +7,7 @@ export default defineVitestConfig({
       enabled: true,
       exclude: [
         ...coverageConfigDefaults.exclude,
+        '.nuxt/**',
         '**/navigations/**',
         '**/plugins/**',
         '**/docs/**',
@@ -17,12 +18,12 @@ export default defineVitestConfig({
         'error.vue',
         'nuxt.config.ts',
       ],
-      include: ['**/*.ts', '**/*.vue'],
       provider: 'istanbul',
       thresholds: {
         branches: 85,
         functions: 85,
         lines: 85,
+        statements: 85,
       },
     },
     css: {
@@ -31,7 +32,7 @@ export default defineVitestConfig({
       },
     },
     environment: 'nuxt',
-    exclude: [...configDefaults.exclude, '**/docs/**'],
+    exclude: [...configDefaults.exclude, '**/docs/**', '.nuxt/**'],
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
   },

@@ -4,10 +4,10 @@ export function intersectionObserverMock(
   entry: IntersectionObserverEntry[] = [],
 ) {
   const disconnectMock = vi.fn();
-  const observeMock = vi.fn();
-  const observerDisconnectMock = vi.hoisted(() => vi.fn());
+  const observeMock = vi.fn(() => undefined);
+  const observerDisconnectMock = vi.fn();
 
-  const intersectionObserverMock = vi.fn((cb) => {
+  const intersectionObserverMock = vi.fn(function (cb) {
     cb(entry, {
       disconnect: observerDisconnectMock,
     });

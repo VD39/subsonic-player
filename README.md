@@ -8,7 +8,7 @@
 
 Subsonic player is a responsive, modern web-based client designed for [Subsonic music servers][subsonic].
 
-Built with [Nuxt 3][nuxt], a modern [Vue 3][vue] framework, this open-source application provides a seamless and enjoyable music listening experience across all devices.
+Built with [Nuxt 4][nuxt], a modern [Vue 3][vue] framework, this open-source application provides a seamless and enjoyable music listening experience across all devices.
 
 **Compatible Servers:**
 

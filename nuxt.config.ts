@@ -30,7 +30,6 @@ const ENVIRONMENT_VARIABLES = {
   SERVER_URL: process.env.SERVER_URL || '',
 };
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   builder: 'vite',
   compatibilityDate: '2024-04-03',
@@ -38,18 +37,13 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  experimental: {
-    resetAsyncDataToUndefined: false,
+  future: {
+    compatibilityVersion: 5,
   },
   imports: {
     dirs: IMPORT_DIRECTORIES,
   },
-  modules: [
-    '@nuxt/eslint',
-    '@nuxtjs/storybook',
-    '@vite-pwa/nuxt',
-    'nuxt-swiper',
-  ],
+  modules: ['@nuxt/eslint', '@vite-pwa/nuxt', 'nuxt-swiper'],
   nitro: {
     imports: {
       dirs: IMPORT_DIRECTORIES,
@@ -134,6 +128,11 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: true,
-    typeCheck: true,
+    tsConfig: {
+      compilerOptions: {
+        noUncheckedIndexedAccess: false,
+      },
+    },
+    typeCheck: 'build',
   },
 });

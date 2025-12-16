@@ -1,5 +1,6 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { config, RouterLinkStub } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
@@ -9,10 +10,12 @@ intersectionObserverMock([
   } as never,
 ]);
 
-globalThis.MutationObserver = vi.fn().mockImplementation(() => ({
-  disconnect: vi.fn(),
-  observe: vi.fn(),
-}));
+globalThis.MutationObserver = vi.fn().mockImplementation(function () {
+  return {
+    disconnect: vi.fn(),
+    observe: vi.fn(),
+  };
+});
 
 mockNuxtImport('callOnce', () => {
   return <T>(cb: () => T) => {

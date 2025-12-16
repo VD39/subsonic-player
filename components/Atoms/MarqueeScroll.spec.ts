@@ -15,11 +15,13 @@ const windowRemoveEventListenerSpy = vi.spyOn(
 const disconnectMock = vi.fn();
 const observeMock = vi.fn();
 
-vi.spyOn(globalThis, 'MutationObserver').mockImplementation(() => ({
-  disconnect: disconnectMock,
-  observe: observeMock,
-  takeRecords: vi.fn(),
-}));
+vi.spyOn(globalThis, 'MutationObserver').mockImplementation(function () {
+  return {
+    disconnect: disconnectMock,
+    observe: observeMock,
+    takeRecords: vi.fn(),
+  };
+});
 
 function factory(slots = {}) {
   return mount(MarqueeScroll, {
