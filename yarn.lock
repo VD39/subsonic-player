@@ -3380,7 +3380,7 @@
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-7.18.0.tgz#b90a57ccdea71797ffffa0321e744f379ec838c9"
   integrity sha512-iZqi+Ds1y4EDYUtlOOC+aUmxnE9xS/yCigkjA7XpTKV6nCBd3Hp/PRGGmdwnfkV2ThMyYldP1wRpm/id99spTQ==
 
-"@typescript-eslint/types@8.50.0", "@typescript-eslint/types@^8.34.0", "@typescript-eslint/types@^8.35.0", "@typescript-eslint/types@^8.38.0", "@typescript-eslint/types@^8.46.0", "@typescript-eslint/types@^8.47.0", "@typescript-eslint/types@^8.49.0", "@typescript-eslint/types@^8.50.0":
+"@typescript-eslint/types@8.50.0", "@typescript-eslint/types@^8.34.0", "@typescript-eslint/types@^8.35.0", "@typescript-eslint/types@^8.46.0", "@typescript-eslint/types@^8.47.0", "@typescript-eslint/types@^8.49.0", "@typescript-eslint/types@^8.50.0":
   version "8.50.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-8.50.0.tgz#ad8f1ad88ae0096f548c9cdf60da9b92832db96e"
   integrity sha512-iX1mgmGrXdANhhITbpp2QQM2fGehBse9LbTf0sidWK6yg/NE+uhV5dfU1g6EYPlcReYmkE9QLPq/2irKAmtS9w==
@@ -3414,7 +3414,7 @@
     tinyglobby "^0.2.15"
     ts-api-utils "^2.1.0"
 
-"@typescript-eslint/utils@8.50.0", "@typescript-eslint/utils@^8.38.0", "@typescript-eslint/utils@^8.49.0":
+"@typescript-eslint/utils@8.50.0", "@typescript-eslint/utils@^8.49.0", "@typescript-eslint/utils@^8.50.0":
   version "8.50.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/utils/-/utils-8.50.0.tgz#107f20a5747eab5db988c5f6ad462b59851cdd1f"
   integrity sha512-87KgUXET09CRjGCi2Ejxy3PULXna63/bMYv72tCAlDJC3Yqwln0HiFJ3VJMst2+mEtNtZu5oFvX4qJGjKsnAgg==
@@ -5363,13 +5363,12 @@ eslint-plugin-jsdoc@^61.5.0:
     spdx-expression-parse "^4.0.0"
     to-valid-identifier "^1.0.0"
 
-eslint-plugin-perfectionist@^4.15.1:
-  version "4.15.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-perfectionist/-/eslint-plugin-perfectionist-4.15.1.tgz#d38e80b2442d83b0a6482d2079cfd63dd53266d9"
-  integrity sha512-MHF0cBoOG0XyBf7G0EAFCuJJu4I18wy0zAoT1OHfx2o6EOx1EFTIzr2HGeuZa1kDcusoX0xJ9V7oZmaeFd773Q==
+eslint-plugin-perfectionist@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-perfectionist/-/eslint-plugin-perfectionist-5.0.0.tgz#da152df31963b4cd7657152973406689354bf807"
+  integrity sha512-a8PgR2AgCxEVmpIU+vd3nsYWTa8LfyXXJ0gXkPoj1gVW/sfj23BSTtNFBexGysTRNDwuMGLSzejHY+S3qj0EDg==
   dependencies:
-    "@typescript-eslint/types" "^8.38.0"
-    "@typescript-eslint/utils" "^8.38.0"
+    "@typescript-eslint/utils" "^8.50.0"
     natural-orderby "^5.0.0"
 
 eslint-plugin-prettier@^5.5.4:
