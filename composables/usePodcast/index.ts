@@ -13,7 +13,7 @@ export function usePodcast() {
   async function addPodcast(url: string) {
     const { data: podcastData } = await fetchData('/createPodcastChannel', {
       method: 'POST',
-      params: {
+      query: {
         url,
       },
       // Server might return error, however, some servers still add podcast.
@@ -38,7 +38,7 @@ export function usePodcast() {
 
   async function deletePodcast(id: string) {
     const { data: podcastData } = await fetchData('/deletePodcastChannel', {
-      params: {
+      query: {
         id,
       },
     });
@@ -51,7 +51,7 @@ export function usePodcast() {
 
   async function deletePodcastEpisode(episode: PodcastEpisode) {
     const { data: podcastData } = await fetchData('/deletePodcastEpisode', {
-      params: {
+      query: {
         id: episode.id,
       },
     });
@@ -67,7 +67,7 @@ export function usePodcast() {
 
   async function downloadPodcastEpisode(episode: PodcastEpisode) {
     const { data: podcastData } = await fetchData('/downloadPodcastEpisode', {
-      params: {
+      query: {
         id: episode.id,
       },
     });
@@ -85,7 +85,7 @@ export function usePodcast() {
     const { data: newestPodcastEpisodesData } = await fetchData(
       '/getNewestPodcasts',
       {
-        params: {
+        query: {
           count: 15,
         },
         transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -127,7 +127,7 @@ export function usePodcast() {
     };
 
     return fetchData('/getPodcasts', {
-      params: finalParams,
+      query: finalParams,
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         (response.podcasts.channel || [])
           .map(formatPodcast)

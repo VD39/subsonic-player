@@ -8,7 +8,7 @@ export function useSearch() {
     const { mediaType, offset, query } = params;
 
     const { data: searchData } = await fetchData('/search3', {
-      params: {
+      query: {
         albumCount: LOAD_SIZE,
         albumOffset: offset || 0,
         artistCount: LOAD_SIZE,

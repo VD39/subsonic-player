@@ -25,7 +25,7 @@ export function useBookmark() {
   async function createBookmark(id: string, position: number) {
     const { data: bookmarkData } = await fetchData('/createBookmark', {
       method: 'POST',
-      params: {
+      query: {
         id,
         position,
       },
@@ -38,7 +38,7 @@ export function useBookmark() {
 
   async function deleteBookmark(id: string, showMessage = true) {
     const { data: bookmarkData } = await fetchData('/deleteBookmark', {
-      params: {
+      query: {
         id,
       },
     });

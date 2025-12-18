@@ -21,7 +21,7 @@ export function useArtist() {
       getCachedData: (key, nuxtApp) =>
         nuxtApp.payload.data[key] || nuxtApp.static.data[key],
       key: route.fullPath,
-      params: {
+      query: {
         id,
       },
       transform: (response) => response.data,

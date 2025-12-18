@@ -129,11 +129,11 @@ describe('useRadioStation', () => {
         updateRadioStation({ homepageUrl: '' } as RadioStationParams);
       });
 
-      it('calls the fetch function without homepageUrl key in params', () => {
+      it('calls the fetch function without homepageUrl key in query', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/updateInternetRadioStation',
           expect.objectContaining({
-            params: {},
+            query: {},
           }),
         );
       });
@@ -146,11 +146,11 @@ describe('useRadioStation', () => {
         } as RadioStationParams);
       });
 
-      it('calls the fetch function with homepageUrl key in params', () => {
+      it('calls the fetch function with homepageUrl key in query', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/updateInternetRadioStation',
           expect.objectContaining({
-            params: {
+            query: {
               homepageUrl: 'homepageUrl',
             },
           }),

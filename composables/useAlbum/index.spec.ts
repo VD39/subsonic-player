@@ -29,7 +29,7 @@ describe('useAlbum', () => {
 
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-          params: {
+          query: {
             offset: 0,
             size: 50,
             type: 'random',
@@ -49,7 +49,7 @@ describe('useAlbum', () => {
 
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-            params: {
+            query: {
               offset: 1,
               size: 50,
               type: 'random',
@@ -67,7 +67,7 @@ describe('useAlbum', () => {
 
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-          params: {
+          query: {
             offset: 0,
             size: 50,
             type: 'random',
@@ -87,7 +87,7 @@ describe('useAlbum', () => {
 
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-            params: {
+            query: {
               offset: 0,
               size: 21,
               type: 'random',
@@ -105,7 +105,7 @@ describe('useAlbum', () => {
 
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-          params: {
+          query: {
             offset: 0,
             size: 50,
             type: 'random',
@@ -128,7 +128,7 @@ describe('useAlbum', () => {
 
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
-            params: {
+            query: {
               offset: 0,
               size: 50,
               type: paramType,

@@ -13,7 +13,7 @@ export function useAlbum() {
 
   async function getAlbums(params: AlbumsParams) {
     const { data: albumsData } = await fetchData('/getAlbumList2', {
-      params: {
+      query: {
         ...params,
         offset: params.offset || 0,
         size: params.size || Number(LOAD_SIZE),
@@ -28,7 +28,7 @@ export function useAlbum() {
 
   async function getAlbum(id: string) {
     const { data: albumData } = await fetchData('/getAlbum', {
-      params: {
+      query: {
         id,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>

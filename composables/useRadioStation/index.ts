@@ -27,7 +27,7 @@ export function useRadioStation() {
       '/createInternetRadioStation',
       {
         method: 'POST',
-        params,
+        query: params,
       },
     );
 
@@ -46,7 +46,7 @@ export function useRadioStation() {
       '/updateInternetRadioStation',
       {
         method: 'POST',
-        params,
+        query: params,
       },
     );
 
@@ -60,7 +60,7 @@ export function useRadioStation() {
     const { data: radioStationData } = await fetchData(
       '/deleteInternetRadioStation',
       {
-        params: {
+        query: {
           id,
         },
       },

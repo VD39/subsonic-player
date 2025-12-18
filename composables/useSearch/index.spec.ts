@@ -30,7 +30,7 @@ describe('useSearch', () => {
 
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/search3', {
-          params: {
+          query: {
             albumCount: '50',
             albumOffset: 0,
             artistCount: '50',
@@ -56,7 +56,7 @@ describe('useSearch', () => {
 
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/search3', {
-            params: {
+            query: {
               albumCount: '50',
               albumOffset: 1,
               artistCount: '50',

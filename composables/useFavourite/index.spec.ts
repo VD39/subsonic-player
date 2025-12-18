@@ -141,7 +141,7 @@ describe('useFavourite', () => {
       it('calls the fetchData function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(fetchUrl, {
           method: 'POST',
-          params: {
+          query: {
             albumId: undefined,
             artistId: undefined,
             id: 'track-id',

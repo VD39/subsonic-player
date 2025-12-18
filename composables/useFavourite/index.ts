@@ -25,7 +25,7 @@ export function useFavourite() {
   async function addFavourite(params: FavouriteParams) {
     await fetchData('/star', {
       method: 'POST',
-      params: getParams(params),
+      query: getParams(params),
     });
 
     addToFavouriteIds(params.id!);
@@ -36,7 +36,7 @@ export function useFavourite() {
   async function removeFavourite(params: FavouriteParams) {
     await fetchData('/unstar', {
       method: 'POST',
-      params: getParams(params),
+      query: getParams(params),
     });
 
     addToFavouriteIds(params.id!, false);

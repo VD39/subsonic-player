@@ -98,7 +98,7 @@ describe('useGenre', () => {
       describe('when offset is not set', () => {
         it('calls the fetchData function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith('/getSongsByGenre', {
-            params: {
+            query: {
               count: 50,
               genre: 'soundtrack',
               mediaType: 'tracks',
@@ -121,7 +121,7 @@ describe('useGenre', () => {
 
           it('calls the fetchData function with the correct parameters', () => {
             expect(fetchDataMock).toHaveBeenCalledWith('/getSongsByGenre', {
-              params: {
+              query: {
                 count: 50,
                 genre: 'soundtrack',
                 mediaType: 'tracks',

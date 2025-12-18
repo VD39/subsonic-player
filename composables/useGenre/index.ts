@@ -25,7 +25,7 @@ export function useGenre() {
 
   async function getTracksByGenre(params: TracksByGenreParams) {
     const { data: tracksByGenreData } = await fetchData('/getSongsByGenre', {
-      params: {
+      query: {
         ...params,
         count: Number(LOAD_SIZE),
         offset: params.offset || 0,

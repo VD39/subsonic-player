@@ -20,9 +20,9 @@ export default defineEventHandler(async (event) => {
         'subsonic-response': SubsonicResponse;
       }>(url, {
         baseURL,
-        params: {
+        query: {
           ...baseParams,
-          ...options.params,
+          ...options.query,
         },
       });
 
@@ -41,13 +41,13 @@ export default defineEventHandler(async (event) => {
   }
 
   const artistInfoResponse = await fetchData('/getArtistInfo2', {
-    params: {
+    query: {
       id,
     },
   });
 
   const artistResponse = await fetchData('/getArtist', {
-    params: {
+    query: {
       id,
     },
   });
@@ -59,14 +59,14 @@ export default defineEventHandler(async (event) => {
   }
 
   const similarSongsResponse = await fetchData('/getSimilarSongs2', {
-    params: {
+    query: {
       count: PREVIEW_TRACK_COUNT,
       id,
     },
   });
 
   const topSongsResponse = await fetchData('/getTopSongs', {
-    params: {
+    query: {
       artist: artistResponse.artist.name,
       count: PREVIEW_TRACK_COUNT,
     },

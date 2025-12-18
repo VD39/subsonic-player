@@ -21,7 +21,7 @@ export function usePlaylist() {
 
   async function getRandomTracks() {
     const { data: playlistData } = await fetchData('/getRandomSongs', {
-      params: {
+      query: {
         size: RANDOM_SIZE,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => {
@@ -44,7 +44,7 @@ export function usePlaylist() {
 
   async function getPlaylistTracks(id: string) {
     const { data: playlistData } = await fetchData('/getPlaylist', {
-      params: {
+      query: {
         id,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -72,7 +72,7 @@ export function usePlaylist() {
   async function addPlaylist(name: string) {
     const { data: playlistData } = await fetchData('/createPlaylist', {
       method: 'POST',
-      params: {
+      query: {
         name,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -87,13 +87,13 @@ export function usePlaylist() {
   }
 
   async function updatePlaylist(
-    params: PlaylistParam,
+    query: PlaylistParam,
     successMessage = 'Successfully updated playlist.',
     showMessage = true,
   ) {
     const { data: playlistData } = await fetchData('/updatePlaylist', {
       method: 'POST',
-      params,
+      query,
     });
 
     if (playlistData) {
@@ -107,7 +107,7 @@ export function usePlaylist() {
 
   async function deletePlaylist(id: string) {
     const { data: playlistData } = await fetchData('/deletePlaylist', {
-      params: {
+      query: {
         id,
       },
     });
@@ -119,29 +119,25 @@ export function usePlaylist() {
   }
 
   async function addToPlaylist(
-    params: PlaylistParam,
+    query: PlaylistParam,
     fetchPlaylistTracks = true,
     showMessage = true,
   ) {
-    await updatePlaylist(
-      params,
-      'Successfully added to playlist.',
-      showMessage,
-    );
+    await updatePlaylist(query, 'Successfully added to playlist.', showMessage);
 
     if (fetchPlaylistTracks) {
-      await getPlaylistTracksById(params.playlistId, false);
+      await getPlaylistTracksById(query.playlistId, false);
     }
   }
 
   async function removeFromPlaylist(
-    params: PlaylistParam,
+    query: PlaylistParam,
     fetchPlaylistTracks = true,
   ) {
-    await updatePlaylist(params, 'Successfully removed from playlist.');
+    await updatePlaylist(query, 'Successfully removed from playlist.');
 
     if (fetchPlaylistTracks) {
-      await getPlaylistTracksById(params.playlistId, false);
+      await getPlaylistTracksById(query.playlistId, false);
     }
   }
 

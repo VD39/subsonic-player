@@ -156,7 +156,7 @@ describe('useMediaLibrary', () => {
 
       it('calls the getIndexes function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getIndexes', {
-          params: {
+          query: {
             musicFolderId: 'id',
           },
           transform: expect.any(Function),
@@ -173,7 +173,7 @@ describe('useMediaLibrary', () => {
 
       it('calls the getMusicDirectory function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getMusicDirectory', {
-          params: {
+          query: {
             id: 'slug3',
           },
           transform: expect.any(Function),
@@ -191,7 +191,7 @@ describe('useMediaLibrary', () => {
 
       it('calls the getMusicDirectory function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/getMusicDirectory', {
-          params: {
+          query: {
             id: 'slug2',
           },
           transform: expect.any(Function),

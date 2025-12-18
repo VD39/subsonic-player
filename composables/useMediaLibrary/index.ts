@@ -13,7 +13,7 @@ export function useMediaLibrary() {
   async function downloadMedia(track: DownloadTrack) {
     const { data: downloadMediaData } = await fetchData<Blob>('/download', {
       method: 'GET',
-      params: {
+      query: {
         id: track.streamUrlId,
       },
       responseType: 'blob',
@@ -42,7 +42,7 @@ export function useMediaLibrary() {
 
   async function getIndexes(musicFolderId: string) {
     const { data: indexesData } = await fetchData('/getIndexes', {
-      params: {
+      query: {
         musicFolderId,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => ({
@@ -58,7 +58,7 @@ export function useMediaLibrary() {
 
   async function getMusicDirectory(id: string) {
     const { data: musicDirectoryData } = await fetchData('/getMusicDirectory', {
-      params: {
+      query: {
         id,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => {
@@ -93,7 +93,7 @@ export function useMediaLibrary() {
   /* istanbul ignore next -- @preserve */
   async function scrobble(id: string) {
     await fetchData('/scrobble', {
-      params: {
+      query: {
         id,
       },
     });

@@ -164,7 +164,7 @@ describe('usePlaylist', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.objectContaining({
-            params: {
+            query: {
               id: 'playlistId',
             },
           }),
@@ -559,7 +559,7 @@ describe('usePlaylist', () => {
             expect(fetchDataMock).toHaveBeenCalledWith(
               '/updatePlaylist',
               expect.objectContaining({
-                params: expect.objectContaining({
+                query: expect.objectContaining({
                   songIndexToRemove: 6,
                 }),
               }),
@@ -583,7 +583,7 @@ describe('usePlaylist', () => {
             expect(fetchDataMock).toHaveBeenCalledWith(
               '/updatePlaylist',
               expect.objectContaining({
-                params: expect.objectContaining({
+                query: expect.objectContaining({
                   songIndexToRemove: 0,
                 }),
               }),

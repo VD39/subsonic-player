@@ -56,9 +56,9 @@ export function useAPI() {
       const response = await $api(url, {
         ...options,
         baseURL: options.baseURL ?? baseURL,
-        params: {
+        query: {
           ...baseParams,
-          ...options.params,
+          ...options.query,
         },
       } as never);
 

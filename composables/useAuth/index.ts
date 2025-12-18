@@ -57,7 +57,7 @@ export function useAuth() {
       '/rest/ping',
       {
         baseURL: server,
-        params: {
+        query: {
           s: params.salt,
           t: params.token,
           u: params.username,
