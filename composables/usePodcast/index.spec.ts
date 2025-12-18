@@ -30,6 +30,7 @@ const {
   newestPodcastEpisodes,
   podcast,
   podcasts,
+  resetPodcasts,
 } = usePodcast();
 
 describe('usePodcast', () => {
@@ -445,6 +446,24 @@ describe('usePodcast', () => {
           );
         });
       });
+    });
+  });
+
+  describe('when the resetPodcasts function is called', () => {
+    beforeEach(() => {
+      resetPodcasts();
+    });
+
+    it('sets the podcast value to the default value', () => {
+      expect(podcast.value).toEqual({});
+    });
+
+    it('sets the podcasts value to the default value', () => {
+      expect(podcasts.value).toEqual([]);
+    });
+
+    it('sets the newestPodcastEpisodes value to the default value', () => {
+      expect(newestPodcastEpisodes.value).toEqual([]);
     });
   });
 });

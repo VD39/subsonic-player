@@ -3,7 +3,7 @@ import { useQueue } from './index';
 const {
   isQueueListOpened,
   isQueuePlayerOpened,
-  resetQueueState,
+  resetQueue,
   toggleQueueList,
   toggleQueuePlayer,
 } = useQueue();
@@ -41,9 +41,9 @@ describe('useQueue', () => {
     });
   });
 
-  describe('when resetQueueState function is called', () => {
+  describe('when resetQueue function is called', () => {
     beforeAll(() => {
-      resetQueueState();
+      resetQueue();
     });
 
     it('sets the correct isQueueListOpened value', () => {

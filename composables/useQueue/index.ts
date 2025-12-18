@@ -13,7 +13,7 @@ export function useQueue() {
     isQueueListOpened.value = !isQueueListOpened.value;
   }
 
-  function resetQueueState() {
+  function resetQueue() {
     isQueueListOpened.value = false;
     isQueuePlayerOpened.value = false;
   }
@@ -21,7 +21,7 @@ export function useQueue() {
   return {
     isQueueListOpened,
     isQueuePlayerOpened,
-    resetQueueState,
+    resetQueue,
     toggleQueueList,
     toggleQueuePlayer,
   };

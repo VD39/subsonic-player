@@ -1,6 +1,6 @@
 export function useAudioPlayer() {
   const { getImageUrl, getStreamUrl } = useAPI();
-  const { resetQueueState } = useQueue();
+  const { resetQueue } = useQueue();
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
   const { createBookmark, deleteBookmark } = useBookmark();
@@ -11,8 +11,9 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPlayer,
   );
 
+  // Save interval state for saving podcast current time.
   const saveInterval = useState<null | ReturnType<typeof setInterval>>(
-    STATE_NAMES.playerInterval,
+    STATE_NAMES.playerSaveInterval,
     () => null,
   );
 
@@ -117,7 +118,7 @@ export function useAudioPlayer() {
   );
 
   // Save states.
-  function setDefaultState() {
+  function resetAudioPlayerState() {
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
     currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
@@ -134,7 +135,7 @@ export function useAudioPlayer() {
     deleteLocalStorage(STATE_NAMES.playerState);
   }
 
-  function setState() {
+  function loadAudioPlayerState() {
     const SAVED_STATE = getLocalStorage(STATE_NAMES.playerState);
 
     if (!SAVED_STATE) {
@@ -419,7 +420,7 @@ export function useAudioPlayer() {
 
   // Next/previous actions.
   async function playNextTrack() {
-    resetAudioStates();
+    resetAudioPlayerTimes();
 
     currentQueueIndex.value = isLastTrack.value
       ? 0
@@ -431,7 +432,7 @@ export function useAudioPlayer() {
   }
 
   async function playPreviousTrack() {
-    resetAudioStates();
+    resetAudioPlayerTimes();
 
     currentQueueIndex.value =
       currentQueueIndex.value === 0
@@ -492,7 +493,7 @@ export function useAudioPlayer() {
   }
 
   async function replayCurrent() {
-    resetAudioStates();
+    resetAudioPlayerTimes();
     await changeTrack(currentTrack.value);
   }
 
@@ -502,13 +503,13 @@ export function useAudioPlayer() {
     if (shuffle.value) {
       shuffleQueueTracks();
     } else {
-      resetQueueTracks();
+      resetAudioPlayerQueue();
     }
 
     saveState();
   }
 
-  function resetQueueTracks() {
+  function resetAudioPlayerQueue() {
     const tempCurrentTrackId = currentTrack.value.id;
     queueList.value = removeRemovedTracksFromOriginalQueue(
       [...queueList.value],
@@ -575,14 +576,14 @@ export function useAudioPlayer() {
   }
 
   // Queue actions.
-  function clearQueueList() {
+  function clearQueue() {
     audioPlayer.value?.unload();
-    resetAudioStates();
+    resetAudioPlayerTimes();
     queueList.value = [];
     currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
     shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
     repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
-    resetQueueState();
+    resetQueue();
     saveState();
   }
 
@@ -596,7 +597,7 @@ export function useAudioPlayer() {
     const removedTrackWasPlaying = isPlaying.value;
 
     if (queueList.value.length === 1) {
-      clearQueueList();
+      clearQueue();
       return;
     }
 
@@ -654,21 +655,21 @@ export function useAudioPlayer() {
     tracks: MixedTrack[],
     queueIndex = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
   ) {
-    clearQueueList();
+    clearQueue();
     addTracksToQueueList(tracks);
     currentQueueIndex.value = queueIndex;
     await playNextTrack();
   }
 
-  function resetAudioStates() {
+  function resetAudioPlayerTimes() {
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
   }
 
   /* istanbul ignore next -- @preserve */
-  function resetAudio() {
+  function resetAudioPlayer() {
     audioPlayer.value?.unload();
-    setDefaultState();
+    resetAudioPlayerState();
   }
 
   function setAudioPlayer() {
@@ -737,24 +738,27 @@ export function useAudioPlayer() {
     }
   }
 
-  onMounted(() => {
-    callOnce(() => {
-      setAudioPlayer();
-      setState();
+  // Only register lifecycle hooks if we're in a component context.
+  if (getCurrentInstance()) {
+    onMounted(() => {
+      callOnce(() => {
+        setAudioPlayer();
+        loadAudioPlayerState();
+      });
     });
-  });
 
-  onBeforeUnmount(() => {
-    if (!isPlaying.value) {
-      clearSaveInterval();
-    }
-  });
+    onBeforeUnmount(() => {
+      if (!isPlaying.value) {
+        clearSaveInterval();
+      }
+    });
+  }
 
   return {
     addTracksToQueue,
     addTrackToQueue,
     bufferedDuration,
-    clearQueueList,
+    clearQueue,
     currentTime,
     currentTrack,
     fastForwardTrack,
@@ -777,7 +781,7 @@ export function useAudioPlayer() {
     queueList,
     removeTrackFromQueueList,
     repeat,
-    resetAudio,
+    resetAudioPlayer,
     rewindTrack,
     setCurrentTime,
     setPlaybackRate,

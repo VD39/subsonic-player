@@ -14,11 +14,31 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { getAlbum, getAlbums } = useAlbum();
+const {
+  frequentAlbums,
+  getAlbum,
+  getAlbums,
+  getDiscoverAlbums,
+  newestAlbums,
+  recentAlbums,
+  resetAlbums,
+} = useAlbum();
 
 describe('useAlbum', () => {
   afterEach(() => {
     vi.clearAllMocks();
+  });
+
+  it('sets the default frequentAlbums value', () => {
+    expect(frequentAlbums.value).toEqual([]);
+  });
+
+  it('sets the default newestAlbums value', () => {
+    expect(newestAlbums.value).toEqual([]);
+  });
+
+  it('sets the default recentAlbums value', () => {
+    expect(recentAlbums.value).toEqual([]);
   });
 
   describe('when the getAlbums function is called', () => {
@@ -195,6 +215,116 @@ describe('useAlbum', () => {
           name: 'name',
         });
       });
+    });
+  });
+
+  describe('when the getDiscoverAlbums function is called', () => {
+    beforeEach(async () => {
+      fetchDataMock
+        .mockResolvedValueOnce({
+          data: [
+            {
+              id: 'frequent-1',
+              name: 'Frequent Album',
+            },
+          ],
+        })
+        .mockResolvedValueOnce({
+          data: [
+            {
+              id: 'newest-1',
+              name: 'Newest Album',
+            },
+          ],
+        })
+        .mockResolvedValueOnce({
+          data: [
+            {
+              id: 'recent-1',
+              name: 'Recent Album',
+            },
+          ],
+        });
+
+      await getDiscoverAlbums();
+    });
+
+    it('calls fetchData for frequent albums with correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
+        query: {
+          offset: 0,
+          size: 20,
+          type: 'frequent',
+        },
+        transform: expect.any(Function),
+      });
+    });
+
+    it('calls fetchData for newest albums with correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
+        query: {
+          offset: 0,
+          size: 20,
+          type: 'newest',
+        },
+        transform: expect.any(Function),
+      });
+    });
+
+    it('calls fetchData for recent albums with correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith('/getAlbumList2', {
+        query: {
+          offset: 0,
+          size: 20,
+          type: 'recent',
+        },
+        transform: expect.any(Function),
+      });
+    });
+
+    it('sets frequentAlbums value correctly', () => {
+      expect(frequentAlbums.value).toEqual([
+        {
+          id: 'frequent-1',
+          name: 'Frequent Album',
+        },
+      ]);
+    });
+
+    it('sets newestAlbums value correctly', () => {
+      expect(newestAlbums.value).toEqual([
+        {
+          id: 'newest-1',
+          name: 'Newest Album',
+        },
+      ]);
+    });
+
+    it('sets recentAlbums value correctly', () => {
+      expect(recentAlbums.value).toEqual([
+        {
+          id: 'recent-1',
+          name: 'Recent Album',
+        },
+      ]);
+    });
+  });
+
+  describe('when the resetAlbums function is called', () => {
+    beforeEach(() => {
+      resetAlbums();
+    });
+
+    it('sets the frequentAlbums value to the default value', () => {
+      expect(frequentAlbums.value).toEqual([]);
+    });
+
+    it('sets the newestAlbums value to the default value', () => {
+      expect(newestAlbums.value).toEqual([]);
+    });
+
+    it('sets the recentAlbums value to the default value', () => {
+      expect(recentAlbums.value).toEqual([]);
     });
   });
 });

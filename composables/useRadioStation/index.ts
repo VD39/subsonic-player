@@ -8,6 +8,10 @@ export function useRadioStation() {
     () => [],
   );
 
+  function resetRadioStations() {
+    radioStations.value = [];
+  }
+
   async function getRadioStations() {
     const { data: radioStationsData } = await fetchData(
       '/getInternetRadioStations',
@@ -103,6 +107,7 @@ export function useRadioStation() {
     deleteRadioStation,
     getRadioStations,
     radioStations,
+    resetRadioStations,
     updateRadioStation,
     updateRadioStationModal,
   };

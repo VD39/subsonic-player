@@ -10,6 +10,12 @@ export function usePodcast() {
     () => [],
   );
 
+  function resetPodcasts() {
+    podcast.value = {};
+    podcasts.value = [];
+    newestPodcastEpisodes.value = [];
+  }
+
   async function addPodcast(url: string) {
     const { data: podcastData } = await fetchData('/createPodcastChannel', {
       method: 'POST',
@@ -163,5 +169,6 @@ export function usePodcast() {
     podcast,
     podcasts,
     refreshPodcasts,
+    resetPodcasts,
   };
 }

@@ -18,7 +18,7 @@ const mockData = {
   playlist55: getPlaylistsMock(55),
 };
 
-const { fetchMoreData, hasMore, items, LOAD_SIZE, resetToDefaults } =
+const { fetchMoreData, hasMore, items, LOAD_SIZE, resetInfinityLoading } =
   useInfinityLoading('id');
 
 describe('useInfinityLoading', () => {
@@ -99,9 +99,9 @@ describe('useInfinityLoading', () => {
     });
   });
 
-  describe('when resetToDefaults function is called', () => {
+  describe('when resetInfinityLoading function is called', () => {
     beforeEach(() => {
-      resetToDefaults();
+      resetInfinityLoading();
     });
 
     it('clears the hasMore value', () => {

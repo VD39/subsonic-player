@@ -4,7 +4,7 @@ import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
 const {
-  clearQueueList,
+  clearQueue,
   playTrackFromQueueList,
   queueList,
   removeTrackFromQueueList,
@@ -28,7 +28,7 @@ useHead({
         ref="clearQueueButton"
         :icon="ICONS.clear"
         title="Clear queue"
-        @click="clearQueueList"
+        @click="clearQueue"
       >
         Clear queue
       </ButtonLink>

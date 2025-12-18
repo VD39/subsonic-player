@@ -6,6 +6,11 @@ export function usePlaylist() {
   const playlist = useState<null | Playlist>(STATE_NAMES.playlist, () => null);
   const playlists = useState<Playlist[]>(STATE_NAMES.playlists, () => []);
 
+  function resetPlaylists() {
+    playlist.value = null;
+    playlists.value = [];
+  }
+
   async function getPlaylists() {
     const { data: playlistsData } = await fetchData('/getPlaylists', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -254,6 +259,7 @@ export function usePlaylist() {
     playlist,
     playlists,
     removeFromPlaylist,
+    resetPlaylists,
     updatePlaylist,
     updatePlaylistModal,
   };

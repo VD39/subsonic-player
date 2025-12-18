@@ -2,11 +2,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const { setDefaultTheme } = useTheme();
   const { autoLogin, isAuthenticated } = useAuth();
   const { closeModal } = useModal();
-  const { resetQueueState } = useQueue();
+  const { resetQueue } = useQueue();
   const { getPlaylists, playlists } = usePlaylist();
 
   closeModal();
-  resetQueueState();
+  resetQueue();
 
   await callOnce(async () => {
     await autoLogin();

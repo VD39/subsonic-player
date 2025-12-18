@@ -1,3 +1,5 @@
+import type { ComponentInternalInstance } from 'vue';
+
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { getFormattedQueueTracksMock } from '@/test/helpers';
@@ -61,10 +63,10 @@ mockNuxtImport('AudioPlayer', () =>
   }),
 );
 
-const resetQueueStateMock = vi.fn();
+const resetQueueMock = vi.fn();
 
 mockNuxtImport('useQueue', () => () => ({
-  resetQueueState: resetQueueStateMock,
+  resetQueue: resetQueueMock,
 }));
 
 mockNuxtImport('useMediaLibrary', () => () => ({
@@ -98,6 +100,21 @@ const getLocalStorageMock = vi.hoisted(() =>
 );
 
 mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
+
+const getCurrentInstanceMock = vi.hoisted(() =>
+  vi.fn<() => ComponentInternalInstance | null>(
+    () =>
+      ({
+        appContext: {
+          app: {
+            nuxtApp: {},
+          },
+        },
+      }) as unknown as ComponentInternalInstance,
+  ),
+);
+
+mockNuxtImport('getCurrentInstance', () => getCurrentInstanceMock);
 
 const queueTracks = getFormattedQueueTracksMock(6);
 const queueTracksMore = getFormattedQueueTracksMock(15);
@@ -234,7 +251,7 @@ describe('useAudioPlayer', () => {
       expect(result.composable.volume.value).toBe(0.5);
     });
 
-    describe('when queueList is set', () => {
+    describe('when queueList value is set', () => {
       it('calls the audio load function with the correct parameters', () => {
         expect(loadMock).toHaveBeenCalledWith(queueList[1].streamUrlId);
       });
@@ -256,7 +273,7 @@ describe('useAudioPlayer', () => {
       });
     });
 
-    describe('when queueList is not set', () => {
+    describe('when queueList value is not set', () => {
       beforeAll(() => {
         vi.clearAllMocks();
 
@@ -391,7 +408,7 @@ describe('useAudioPlayer', () => {
       expect(result.composable.hasCurrentTrack.value).toBe(true);
     });
 
-    describe('when queueList length is 0', () => {
+    describe('when queueList value length is 0', () => {
       it('calls the audio load function with the correct parameters', () => {
         expect(loadMock).toHaveBeenCalledWith(queueTrack.streamUrlId);
       });
@@ -401,7 +418,7 @@ describe('useAudioPlayer', () => {
       });
     });
 
-    describe('when queueList length is greater than 0', () => {
+    describe('when queueList value length is greater than 0', () => {
       beforeAll(() => {
         vi.clearAllMocks();
         result.composable.addTracksToQueue([queueTrack]);
@@ -441,24 +458,24 @@ describe('useAudioPlayer', () => {
       result.composable.queueList.value = [...queueTracks];
     });
 
-    describe('when id is not found in queueList', () => {
+    describe('when id is not found in queueList value', () => {
       beforeAll(() => {
         result.composable.removeTrackFromQueueList('idNotFound');
       });
 
-      it('does not change the queueList', () => {
+      it('does not change the queueList value', () => {
         expect(result.composable.queueList.value).toEqual(queueTracks);
       });
     });
 
-    describe('when id is found in queueList', () => {
-      describe('when id is not the same as the currentTrack', () => {
+    describe('when id is found in queueList value', () => {
+      describe('when id is not the same as the currentTrack value', () => {
         beforeAll(() => {
           vi.clearAllMocks();
           result.composable.removeTrackFromQueueList(queueTracks[1].id);
         });
 
-        it('removes the item from the queueList', () => {
+        it('removes the item from the queueList value', () => {
           expect(result.composable.queueList.value).toEqual([
             queueTracks[0],
             queueTracks[2],
@@ -489,7 +506,7 @@ describe('useAudioPlayer', () => {
           result.composable.removeTrackFromQueueList(queueTracks[3].id);
         });
 
-        it('removes the item from the queueList', () => {
+        it('removes the item from the queueList value', () => {
           expect(result.composable.queueList.value).toEqual([
             queueTracks[0],
             queueTracks[2],
@@ -519,7 +536,7 @@ describe('useAudioPlayer', () => {
           result.composable.removeTrackFromQueueList(queueTracks[4].id);
         });
 
-        it('removes the item from the queueList', () => {
+        it('removes the item from the queueList value', () => {
           expect(result.composable.queueList.value).toEqual([
             queueTracks[0],
             queueTracks[2],
@@ -564,13 +581,13 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when the selected track is the last track in queueList', () => {
+      describe('when the selected track is the last track in queueList value', () => {
         beforeAll(() => {
           vi.clearAllMocks();
           result.composable.removeTrackFromQueueList(queueTracks[2].id);
         });
 
-        it('removes the item from the queueList', () => {
+        it('removes the item from the queueList value', () => {
           expect(result.composable.queueList.value).toEqual([queueTracks[0]]);
         });
 
@@ -593,13 +610,13 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when queueList contains only a single value', () => {
+      describe('when queueList value contains only a single value', () => {
         beforeAll(() => {
           vi.clearAllMocks();
           result.composable.removeTrackFromQueueList(queueTracks[0].id);
         });
 
-        it('removes the item from the queueList', () => {
+        it('removes the item from the queueList value', () => {
           expect(result.composable.queueList.value).toEqual([]);
         });
 
@@ -638,10 +655,10 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when clearQueueList function is called', () => {
+  describe('when clearQueue function is called', () => {
     beforeAll(() => {
       result.composable.queueList.value = [...queueTracks];
-      result.composable.clearQueueList();
+      result.composable.clearQueue();
     });
 
     it('clears the queueList value', () => {
@@ -676,8 +693,8 @@ describe('useAudioPlayer', () => {
       expect(result.composable.hasCurrentTrack.value).toBe(false);
     });
 
-    it('calls the resetQueueState function', () => {
-      expect(resetQueueStateMock).toHaveBeenCalled();
+    it('calls the resetQueue function', () => {
+      expect(resetQueueMock).toHaveBeenCalled();
     });
 
     it('calls the setLocalStorage function with the correct parameters', () => {
@@ -1277,7 +1294,7 @@ describe('useAudioPlayer', () => {
           result.composable.togglePlay();
         });
 
-        it('does not remove the current track from queueList', () => {
+        it('does not remove the current track from queueList value', () => {
           expect(result.composable.queueList.value.length).toBe(1);
         });
       });
@@ -1301,7 +1318,7 @@ describe('useAudioPlayer', () => {
             result.composable.togglePlay();
           });
 
-          it('does not remove the current track from queueList', () => {
+          it('does not remove the current track from queueList value', () => {
             expect(result.composable.queueList.value.length).toBe(1);
           });
         });
@@ -1322,7 +1339,7 @@ describe('useAudioPlayer', () => {
             );
           });
 
-          it('removes the current track from queueList', () => {
+          it('removes the current track from queueList value', () => {
             expect(result.composable.queueList.value.length).toBe(0);
           });
         });
@@ -1331,7 +1348,7 @@ describe('useAudioPlayer', () => {
   });
 
   describe('when playNextTrack function is called', () => {
-    describe('when track is not the last track in queueList', () => {
+    describe('when track is not the last track in queueList value', () => {
       beforeAll(() => {
         result.composable.queueList.value = [...queueTracks];
         result.composable.playNextTrack();
@@ -1356,7 +1373,7 @@ describe('useAudioPlayer', () => {
       });
     });
 
-    describe('when track is the last track in queueList', () => {
+    describe('when track is the last track in queueList value', () => {
       beforeAll(() => {
         result.composable.playNextTrack();
         result.composable.playNextTrack();
@@ -1378,7 +1395,7 @@ describe('useAudioPlayer', () => {
   });
 
   describe('when playPreviousTrack function is called', () => {
-    describe('when track is the first track in queueList', () => {
+    describe('when track is the first track in queueList value', () => {
       beforeAll(() => {
         result.composable.playPreviousTrack();
       });
@@ -1402,7 +1419,7 @@ describe('useAudioPlayer', () => {
       });
     });
 
-    describe('when track is not first track in queueList', () => {
+    describe('when track is not first track in queueList value', () => {
       beforeAll(() => {
         result.composable.playPreviousTrack();
       });
@@ -1523,7 +1540,7 @@ describe('useAudioPlayer', () => {
         result.composable.updateQueueTrackFavourite('id-not-found', true);
       });
 
-      it('does not update the queueList favourite value', () => {
+      it('does not update the queueList value favourite value', () => {
         expect(result.composable.queueList.value).toEqual(
           result.composable.queueList.value,
         );
@@ -1536,7 +1553,7 @@ describe('useAudioPlayer', () => {
 
     describe('when id is in queueTrack', () => {
       describe('when current track id is the same as the id', () => {
-        it('updates the queueList favourite value', () => {
+        it('updates the queueList value favourite value', () => {
           expect(
             (result.composable.queueList.value[1] as Track).favourite,
           ).toBe(false);
@@ -1555,7 +1572,7 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when track is not first track in queueList', () => {
+  describe('when track is not first track in queueList value', () => {
     describe('when onBuffered event is called', () => {
       beforeAll(() => {
         onBufferedCb(23);
@@ -1697,7 +1714,7 @@ describe('useAudioPlayer', () => {
           expect(playMock).toHaveBeenCalled();
         });
 
-        describe('when track is the last track in queueList', () => {
+        describe('when track is the last track in queueList value', () => {
           beforeAll(() => {
             onEndedCb();
             onEndedCb();
@@ -1735,7 +1752,7 @@ describe('useAudioPlayer', () => {
           expect(playMock).toHaveBeenCalled();
         });
 
-        describe('when track is the last track in queueList', () => {
+        describe('when track is the last track in queueList value', () => {
           beforeAll(() => {
             onEndedCb();
             onEndedCb();
@@ -1761,9 +1778,9 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when resetAudio function is called', () => {
+  describe('when resetAudioPlayer function is called', () => {
     beforeAll(() => {
-      result.composable.resetAudio();
+      result.composable.resetAudioPlayer();
     });
 
     it('calls the audio unload function', () => {
@@ -1774,94 +1791,124 @@ describe('useAudioPlayer', () => {
       expect(deleteLocalStorageMock).toHaveBeenCalled();
     });
 
-    it('sets isBuffering to default value', () => {
+    it('sets the isBuffering value to the default value', () => {
       expect(result.composable.isBuffering.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
       );
     });
 
-    it('sets currentTime to default value', () => {
+    it('sets the currentTime value to the default value', () => {
       expect(result.composable.currentTime.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.currentTime,
       );
     });
 
-    it('sets bufferedDuration to default value', () => {
+    it('sets the bufferedDuration value to the default value', () => {
       expect(result.composable.bufferedDuration.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
       );
     });
 
-    it('sets isPlaying to default value', () => {
+    it('sets the isPlaying value to the default value', () => {
       expect(result.composable.isPlaying.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
       );
     });
 
-    it('sets playbackRate to default value', () => {
+    it('sets the playbackRate value to the default value', () => {
       expect(result.composable.playbackRate.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
       );
     });
 
-    it('sets isMuted to default value', () => {
+    it('sets the isMuted value to the default value', () => {
       expect(result.composable.isMuted.value).toBe(false);
     });
 
-    it('sets volume to default value', () => {
+    it('sets the volume value to the default value', () => {
       expect(result.composable.volume.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.volume,
       );
     });
 
-    it('sets queueList to default value', () => {
+    it('sets the queueList value to the default value', () => {
       expect(result.composable.queueList.value).toEqual(
         AUDIO_PLAYER_DEFAULT_STATES.queueList,
       );
     });
 
-    it('sets repeat to default value', () => {
+    it('sets the repeat value to the default value', () => {
       expect(result.composable.repeat.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.repeat,
       );
     });
 
-    it('sets shuffle to default value', () => {
+    it('sets the shuffle value to the default value', () => {
       expect(result.composable.shuffle.value).toBe(
         AUDIO_PLAYER_DEFAULT_STATES.shuffle,
       );
     });
 
-    it('sets the correct hasNextTrack to default value', () => {
+    it('sets the correct hasNextTrack value', () => {
       expect(result.composable.hasNextTrack.value).toBe(false);
     });
 
-    it('sets the correct hasPreviousTrack to default value', () => {
+    it('sets the correct hasPreviousTrack value', () => {
       expect(result.composable.hasPreviousTrack.value).toBe(false);
     });
 
-    it('sets the correct showMediaPlayer to default value', () => {
+    it('sets the correct showMediaPlayer value', () => {
       expect(result.composable.showMediaPlayer.value).toBe(false);
     });
 
-    it('sets the correct currentTrack to default value', () => {
+    it('sets the correct currentTrack value', () => {
       expect(result.composable.currentTrack.value).toEqual({});
     });
 
-    it('sets the correct isTrack to default value', () => {
+    it('sets the correct isTrack value', () => {
       expect(result.composable.isTrack.value).toBe(false);
     });
 
-    it('sets the correct isPodcastEpisode to default value', () => {
+    it('sets the correct isPodcastEpisode value', () => {
       expect(result.composable.isPodcastEpisode.value).toBe(false);
     });
 
-    it('sets the correct isRadioStation to default value', () => {
+    it('sets the correct isRadioStation value', () => {
       expect(result.composable.isRadioStation.value).toBe(false);
     });
 
     it('sets the correct hasCurrentTrack value', () => {
       expect(result.composable.hasCurrentTrack.value).toBe(false);
+    });
+  });
+
+  describe('when the getCurrentInstance function returns true', () => {
+    beforeAll(() => {
+      result = withSetup(useAudioPlayer);
+    });
+
+    it('initialises the audio player on mount', () => {
+      expect(onTimeupdateMock).toHaveBeenCalled();
+      expect(onCanPlayMock).toHaveBeenCalled();
+      expect(onBufferedMock).toHaveBeenCalled();
+      expect(onWaitingMock).toHaveBeenCalled();
+      expect(onEndedMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the getCurrentInstance function returns null', () => {
+    beforeAll(() => {
+      vi.clearAllMocks();
+      getCurrentInstanceMock.mockReturnValue(null);
+      result = withSetup(useAudioPlayer);
+    });
+
+    it('does not initialises the audio player on mount', () => {
+      expect(onTimeupdateMock).not.toHaveBeenCalled();
+      expect(onCanPlayMock).not.toHaveBeenCalled();
+      expect(onBufferedMock).not.toHaveBeenCalled();
+      expect(onWaitingMock).not.toHaveBeenCalled();
+      expect(onEndedMock).not.toHaveBeenCalled();
     });
   });
 });

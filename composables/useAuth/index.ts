@@ -3,6 +3,7 @@ import MD5 from 'crypto-js/md5';
 export function useAuth() {
   const { fetchData } = useAPI();
   const user = useUser();
+  const { resetAllUserState } = useStateReset();
   const authCookie = useCookie(COOKIE_NAMES.auth, {
     expires: new Date(
       new Date().setDate(new Date().getDate() + DAYS_COOKIE_EXPIRES),
@@ -14,21 +15,16 @@ export function useAuth() {
   const isAuthenticated = useState(STATE_NAMES.userAuthenticated, () => false);
   user.value = loadSession(authCookie.value!);
 
-  function logout() {
-    clearNuxtData();
-    authCookie.value = null;
-    clearNuxtState(STATES_TO_CLEAR);
-  }
-
   async function autoLogin() {
     if (!user.value?.server) {
+      logoutAndRedirect();
       return;
     }
 
     const { data: loggedIn, error: loginError } = await fetchData('/ping');
 
     if (loginError?.message) {
-      logout();
+      logoutAndRedirect();
       return;
     }
 
@@ -82,12 +78,31 @@ export function useAuth() {
     loading.value = false;
   }
 
+  async function logoutAndRedirect() {
+    clearNuxtData();
+
+    // Reset all user-related states.
+    resetAuth();
+    resetAllUserState();
+
+    await navigateTo({
+      name: ROUTE_NAMES.login,
+    });
+  }
+
+  function resetAuth() {
+    isAuthenticated.value = false;
+    user.value = null;
+    authCookie.value = null;
+    error.value = null;
+  }
+
   return {
     autoLogin,
     error,
     isAuthenticated,
     loading,
     login,
-    logout,
+    logoutAndRedirect,
   };
 }

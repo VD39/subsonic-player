@@ -14,18 +14,9 @@ import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarN
 
 const route = useRoute();
 const user = useUser();
-const { logout } = useAuth();
-const { resetAudio } = useAudioPlayer();
+const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
 const { HOTKEYS_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
-
-async function logoutAndRedirect() {
-  resetAudio();
-  logout();
-  await navigateTo({
-    name: ROUTE_NAMES.login,
-  });
-}
 
 async function search(term: string) {
   await navigateTo({

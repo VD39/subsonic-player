@@ -8,7 +8,7 @@ const queueTrack = getFormattedQueueTracksMock();
 const addTracksToQueueMock = vi.fn();
 const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
-const clearQueueListMock = vi.fn();
+const clearQueueMock = vi.fn();
 const currentTimeMock = ref(0);
 const currentTrackMock = ref(queueTrack[0]);
 const fastForwardTrackMock = vi.fn();
@@ -52,7 +52,7 @@ export function useAudioPlayerMock() {
     addTracksToQueue: addTracksToQueueMock,
     addTrackToQueue: addTrackToQueueMock,
     bufferedDuration: bufferedDurationMock,
-    clearQueueList: clearQueueListMock,
+    clearQueue: clearQueueMock,
     currentTime: currentTimeMock,
     currentTrack: currentTrackMock,
     fastForwardTrack: fastForwardTrackMock,
@@ -96,7 +96,7 @@ export function useAudioPlayerMock() {
     addTracksToQueueMock,
     addTrackToQueueMock,
     bufferedDurationMock,
-    clearQueueListMock,
+    clearQueueMock,
     currentTimeMock,
     currentTrackMock,
     fastForwardTrackMock,

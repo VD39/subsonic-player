@@ -21,6 +21,7 @@ const {
   favouriteIds,
   favourites,
   getFavourites,
+  resetFavourites,
   toggleFavourite,
 } = useFavourite();
 
@@ -155,6 +156,20 @@ describe('useFavourite', () => {
           !isFavourite,
         );
       });
+    });
+  });
+
+  describe('when the resetFavourites function is called', () => {
+    beforeEach(() => {
+      resetFavourites();
+    });
+
+    it('sets the favourites value to the default value', () => {
+      expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
+    });
+
+    it('sets the favouriteIds value to the default value', () => {
+      expect(favouriteIds.value).toEqual({});
     });
   });
 });

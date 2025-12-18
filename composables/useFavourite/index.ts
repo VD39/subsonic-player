@@ -11,6 +11,11 @@ export function useFavourite() {
     () => ({}),
   );
 
+  function resetFavourites() {
+    favourites.value = DEFAULT_ALL_MEDIA;
+    favouriteIds.value = {};
+  }
+
   async function getFavourites() {
     const { data: favouritesData } = await fetchData('/getStarred2', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -64,6 +69,7 @@ export function useFavourite() {
     favourites,
     getFavourites,
     removeFavourite,
+    resetFavourites,
     toggleFavourite,
   };
 }

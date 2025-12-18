@@ -11,6 +11,12 @@ export function useAlbum() {
     () => [],
   );
 
+  function resetAlbums() {
+    newestAlbums.value = [];
+    recentAlbums.value = [];
+    frequentAlbums.value = [];
+  }
+
   async function getAlbums(params: AlbumsParams) {
     const { data: albumsData } = await fetchData('/getAlbumList2', {
       query: {
@@ -94,5 +100,6 @@ export function useAlbum() {
     getRecentAlbums,
     newestAlbums,
     recentAlbums,
+    resetAlbums,
   };
 }

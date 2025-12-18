@@ -23,6 +23,7 @@ const {
   deleteRadioStation,
   getRadioStations,
   radioStations,
+  resetRadioStations,
   updateRadioStation,
 } = useRadioStation();
 
@@ -252,6 +253,16 @@ describe('useRadioStation', () => {
           expect.any(Object),
         );
       });
+    });
+  });
+
+  describe('when the resetRadioStations function is called', () => {
+    beforeEach(() => {
+      resetRadioStations();
+    });
+
+    it('sets the radioStations value to the default value', () => {
+      expect(radioStations.value).toEqual([]);
     });
   });
 });

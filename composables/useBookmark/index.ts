@@ -4,6 +4,10 @@ export function useBookmark() {
 
   const bookmarks = useState<Bookmark[]>(STATE_NAMES.bookmarks, () => []);
 
+  function resetBookmarks() {
+    bookmarks.value = [];
+  }
+
   async function getBookmarks() {
     const { data: bookmarksData } = await fetchData('/getBookmarks', {
       transform: /* istanbul ignore next -- @preserve */ (response) =>
@@ -57,5 +61,6 @@ export function useBookmark() {
     createBookmark,
     deleteBookmark,
     getBookmarks,
+    resetBookmarks,
   };
 }

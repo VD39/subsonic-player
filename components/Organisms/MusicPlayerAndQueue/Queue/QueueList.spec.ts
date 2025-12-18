@@ -15,7 +15,7 @@ mockNuxtImport('useQueue', () => () => ({
 }));
 
 const {
-  clearQueueListMock,
+  clearQueueMock,
   playTrackFromQueueListMock,
   removeTrackFromQueueListMock,
 } = useAudioPlayerMock();
@@ -77,11 +77,11 @@ describe('QueueList', () => {
 
   describe('when the clear queue ButtonLink component is clicked', () => {
     beforeEach(() => {
-      wrapper.findComponent({ ref: 'clearQueue' }).vm.$emit('click');
+      wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
     });
 
-    it('calls the clearQueueList function', () => {
-      expect(clearQueueListMock).toHaveBeenCalled();
+    it('calls the clearQueue function', () => {
+      expect(clearQueueMock).toHaveBeenCalled();
     });
   });
 });

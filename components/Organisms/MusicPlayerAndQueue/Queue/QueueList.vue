@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
 const {
-  clearQueueList,
+  clearQueue,
   playTrackFromQueueList,
   queueList,
   removeTrackFromQueueList,
@@ -34,10 +34,10 @@ const { openTrackInformationModal } = useMediaInformation();
       <div />
 
       <ButtonLink
-        ref="clearQueue"
+        ref="clearQueueButton"
         :icon="ICONS.clear"
         title="Clear queue"
-        @click="clearQueueList"
+        @click="clearQueue"
       >
         Clear queue
       </ButtonLink>

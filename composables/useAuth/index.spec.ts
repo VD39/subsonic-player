@@ -26,6 +26,20 @@ mockNuxtImport('useUser', () => () => useUserMock);
 
 mockNuxtImport('generateRandomString', () => () => 'randomString');
 
+const resetAllUserStateMock = vi.fn();
+
+mockNuxtImport('useStateReset', () => () => ({
+  resetAllUserState: resetAllUserStateMock,
+}));
+
+const clearNuxtDataMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('clearNuxtData', () => clearNuxtDataMock);
+
+const navigateToMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('navigateTo', () => navigateToMock);
+
 describe('useAuth', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>;
 
@@ -55,9 +69,26 @@ describe('useAuth', () => {
       it('does not call the fetchData function', () => {
         expect(fetchDataMock).not.toHaveBeenCalled();
       });
+      it('sets the correct useCookie value', () => {
+        expect(useCookieMock.value).toBe(null);
+      });
 
-      it('sets the isAuthenticated value to false', () => {
+      it('sets the correct isAuthenticated value', () => {
         expect(result.composable.isAuthenticated.value).toBe(false);
+      });
+
+      it('calls the clearNuxtData function', () => {
+        expect(clearNuxtDataMock).toHaveBeenCalled();
+      });
+
+      it('calls the resetAllUserState function', () => {
+        expect(resetAllUserStateMock).toHaveBeenCalled();
+      });
+
+      it('calls the navigateTo function with the correct parameters', () => {
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.login,
+        });
       });
     });
 
@@ -100,9 +131,26 @@ describe('useAuth', () => {
 
             result.composable.autoLogin();
           });
+          it('sets the correct useCookie value', () => {
+            expect(useCookieMock.value).toBe(null);
+          });
 
           it('sets the correct isAuthenticated value', () => {
-            expect(result.composable.isAuthenticated.value).toBe(undefined);
+            expect(result.composable.isAuthenticated.value).toBe(false);
+          });
+
+          it('calls the clearNuxtData function', () => {
+            expect(clearNuxtDataMock).toHaveBeenCalled();
+          });
+
+          it('calls the resetAllUserState function', () => {
+            expect(resetAllUserStateMock).toHaveBeenCalled();
+          });
+
+          it('calls the navigateTo function with the correct parameters', () => {
+            expect(navigateToMock).toHaveBeenCalledWith({
+              name: ROUTE_NAMES.login,
+            });
           });
         });
       });
@@ -147,6 +195,7 @@ describe('useAuth', () => {
         });
 
         result = withSetup(useAuth);
+
         result.composable.login({
           password: 'password',
           server: 'https://www.server.com',
@@ -179,9 +228,9 @@ describe('useAuth', () => {
     });
   });
 
-  describe('when the logout function is called', () => {
-    beforeEach(() => {
-      result.composable.logout();
+  describe('when the logoutAndRedirect function is called', () => {
+    beforeEach(async () => {
+      await result.composable.logoutAndRedirect();
     });
 
     it('sets the correct useCookie value', () => {
@@ -189,7 +238,21 @@ describe('useAuth', () => {
     });
 
     it('sets the correct isAuthenticated value', () => {
-      expect(result.composable.isAuthenticated.value).toBe(undefined);
+      expect(result.composable.isAuthenticated.value).toBe(false);
+    });
+
+    it('calls the clearNuxtData function', () => {
+      expect(clearNuxtDataMock).toHaveBeenCalled();
+    });
+
+    it('calls the resetAllUserState function', () => {
+      expect(resetAllUserStateMock).toHaveBeenCalled();
+    });
+
+    it('calls the navigateTo function with the correct parameters', () => {
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.login,
+      });
     });
   });
 });

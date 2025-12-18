@@ -36,6 +36,7 @@ const {
   playlist,
   playlists,
   removeFromPlaylist,
+  resetPlaylists,
   updatePlaylist,
 } = usePlaylist();
 
@@ -673,6 +674,20 @@ describe('usePlaylist', () => {
           });
         });
       });
+    });
+  });
+
+  describe('when the resetPlaylists function is called', () => {
+    beforeEach(() => {
+      resetPlaylists();
+    });
+
+    it('sets the playlist value to the default value', () => {
+      expect(playlist.value).toEqual(null);
+    });
+
+    it('sets the playlists value to the default value', () => {
+      expect(playlists.value).toEqual([]);
     });
   });
 });

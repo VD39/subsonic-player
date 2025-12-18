@@ -24,7 +24,7 @@ export function useInfinityLoading<T>(id: string) {
     return items.value;
   }
 
-  function resetToDefaults() {
+  function resetInfinityLoading() {
     items.value = [];
     offset.value = 0;
     hasMore.value = true;
@@ -35,6 +35,6 @@ export function useInfinityLoading<T>(id: string) {
     hasMore,
     items,
     LOAD_SIZE: Number(LOAD_SIZE),
-    resetToDefaults,
+    resetInfinityLoading,
   };
 }

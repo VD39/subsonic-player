@@ -19,16 +19,10 @@ const userMock = vi.hoisted(() => vi.fn(() => ref<null | User>(null)));
 
 mockNuxtImport('useUser', () => userMock);
 
-const logoutMock = vi.fn();
+const logoutAndRedirectMock = vi.fn();
 
 mockNuxtImport('useAuth', () => () => ({
-  logout: logoutMock,
-}));
-
-const resetAudioMock = vi.fn();
-
-mockNuxtImport('useAudioPlayer', () => () => ({
-  resetAudio: resetAudioMock,
+  logoutAndRedirect: logoutAndRedirectMock,
 }));
 
 const startScanMock = vi.fn();
@@ -132,24 +126,14 @@ describe('Default', () => {
         });
       });
 
-      describe('when the logout DropdownItem component emits the click event', () => {
+      describe('when the logoutAndRedirect DropdownItem component emits the click event', () => {
         beforeEach(async () => {
           wrapper.findComponent({ ref: 'logoutButton' }).vm.$emit('click');
           await wrapper.vm.$nextTick();
         });
 
-        it('calls the logout function', () => {
-          expect(logoutMock).toHaveBeenCalled();
-        });
-
-        it('calls the resetAudio function', () => {
-          expect(resetAudioMock).toHaveBeenCalled();
-        });
-
-        it('calls the navigateTo function with the correct parameters', () => {
-          expect(navigateToMock).toHaveBeenCalledWith({
-            name: ROUTE_NAMES.login,
-          });
+        it('calls the logoutAndRedirect function', () => {
+          expect(logoutAndRedirectMock).toHaveBeenCalled();
         });
       });
     });

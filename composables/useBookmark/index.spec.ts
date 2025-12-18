@@ -19,8 +19,13 @@ mockNuxtImport('useSnack', () => () => ({
   addSuccessSnack: addSuccessSnackMock,
 }));
 
-const { bookmarks, createBookmark, deleteBookmark, getBookmarks } =
-  useBookmark();
+const {
+  bookmarks,
+  createBookmark,
+  deleteBookmark,
+  getBookmarks,
+  resetBookmarks,
+} = useBookmark();
 
 describe('useBookmark', () => {
   afterEach(() => {
@@ -168,6 +173,16 @@ describe('useBookmark', () => {
           );
         });
       });
+    });
+  });
+
+  describe('when the resetBookmarks function is called', () => {
+    beforeEach(() => {
+      resetBookmarks();
+    });
+
+    it('sets the bookmarks value to the default value', () => {
+      expect(bookmarks.value).toEqual([]);
     });
   });
 });

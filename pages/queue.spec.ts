@@ -43,7 +43,7 @@ mockNuxtImport('useAsyncData', () => () => ({
 
 const { useHeadTitleMock } = useHeadMock();
 const {
-  clearQueueListMock,
+  clearQueueMock,
   playTrackFromQueueListMock,
   queueListMock,
   removeTrackFromQueueListMock,
@@ -83,8 +83,8 @@ describe('queue', () => {
       wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
     });
 
-    it('calls the clearQueueList function with the correct parameters', () => {
-      expect(clearQueueListMock).toHaveBeenCalled();
+    it('calls the clearQueue function with the correct parameters', () => {
+      expect(clearQueueMock).toHaveBeenCalled();
     });
   });
 
