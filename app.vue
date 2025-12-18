@@ -20,6 +20,7 @@ useHead({
       '--sidebar-bottom': () =>
         showMediaPlayer.value ? 'var(--media-player-height)' : '0px',
       '--sidebar-width': width,
+      '--theme-color': THEME_COLOUR,
     },
   },
   htmlAttrs: {

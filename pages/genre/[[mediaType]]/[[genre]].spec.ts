@@ -6,7 +6,6 @@ import { mount } from '@vue/test-utils';
 import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
-import { ROUTE_MEDIA_TYPE_PARAMS } from '@/settings/constants';
 import { getFormattedAlbumsMock, getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';

@@ -3,8 +3,7 @@
   --black-color: #000;
   --white-color: #fff;
 
-  /* Theme colours. */
-  --theme-color: #6313bc;
+  /* Theme colour defined in constants/theme.ts as THEME_COLOUR and set in app.vue. */
 
   /* Snack colours. */
   --success-color: rgb(28 130 38);

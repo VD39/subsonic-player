@@ -8,7 +8,6 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
-import { ROUTE_MEDIA_TYPE_PARAMS } from '@/settings/constants';
 import {
   getFormattedAlbumsMock,
   getFormattedArtistsMock,

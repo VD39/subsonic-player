@@ -70,7 +70,9 @@
     "url": "git+https://github.com/VD39/subsonic-player.git"
   },
   "scripts": {
+    "clean": "rm -rf .nuxt dist .output node_modules/.vite node_modules/.cache",
     "build": "nuxt build",
+    "build:preview": "yarn build && yarn preview",
     "check-types": "vue-tsc --noEmit",
     "dev": "yarn postinstall && nuxt dev --open",
     "generate": "nuxt generate",
