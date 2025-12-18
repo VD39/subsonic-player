@@ -11,7 +11,6 @@ export default defineVitestConfig({
         '**/navigations/**',
         '**/plugins/**',
         '**/docs/**',
-        '**/stories/**',
         'app.vue',
         'components/Molecules/CarouselSwiper.vue',
         'composables/useAudioPlayer/player.ts',
