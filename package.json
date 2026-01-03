@@ -73,6 +73,8 @@
     "clean": "rm -rf .nuxt dist .output node_modules/.vite node_modules/.cache",
     "build": "nuxt build",
     "build:preview": "yarn build && yarn preview",
+    "build:webos": "./webos/package-webos.sh",
+    "manifest": "node webos/tools/gen-manifest.cjs com.subsonic.player.v1.manifest.json",
     "check-types": "vue-tsc --noEmit",
     "dev": "yarn postinstall && nuxt dev --open",
     "generate": "nuxt generate",

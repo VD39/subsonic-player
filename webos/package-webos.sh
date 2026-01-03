@@ -72,3 +72,4 @@ fi
 
 echo ""
 echo "✅ Build complete! webOS app files are in: webos/"
+yarn manifest
