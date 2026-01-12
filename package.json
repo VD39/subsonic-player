@@ -41,7 +41,7 @@
     "postcss-custom-media": "^11.0.6",
     "postcss-extend-rule": "^4.0.0",
     "postcss-html": "^1.8.0",
-    "postcss-preset-env": "^10.5.0",
+    "postcss-preset-env": "^10.6.1",
     "postcss-pxtorem": "^6.1.0",
     "postcss-rem": "^3.0.0",
     "prettier": "^3.7.4",
