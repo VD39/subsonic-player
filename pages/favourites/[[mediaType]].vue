@@ -34,8 +34,13 @@ const { refresh, status } = useAsyncData(
     default: () => ({
       favourites: DEFAULT_ALL_MEDIA,
     }),
-    getCachedData: (key, nuxtApp) =>
-      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    getCachedData: (key, nuxtApp, ctx) => {
+      if (ctx.cause === 'refresh:manual') {
+        return undefined;
+      }
+
+      return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+    },
   },
 );
 

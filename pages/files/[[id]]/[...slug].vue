@@ -29,8 +29,13 @@ const {
     default: () => ({
       musicDirectory: DEFAULT_MEDIA_LIBRARY,
     }),
-    getCachedData: (key, nuxtApp) =>
-      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    getCachedData: (key, nuxtApp, ctx) => {
+      if (ctx.cause === 'refresh:manual') {
+        return undefined;
+      }
+
+      return nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+    },
   },
 );
 
