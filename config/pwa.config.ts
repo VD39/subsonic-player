@@ -33,7 +33,7 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
       },
       includeAssets: ['*.svg', '*.png'],
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,vue,png,svg,ico,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,woff2}'],
       },
       injectRegister: 'auto',
       manifest: {
@@ -106,9 +106,10 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
       registerType: 'autoUpdate',
       workbox: {
         cleanupOutdatedCaches: true,
-        globPatterns: ['**/*.{js,css,html,vue,png,svg,ico,woff2}'],
+        clientsClaim: true,
+        globPatterns: ['**/*.{js,css,html,ico,woff2}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
-        navigateFallback: null,
+        navigateFallback: '/',
         runtimeCaching: [
           {
             handler: 'CacheFirst',
@@ -136,7 +137,8 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
               ],
               rangeRequests: true,
             },
-            urlPattern: /^https?:\/\/.*\.(mp3|ogg|wav|flac|m4a)$/i,
+            urlPattern:
+              /^https?:\/\/.*(\/stream|\.(mp3|ogg|wav|flac|m4a))(\?.*)?$/i,
           },
           {
             handler: 'CacheFirst',
@@ -152,10 +154,22 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
               plugins: [
                 {
                   cacheKeyWillBeUsed: async ({ request }) => {
-                    const url = URL.parse(request.url);
+                    const url = new URL(request.url);
 
                     if (url) {
+                      const id = url.searchParams.get('id');
+                      const size = url.searchParams.get('size');
+
                       url.search = '';
+
+                      if (id) {
+                        url.searchParams.set('id', id);
+                      }
+
+                      if (size) {
+                        url.searchParams.set('size', size);
+                      }
+
                       return url.toString();
                     }
 
@@ -164,7 +178,8 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
                 },
               ],
             },
-            urlPattern: /^https?:\/\/.*\.(png|jpg|jpeg|svg|gif|webp)$/i,
+            urlPattern:
+              /^https?:\/\/.*(\/getCoverArt|\.(png|jpg|jpeg|svg|gif|webp))(\?.*)?$/i,
           },
           {
             handler: 'NetworkFirst',
@@ -197,6 +212,7 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
             urlPattern: /^https?:\/\/.*\/(ping|getLicense|getUser)$/i,
           },
         ],
+        skipWaiting: true,
       },
     },
   };
