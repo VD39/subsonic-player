@@ -17,7 +17,7 @@
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.1.0",
     "@eslint/compat": "^2.0.2",
-    "@nuxt/eslint": "^1.12.1",
+    "@nuxt/eslint": "^1.13.0",
     "@nuxt/test-utils": "^3.23.0",
     "@nuxtjs/stylelint-module": "^5.2.1",
     "@playwright/test": "^1.58.1",
