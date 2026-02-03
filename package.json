@@ -11,7 +11,7 @@
     "crypto-js": "^4.2.0",
     "nuxt": "^4.2.2",
     "nuxt-swiper": "^2.0.1",
-    "vue": "^3.5.26"
+    "vue": "^3.5.27"
   },
   "description": "A responsive, modern web-based client designed for Subsonic music servers.",
   "devDependencies": {
