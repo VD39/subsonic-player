@@ -52,7 +52,7 @@
     "stylelint-order": "^7.0.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.16",
-    "vue-tsc": "^3.2.2"
+    "vue-tsc": "^3.2.4"
   },
   "homepage": "https://github.com/VD39/subsonic-player#readme",
   "keywords": [
