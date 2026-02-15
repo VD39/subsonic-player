@@ -5,7 +5,7 @@ import { mount } from '@vue/test-utils';
 
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
-import { formattedPlaylistMock } from '@/test/fixtures';
+import { getFormattedPlaylistsMock } from '@/test/helpers';
 import { useHeadMock } from '@/test/useHeadMock';
 
 import PlaylistsPage from './playlists.vue';
@@ -31,6 +31,8 @@ mockNuxtImport('useAsyncData', () => () => ({
 }));
 
 const { useHeadTitleMock } = useHeadMock();
+
+const playlist = getFormattedPlaylistsMock()[0];
 
 function factory(props = {}) {
   return mount(PlaylistsPage, {
@@ -83,25 +85,21 @@ describe('playlists', () => {
     beforeEach(() => {
       wrapper
         .findComponent(PlaylistsList)
-        .vm.$emit('deletePlaylist', formattedPlaylistMock.id);
+        .vm.$emit('deletePlaylist', playlist.id);
     });
 
     it('calls the deletePlaylist function with the correct parameters', () => {
-      expect(deletePlaylistMock).toHaveBeenCalledWith(formattedPlaylistMock.id);
+      expect(deletePlaylistMock).toHaveBeenCalledWith(playlist.id);
     });
   });
 
   describe('when the PlaylistsList component emits the editPlaylist event', () => {
     beforeEach(() => {
-      wrapper
-        .findComponent(PlaylistsList)
-        .vm.$emit('editPlaylist', formattedPlaylistMock);
+      wrapper.findComponent(PlaylistsList).vm.$emit('editPlaylist', playlist);
     });
 
     it('calls the updatePlaylistModal function with the correct parameters', () => {
-      expect(updatePlaylistModalMock).toHaveBeenCalledWith(
-        formattedPlaylistMock,
-      );
+      expect(updatePlaylistModalMock).toHaveBeenCalledWith(playlist);
     });
   });
 });

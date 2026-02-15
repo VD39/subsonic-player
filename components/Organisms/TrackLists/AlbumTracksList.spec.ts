@@ -2,10 +2,8 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import AlbumTracksListItem from '@/components/Organisms/TrackLists/AlbumTracksListItem.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import AlbumTracksList from './AlbumTracksList.vue';
@@ -13,30 +11,20 @@ import AlbumTracksList from './AlbumTracksList.vue';
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
 
-async function factory(props = {}) {
-  const wrapper = mount(AlbumTracksList, {
+function factory(props = {}) {
+  return mount(AlbumTracksList, {
     props: {
       tracks: [],
       ...props,
     },
   });
-
-  await wrapper.vm.$nextTick();
-
-  const dropdownMenu = wrapper.findComponent(DropdownMenu);
-
-  if (dropdownMenu.exists()) {
-    dropdownMenu.findComponent(ButtonLink).vm.$emit('click');
-  }
-
-  return wrapper;
 }
 
 describe('AlbumTracksList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(async () => {
-    wrapper = await factory();
+  beforeEach(() => {
+    wrapper = factory();
   });
 
   it('matches the snapshot', () => {
@@ -54,8 +42,8 @@ describe('AlbumTracksList', () => {
   });
 
   describe('when tracks prop is not an empty array', () => {
-    beforeEach(async () => {
-      wrapper = await factory({
+    beforeEach(() => {
+      wrapper = factory({
         tracks,
       });
     });
@@ -69,91 +57,40 @@ describe('AlbumTracksList', () => {
     });
 
     it('shows the correct number of track items', () => {
-      expect(wrapper.findAll('[data-test-id="track"]').length).toBe(5);
+      expect(wrapper.findAllComponents(AlbumTracksListItem).length).toBe(5);
     });
 
     it('does not show the NoMediaMessage component', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when track.artists is an empty array', () => {
-      beforeEach(async () => {
-        wrapper = await factory({
-          tracks: getFormattedTracksMock(1, {
-            artists: [],
-          }),
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the MarqueeScroll component containing the artists details', () => {
-        expect(
-          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
-        ).toBe(false);
-      });
-    });
-
-    describe('when track.artists is not empty array', () => {
-      it('shows the MarqueeScroll component containing the artists details', () => {
-        expect(
-          wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
-        ).toBe(true);
-      });
-    });
-
     describe.each([
-      [
-        'add to playlist DropdownItem',
-        'addToPlaylist',
-        'addToPlaylist',
-        [track.id],
-      ],
-      [
-        'media information DropdownItem',
-        'mediaInformation',
-        'mediaInformation',
-        [track],
-      ],
-      [
-        'download media DropdownItem',
-        'downloadMedia',
-        'downloadMedia',
-        [track],
-      ],
-      ['add to queue DropdownItem', 'addToQueue', 'addToQueue', [track]],
-      ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
+      ['addToPlaylist', [track.id]],
+      ['mediaInformation', [track]],
+      ['downloadMedia', [track]],
+      ['addToQueue', [track]],
+      ['playTrack', [track.index]],
     ])(
-      'when the %s component emits the click event',
-      (_text, ref, emitEventName, expectedArgs) => {
+      'when the AlbumTracksListItem component emits the %s event',
+      (eventName, expectedArgs) => {
         beforeEach(async () => {
-          wrapper.findComponent({ ref }).vm.$emit('click');
+          wrapper.findComponent(AlbumTracksListItem).vm.$emit(eventName);
         });
 
-        it(`emits the ${emitEventName} event with the correct value`, () => {
-          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        it(`emits the ${eventName} event with the correct value`, () => {
+          expect(wrapper.emitted(eventName)).toEqual([expectedArgs]);
         });
       },
     );
 
-    describe('when the TrackPlayPause component emits the playTrack event', () => {
+    describe('when the AlbumTracksListItem component emits the dragStart event', () => {
       beforeEach(async () => {
-        wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
+        wrapper
+          .findComponent(AlbumTracksListItem)
+          .vm.$emit('dragStart', new DragEvent('dragstart'));
       });
 
-      it('emits the playTrack event with the correct value', () => {
-        expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-      });
-    });
-
-    describe('when a track item is dragged', () => {
-      beforeEach(async () => {
-        await wrapper.find('[data-test-id="track"]').trigger('dragstart');
-      });
-
-      it('emits the dragStart event', () => {
+      it('emits the dragStart event with the correct value', () => {
         expect(wrapper.emitted('dragStart')).toEqual([
           [track, expect.any(DragEvent)],
         ]);

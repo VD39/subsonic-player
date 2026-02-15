@@ -14,10 +14,12 @@ const route = useRoute();
 const { viewLayout } = useViewLayout();
 const { addToPlaylistModal } = usePlaylist();
 const { search } = useSearch();
-const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal, openTrackInformationModal } =
+  useMediaInformation();
+const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { downloadMedia } = useMediaLibrary();
 const { dragStart } = useDragAndDrop();
+const { getMediaTracks } = useMediaTracks();
 const { fetchMoreData, hasMore } = useInfinityLoading<SearchResultByType>(
   `search-${route.params[ROUTE_PARAM_KEYS.search.mediaType]}-${route.params[ROUTE_PARAM_KEYS.search.query]}`,
 );
@@ -59,16 +61,40 @@ const {
   },
 );
 
-const loadingStatus = computed(() =>
-  searchResultsData.value.searchResults.length ? 'success' : status.value,
-);
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
 
-function playTrack(index: number) {
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
+
+function onPlayTrack(index: number) {
   playTracks(
     [(searchResultsData.value.searchResults as MixedTrack[])[index]],
     -1,
   );
 }
+
+const loadingStatus = computed(() =>
+  searchResultsData.value.searchResults.length ? 'success' : status.value,
+);
+
+const albums = computed(() => searchResultsData.value.searchResults as Album[]);
+
+const artists = computed(
+  () => searchResultsData.value.searchResults as Artist[],
+);
+
+const tracks = computed(() => searchResultsData.value.searchResults as Track[]);
 
 useHead({
   title: () =>
@@ -89,8 +115,11 @@ useHead({
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
-      :albums="searchResultsData.searchResults as Album[]"
+      :albums
+      @addToQueue="addAlbumToQueue"
       @dragStart="dragStart"
+      @mediaInformation="openAlbumInformationModal"
+      @playAlbum="onPlayAlbum"
     />
 
     <ArtistsList
@@ -98,7 +127,7 @@ useHead({
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Artists
       "
-      :artists="searchResultsData.searchResults as Artist[]"
+      :artists
     />
 
     <TracksList
@@ -106,13 +135,13 @@ useHead({
         route.params[ROUTE_PARAM_KEYS.search.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
       "
-      :tracks="searchResultsData.searchResults as Track[]"
+      :tracks
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
-      @playTrack="playTrack"
+      @playTrack="onPlayTrack"
     />
 
     <InfiniteScroller

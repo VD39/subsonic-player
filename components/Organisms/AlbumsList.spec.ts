@@ -108,17 +108,47 @@ describe('AlbumsList', () => {
           expectedProps.tablet,
         );
       });
+    });
 
-      describe('when am album item is dragged', () => {
-        beforeEach(async () => {
-          await wrapper.findComponent(AlbumItem).trigger('dragstart');
-        });
+    describe('when the AlbumItem component emits the dragstart event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent(AlbumItem)
+          .vm.$emit('dragStart', album, DragEvent);
+      });
 
-        it('emits the dragStart event', () => {
-          expect(wrapper.emitted('dragStart')).toEqual([
-            [album, expect.any(DragEvent)],
-          ]);
-        });
+      it('emits the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toEqual([[album, DragEvent]]);
+      });
+    });
+
+    describe('when the AlbumItem component emits the addToQueue event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumItem).vm.$emit('addToQueue', album);
+      });
+
+      it('emits the addToQueue event', () => {
+        expect(wrapper.emitted('addToQueue')).toEqual([[album]]);
+      });
+    });
+
+    describe('when the AlbumItem component emits the mediaInformation event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumItem).vm.$emit('mediaInformation', album);
+      });
+
+      it('emits the mediaInformation event', () => {
+        expect(wrapper.emitted('mediaInformation')).toEqual([[album]]);
+      });
+    });
+
+    describe('when the AlbumItem component emits the playAlbum event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumItem).vm.$emit('playAlbum', album);
+      });
+
+      it('emits the playAlbum event', () => {
+        expect(wrapper.emitted('playAlbum')).toEqual([[album]]);
       });
     });
   });

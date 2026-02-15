@@ -40,7 +40,7 @@ function getProgress(newValue = 0) {
   return (newValue / props.max) * sliderWidth;
 }
 
-function handleModifyProgress(event: MouseEvent | TouchEvent) {
+function modifyProgress(event: MouseEvent | TouchEvent) {
   if (!sliderRef.value) {
     return;
   }
@@ -67,22 +67,24 @@ function handleModifyProgress(event: MouseEvent | TouchEvent) {
 
 function onMouseMove(event: MouseEvent | TouchEvent) {
   isHovering.value = false;
-  handleModifyProgress(event);
+  modifyProgress(event);
 }
 
 function onMouseUp() {
   updateValue();
+
   document.removeEventListener('mouseup', onMouseUp);
   document.removeEventListener('mousemove', onMouseMove);
 
   document.removeEventListener('touchend', onMouseUp);
   document.removeEventListener('touchmove', onMouseMove);
+
   isSeeking.value = false;
 }
 
 function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   isSeeking.value = true;
-  handleModifyProgress(event);
+  modifyProgress(event);
 
   document.addEventListener('mouseup', onMouseUp);
   document.addEventListener('mousemove', onMouseMove);
@@ -97,7 +99,7 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
 
 function onSliderMouseMove(event: MouseEvent) {
   if (isHovering.value) {
-    handleModifyProgress(event);
+    modifyProgress(event);
   }
 }
 

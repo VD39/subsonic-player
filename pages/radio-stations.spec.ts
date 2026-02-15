@@ -5,7 +5,7 @@ import { mount } from '@vue/test-utils';
 
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import RadioStationsList from '@/components/Organisms/TrackLists/RadioStationsList.vue';
-import { formattedRadioStationMock } from '@/test/fixtures';
+import { getFormattedRadioStationMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
 
@@ -33,6 +33,8 @@ mockNuxtImport('useAsyncData', () => () => ({
 
 const { useHeadTitleMock } = useHeadMock();
 const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
+
+const radioStation = getFormattedRadioStationMock()[0];
 
 function factory(props = {}) {
   return mount(RadioStationsPage, {
@@ -85,13 +87,11 @@ describe('radio-stations', () => {
     beforeEach(() => {
       wrapper
         .findComponent(RadioStationsList)
-        .vm.$emit('addToQueue', formattedRadioStationMock);
+        .vm.$emit('addToQueue', radioStation);
     });
 
     it('calls the addTrackToQueue function with the correct parameters', () => {
-      expect(addTrackToQueueMock).toHaveBeenCalledWith(
-        formattedRadioStationMock,
-      );
+      expect(addTrackToQueueMock).toHaveBeenCalledWith(radioStation);
     });
   });
 
@@ -99,13 +99,11 @@ describe('radio-stations', () => {
     beforeEach(() => {
       wrapper
         .findComponent(RadioStationsList)
-        .vm.$emit('deleteRadioStation', formattedRadioStationMock.id);
+        .vm.$emit('deleteRadioStation', radioStation.id);
     });
 
     it('calls the deleteRadioStation function with the correct parameters', () => {
-      expect(deleteRadioStationMock).toHaveBeenCalledWith(
-        formattedRadioStationMock.id,
-      );
+      expect(deleteRadioStationMock).toHaveBeenCalledWith(radioStation.id);
     });
   });
 
@@ -113,13 +111,11 @@ describe('radio-stations', () => {
     beforeEach(() => {
       wrapper
         .findComponent(RadioStationsList)
-        .vm.$emit('editRadioStation', formattedRadioStationMock);
+        .vm.$emit('editRadioStation', radioStation);
     });
 
     it('calls the updateRadioStationModal function with the correct parameters', () => {
-      expect(updateRadioStationModalMock).toHaveBeenCalledWith(
-        formattedRadioStationMock,
-      );
+      expect(updateRadioStationModalMock).toHaveBeenCalledWith(radioStation);
     });
   });
 
@@ -127,11 +123,11 @@ describe('radio-stations', () => {
     beforeEach(() => {
       wrapper
         .findComponent(RadioStationsList)
-        .vm.$emit('playRadioStation', formattedRadioStationMock);
+        .vm.$emit('playRadioStation', radioStation);
     });
 
     it('calls the playTracks function with the correct parameters', () => {
-      expect(playTracksMock).toHaveBeenCalledWith([formattedRadioStationMock]);
+      expect(playTracksMock).toHaveBeenCalledWith([radioStation]);
     });
   });
 });

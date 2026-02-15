@@ -89,7 +89,7 @@ export function useHotkeyManager() {
     }
   }
 
-  async function onKeydown(event: KeyboardEvent) {
+  function onKeydown(event: KeyboardEvent) {
     const searchInput = document.getElementById(HOTKEY_ELEMENT_IDS.searchInput);
 
     // Ignore all key events if focus is on search input or if a modal is visible.
@@ -117,7 +117,7 @@ export function useHotkeyManager() {
       return;
     }
 
-    callOnlyWithCurrentTrack(fn);
+    await callOnlyWithCurrentTrack(fn);
   }
 
   async function callOnlyWithCurrentTrack(fn: () => Promise<void> | void) {

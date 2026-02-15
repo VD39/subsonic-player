@@ -1,26 +1,29 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import { getFormattedAlbumsMock } from '@/test/helpers';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import AlbumItem from './AlbumItem.vue';
 
-const getAlbumMock = vi.fn();
-
-mockNuxtImport('useAlbum', () => () => ({
-  getAlbum: getAlbumMock,
-}));
-
-const { playTracksMock } = useAudioPlayerMock();
-
 const album = getFormattedAlbumsMock()[0];
+
+const openDropdownMenuMock = vi.fn();
 
 function factory(props = {}) {
   return mount(AlbumItem, {
+    global: {
+      stubs: {
+        DropdownMenu: {
+          methods: {
+            openDropdownMenu: openDropdownMenuMock,
+          },
+          template: '<div><slot /></div>',
+        },
+      },
+    },
     props: {
       album,
       ...props,
@@ -39,7 +42,7 @@ describe('AlbumItem', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when album artist is not an empty array', () => {
+  describe('when album artists is not an empty array', () => {
     describe('when hideArtist prop is false', () => {
       it('shows the ArtistsList component', () => {
         expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
@@ -53,13 +56,17 @@ describe('AlbumItem', () => {
         });
       });
 
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
       it('does not show the ArtistsList component', () => {
         expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
       });
     });
   });
 
-  describe('when album artist is an empty array', () => {
+  describe('when album artists is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         album: getFormattedAlbumsMock(1, {
@@ -77,30 +84,53 @@ describe('AlbumItem', () => {
     });
   });
 
-  describe('when ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'playAlbumButtonLink' }).vm.$emit('click');
-    });
-
-    it('calls the getAlbum function with the correct parameters', () => {
-      expect(getAlbumMock).toHaveBeenCalledWith(album.id);
-    });
-
-    describe('when useAlbum album returns null', () => {
-      it('does not call the playTracks function', () => {
-        expect(playTracksMock).not.toHaveBeenCalled();
-      });
-    });
-
-    describe('when useAlbum album returns track data', () => {
+  describe.each([
+    ['play album ButtonLink', 'playAlbumButtonLink', 'playAlbum'],
+    ['play album DropdownItem', 'playAlbum', 'playAlbum'],
+    ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
+    ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],
+  ])(
+    'when the %s component emits the click event',
+    (_text, ref, emitEventName) => {
       beforeEach(() => {
-        getAlbumMock.mockResolvedValue(album);
-        wrapper.findComponent({ ref: 'playAlbumButtonLink' }).vm.$emit('click');
+        wrapper.findComponent({ ref }).vm.$emit('click');
       });
 
-      it('calls the playTracks function with the correct parameters', () => {
-        expect(playTracksMock).toHaveBeenCalledWith(album.tracks);
+      it(`emits the ${emitEventName} event`, () => {
+        expect(wrapper.emitted(emitEventName)).toEqual([[album]]);
       });
+    },
+  );
+
+  describe('when the InteractionWrapper component emits the dragStart event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(InteractionWrapper)
+        .vm.$emit('dragStart', DragEvent);
+    });
+
+    it('emits the dragStart event', () => {
+      expect(wrapper.emitted('dragStart')).toEqual([[album, DragEvent]]);
+    });
+  });
+
+  describe('when the InteractionWrapper component emits the longPress event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(InteractionWrapper).vm.$emit('longPress');
+    });
+
+    it('calls the openDropdownMenu function', () => {
+      expect(openDropdownMenuMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the InteractionWrapper component emits the contextMenu event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(InteractionWrapper).vm.$emit('contextMenu');
+    });
+
+    it('calls the openDropdownMenu function', () => {
+      expect(openDropdownMenuMock).toHaveBeenCalled();
     });
   });
 });

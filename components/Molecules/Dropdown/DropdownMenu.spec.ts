@@ -1,28 +1,23 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 import DropdownMenu from './DropdownMenu.vue';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const events: any = {};
+const closeDropdownMenuMock = vi.fn();
+const openDropdownMenuMock = vi.fn();
+const isOpenMock = ref(false);
+const menuStyleMock = ref<Record<string, string>>({});
 
-const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(
-  globalThis,
-  'removeEventListener',
-);
-const documentAddEventListenerSpy = vi
-  .spyOn(document, 'addEventListener')
-  .mockImplementation((event, cb) => {
-    events[event] = cb;
-  });
-const documentRemoveEventListenerSpy = vi.spyOn(
-  document,
-  'removeEventListener',
-);
+mockNuxtImport('useDropdownMenu', () => () => ({
+  closeDropdownMenu: closeDropdownMenuMock,
+  isOpen: isOpenMock,
+  menuStyle: menuStyleMock,
+  openDropdownMenu: openDropdownMenuMock,
+}));
 
 function factory(props = {}) {
   return mount(DropdownMenu, {
@@ -39,7 +34,7 @@ function factory(props = {}) {
 describe('DropdownMenu', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
+  beforeAll(() => {
     wrapper = factory();
   });
 
@@ -51,90 +46,37 @@ describe('DropdownMenu', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when the ButtonLink component is clicked', () => {
-    beforeEach(async () => {
-      wrapper.findComponent(ButtonLink).vm.$emit('click');
+  describe('when isOpen is false', () => {
+    it('does not show the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
+    });
+
+    it('does not emit the opened event', () => {
+      expect(wrapper.emitted('opened')).toBeUndefined();
+    });
+  });
+
+  describe('when isOpen changes to true', () => {
+    beforeAll(async () => {
+      isOpenMock.value = true;
       await wrapper.vm.$nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(true);
     });
 
     it('emits the opened event', () => {
       expect(wrapper.emitted('opened')).toEqual([[]]);
     });
 
-    it('does not emits the closed event', () => {
-      expect(wrapper.emitted('closed')).toBe(undefined);
-    });
-
-    it('adds the click event listener function', () => {
-      expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
-        'click',
-        expect.any(Function),
-      );
-    });
-
-    it('adds the keydown event listener function', () => {
-      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-        'keydown',
-        expect.any(Function),
-      );
-    });
-
-    describe('when dropdown height is not less than window height', () => {
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('emits the opened event', () => {
-        expect(wrapper.emitted('opened')).toEqual([[]]);
-      });
-
-      it('does not emit the closed event', () => {
-        expect(wrapper.emitted('closed')).toEqual(undefined);
-      });
-
-      it('shows the dropdown element', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).exists()).toBe(true);
-      });
-
-      it('does not add the above class to dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).classes()).not.toContain(
-          'above',
-        );
-      });
-    });
-
-    describe('when dropdown height is less than window height', () => {
-      beforeEach(async () => {
-        globalThis.innerHeight = 10;
-        Object.defineProperties(HTMLElement.prototype, {
-          clientHeight: {
-            configurable: true,
-            get: () => 500,
-          },
-        });
-        HTMLElement.prototype.getBoundingClientRect = vi.fn(
-          () =>
-            ({
-              top: 5,
-            }) as DOMRect,
-        );
-
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
-        await wrapper.vm.$nextTick();
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
-        await wrapper.vm.$nextTick();
-      });
-
-      it('adds the above class to dropdown menu', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).classes()).toContain(
-          'above',
-        );
-      });
-    });
-
-    describe('when the ButtonLink component is clicked again', () => {
-      beforeEach(async () => {
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
+    describe('when isOpen changes to false', () => {
+      beforeAll(async () => {
+        isOpenMock.value = false;
         await wrapper.vm.$nextTick();
       });
 
@@ -142,101 +84,89 @@ describe('DropdownMenu', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not emit the opened event again', () => {
-        expect(wrapper.emitted('opened')).toEqual([[]]);
+      it('does not show the dropdown list element', () => {
+        expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
       });
 
       it('emits the closed event', () => {
         expect(wrapper.emitted('closed')).toEqual([[]]);
       });
+    });
+  });
 
-      it('removes the dropdown element', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).exists()).toBe(false);
-      });
+  describe('when the menuStyle has no values', () => {
+    beforeAll(async () => {
+      isOpenMock.value = true;
+      menuStyleMock.value = {};
+
+      await wrapper.vm.$nextTick();
     });
 
-    describe('when document body is clicked', () => {
-      beforeEach(async () => {
-        document.body.click();
-        await wrapper.vm.$nextTick();
-      });
+    it('does not set any style on the dropdown list element', () => {
+      expect(
+        wrapper.find({ ref: 'dropdownListRef' }).attributes('style'),
+      ).toBeUndefined();
+    });
+  });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
+  describe('when the menuStyle has values', () => {
+    beforeAll(async () => {
+      isOpenMock.value = true;
+      menuStyleMock.value = {
+        left: '20px',
+        top: '10px',
+      };
 
-      it('removes the dropdown element', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).exists()).toBe(false);
-      });
-
-      it('removes the click event listener function', () => {
-        expect(windowRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'click',
-          expect.any(Function),
-        );
-      });
-
-      it('removes the keydown event listener function', () => {
-        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'keydown',
-          expect.any(Function),
-        );
-      });
+      await wrapper.vm.$nextTick();
     });
 
-    describe('when dropdown element is clicked', () => {
-      beforeEach(async () => {
-        await wrapper.find({ ref: 'dropdownRef' }).trigger('click');
-      });
+    it('sets the correct style on the dropdown list element', () => {
+      const dropdownElement = wrapper.find({ ref: 'dropdownListRef' });
+      expect(dropdownElement.attributes('style')).toContain('top: 10px;');
+      expect(dropdownElement.attributes('style')).toContain('left: 20px;');
+    });
+  });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('removes the dropdown element', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).exists()).toBe(false);
-      });
+  describe('when the openDropdownMenu function is called via expose', () => {
+    beforeEach(() => {
+      (
+        wrapper.vm as unknown as { openDropdownMenu: () => void }
+      ).openDropdownMenu();
     });
 
-    describe('when a non esc key is pressed', () => {
+    it('calls the openDropdownMenu function from useDropdownMenu', () => {
+      expect(openDropdownMenuMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the ButtonLink component is clicked', () => {
+    describe('when isOpen is false', () => {
       beforeEach(() => {
-        events.keydown({ key: 'Shift' });
+        isOpenMock.value = false;
+        wrapper.findComponent(ButtonLink).vm.$emit('click');
       });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
+      it('calls the openDropdownMenu function', () => {
+        expect(openDropdownMenuMock).toHaveBeenCalled();
       });
 
-      it('does not remove the the dropdown element', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).exists()).toBe(true);
+      it('does not call the closeDropdownMenu function', () => {
+        expect(closeDropdownMenuMock).not.toHaveBeenCalled();
       });
     });
 
-    describe('when esc key is pressed', () => {
+    describe('when isOpen is true', () => {
       beforeEach(() => {
-        events.keydown({ key: 'Escape' });
+        isOpenMock.value = true;
+        wrapper.findComponent(ButtonLink).vm.$emit('click');
       });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
+      it('calls the closeDropdownMenu function', () => {
+        expect(closeDropdownMenuMock).toHaveBeenCalled();
       });
 
-      it('removes the dropdown element', () => {
-        expect(wrapper.find({ ref: 'dropdownRef' }).exists()).toBe(false);
-      });
-
-      it('removes the click event listener function', () => {
-        expect(windowRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'click',
-          expect.any(Function),
-        );
-      });
-
-      it('removes the keydown event listener function', () => {
-        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'keydown',
-          expect.any(Function),
-        );
+      it('does not call the openDropdownMenu function', () => {
+        expect(openDropdownMenuMock).not.toHaveBeenCalled();
       });
     });
   });

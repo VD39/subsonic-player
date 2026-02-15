@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaylistsListItem > matches the snapshot 1`] = `
+"<article class="interactionWrapper playlistsListItem" draggable="false">
+  <div class="centerItems playlistDetails">
+    <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-0">
+        <div class="centerAll preloadImage">
+          <div class="iconImage">
+            <phplaylist class="icon"></phplaylist>
+          </div>
+        </div>
+      </a></figure>
+    <div class="spaceBetween">
+      <div>
+        <h4 class="mBS"><a aria-label="Go to playlist playlist-0" class="link" draggable="false">playlist-0</a></h4>
+        <ul class="bulletList smallFont">
+          <li>1 tracks</li>
+          <li><time>00:01</time></li>
+        </ul>
+      </div>
+      <div>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to playlist </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Edit playlist </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete playlist </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</article>"
+`;

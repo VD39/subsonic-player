@@ -1,0 +1,157 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AlbumInformation > matches the snapshot 1`] = `
+"<div class="trackTable albumInformation">
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Title</div>
+    <div class="trackCell"><a class="link" data-test-id="link">album-0</a></div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Artists</div>
+    <div class="trackCell">
+      <ul class="commaList list">
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Year</div>
+    <div class="trackCell">
+      <p>2024</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Genre</div>
+    <div class="trackCell">
+      <ul class="commaList list">
+        <li data-test-id="genre-list-item"><a aria-label="View all albums with genre genre" class="link" draggable="false">genre</a></li>
+        <li data-test-id="genre-list-item"><a aria-label="View all albums with genre1 genre" class="link" draggable="false">genre1</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Total disc numbers </div>
+    <div class="trackCell">
+      <p>1</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Track count</div>
+    <div class="trackCell">
+      <p>4</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">03:25:45</time>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Size</div>
+    <div class="trackCell">
+      <p>0.02 KB</p>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`AlbumInformation > when artists is an empty array > matches the snapshot 1`] = `
+"<div class="trackTable albumInformation">
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Title</div>
+    <div class="trackCell"><a class="link" data-test-id="link">album-0</a></div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Artists</div>
+    <div class="trackCell">
+      <p>--</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Year</div>
+    <div class="trackCell">
+      <p>2024</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Genre</div>
+    <div class="trackCell">
+      <ul class="commaList list">
+        <li data-test-id="genre-list-item"><a aria-label="View all albums with genre genre" class="link" draggable="false">genre</a></li>
+        <li data-test-id="genre-list-item"><a aria-label="View all albums with genre1 genre" class="link" draggable="false">genre1</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Total disc numbers </div>
+    <div class="trackCell">
+      <p>1</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Track count</div>
+    <div class="trackCell">
+      <p>4</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">03:25:45</time>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Size</div>
+    <div class="trackCell">
+      <p>0.02 KB</p>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`AlbumInformation > when genres is an empty array > matches the snapshot 1`] = `
+"<div class="trackTable albumInformation">
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Title</div>
+    <div class="trackCell"><a class="link" data-test-id="link">album-0</a></div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Artists</div>
+    <div class="trackCell">
+      <ul class="commaList list">
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Year</div>
+    <div class="trackCell">
+      <p>2024</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Genre</div>
+    <div class="trackCell">
+      <p>--</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Total disc numbers </div>
+    <div class="trackCell">
+      <p>1</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Track count</div>
+    <div class="trackCell">
+      <p>4</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Duration</div><time class="trackCell">03:25:45</time>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Size</div>
+    <div class="trackCell">
+      <p>0.02 KB</p>
+    </div>
+  </div>
+</div>"
+`;

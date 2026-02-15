@@ -32,10 +32,10 @@ exports[`index > when data returns a value > matches the snapshot 1`] = `
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -50,13 +50,13 @@ exports[`index > when data returns a value > matches the snapshot 1`] = `
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -71,7 +71,7 @@ exports[`index > when data returns a value > matches the snapshot 1`] = `
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -91,10 +91,10 @@ exports[`index > when data returns a value > matches the snapshot 1`] = `
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -142,10 +142,10 @@ exports[`index > when data returns a value > when favourites albums is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -160,13 +160,13 @@ exports[`index > when data returns a value > when favourites albums is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -181,7 +181,7 @@ exports[`index > when data returns a value > when favourites albums is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -235,10 +235,10 @@ exports[`index > when data returns a value > when favourites albums is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -253,13 +253,13 @@ exports[`index > when data returns a value > when favourites albums is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -274,7 +274,7 @@ exports[`index > when data returns a value > when favourites albums is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -294,49 +294,49 @@ exports[`index > when data returns a value > when favourites albums is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -384,10 +384,10 @@ exports[`index > when data returns a value > when favourites artists is an empty
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -402,13 +402,13 @@ exports[`index > when data returns a value > when favourites artists is an empty
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -423,7 +423,7 @@ exports[`index > when data returns a value > when favourites artists is an empty
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -443,10 +443,10 @@ exports[`index > when data returns a value > when favourites artists is an empty
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -474,10 +474,10 @@ exports[`index > when data returns a value > when favourites artists is not an e
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -492,13 +492,13 @@ exports[`index > when data returns a value > when favourites artists is not an e
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -513,7 +513,7 @@ exports[`index > when data returns a value > when favourites artists is not an e
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -533,10 +533,10 @@ exports[`index > when data returns a value > when favourites artists is not an e
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -620,10 +620,10 @@ exports[`index > when data returns a value > when favourites tracks is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -638,13 +638,13 @@ exports[`index > when data returns a value > when favourites tracks is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -659,7 +659,7 @@ exports[`index > when data returns a value > when favourites tracks is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -675,10 +675,10 @@ exports[`index > when data returns a value > when favourites tracks is an empty 
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -726,10 +726,10 @@ exports[`index > when data returns a value > when favourites tracks is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -744,13 +744,13 @@ exports[`index > when data returns a value > when favourites tracks is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -765,7 +765,7 @@ exports[`index > when data returns a value > when favourites tracks is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -785,10 +785,10 @@ exports[`index > when data returns a value > when favourites tracks is not an em
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -836,10 +836,10 @@ exports[`index > when data returns a value > when frequentAlbums is an empty arr
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -854,13 +854,13 @@ exports[`index > when data returns a value > when frequentAlbums is an empty arr
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -881,10 +881,10 @@ exports[`index > when data returns a value > when frequentAlbums is an empty arr
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -933,13 +933,13 @@ exports[`index > when data returns a value > when newestAlbums is an empty array
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="recent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -954,7 +954,7 @@ exports[`index > when data returns a value > when newestAlbums is an empty array
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -974,10 +974,10 @@ exports[`index > when data returns a value > when newestAlbums is an empty array
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -1025,10 +1025,10 @@ exports[`index > when data returns a value > when recentAlbums is an empty array
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="newest-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -1044,7 +1044,7 @@ exports[`index > when data returns a value > when recentAlbums is an empty array
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="frequent-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
@@ -1064,10 +1064,10 @@ exports[`index > when data returns a value > when recentAlbums is an empty array
   <div class="mBL carouselSwiper">
     <swiper-container>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
       <swiper-slide data-test-id="favourite-album-item">
-        <album-item-stub album="[object Object]" hideartist="false" draggable="true"></album-item-stub>
+        <album-item-stub album="[object Object]" hideartist="false"></album-item-stub>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>

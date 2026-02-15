@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FileListItem > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image-0" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">
+              <h4>track-0</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

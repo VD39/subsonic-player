@@ -4,7 +4,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 const { currentTrack } = useAudioPlayer();
 const { openTrackInformationModal } = useMediaInformation();
 
-function openCurrentTrackInformationModal() {
+function onClick() {
   openTrackInformationModal(currentTrack.value);
 }
 </script>
@@ -13,7 +13,7 @@ function openCurrentTrackInformationModal() {
   <ButtonLink
     :icon="ICONS.information"
     title="Media information"
-    @click="openCurrentTrackInformationModal"
+    @click="onClick"
   >
     Media information
   </ButtonLink>

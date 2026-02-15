@@ -19,7 +19,7 @@ const formInputs = {
 
 const form = createForm(formInputs);
 
-async function onFormSubmit() {
+function onFormSubmit() {
   validateInputs(form);
 
   if (!form.isValid.value) {

@@ -12,6 +12,9 @@ const route = useRoute();
 const { getAlbums } = useAlbum();
 const { dragStart } = useDragAndDrop();
 const { viewLayout } = useViewLayout();
+const { addTracksToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal } = useMediaInformation();
+const { getMediaTracks } = useMediaTracks();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album>(
   route.params[ROUTE_PARAM_KEYS.albums.sortBy] as string,
 );
@@ -47,6 +50,22 @@ const {
   },
 );
 
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
+
 const loadingStatus = computed(() =>
   albumsData.value.albums.length ? 'success' : status.value,
 );
@@ -65,7 +84,13 @@ useHead({
   <PageNavigation :navigation="ALBUMS_NAVIGATION" />
 
   <LoadingData :class="viewLayout" :status="loadingStatus">
-    <AlbumsList :albums="albumsData.albums" @dragStart="dragStart" />
+    <AlbumsList
+      :albums="albumsData.albums"
+      @addToQueue="addAlbumToQueue"
+      @dragStart="dragStart"
+      @mediaInformation="openAlbumInformationModal"
+      @playAlbum="onPlayAlbum"
+    />
 
     <InfiniteScroller
       :hasMore

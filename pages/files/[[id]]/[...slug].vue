@@ -39,7 +39,7 @@ const {
   },
 );
 
-function playTrack(index: number) {
+function onPlayTrack(index: number) {
   playTracks(musicDirectoryData.value.musicDirectory.tracks, index - 1);
 }
 
@@ -65,7 +65,7 @@ useHead({
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadMedia"
       @mediaInformation="openTrackInformationModal"
-      @playTrack="playTrack"
+      @playTrack="onPlayTrack"
     />
   </LoadingData>
 </template>

@@ -1,8 +1,7 @@
 export function useDragAndDrop() {
   const route = useRoute();
-  const { getAlbum } = useAlbum();
+  const { getMediaTracks } = useMediaTracks();
   const { addToPlaylist } = usePlaylist();
-  const { getPodcast } = usePodcast();
   const { addTracksToQueue } = useAudioPlayer();
 
   const draggedElement = ref<HTMLElement | null>(null);
@@ -61,43 +60,7 @@ export function useDragAndDrop() {
     return clonedEl;
   }
 
-  async function getTracksToAdd(media: DragAndDropMedia) {
-    switch (media.type) {
-      case MEDIA_TYPE.album: {
-        const album = media as Album;
-
-        if (album.tracks.length) {
-          return album.tracks;
-        }
-
-        const selectedAlbum = await getAlbum(media.id);
-
-        if (selectedAlbum) {
-          return selectedAlbum.tracks;
-        }
-
-        return [];
-      }
-      case MEDIA_TYPE.playlist:
-        return (media as Playlist).tracks;
-      case MEDIA_TYPE.podcast: {
-        const selectedPodcast = await getPodcast(media.id);
-
-        if (selectedPodcast) {
-          return selectedPodcast.episodes.downloaded;
-        }
-
-        return [];
-      }
-      case MEDIA_TYPE.podcastEpisode:
-      case MEDIA_TYPE.track:
-        return [media as MixedTrack];
-      default:
-        return [];
-    }
-  }
-
-  function isValidMedia(media: DragAndDropMedia) {
+  function isValidMedia(media: MixedMediaAndTrack) {
     return media && 'type' in media;
   }
 
@@ -188,7 +151,7 @@ export function useDragAndDrop() {
     });
   }
 
-  function dragStart(media: DragAndDropMedia, event: DragEvent) {
+  function dragStart(media: MixedMediaAndTrack, event: DragEvent) {
     if (!event.dataTransfer || draggedElement.value || !isValidMedia(media)) {
       return;
     }
@@ -232,15 +195,15 @@ export function useDragAndDrop() {
       return;
     }
 
-    const media: DragAndDropMedia = JSON.parse(mediaData);
+    const media: MixedMediaAndTrack = JSON.parse(mediaData);
 
     if (!isValidMedia(media)) {
       return;
     }
 
-    const tracksToAdd = await getTracksToAdd(media);
+    const tracksToAdd = await getMediaTracks(media);
 
-    if (!tracksToAdd.length) {
+    if (!tracksToAdd?.length) {
       return;
     }
 

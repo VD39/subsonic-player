@@ -4,7 +4,7 @@ exports[`TrackPlayPause > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause withImage">
   <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
   <p class="overlap trackNumber visuallyHidden">1</p>
-  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>
 </div>"
@@ -14,7 +14,7 @@ exports[`TrackPlayPause > when hideImage prop is set to true > matches the snaps
 "<div class="overlapWrapper trackPlayPause">
   <div class="centerAll preloadImage overlap preloadImage visuallyHidden"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>
   <p class="overlap trackNumber">1</p>
-  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>
 </div>"
@@ -56,7 +56,7 @@ exports[`TrackPlayPause > when large prop is true > matches the snapshot 1`] = `
 "<div class="overlapWrapper trackPlayPause large withImage">
   <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
   <p class="overlap trackNumber visuallyHidden">1</p>
-  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton globalLink buttonLink centerAll themeHoverButton globalLink buttonLink" draggable="false" type="button">
+  <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
     </button></div>
 </div>"

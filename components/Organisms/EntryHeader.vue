@@ -15,7 +15,7 @@ const hasDragStartEvent = computed(
   () => !!getCurrentInstance()?.vnode.props?.onDragStart,
 );
 
-function dragStart(event: DragEvent) {
+function onDragStart(event: DragEvent) {
   if (!hasDragStartEvent.value) {
     return;
   }
@@ -40,7 +40,7 @@ function dragStart(event: DragEvent) {
       ref="figure"
       :class="$style.figure"
       :draggable="hasDragStartEvent"
-      @dragstart="dragStart($event)"
+      @dragstart="onDragStart"
     >
       <PreloadImage
         v-for="image in images"

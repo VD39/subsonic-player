@@ -1,0 +1,309 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BookmarksTracksListItem > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to podcast </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Remove track </span>
+          </button></li>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksListItem > when bookmark.author is undefined > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span><a class="link" data-test-id="link">podcastName</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">podcastName</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to podcast </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Remove track </span>
+          </button></li>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksListItem > when bookmark.podcastId is undefined > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast name</span>
+                    <p>podcastName</p>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>podcastName</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Remove track </span>
+          </button></li>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;
+
+exports[`BookmarksTracksListItem > when bookmark.podcastName is undefined > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Podcast author</span><span>author</span></li>
+                  <li><span class="visuallyHidden">Duration</span><span><time>1</time><span>/</span><time>00:19</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <p>author</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to podcast </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Remove track </span>
+          </button></li>
+      </div>
+    </div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
+        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+      </button></div>
+  </div>
+</div>"
+`;

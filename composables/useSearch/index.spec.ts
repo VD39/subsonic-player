@@ -90,7 +90,7 @@ describe('useSearch', () => {
           id: 'tracks',
         },
       ],
-    ])(`when mediaType is %s`, (mediaType, outcome) => {
+    ])(`when route mediaType is %s`, (mediaType, outcome) => {
       describe('when fetchData response returns null', () => {
         beforeEach(() => {
           fetchDataMock.mockResolvedValue({

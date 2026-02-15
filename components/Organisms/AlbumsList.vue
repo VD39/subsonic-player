@@ -8,11 +8,18 @@ defineProps<{
   hideArtist?: boolean;
 }>();
 
-defineEmits<{
+const emit = defineEmits<{
+  addToQueue: [album: Album];
   dragStart: [album: Album, event: DragEvent];
+  mediaInformation: [album: Album];
+  playAlbum: [album: Album];
 }>();
 
 const { viewLayout } = useViewLayout();
+
+function onDragStart(album: Album, event: DragEvent) {
+  emit('dragStart', album, event);
+}
 
 const gridWrapperProps = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
@@ -31,9 +38,11 @@ const gridWrapperProps = computed(() =>
       v-for="album in albums"
       :key="album.name"
       :album
-      draggable="true"
       :hideArtist
-      @dragstart="$emit('dragStart', album, $event)"
+      @addToQueue="$emit('addToQueue', $event)"
+      @dragStart="onDragStart"
+      @mediaInformation="$emit('mediaInformation', $event)"
+      @playAlbum="$emit('playAlbum', $event)"
     />
   </GridWrapper>
 

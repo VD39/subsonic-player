@@ -2,16 +2,15 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import { windowEventListenerMock } from '@/test/eventListenersMock';
+
 import TextClamp from './TextClamp.vue';
 
 const TEXT_TO_CLAMP =
   'This is a long test text that will definitely exceed the max lines set by the component.';
 
-const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(
-  globalThis,
-  'removeEventListener',
-);
+const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
+  windowEventListenerMock();
 
 function factory(props = {}) {
   return mount(TextClamp, {

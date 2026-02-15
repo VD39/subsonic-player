@@ -23,7 +23,7 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
   </div>
   <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
     <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-  </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+  </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
     <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
     <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -92,7 +92,7 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
     <!--v-if-->
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
     <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-  </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+  </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
     <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
     <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -122,7 +122,7 @@ exports[`PlayerOptions > when isRadioStation value is true > matches the snapsho
     </div>
   </div>
   <!--v-if-->
-  <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+  <!--v-if--><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
     <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
     <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>

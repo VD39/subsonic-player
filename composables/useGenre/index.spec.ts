@@ -62,7 +62,7 @@ describe('useGenre', () => {
   describe('when the getMediaByGenre function is called', () => {
     let results: Awaited<ReturnType<typeof getMediaByGenre>>;
 
-    describe('when mediaType is albums', () => {
+    describe(`when route media type is ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
       beforeEach(async () => {
         results = await getMediaByGenre({
           genre: 'soundtrack',
@@ -79,7 +79,7 @@ describe('useGenre', () => {
       });
     });
 
-    describe('when mediaType is tracks', () => {
+    describe(`when route media type is ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
       beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: ['tracks'],
@@ -134,7 +134,7 @@ describe('useGenre', () => {
       });
     });
 
-    describe('when mediaType is not albums or tracks', () => {
+    describe(`when route media type is not ${ROUTE_MEDIA_TYPE_PARAMS.Albums} or ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
       it('returns the correct value', async () => {
         expect(await getMediaByGenre({} as MediaByGenreParams)).toEqual([]);
       });

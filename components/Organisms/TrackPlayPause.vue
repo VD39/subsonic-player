@@ -83,12 +83,7 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
       <ButtonLink
         v-else
         ref="play"
-        :class="[
-          'centerAll',
-          'themeHoverButton',
-          'globalLink',
-          $style.buttonLink,
-        ]"
+        :class="['centerAll', 'themeHoverButton', $style.buttonLink]"
         :icon="ICONS.play"
         @click="$emit('playTrack')"
       >
@@ -136,7 +131,7 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
 .playPauseWrapper {
   --play-pause-visibility: hidden;
   --play-pause-opacity: 0;
-  --play-pause-transform: scale(0.4);
+  --play-pause-transform: scale(0);
 
   visibility: var(--play-pause-visibility);
   opacity: var(--play-pause-opacity);
@@ -192,7 +187,7 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
 }
 
 @media (hover: hover) {
-  :global(.trackRow) {
+  :global(body:not(.disableAllPointerEvents)) :global(.trackRow) {
     &:hover {
       .playPauseWrapper {
         --play-pause-visibility: visible;

@@ -18,7 +18,7 @@ const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
 const { HOTKEYS_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
 
-async function search(term: string) {
+async function onSubmit(term: string) {
   await navigateTo({
     name: ROUTE_NAMES.search,
     params: {
@@ -40,7 +40,7 @@ const showPageNavigation = computed(() =>
         <MusicLogo class="mobileOnly" />
 
         <div :class="$style.search">
-          <SearchForm @submit="search" />
+          <SearchForm @submit="onSubmit" />
         </div>
 
         <div

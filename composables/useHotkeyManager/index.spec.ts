@@ -1,5 +1,9 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
+import {
+  documentEventListenerMock,
+  windowEventListenerMock,
+} from '@/test/eventListenersMock';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { withSetup } from '@/test/withSetup';
 
@@ -60,41 +64,27 @@ mockNuxtImport('useModal', () => () => ({
   modal: modalMock,
 }));
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const documentEvents: any = {};
-
-const documentAddEventListenerSpy = vi
-  .spyOn(document, 'addEventListener')
-  .mockImplementation((event, cb) => {
-    documentEvents[event] = cb;
-  });
-const documentRemoveEventListenerSpy = vi.spyOn(
-  document,
-  'removeEventListener',
-);
 Object.defineProperty(document, 'visibilityState', {
   value: 'hidden',
   writable: true,
 });
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const windowEvents: any = {};
-
-const windowAddEventListenerSpy = vi
-  .spyOn(globalThis, 'addEventListener')
-  .mockImplementation((event, cb) => {
-    windowEvents[event] = cb;
-  });
-const windowRemoveEventListenerSpy = vi.spyOn(
-  globalThis,
-  'removeEventListener',
-);
 
 const focusMock = vi.fn();
 const clickMock = vi.fn();
 const blurMock = vi.fn();
 
 const getElementByIdSpy = vi.spyOn(document, 'getElementById');
+
+const {
+  documentAddEventListenerSpy,
+  documentEvents,
+  documentRemoveEventListenerSpy,
+} = documentEventListenerMock();
+const {
+  windowAddEventListenerSpy,
+  windowEvents,
+  windowRemoveEventListenerSpy,
+} = windowEventListenerMock();
 
 const ALL_MOCKS = {
   addPlaylistModal: addPlaylistModalMock,

@@ -166,6 +166,10 @@ onUnmounted(() => {
       }
     }
   }
+
+  :global(.disableAllPointerEvents) & {
+    --animation-play-state: paused;
+  }
 }
 
 .inner {

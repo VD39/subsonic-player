@@ -16,9 +16,11 @@ const { viewLayout } = useViewLayout();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
-const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal, openTrackInformationModal } =
+  useMediaInformation();
+const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
+const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
@@ -44,7 +46,23 @@ const { refresh, status } = useAsyncData(
   },
 );
 
-function playTrack(index: number) {
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
+
+function onPlayTrack(index: number) {
   playTracks(favourites.value!.tracks, index - 1);
 }
 
@@ -74,7 +92,10 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="favourites.albums"
+      @addToQueue="addAlbumToQueue"
       @dragStart="dragStart"
+      @mediaInformation="openAlbumInformationModal"
+      @playAlbum="onPlayAlbum"
     />
 
     <ArtistsList
@@ -96,7 +117,7 @@ useHead({
       @downloadMedia="downloadMedia"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
-      @playTrack="playTrack"
+      @playTrack="onPlayTrack"
     />
   </LoadingData>
 </template>

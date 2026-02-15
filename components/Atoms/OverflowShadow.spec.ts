@@ -2,13 +2,11 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import { windowEventListenerMock } from '../../test/eventListenersMock';
 import OverflowShadow from './OverflowShadow.vue';
 
-const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(
-  globalThis,
-  'removeEventListener',
-);
+const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
+  windowEventListenerMock();
 
 function factory(slots = {}) {
   return mount(OverflowShadow, {

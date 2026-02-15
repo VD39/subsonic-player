@@ -14,12 +14,14 @@ const { viewLayout } = useViewLayout();
 const { getMediaByGenre } = useGenre();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal, openTrackInformationModal } =
+  useMediaInformation();
+const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
   `${route.params[ROUTE_PARAM_KEYS.genre.genre]}-${route.params[ROUTE_PARAM_KEYS.genre.mediaType]}`,
 );
 const { dragStart } = useDragAndDrop();
+const { getMediaTracks } = useMediaTracks();
 
 const genre = decodeURIComponent(
   route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
@@ -63,7 +65,23 @@ const loadingStatus = computed(() =>
   genreData.value.genreMedia.length ? 'success' : status.value,
 );
 
-function playTrack(index: number) {
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
+
+function onPlayTrack(index: number) {
   playTracks([genreData.value.genreMedia[index]], -1);
 }
 
@@ -87,7 +105,10 @@ useHead({
         ROUTE_MEDIA_TYPE_PARAMS.Albums
       "
       :albums="genreData.genreMedia"
+      @addToQueue="addAlbumToQueue"
       @dragStart="dragStart"
+      @mediaInformation="openAlbumInformationModal"
+      @playAlbum="onPlayAlbum"
     />
 
     <TracksList
@@ -101,7 +122,7 @@ useHead({
       @downloadMedia="downloadMedia"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
-      @playTrack="playTrack"
+      @playTrack="onPlayTrack"
     />
 
     <InfiniteScroller

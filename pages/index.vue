@@ -12,11 +12,13 @@ import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
-const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal, openTrackInformationModal } =
+  useMediaInformation();
+const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 const { frequentAlbums, getDiscoverAlbums, newestAlbums, recentAlbums } =
   useAlbum();
+const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useLazyAsyncData(
@@ -51,7 +53,23 @@ const { refresh, status } = useLazyAsyncData(
   },
 );
 
-function playTrack(index: number) {
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
+
+function onPlayTrack(index: number) {
   playTracks(favourites.value!.tracks, index - 1);
 }
 
@@ -102,8 +120,10 @@ useHead({
           >
             <AlbumItem
               :album
-              draggable="true"
-              @dragstart="dragStart(album, $event)"
+              @addToQueue="addAlbumToQueue"
+              @dragStart="dragStart"
+              @mediaInformation="openAlbumInformationModal"
+              @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -130,8 +150,10 @@ useHead({
           >
             <AlbumItem
               :album
-              draggable="true"
-              @dragstart="dragStart(album, $event)"
+              @addToQueue="addAlbumToQueue"
+              @dragStart="dragStart"
+              @mediaInformation="openAlbumInformationModal"
+              @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -158,8 +180,10 @@ useHead({
           >
             <AlbumItem
               :album
-              draggable="true"
-              @dragstart="dragStart(album, $event)"
+              @addToQueue="addAlbumToQueue"
+              @dragStart="dragStart"
+              @mediaInformation="openAlbumInformationModal"
+              @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
         </CarouselSwiper>
@@ -185,7 +209,7 @@ useHead({
           @downloadMedia="downloadMedia"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
-          @playTrack="playTrack"
+          @playTrack="onPlayTrack"
         />
       </template>
 
@@ -210,8 +234,10 @@ useHead({
           >
             <AlbumItem
               :album
-              draggable="true"
-              @dragstart="dragStart(album, $event)"
+              @addToQueue="addAlbumToQueue"
+              @dragStart="dragStart"
+              @mediaInformation="openAlbumInformationModal"
+              @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
         </CarouselSwiper>

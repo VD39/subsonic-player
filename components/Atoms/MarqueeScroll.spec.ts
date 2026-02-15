@@ -2,15 +2,10 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import { windowEventListenerMock } from '@/test/eventListenersMock';
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
 import MarqueeScroll from './MarqueeScroll.vue';
-
-const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(
-  globalThis,
-  'removeEventListener',
-);
 
 const disconnectMock = vi.fn();
 const observeMock = vi.fn();
@@ -22,6 +17,12 @@ vi.spyOn(globalThis, 'MutationObserver').mockImplementation(function () {
     takeRecords: vi.fn(),
   };
 });
+
+const {
+  windowAddEventListenerSpy,
+  windowEvents,
+  windowRemoveEventListenerSpy,
+} = windowEventListenerMock();
 
 function factory(slots = {}) {
   return mount(MarqueeScroll, {
@@ -107,7 +108,7 @@ describe('MarqueeScroll', () => {
           value: 0,
         });
 
-        globalThis.dispatchEvent(new CustomEvent('resize'));
+        windowEvents.resize();
       });
 
       it('matches the snapshot', () => {
@@ -150,7 +151,7 @@ describe('MarqueeScroll', () => {
             value: contentClientWidth,
           });
 
-          globalThis.dispatchEvent(new CustomEvent('resize'));
+          windowEvents.resize();
         });
 
         it('matches the snapshot', () => {
@@ -188,7 +189,7 @@ describe('MarqueeScroll', () => {
           value: 201,
         });
 
-        globalThis.dispatchEvent(new CustomEvent('resize'));
+        windowEvents.resize();
       });
 
       describe('when the mouseover is triggered on wrapper', () => {

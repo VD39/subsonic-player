@@ -145,6 +145,7 @@ describe('FavouriteButton', () => {
           {
             favourite: isFavourite,
             id: 'id',
+            showText: false,
             type: 'album',
           },
           isFavourite,

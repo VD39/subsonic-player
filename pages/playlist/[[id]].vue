@@ -57,11 +57,11 @@ async function deleteSelectedPlaylist() {
   });
 }
 
-function dragItem(event: DragEvent) {
+function onDragStart(event: DragEvent) {
   dragStart(playlist.value!, event);
 }
 
-function playTrack(index: number) {
+function onPlayTrack(index: number) {
   playTracks(playlist.value!.tracks, index - 1);
 }
 
@@ -83,7 +83,7 @@ useHead({
       <EntryHeader
         :images="playlist.images"
         :title="playlist.name"
-        @dragStart="dragItem"
+        @dragStart="onDragStart"
       >
         <template #actions>
           <RefreshButton :status @refresh="refresh" />
@@ -166,7 +166,7 @@ useHead({
         @downloadMedia="downloadMedia"
         @dragStart="dragStart"
         @mediaInformation="openTrackInformationModal"
-        @playTrack="playTrack"
+        @playTrack="onPlayTrack"
         @remove="({ index }) => removeTrackFromPlaylist(index)"
       />
     </div>

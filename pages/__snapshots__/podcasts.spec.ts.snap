@@ -30,12 +30,12 @@ exports[`podcasts > when getPodcastsAndNewestPodcastEpisodes does return data > 
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
 <div class="mainContent">
   <div class="gridLayout">
-    <section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-      <podcast-item-stub podcast="[object Object]" draggable="true"></podcast-item-stub>
-      <podcast-item-stub podcast="[object Object]" draggable="true"></podcast-item-stub>
+    <section class="mediaListWrapper mBXL" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
+      <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
+      <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
     </section>
     <h3>Latest Podcast Episodes</h3>
-    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]"></podcast-episodes-list-stub>
+    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></podcast-episodes-list-stub>
   </div>
 </div>"
 `;
@@ -52,12 +52,12 @@ exports[`podcasts > when getPodcastsAndNewestPodcastEpisodes does return data > 
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
 <div class="mainContent">
   <div class="gridLayout">
-    <section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-      <podcast-item-stub podcast="[object Object]" draggable="true"></podcast-item-stub>
-      <podcast-item-stub podcast="[object Object]" draggable="true"></podcast-item-stub>
+    <section class="mediaListWrapper mBXL" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
+      <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
+      <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
     </section>
     <h3>Latest Podcast Episodes</h3>
-    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]"></podcast-episodes-list-stub>
+    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></podcast-episodes-list-stub>
   </div>
 </div>"
 `;
@@ -74,12 +74,12 @@ exports[`podcasts > when getPodcastsAndNewestPodcastEpisodes does return data > 
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
 <div class="mainContent">
   <div class="listLayout">
-    <section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
-      <podcast-item-stub podcast="[object Object]" draggable="true"></podcast-item-stub>
-      <podcast-item-stub podcast="[object Object]" draggable="true"></podcast-item-stub>
+    <section class="mediaListWrapper mBXL" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
+      <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
+      <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
     </section>
     <h3>Latest Podcast Episodes</h3>
-    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]"></podcast-episodes-list-stub>
+    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></podcast-episodes-list-stub>
   </div>
 </div>"
 `;

@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 defineProps<{
   icon?: Icon;
-  is?: ButtonLink;
+  is?: 'span' | ButtonLinkIs;
   selected?: boolean;
 }>();
 
@@ -14,11 +14,20 @@ defineEmits<{
 
 <template>
   <li :class="$style.dropdownItem">
+    <span
+      v-if="is === 'span'"
+      ref="spanElement"
+      :class="[$style.spanItem, $style.item]"
+    >
+      <slot />
+    </span>
+
     <ButtonLink
       :is
+      v-else
       :class="[
         'spaceBetween',
-        $style.buttonLink,
+        $style.item,
         {
           [$style.selected]: selected,
         },
@@ -37,13 +46,19 @@ defineEmits<{
 
 <style module>
 .dropdownItem {
+  position: relative;
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
-.buttonLink {
+.spanItem {
+  width: var(--width-height-100);
+}
+
+.item {
   --button-hover-color: transparent;
 
-  padding: var(--default-space);
   background-color: var(--button-hover-color);
 
   @media (hover: hover) {

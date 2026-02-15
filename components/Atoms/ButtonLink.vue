@@ -8,7 +8,7 @@ const props = withDefaults(
     iconPosition?: 'left' | 'right';
     iconSize?: IconSize;
     iconWeight?: IconWeight;
-    is?: ButtonLink;
+    is?: ButtonLinkIs;
     showText?: boolean;
     type?: string;
   }>(),

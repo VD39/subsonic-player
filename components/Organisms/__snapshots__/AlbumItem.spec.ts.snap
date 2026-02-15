@@ -1,16 +1,37 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AlbumItem > matches the snapshot 1`] = `
-"<article class="layoutItem">
-  <div class="albumImageWrapper">
-    <figure class="layoutImage"><a draggable="false" title="Go to album album-0">
+"<article class="interactionWrapper layoutItem" draggable="true">
+  <div class="layoutImage albumImageWrapper">
+    <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-      </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+    <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
         <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-      </button></div>
+      </button>
+      <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button>
+        <div>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Play album </span>
+            </button></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Add to queue </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+              <!--v-if--><span class="clamp text"> Go to album </span>
+            </a></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Media information </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="layoutContent">
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -22,17 +43,78 @@ exports[`AlbumItem > matches the snapshot 1`] = `
 </article>"
 `;
 
-exports[`AlbumItem > when album artist is an empty array > matches the snapshot 1`] = `
-"<article class="layoutItem">
-  <div class="albumImageWrapper">
-    <figure class="layoutImage"><a draggable="false" title="Go to album album-0">
+exports[`AlbumItem > when album artists is an empty array > matches the snapshot 1`] = `
+"<article class="interactionWrapper layoutItem" draggable="true">
+  <div class="layoutImage albumImageWrapper">
+    <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-      </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+    <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
         <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-      </button></div>
+      </button>
+      <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button>
+        <div>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Play album </span>
+            </button></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Add to queue </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+              <!--v-if--><span class="clamp text"> Go to album </span>
+            </a></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Media information </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="layoutContent">
+    <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
+    <!--v-if-->
+  </div>
+</article>"
+`;
+
+exports[`AlbumItem > when album artists is not an empty array > when hideArtist prop is true > matches the snapshot 1`] = `
+"<article class="interactionWrapper layoutItem" draggable="true">
+  <div class="layoutImage albumImageWrapper">
+    <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+      </button>
+      <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        </button>
+        <div>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Play album </span>
+            </button></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Add to queue </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+              <!--v-if--><span class="clamp text"> Go to album </span>
+            </a></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Media information </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="layoutContent">
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>

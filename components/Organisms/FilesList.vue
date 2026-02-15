@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
-import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
-import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import FileListItem from '@/components/Organisms/FileListItem.vue';
 
 defineProps<{
   folders: MusicFolder[];
@@ -69,62 +66,16 @@ defineEmits<{
       </template>
 
       <template v-if="tracks.length">
-        <LazyLoadContent
+        <FileListItem
           v-for="(track, index) in tracks"
           :key="track.id"
-          class="trackRow"
-          data-test-id="track"
-        >
-          <div class="trackCell">
-            <div>
-              <TrackPlayPause
-                :image="track.image"
-                :trackId="track.id"
-                :trackNumber="track.trackNumber"
-                @playTrack="$emit('playTrack', index)"
-              />
-
-              <MarqueeScroll class="mBXS" inert>
-                <h4>
-                  {{ track.name }}
-                </h4>
-              </MarqueeScroll>
-            </div>
-          </div>
-
-          <div class="trackCell trackOptions">
-            <DropdownMenu :class="$style.dropdownMenu">
-              <DropdownItem
-                ref="addToPlaylist"
-                @click="$emit('addToPlaylist', track.id)"
-              >
-                Add to playlist
-              </DropdownItem>
-              <DropdownItem
-                ref="mediaInformation"
-                @click="$emit('mediaInformation', track)"
-              >
-                Media information
-              </DropdownItem>
-              <DropdownItem
-                ref="downloadMedia"
-                @click="$emit('downloadMedia', track)"
-              >
-                Download track
-              </DropdownItem>
-              <DropdownDivider />
-              <DropdownItem
-                ref="addToQueue"
-                @click="$emit('addToQueue', track)"
-              >
-                Add to queue
-              </DropdownItem>
-              <DropdownItem ref="playTrack" @click="$emit('playTrack', index)">
-                Play Track
-              </DropdownItem>
-            </DropdownMenu>
-          </div>
-        </LazyLoadContent>
+          :track
+          @addToPlaylist="$emit('addToPlaylist', track.id)"
+          @addToQueue="$emit('addToQueue', track)"
+          @downloadMedia="$emit('downloadMedia', track)"
+          @mediaInformation="$emit('mediaInformation', track)"
+          @playTrack="$emit('playTrack', index)"
+        />
       </template>
     </template>
 
@@ -145,22 +96,10 @@ defineEmits<{
 </template>
 
 <style module>
-.trackCell {
-  /* --track-cell-padding: 0; */
-
-  /* @media (--tablet-up) {
-    --track-cell-padding: 0;
-  } */
-}
-
 .trackImage {
   width: var(--track-width-height-default);
   height: var(--track-width-height-default);
   overflow: hidden;
   border-radius: var(--border-radius-medium);
-}
-
-.dropdownMenu {
-  margin-right: calc(var(--default-space) * -1.5);
 }
 </style>

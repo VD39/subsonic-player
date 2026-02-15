@@ -1,15 +1,6 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
-import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
-import LinkOrText from '@/components/Atoms/LinkOrText.vue';
-import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
-import TrackMeta from '@/components/Molecules/TrackMeta.vue';
-import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TracksListItem from '@/components/Organisms/TrackLists/TracksListItem.vue';
 
 defineProps<{
   tracks: Track[];
@@ -37,92 +28,17 @@ const trackHeaderNames = TRACK_HEADER_NAMES.tracks;
       <div class="trackCell trackOptions" />
     </div>
 
-    <LazyLoadContent
+    <TracksListItem
       v-for="(track, index) in tracks"
       :key="track.id"
-      class="trackRow"
-      data-test-id="track"
-      draggable="true"
-      @dragstart="$emit('dragStart', track, $event)"
-    >
-      <div class="trackCell">
-        <div>
-          <TrackPlayPause
-            :image="track.image"
-            :trackId="track.id"
-            :trackNumber="track.trackNumber"
-            @playTrack="$emit('playTrack', index)"
-          />
-
-          <TrackMeta class="trackMeta" :track />
-
-          <FavouriteButton
-            :id="track.id"
-            :favourite="track.favourite"
-            :type="track.type"
-          />
-        </div>
-      </div>
-
-      <div class="trackCell trackSecondary">
-        <MarqueeScroll v-if="track.album" ref="albumMarqueeScroll">
-          <LinkOrText
-            :isLink="!!track.albumId"
-            :text="track.album"
-            :to="{
-              name: ROUTE_NAMES.album,
-              params: {
-                [ROUTE_PARAM_KEYS.album.id]: track.albumId,
-              },
-            }"
-          />
-        </MarqueeScroll>
-
-        <p v-else ref="albumElse">{{ DEFAULT_VALUE }}</p>
-      </div>
-
-      <div class="trackCell trackSecondary">
-        <MarqueeScroll v-if="track.artists.length" ref="artistsMarqueeScroll">
-          <ArtistsList :artists="track.artists" />
-        </MarqueeScroll>
-
-        <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>
-      </div>
-
-      <div class="trackCell trackTime">
-        <time>{{ track.formattedDuration }}</time>
-      </div>
-
-      <div class="trackCell trackOptions">
-        <DropdownMenu>
-          <DropdownItem
-            ref="addToPlaylist"
-            @click="$emit('addToPlaylist', track.id)"
-          >
-            Add to playlist
-          </DropdownItem>
-          <DropdownItem
-            ref="mediaInformation"
-            @click="$emit('mediaInformation', track)"
-          >
-            Media information
-          </DropdownItem>
-          <DropdownItem
-            ref="downloadMedia"
-            @click="$emit('downloadMedia', track)"
-          >
-            Download track
-          </DropdownItem>
-          <DropdownDivider />
-          <DropdownItem ref="addToQueue" @click="$emit('addToQueue', track)">
-            Add to queue
-          </DropdownItem>
-          <DropdownItem ref="playTrack" @click="$emit('playTrack', index)">
-            Play Track
-          </DropdownItem>
-        </DropdownMenu>
-      </div>
-    </LazyLoadContent>
+      :track
+      @addToPlaylist="$emit('addToPlaylist', track.id)"
+      @addToQueue="$emit('addToQueue', track)"
+      @downloadMedia="$emit('downloadMedia', track)"
+      @dragStart="(event) => $emit('dragStart', track, event)"
+      @mediaInformation="$emit('mediaInformation', track)"
+      @playTrack="$emit('playTrack', index)"
+    />
   </div>
 
   <NoMediaMessage

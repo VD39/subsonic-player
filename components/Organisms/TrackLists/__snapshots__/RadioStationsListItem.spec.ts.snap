@@ -1,0 +1,76 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioStationsListItem > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image" trackid="radio-station-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content"><a href="homepageUrl" class="link noTouchEvents" data-test-id="link" target="_blank">radio-station-0</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play station </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="homepageUrl" target="_blank">
+            <!--v-if--><span class="clamp text"> Visit station </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Edit station </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete station </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`RadioStationsListItem > when radioStation.homePageUrl is undefined > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image" trackid="radio-station-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <p class="noTouchEvents" target="_blank">radio-station-0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play station </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <!--v-if-->
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Edit station </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete station </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

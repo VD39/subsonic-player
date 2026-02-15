@@ -51,7 +51,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
               <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
@@ -231,7 +231,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -319,7 +319,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -411,7 +411,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -499,7 +499,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -591,7 +591,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -679,7 +679,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -765,7 +765,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
             <!--v-if-->
@@ -843,7 +843,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
               <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
@@ -919,7 +919,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
               <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
@@ -1000,7 +1000,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
               <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
@@ -1076,7 +1076,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
-          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+          <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
               <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>

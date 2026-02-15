@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PodcastInformation > matches the snapshot 1`] = `
+"<div class="trackTable trackInformation">
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Title</div>
+    <div class="trackCell"><a class="link" data-test-id="link">title</a></div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Description</div>
+    <div class="trackCell">
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div>description</div>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Total Episodes </div>
+    <div class="trackCell">
+      <p>1</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title"> Downloaded Episodes </div>
+    <div class="trackCell">
+      <p>1</p>
+    </div>
+  </div>
+  <div class="trackRow trackBorder">
+    <div class="trackCell trackMeta title">Last Updated</div>
+    <div class="trackCell">
+      <p>01 January 2000</p>
+    </div>
+  </div>
+</div>"
+`;

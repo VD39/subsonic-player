@@ -26,3 +26,19 @@
     pointer-events: none;
   }
 }
+
+.disableAllPointerEvents {
+  pointer-events: none;
+
+  * {
+    pointer-events: none;
+  }
+}
+
+.hasPointerEvents {
+  pointer-events: auto;
+
+  * {
+    pointer-events: auto;
+  }
+}

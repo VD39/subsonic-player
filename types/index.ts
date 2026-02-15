@@ -1,6 +1,6 @@
 import type { NuxtLinkProps } from '#app';
 
-export type ButtonLink = 'button' | Link;
+export type ButtonLinkIs = 'button' | LinkIs;
 
 export interface ButtonProps {
   icon?: Component | Icon;
@@ -18,10 +18,19 @@ export type IconWeight = 'bold' | 'duotone' | 'fill' | 'regular';
 export type ImageDefault =
   TypeofImageDefaultByType[keyof TypeofImageDefaultByType];
 
-export type Link = 'a' | 'nuxt-link';
+export type LinkIs = 'a' | 'nuxt-link';
 
 export type MediaTypeParam =
   TypeofRouteMediaTypeParams[keyof TypeofRouteMediaTypeParams];
+
+export type MixedMediaAndTrack =
+  | Album
+  | MixedTrack
+  | Playlist
+  | Podcast
+  | PodcastEpisode;
+
+export type MixedTrack = PodcastEpisode | RadioStation | Track;
 
 export type PageNavigation = Record<string, ToProp>;
 

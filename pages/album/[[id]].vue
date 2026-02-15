@@ -44,11 +44,11 @@ const { data: albumData, status } = useAsyncData(
   },
 );
 
-function dragItem(event: DragEvent) {
+function onDragStart(event: DragEvent) {
   dragStart(albumData.value.album!, event);
 }
 
-function playTrack(index: number) {
+function onPlayTrack(index: number) {
   playTracks(albumData.value.album!.tracks, index - 1);
 }
 
@@ -64,7 +64,7 @@ useHead({
       <EntryHeader
         :images="[albumData.album.image]"
         :title="albumData.album.name"
-        @dragStart="dragItem"
+        @dragStart="onDragStart"
       >
         <ArtistsList
           v-if="albumData.album.artists.length"
@@ -162,7 +162,7 @@ useHead({
           @downloadMedia="downloadMedia"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
-          @playTrack="playTrack"
+          @playTrack="onPlayTrack"
         />
       </template>
     </div>

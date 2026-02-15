@@ -38,7 +38,7 @@ const { refresh, status } = useAsyncData(
   },
 );
 
-function playRadioStation(station: RadioStation) {
+function onPlayRadioStation(station: RadioStation) {
   playTracks([station]);
 }
 
@@ -72,7 +72,7 @@ useHead({
       @addToQueue="addTrackToQueue"
       @deleteRadioStation="deleteRadioStation"
       @editRadioStation="updateRadioStationModal"
-      @playRadioStation="playRadioStation"
+      @playRadioStation="onPlayRadioStation"
     />
   </LoadingData>
 </template>

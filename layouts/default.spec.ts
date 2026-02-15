@@ -4,6 +4,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import HotkeyMappings from '@/components/Atoms/HotkeyMappings.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
@@ -38,6 +39,12 @@ const { routeMock } = vi.hoisted(() => ({
 }));
 
 mockNuxtImport('useRoute', () => routeMock);
+
+const isHotkeyListOpenedMock = ref(false);
+
+mockNuxtImport('useHotkeyManager', () => () => ({
+  isHotkeyListOpened: isHotkeyListOpenedMock,
+}));
 
 function factory(props = {}) {
   return mount(DefaultLayout, {
@@ -182,4 +189,25 @@ describe('Default', () => {
       });
     },
   );
+
+  describe('when isHotkeyListOpened is false', () => {
+    it('does not show the HotkeyMappings component', () => {
+      expect(wrapper.findComponent(HotkeyMappings).exists()).toBe(false);
+    });
+  });
+
+  describe('when isHotkeyListOpened is true', () => {
+    beforeEach(() => {
+      isHotkeyListOpenedMock.value = true;
+      wrapper = factory();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the HotkeyMappings component', () => {
+      expect(wrapper.findComponent(HotkeyMappings).exists()).toBe(true);
+    });
+  });
 });

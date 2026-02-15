@@ -2,9 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount, RouterLinkStub } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import FileListItem from '@/components/Organisms/FileListItem.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import FilesList from './FilesList.vue';
@@ -18,8 +16,8 @@ const routeMock = ref<Record<string, unknown>>({
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
 
-async function factory(props = {}) {
-  const wrapper = mount(FilesList, {
+function factory(props = {}) {
+  return mount(FilesList, {
     global: {
       mocks: {
         $route: routeMock.value,
@@ -31,23 +29,13 @@ async function factory(props = {}) {
       ...props,
     },
   });
-
-  await wrapper.vm.$nextTick();
-
-  const dropdownMenu = wrapper.findComponent(DropdownMenu);
-
-  if (dropdownMenu.exists()) {
-    dropdownMenu.findComponent(ButtonLink).vm.$emit('click');
-  }
-
-  return wrapper;
 }
 
 describe('FilesList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(async () => {
-    wrapper = await factory();
+  beforeEach(() => {
+    wrapper = factory();
   });
 
   it('matches the snapshot', () => {
@@ -61,7 +49,7 @@ describe('FilesList', () => {
   });
 
   describe('when route params does have an Id', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       routeMock.value = {
         fullPath: '/files/0/al-1/al-2/al-3',
         params: {
@@ -69,7 +57,7 @@ describe('FilesList', () => {
         },
       };
 
-      wrapper = await factory();
+      wrapper = factory();
     });
 
     it('matches the snapshot', () => {
@@ -96,7 +84,7 @@ describe('FilesList', () => {
     });
 
     it('does not show the tracks content', () => {
-      expect(wrapper.find('[data-test-id="track"]').exists()).toBe(false);
+      expect(wrapper.findComponent(FileListItem).exists()).toBe(false);
     });
 
     it('shows the no folder files element', () => {
@@ -105,8 +93,8 @@ describe('FilesList', () => {
   });
 
   describe('when folders is not an empty array', () => {
-    beforeEach(async () => {
-      wrapper = await factory({
+    beforeEach(() => {
+      wrapper = factory({
         folders: tracks,
       });
     });
@@ -125,8 +113,8 @@ describe('FilesList', () => {
   });
 
   describe('when tracks is not an empty array', () => {
-    beforeEach(async () => {
-      wrapper = await factory({
+    beforeEach(() => {
+      wrapper = factory({
         tracks,
       });
     });
@@ -136,7 +124,7 @@ describe('FilesList', () => {
     });
 
     it('shows the correct number of track items', () => {
-      expect(wrapper.findAll('[data-test-id="track"]').length).toBe(5);
+      expect(wrapper.findAllComponents(FileListItem).length).toBe(5);
     });
 
     it('does not show the no folder files element', () => {
@@ -144,47 +132,22 @@ describe('FilesList', () => {
     });
 
     describe.each([
-      [
-        'add to playlist DropdownItem',
-        'addToPlaylist',
-        'addToPlaylist',
-        [track.id],
-      ],
-      [
-        'media information DropdownItem',
-        'mediaInformation',
-        'mediaInformation',
-        [track],
-      ],
-      [
-        'download media DropdownItem',
-        'downloadMedia',
-        'downloadMedia',
-        [track],
-      ],
-      ['add to queue DropdownItem', 'addToQueue', 'addToQueue', [track]],
-      ['play track DropdownItem', 'playTrack', 'playTrack', [0]],
+      ['addToPlaylist', [track.id]],
+      ['mediaInformation', [track]],
+      ['downloadMedia', [track]],
+      ['addToQueue', [track]],
+      ['playTrack', [0]],
     ])(
-      'when the %s component emits the click event',
-      (_text, ref, emitEventName, expectedArgs) => {
+      'when the FileListItem component emits the %s event',
+      (eventName, expectedArgs) => {
         beforeEach(async () => {
-          wrapper.findComponent({ ref }).vm.$emit('click');
+          wrapper.findComponent(FileListItem).vm.$emit(eventName);
         });
 
-        it(`emits the ${emitEventName} event with the correct value`, () => {
-          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        it(`emits the ${eventName} event with the correct value`, () => {
+          expect(wrapper.emitted(eventName)).toEqual([expectedArgs]);
         });
       },
     );
-
-    describe('when the TrackPlayPause component emits the playTrack event', () => {
-      beforeEach(async () => {
-        wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
-      });
-
-      it('emits the playTrack event with track', () => {
-        expect(wrapper.emitted('playTrack')).toEqual([[0]]);
-      });
-    });
   });
 });

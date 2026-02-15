@@ -264,7 +264,7 @@ export function useAudioPlayer() {
     });
 
     /* istanbul ignore next -- @preserve */
-    async function handleMediaSessionActionDetails(
+    async function onMediaSessionAction(
       details: Parameters<
         NonNullable<Parameters<MediaSession['setActionHandler']>['1']>
       >['0'],
@@ -296,22 +296,20 @@ export function useAudioPlayer() {
 
     navigator.mediaSession.setActionHandler(
       MEDIA_SESSION_ACTION_DETAILS.pause,
-      handleMediaSessionActionDetails,
+      onMediaSessionAction,
     );
 
     navigator.mediaSession.setActionHandler(
       MEDIA_SESSION_ACTION_DETAILS.play,
-      handleMediaSessionActionDetails,
+      onMediaSessionAction,
     );
 
     navigator.mediaSession.setActionHandler(
       MEDIA_SESSION_ACTION_DETAILS.seekTo,
-      handleMediaSessionActionDetails,
+      onMediaSessionAction,
     );
 
-    const nextTrackHandler = hasNextTrack.value
-      ? handleMediaSessionActionDetails
-      : null;
+    const nextTrackHandler = hasNextTrack.value ? onMediaSessionAction : null;
 
     navigator.mediaSession.setActionHandler(
       MEDIA_SESSION_ACTION_DETAILS.nextTrack,
@@ -319,7 +317,7 @@ export function useAudioPlayer() {
     );
 
     const previousTrackHandler = hasPreviousTrack.value
-      ? handleMediaSessionActionDetails
+      ? onMediaSessionAction
       : null;
 
     navigator.mediaSession.setActionHandler(
@@ -328,7 +326,7 @@ export function useAudioPlayer() {
     );
 
     const podcastEpisodeHandler = isPodcastEpisode.value
-      ? handleMediaSessionActionDetails
+      ? onMediaSessionAction
       : null;
 
     navigator.mediaSession.setActionHandler(
@@ -450,7 +448,7 @@ export function useAudioPlayer() {
 
   // Audio time actions.
   function setCurrentTime(time: number) {
-    // trunc value as current time is a decimal. This should prevent an
+    // Trunc value as current time is a decimal. This should prevent an
     // Uncaught TypeError of the position being more than the duration.
     const truncTime = Math.trunc(time);
 
@@ -530,7 +528,7 @@ export function useAudioPlayer() {
 
   async function shuffleTracks(tracks: MixedTrack[]) {
     const queueIndex = Math.floor(Math.random() * tracks.length) - 1;
-    playTracks(tracks, queueIndex);
+    await playTracks(tracks, queueIndex);
     toggleShuffle();
   }
 
@@ -706,7 +704,7 @@ export function useAudioPlayer() {
           break;
         case Number.POSITIVE_INFINITY:
           if (isLastTrack.value) {
-            // set to -1 as playNextTrack will + 1 to currentQueueIndex
+            // set to -1 as playNextTrack will + 1 to currentQueueIndex.
             currentQueueIndex.value =
               AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
           }

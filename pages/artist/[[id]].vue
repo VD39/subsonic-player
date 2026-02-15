@@ -16,17 +16,35 @@ definePageMeta({
 
 const route = useRoute();
 const { viewLayout } = useViewLayout();
+const { getMediaTracks } = useMediaTracks();
 const { getArtist } = useArtist();
 const { openModal } = useModal();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal, openTrackInformationModal } =
+  useMediaInformation();
+const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 
 const { data: artistData, status } = getArtist(
   route.params[ROUTE_PARAM_KEYS.artist.id] as string,
 );
+
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
 
 function openArtistBiographyModal() {
   openModal(MODAL_TYPE.readMoreModal, {
@@ -109,7 +127,10 @@ useHead({
       <AlbumsList
         :albums="artistData.albums"
         hideArtist
+        @addToQueue="addAlbumToQueue"
         @dragStart="dragStart"
+        @mediaInformation="openAlbumInformationModal"
+        @playAlbum="onPlayAlbum"
       />
 
       <template v-if="artistData.topTracks.length">

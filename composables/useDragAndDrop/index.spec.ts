@@ -1,5 +1,10 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
+import { classListMock } from '@/test/classListMock';
+import {
+  documentEventListenerMock,
+  htmlEventListenerMock,
+} from '@/test/eventListenersMock';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
@@ -7,27 +12,6 @@ import { useDragAndDrop } from './index';
 
 vi.useFakeTimers();
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const documentEvents: any = {};
-
-const documentAddEventListenerSpy = vi
-  .spyOn(document, 'addEventListener')
-  .mockImplementation((event, cb) => {
-    documentEvents[event] = cb;
-  });
-const documentRemoveEventListenerSpy = vi.spyOn(
-  document,
-  'removeEventListener',
-);
-const htmlAddEventListenerSpy = vi
-  .spyOn(HTMLElement.prototype, 'addEventListener')
-  .mockImplementation((event, cb) => {
-    documentEvents[event] = cb;
-  });
-const htmlRemoveEventListenerSpy = vi.spyOn(
-  HTMLElement.prototype,
-  'removeEventListener',
-);
 const appendChildSpy = vi.spyOn(document.body, 'appendChild');
 const createElementSpy = vi.spyOn(document, 'createElement');
 const jsonParseSpy = vi.spyOn(JSON, 'parse');
@@ -38,20 +22,6 @@ const closestSpy = vi.spyOn(HTMLElement.prototype, 'closest');
 const containsSpy = vi
   .spyOn(HTMLElement.prototype, 'contains')
   .mockReturnValue(false);
-
-const addClassMock = vi.fn();
-const containsClassMock = vi.fn();
-const removeClassMock = vi.fn();
-
-Object.defineProperty(HTMLElement.prototype, 'classList', {
-  get() {
-    return {
-      add: addClassMock,
-      contains: containsClassMock,
-      remove: removeClassMock,
-    };
-  },
-});
 
 HTMLElement.prototype.getBoundingClientRect = () =>
   ({
@@ -81,6 +51,15 @@ function createDragStartDragEvent(
   } as unknown as DragEvent;
 }
 
+const {
+  documentAddEventListenerSpy,
+  documentEvents,
+  documentRemoveEventListenerSpy,
+} = documentEventListenerMock();
+const { htmlAddEventListenerSpy, htmlEvents, htmlRemoveEventListenerSpy } =
+  htmlEventListenerMock();
+const { addClassMock, containsClassMock, removeClassMock } = classListMock();
+
 function createDropDragEvent(
   isDroppable = true,
   dataReturned: null | string = null,
@@ -96,22 +75,16 @@ function createDropDragEvent(
   } as unknown as DragEvent;
 }
 
-const getAlbumMock = vi.fn();
+const getMediaTracksMock = vi.fn();
 
-mockNuxtImport('useAlbum', () => () => ({
-  getAlbum: getAlbumMock,
+mockNuxtImport('useMediaTracks', () => () => ({
+  getMediaTracks: getMediaTracksMock,
 }));
 
 const addToPlaylistMock = vi.fn();
 
 mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylist: addToPlaylistMock,
-}));
-
-const getPodcastMock = vi.fn();
-
-mockNuxtImport('usePodcast', () => () => ({
-  getPodcast: getPodcastMock,
 }));
 
 const { addTracksToQueueMock } = useAudioPlayerMock();
@@ -121,7 +94,7 @@ const mediaMock = getFormattedQueueTracksMock()[0];
 const { dragStart, drop } = useDragAndDrop();
 
 describe('useDragAndDrop', () => {
-  describe('when drop function is called', () => {
+  describe('when the drop function is called', () => {
     afterEach(() => {
       vi.clearAllMocks();
     });
@@ -137,7 +110,7 @@ describe('useDragAndDrop', () => {
     });
 
     describe(`when element does not have a ${DRAG_AND_DROP_CLASS_NAMES.isDroppable} class`, () => {
-      it('does not call then event.dataTransfer.getData function', () => {
+      it('does not call the event.dataTransfer.getData function', () => {
         expect(getDataMock).not.toHaveBeenCalled();
       });
     });
@@ -148,7 +121,7 @@ describe('useDragAndDrop', () => {
           drop('drop-id', createDropDragEvent());
         });
 
-        it('does not call then JSON.parse function', () => {
+        it('does not call the JSON.parse function', () => {
           expect(jsonParseSpy).not.toHaveBeenCalled();
         });
       });
@@ -167,11 +140,11 @@ describe('useDragAndDrop', () => {
             );
           });
 
-          it('does not call then addTracksToQueue function', () => {
+          it('does not call the addTracksToQueue function', () => {
             expect(addTracksToQueueMock).not.toHaveBeenCalled();
           });
 
-          it('does not call then addToPlaylist function', () => {
+          it('does not call the addToPlaylist function', () => {
             expect(addToPlaylistMock).not.toHaveBeenCalled();
           });
         });
@@ -181,328 +154,91 @@ describe('useDragAndDrop', () => {
             [
               QUEUE_ID,
               {
-                album: 2,
-                playlist: 3,
-                podcast: 2,
-                podcastEpisodeTracks: 1,
-              },
-              {
-                album: 0,
-                playlist: 0,
-                podcast: 0,
-                podcastEpisodeTracks: 0,
+                addToPlaylist: 0,
+                addTracksToQueue: 1,
               },
             ],
             [
               'drop-id',
               {
-                album: 0,
-                playlist: 0,
-                podcast: 0,
-                podcastEpisodeTracks: 0,
-              },
-              {
-                album: 2,
-                playlist: 3,
-                podcast: 2,
-                podcastEpisodeTracks: 1,
+                addToPlaylist: 2,
+                addTracksToQueue: 0,
               },
             ],
-          ])(
-            'when dropId is %s',
-            (dropId, addTracksToQueueTimes, addToPlaylistTimes) => {
-              describe(`when media type is ${MEDIA_TYPE.album}`, () => {
-                describe('when tracks is not an empty array', () => {
-                  beforeEach(() => {
-                    drop(
-                      dropId,
-                      createDropDragEvent(
-                        true,
-                        JSON.stringify({
-                          id: 'id',
-                          tracks: [{}, {}],
-                          type: MEDIA_TYPE.album,
-                        }),
-                      ),
-                    );
-                  });
+          ])('when dropId is %s', (dropId, expectedCalls) => {
+            describe('when getMediaTracks returns tracks', () => {
+              beforeEach(() => {
+                getMediaTracksMock.mockResolvedValue([{}, {}]);
 
-                  it('does not call getAlbum function', () => {
-                    expect(getAlbumMock).not.toHaveBeenCalled();
-                  });
-
-                  it(`${addTracksToQueueTimes.album > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
-                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
-                      addTracksToQueueTimes.album > 0 ? 1 : 0,
-                    );
-                  });
-
-                  it(`${addToPlaylistTimes.album > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
-                    expect(addToPlaylistMock).toHaveBeenCalledTimes(
-                      addToPlaylistTimes.album,
-                    );
-                  });
-                });
-
-                describe('when tracks is an empty array', () => {
-                  describe('and getAlbum returns null', () => {
-                    beforeEach(() => {
-                      getAlbumMock.mockResolvedValue(null);
-
-                      drop(
-                        dropId,
-                        createDropDragEvent(
-                          true,
-                          JSON.stringify({
-                            id: 'id',
-                            tracks: [],
-                            type: MEDIA_TYPE.album,
-                          }),
-                        ),
-                      );
-                    });
-
-                    it('calls getAlbum function', () => {
-                      expect(getAlbumMock).toHaveBeenCalled();
-                    });
-
-                    it('does not call addTracksToQueue function', () => {
-                      expect(addTracksToQueueMock).not.toHaveBeenCalled();
-                    });
-
-                    it('does not call addToPlaylist function', () => {
-                      expect(addToPlaylistMock).not.toHaveBeenCalled();
-                    });
-                  });
-
-                  describe('and getAlbum returns data', () => {
-                    beforeEach(() => {
-                      getAlbumMock.mockResolvedValue({
-                        id: 'id',
-                        tracks: [{}, {}],
-                        type: MEDIA_TYPE.album,
-                      });
-
-                      drop(
-                        dropId,
-                        createDropDragEvent(
-                          true,
-                          JSON.stringify({
-                            id: 'id',
-                            tracks: [],
-                            type: MEDIA_TYPE.album,
-                          }),
-                        ),
-                      );
-                    });
-
-                    it('calls getAlbum function', () => {
-                      expect(getAlbumMock).toHaveBeenCalled();
-                    });
-
-                    it(`${addTracksToQueueTimes.album > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
-                      expect(addTracksToQueueMock).toHaveBeenCalledTimes(
-                        addTracksToQueueTimes.album > 0 ? 1 : 0,
-                      );
-                    });
-
-                    it(`${addToPlaylistTimes.album > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
-                      expect(addToPlaylistMock).toHaveBeenCalledTimes(
-                        addToPlaylistTimes.album,
-                      );
-                    });
-                  });
-                });
-              });
-
-              describe(`when media type is ${MEDIA_TYPE.playlist}`, () => {
-                describe('when tracks is not an empty array', () => {
-                  beforeEach(() => {
-                    drop(
-                      dropId,
-                      createDropDragEvent(
-                        true,
-                        JSON.stringify({
-                          id: 'id',
-                          tracks: [{}, {}, {}],
-                          type: MEDIA_TYPE.playlist,
-                        }),
-                      ),
-                    );
-                  });
-
-                  it('does not call then getAlbum function', () => {
-                    expect(getAlbumMock).not.toHaveBeenCalled();
-                  });
-
-                  it(`${addTracksToQueueTimes.playlist > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
-                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
-                      addTracksToQueueTimes.playlist > 0 ? 1 : 0,
-                    );
-                  });
-
-                  it(`${addToPlaylistTimes.playlist > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
-                    expect(addToPlaylistMock).toHaveBeenCalledTimes(
-                      addToPlaylistTimes.playlist,
-                    );
-                  });
-                });
-
-                describe('when tracks is an empty array', () => {
-                  beforeEach(() => {
-                    drop(
-                      dropId,
-                      createDropDragEvent(
-                        true,
-                        JSON.stringify({
-                          id: 'id',
-                          tracks: [],
-                          type: MEDIA_TYPE.playlist,
-                        }),
-                      ),
-                    );
-                  });
-
-                  it('does not call then addTracksToQueue function', () => {
-                    expect(addTracksToQueueMock).not.toHaveBeenCalled();
-                  });
-
-                  it('does not call then addToPlaylist function', () => {
-                    expect(addToPlaylistMock).not.toHaveBeenCalled();
-                  });
-                });
-              });
-
-              describe(`when media type is ${MEDIA_TYPE.podcast}`, () => {
-                beforeEach(() => {
-                  getPodcastMock.mockResolvedValue(null);
-
-                  drop(
-                    dropId,
-                    createDropDragEvent(
-                      true,
-                      JSON.stringify({
-                        id: 'id',
-                        type: MEDIA_TYPE.podcast,
-                      }),
-                    ),
-                  );
-                });
-
-                it('calls then getPodcast function', () => {
-                  expect(getPodcastMock).toHaveBeenCalled();
-                });
-
-                describe('when getPodcast does not return data', () => {
-                  it('does not call then addTracksToQueue function', () => {
-                    expect(addTracksToQueueMock).not.toHaveBeenCalled();
-                  });
-
-                  it('does not call then addToPlaylist function', () => {
-                    expect(addToPlaylistMock).not.toHaveBeenCalled();
-                  });
-                });
-
-                describe('when getPodcast does return data', () => {
-                  beforeEach(() => {
-                    getPodcastMock.mockResolvedValue({
-                      episodes: {
-                        downloaded: [{}, {}],
-                      },
+                drop(
+                  dropId,
+                  createDropDragEvent(
+                    true,
+                    JSON.stringify({
                       id: 'id',
-                      type: MEDIA_TYPE.podcast,
-                    });
-
-                    drop(
-                      dropId,
-                      createDropDragEvent(
-                        true,
-                        JSON.stringify({
-                          id: 'id',
-                          type: MEDIA_TYPE.podcast,
-                        }),
-                      ),
-                    );
-                  });
-
-                  it(`${addTracksToQueueTimes.podcast > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
-                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
-                      addTracksToQueueTimes.podcast > 0 ? 1 : 0,
-                    );
-                  });
-
-                  it(`${addToPlaylistTimes.podcast > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
-                    expect(addToPlaylistMock).toHaveBeenCalledTimes(
-                      addToPlaylistTimes.podcast,
-                    );
-                  });
-                });
+                      type: MEDIA_TYPE.track,
+                    }),
+                  ),
+                );
               });
 
-              describe.each([[MEDIA_TYPE.podcastEpisode], [MEDIA_TYPE.track]])(
-                'with media type %s',
-                (mediaType) => {
-                  beforeEach(() => {
-                    drop(
-                      dropId,
-                      createDropDragEvent(
-                        true,
-                        JSON.stringify({
-                          id: 'id',
-                          type: mediaType,
-                        }),
-                      ),
-                    );
-                  });
-
-                  it(`${addTracksToQueueTimes.podcastEpisodeTracks > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
-                    expect(addTracksToQueueMock).toHaveBeenCalledTimes(
-                      addTracksToQueueTimes.podcastEpisodeTracks > 0 ? 1 : 0,
-                    );
-                  });
-
-                  it(`${addToPlaylistTimes.podcastEpisodeTracks > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
-                    expect(addToPlaylistMock).toHaveBeenCalledTimes(
-                      addToPlaylistTimes.podcastEpisodeTracks,
-                    );
-                  });
-                },
-              );
-
-              describe(`when media type is ${MEDIA_TYPE.radioStation}`, () => {
-                beforeEach(() => {
-                  drop(
-                    'drop-id',
-                    createDropDragEvent(
-                      true,
-                      JSON.stringify({
-                        id: 'id',
-                        type: MEDIA_TYPE.radioStation,
-                      }),
-                    ),
-                  );
-                });
-
-                it('does not call then addTracksToQueue function', () => {
-                  expect(addTracksToQueueMock).not.toHaveBeenCalled();
-                });
-
-                it('does not call then addToPlaylist function', () => {
-                  expect(addToPlaylistMock).not.toHaveBeenCalled();
-                });
+              it('calls the getMediaTracks function', () => {
+                expect(getMediaTracksMock).toHaveBeenCalled();
               });
-            },
-          );
+
+              it(`${expectedCalls.addTracksToQueue > 0 ? 'calls' : 'does not call'} the addTracksToQueue function`, () => {
+                expect(addTracksToQueueMock).toHaveBeenCalledTimes(
+                  expectedCalls.addTracksToQueue,
+                );
+              });
+
+              it(`${expectedCalls.addToPlaylist > 0 ? 'calls' : 'does not call'} the addToPlaylist function`, () => {
+                expect(addToPlaylistMock).toHaveBeenCalledTimes(
+                  expectedCalls.addToPlaylist,
+                );
+              });
+            });
+
+            describe('when getMediaTracks returns an empty array', () => {
+              beforeEach(() => {
+                getMediaTracksMock.mockResolvedValue([]);
+
+                drop(
+                  dropId,
+                  createDropDragEvent(
+                    true,
+                    JSON.stringify({
+                      id: 'id',
+                      type: MEDIA_TYPE.track,
+                    }),
+                  ),
+                );
+              });
+
+              it('calls the getMediaTracks function', () => {
+                expect(getMediaTracksMock).toHaveBeenCalled();
+              });
+
+              it('does not call the addTracksToQueue function', () => {
+                expect(addTracksToQueueMock).not.toHaveBeenCalled();
+              });
+
+              it('does not call the addToPlaylist function', () => {
+                expect(addToPlaylistMock).not.toHaveBeenCalled();
+              });
+            });
+          });
 
           describe('when drop is called multiple times', () => {
             beforeEach(() => {
+              getMediaTracksMock.mockResolvedValue([{}, {}]);
+
               drop(
                 'drop-id',
                 createDropDragEvent(
                   true,
                   JSON.stringify({
                     id: 'id',
-                    tracks: [{}, {}],
                     type: MEDIA_TYPE.album,
                   }),
                 ),
@@ -514,7 +250,6 @@ describe('useDragAndDrop', () => {
                   true,
                   JSON.stringify({
                     id: 'id',
-                    tracks: [{}, {}],
                     type: MEDIA_TYPE.album,
                   }),
                 ),
@@ -526,7 +261,6 @@ describe('useDragAndDrop', () => {
                   true,
                   JSON.stringify({
                     id: 'id',
-                    tracks: [{}, {}],
                     type: MEDIA_TYPE.album,
                   }),
                 ),
@@ -550,7 +284,7 @@ describe('useDragAndDrop', () => {
     });
   });
 
-  describe('when dragStart function is called', () => {
+  describe('when the dragStart function is called', () => {
     describe('when dataTransfer is not defined', () => {
       beforeEach(() => {
         const { dragStart } = useDragAndDrop();
@@ -647,7 +381,7 @@ describe('useDragAndDrop', () => {
       });
     });
 
-    describe('when dragStart is called multiple times', () => {
+    describe('when the dragStart function is called multiple times', () => {
       beforeEach(() => {
         const { dragStart } = useDragAndDrop();
         dragStart(mediaMock, createDragStartDragEvent(false));
@@ -672,14 +406,14 @@ describe('useDragAndDrop', () => {
         );
       });
 
-      it('does not add dragenter event listener function', () => {
+      it('does not add the dragenter event listener function', () => {
         expect(documentAddEventListenerSpy).not.toHaveBeenCalledWith(
           'dragenter',
           expect.any(Function),
         );
       });
 
-      it('does not add dragend event listener function', () => {
+      it('does not add the dragend event listener function', () => {
         expect(documentAddEventListenerSpy).not.toHaveBeenCalledWith(
           'dragend',
           expect.any(Function),
@@ -689,7 +423,7 @@ describe('useDragAndDrop', () => {
   });
 
   describe('when event listeners are attached', () => {
-    describe('when dragover event is called', () => {
+    describe('when the dragover event is called', () => {
       afterEach(() => {
         vi.clearAllMocks();
       });
@@ -710,7 +444,7 @@ describe('useDragAndDrop', () => {
         expect(requestAnimationFrameSpy).toHaveBeenCalled();
       });
 
-      describe('when dragover event is called again', () => {
+      describe('when the dragover event is called again', () => {
         beforeEach(() => {
           documentEvents.dragover({
             clientX: 20,
@@ -733,7 +467,7 @@ describe('useDragAndDrop', () => {
       });
     });
 
-    describe('when dragenter event is called', () => {
+    describe('when the dragenter event is called', () => {
       afterEach(() => {
         vi.clearAllMocks();
       });
@@ -777,13 +511,13 @@ describe('useDragAndDrop', () => {
         });
       });
 
-      describe('when dragleave event is called', () => {
+      describe('when the dragleave event is called', () => {
         describe('when event.relatedTarget is defined', () => {
           describe('when element contains the relatedTarget', () => {
             beforeEach(() => {
               containsSpy.mockReturnValueOnce(true);
 
-              documentEvents.dragleave({
+              htmlEvents.dragleave({
                 currentTarget: document.createElement('span'),
                 preventDefault: vi.fn(),
                 relatedTarget: document.createElement('span'),
@@ -797,7 +531,7 @@ describe('useDragAndDrop', () => {
 
           describe('when does not element contains the relatedTarget', () => {
             beforeEach(() => {
-              documentEvents.dragleave({
+              htmlEvents.dragleave({
                 currentTarget: document.createElement('span'),
                 preventDefault: vi.fn(),
                 relatedTarget: document.createElement('span'),
@@ -815,7 +549,7 @@ describe('useDragAndDrop', () => {
 
         describe('when event.relatedTarget is not defined', () => {
           beforeEach(() => {
-            documentEvents.dragleave({
+            htmlEvents.dragleave({
               currentTarget: document.createElement('span'),
               preventDefault: vi.fn(),
             });
@@ -831,7 +565,7 @@ describe('useDragAndDrop', () => {
       });
     });
 
-    describe('when dragend event is called', () => {
+    describe('when the dragend event is called', () => {
       beforeEach(async () => {
         await documentEvents.dragend();
       });

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropdownTitle > matches the snapshot 1`] = `
+"<li class="centerItems dropdownTitle">
+  <p class="strong smallFont">Default slot content.</p>
+</li>"
+`;

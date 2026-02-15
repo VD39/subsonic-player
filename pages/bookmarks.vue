@@ -35,7 +35,7 @@ const { refresh, status } = useAsyncData(
 );
 
 async function playEpisodeFromBookmarks(index: number) {
-  playTracks([bookmarks.value[index]], -1);
+  await playTracks([bookmarks.value[index]], -1);
   setCurrentTime(bookmarks.value[index].position);
 }
 

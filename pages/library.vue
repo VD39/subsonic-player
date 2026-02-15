@@ -13,6 +13,9 @@ const { getArtists } = useArtist();
 const { getGenres } = useGenre();
 const { dragStart } = useDragAndDrop();
 const { getPlaylists, playlists } = usePlaylist();
+const { addTracksToQueue, playTracks } = useAudioPlayer();
+const { openAlbumInformationModal } = useMediaInformation();
+const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
 const { data: libraryData, status } = useAsyncData(
@@ -50,6 +53,22 @@ const hasData = computed(
     playlists.value.length,
 );
 
+async function addAlbumToQueue(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await addTracksToQueue(tracks);
+  }
+}
+
+async function onPlayAlbum(album: Album) {
+  const tracks = await getMediaTracks(album);
+
+  if (tracks) {
+    await playTracks(tracks);
+  }
+}
+
 useHead({
   title: 'Library',
 });
@@ -75,8 +94,10 @@ useHead({
           >
             <AlbumItem
               :album
-              draggable="true"
-              @dragstart="dragStart(album, $event)"
+              @addToQueue="addAlbumToQueue"
+              @dragStart="dragStart"
+              @mediaInformation="openAlbumInformationModal"
+              @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
         </CarouselSwiper>

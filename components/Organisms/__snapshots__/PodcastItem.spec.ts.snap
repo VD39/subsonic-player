@@ -1,10 +1,34 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PodcastItem > matches the snapshot 1`] = `
-"<article class="layoutItem">
-  <figure class="layoutImage"><a draggable="false" title="Go to podcast title">
-      <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" loading="lazy" src="image"></div>
-    </a></figure>
+"<article class="interactionWrapper layoutItem" draggable="true">
+  <div class="layoutImage podcastImageWrapper">
+    <figure><a class="interactionLink" draggable="false" title="Go to podcast title">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play podcast title">
+        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play podcast title</span>
+      </button>
+      <div class="actionsRight">
+        <div>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Play podcast </span>
+            </button></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Add to queue </span>
+            </button></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+              <!--v-if--><span class="clamp text"> Go to podcast </span>
+            </a></li>
+          <li aria-hidden="true" class="divider"></li>
+          <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text"> Media information </span>
+            </button></li>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="layoutContent">
     <p class="strong smallFont clamp2"><a aria-label="Go to podcast title" class="layoutLink" draggable="false">title</a></p>
   </div>

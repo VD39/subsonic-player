@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
-import LinkOrText from '@/components/Atoms/LinkOrText.vue';
-import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import RadioStationsListItem from '@/components/Organisms/TrackLists/RadioStationsListItem.vue';
 
 defineProps<{
   radioStations: RadioStation[];
@@ -29,72 +23,16 @@ const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
       <div class="trackCell trackOptions" />
     </div>
 
-    <LazyLoadContent
+    <RadioStationsListItem
       v-for="(radioStation, index) in radioStations"
       :key="radioStation.id"
-      class="trackRow"
-      data-test-id="radio-station"
-    >
-      <div class="trackCell">
-        <div>
-          <TrackPlayPause
-            :image="radioStation.image"
-            :trackId="radioStation.id"
-            :trackNumber="index + 1"
-            @playTrack="$emit('playRadioStation', radioStation)"
-          />
-
-          <MarqueeScroll>
-            <LinkOrText
-              is="a"
-              class="noTouchEvents"
-              :isLink="!!radioStation.homePageUrl"
-              target="_blank"
-              :text="radioStation.name"
-              :to="radioStation.homePageUrl"
-            />
-          </MarqueeScroll>
-        </div>
-      </div>
-
-      <div class="trackCell trackOptions">
-        <DropdownMenu>
-          <DropdownItem
-            is="a"
-            v-if="radioStation.homePageUrl"
-            :href="radioStation.homePageUrl"
-            target="_blank"
-          >
-            Visit station
-          </DropdownItem>
-          <DropdownItem
-            ref="editRadioStation"
-            @click="$emit('editRadioStation', radioStation)"
-          >
-            Edit station
-          </DropdownItem>
-          <DropdownItem
-            ref="deleteRadioStation"
-            @click="$emit('deleteRadioStation', radioStation.id)"
-          >
-            Delete station
-          </DropdownItem>
-          <DropdownDivider />
-          <DropdownItem
-            ref="addToQueue"
-            @click="$emit('addToQueue', radioStation)"
-          >
-            Add to queue
-          </DropdownItem>
-          <DropdownItem
-            ref="playRadioStation"
-            @click="$emit('playRadioStation', radioStation)"
-          >
-            Play station
-          </DropdownItem>
-        </DropdownMenu>
-      </div>
-    </LazyLoadContent>
+      :index
+      :radioStation
+      @addToQueue="$emit('addToQueue', radioStation)"
+      @deleteRadioStation="$emit('deleteRadioStation', radioStation.id)"
+      @editRadioStation="$emit('editRadioStation', radioStation)"
+      @playRadioStation="$emit('playRadioStation', radioStation)"
+    />
   </div>
 
   <NoMediaMessage

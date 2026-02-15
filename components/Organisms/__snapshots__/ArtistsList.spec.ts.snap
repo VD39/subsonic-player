@@ -10,7 +10,7 @@ exports[`ArtistsList > matches the snapshot 1`] = `
 exports[`ArtistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-0">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -18,7 +18,7 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-1">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -26,7 +26,7 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-2">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -34,7 +34,7 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-3">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-3">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -42,7 +42,7 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-4">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-4">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -55,7 +55,7 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
 exports[`ArtistsList > when artists prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-0">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -63,7 +63,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-1">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -71,7 +71,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-2">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -79,7 +79,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-3">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-3">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -87,7 +87,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-4">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-4">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -100,7 +100,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
 exports[`ArtistsList > when artists prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-0">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -108,7 +108,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-1">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -116,7 +116,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-2">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -124,7 +124,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-3">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-3">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
@@ -132,7 +132,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
     </div>
   </article>
   <article class="layoutItem">
-    <figure class="layoutImage"><a draggable="false" title="Go to artist artist-4">
+    <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-4">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">

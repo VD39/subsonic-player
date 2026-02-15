@@ -8,10 +8,13 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
-import { formattedPodcastMock, gridWrapperPropsMock } from '@/test/fixtures';
+import { gridWrapperPropsMock } from '@/test/fixtures';
+import {
+  getFormattedPodcastEpisodesMock,
+  getFormattedPodcastsMock,
+} from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
-import { getFormattedPodcastEpisodesMock } from '~/test/helpers';
 
 import PodcastsPage from './podcasts.vue';
 
@@ -33,10 +36,18 @@ mockNuxtImport('useMediaLibrary', () => () => ({
   downloadMedia: downloadMediaMock,
 }));
 
+const openPodcastInformationModalMock = vi.fn();
 const openTrackInformationModalMock = vi.fn();
 
 mockNuxtImport('useMediaInformation', () => () => ({
+  openPodcastInformationModal: openPodcastInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
+}));
+
+const getMediaTracksMock = vi.fn();
+
+mockNuxtImport('useMediaTracks', () => () => ({
+  getMediaTracks: getMediaTracksMock,
 }));
 
 const dragStartMock = vi.fn();
@@ -69,9 +80,12 @@ mockNuxtImport('useAsyncData', () => () => ({
 }));
 
 const { useHeadTitleMock } = useHeadMock();
-const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
+const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
+  useAudioPlayerMock();
 
-const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
+const podcast = getFormattedPodcastsMock()[0];
+const podcastEpisodes = getFormattedPodcastEpisodesMock(3);
+const podcastEpisode = podcastEpisodes[0];
 
 function factory(props = {}) {
   return mount(PodcastsPage, {
@@ -139,9 +153,9 @@ describe('podcasts', () => {
   describe('when getPodcastsAndNewestPodcastEpisodes does return data', () => {
     beforeEach(() => {
       podcasts.value = [
-        formattedPodcastMock,
+        podcast,
         {
-          ...formattedPodcastMock,
+          ...podcast,
           id: '2',
         },
       ];
@@ -207,16 +221,79 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastItem component triggers the dragstart event', () => {
-      beforeEach(async () => {
-        await wrapper.findComponent(PodcastItem).trigger('dragstart');
+    describe('when the PodcastItem component emits the dragStart event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent(PodcastItem)
+          .vm.$emit('dragStart', podcast, DragEvent);
       });
 
       it('calls the dragStart function with the correct parameters', () => {
-        expect(dragStartMock).toHaveBeenCalledWith(
-          formattedPodcastMock,
-          expect.any(DragEvent),
-        );
+        expect(dragStartMock).toHaveBeenCalledWith(podcast, DragEvent);
+      });
+    });
+
+    describe('when the PodcastItem component emits the addPodcastToQueue event', () => {
+      describe('when getMediaTracks returns tracks', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(podcastEpisodes);
+          wrapper
+            .findComponent(PodcastItem)
+            .vm.$emit('addPodcastToQueue', podcast);
+        });
+
+        it('calls the addTracksToQueue function with the correct parameters', () => {
+          expect(addTracksToQueueMock).toHaveBeenCalledWith(podcastEpisodes);
+        });
+      });
+
+      describe('when getMediaTracks returns null', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(null);
+          wrapper
+            .findComponent(PodcastItem)
+            .vm.$emit('addPodcastToQueue', podcast);
+        });
+
+        it('does not call the addTracksToQueue function', () => {
+          expect(addTracksToQueueMock).not.toHaveBeenCalled();
+        });
+      });
+    });
+
+    describe('when the PodcastItem component emits the mediaInformation event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent(PodcastItem)
+          .vm.$emit('mediaInformation', podcast);
+      });
+
+      it('calls the openPodcastInformationModal function with the correct parameters', () => {
+        expect(openPodcastInformationModalMock).toHaveBeenCalledWith(podcast);
+      });
+    });
+
+    describe('when the PodcastItem component emits the playPodcast event', () => {
+      describe('when getMediaTracks returns tracks', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(podcastEpisodes);
+          wrapper.findComponent(PodcastItem).vm.$emit('playPodcast', podcast);
+        });
+
+        it('calls the playTracks function with the correct parameters', () => {
+          expect(playTracksMock).toHaveBeenCalledWith(podcastEpisodes);
+        });
+      });
+
+      describe('when getMediaTracks returns null', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(null);
+          wrapper.findComponent(PodcastItem).vm.$emit('playPodcast', podcast);
+        });
+
+        it('does not call the playTracks function', () => {
+          expect(playTracksMock).not.toHaveBeenCalled();
+        });
       });
     });
 

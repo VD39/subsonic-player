@@ -9,16 +9,24 @@ exports[`AlbumsList > matches the snapshot 1`] = `
 
 exports[`AlbumsList > when albums prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-0">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -28,16 +36,24 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-1">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -47,16 +63,24 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-2">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="layoutLink" draggable="false">album-2</a></p>
@@ -66,16 +90,24 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-3">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="layoutLink" draggable="false">album-3</a></p>
@@ -85,16 +117,24 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-4">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="layoutLink" draggable="false">album-4</a></p>
@@ -109,16 +149,24 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
 
 exports[`AlbumsList > when albums prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-0">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -128,16 +176,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-1">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -147,16 +203,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-2">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="layoutLink" draggable="false">album-2</a></p>
@@ -166,16 +230,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-3">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="layoutLink" draggable="false">album-3</a></p>
@@ -185,16 +257,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-4">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="layoutLink" draggable="false">album-4</a></p>
@@ -209,16 +289,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
 
 exports[`AlbumsList > when albums prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-0">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -228,16 +316,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-1">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -247,16 +343,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-2">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="layoutLink" draggable="false">album-2</a></p>
@@ -266,16 +370,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-3">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="layoutLink" draggable="false">album-3</a></p>
@@ -285,16 +397,24 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
       </ul>
     </div>
   </article>
-  <article class="layoutItem" draggable="true">
-    <div class="albumImageWrapper">
-      <figure class="layoutImage"><a draggable="false" title="Go to album album-4">
+  <article class="interactionWrapper layoutItem" draggable="true">
+    <div class="layoutImage albumImageWrapper">
+      <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="actions"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike album">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-        </button><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
+      <div class="hideOnListLayout actions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
-        </button></div>
+        </button>
+        <div class="actionsRight"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+          </button>
+          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            </button>
+            <!--v-if-->
+          </div>
+        </div>
+      </div>
     </div>
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="layoutLink" draggable="false">album-4</a></p>

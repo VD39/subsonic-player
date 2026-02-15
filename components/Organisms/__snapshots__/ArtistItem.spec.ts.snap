@@ -2,7 +2,7 @@
 
 exports[`ArtistItem > matches the snapshot 1`] = `
 "<article class="layoutItem">
-  <figure class="layoutImage"><a draggable="false" title="Go to artist name">
+  <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist name">
       <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist name" class="image" draggable="false" loading="lazy" src="image"></div>
     </a></figure>
   <div class="layoutContent">

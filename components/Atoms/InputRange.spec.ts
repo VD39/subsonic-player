@@ -2,18 +2,16 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import {
+  documentEventListenerMock,
+  windowEventListenerMock,
+} from '../../test/eventListenersMock';
 import InputRange from './InputRange.vue';
 
-const windowAddEventListenerSpy = vi.spyOn(globalThis, 'addEventListener');
-const windowRemoveEventListenerSpy = vi.spyOn(
-  globalThis,
-  'removeEventListener',
-);
-const documentAddEventListenerSpy = vi.spyOn(document, 'addEventListener');
-const documentRemoveEventListenerSpy = vi.spyOn(
-  document,
-  'removeEventListener',
-);
+const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
+  windowEventListenerMock();
+const { documentAddEventListenerSpy, documentRemoveEventListenerSpy } =
+  documentEventListenerMock();
 HTMLElement.prototype.getBoundingClientRect = () =>
   ({
     left: 0,

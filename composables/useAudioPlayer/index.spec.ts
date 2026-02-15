@@ -1163,7 +1163,7 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when mediaSession is in navigator', () => {
-      describe('when track type is a track', () => {
+      describe(`when track type is ${MEDIA_TYPE.track}`, () => {
         it('calls the MediaMetadata function with the correct parameters', () => {
           expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
             album: (queueTracks[0] as Track).album,
@@ -1174,7 +1174,7 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when track type is a radio station', () => {
+      describe(`when track type is ${MEDIA_TYPE.radioStation}`, () => {
         const radioStations = getFormattedQueueTracksMock(1, {
           type: MEDIA_TYPE.radioStation,
         });
@@ -1193,7 +1193,7 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when track type is a podcast episode', () => {
+      describe(`when track type is ${MEDIA_TYPE.podcastEpisode}`, () => {
         const podcastEpisodes = getFormattedQueueTracksMock(1, {
           podcastName: 'podcastName',
           type: MEDIA_TYPE.podcastEpisode,
@@ -1613,7 +1613,7 @@ describe('useAudioPlayer', () => {
       });
 
       describe('when currentTrack value is set', () => {
-        describe('when track type is not a radio station', () => {
+        describe(`when track type is not ${MEDIA_TYPE.radioStation}`, () => {
           beforeAll(() => {
             onTimeupdateCb(20);
           });
@@ -1629,7 +1629,7 @@ describe('useAudioPlayer', () => {
           });
         });
 
-        describe('when track type is a radio station', () => {
+        describe(`when track type is ${MEDIA_TYPE.radioStation}`, () => {
           beforeAll(() => {
             vi.clearAllMocks();
             result.composable.queueList.value = getFormattedQueueTracksMock(5, {
@@ -1665,13 +1665,13 @@ describe('useAudioPlayer', () => {
         onEndedCb();
       });
 
-      describe('when track type is not a podcast episode', () => {
+      describe(`when track type is not ${MEDIA_TYPE.podcastEpisode}`, () => {
         it('does not call the deleteBookmark function', () => {
           expect(deleteBookmarkMock).not.toHaveBeenCalled();
         });
       });
 
-      describe('when track type is a podcast episode', () => {
+      describe(`when track type is ${MEDIA_TYPE.podcastEpisode}`, () => {
         beforeAll(() => {
           result.composable.queueList.value = getFormattedQueueTracksMock(6, {
             type: MEDIA_TYPE.podcastEpisode,

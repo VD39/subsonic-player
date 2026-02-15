@@ -20,7 +20,7 @@ const volumeIcon = computed(() => {
   }
 });
 
-function changeAudioVolume() {
+function onChange() {
   setVolume(volume.value);
 }
 </script>
@@ -38,7 +38,7 @@ function changeAudioVolume() {
         :aria-valuetext="ariaValueText"
         :max="1"
         :min="0"
-        @change="changeAudioVolume"
+        @change="onChange"
       />
 
       <p aria-hidden :class="$style.currentVolume">{{ volumePercentage }}</p>

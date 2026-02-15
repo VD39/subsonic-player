@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    is?: Link;
+    is?: LinkIs;
     isLink: boolean;
     text: string;
     to: ToProp;

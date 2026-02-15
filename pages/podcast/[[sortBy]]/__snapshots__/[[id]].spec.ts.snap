@@ -55,20 +55,20 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active">
-              <ul>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Delete podcast </span>
-                  </button></li>
-                <li aria-hidden="true" class="divider"></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Add episodes to queue </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+              <ul class="hasPointerEvents">
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Play latests episode </span>
                   </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Play all episodes </span>
+                  </button></li>
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                    <!--v-if--><span class="clamp text"> Add episodes to queue </span>
+                  </button></li>
+                <li aria-hidden="true" class="divider"></li>
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                    <!--v-if--><span class="clamp text"> Delete podcast </span>
                   </button></li>
               </ul>
             </div>
@@ -93,7 +93,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
         </div>
       </div>
     </nav>
-    <podcast-episodes-list-stub podcastepisodes="[object Object]"></podcast-episodes-list-stub>
+    <podcast-episodes-list-stub podcastepisodes="[object Object]" isrecentlist="false"></podcast-episodes-list-stub>
   </div>
 </div>"
 `;
@@ -129,20 +129,20 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active">
-              <ul>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Delete podcast </span>
-                  </button></li>
-                <li aria-hidden="true" class="divider"></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Add episodes to queue </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+              <ul class="hasPointerEvents">
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Play latests episode </span>
                   </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Play all episodes </span>
+                  </button></li>
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                    <!--v-if--><span class="clamp text"> Add episodes to queue </span>
+                  </button></li>
+                <li aria-hidden="true" class="divider"></li>
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                    <!--v-if--><span class="clamp text"> Delete podcast </span>
                   </button></li>
               </ul>
             </div>
@@ -167,7 +167,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
         </div>
       </div>
     </nav>
-    <podcast-episodes-list-stub podcastepisodes="[object Object]"></podcast-episodes-list-stub>
+    <podcast-episodes-list-stub podcastepisodes="[object Object]" isrecentlist="false"></podcast-episodes-list-stub>
   </div>
 </div>"
 `;
@@ -207,12 +207,12 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active">
-              <ul>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween buttonLink spaceBetween buttonLink" draggable="false" type="button">
+            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+              <ul class="hasPointerEvents">
+                <!--v-if-->
+                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Delete podcast </span>
                   </button></li>
-                <!--v-if-->
               </ul>
             </div>
           </div>
@@ -236,7 +236,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
         </div>
       </div>
     </nav>
-    <podcast-episodes-list-stub podcastepisodes=""></podcast-episodes-list-stub>
+    <podcast-episodes-list-stub podcastepisodes="" isrecentlist="false"></podcast-episodes-list-stub>
   </div>
 </div>"
 `;

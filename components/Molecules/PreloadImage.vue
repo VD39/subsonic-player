@@ -37,7 +37,7 @@ const imageSrc = computed(() => {
   return getImageUrl(props.image);
 });
 
-onMounted(async () => {
+onMounted(() => {
   if (!preloadImageRef.value || !imageSrc.value || !props.lazyLoad) {
     return;
   }

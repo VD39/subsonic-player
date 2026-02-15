@@ -20,27 +20,24 @@ Built with [Nuxt 4][nuxt], a modern [Vue 3][vue] framework, this open-source app
 ## ✨ Features
 
 1. Fully Responsive UI (Further design improvements are ongoing.)
-
    - Optimized for desktop and mobile devices.
    - Adaptive design.
 
 2. Comprehensive Library Browsing
-
    - Browse by album, artist, genre, and folder/files.
    - Explore podcasts and favourites.
    - Access internet radio stations.
 
 3. Advanced Functionality
-
    - Bookmarking podcast episode to keep track of the listening position across multiple sessions.
    - MediaSession Integration.
    - Advanced Search capabilities.
    - Dark/Light Mode support.
    - Keyboard shortcut (Press `h` to see menu).
+   - Context menu access via right-click (desktop) or long press (mobile) for quick actions on tracks, albums, playlists, and more.
    - Easily drag and drop your favorite tracks, albums, and podcast episodes right into the queue or your playlist in the sidebar (available only on desktop).
 
 4. Progressive Web App (PWA) Feature
-
    - Seamlessly download the app icon to the home screen, providing the convenience of launching the app just like a traditional native application.
    - Benefit from a web-based app that reduces storage space on devices compared to traditional downloadable applications, while still providing robust functionality.
 
@@ -95,6 +92,14 @@ docker compose up -d
 ```
 
 The application will be accessible at `http://localhost:3000`.
+
+#### Preview Version
+
+A preview version (`vd39/subsonic-player:preview`) is available for those who want to try the latest changes early. Note that this version contains changes that are still undergoing internal testing and may contain bugs or stability issues. Use at your own risk.
+
+```yml
+image: vd39/subsonic-player:preview
+```
 
 ### Docker Run Command (Alternative)
 
@@ -190,10 +195,10 @@ This project is licensed under the AGPLv3 license. Full license details availabl
 
 <!-- Images -->
 
-[desktop-dark]: docs/images/desktop-dark.png
-[mobile-dark]: docs/images/mobile-dark.png
-[desktop-light]: docs/images/desktop-light.png
-[mobile-light]: docs/images/mobile-light.png
+[desktop-dark]: https://vd39.github.io/subsonic-player/images/desktop-dark.png
+[mobile-dark]: https://vd39.github.io/subsonic-player/images/mobile-dark.png
+[desktop-light]: https://vd39.github.io/subsonic-player/images/desktop-light.png
+[mobile-light]: https://vd39.github.io/subsonic-player/images/mobile-light.png
 
 <!-- Videos -->
 

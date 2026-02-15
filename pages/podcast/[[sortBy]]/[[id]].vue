@@ -75,8 +75,12 @@ async function deleteSelectedPodcast() {
   });
 }
 
-function dragItem(event: DragEvent) {
+function onDragStart(event: DragEvent) {
   dragStart(podcast.value!, event);
+}
+
+function onPlayEpisode(episode: PodcastEpisode) {
+  playTracks([episode]);
 }
 
 function openPodcastDescriptionModal() {
@@ -90,12 +94,8 @@ function playAllEpisodes() {
   playTracks(podcast.value!.episodes.downloaded, -1);
 }
 
-function playEpisode(episode: PodcastEpisode) {
-  playTracks([episode]);
-}
-
 function playLatestsEpisodes() {
-  playEpisode(podcast.value!.episodes.downloaded[0]);
+  onPlayEpisode(podcast.value!.episodes.downloaded[0]);
 }
 
 const podcastEpisodes = computed(
@@ -123,7 +123,7 @@ useHead({
       <EntryHeader
         :images="[podcast.image]"
         :title="podcast.name"
-        @dragStart="dragItem"
+        @dragStart="onDragStart"
       >
         <template #actions>
           <RefreshButton :status @refresh="refresh" />
@@ -167,21 +167,7 @@ useHead({
           </ButtonLink>
 
           <DropdownMenu>
-            <DropdownItem
-              ref="deletePodcastDropdownItem"
-              @click="deleteSelectedPodcast"
-            >
-              Delete podcast
-            </DropdownItem>
-
             <template v-if="hasDownloadedEpisodes">
-              <DropdownDivider />
-              <DropdownItem
-                ref="addDownloadedEpisodesToQueueDropdownItem"
-                @click="addDownloadedTracksToQueue"
-              >
-                Add episodes to queue
-              </DropdownItem>
               <DropdownItem
                 ref="playLatestsEpisodeDropdownItem"
                 @click="playLatestsEpisodes"
@@ -194,7 +180,20 @@ useHead({
               >
                 Play all episodes
               </DropdownItem>
+              <DropdownItem
+                ref="addDownloadedEpisodesToQueueDropdownItem"
+                @click="addDownloadedTracksToQueue"
+              >
+                Add episodes to queue
+              </DropdownItem>
+              <DropdownDivider />
             </template>
+            <DropdownItem
+              ref="deletePodcastDropdownItem"
+              @click="deleteSelectedPodcast"
+            >
+              Delete podcast
+            </DropdownItem>
           </DropdownMenu>
         </div>
       </EntryHeader>
@@ -210,7 +209,7 @@ useHead({
         @downloadMedia="downloadMedia"
         @dragStart="dragStart"
         @episodeInformation="openTrackInformationModal"
-        @playEpisode="playEpisode"
+        @playEpisode="onPlayEpisode"
       />
     </div>
 

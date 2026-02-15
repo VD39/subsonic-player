@@ -2,46 +2,29 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
-import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import PodcastEpisodesListItem from '@/components/Organisms/TrackLists/PodcastEpisodesListItem.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 
 import PodcastEpisodesList from './PodcastEpisodesList.vue';
 
-const downloadedPodcastEpisodes = getFormattedPodcastEpisodesMock(5);
-const noneDownloadedPodcastEpisodes = getFormattedPodcastEpisodesMock(5, {
-  downloaded: false,
-});
-const downloadedPodcastEpisode = downloadedPodcastEpisodes[0];
-const noneDownloadedPodcastEpisode = noneDownloadedPodcastEpisodes[0];
+const podcastEpisodes = getFormattedPodcastEpisodesMock(5);
+const episode = podcastEpisodes[0];
 
-async function factory(props = {}) {
-  const wrapper = mount(PodcastEpisodesList, {
+function factory(props = {}) {
+  return mount(PodcastEpisodesList, {
     props: {
-      podcastEpisodes: downloadedPodcastEpisodes,
+      podcastEpisodes,
       ...props,
     },
   });
-
-  await wrapper.vm.$nextTick();
-
-  const dropdownMenu = wrapper.findComponent(DropdownMenu);
-
-  if (dropdownMenu.exists()) {
-    dropdownMenu.findComponent(ButtonLink).vm.$emit('click');
-  }
-
-  return wrapper;
 }
 
 describe('PodcastEpisodesList', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(async () => {
-    wrapper = await factory();
+  beforeEach(() => {
+    wrapper = factory();
   });
 
   it('matches the snapshot', () => {
@@ -49,8 +32,8 @@ describe('PodcastEpisodesList', () => {
   });
 
   describe('when podcastEpisodes prop is an empty array', () => {
-    beforeEach(async () => {
-      wrapper = await factory({
+    beforeEach(() => {
+      wrapper = factory({
         podcastEpisodes: [],
       });
     });
@@ -73,343 +56,58 @@ describe('PodcastEpisodesList', () => {
       expect(wrapper.find({ ref: 'tracksWrapper' }).exists()).toBe(true);
     });
 
-    it('shows the correct number of track items', () => {
-      expect(wrapper.findAll('[data-test-id="track"]').length).toBe(5);
+    it('shows the correct number of episode items', () => {
+      expect(wrapper.findAllComponents(PodcastEpisodesListItem).length).toBe(5);
     });
 
     it('does not show the NoMediaMessage component', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when the episode has a description', () => {
-      it('shows the description element', () => {
-        expect(wrapper.find({ ref: 'description' }).exists()).toBe(true);
-      });
-    });
-
-    describe('when the episode has no description', () => {
-      beforeEach(async () => {
-        wrapper = await factory({
-          podcastEpisodes: getFormattedPodcastEpisodesMock(1, {
-            description: undefined,
-          }),
+    describe('when isRecentList prop is true', () => {
+      beforeEach(() => {
+        wrapper = factory({
+          isRecentList: true,
         });
       });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the description element', () => {
-        expect(wrapper.find({ ref: 'description' }).exists()).toBe(false);
-      });
-    });
-
-    describe('when the episode has an author', () => {
-      it('shows the MarqueeScroll component containing the author', () => {
+      it('passes isRecentList prop to PodcastEpisodesListItem', () => {
         expect(
-          wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
+          wrapper.findComponent(PodcastEpisodesListItem).props('isRecentList'),
         ).toBe(true);
-      });
-    });
-
-    describe('when the episode has no author', () => {
-      beforeEach(async () => {
-        wrapper = await factory({
-          podcastEpisodes: getFormattedPodcastEpisodesMock(1, {
-            author: undefined,
-          }),
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the MarqueeScroll component containing the author', () => {
-        expect(
-          wrapper.findComponent({ ref: 'authorMarqueeScroll' }).exists(),
-        ).toBe(false);
-      });
-    });
-
-    describe('when episode is downloaded', () => {
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('sets the correct draggable attribute on the track element', () => {
-        expect(
-          wrapper.find('[data-test-id="track"]').attributes('draggable'),
-        ).toBe('true');
-      });
-
-      it('shows the TrackPlayPause component', () => {
-        expect(wrapper.findComponent(TrackPlayPause).exists()).toBe(true);
-      });
-
-      it('does not show the DownloadPodcastEpisode component', () => {
-        expect(wrapper.findComponent(DownloadPodcastEpisode).exists()).toBe(
-          false,
-        );
-      });
-
-      it('shows the delete episode DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'deleteEpisode' }).exists()).toBe(
-          true,
-        );
-      });
-
-      it('shows the download media DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'downloadMedia' }).exists()).toBe(
-          true,
-        );
-      });
-
-      it('shows the add to playlist DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'addToPlaylist' }).exists()).toBe(
-          true,
-        );
-      });
-
-      it('shows the add to queue DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
-          true,
-        );
-      });
-
-      it('shows the play episode DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(
-          true,
-        );
-      });
-
-      it('does not show the download episode DropdownItem component', () => {
-        expect(
-          wrapper
-            .findComponent({ ref: 'downloadEpisodeDropdownItem' })
-            .exists(),
-        ).toBe(false);
-      });
-
-      it('shows the downloaded icon component', () => {
-        expect(wrapper.find({ ref: 'downloaded' }).exists()).toBe(true);
-      });
-
-      it('does not show the download episode ButtonLink component', () => {
-        expect(
-          wrapper.findComponent({ ref: 'downloadEpisodeButton' }).exists(),
-        ).toBe(false);
-      });
-
-      describe.each([
-        [
-          'delete episode DropdownItem',
-          'deleteEpisode',
-          'deleteEpisode',
-          [downloadedPodcastEpisode],
-        ],
-        [
-          'download media DropdownItem',
-          'downloadMedia',
-          'downloadMedia',
-          [downloadedPodcastEpisode],
-        ],
-        [
-          'add to playlist DropdownItem',
-          'addToPlaylist',
-          'addToPlaylist',
-          [downloadedPodcastEpisode.id],
-        ],
-        [
-          'add to queue DropdownItem',
-          'addToQueue',
-          'addToQueue',
-          [downloadedPodcastEpisode],
-        ],
-        [
-          'play episode DropdownItem',
-          'playEpisode',
-          'playEpisode',
-          [downloadedPodcastEpisode],
-        ],
-      ])(
-        'when the %s component emits the click event',
-        (_text, ref, emitEventName, expectedArgs) => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('click');
-          });
-
-          it(`emits the ${emitEventName} event with the correct value`, () => {
-            expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
-          });
-        },
-      );
-
-      describe('when the TrackPlayPause component emits the playTrack event', () => {
-        beforeEach(() => {
-          wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
-        });
-
-        it('emits the playEpisode event with the correct value', () => {
-          expect(wrapper.emitted('playEpisode')).toEqual([
-            [downloadedPodcastEpisode],
-          ]);
-        });
-      });
-    });
-
-    describe('when episode is not downloaded', () => {
-      beforeEach(async () => {
-        wrapper = await factory({
-          podcastEpisodes: noneDownloadedPodcastEpisodes,
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('sets the correct draggable attribute on the track element', () => {
-        expect(
-          wrapper.find('[data-test-id="track"]').attributes('draggable'),
-        ).toBe('false');
-      });
-
-      it('does not show the TrackPlayPause component', () => {
-        expect(wrapper.findComponent(TrackPlayPause).exists()).toBe(false);
-      });
-
-      it('shows the DownloadPodcastEpisode component', () => {
-        expect(wrapper.findComponent(DownloadPodcastEpisode).exists()).toBe(
-          true,
-        );
-      });
-
-      it('does not show the delete episode DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'deleteEpisode' }).exists()).toBe(
-          false,
-        );
-      });
-
-      it('does not show the download media DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'downloadMedia' }).exists()).toBe(
-          false,
-        );
-      });
-
-      it('does not show the add to playlist DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'addToPlaylist' }).exists()).toBe(
-          false,
-        );
-      });
-
-      it('does not show the add to queue DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(
-          false,
-        );
-      });
-
-      it('does not show the play episode DropdownItem component', () => {
-        expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(
-          false,
-        );
-      });
-
-      it('shows the download episode DropdownItem component', () => {
-        expect(
-          wrapper
-            .findComponent({ ref: 'downloadEpisodeDropdownItem' })
-            .exists(),
-        ).toBe(true);
-      });
-
-      it('does not show the downloaded icon component', () => {
-        expect(wrapper.find({ ref: 'downloaded' }).exists()).toBe(false);
-      });
-
-      it('shows the download episode ButtonLink component', () => {
-        expect(
-          wrapper.findComponent({ ref: 'downloadEpisodeButton' }).exists(),
-        ).toBe(true);
-      });
-
-      describe.each([
-        [
-          'download episode ButtonLink',
-          'downloadEpisodeButton',
-          'downloadEpisode',
-          [noneDownloadedPodcastEpisode],
-        ],
-        [
-          'download episode DropdownItem',
-          'downloadEpisodeDropdownItem',
-          'downloadEpisode',
-          [noneDownloadedPodcastEpisode],
-        ],
-      ])(
-        'when the %s component emits the click event',
-        (_text, ref, emitEventName, expectedArgs) => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('click');
-          });
-
-          it(`emits the ${emitEventName} event with the correct value`, () => {
-            expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
-          });
-        },
-      );
-
-      describe('when the DownloadPodcastEpisode component emits the click event', () => {
-        beforeEach(() => {
-          wrapper
-            .findComponent(DownloadPodcastEpisode)
-            .vm.$emit('downloadEpisode');
-        });
-
-        it('emits the downloadEpisode event with the correct value id', () => {
-          expect(wrapper.emitted('downloadEpisode')).toEqual([
-            [noneDownloadedPodcastEpisode],
-          ]);
-        });
       });
     });
 
     describe.each([
-      [
-        'episode information ButtonLink',
-        'episodeInformationButton',
-        'episodeInformation',
-        [downloadedPodcastEpisode],
-      ],
-      [
-        'episode information DropdownItem',
-        'episodeInformationDropdownItem',
-        'episodeInformation',
-        [downloadedPodcastEpisode],
-      ],
+      ['addToPlaylist', [episode.id]],
+      ['addToQueue', [episode]],
+      ['deleteEpisode', [episode]],
+      ['downloadEpisode', [episode]],
+      ['downloadMedia', [episode]],
+      ['episodeInformation', [episode]],
+      ['playEpisode', [episode]],
     ])(
-      'when the %s component emits the click event',
-      (_text, ref, emitEventName, expectedArgs) => {
-        beforeEach(() => {
-          wrapper.findComponent({ ref }).vm.$emit('click');
+      'when the PodcastEpisodesListItem component emits the %s event',
+      (eventName, expectedArgs) => {
+        beforeEach(async () => {
+          wrapper.findComponent(PodcastEpisodesListItem).vm.$emit(eventName);
         });
 
-        it(`emits the ${emitEventName} event with the correct value`, () => {
-          expect(wrapper.emitted(emitEventName)).toEqual([expectedArgs]);
+        it(`emits the ${eventName} event with the correct value`, () => {
+          expect(wrapper.emitted(eventName)).toEqual([expectedArgs]);
         });
       },
     );
 
-    describe('when a track item is dragged', () => {
+    describe('when the PodcastEpisodesListItem component emits the dragStart event', () => {
       beforeEach(async () => {
-        await wrapper.find('[data-test-id="track"]').trigger('dragstart');
+        wrapper
+          .findComponent(PodcastEpisodesListItem)
+          .vm.$emit('dragStart', DragEvent);
       });
 
-      it('emits the dragStart event', () => {
-        expect(wrapper.emitted('dragStart')).toEqual([
-          [downloadedPodcastEpisode, expect.any(DragEvent)],
-        ]);
+      it('emits the dragStart event with the correct value', () => {
+        expect(wrapper.emitted('dragStart')).toEqual([[episode, DragEvent]]);
       });
     });
   });

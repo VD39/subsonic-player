@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InteractionWrapper > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when isAnyOpen is false > when draggable prop is set to false > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when isAnyOpen is false > when isAnyOpen and draggable prop are set to true and the onDragStart event is attached > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="true">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when isAnyOpen is false > when the onDragStart event is not attached > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when isAnyOpen is true > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;

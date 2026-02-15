@@ -9,6 +9,7 @@ import {
   trackMock,
 } from '@/test/fixtures';
 
+import { MEDIA_TYPE } from './constants';
 import {
   formatAlbum,
   formatAllMedia,
@@ -795,7 +796,7 @@ describe('formatTrack', () => {
 });
 
 describe('formatPlaylist', () => {
-  describe('when entry media type is a podcast episode', () => {
+  describe(`when entry media type is ${MEDIA_TYPE.podcastEpisode}`, () => {
     it('returns the correct values', () => {
       expect(
         formatPlaylist({
@@ -826,7 +827,7 @@ describe('formatPlaylist', () => {
     });
   });
 
-  describe('when entry media type is not a podcast episode', () => {
+  describe(`when entry media type is not ${MEDIA_TYPE.podcastEpisode}`, () => {
     it('returns the correct values', () => {
       expect(formatPlaylist(playlistMock)).toEqual(
         expect.objectContaining({

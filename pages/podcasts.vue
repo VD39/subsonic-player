@@ -11,9 +11,11 @@ import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisod
 const { viewLayout } = useViewLayout();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useMediaInformation();
-const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { openPodcastInformationModal, openTrackInformationModal } =
+  useMediaInformation();
+const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
+const { getMediaTracks } = useMediaTracks();
 const {
   addPodcastModal,
   deletePodcastEpisode,
@@ -53,8 +55,24 @@ const gridWrapperProps = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
 );
 
-function playEpisode(episode: PodcastEpisode) {
+async function onAddPodcastToQueue(podcast: Podcast) {
+  const podcastEpisodes = await getMediaTracks(podcast);
+
+  if (podcastEpisodes) {
+    await addTracksToQueue(podcastEpisodes);
+  }
+}
+
+function onPlayEpisode(episode: PodcastEpisode) {
   playTracks([episode]);
+}
+
+async function onPlayPodcast(podcast: Podcast) {
+  const podcastEpisodes = await getMediaTracks(podcast);
+
+  if (podcastEpisodes) {
+    playTracks(podcastEpisodes);
+  }
 }
 
 useHead({
@@ -84,6 +102,7 @@ useHead({
   <LoadingData :status>
     <div v-if="podcasts.length" ref="podcastsContent" :class="viewLayout">
       <GridWrapper
+        class="mBXL"
         :desktop="gridWrapperProps"
         :mobile="gridWrapperProps"
         :spacing="gridWrapperProps"
@@ -92,15 +111,18 @@ useHead({
         <PodcastItem
           v-for="podcast in podcasts"
           :key="podcast.id"
-          draggable="true"
           :podcast
-          @dragstart="dragStart(podcast, $event)"
+          @addPodcastToQueue="onAddPodcastToQueue"
+          @dragStart="dragStart"
+          @mediaInformation="openPodcastInformationModal"
+          @playPodcast="onPlayPodcast"
         />
       </GridWrapper>
 
       <h3>Latest Podcast Episodes</h3>
 
       <PodcastEpisodesList
+        isRecentList
         :podcastEpisodes="newestPodcastEpisodes"
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
@@ -109,7 +131,7 @@ useHead({
         @downloadMedia="downloadMedia"
         @dragStart="dragStart"
         @episodeInformation="openTrackInformationModal"
-        @playEpisode="playEpisode"
+        @playEpisode="onPlayEpisode"
       />
     </div>
 

@@ -4,6 +4,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 const props = defineProps<{
   favourite: boolean;
   id: string;
+  showText?: boolean;
   type: MediaType;
 }>();
 
@@ -17,7 +18,7 @@ const buttonProps = computed<ButtonProps>(() => ({
   text: `${isFavourite.value ? 'Unlike' : 'Like'} ${props.type}`,
 }));
 
-function toggleCurrentFavourite() {
+function onClick() {
   // No need to pass isFavourite.value value, use props directly.
   toggleFavourite(props, isFavourite.value);
 }
@@ -45,8 +46,10 @@ watch(
     :icon="ICONS.favourite"
     :iconColor="buttonProps.iconColor"
     :iconWeight="buttonProps.iconWeight"
+    iconPosition="right"
+    :showText
     :title="buttonProps.text"
-    @click="toggleCurrentFavourite"
+    @click="onClick"
   >
     {{ buttonProps.text }}
   </ButtonLink>

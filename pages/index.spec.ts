@@ -30,10 +30,18 @@ mockNuxtImport('useMediaLibrary', () => () => ({
   downloadMedia: downloadMediaMock,
 }));
 
+const openAlbumInformationModalMock = vi.fn();
 const openTrackInformationModalMock = vi.fn();
 
 mockNuxtImport('useMediaInformation', () => () => ({
+  openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
+}));
+
+const getMediaTracksMock = vi.fn();
+
+mockNuxtImport('useMediaTracks', () => () => ({
+  getMediaTracks: getMediaTracksMock,
 }));
 
 const dragStartMock = vi.fn();
@@ -80,9 +88,11 @@ mockNuxtImport('useLazyAsyncData', () => () => ({
 }));
 
 const { useHeadTitleMock } = useHeadMock();
-const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
+const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
+  useAudioPlayerMock();
 
 const track = getFormattedTracksMock()[0];
+const tracks = getFormattedTracksMock(3);
 const album = getFormattedAlbumsMock()[0];
 
 function factory(props = {}) {
@@ -166,19 +176,89 @@ describe('index', () => {
         ).toBe(2);
       });
 
-      describe('when the AlbumItem component triggers the dragstart event', () => {
-        beforeEach(async () => {
-          await wrapper
+      describe('when the AlbumItem component emits the dragStart event', () => {
+        beforeEach(() => {
+          wrapper
             .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
             .findComponent(AlbumItem)
-            .trigger('dragstart');
+            .vm.$emit('dragStart', album, DragEvent);
         });
 
         it('calls the dragStart function with the correct parameters', () => {
-          expect(dragStartMock).toHaveBeenCalledWith(
-            album,
-            expect.any(DragEvent),
-          );
+          expect(dragStartMock).toHaveBeenCalledWith(album, DragEvent);
+        });
+      });
+
+      describe('when the AlbumItem component emits the addToQueue event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('calls the addTracksToQueue function with the correct parameters', () => {
+            expect(addTracksToQueueMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('does not call the addTracksToQueue function', () => {
+            expect(addTracksToQueueMock).not.toHaveBeenCalled();
+          });
+        });
+      });
+
+      describe('when the AlbumItem component emits the mediaInformation event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
+            .findComponent(AlbumItem)
+            .vm.$emit('mediaInformation', album);
+        });
+
+        it('calls the openAlbumInformationModal function with the correct parameters', () => {
+          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        });
+      });
+
+      describe('when the AlbumItem component emits the playAlbum event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('calls the playTracks function with the correct parameters', () => {
+            expect(playTracksMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('does not call the playTracks function', () => {
+            expect(playTracksMock).not.toHaveBeenCalled();
+          });
         });
       });
     });
@@ -215,19 +295,89 @@ describe('index', () => {
         ).toBe(3);
       });
 
-      describe('when the AlbumItem component triggers the dragstart event', () => {
-        beforeEach(async () => {
-          await wrapper
+      describe('when the AlbumItem component emits the dragStart event', () => {
+        beforeEach(() => {
+          wrapper
             .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
             .findComponent(AlbumItem)
-            .trigger('dragstart');
+            .vm.$emit('dragStart', album, DragEvent);
         });
 
         it('calls the dragStart function with the correct parameters', () => {
-          expect(dragStartMock).toHaveBeenCalledWith(
-            album,
-            expect.any(DragEvent),
-          );
+          expect(dragStartMock).toHaveBeenCalledWith(album, DragEvent);
+        });
+      });
+
+      describe('when the AlbumItem component emits the addToQueue event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('calls the addTracksToQueue function with the correct parameters', () => {
+            expect(addTracksToQueueMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('does not call the addTracksToQueue function', () => {
+            expect(addTracksToQueueMock).not.toHaveBeenCalled();
+          });
+        });
+      });
+
+      describe('when the AlbumItem component emits the mediaInformation event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
+            .findComponent(AlbumItem)
+            .vm.$emit('mediaInformation', album);
+        });
+
+        it('calls the openAlbumInformationModal function with the correct parameters', () => {
+          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        });
+      });
+
+      describe('when the AlbumItem component emits the playAlbum event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('calls the playTracks function with the correct parameters', () => {
+            expect(playTracksMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('does not call the playTracks function', () => {
+            expect(playTracksMock).not.toHaveBeenCalled();
+          });
         });
       });
     });
@@ -266,19 +416,89 @@ describe('index', () => {
         ).toBe(1);
       });
 
-      describe('when the AlbumItem component triggers the dragstart event', () => {
-        beforeEach(async () => {
-          await wrapper
+      describe('when the AlbumItem component emits the dragStart event', () => {
+        beforeEach(() => {
+          wrapper
             .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
             .findComponent(AlbumItem)
-            .trigger('dragstart');
+            .vm.$emit('dragStart', album, DragEvent);
         });
 
         it('calls the dragStart function with the correct parameters', () => {
-          expect(dragStartMock).toHaveBeenCalledWith(
-            album,
-            expect.any(DragEvent),
-          );
+          expect(dragStartMock).toHaveBeenCalledWith(album, DragEvent);
+        });
+      });
+
+      describe('when the AlbumItem component emits the addToQueue event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('calls the addTracksToQueue function with the correct parameters', () => {
+            expect(addTracksToQueueMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('does not call the addTracksToQueue function', () => {
+            expect(addTracksToQueueMock).not.toHaveBeenCalled();
+          });
+        });
+      });
+
+      describe('when the AlbumItem component emits the mediaInformation event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
+            .findComponent(AlbumItem)
+            .vm.$emit('mediaInformation', album);
+        });
+
+        it('calls the openAlbumInformationModal function with the correct parameters', () => {
+          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        });
+      });
+
+      describe('when the AlbumItem component emits the playAlbum event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('calls the playTracks function with the correct parameters', () => {
+            expect(playTracksMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('does not call the playTracks function', () => {
+            expect(playTracksMock).not.toHaveBeenCalled();
+          });
         });
       });
     });
@@ -457,19 +677,89 @@ describe('index', () => {
         });
       });
 
-      describe('when the AlbumItem component triggers the dragstart event', () => {
-        beforeEach(async () => {
-          await wrapper
+      describe('when the AlbumItem component emits the dragStart event', () => {
+        beforeEach(() => {
+          wrapper
             .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
             .findComponent(AlbumItem)
-            .trigger('dragstart');
+            .vm.$emit('dragStart', album, DragEvent);
         });
 
         it('calls the dragStart function with the correct parameters', () => {
-          expect(dragStartMock).toHaveBeenCalledWith(
-            album,
-            expect.any(DragEvent),
-          );
+          expect(dragStartMock).toHaveBeenCalledWith(album, DragEvent);
+        });
+      });
+
+      describe('when the AlbumItem component emits the addToQueue event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('calls the addTracksToQueue function with the correct parameters', () => {
+            expect(addTracksToQueueMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('does not call the addTracksToQueue function', () => {
+            expect(addTracksToQueueMock).not.toHaveBeenCalled();
+          });
+        });
+      });
+
+      describe('when the AlbumItem component emits the mediaInformation event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
+            .findComponent(AlbumItem)
+            .vm.$emit('mediaInformation', album);
+        });
+
+        it('calls the openAlbumInformationModal function with the correct parameters', () => {
+          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        });
+      });
+
+      describe('when the AlbumItem component emits the playAlbum event', () => {
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('calls the playTracks function with the correct parameters', () => {
+            expect(playTracksMock).toHaveBeenCalledWith(tracks);
+          });
+        });
+
+        describe('when getMediaTracks returns null', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(null);
+            wrapper
+              .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
+
+          it('does not call the playTracks function', () => {
+            expect(playTracksMock).not.toHaveBeenCalled();
+          });
         });
       });
     });

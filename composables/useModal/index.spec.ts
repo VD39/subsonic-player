@@ -1,25 +1,21 @@
 import ReadMore from '@/components/Atoms/ReadMore.vue';
+import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
+import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
 import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
 import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
 import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
 import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
+import { documentEventListenerMock } from '@/test/eventListenersMock';
 
 import { useModal } from './index';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const events: any = {};
-
-const documentAddEventListenerSpy = vi
-  .spyOn(document, 'addEventListener')
-  .mockImplementation((event, cb) => {
-    events[event] = cb;
-  });
-const documentRemoveEventListenerSpy = vi.spyOn(
-  document,
-  'removeEventListener',
-);
+const {
+  documentAddEventListenerSpy,
+  documentEvents,
+  documentRemoveEventListenerSpy,
+} = documentEventListenerMock();
 
 const { closeModal, modal, openModal } = useModal();
 
@@ -75,9 +71,25 @@ describe('useModal', () => {
         },
       ],
       [
+        MODAL_TYPE.albumDetailsModal,
+        AlbumInformation,
+        'Album Details',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
         MODAL_TYPE.podcastEpisodeInformationModal,
         PodcastEpisodeInformation,
         'Podcast episode information',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.podcastInformationModal,
+        PodcastInformation,
+        'Podcast information',
         {
           attrs: 'attrs',
         },
@@ -144,7 +156,7 @@ describe('useModal', () => {
 
       describe('when a non esc key is pressed', () => {
         beforeAll(() => {
-          events.keydown({ key: 'Shift' });
+          documentEvents.keydown({ key: 'Shift' });
         });
 
         it('does not remove the keydown event listener function', () => {
@@ -162,7 +174,7 @@ describe('useModal', () => {
 
       describe('when esc key is pressed', () => {
         beforeAll(() => {
-          events.keydown({ key: 'Escape' });
+          documentEvents.keydown({ key: 'Escape' });
         });
 
         it('removes the keydown event listener function', () => {

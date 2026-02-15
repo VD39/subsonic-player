@@ -1,0 +1,244 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TracksListItem > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="true">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image-0" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-0</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime"><time>02:00</time></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to album </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TracksListItem > when track.album is undefined > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="true">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image-0" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-0</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Track artists</span>
+                    <ul class="commaList">
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+                      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    </ul>
+                  </li>
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content">
+            <ul class="commaList">
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
+              <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackTime"><time>02:00</time></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to album </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`TracksListItem > when track.artists is an empty array > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow">
+  <div class="interactionWrapper" draggable="true">
+    <div class="trackCell">
+      <div>
+        <track-play-pause-stub image="image-0" trackid="track-0" tracknumber="1" hideimage="false" large="false"></track-play-pause-stub>
+        <div class="noTouchEvents trackMeta">
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-0</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll smallFont mobileOnly mBXS">
+            <div class="bulletList inner">
+              <div class="content">
+                <ul class="bulletList">
+                  <li><span class="visuallyHidden">Track album</span><a class="link" data-test-id="link">album</a></li>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <!--v-if-->
+                  <li><span class="visuallyHidden">Duration</span><span><!--v-if--><time>02:00</time></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+        </button>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <div class="marqueeScroll">
+        <div class="bulletList inner">
+          <div class="content"><a class="link" data-test-id="link">album</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="trackCell trackSecondary">
+      <p>--</p>
+    </div>
+    <div class="trackCell trackTime"><time>02:00</time></div>
+    <div class="trackCell trackOptions">
+      <div>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Play Track </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Go to album </span>
+          </a></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Media information </span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download track </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

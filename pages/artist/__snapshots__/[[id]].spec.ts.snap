@@ -33,7 +33,7 @@ exports[`[[id]] > when getArtist does returns data > _ > when artistData.similar
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->
@@ -74,7 +74,7 @@ exports[`[[id]] > when getArtist does returns data > _ > when artistData.topTrac
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->
@@ -119,7 +119,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.biography i
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->
@@ -159,7 +159,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.genres is a
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->
@@ -199,7 +199,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.lastFmUrl i
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button><a class="centerItems buttonLink" draggable="false" href="lastFmUrl" target="_blank" title="LastFm">
             <phlastfmlogo aria-hidden="true" class="icon" size="24" weight="regular"></phlastfmlogo><span class="clamp text visuallyHidden"></span>
@@ -240,7 +240,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.musicBrainz
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if--><a class="centerItems buttonLink" draggable="false" href="musicBrainzUrl" target="_blank" title="MusicBrainz">
@@ -281,7 +281,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.similarArti
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->
@@ -322,7 +322,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.totalAlbums
           <li><span class="strong">5</span> Albums</li>
           <li><span class="strong">1</span> Track</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->
@@ -362,7 +362,7 @@ exports[`[[id]] > when getArtist does returns data > when artistData.totalTracks
           <li><span class="strong">1</span> Album</li>
           <li><span class="strong">10</span> Tracks</li>
         </ul>
-        <div class="list"><button class="centerItems buttonLink" draggable="false" type="button" title="Unlike artist">
+        <div class="list"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
           </button>
           <!--v-if-->

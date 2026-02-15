@@ -19,7 +19,9 @@
 
   @media (hover: hover) {
     &:hover {
-      --track-row-background-color: var(--track-hover-background-color);
+      body:not(.disableAllPointerEvents) & {
+        --track-row-background-color: var(--track-hover-background-color);
+      }
     }
   }
 }

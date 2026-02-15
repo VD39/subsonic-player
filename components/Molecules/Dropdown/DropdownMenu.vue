@@ -20,65 +20,34 @@ const emit = defineEmits<{
   opened: [];
 }>();
 
-const dropdownRef = useTemplateRef('dropdownRef');
+const dropdownListRef = useTemplateRef('dropdownListRef');
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 
-const isOpen = ref(false);
-const showAbove = ref(false);
+const { closeDropdownMenu, isOpen, menuStyle, openDropdownMenu } =
+  useDropdownMenu({
+    dropdownListRef,
+    dropdownMenuRef,
+  });
 
-function checkIfOutsideScreen() {
-  if (!dropdownRef.value) {
-    return;
-  }
-
-  const dropdownHeight = dropdownRef.value.clientHeight;
-  const windowHeight = globalThis.innerHeight;
-  const dropdownTop = dropdownRef.value.getBoundingClientRect().top;
-
-  showAbove.value = windowHeight - dropdownTop < dropdownHeight;
-}
-
-function onClick(event: MouseEvent) {
-  if (
-    !dropdownMenuRef.value?.contains(event.target as Node) ||
-    dropdownRef.value?.contains(event.target as Node)
-  ) {
-    isOpen.value = false;
-
-    emit('closed');
-
-    globalThis.removeEventListener('click', onClick);
-    document.removeEventListener('keydown', onKeydown);
-  }
-}
-
-function onKeydown(event: KeyboardEvent) {
-  if (event.key === 'Escape') {
-    isOpen.value = false;
-
-    globalThis.removeEventListener('click', onClick);
-    document.removeEventListener('keydown', onKeydown);
-  }
-}
-
-async function toggleDropdown() {
-  showAbove.value = false;
-  isOpen.value = !isOpen.value;
-
-  await nextTick();
-
+function toggleDropdownMenu() {
   if (isOpen.value) {
-    emit('opened');
-
-    globalThis.addEventListener('click', onClick);
-    document.addEventListener('keydown', onKeydown);
-
-    checkIfOutsideScreen();
-    return;
+    closeDropdownMenu();
+  } else {
+    openDropdownMenu();
   }
-
-  emit('closed');
 }
+
+watch(isOpen, (isDropdownOpen) => {
+  if (isDropdownOpen) {
+    emit('opened');
+  } else {
+    emit('closed');
+  }
+});
+
+defineExpose({
+  openDropdownMenu,
+});
 </script>
 
 <template>
@@ -89,7 +58,7 @@ async function toggleDropdown() {
       iconPosition="right"
       :showText
       :title
-      @click="toggleDropdown"
+      @click="toggleDropdownMenu"
     >
       {{ text }}
     </ButtonLink>
@@ -97,15 +66,11 @@ async function toggleDropdown() {
     <transition name="fade">
       <div
         v-if="isOpen"
-        ref="dropdownRef"
-        :class="[
-          $style.dropdown,
-          {
-            [$style.above]: showAbove,
-          },
-        ]"
+        ref="dropdownListRef"
+        :class="$style.dropdown"
+        :style="menuStyle"
       >
-        <ul>
+        <ul class="hasPointerEvents">
           <slot />
         </ul>
       </div>
@@ -118,11 +83,12 @@ async function toggleDropdown() {
   position: relative;
 }
 
-.dropdown {
-  --dropdown-position: fixed;
+.buttonLink {
+  text-transform: uppercase;
+}
 
-  position: var(--dropdown-position);
-  inset: auto var(--space-12) calc(var(--header-height) + var(--space-12));
+.dropdown {
+  position: fixed;
   z-index: 12;
   min-width: 180px;
   padding: var(--space-4) 0;
@@ -140,18 +106,12 @@ async function toggleDropdown() {
     opacity: 0.15;
   }
 
-  @media (--tablet-up) {
-    --dropdown-position: absolute;
-
-    inset: 100% 0 auto auto;
+  @media (--mobile-only) {
+    inset: auto var(--space-12) calc(var(--header-height) + var(--space-12)) !important;
   }
-}
 
-.above {
-  inset: auto 0 100% auto;
-}
-
-.buttonLink {
-  text-transform: uppercase;
+  @media (--tablet-up) {
+    inset: auto;
+  }
 }
 </style>

@@ -106,8 +106,14 @@ section {
   display: block;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   line-height: 1;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
 }
 
 ol,

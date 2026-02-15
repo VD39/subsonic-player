@@ -30,10 +30,18 @@ mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
+const openAlbumInformationModalMock = vi.fn();
 const openTrackInformationModalMock = vi.fn();
 
 mockNuxtImport('useMediaInformation', () => () => ({
+  openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
+}));
+
+const getMediaTracksMock = vi.fn();
+
+mockNuxtImport('useMediaTracks', () => () => ({
+  getMediaTracks: getMediaTracksMock,
 }));
 
 const fetchMoreDataMock = vi.fn();
@@ -76,9 +84,11 @@ const { routeMock } = vi.hoisted(() => ({
 mockNuxtImport('useRoute', () => routeMock);
 
 const { useHeadTitleMock } = useHeadMock();
-const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
+const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
+  useAudioPlayerMock();
 
 const album = getFormattedAlbumsMock()[0];
+const albumTracks = getFormattedTracksMock(3);
 const track = getFormattedTracksMock()[0];
 
 function factory(props = {}) {
@@ -143,6 +153,64 @@ describe('[[genre]]', () => {
 
       it('calls the dragStart function with the correct parameters', () => {
         expect(dragStartMock).toHaveBeenCalledWith(album);
+      });
+    });
+
+    describe('when the AlbumsList component emits the addToQueue event', () => {
+      describe('when getMediaTracks returns tracks', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(albumTracks);
+          wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+        });
+
+        it('calls the addTracksToQueue function with the correct parameters', () => {
+          expect(addTracksToQueueMock).toHaveBeenCalledWith(albumTracks);
+        });
+      });
+
+      describe('when getMediaTracks returns null', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(null);
+          wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+        });
+
+        it('does not call the addTracksToQueue function', () => {
+          expect(addTracksToQueueMock).not.toHaveBeenCalled();
+        });
+      });
+    });
+
+    describe('when the AlbumsList component emits the mediaInformation event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumsList).vm.$emit('mediaInformation', album);
+      });
+
+      it('calls the openAlbumInformationModal function with the correct parameters', () => {
+        expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+      });
+    });
+
+    describe('when the AlbumsList component emits the playAlbum event', () => {
+      describe('when getMediaTracks returns tracks', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(albumTracks);
+          wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+        });
+
+        it('calls the playTracks function with the correct parameters', () => {
+          expect(playTracksMock).toHaveBeenCalledWith(albumTracks);
+        });
+      });
+
+      describe('when getMediaTracks returns null', () => {
+        beforeEach(() => {
+          getMediaTracksMock.mockResolvedValue(null);
+          wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+        });
+
+        it('does not call the playTracks function', () => {
+          expect(playTracksMock).not.toHaveBeenCalled();
+        });
       });
     });
   });

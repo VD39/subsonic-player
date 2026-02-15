@@ -7,7 +7,7 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+      <figure class="image"><a class="interactionLink" draggable="false" title="Go to album queue-track-0-name">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
@@ -71,7 +71,7 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -88,7 +88,7 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+      <figure class="image"><a class="interactionLink" draggable="false" title="Go to album queue-track-0-name">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
@@ -143,7 +143,7 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -160,7 +160,7 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+      <figure class="image"><a class="interactionLink" draggable="false" title="Go to album queue-track-0-name">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
@@ -224,7 +224,7 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -303,7 +303,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -320,7 +320,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a draggable="false" title="Go to podcast undefined">
+      <figure class="image"><a class="interactionLink" draggable="false" title="Go to podcast undefined">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
@@ -384,7 +384,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -463,7 +463,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -542,7 +542,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -621,7 +621,7 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -638,7 +638,7 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a draggable="false" title="Go to podcast undefined">
+      <figure class="image"><a class="interactionLink" draggable="false" title="Go to podcast undefined">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast undefined" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
@@ -693,7 +693,7 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
@@ -710,7 +710,7 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a draggable="false" title="Go to album queue-track-0-name">
+      <figure class="image"><a class="interactionLink" draggable="false" title="Go to album queue-track-0-name">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
@@ -774,7 +774,7 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
       </div>
       <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
         <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
-      </button><button class="centerItems buttonLink" draggable="false" type="button" title="Like track">
+      </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
         <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
       </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
