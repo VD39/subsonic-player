@@ -57,7 +57,7 @@ describe('GridWrapper', () => {
     });
   });
 
-  describe('when spacing prop is not set', () => {
+  describe('when the spacing prop is not set', () => {
     beforeEach(() => {
       wrapper = factory();
     });
@@ -71,7 +71,7 @@ describe('GridWrapper', () => {
     });
   });
 
-  describe('when spacing prop is set', () => {
+  describe('when the spacing prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
         spacing: '12',

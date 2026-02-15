@@ -13,7 +13,7 @@ describe('sliceArrayBySizeAndOffset', () => {
     [2, -1, []],
     [-2, -3, []],
   ])('when size is %i and offset is %i', (size, offset, output) => {
-    it('should return the expected result', () => {
+    it('returns the expected result', () => {
       expect(sliceArrayBySizeAndOffset(array, size, offset)).toEqual(output);
     });
   });

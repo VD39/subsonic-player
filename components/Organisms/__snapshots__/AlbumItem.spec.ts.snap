@@ -36,8 +36,8 @@ exports[`AlbumItem > matches the snapshot 1`] = `
   <div class="layoutContent">
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
     <ul class="commaList smallFont clamp2">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </div>
 </article>"
@@ -83,7 +83,7 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
 </article>"
 `;
 
-exports[`AlbumItem > when album artists is not an empty array > when hideArtist prop is true > matches the snapshot 1`] = `
+exports[`AlbumItem > when album artists is not an empty array > when the hideArtist prop is true > matches the snapshot 1`] = `
 "<article class="interactionWrapper layoutItem" draggable="true">
   <div class="layoutImage albumImageWrapper">
     <figure><a class="interactionLink" draggable="false" title="Go to album album-0">

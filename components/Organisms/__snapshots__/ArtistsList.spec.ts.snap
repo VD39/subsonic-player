@@ -7,7 +7,7 @@ exports[`ArtistsList > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`ArtistsList > when artists prop is not an empty array > matches the snapshot 1`] = `
+exports[`ArtistsList > when the artists prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="layoutItem">
     <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
@@ -52,7 +52,7 @@ exports[`ArtistsList > when artists prop is not an empty array > matches the sna
 </section>"
 `;
 
-exports[`ArtistsList > when artists prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
+exports[`ArtistsList > when the artists prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="layoutItem">
     <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
@@ -97,7 +97,7 @@ exports[`ArtistsList > when artists prop is not an empty array > when viewLayout
 </section>"
 `;
 
-exports[`ArtistsList > when artists prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
+exports[`ArtistsList > when the artists prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
   <article class="layoutItem">
     <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">

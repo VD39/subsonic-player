@@ -89,7 +89,7 @@ export function useHotkeyManager() {
     }
   }
 
-  function onKeydown(event: KeyboardEvent) {
+  async function onKeydown(event: KeyboardEvent) {
     const searchInput = document.getElementById(HOTKEY_ELEMENT_IDS.searchInput);
 
     // Ignore all key events if focus is on search input or if a modal is visible.
@@ -117,7 +117,7 @@ export function useHotkeyManager() {
       return;
     }
 
-    await callOnlyWithCurrentTrack(fn);
+    callOnlyWithCurrentTrack(fn);
   }
 
   async function callOnlyWithCurrentTrack(fn: () => Promise<void> | void) {
@@ -315,8 +315,8 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          callOnlyWithCurrentTrack(() => {
-            playPreviousTrack();
+          callOnlyWithCurrentTrack(async () => {
+            await playPreviousTrack();
           });
         },
         description: 'Play the previous track.',
@@ -326,8 +326,8 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          callOnlyWithCurrentTrack(() => {
-            playNextTrack();
+          callOnlyWithCurrentTrack(async () => {
+            await playNextTrack();
           });
         },
         description: 'Play the next track.',
@@ -369,9 +369,9 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          callOnlyWithCurrentTrack(() => {
+          callOnlyWithCurrentTrack(async () => {
             if (isTrack.value) {
-              toggleFavourite(
+              await toggleFavourite(
                 currentTrack.value,
                 (currentTrack.value as Track).favourite,
               );

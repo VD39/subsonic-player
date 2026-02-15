@@ -31,7 +31,7 @@ describe('PodcastEpisodesList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when podcastEpisodes prop is an empty array', () => {
+  describe('when the podcastEpisodes prop is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         podcastEpisodes: [],
@@ -47,7 +47,7 @@ describe('PodcastEpisodesList', () => {
     });
   });
 
-  describe('when podcastEpisodes prop is not an empty array', () => {
+  describe('when the podcastEpisodes prop is not an empty array', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -64,7 +64,7 @@ describe('PodcastEpisodesList', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when isRecentList prop is true', () => {
+    describe('when the isRecentList prop is true', () => {
       beforeEach(() => {
         wrapper = factory({
           isRecentList: true,

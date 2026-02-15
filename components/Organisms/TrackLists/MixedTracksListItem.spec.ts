@@ -82,7 +82,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does not have an album key', () => {
+  describe('when the track does not have an album key', () => {
     beforeEach(() => {
       const track = getFormattedTracksMock()[0];
 
@@ -104,7 +104,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does have an album key', () => {
+  describe('when the track does have an album key', () => {
     describe('when track.album is defined', () => {
       it('shows the MarqueeScroll component containing the album details', () => {
         expect(
@@ -142,7 +142,7 @@ describe('MixedTracksListItem', () => {
         ).toBe(false);
       });
 
-      describe('when track does not have a podcastName key', () => {
+      describe('when the track does not have a podcastName key', () => {
         beforeEach(() => {
           const track = getFormattedPodcastEpisodesMock(1)[0];
 
@@ -174,7 +174,7 @@ describe('MixedTracksListItem', () => {
         });
       });
 
-      describe('when track does have a podcastName key', () => {
+      describe('when the track does have a podcastName key', () => {
         describe('when track.podcastName is undefined', () => {
           beforeEach(() => {
             wrapper = factory({
@@ -240,7 +240,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does not have an artists key', () => {
+  describe('when the track does not have an artists key', () => {
     beforeEach(() => {
       const track = getFormattedTracksMock()[0];
 
@@ -255,16 +255,16 @@ describe('MixedTracksListItem', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not show the MarqueeScroll component containing the artists details', () => {
+    it('does not show the MarqueeScroll component containing the artist details', () => {
       expect(
         wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
       ).toBe(false);
     });
   });
 
-  describe('when track does have an artists key', () => {
+  describe('when the track does have an artists key', () => {
     describe('when track.artists is not an empty array', () => {
-      it('shows the MarqueeScroll component containing the artists details', () => {
+      it('shows the MarqueeScroll component containing the artist details', () => {
         expect(
           wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
         ).toBe(true);
@@ -276,7 +276,7 @@ describe('MixedTracksListItem', () => {
         ).toBe(false);
       });
 
-      it('does not show the artists else element', () => {
+      it('does not show the artist else element', () => {
         expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(false);
       });
     });
@@ -294,13 +294,13 @@ describe('MixedTracksListItem', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the MarqueeScroll component containing the artists details', () => {
+      it('does not show the MarqueeScroll component containing the artist details', () => {
         expect(
           wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
         ).toBe(false);
       });
 
-      describe('when track does not have an author key', () => {
+      describe('when the track does not have an author key', () => {
         beforeEach(() => {
           const track = getFormattedPodcastEpisodesMock(1)[0];
 
@@ -315,7 +315,7 @@ describe('MixedTracksListItem', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('does not show the MarqueeScroll component containing the artists details', () => {
+        it('does not show the MarqueeScroll component containing the artist details', () => {
           expect(
             wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
           ).toBe(false);
@@ -327,12 +327,12 @@ describe('MixedTracksListItem', () => {
           ).toBe(false);
         });
 
-        it('shows the artists else element', () => {
+        it('shows the artist else element', () => {
           expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(true);
         });
       });
 
-      describe('when track does have an author key', () => {
+      describe('when the track does have an author key', () => {
         describe('when track.author is undefined', () => {
           beforeEach(() => {
             wrapper = factory({
@@ -346,7 +346,7 @@ describe('MixedTracksListItem', () => {
             expect(wrapper.html()).toMatchSnapshot();
           });
 
-          it('does not show the MarqueeScroll component containing the artists details', () => {
+          it('does not show the MarqueeScroll component containing the artist details', () => {
             expect(
               wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
             ).toBe(false);
@@ -358,7 +358,7 @@ describe('MixedTracksListItem', () => {
             ).toBe(false);
           });
 
-          it('shows the artists else element', () => {
+          it('shows the artist else element', () => {
             expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(true);
           });
         });
@@ -376,7 +376,7 @@ describe('MixedTracksListItem', () => {
             expect(wrapper.html()).toMatchSnapshot();
           });
 
-          it('does not show the MarqueeScroll component containing the artists details', () => {
+          it('does not show the MarqueeScroll component containing the artist details', () => {
             expect(
               wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
             ).toBe(false);
@@ -388,7 +388,7 @@ describe('MixedTracksListItem', () => {
             ).toBe(true);
           });
 
-          it('does not show the artists else element', () => {
+          it('does not show the artist else element', () => {
             expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(false);
           });
         });
@@ -396,7 +396,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when hideRemoveOption prop is false', () => {
+  describe('when the hideRemoveOption prop is false', () => {
     it('shows the remove DropdownItem component', () => {
       expect(
         wrapper.findComponent({ ref: 'dropdownItemRemove' }).exists(),
@@ -408,7 +408,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when hideRemoveOption prop is true', () => {
+  describe('when the hideRemoveOption prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
         hideRemoveOption: true,
@@ -480,7 +480,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does not have albumId key', () => {
+  describe('when the track does not have an albumId key', () => {
     beforeEach(() => {
       const track = getFormattedTracksMock(1)[0];
 
@@ -500,7 +500,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does have albumId key', () => {
+  describe('when the track does have an albumId key', () => {
     describe('when track.albumId is defined', () => {
       it('shows the go to album DropdownItem component', () => {
         expect(wrapper.findComponent({ ref: 'goToAlbum' }).exists()).toBe(true);
@@ -528,7 +528,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does not have podcastId key', () => {
+  describe('when the track does not have a podcastId key', () => {
     beforeEach(() => {
       const track = getFormattedPodcastEpisodesMock()[0];
 
@@ -550,7 +550,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does have podcastId key', () => {
+  describe('when the track does have a podcastId key', () => {
     describe('when track.podcastId is defined', () => {
       beforeEach(() => {
         wrapper = factory({
@@ -586,7 +586,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does not have homePageUrl key', () => {
+  describe('when the track does not have a homePageUrl key', () => {
     beforeEach(() => {
       const track = getFormattedRadioStationMock()[0];
 
@@ -608,7 +608,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when track does have homePageUrl key', () => {
+  describe('when the track does have a homePageUrl key', () => {
     describe('when track.homePageUrl is defined', () => {
       beforeEach(() => {
         wrapper = factory({
@@ -642,13 +642,13 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when hasAddToQueueEvent prop is false', () => {
+  describe('when the hasAddToQueueEvent prop is false', () => {
     it('does not show the add to queue DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(false);
     });
   });
 
-  describe('when hasAddToQueueEvent prop is true', () => {
+  describe('when the hasAddToQueueEvent prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
         hasAddToQueueEvent: true,

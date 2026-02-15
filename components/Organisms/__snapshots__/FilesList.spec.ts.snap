@@ -18,7 +18,33 @@ exports[`FilesList > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`FilesList > when folders is not an empty array > matches the snapshot 1`] = `
+exports[`FilesList > when route params does have an Id > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <div class="trackRow">
+    <div class="trackCell">
+      <div>
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <phinfo class="icon"></phinfo>
+          </div>
+        </div>
+        <p>No folders/files found.</p>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`FilesList > when the folders prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackRow">
     <div class="trackCell"><a draggable="false">
@@ -83,33 +109,7 @@ exports[`FilesList > when folders is not an empty array > matches the snapshot 1
 </div>"
 `;
 
-exports[`FilesList > when route params does have an Id > matches the snapshot 1`] = `
-"<div class="trackTable">
-  <div class="trackRow">
-    <div class="trackCell"><a draggable="false">
-        <div class="centerAll preloadImage trackImage">
-          <div class="iconImage">
-            <pharrowurightup class="icon"></pharrowurightup>
-          </div>
-        </div> ... <p class="visuallyHidden">Go back</p>
-      </a></div>
-  </div>
-  <div class="trackRow">
-    <div class="trackCell">
-      <div>
-        <div class="centerAll preloadImage trackImage">
-          <div class="iconImage">
-            <phinfo class="icon"></phinfo>
-          </div>
-        </div>
-        <p>No folders/files found.</p>
-      </div>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`FilesList > when tracks is not an empty array > matches the snapshot 1`] = `
+exports[`FilesList > when the tracks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackRow">
     <div class="trackCell"><a draggable="false">

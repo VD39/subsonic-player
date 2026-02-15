@@ -415,7 +415,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('does not call getPlaylistTracksById function', () => {
+      it('does not call the getPlaylistTracksById function', () => {
         expect(fetchDataMock).not.toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -464,7 +464,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('does not call getPlaylistTracksById function', () => {
+      it('does not call the getPlaylistTracksById function', () => {
         expect(fetchDataMock).not.toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -481,7 +481,7 @@ describe('usePlaylist', () => {
       handlers = openModalMock.mock.calls[0][1];
     });
 
-    it('calls openModal with correct modal type and handlers', () => {
+    it('calls the openModal function with correct modal type and handlers', () => {
       expect(openModalMock).toHaveBeenCalled();
     });
 
@@ -522,7 +522,7 @@ describe('usePlaylist', () => {
           );
         });
 
-        it('does not call getPlaylistTracksById function', () => {
+        it('does not call the getPlaylistTracksById function', () => {
           expect(fetchDataMock).not.toHaveBeenCalledWith(
             '/getPlaylist',
             expect.any(Object),
@@ -591,7 +591,7 @@ describe('usePlaylist', () => {
             );
           });
 
-          it('does not call getPlaylistTracksById function', () => {
+          it('does not call the getPlaylistTracksById function', () => {
             expect(fetchDataMock).not.toHaveBeenCalledWith(
               '/getPlaylist',
               expect.any(Object),

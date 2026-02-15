@@ -124,7 +124,7 @@ describe('[[query]]', () => {
     expect(useHeadTitleMock.value).toBe('test query - albums - Search');
   });
 
-  it('should display the correct search results title', () => {
+  it('displays the correct search results title', () => {
     expect(wrapper.find({ ref: 'title' }).text()).toBe(
       'Search results for: Test Query',
     );

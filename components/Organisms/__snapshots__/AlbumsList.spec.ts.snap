@@ -7,7 +7,7 @@ exports[`AlbumsList > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`AlbumsList > when albums prop is not an empty array > matches the snapshot 1`] = `
+exports[`AlbumsList > when the albums prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="interactionWrapper layoutItem" draggable="true">
     <div class="layoutImage albumImageWrapper">
@@ -31,8 +31,8 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -58,8 +58,8 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -85,8 +85,8 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="layoutLink" draggable="false">album-2</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -112,8 +112,8 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="layoutLink" draggable="false">album-3</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -139,15 +139,15 @@ exports[`AlbumsList > when albums prop is not an empty array > matches the snaps
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="layoutLink" draggable="false">album-4</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
 </section>"
 `;
 
-exports[`AlbumsList > when albums prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
+exports[`AlbumsList > when the albums prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="interactionWrapper layoutItem" draggable="true">
     <div class="layoutImage albumImageWrapper">
@@ -171,8 +171,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -198,8 +198,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -225,8 +225,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="layoutLink" draggable="false">album-2</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -252,8 +252,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="layoutLink" draggable="false">album-3</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -279,15 +279,15 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="layoutLink" draggable="false">album-4</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
 </section>"
 `;
 
-exports[`AlbumsList > when albums prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
+exports[`AlbumsList > when the albums prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
   <article class="interactionWrapper layoutItem" draggable="true">
     <div class="layoutImage albumImageWrapper">
@@ -311,8 +311,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -338,8 +338,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -365,8 +365,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-2" class="layoutLink" draggable="false">album-2</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -392,8 +392,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-3" class="layoutLink" draggable="false">album-3</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>
@@ -419,8 +419,8 @@ exports[`AlbumsList > when albums prop is not an empty array > when viewLayout i
     <div class="layoutContent">
       <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-4" class="layoutLink" draggable="false">album-4</a></p>
       <ul class="commaList smallFont clamp2">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </article>

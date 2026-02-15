@@ -11,7 +11,7 @@ describe('useSidebar', () => {
     expect(width.value).toBe('16rem');
   });
 
-  describe('when toggle function is called', () => {
+  describe('when the toggle function is called', () => {
     beforeAll(() => {
       toggle();
     });
@@ -24,7 +24,7 @@ describe('useSidebar', () => {
       expect(width.value).toBe('5rem');
     });
 
-    describe('when toggle function is called again', () => {
+    describe('when the toggle function is called again', () => {
       beforeAll(() => {
         toggle();
       });

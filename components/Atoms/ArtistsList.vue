@@ -14,7 +14,6 @@ defineProps<{
       <NuxtLink
         :aria-label="`Go to artist ${artist.name}`"
         class="link"
-        draggable="false"
         :to="{
           name: ROUTE_NAMES.artist,
           params: {

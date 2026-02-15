@@ -43,8 +43,8 @@ exports[`queue > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -70,8 +70,8 @@ exports[`queue > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -135,8 +135,8 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -162,8 +162,8 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -208,8 +208,8 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -235,8 +235,8 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>

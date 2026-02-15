@@ -40,7 +40,7 @@ describe('AlbumsList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when albums prop is an empty array', () => {
+  describe('when the albums prop is an empty array', () => {
     it('does not show the GridWrapper component', () => {
       expect(wrapper.findComponent(GridWrapper).exists()).toBe(false);
     });
@@ -50,7 +50,7 @@ describe('AlbumsList', () => {
     });
   });
 
-  describe('when albums prop is not an empty array', () => {
+  describe('when the albums prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         albums,

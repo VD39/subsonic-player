@@ -37,7 +37,7 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
         'overlap',
         $style.preloadImage,
         {
-          visuallyHidden: hideImage,
+          [$style.hideImage]: hideImage,
         },
       ]"
       :image
@@ -105,6 +105,10 @@ const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
 
 .large {
   --track-width-height: var(--track-width-height-large);
+}
+
+.hideImage {
+  opacity: 0;
 }
 
 .trackNumber,

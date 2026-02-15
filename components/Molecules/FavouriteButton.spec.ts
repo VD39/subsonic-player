@@ -51,7 +51,7 @@ describe('FavouriteButton', () => {
     vi.clearAllMocks();
   });
 
-  describe('when id prop is in favouriteIds value', () => {
+  describe('when the id prop is in favouriteIds value', () => {
     beforeEach(() => {
       favouriteIdsMock.value = {
         id: false,
@@ -65,12 +65,12 @@ describe('FavouriteButton', () => {
     });
   });
 
-  describe('when id prop is not in favouriteIds value', () => {
+  describe('when the id prop is not in favouriteIds value', () => {
     beforeEach(() => {
       favouriteIdsMock.value = {};
     });
 
-    describe('when favourite prop is false', () => {
+    describe('when the favourite prop is false', () => {
       beforeEach(() => {
         factory({
           favourite: false,
@@ -82,7 +82,7 @@ describe('FavouriteButton', () => {
       });
     });
 
-    describe('when favourite prop is true', () => {
+    describe('when the favourite prop is true', () => {
       beforeEach(() => {
         factory();
       });

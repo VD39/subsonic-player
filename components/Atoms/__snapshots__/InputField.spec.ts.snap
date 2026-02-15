@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InputField > when error prop is set > matches the snapshot 1`] = `
+exports[`InputField > when the error prop is set > matches the snapshot 1`] = `
 "<div class="column inputField error"><label class="mBXS sentenceCase smallFont label" for="id">label
     <!--v-if-->
   </label><input id="id" autocomplete="off" class="input" type="text">
@@ -8,7 +8,7 @@ exports[`InputField > when error prop is set > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`InputField > when hideLabel prop is set to true > matches the snapshot 1`] = `
+exports[`InputField > when the hideLabel prop is set to true > matches the snapshot 1`] = `
 "<div class="column inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="id">label
     <!--v-if-->
   </label><input id="id" autocomplete="off" class="input" type="text">
@@ -16,7 +16,7 @@ exports[`InputField > when hideLabel prop is set to true > matches the snapshot 
 </div>"
 `;
 
-exports[`InputField > when required prop is set to true > matches the snapshot 1`] = `
+exports[`InputField > when the required prop is set to true > matches the snapshot 1`] = `
 "<div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="id">label <span class="required">*</span></label><input id="id" autocomplete="off" class="input" required="" type="text">
   <!--v-if-->
 </div>"

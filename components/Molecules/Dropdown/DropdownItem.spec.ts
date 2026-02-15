@@ -17,7 +17,7 @@ function factory(props = {}) {
 describe('DropdownItem', () => {
   let wrapper: VueWrapper;
 
-  describe('when is prop is span', () => {
+  describe('when the is prop is span', () => {
     beforeEach(() => {
       wrapper = factory({
         is: 'span',
@@ -37,7 +37,7 @@ describe('DropdownItem', () => {
     });
   });
 
-  describe('when is prop is not span', () => {
+  describe('when the is prop is not span', () => {
     beforeEach(() => {
       wrapper = factory();
     });

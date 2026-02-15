@@ -37,7 +37,7 @@ describe('ArtistsList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when artists prop is an empty array', () => {
+  describe('when the artists prop is an empty array', () => {
     it('does not show the GridWrapper component', () => {
       expect(wrapper.findComponent(GridWrapper).exists()).toBe(false);
     });
@@ -47,7 +47,7 @@ describe('ArtistsList', () => {
     });
   });
 
-  describe('when artists prop is not an empty array', () => {
+  describe('when the artists prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         artists: getFormattedArtistsMock(5),

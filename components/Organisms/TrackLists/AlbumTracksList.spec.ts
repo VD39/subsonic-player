@@ -31,7 +31,7 @@ describe('AlbumTracksList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when tracks prop is an empty array', () => {
+  describe('when the tracks prop is an empty array', () => {
     it('does not show the tracks wrapper element', () => {
       expect(wrapper.find({ ref: 'tracksWrapper' }).exists()).toBe(false);
     });
@@ -41,7 +41,7 @@ describe('AlbumTracksList', () => {
     });
   });
 
-  describe('when tracks prop is not an empty array', () => {
+  describe('when the tracks prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         tracks,

@@ -13,33 +13,7 @@ exports[`InputRange > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`InputRange > when bufferLength prop is set to true > matches the snapshot 1`] = `
-"<div class="inputRange">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
-      <div class="buffer" style="width: 50px;"></div>
-    </div>
-    <div class="thumb" style="left: 19px;"></div>
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
-exports[`InputRange > when bufferLength prop is set to true > when buffer duration updates > matches the snapshot 1`] = `
-"<div class="inputRange">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
-      <div class="buffer" style="width: 75px;"></div>
-    </div>
-    <div class="thumb" style="left: 19px;"></div>
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
-exports[`InputRange > when default slot is set > when max prop greater than 0 > matches the snapshot 1`] = `
+exports[`InputRange > when default slot is set > when the max prop greater than 0 > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -54,7 +28,7 @@ exports[`InputRange > when default slot is set > when max prop greater than 0 > 
 </div>"
 `;
 
-exports[`InputRange > when default slot is set > when max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is called before > matches the snapshot 1`] = `
+exports[`InputRange > when default slot is set > when the max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is called before > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -69,7 +43,7 @@ exports[`InputRange > when default slot is set > when max prop greater than 0 > 
 </div>"
 `;
 
-exports[`InputRange > when default slot is set > when max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is not called before > matches the snapshot 1`] = `
+exports[`InputRange > when default slot is set > when the max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is not called before > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -84,19 +58,6 @@ exports[`InputRange > when default slot is set > when max prop greater than 0 > 
 </div>"
 `;
 
-exports[`InputRange > when max prop equal to 0 > matches the snapshot 1`] = `
-"<div class="inputRange standard">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 100px;"></div>
-      <!--v-if-->
-    </div>
-    <!--v-if-->
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
 exports[`InputRange > when model value updates > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
@@ -105,6 +66,45 @@ exports[`InputRange > when model value updates > matches the snapshot 1`] = `
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 44px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the bufferLength prop is set to true > matches the snapshot 1`] = `
+"<div class="inputRange">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 25px;"></div>
+      <div class="buffer" style="width: 50px;"></div>
+    </div>
+    <div class="thumb" style="left: 19px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the bufferLength prop is set to true > when buffer duration updates > matches the snapshot 1`] = `
+"<div class="inputRange">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 25px;"></div>
+      <div class="buffer" style="width: 75px;"></div>
+    </div>
+    <div class="thumb" style="left: 19px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the max prop equal to 0 > matches the snapshot 1`] = `
+"<div class="inputRange standard">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 100px;"></div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
     <!--v-if-->
   </div>
 </div>"

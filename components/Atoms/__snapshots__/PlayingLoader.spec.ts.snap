@@ -2,4 +2,4 @@
 
 exports[`PlayingLoader > matches the snapshot 1`] = `"<span class="centerAll playingLoader"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Default slot content.</span></span>"`;
 
-exports[`PlayingLoader > when playing prop is set to true > matches the snapshot 1`] = `"<span class="centerAll playingLoader playing"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Default slot content.</span></span>"`;
+exports[`PlayingLoader > when the playing prop is set to true > matches the snapshot 1`] = `"<span class="centerAll playingLoader playing"><span class="centerAll loading"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Default slot content.</span></span>"`;

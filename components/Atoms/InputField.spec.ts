@@ -22,7 +22,7 @@ describe('InputField', () => {
     wrapper = factory();
   });
 
-  describe('when hideLabel prop is not set', () => {
+  describe('when the hideLabel prop is not set', () => {
     it('does not add the visuallyHidden class', () => {
       expect(wrapper.find({ ref: 'label' }).classes()).not.toContain(
         'visuallyHidden',
@@ -30,7 +30,7 @@ describe('InputField', () => {
     });
   });
 
-  describe('when hideLabel prop is set to true', () => {
+  describe('when the hideLabel prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         hideLabel: true,
@@ -48,7 +48,7 @@ describe('InputField', () => {
     });
   });
 
-  describe('when error prop is not set', () => {
+  describe('when the error prop is not set', () => {
     it('does not add the error class to wrapper element', () => {
       expect(wrapper.classes()).not.toContain('error');
     });
@@ -58,7 +58,7 @@ describe('InputField', () => {
     });
   });
 
-  describe('when error prop is set', () => {
+  describe('when the error prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
         error: 'Error message.',
@@ -78,13 +78,13 @@ describe('InputField', () => {
     });
   });
 
-  describe('when required prop is not set', () => {
+  describe('when the required prop is not set', () => {
     it('does not show the required element', () => {
       expect(wrapper.find({ ref: 'required' }).exists()).toBe(false);
     });
   });
 
-  describe('when required prop is set to true', () => {
+  describe('when the required prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         required: true,

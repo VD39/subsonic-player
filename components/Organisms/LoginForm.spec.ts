@@ -98,13 +98,13 @@ describe('LoginForm', () => {
       ]);
     });
 
-    describe('when error prop is not set', () => {
+    describe('when the error prop is not set', () => {
       it('does not show the MessageBar component', () => {
         expect(wrapper.findComponent(MessageBar).exists()).toBe(false);
       });
     });
 
-    describe('when error prop is set', () => {
+    describe('when the error prop is set', () => {
       beforeEach(async () => {
         config.public.SERVER_URL = '';
         wrapper = factory({

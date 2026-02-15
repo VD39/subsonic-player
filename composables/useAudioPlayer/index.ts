@@ -172,11 +172,11 @@ export function useAudioPlayer() {
     setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
   }
 
-  function saveStateInterval() {
+  async function saveStateInterval() {
     saveState();
 
     if (isPodcastEpisode.value) {
-      createBookmark(
+      await createBookmark(
         currentTrack.value.id,
         Math.floor(currentTime.value * 1000),
       );
@@ -187,7 +187,7 @@ export function useAudioPlayer() {
       !trackHasScrobbled.value &&
       currentTime.value / currentTrack.value.duration > 0.8
     ) {
-      scrobble(currentTrack.value.id);
+      await scrobble(currentTrack.value.id);
       trackHasScrobbled.value = true;
     }
   }
@@ -361,7 +361,7 @@ export function useAudioPlayer() {
           `The track ${currentTrack.value.id} was not found on the server and removed from queue.`,
         );
 
-        removeTrackFromQueueList(currentTrack.value.id);
+        await removeTrackFromQueueList(currentTrack.value.id);
       }
     }
   }
@@ -692,15 +692,15 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onEnded(async () => {
-      getDiscoverAlbums();
+      await getDiscoverAlbums();
 
       if (isPodcastEpisode.value) {
-        deleteBookmark(currentTrack.value.id, false);
+        await deleteBookmark(currentTrack.value.id, false);
       }
 
       switch (repeat.value) {
         case 1:
-          replayCurrent();
+          await replayCurrent();
           break;
         case Number.POSITIVE_INFINITY:
           if (isLastTrack.value) {

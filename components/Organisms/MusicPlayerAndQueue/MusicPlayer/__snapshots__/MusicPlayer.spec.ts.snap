@@ -22,8 +22,8 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -175,8 +175,8 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -254,8 +254,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -335,8 +335,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -414,8 +414,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -493,8 +493,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -572,8 +572,8 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -725,8 +725,8 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList smallFont">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>

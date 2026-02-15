@@ -23,7 +23,7 @@ describe('SpinningLoader', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when size prop is not set', () => {
+  describe('when the size prop is not set', () => {
     it('sets the correct size attribute on the icon component', () => {
       expect(wrapper.find({ ref: 'spinnerIcon' }).attributes('size')).toBe(
         ICON_SIZE.medium.toString(),
@@ -31,7 +31,7 @@ describe('SpinningLoader', () => {
     });
   });
 
-  describe('when fullWidth prop is set to true', () => {
+  describe('when the fullWidth prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         size: ICON_SIZE.large,

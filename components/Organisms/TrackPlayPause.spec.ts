@@ -32,13 +32,13 @@ describe('TrackPlayPause', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when large prop is false', () => {
+  describe('when the large prop is false', () => {
     it('does not add the large class to the wrapper element', () => {
       expect(wrapper.classes()).not.toContain('large');
     });
   });
 
-  describe('when large prop is true', () => {
+  describe('when the large prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
         large: true,
@@ -54,7 +54,7 @@ describe('TrackPlayPause', () => {
     });
   });
 
-  describe('when hideImage prop is not set', () => {
+  describe('when the hideImage prop is not set', () => {
     it('adds the withImage class to the wrapper element', () => {
       expect(wrapper.classes()).toContain('withImage');
     });
@@ -65,9 +65,9 @@ describe('TrackPlayPause', () => {
       );
     });
 
-    it('does not add the visuallyHidden class to the PreloadImage component', () => {
+    it('does not add the hideImage class to the PreloadImage component', () => {
       expect(wrapper.findComponent(PreloadImage).classes()).not.toContain(
-        'visuallyHidden',
+        'hideImage',
       );
     });
 
@@ -76,7 +76,7 @@ describe('TrackPlayPause', () => {
     });
   });
 
-  describe('when hideImage prop is set to true', () => {
+  describe('when the hideImage prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         hideImage: true,
@@ -97,9 +97,9 @@ describe('TrackPlayPause', () => {
       );
     });
 
-    it('adds the visuallyHidden class to the PreloadImage component', () => {
+    it('adds the hideImage class to the PreloadImage component', () => {
       expect(wrapper.findComponent(PreloadImage).classes()).toContain(
-        'visuallyHidden',
+        'hideImage',
       );
     });
 

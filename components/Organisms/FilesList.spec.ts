@@ -78,7 +78,7 @@ describe('FilesList', () => {
     });
   });
 
-  describe('when folders and tracks prop are empty array', () => {
+  describe('when the folders and tracks prop are empty array', () => {
     it('does not show the folders content', () => {
       expect(wrapper.find('[data-test-id="folder"]').exists()).toBe(false);
     });
@@ -92,7 +92,7 @@ describe('FilesList', () => {
     });
   });
 
-  describe('when folders is not an empty array', () => {
+  describe('when the folders prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         folders: tracks,
@@ -112,7 +112,7 @@ describe('FilesList', () => {
     });
   });
 
-  describe('when tracks is not an empty array', () => {
+  describe('when the tracks prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         tracks,

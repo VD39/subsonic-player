@@ -6,10 +6,10 @@ exports[`InfiniteScroller > matches the snapshot 1`] = `
   </button></div>"
 `;
 
-exports[`InfiniteScroller > when hasMore prop is true > matches the snapshot 1`] = `
+exports[`InfiniteScroller > when the hasMore prop is true > matches the snapshot 1`] = `
 "<div class="infinityScroller"><button class="centerItems buttonLink centerAll buttonLink centerAll buttonLink" draggable="false" type="button" title="Load more">
     <!--v-if--><span class="clamp text">Load more</span>
   </button></div>"
 `;
 
-exports[`InfiniteScroller > when hasMore prop is true > when loading prop is true > matches the snapshot 1`] = `"<div class="infinityScroller"><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" draggable="false" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>"`;
+exports[`InfiniteScroller > when the hasMore prop is true > when the loading prop is true > matches the snapshot 1`] = `"<div class="infinityScroller"><button class="centerItems buttonLink disabled centerAll buttonLink centerAll buttonLink" disabled="" draggable="false" type="button" title="Loading data"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Loading data</span></button></div>"`;

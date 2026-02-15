@@ -6,30 +6,6 @@ exports[`ButtonLink > matches the snapshot 1`] = `
 </button>"
 `;
 
-exports[`ButtonLink > when disabled prop is set as true > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button">
-  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
-</button>"
-`;
-
-exports[`ButtonLink > when fullWidth prop is set to true > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink centerAll fullWidth" draggable="false" type="button">
-  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
-</button>"
-`;
-
-exports[`ButtonLink > when icon prop is set > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink" draggable="false" type="button">
-  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
-</button>"
-`;
-
-exports[`ButtonLink > when icon prop is set > when iconPosition prop is set to right > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink alignRight" draggable="false" type="button">
-  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
-</button>"
-`;
-
 exports[`ButtonLink > when is prop is a > matches the snapshot 1`] = `
 "<a class="centerItems buttonLink" draggable="false">
   <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
@@ -48,7 +24,31 @@ exports[`ButtonLink > when is prop is undefined > matches the snapshot 1`] = `
 </button>"
 `;
 
-exports[`ButtonLink > when showText prop is set to true > matches the snapshot 1`] = `
+exports[`ButtonLink > when the disabled prop is set as true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when the fullWidth prop is set to true > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink centerAll fullWidth" draggable="false" type="button">
+  <!--v-if--><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when the icon prop is set > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink" draggable="false" type="button">
+  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when the icon prop is set > when the iconPosition prop is set to right > matches the snapshot 1`] = `
+"<button class="centerItems buttonLink alignRight" draggable="false" type="button">
+  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
+</button>"
+`;
+
+exports[`ButtonLink > when the showText prop is set to true > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button">
   <!--v-if--><span class="clamp text">Default slot content.</span>
 </button>"

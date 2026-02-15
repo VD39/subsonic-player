@@ -27,12 +27,12 @@ describe('LinkOrText', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isLink prop is true', () => {
+  describe('when the isLink prop is true', () => {
     describe.each([
       [undefined, 'A'],
       ['nuxt-link', 'A'],
       ['a', 'A'],
-    ])('when is prop is %s', (is, element) => {
+    ])('when the is prop is %s', (is, element) => {
       beforeEach(() => {
         wrapper = factory({
           is,
@@ -56,7 +56,7 @@ describe('LinkOrText', () => {
       });
     });
 
-    describe('when is prop is undefined', () => {
+    describe('when the is prop is undefined', () => {
       it('sets the correct attributes on the RouterLinkStub component', () => {
         expect(wrapper.findComponent(RouterLinkStub).props('to')).toBeDefined();
         expect(
@@ -65,7 +65,7 @@ describe('LinkOrText', () => {
       });
     });
 
-    describe('when is prop is nuxt-link', () => {
+    describe('when the is prop is nuxt-link', () => {
       it('sets the correct attributes on the RouterLinkStub component', () => {
         expect(wrapper.findComponent(RouterLinkStub).props('to')).toBeDefined();
         expect(
@@ -74,7 +74,7 @@ describe('LinkOrText', () => {
       });
     });
 
-    describe('when is prop is a', () => {
+    describe('when the is prop is a', () => {
       beforeEach(() => {
         wrapper = factory({
           is: 'a',
@@ -92,7 +92,7 @@ describe('LinkOrText', () => {
     });
   });
 
-  describe('when isLink prop is false', () => {
+  describe('when the isLink prop is false', () => {
     beforeEach(() => {
       wrapper = factory({
         isLink: false,

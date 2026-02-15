@@ -71,7 +71,7 @@ async function onPlayPodcast(podcast: Podcast) {
   const podcastEpisodes = await getMediaTracks(podcast);
 
   if (podcastEpisodes) {
-    playTracks(podcastEpisodes);
+    await playTracks(podcastEpisodes);
   }
 }
 

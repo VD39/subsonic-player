@@ -10,8 +10,8 @@ exports[`AlbumInformation > matches the snapshot 1`] = `
     <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <ul class="commaList list">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </div>
@@ -115,8 +115,8 @@ exports[`AlbumInformation > when genres is an empty array > matches the snapshot
     <div class="trackCell trackMeta title">Artists</div>
     <div class="trackCell">
       <ul class="commaList list">
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
   </div>

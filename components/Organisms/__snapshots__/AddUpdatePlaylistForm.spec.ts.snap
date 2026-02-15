@@ -22,7 +22,7 @@ exports[`AddUpdatePlaylistForm > when form is valid > matches the snapshot 1`] =
 </form>"
 `;
 
-exports[`AddUpdatePlaylistForm > when playlist prop is set > matches the snapshot 1`] = `
+exports[`AddUpdatePlaylistForm > when the playlist prop is set > matches the snapshot 1`] = `
 "<form novalidate="">
   <div class="formFields">
     <div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="name">name <span class="required">*</span></label><input id="name" autocomplete="off" class="input" placeholder="Enter playlist name" required="" type="text">

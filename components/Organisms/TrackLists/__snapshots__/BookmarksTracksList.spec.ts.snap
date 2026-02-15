@@ -333,7 +333,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`BookmarksTracksList > when bookmarks prop is not an empty array > matches the snapshot 1`] = `
+exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Episode</div>

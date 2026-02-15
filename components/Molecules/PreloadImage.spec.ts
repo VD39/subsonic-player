@@ -25,9 +25,9 @@ describe('Default', () => {
     iOMock = intersectionObserverMock();
   });
 
-  describe('when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon', () => {
+  describe('when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon', () => {
     describe.each(Object.values(IMAGE_DEFAULT_BY_TYPE))(
-      'when image prop is set to %s',
+      'when the image prop is set to %s',
       (image) => {
         beforeEach(() => {
           wrapper = factory({
@@ -64,8 +64,8 @@ describe('Default', () => {
     );
   });
 
-  describe('when lazyLoad prop is not set', () => {
-    describe('when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon', () => {
+  describe('when the lazyLoad prop is not set', () => {
+    describe('when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon', () => {
       beforeEach(() => {
         wrapper = factory({
           image: 'image',
@@ -138,7 +138,7 @@ describe('Default', () => {
           });
         });
 
-        describe('when alt prop is not set', () => {
+        describe('when the alt prop is not set', () => {
           it('sets the correct alt attribute on the img element', () => {
             expect(wrapper.find({ ref: 'img' }).attributes('alt')).toBe(
               'Image',
@@ -146,7 +146,7 @@ describe('Default', () => {
           });
         });
 
-        describe('when alt prop is set', () => {
+        describe('when the alt prop is set', () => {
           beforeEach(() => {
             wrapper = factory({
               alt: 'Alt text for image',
@@ -178,7 +178,7 @@ describe('Default', () => {
     });
   });
 
-  describe('when lazyLoad prop is set to false', () => {
+  describe('when the lazyLoad prop is set to false', () => {
     beforeEach(() => {
       wrapper = factory({
         image: 'image',

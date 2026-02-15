@@ -50,13 +50,13 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when fullWidth prop is not set', () => {
+  describe('when the fullWidth prop is not set', () => {
     it('does not add the fullWidth class', () => {
       expect(wrapper.classes()).not.toContain('fullWidth');
     });
   });
 
-  describe('when fullWidth prop is set to true', () => {
+  describe('when the fullWidth prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         fullWidth: true,
@@ -72,13 +72,13 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when icon prop is not set', () => {
+  describe('when the icon prop is not set', () => {
     it('does not show the icon component', () => {
       expect(wrapper.find({ ref: 'iconComponent' }).exists()).toBe(false);
     });
   });
 
-  describe('when icon prop is set', () => {
+  describe('when the icon prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
         icon: ICONS.add,
@@ -93,13 +93,13 @@ describe('ButtonLink', () => {
       expect(wrapper.find({ ref: 'iconComponent' }).exists()).toBe(true);
     });
 
-    describe('when iconPosition prop is not set', () => {
+    describe('when the iconPosition prop is not set', () => {
       it('does not add the alignRight class', () => {
         expect(wrapper.classes()).not.toContain('alignRight');
       });
     });
 
-    describe('when iconPosition prop is set to right', () => {
+    describe('when the iconPosition prop is set to right', () => {
       beforeEach(() => {
         wrapper = factory({
           icon: ICONS.add,
@@ -117,7 +117,7 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when disabled prop is not set', () => {
+  describe('when the disabled prop is not set', () => {
     it('does not add the disabled class', () => {
       expect(wrapper.classes()).not.toContain('disabled');
     });
@@ -127,7 +127,7 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when disabled prop is set as true', () => {
+  describe('when the disabled prop is set as true', () => {
     beforeEach(() => {
       wrapper = factory({
         disabled: true,
@@ -147,7 +147,7 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when showText prop is not set', () => {
+  describe('when the showText prop is not set', () => {
     it('adds the visuallyHidden class to text', () => {
       expect(wrapper.find({ ref: 'text' }).classes()).toContain(
         'visuallyHidden',
@@ -155,7 +155,7 @@ describe('ButtonLink', () => {
     });
   });
 
-  describe('when showText prop is set to true', () => {
+  describe('when the showText prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         showText: true,

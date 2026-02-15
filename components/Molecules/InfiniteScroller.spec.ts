@@ -36,7 +36,7 @@ describe('InfiniteScroller', () => {
     expect(iOMock.observeMock).toHaveBeenCalled();
   });
 
-  describe('when hasMore prop is false', () => {
+  describe('when the hasMore prop is false', () => {
     beforeEach(() => {
       wrapper = factory({
         hasMore: false,
@@ -52,7 +52,7 @@ describe('InfiniteScroller', () => {
     });
   });
 
-  describe('when hasMore prop is true', () => {
+  describe('when the hasMore prop is true', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -65,7 +65,7 @@ describe('InfiniteScroller', () => {
       expect(wrapper.find({ ref: 'message' }).exists()).toBe(false);
     });
 
-    describe('when loading prop is false', () => {
+    describe('when the loading prop is false', () => {
       it('sets the correct title attribute value on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
           'Load more',
@@ -77,7 +77,7 @@ describe('InfiniteScroller', () => {
       });
     });
 
-    describe('when loading prop is true', () => {
+    describe('when the loading prop is true', () => {
       beforeEach(() => {
         wrapper = factory({
           loading: true,
@@ -131,7 +131,7 @@ describe('InfiniteScroller', () => {
       ]);
     });
 
-    describe('when hasMore prop is false', () => {
+    describe('when the hasMore prop is false', () => {
       beforeEach(() => {
         wrapper = factory({
           hasMore: false,
@@ -147,8 +147,8 @@ describe('InfiniteScroller', () => {
       });
     });
 
-    describe('when hasMore prop is true', () => {
-      describe('when loading prop is false', () => {
+    describe('when the hasMore prop is true', () => {
+      describe('when the loading prop is false', () => {
         beforeEach(() => {
           vi.clearAllMocks();
           wrapper = factory();
@@ -163,7 +163,7 @@ describe('InfiniteScroller', () => {
         });
       });
 
-      describe('when loading prop is true', () => {
+      describe('when the loading prop is true', () => {
         beforeEach(() => {
           wrapper = factory({
             loading: true,

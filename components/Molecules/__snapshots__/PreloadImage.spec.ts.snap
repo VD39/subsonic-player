@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhApplePodcastsLogo > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhApplePodcastsLogo > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phapplepodcastslogo class="icon"></phapplepodcastslogo>
@@ -8,7 +8,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhApplePodcastsLogo > matches the snapshot 2`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhApplePodcastsLogo > matches the snapshot 2`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phapplepodcastslogo class="icon"></phapplepodcastslogo>
@@ -16,7 +16,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhArrowURightUp > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhArrowURightUp > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <pharrowurightup class="icon"></pharrowurightup>
@@ -24,7 +24,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhFolder > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhFolder > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phfolder class="icon"></phfolder>
@@ -32,7 +32,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhInfo > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhInfo > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phinfo class="icon"></phinfo>
@@ -40,7 +40,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhMusicNotes > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhMusicNotes > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phmusicnotes class="icon"></phmusicnotes>
@@ -48,7 +48,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhPlaylist > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhPlaylist > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phplaylist class="icon"></phplaylist>
@@ -56,7 +56,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhRadio > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhRadio > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phradio class="icon"></phradio>
@@ -64,7 +64,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhUsersThree > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhUsersThree > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phusersthree class="icon"></phusersthree>
@@ -72,7 +72,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhVinylRecord > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhVinylRecord > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phvinylrecord class="icon"></phvinylrecord>
@@ -80,7 +80,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhWaveform > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhWaveform > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phwaveform class="icon"></phwaveform>
@@ -88,7 +88,7 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when image prop is set to PhWaveformSlash > matches the snapshot 1`] = `
+exports[`Default > when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon > when the image prop is set to PhWaveformSlash > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
     <phwaveformslash class="icon"></phwaveformslash>
@@ -96,10 +96,10 @@ exports[`Default > when image prop is set to a IMAGE_DEFAULT_BY_TYPE icon > when
 </div>"
 `;
 
-exports[`Default > when lazyLoad prop is not set > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>"`;
+exports[`Default > when the lazyLoad prop is not set > when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>"`;
 
-exports[`Default > when lazyLoad prop is not set > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when intersectionObserver is intersecting > when alt prop is set > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Alt text for image" class="image" draggable="false" loading="lazy" src="https://test.com"></div>"`;
+exports[`Default > when the lazyLoad prop is not set > when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when intersectionObserver is intersecting > when image has finished loading > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader" style="display: none;"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>"`;
 
-exports[`Default > when lazyLoad prop is not set > when image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when intersectionObserver is intersecting > when image has finished loading > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader" style="display: none;"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>"`;
+exports[`Default > when the lazyLoad prop is not set > when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon > when intersectionObserver is intersecting > when the alt prop is set > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Alt text for image" class="image" draggable="false" loading="lazy" src="https://test.com"></div>"`;
 
-exports[`Default > when lazyLoad prop is set to false > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>"`;
+exports[`Default > when the lazyLoad prop is set to false > matches the snapshot 1`] = `"<div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image" style="display: none;"></div>"`;

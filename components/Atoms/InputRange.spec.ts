@@ -71,13 +71,13 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when bufferLength prop is not set', () => {
+  describe('when the bufferLength prop is not set', () => {
     it('does not show the buffer bar element', () => {
       expect(wrapper.find({ ref: 'bufferBar' }).exists()).toBe(false);
     });
   });
 
-  describe('when bufferLength prop is set to true', () => {
+  describe('when the bufferLength prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         buffer: 5,
@@ -115,7 +115,7 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when max prop greater than 0', () => {
+  describe('when the max prop greater than 0', () => {
     it('does not add the standard class to the wrapper element', () => {
       expect(wrapper.classes()).not.toContain('standard');
     });
@@ -131,7 +131,7 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when max prop equal to 0', () => {
+  describe('when the max prop equal to 0', () => {
     beforeEach(() => {
       wrapper = factory({
         max: 0,
@@ -164,7 +164,7 @@ describe('InputRange', () => {
   });
 
   describe('when default slot is set', () => {
-    describe('when max prop equal to 0', () => {
+    describe('when the max prop equal to 0', () => {
       beforeEach(() => {
         wrapper = factory(
           {
@@ -181,7 +181,7 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when max prop greater than 0', () => {
+    describe('when the max prop greater than 0', () => {
       beforeEach(() => {
         wrapper = factory(undefined, {
           default: '<p>{{ pendingValue }}</p>',
@@ -319,7 +319,7 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when delay props is not set', () => {
+    describe('when the delay prop is not set', () => {
       it('emits the update:modelValue value', () => {
         expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
       });
@@ -329,7 +329,7 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when delay props is set to true', () => {
+    describe('when the delay prop is set to true', () => {
       beforeEach(() => {
         wrapper = factory({
           delay: true,
@@ -431,7 +431,7 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when delay props is not set', () => {
+    describe('when the delay prop is not set', () => {
       it('emits the update:modelValue value', () => {
         expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
       });
@@ -441,7 +441,7 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when delay props is set to true', () => {
+    describe('when the delay prop is set to true', () => {
       beforeEach(() => {
         wrapper = factory({
           delay: true,

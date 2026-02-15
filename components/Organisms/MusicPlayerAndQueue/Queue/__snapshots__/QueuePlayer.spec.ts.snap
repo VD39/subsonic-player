@@ -105,8 +105,8 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -198,8 +198,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -286,8 +286,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -374,8 +374,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -466,8 +466,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -554,8 +554,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -646,8 +646,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -734,8 +734,8 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -812,8 +812,8 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>
@@ -969,8 +969,8 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
               <div class="bulletList inner">
                 <div class="content">
                   <ul class="commaList">
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                   </ul>
                 </div>
               </div>

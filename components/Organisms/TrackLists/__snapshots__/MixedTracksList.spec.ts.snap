@@ -37,8 +37,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -64,8 +64,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -110,8 +110,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -137,8 +137,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -183,8 +183,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -210,8 +210,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -256,8 +256,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -283,8 +283,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -329,8 +329,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -356,8 +356,8 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -378,7 +378,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`MixedTracksList > when tracks prop is not an empty array > matches the snapshot 1`] = `
+exports[`MixedTracksList > when the tracks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
@@ -415,8 +415,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -442,8 +442,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -488,8 +488,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -515,8 +515,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -561,8 +561,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -588,8 +588,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -634,8 +634,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -661,8 +661,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -707,8 +707,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -734,8 +734,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -756,7 +756,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > matches the 
 </div>"
 `;
 
-exports[`MixedTracksList > when tracks prop is not an empty array > when hideRemoveOption prop is true > matches the snapshot 1`] = `
+exports[`MixedTracksList > when the tracks prop is not an empty array > when the hideRemoveOption prop is true > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
@@ -793,8 +793,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -820,8 +820,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -864,8 +864,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -891,8 +891,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -935,8 +935,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -962,8 +962,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1006,8 +1006,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1033,8 +1033,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1077,8 +1077,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1104,8 +1104,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1124,7 +1124,7 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when hideRem
 </div>"
 `;
 
-exports[`MixedTracksList > when tracks prop is not an empty array > when the onDragStart event is attached > matches the snapshot 1`] = `
+exports[`MixedTracksList > when the tracks prop is not an empty array > when the onDragStart event is attached > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
     <div class="trackCell">Track</div>
@@ -1161,8 +1161,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1188,8 +1188,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1234,8 +1234,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1261,8 +1261,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1307,8 +1307,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1334,8 +1334,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1380,8 +1380,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1407,8 +1407,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>
@@ -1453,8 +1453,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
                     <!--v-if-->
                     <li><span class="visuallyHidden">Track artists</span>
                       <ul class="commaList">
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
                       </ul>
                     </li>
                     <!--v-if-->
@@ -1480,8 +1480,8 @@ exports[`MixedTracksList > when tracks prop is not an empty array > when the onD
           <div class="bulletList inner">
             <div class="content">
               <ul class="commaList">
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link" draggable="false">name</a></li>
-                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link" draggable="false">name1</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+                <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
               </ul>
             </div>
           </div>

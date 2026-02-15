@@ -31,7 +31,7 @@ describe('BookmarksTracksList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when bookmarks prop is an empty array', () => {
+  describe('when the bookmarks prop is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         bookmarks: [],
@@ -47,7 +47,7 @@ describe('BookmarksTracksList', () => {
     });
   });
 
-  describe('when bookmarks prop is not an empty array', () => {
+  describe('when the bookmarks prop is not an empty array', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });

@@ -28,7 +28,7 @@ describe('NavigationItem', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when collapsed prop is false', () => {
+  describe('when the collapsed prop is false', () => {
     it('does not add the visuallyHidden class to the title element', () => {
       expect(wrapper.find({ ref: 'title' }).classes()).not.toContain(
         'visuallyHidden',
@@ -36,7 +36,7 @@ describe('NavigationItem', () => {
     });
   });
 
-  describe('when collapsed prop is true', () => {
+  describe('when the collapsed prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
         collapsed: true,

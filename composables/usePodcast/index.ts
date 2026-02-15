@@ -151,9 +151,8 @@ export function usePodcast() {
   }
 
   function updatePodcast(podcastId: string) {
-    setTimeout(() => {
-      getPodcast(podcastId);
-      getNewestPodcastEpisodes();
+    setTimeout(async () => {
+      await Promise.all([getPodcast(podcastId), getNewestPodcastEpisodes()]);
     }, 15000);
   }
 

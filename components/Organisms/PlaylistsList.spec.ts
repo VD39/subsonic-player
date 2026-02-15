@@ -31,7 +31,7 @@ describe('PlaylistsList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when playlists prop is an empty array', () => {
+  describe('when the playlists prop is an empty array', () => {
     it('does not show the playlists grid wrapper element', () => {
       expect(wrapper.findComponent(PlaylistsListItem).exists()).toBe(false);
     });
@@ -41,7 +41,7 @@ describe('PlaylistsList', () => {
     });
   });
 
-  describe('when playlists prop is not an empty array', () => {
+  describe('when the playlists prop is not an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         playlists,

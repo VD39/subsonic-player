@@ -144,7 +144,7 @@ exports[`RadioStationsList > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`RadioStationsList > when radioStations prop is not an empty array > matches the snapshot 1`] = `
+exports[`RadioStationsList > when the radioStations prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
     <div class="trackCell">Stations</div>

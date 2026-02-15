@@ -26,13 +26,13 @@ describe('PlayingLoader', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when playing prop is not set', () => {
+  describe('when the playing prop is not set', () => {
     it('does not add the playing class', () => {
       expect(wrapper.classes()).not.toContain('playing');
     });
   });
 
-  describe('when playing prop is set to true', () => {
+  describe('when the playing prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         playing: true,

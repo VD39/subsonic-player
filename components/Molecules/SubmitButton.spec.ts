@@ -29,13 +29,13 @@ describe('SubmitButton', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when fullWidth prop is not set', () => {
+  describe('when the fullWidth prop is not set', () => {
     it('sets the correct fullWidth prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('fullWidth')).toBe(false);
     });
   });
 
-  describe('when fullWidth prop is set to true', () => {
+  describe('when the fullWidth prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         fullWidth: true,
@@ -51,7 +51,7 @@ describe('SubmitButton', () => {
     });
   });
 
-  describe('when loading prop is not set', () => {
+  describe('when the loading prop is not set', () => {
     it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).not.toBeDefined();
     });
@@ -61,7 +61,7 @@ describe('SubmitButton', () => {
     });
   });
 
-  describe('when loading prop is set to true', () => {
+  describe('when the loading prop is set to true', () => {
     beforeEach(() => {
       wrapper = factory({
         loading: true,

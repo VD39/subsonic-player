@@ -8,10 +8,10 @@ exports[`GridWrapper > when mobile prop is not set > matches the snapshot 1`] = 
 
 exports[`GridWrapper > when mobile prop is set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 5; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;"></section>"`;
 
-exports[`GridWrapper > when spacing prop is not set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;"></section>"`;
-
-exports[`GridWrapper > when spacing prop is set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 12px;"></section>"`;
-
 exports[`GridWrapper > when tablet prop is not set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;"></section>"`;
 
 exports[`GridWrapper > when tablet prop is set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 7; --loop-rows-desktop: 5; --loop-grid-gap: 24px;"></section>"`;
+
+exports[`GridWrapper > when the spacing prop is not set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;"></section>"`;
+
+exports[`GridWrapper > when the spacing prop is set > matches the snapshot 1`] = `"<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 12px;"></section>"`;

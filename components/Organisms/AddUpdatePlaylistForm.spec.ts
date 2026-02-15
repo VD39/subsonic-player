@@ -27,13 +27,13 @@ describe('AddUpdatePlaylistForm', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when playlist prop is not set', () => {
+  describe('when the playlist prop is not set', () => {
     it('sets the correct SubmitButton text', () => {
       expect(wrapper.findComponent(SubmitButton).text()).toBe('Add playlist');
     });
   });
 
-  describe('when playlist prop is set', () => {
+  describe('when the playlist prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
         playlist: formattedPlaylistMock,

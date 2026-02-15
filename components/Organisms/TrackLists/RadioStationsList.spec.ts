@@ -31,7 +31,7 @@ describe('RadioStationsList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when radioStations prop is an empty array', () => {
+  describe('when the radioStations prop is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         radioStations: [],
@@ -47,7 +47,7 @@ describe('RadioStationsList', () => {
     });
   });
 
-  describe('when radioStations prop is not an empty array', () => {
+  describe('when the radioStations prop is not an empty array', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });

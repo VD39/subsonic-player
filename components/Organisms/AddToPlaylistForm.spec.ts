@@ -48,7 +48,7 @@ describe('AddToPlaylistForm', () => {
     wrapper = factory();
   });
 
-  describe('when playlists prop is an empty array', () => {
+  describe('when the playlists prop is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         playlists: [],
@@ -64,7 +64,7 @@ describe('AddToPlaylistForm', () => {
     });
   });
 
-  describe('when playlists prop is not an empty array', () => {
+  describe('when the playlists prop is not an empty array', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -198,7 +198,7 @@ describe('AddToPlaylistForm', () => {
       });
     });
 
-    describe('when newlyCreatedPlaylistId prop is the same as the playlist id', () => {
+    describe('when the newlyCreatedPlaylistId prop is the same as the playlist id', () => {
       beforeEach(() => {
         wrapper = factory({
           newlyCreatedPlaylistId: playlists[0].id,

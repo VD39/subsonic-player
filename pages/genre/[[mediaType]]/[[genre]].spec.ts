@@ -124,7 +124,7 @@ describe('[[genre]]', () => {
     expect(useHeadTitleMock.value).toBe('rock - albums - Genre');
   });
 
-  it('should display the correct genre title', () => {
+  it('displays the correct genre title', () => {
     expect(wrapper.find({ ref: 'title' }).text()).toBe('rock');
   });
 

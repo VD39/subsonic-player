@@ -43,13 +43,13 @@ describe('AlbumItem', () => {
   });
 
   describe('when album artists is not an empty array', () => {
-    describe('when hideArtist prop is false', () => {
+    describe('when the hideArtist prop is false', () => {
       it('shows the ArtistsList component', () => {
         expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
       });
     });
 
-    describe('when hideArtist prop is true', () => {
+    describe('when the hideArtist prop is true', () => {
       beforeEach(() => {
         wrapper = factory({
           hideArtist: true,

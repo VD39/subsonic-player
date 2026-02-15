@@ -31,6 +31,7 @@ function cancelLongPress() {
   }
 }
 
+// Only allow the event if the following is true.
 function isInteractiveTarget(event: Event) {
   const target = event.target as HTMLElement;
   const element = target.closest('a, button');
@@ -52,8 +53,6 @@ function onClick(event: MouseEvent) {
     return;
   }
 
-  // Don't emit click when clicking on interactive elements and
-  // when any dropdown is open to avoid interfering with dropdown interactions.
   if (isInteractiveTarget(event) || isAnyOpen.value) {
     return;
   }
@@ -62,13 +61,10 @@ function onClick(event: MouseEvent) {
 }
 
 function onContextMenu(event: MouseEvent) {
-  // Allow default context menu for links and buttons.
   if (isInteractiveTarget(event)) {
     return;
   }
 
-  // Prevent the browser's global contextmenu handlers from running so the
-  // composable/provider can open the dropdown first.
   event.preventDefault();
   event.stopPropagation();
 
@@ -76,14 +72,21 @@ function onContextMenu(event: MouseEvent) {
 }
 
 function onDragStart(event: DragEvent) {
-  // Cancel long press when dragging starts.
   cancelLongPress();
   longPressTriggered = false;
+
+  if (isInteractiveTarget(event)) {
+    return;
+  }
 
   emit('dragStart', event);
 }
 
 function startLongPress(event: TouchEvent) {
+  if (isInteractiveTarget(event)) {
+    return;
+  }
+
   longPressTriggered = false;
   longPressTimer = setTimeout(() => {
     longPressTriggered = true;

@@ -318,7 +318,7 @@ describe('PodcastEpisodesListItem', () => {
     },
   );
 
-  describe('when isRecentList prop is true and the podcast episode is downloaded', () => {
+  describe('when the isRecentList prop is true and the podcast episode is downloaded', () => {
     beforeEach(() => {
       wrapper = factory({
         isRecentList: true,
@@ -334,7 +334,7 @@ describe('PodcastEpisodesListItem', () => {
     });
   });
 
-  describe('when isRecentList prop is false', () => {
+  describe('when the isRecentList prop is false', () => {
     it('does not show the go to podcast DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'goToPodcast' }).exists()).toBe(
         false,

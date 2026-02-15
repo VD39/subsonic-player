@@ -51,7 +51,7 @@ describe('MixedTracksList', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when tracks prop is an empty array', () => {
+  describe('when the tracks prop is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         tracks: [],
@@ -67,7 +67,7 @@ describe('MixedTracksList', () => {
     });
   });
 
-  describe('when tracks prop is not an empty array', () => {
+  describe('when the tracks prop is not an empty array', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -84,13 +84,13 @@ describe('MixedTracksList', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when hideRemoveOption prop is false', () => {
+    describe('when the hideRemoveOption prop is false', () => {
       it('shows the track options element in track header', () => {
         expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(true);
       });
     });
 
-    describe('when hideRemoveOption prop is true', () => {
+    describe('when the hideRemoveOption prop is true', () => {
       beforeEach(() => {
         wrapper = factory({
           hideRemoveOption: true,
