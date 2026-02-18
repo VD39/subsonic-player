@@ -1,3 +1,5 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import ReadMore from '@/components/Atoms/ReadMore.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
@@ -11,6 +13,14 @@ import { documentEventListenerMock } from '@/test/eventListenersMock';
 
 import { useModal } from './index';
 
+const lockScrollMock = vi.fn();
+const unlockScrollMock = vi.fn();
+
+mockNuxtImport('useScrollLock', () => () => ({
+  lockScroll: lockScrollMock,
+  unlockScroll: unlockScrollMock,
+}));
+
 const {
   documentAddEventListenerSpy,
   documentEvents,
@@ -20,10 +30,6 @@ const {
 const { closeModal, modal, openModal } = useModal();
 
 describe('useModal', () => {
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   it('sets the default modal value', () => {
     expect(modal.value).toEqual(DEFAULT_STATE);
   });
@@ -123,11 +129,19 @@ describe('useModal', () => {
         openModal(modalType);
       });
 
+      afterAll(() => {
+        vi.clearAllMocks();
+      });
+
       it('adds the keydown event listener function', () => {
         expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
           'keydown',
           expect.any(Function),
         );
+      });
+
+      it('calls the lockScroll function', () => {
+        expect(lockScrollMock).toHaveBeenCalled();
       });
 
       describe('when attrs are not set', () => {
@@ -170,6 +184,10 @@ describe('useModal', () => {
             title,
           });
         });
+
+        it('does not call the unlockScroll function', () => {
+          expect(unlockScrollMock).not.toHaveBeenCalled();
+        });
       });
 
       describe('when esc key is pressed', () => {
@@ -186,6 +204,10 @@ describe('useModal', () => {
 
         it('resets modal value to default state', () => {
           expect(modal.value).toEqual(DEFAULT_STATE);
+        });
+
+        it('calls the unlockScroll function', () => {
+          expect(unlockScrollMock).toHaveBeenCalled();
         });
       });
     });
@@ -216,6 +238,10 @@ describe('useModal', () => {
 
     it('resets modal value to default state', () => {
       expect(modal.value).toEqual(DEFAULT_STATE);
+    });
+
+    it('calls the unlockScroll function', () => {
+      expect(unlockScrollMock).toHaveBeenCalled();
     });
   });
 });

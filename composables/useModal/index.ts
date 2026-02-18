@@ -9,6 +9,8 @@ import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.
 import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
 
 export function useModal() {
+  const { lockScroll, unlockScroll } = useScrollLock('modal');
+
   const modal = useState<ModalProps>(STATE_NAMES.modal, () => DEFAULT_STATE);
 
   function onKeydown(event: KeyboardEvent) {
@@ -139,6 +141,9 @@ export function useModal() {
     if (modal.value.component && import.meta.client) {
       addEventListener();
     }
+
+    console.log(`lockScroll: `, lockScroll);
+    lockScroll();
   }
 
   function closeModal() {
@@ -147,6 +152,8 @@ export function useModal() {
     if (import.meta.client) {
       document.removeEventListener('keydown', onKeydown);
     }
+
+    unlockScroll();
   }
 
   return {

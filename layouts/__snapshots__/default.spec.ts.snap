@@ -972,7 +972,7 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
               <ul class="hasPointerEvents">
                 <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
                     <!--v-if--><span class="clamp text"> Profile </span>

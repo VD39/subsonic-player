@@ -55,25 +55,6 @@ const { closeModal, modal } = useModal();
 </template>
 
 <style module>
-.modalWindow {
-  --modal-window-width-height: var(--width-height-100);
-
-  position: fixed;
-  inset: 0;
-  z-index: 15;
-  width: var(--modal-window-width-height);
-  height: var(--modal-window-width-height);
-
-  &::after {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    content: '';
-    background-color: var(--black-color);
-    opacity: 0.85;
-  }
-}
-
 .modalContent {
   position: relative;
   width: 80%;

@@ -67,7 +67,7 @@ defineExpose({
       <div
         v-if="isOpen"
         ref="dropdownListRef"
-        :class="$style.dropdown"
+        :class="['backdrop', $style.dropdown]"
         :style="menuStyle"
       >
         <ul class="hasPointerEvents">
@@ -96,15 +96,6 @@ defineExpose({
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--dark-box-shadow-medium);
-
-  &::after {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    content: '';
-    background-color: var(--black-color);
-    opacity: 0.15;
-  }
 
   @media (--mobile-only) {
     inset: auto var(--space-12) calc(var(--header-height) + var(--space-12)) !important;

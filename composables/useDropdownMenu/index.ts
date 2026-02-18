@@ -1,7 +1,7 @@
 let activeCleanup: (() => void) | null = null;
 
 export function useDropdownMenu(options: DropdownOptions) {
-  const { lockScroll, unlockScroll } = useScrollLock([
+  const { lockScroll, unlockScroll } = useScrollLock('dropdown', [
     'disableAllPointerEvents',
   ]);
 

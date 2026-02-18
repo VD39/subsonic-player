@@ -23,7 +23,7 @@ export function useHotkeyManager() {
   const { toggleFavourite } = useFavourite();
   const { addRadioStationModal } = useRadioStation();
 
-  const pressedKeys = new Set<string>();
+  const pressedKeys = ref(new Set<string>());
 
   const isHotkeyListOpened = useState(
     STATE_NAMES.hotKeyListOpened,
@@ -44,7 +44,7 @@ export function useHotkeyManager() {
 
   function isKeysMatchingPressedKeys(mappedKeys: string[]) {
     const joinedMappedKeys = joinKeys(mappedKeys);
-    const joinedPressedKeys = joinKeys(pressedKeys);
+    const joinedPressedKeys = joinKeys(pressedKeys.value);
 
     return joinedMappedKeys === joinedPressedKeys;
   }
@@ -97,7 +97,7 @@ export function useHotkeyManager() {
       return;
     }
 
-    pressedKeys.add(event.key);
+    pressedKeys.value.add(event.key);
 
     for (const category in HOTKEYS_MAPPINGS) {
       const mappings = HOTKEYS_MAPPINGS[category];
@@ -130,17 +130,17 @@ export function useHotkeyManager() {
 
   // Clear all keys when window loses focus.
   function onBlur() {
-    pressedKeys.clear();
+    pressedKeys.value.clear();
   }
 
   function onKeyup(event: KeyboardEvent) {
-    pressedKeys.delete(event.key);
+    pressedKeys.value.delete(event.key);
   }
 
   // Clear all keys when tab becomes hidden (e.g. print dialog opened).
   function onVisibilityChange() {
     if (document.visibilityState === 'hidden') {
-      pressedKeys.clear();
+      pressedKeys.value.clear();
     }
   }
 

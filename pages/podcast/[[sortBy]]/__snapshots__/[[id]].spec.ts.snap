@@ -55,7 +55,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
               <ul class="hasPointerEvents">
                 <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Play latests episode </span>
@@ -129,7 +129,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
               <ul class="hasPointerEvents">
                 <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                     <!--v-if--><span class="clamp text"> Play latests episode </span>
@@ -207,7 +207,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
               <ul class="hasPointerEvents">
                 <!--v-if-->
                 <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
