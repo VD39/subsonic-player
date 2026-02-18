@@ -7,7 +7,7 @@ export function useDragAndDrop() {
   const draggedElement = ref<HTMLElement | null>(null);
   const clonedElement = ref<HTMLElement | null>(null);
   const originalPosition = ref<DOMRect>({} as DOMRect);
-  let animationFrameId: null | number = null;
+  const animationFrameId = ref<null | number>(null);
 
   async function addTracks(
     tracksToAdd: MixedTrack[],
@@ -70,9 +70,9 @@ export function useDragAndDrop() {
     }
 
     // Cancel any pending animation frame.
-    if (animationFrameId) {
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = null;
+    if (animationFrameId.value) {
+      cancelAnimationFrame(animationFrameId.value);
+      animationFrameId.value = null;
     }
 
     const { height, left, top, width } = originalPosition.value;
@@ -136,18 +136,18 @@ export function useDragAndDrop() {
     event.preventDefault();
 
     // Use requestAnimationFrame for smoother animation.
-    if (animationFrameId) {
-      cancelAnimationFrame(animationFrameId);
+    if (animationFrameId.value) {
+      cancelAnimationFrame(animationFrameId.value);
     }
 
-    animationFrameId = requestAnimationFrame(() => {
+    animationFrameId.value = requestAnimationFrame(() => {
       // Calculate centred position.
       const halfImageSize = IMAGE_HEIGHT_WIDTH / 2;
       const x = event.clientX - halfImageSize;
       const y = event.clientY - halfImageSize;
 
       clonedElement.value!.style.transform = `translate(${x}px, ${y}px)`;
-      animationFrameId = null;
+      animationFrameId.value = null;
     });
   }
 

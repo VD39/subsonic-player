@@ -6,6 +6,12 @@ exports[`InteractionWrapper > when the isAnyOpen value is false > when the dragg
 
 exports[`InteractionWrapper > when the isAnyOpen value is false > when the isAnyOpen value and the draggable prop are set to true and the onDragStart event is attached > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="true">Default slot content.</div>"`;
 
-exports[`InteractionWrapper > when the isAnyOpen value is false > when the onDragStart event is not attached > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;
+exports[`InteractionWrapper > when the isAnyOpen value is false > when the onDragStart event is not attached > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="true">Default slot content.</div>"`;
 
 exports[`InteractionWrapper > when the isAnyOpen value is true > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when the touchstart event is triggered > when the target is not an interactive element > when the draggable attribute is set to true > when the touchstart event is triggered > sets the draggable attribute to false 1`] = `"<div class="interactionWrapper" draggable="false">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when the touchstart event is triggered > when the target is not an interactive element > when the draggable attribute is set to true > when the touchstart event is triggered > when the touchcancel event is triggered > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="true">Default slot content.</div>"`;
+
+exports[`InteractionWrapper > when the touchstart event is triggered > when the target is not an interactive element > when the draggable attribute is set to true > when the touchstart event is triggered > when the touchend event is triggered > matches the snapshot 1`] = `"<div class="interactionWrapper" draggable="true">Default slot content.</div>"`;

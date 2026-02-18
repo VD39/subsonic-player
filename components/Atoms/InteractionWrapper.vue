@@ -21,13 +21,16 @@ const instance = getCurrentInstance();
 
 const { isAnyOpen } = useDropdownMenuState();
 
-let longPressTimer: null | ReturnType<typeof setTimeout> = null;
-let longPressTriggered = false;
+const isTouching = ref(false);
+const longPressTriggered = ref(false);
+const longPressTimer = ref<null | ReturnType<typeof setTimeout>>(null);
 
 function cancelLongPress() {
-  if (longPressTimer) {
-    clearTimeout(longPressTimer);
-    longPressTimer = null;
+  isTouching.value = false;
+
+  if (longPressTimer.value) {
+    clearTimeout(longPressTimer.value);
+    longPressTimer.value = null;
   }
 }
 
@@ -41,13 +44,17 @@ function isInteractiveTarget(event: Event) {
 
 function onClick(event: MouseEvent) {
   // If long press was just triggered, prevent click from propagating.
-  if (longPressTriggered) {
-    event.stopPropagation();
-    event.preventDefault();
+  if (longPressTriggered.value) {
+    // When the dropdown is open, allow clicks to propagate so the
+    // dropdown's window click listener can close the menu.
+    if (!isAnyOpen.value) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
 
     // Reset flag after a short delay to allow future clicks.
     setTimeout(() => {
-      longPressTriggered = false;
+      longPressTriggered.value = false;
     }, 50);
 
     return;
@@ -73,7 +80,7 @@ function onContextMenu(event: MouseEvent) {
 
 function onDragStart(event: DragEvent) {
   cancelLongPress();
-  longPressTriggered = false;
+  longPressTriggered.value = false;
 
   if (isInteractiveTarget(event)) {
     return;
@@ -87,9 +94,11 @@ function startLongPress(event: TouchEvent) {
     return;
   }
 
-  longPressTriggered = false;
-  longPressTimer = setTimeout(() => {
-    longPressTriggered = true;
+  isTouching.value = true;
+  longPressTriggered.value = false;
+
+  longPressTimer.value = setTimeout(() => {
+    longPressTriggered.value = true;
 
     // Only emit longPress for touch events, otherwise onClick
     // will be called.
@@ -99,7 +108,10 @@ function startLongPress(event: TouchEvent) {
 
 const isDraggable = computed(
   () =>
-    !isAnyOpen.value && props.draggable && !!instance?.vnode.props?.onDragStart,
+    !isTouching.value &&
+    !isAnyOpen.value &&
+    props.draggable &&
+    !!instance?.vnode.props?.onDragStart,
 );
 
 onBeforeUnmount(() => {
@@ -132,5 +144,6 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   pointer-events: auto;
+  user-select: none;
 }
 </style>

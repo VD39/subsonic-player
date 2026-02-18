@@ -339,6 +339,52 @@ describe('InteractionWrapper', () => {
           expect(wrapper.emitted('longPress')).toBeUndefined();
         });
       });
+
+      describe('when the draggable attribute is set to true', () => {
+        describe('when the touchstart event is triggered', () => {
+          beforeEach(() => {
+            onDragStartMock = vi.fn();
+            wrapper = factory();
+          });
+
+          it('sets the draggable attribute to false', async () => {
+            expect(wrapper.attributes('draggable')).toBe('true');
+            await wrapper.trigger('touchstart');
+            expect(wrapper.attributes('draggable')).toBe('false');
+            expect(wrapper.html()).toMatchSnapshot();
+          });
+
+          describe('when the touchend event is triggered', () => {
+            beforeEach(async () => {
+              await wrapper.trigger('touchstart');
+              await wrapper.trigger('touchend');
+            });
+
+            it('matches the snapshot', () => {
+              expect(wrapper.html()).toMatchSnapshot();
+            });
+
+            it('sets the draggable attribute to true', () => {
+              expect(wrapper.attributes('draggable')).toBe('true');
+            });
+          });
+
+          describe('when the touchcancel event is triggered', () => {
+            beforeEach(async () => {
+              await wrapper.trigger('touchstart');
+              await wrapper.trigger('touchcancel');
+            });
+
+            it('matches the snapshot', () => {
+              expect(wrapper.html()).toMatchSnapshot();
+            });
+
+            it('sets the draggable attribute to true', () => {
+              expect(wrapper.attributes('draggable')).toBe('true');
+            });
+          });
+        });
+      });
     });
   });
 
@@ -390,6 +436,10 @@ describe('InteractionWrapper', () => {
     });
 
     describe('when the onDragStart event is not attached', () => {
+      beforeEach(() => {
+        onDragStartMock = undefined;
+      });
+
       it('matches the snapshot', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
