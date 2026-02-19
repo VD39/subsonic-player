@@ -2,6 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import { abortControllerMock } from '../../test/abortControllerMock';
 import {
   documentEventListenerMock,
   windowEventListenerMock,
@@ -10,8 +11,9 @@ import InputRange from './InputRange.vue';
 
 const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
   windowEventListenerMock();
-const { documentAddEventListenerSpy, documentRemoveEventListenerSpy } =
-  documentEventListenerMock();
+const { documentAddEventListenerSpy } = documentEventListenerMock();
+const { abortControllerConstructorMock, abortMock, signalMock } =
+  abortControllerMock();
 HTMLElement.prototype.getBoundingClientRect = () =>
   ({
     left: 0,
@@ -253,10 +255,17 @@ describe('InputRange', () => {
       expect(wrapper.classes()).toContain('seeking');
     });
 
+    it('adds the abort event listener functions', () => {
+      expect(abortControllerConstructorMock).toHaveBeenCalled();
+    });
+
     it('adds the mouseup event listener function', () => {
       expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
         'mouseup',
         expect.any(Function),
+        {
+          signal: signalMock,
+        },
       );
     });
 
@@ -264,6 +273,31 @@ describe('InputRange', () => {
       expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
         'mousemove',
         expect.any(Function),
+        {
+          signal: signalMock,
+        },
+      );
+    });
+
+    it('adds the touchend event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'touchend',
+        expect.any(Function),
+        {
+          passive: true,
+          signal: signalMock,
+        },
+      );
+    });
+
+    it('adds the touchmove event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'touchmove',
+        expect.any(Function),
+        {
+          passive: true,
+          signal: signalMock,
+        },
       );
     });
 
@@ -304,18 +338,8 @@ describe('InputRange', () => {
         expect(wrapper.classes()).not.toContain('seeking');
       });
 
-      it('removes the mouseup event listener function', () => {
-        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'mouseup',
-          expect.any(Function),
-        );
-      });
-
-      it('removes the mousemove event listener function', () => {
-        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'mousemove',
-          expect.any(Function),
-        );
+      it('calls the abort function', () => {
+        expect(abortMock).toHaveBeenCalled();
       });
     });
 
@@ -365,10 +389,17 @@ describe('InputRange', () => {
       expect(wrapper.classes()).toContain('seeking');
     });
 
+    it('adds the abort event listener functions', () => {
+      expect(abortControllerConstructorMock).toHaveBeenCalled();
+    });
+
     it('adds the mouseup event listener function', () => {
       expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
         'mouseup',
         expect.any(Function),
+        {
+          signal: signalMock,
+        },
       );
     });
 
@@ -376,6 +407,31 @@ describe('InputRange', () => {
       expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
         'mousemove',
         expect.any(Function),
+        {
+          signal: signalMock,
+        },
+      );
+    });
+
+    it('adds the touchend event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'touchend',
+        expect.any(Function),
+        {
+          passive: true,
+          signal: signalMock,
+        },
+      );
+    });
+
+    it('adds the touchmove event listener function', () => {
+      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+        'touchmove',
+        expect.any(Function),
+        {
+          passive: true,
+          signal: signalMock,
+        },
       );
     });
 
@@ -416,18 +472,8 @@ describe('InputRange', () => {
         expect(wrapper.classes()).not.toContain('seeking');
       });
 
-      it('removes the mouseup event listener function', () => {
-        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'mouseup',
-          expect.any(Function),
-        );
-      });
-
-      it('removes the mousemove event listener function', () => {
-        expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-          'mousemove',
-          expect.any(Function),
-        );
+      it('calls the abort function', () => {
+        expect(abortMock).toHaveBeenCalled();
       });
     });
 
@@ -484,7 +530,7 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when component unmounts', () => {
+  describe('when the component unmounts', () => {
     beforeEach(() => {
       wrapper.unmount();
     });

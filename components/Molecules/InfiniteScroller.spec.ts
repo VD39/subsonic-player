@@ -181,7 +181,7 @@ describe('InfiniteScroller', () => {
     });
   });
 
-  describe('when component unmounts', () => {
+  describe('when the component unmounts', () => {
     beforeEach(() => {
       wrapper.unmount();
     });

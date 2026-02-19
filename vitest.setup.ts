@@ -48,4 +48,12 @@ config.global.stubs = {
 };
 
 vi.stubGlobal('defineEventHandler', (func: unknown) => func);
+
+// Stub $fetch with .create() to prevent ReferenceError from Nuxt's internal manifest.js.
+const $fetchMock = Object.assign(vi.fn().mockResolvedValue({}), {
+  create: vi.fn().mockReturnValue(vi.fn().mockResolvedValue({})),
+});
+
+vi.stubGlobal('$fetch', $fetchMock);
+
 vi.stubGlobal('getQuery', () => ({ id: 'id' }));

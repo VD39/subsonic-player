@@ -24,6 +24,7 @@ export function useHotkeyManager() {
   const { addRadioStationModal } = useRadioStation();
 
   const pressedKeys = ref(new Set<string>());
+  const abortController = ref<AbortController | null>(null);
 
   const isHotkeyListOpened = useState(
     STATE_NAMES.hotKeyListOpened,
@@ -154,17 +155,19 @@ export function useHotkeyManager() {
   }
 
   onMounted(() => {
-    globalThis.addEventListener('blur', onBlur);
-    document.addEventListener('keydown', onKeydown, true);
-    document.addEventListener('keyup', onKeyup, true);
-    document.addEventListener('visibilitychange', onVisibilityChange);
+    abortController.value = new AbortController();
+    const { signal } = abortController.value;
+
+    globalThis.addEventListener('blur', onBlur, { signal });
+    document.addEventListener('keydown', onKeydown, { capture: true, signal });
+    document.addEventListener('keyup', onKeyup, { capture: true, signal });
+    document.addEventListener('visibilitychange', onVisibilityChange, {
+      signal,
+    });
   });
 
   onUnmounted(() => {
-    globalThis.removeEventListener('blur', onBlur);
-    document.removeEventListener('keydown', onKeydown, true);
-    document.removeEventListener('keyup', onKeyup, true);
-    document.removeEventListener('visibilitychange', onVisibilityChange);
+    abortController.value?.abort();
   });
 
   const HOTKEYS_MAPPINGS: HotkeysMapping = {

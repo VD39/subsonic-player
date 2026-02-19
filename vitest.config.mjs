@@ -6,16 +6,19 @@ export default defineVitestConfig({
     coverage: {
       enabled: true,
       exclude: [
-        ...coverageConfigDefaults.exclude,
         '.nuxt/**',
+        '**/config/**',
+        '**/constants/**',
+        '**/docs/**',
         '**/navigations/**',
         '**/plugins/**',
-        '**/docs/**',
+        '**/test/**',
         'app.vue',
         'components/Molecules/CarouselSwiper.vue',
         'composables/useAudioPlayer/player.ts',
         'error.vue',
         'nuxt.config.ts',
+        ...coverageConfigDefaults.exclude,
       ],
       provider: 'istanbul',
       thresholds: {

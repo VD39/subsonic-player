@@ -18,6 +18,7 @@ const isSeeking = ref(false);
 const isHovering = ref(false);
 const hoverValue = ref(internalModal.value);
 const pendingValue = ref(internalModal.value);
+const abortController = ref<AbortController | null>(null);
 
 const progress = ref(getProgress(internalModal.value));
 const bufferProgress = ref(getProgress(props.buffer));
@@ -73,11 +74,8 @@ function onMouseMove(event: MouseEvent | TouchEvent) {
 function onMouseUp() {
   updateValue();
 
-  document.removeEventListener('mouseup', onMouseUp);
-  document.removeEventListener('mousemove', onMouseMove);
-
-  document.removeEventListener('touchend', onMouseUp);
-  document.removeEventListener('touchmove', onMouseMove);
+  abortController.value?.abort();
+  abortController.value = null;
 
   isSeeking.value = false;
 }
@@ -86,14 +84,19 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   isSeeking.value = true;
   modifyProgress(event);
 
-  document.addEventListener('mouseup', onMouseUp);
-  document.addEventListener('mousemove', onMouseMove);
+  abortController.value = new AbortController();
+  const { signal } = abortController.value;
+
+  document.addEventListener('mouseup', onMouseUp, { signal });
+  document.addEventListener('mousemove', onMouseMove, { signal });
 
   document.addEventListener('touchend', onMouseUp, {
     passive: true,
+    signal,
   });
   document.addEventListener('touchmove', onMouseMove, {
     passive: true,
+    signal,
   });
 }
 

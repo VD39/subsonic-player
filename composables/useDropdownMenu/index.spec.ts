@@ -1,6 +1,7 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { STATE_NAMES } from '@/constants/state';
+import { abortControllerMock } from '@/test/abortControllerMock';
 import {
   documentEventListenerMock,
   windowEventListenerMock,
@@ -9,24 +10,6 @@ import { refElementMock } from '@/test/refElementMock';
 import { withSetup } from '@/test/withSetup';
 
 import { useDropdownMenu } from './index';
-
-const abortMock = vi.fn();
-
-const abortControllerMock = vi.fn(function () {
-  return {
-    abort: abortMock,
-    signal: {
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-    } as unknown as AbortSignal,
-  };
-});
-
-Object.defineProperty(globalThis, 'AbortController', {
-  configurable: true,
-  value: abortControllerMock,
-  writable: true,
-});
 
 const lockScrollMock = vi.fn();
 const unlockScrollMock = vi.fn();
@@ -39,6 +22,8 @@ mockNuxtImport('useScrollLock', () => () => ({
 const { documentAddEventListenerSpy, documentEvents } =
   documentEventListenerMock();
 const { windowAddEventListenerSpy, windowEvents } = windowEventListenerMock();
+const { abortControllerConstructorMock, abortMock, signalMock } =
+  abortControllerMock();
 
 const dropdownMenuRef = refElementMock();
 const dropdownListRef = refElementMock();
@@ -75,14 +60,16 @@ describe('useDropdownMenu', () => {
     });
 
     it('adds the abort event listener functions', () => {
-      expect(abortControllerMock).toHaveBeenCalled();
+      expect(abortControllerConstructorMock).toHaveBeenCalled();
     });
 
     it('adds the keydown event listener function', () => {
       expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
         'keydown',
         expect.any(Function),
-        expect.any(Object),
+        {
+          signal: signalMock,
+        },
       );
     });
 
@@ -90,7 +77,9 @@ describe('useDropdownMenu', () => {
       expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
         'click',
         expect.any(Function),
-        expect.any(Object),
+        {
+          signal: signalMock,
+        },
       );
     });
 
@@ -98,7 +87,9 @@ describe('useDropdownMenu', () => {
       expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
         'contextmenu',
         expect.any(Function),
-        expect.any(Object),
+        {
+          signal: signalMock,
+        },
       );
     });
 

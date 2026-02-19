@@ -1,5 +1,6 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
+import { abortControllerMock } from '@/test/abortControllerMock';
 import {
   documentEventListenerMock,
   windowEventListenerMock,
@@ -8,23 +9,6 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { withSetup } from '@/test/withSetup';
 
 import { useHotkeyManager } from './index';
-
-const {
-  fastForwardTrackMock,
-  hasCurrentTrackMock,
-  isPodcastEpisodeMock,
-  isTrackMock,
-  playNextTrackMock,
-  playPreviousTrackMock,
-  rewindTrackMock,
-  setCurrentTimeMock,
-  setPlaybackRateWithIncrementMock,
-  setRepeatMock,
-  setVolumeWithIncrementMock,
-  toggleMuteMock,
-  togglePlayMock,
-  toggleShuffleMock,
-} = useAudioPlayerMock();
 
 const toggleFavouriteMock = vi.fn();
 
@@ -76,15 +60,26 @@ const blurMock = vi.fn();
 const getElementByIdSpy = vi.spyOn(document, 'getElementById');
 
 const {
-  documentAddEventListenerSpy,
-  documentEvents,
-  documentRemoveEventListenerSpy,
-} = documentEventListenerMock();
-const {
-  windowAddEventListenerSpy,
-  windowEvents,
-  windowRemoveEventListenerSpy,
-} = windowEventListenerMock();
+  fastForwardTrackMock,
+  hasCurrentTrackMock,
+  isPodcastEpisodeMock,
+  isTrackMock,
+  playNextTrackMock,
+  playPreviousTrackMock,
+  rewindTrackMock,
+  setCurrentTimeMock,
+  setPlaybackRateWithIncrementMock,
+  setRepeatMock,
+  setVolumeWithIncrementMock,
+  toggleMuteMock,
+  togglePlayMock,
+  toggleShuffleMock,
+} = useAudioPlayerMock();
+const { documentAddEventListenerSpy, documentEvents } =
+  documentEventListenerMock();
+const { windowAddEventListenerSpy, windowEvents } = windowEventListenerMock();
+const { abortControllerConstructorMock, abortMock, signalMock } =
+  abortControllerMock();
 
 const ALL_MOCKS = {
   addPlaylistModal: addPlaylistModalMock,
@@ -270,10 +265,17 @@ describe('useHotkeyManager', () => {
     expect(result.composable.isHotkeyListOpened.value).toEqual(false);
   });
 
+  it('adds the abort event listener functions', () => {
+    expect(abortControllerConstructorMock).toHaveBeenCalled();
+  });
+
   it('adds the blur event listener function', () => {
     expect(windowAddEventListenerSpy).toHaveBeenCalledWith(
       'blur',
       expect.any(Function),
+      {
+        signal: signalMock,
+      },
     );
   });
 
@@ -281,7 +283,10 @@ describe('useHotkeyManager', () => {
     expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
       'keydown',
       expect.any(Function),
-      true,
+      {
+        capture: true,
+        signal: signalMock,
+      },
     );
   });
 
@@ -289,7 +294,10 @@ describe('useHotkeyManager', () => {
     expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
       'keyup',
       expect.any(Function),
-      true,
+      {
+        capture: true,
+        signal: signalMock,
+      },
     );
   });
 
@@ -297,6 +305,9 @@ describe('useHotkeyManager', () => {
     expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
       'visibilitychange',
       expect.any(Function),
+      {
+        signal: signalMock,
+      },
     );
   });
 
@@ -604,7 +615,7 @@ describe('useHotkeyManager', () => {
     });
   });
 
-  describe('when composable unmounts', () => {
+  describe('when the composable unmounts', () => {
     beforeAll(() => {
       windowEvents.blur();
       documentEvents.visibilitychange();
@@ -612,34 +623,8 @@ describe('useHotkeyManager', () => {
       result.app.unmount();
     });
 
-    it('removes the blur event listener function', () => {
-      expect(windowRemoveEventListenerSpy).toHaveBeenCalledWith(
-        'blur',
-        expect.any(Function),
-      );
-    });
-
-    it('removes the keydown event listener function', () => {
-      expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-        'keydown',
-        expect.any(Function),
-        true,
-      );
-    });
-
-    it('removes the keyup event listener function', () => {
-      expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-        'keyup',
-        expect.any(Function),
-        true,
-      );
-    });
-
-    it('removes the visibilitychange event listener function', () => {
-      expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
-        'visibilitychange',
-        expect.any(Function),
-      );
+    it('calls the abort function', () => {
+      expect(abortMock).toHaveBeenCalled();
     });
   });
 });

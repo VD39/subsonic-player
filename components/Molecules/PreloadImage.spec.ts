@@ -51,7 +51,7 @@ describe('Default', () => {
           expect(wrapper.find({ ref: 'img' }).exists()).toBe(false);
         });
 
-        describe('when component unmounts', () => {
+        describe('when the component unmounts', () => {
           beforeEach(() => {
             wrapper.unmount();
           });
@@ -166,7 +166,7 @@ describe('Default', () => {
         });
       });
 
-      describe('when component unmounts', () => {
+      describe('when the component unmounts', () => {
         beforeEach(() => {
           wrapper.unmount();
         });
@@ -194,7 +194,7 @@ describe('Default', () => {
       expect(iOMock.observeMock).not.toHaveBeenCalled();
     });
 
-    describe('when component unmounts', () => {
+    describe('when the component unmounts', () => {
       beforeEach(() => {
         wrapper.unmount();
       });

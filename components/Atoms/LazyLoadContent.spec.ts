@@ -109,7 +109,7 @@ describe('LazyLoadContent', () => {
       });
     });
 
-    describe('when component unmounts', () => {
+    describe('when the component unmounts', () => {
       beforeEach(() => {
         wrapper.unmount();
       });
