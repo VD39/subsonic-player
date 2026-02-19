@@ -1,6 +1,8 @@
 let activeCleanup: (() => void) | null = null;
 
 export function useDropdownMenu(options: DropdownOptions) {
+  const { dropdownListRef, dropdownMenuRef } = options;
+
   const { lockScroll, unlockScroll } = useScrollLock('dropdown', [
     'disableAllPointerEvents',
   ]);
@@ -11,14 +13,15 @@ export function useDropdownMenu(options: DropdownOptions) {
   );
 
   const menuId = crypto.randomUUID();
-  const { dropdownListRef, dropdownMenuRef } = options;
 
   const abortController = ref<AbortController | null>(null);
   const menuStyle = ref<Record<string, string>>({});
 
   const isOpen = computed(() => activeMenuId.value === menuId);
 
-  function positionDropdownMenu(dropdownPosition?: DropdownPosition) {
+  function positionDropdownMenu(
+    dropdownPosition: ReturnType<typeof getPointerPosition>,
+  ) {
     if (!hasRequiredRefs()) {
       return;
     }
@@ -29,15 +32,15 @@ export function useDropdownMenu(options: DropdownOptions) {
     let top: number;
 
     if (dropdownPosition) {
-      left = dropdownPosition.x;
-      top = dropdownPosition.y;
+      left = dropdownPosition.clientX;
+      top = dropdownPosition.clientY;
 
       if (top + height > globalThis.innerHeight) {
-        top = Math.max(0, dropdownPosition.y - height);
+        top = Math.max(0, dropdownPosition.clientY - height);
       }
 
       if (left + width > globalThis.innerWidth) {
-        left = Math.max(0, dropdownPosition.x - width);
+        left = Math.max(0, dropdownPosition.clientX - width);
       }
     } else {
       const {
@@ -80,36 +83,6 @@ export function useDropdownMenu(options: DropdownOptions) {
     }
   }
 
-  function getCurrentDropdownMenuPosition(
-    event?: MouseEvent | TouchEvent,
-  ): DropdownPosition | undefined {
-    if (!event) {
-      return undefined;
-    }
-
-    if ('touches' in event) {
-      const touch = event.touches[0] || event.changedTouches[0];
-
-      if (!touch) {
-        return undefined;
-      }
-
-      return {
-        x: touch.clientX,
-        y: touch.clientY,
-      };
-    }
-
-    if ('clientX' in event) {
-      return {
-        x: event.clientX,
-        y: event.clientY,
-      };
-    }
-
-    return undefined;
-  }
-
   function onClick(event: MouseEvent) {
     if (!hasRequiredRefs()) {
       return;
@@ -143,7 +116,7 @@ export function useDropdownMenu(options: DropdownOptions) {
   }
 
   async function openDropdownMenu(event?: MouseEvent | TouchEvent) {
-    const currentDropdownMenuPosition = getCurrentDropdownMenuPosition(event);
+    const currentDropdownMenuPosition = getPointerPosition(event);
     openMenuInternal();
     setupListeners();
 

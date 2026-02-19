@@ -46,11 +46,15 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
     return;
   }
 
+  const pointer = getPointerPosition(event);
+
+  if (!pointer) {
+    return;
+  }
+
   const { left, width } = sliderRef.value.getBoundingClientRect();
 
-  const pageX = 'pageX' in event ? event.pageX : event.changedTouches[0].pageX;
-
-  const processedValue = ((pageX - left) / width) * props.max;
+  const processedValue = ((pointer.pageX - left) / width) * props.max;
   const clippedValue = Math.min(Math.max(processedValue, props.min), props.max);
 
   hoverValue.value = clippedValue;

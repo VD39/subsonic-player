@@ -149,7 +149,7 @@ exports[`InputRange > when the mousedown on slider is called > when the mouseup 
 </div>"
 `;
 
-exports[`InputRange > when the touchstart on slider is called > matches the snapshot 1`] = `
+exports[`InputRange > when the touchstart on slider is called > when touches is an empty array and changedTouches is not an empty array > matches the snapshot 1`] = `
 "<div class="inputRange seeking">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -162,7 +162,7 @@ exports[`InputRange > when the touchstart on slider is called > matches the snap
 </div>"
 `;
 
-exports[`InputRange > when the touchstart on slider is called > when slider mousemove is called > matches the snapshot 1`] = `
+exports[`InputRange > when the touchstart on slider is called > when touches is an empty array and changedTouches is not an empty array > when slider mousemove is called > matches the snapshot 1`] = `
 "<div class="inputRange seeking">
   <div class="centerItems slider">
     <div class="progressWrapper">
@@ -175,7 +175,46 @@ exports[`InputRange > when the touchstart on slider is called > when slider mous
 </div>"
 `;
 
-exports[`InputRange > when the touchstart on slider is called > when the mouseup is called > matches the snapshot 1`] = `
+exports[`InputRange > when the touchstart on slider is called > when touches is an empty array and changedTouches is not an empty array > when the mouseup is called > matches the snapshot 1`] = `
+"<div class="inputRange">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 60px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 54px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the touchstart on slider is called > when touches is not an empty array > matches the snapshot 1`] = `
+"<div class="inputRange seeking">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 60px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 54px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the touchstart on slider is called > when touches is not an empty array > when slider mousemove is called > matches the snapshot 1`] = `
+"<div class="inputRange seeking">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 30px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 24px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the touchstart on slider is called > when touches is not an empty array > when the mouseup is called > matches the snapshot 1`] = `
 "<div class="inputRange">
   <div class="centerItems slider">
     <div class="progressWrapper">

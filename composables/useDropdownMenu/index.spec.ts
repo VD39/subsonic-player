@@ -837,19 +837,6 @@ describe('useDropdownMenu', () => {
       });
     });
 
-    describe('when event is not a mouse or touch event', () => {
-      beforeEach(async () => {
-        await result.composable.openDropdownMenu({} as unknown as MouseEvent);
-      });
-
-      it('sets the menuStyle values to an empty object', () => {
-        expect(result.composable.menuStyle.value).toEqual({
-          left: '35px',
-          top: '50px',
-        });
-      });
-    });
-
     describe('when the click event is called', () => {
       describe('when the click is outside the dropdown menu and dropdown list', () => {
         beforeEach(() => {

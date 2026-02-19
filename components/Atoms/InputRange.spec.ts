@@ -364,145 +364,300 @@ describe('InputRange', () => {
         });
       });
 
-      it('emits the update:modelValue value', () => {
+      it('does not emit the update:modelValue value', () => {
         expect(wrapper.emitted('update:modelValue')).toBe(undefined);
       });
 
-      it('emits the change value', () => {
+      it('does not emit the change value', () => {
         expect(wrapper.emitted('change')).toBe(undefined);
       });
     });
   });
 
   describe('when the touchstart on slider is called', () => {
-    beforeEach(() => {
-      wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
-        pageX: 60,
-      });
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('adds the seeking class to wrapper element', () => {
-      expect(wrapper.classes()).toContain('seeking');
-    });
-
-    it('adds the abort event listener functions', () => {
-      expect(abortControllerConstructorMock).toHaveBeenCalled();
-    });
-
-    it('adds the mouseup event listener function', () => {
-      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-        'mouseup',
-        expect.any(Function),
-        {
-          signal: signalMock,
-        },
-      );
-    });
-
-    it('adds the mousemove event listener function', () => {
-      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-        'mousemove',
-        expect.any(Function),
-        {
-          signal: signalMock,
-        },
-      );
-    });
-
-    it('adds the touchend event listener function', () => {
-      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-        'touchend',
-        expect.any(Function),
-        {
-          passive: true,
-          signal: signalMock,
-        },
-      );
-    });
-
-    it('adds the touchmove event listener function', () => {
-      expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-        'touchmove',
-        expect.any(Function),
-        {
-          passive: true,
-          signal: signalMock,
-        },
-      );
-    });
-
-    describe('when slider mousemove is called', () => {
+    describe('when touches is not an empty array', () => {
       beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
-          pageX: 30,
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('sets the correct style attribute on the progress bar element', () => {
-        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-          'width: 30px;',
-        );
-      });
-
-      it('sets the correct style attribute on the thumb element', () => {
-        expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
-          'left: 24px;',
-        );
-      });
-    });
-
-    describe('when the mouseup is called', () => {
-      beforeEach(() => {
-        document.dispatchEvent(new MouseEvent('mouseup'));
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('removes the seeking class from the wrapper element', () => {
-        expect(wrapper.classes()).not.toContain('seeking');
-      });
-
-      it('calls the abort function', () => {
-        expect(abortMock).toHaveBeenCalled();
-      });
-    });
-
-    describe('when the delay prop is not set', () => {
-      it('emits the update:modelValue value', () => {
-        expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
-      });
-
-      it('emits the change value', () => {
-        expect(wrapper.emitted('change')).toEqual([[6]]);
-      });
-    });
-
-    describe('when the delay prop is set to true', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          delay: true,
-        });
-
         wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
-          pageX: 60,
+          touches: [{ pageX: 60 } as Touch],
         });
       });
 
-      it('emits the update:modelValue value', () => {
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the seeking class to wrapper element', () => {
+        expect(wrapper.classes()).toContain('seeking');
+      });
+
+      it('adds the abort event listener functions', () => {
+        expect(abortControllerConstructorMock).toHaveBeenCalled();
+      });
+
+      it('adds the mouseup event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'mouseup',
+          expect.any(Function),
+          {
+            signal: signalMock,
+          },
+        );
+      });
+
+      it('adds the mousemove event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'mousemove',
+          expect.any(Function),
+          {
+            signal: signalMock,
+          },
+        );
+      });
+
+      it('adds the touchend event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'touchend',
+          expect.any(Function),
+          {
+            passive: true,
+            signal: signalMock,
+          },
+        );
+      });
+
+      it('adds the touchmove event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'touchmove',
+          expect.any(Function),
+          {
+            passive: true,
+            signal: signalMock,
+          },
+        );
+      });
+
+      describe('when slider mousemove is called', () => {
+        beforeEach(() => {
+          wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+            pageX: 30,
+          });
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('sets the correct style attribute on the progress bar element', () => {
+          expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+            'width: 30px;',
+          );
+        });
+
+        it('sets the correct style attribute on the thumb element', () => {
+          expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
+            'left: 24px;',
+          );
+        });
+      });
+
+      describe('when the mouseup is called', () => {
+        beforeEach(() => {
+          document.dispatchEvent(new MouseEvent('mouseup'));
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('removes the seeking class from the wrapper element', () => {
+          expect(wrapper.classes()).not.toContain('seeking');
+        });
+
+        it('calls the abort function', () => {
+          expect(abortMock).toHaveBeenCalled();
+        });
+      });
+
+      describe('when the delay prop is not set', () => {
+        it('emits the update:modelValue value', () => {
+          expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
+        });
+
+        it('emits the change value', () => {
+          expect(wrapper.emitted('change')).toEqual([[6]]);
+        });
+      });
+
+      describe('when the delay prop is set to true', () => {
+        beforeEach(() => {
+          wrapper = factory({
+            delay: true,
+          });
+
+          wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+            touches: [{ pageX: 60 } as Touch],
+          });
+        });
+
+        it('does not emit the update:modelValue value', () => {
+          expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+        });
+
+        it('does not emit the change value', () => {
+          expect(wrapper.emitted('change')).toBe(undefined);
+        });
+      });
+    });
+
+    describe('when touches is an empty array and changedTouches is not an empty array', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+          changedTouches: [{ pageX: 60 } as Touch],
+          touches: [],
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the seeking class to wrapper element', () => {
+        expect(wrapper.classes()).toContain('seeking');
+      });
+
+      it('adds the abort event listener functions', () => {
+        expect(abortControllerConstructorMock).toHaveBeenCalled();
+      });
+
+      it('adds the mouseup event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'mouseup',
+          expect.any(Function),
+          {
+            signal: signalMock,
+          },
+        );
+      });
+
+      it('adds the mousemove event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'mousemove',
+          expect.any(Function),
+          {
+            signal: signalMock,
+          },
+        );
+      });
+
+      it('adds the touchend event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'touchend',
+          expect.any(Function),
+          {
+            passive: true,
+            signal: signalMock,
+          },
+        );
+      });
+
+      it('adds the touchmove event listener function', () => {
+        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
+          'touchmove',
+          expect.any(Function),
+          {
+            passive: true,
+            signal: signalMock,
+          },
+        );
+      });
+
+      describe('when slider mousemove is called', () => {
+        beforeEach(() => {
+          wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+            pageX: 30,
+          });
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('sets the correct style attribute on the progress bar element', () => {
+          expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+            'width: 30px;',
+          );
+        });
+
+        it('sets the correct style attribute on the thumb element', () => {
+          expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
+            'left: 24px;',
+          );
+        });
+      });
+
+      describe('when the mouseup is called', () => {
+        beforeEach(() => {
+          document.dispatchEvent(new MouseEvent('mouseup'));
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('removes the seeking class from the wrapper element', () => {
+          expect(wrapper.classes()).not.toContain('seeking');
+        });
+
+        it('calls the abort function', () => {
+          expect(abortMock).toHaveBeenCalled();
+        });
+      });
+
+      describe('when the delay prop is not set', () => {
+        it('emits the update:modelValue value', () => {
+          expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
+        });
+
+        it('emits the change value', () => {
+          expect(wrapper.emitted('change')).toEqual([[6]]);
+        });
+      });
+
+      describe('when the delay prop is set to true', () => {
+        beforeEach(() => {
+          wrapper = factory({
+            delay: true,
+          });
+
+          wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+            changedTouches: [{ pageX: 60 } as Touch],
+            touches: [],
+          });
+        });
+
+        it('does not emit the update:modelValue value', () => {
+          expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+        });
+
+        it('does not emit the change value', () => {
+          expect(wrapper.emitted('change')).toBe(undefined);
+        });
+      });
+    });
+
+    describe('when touches and changedTouches are empty arrays', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+          changedTouches: [],
+          touches: [],
+        });
+      });
+
+      it('does not emit the update:modelValue value', () => {
         expect(wrapper.emitted('update:modelValue')).toBe(undefined);
       });
 
-      it('emits the change value', () => {
+      it('does not emit the change value', () => {
         expect(wrapper.emitted('change')).toBe(undefined);
       });
     });
