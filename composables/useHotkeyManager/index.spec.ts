@@ -48,6 +48,14 @@ mockNuxtImport('useModal', () => () => ({
   modal: modalMock,
 }));
 
+const lockScrollMock = vi.fn();
+const unlockScrollMock = vi.fn();
+
+mockNuxtImport('useScrollLock', () => () => ({
+  lockScroll: lockScrollMock,
+  unlockScroll: unlockScrollMock,
+}));
+
 Object.defineProperty(document, 'visibilityState', {
   value: 'hidden',
   writable: true,
@@ -361,11 +369,19 @@ describe('useHotkeyManager', () => {
       expectMockToBeOrNotToBeCalled();
       expectGetElementByIdMock();
 
+      it('calls the lockScroll function', () => {
+        expect(lockScrollMock).toHaveBeenCalled();
+      });
+
       describe('when the same key is pressed again', () => {
         setEvents(['H']);
 
         it('sets the correct isHotkeyListOpened value', () => {
           expect(result.composable.isHotkeyListOpened.value).toBe(false);
+        });
+
+        it('calls the unlockScroll function', () => {
+          expect(unlockScrollMock).toHaveBeenCalled();
         });
       });
     });

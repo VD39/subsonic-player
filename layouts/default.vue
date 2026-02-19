@@ -16,7 +16,6 @@ const route = useRoute();
 const user = useUser();
 const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
-const { HOTKEYS_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
 
 async function onSubmit(term: string) {
   await navigateTo({
@@ -126,13 +125,7 @@ const showPageNavigation = computed(() =>
 
     <footer>
       <MusicPlayerAndQueue />
-
-      <transition name="slide-up-down">
-        <HotkeyMappings
-          v-if="isHotkeyListOpened"
-          :keyMappings="HOTKEYS_MAPPINGS"
-        />
-      </transition>
+      <HotkeyMappings />
     </footer>
   </div>
 </template>

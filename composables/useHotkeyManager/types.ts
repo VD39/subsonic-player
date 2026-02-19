@@ -1,4 +1,4 @@
-export type HotkeysMapping = Record<string, Mapping[]>;
+export type HotkeyMapping = Record<string, Mapping[]>;
 
 export interface Mapping {
   action: (event: KeyboardEvent) => void;

@@ -1,41 +1,47 @@
 <script setup lang="ts">
-defineProps<{
-  keyMappings: HotkeysMapping;
-}>();
+const { HOTKEY_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
 </script>
 
 <template>
-  <div :class="$style.hotkeyMappings">
-    <h2 :class="['mBM', $style.title]">Application Hotkey Mappings</h2>
+  <transition name="slide-up-down">
+    <div
+      v-if="isHotkeyListOpened"
+      ref="hotkeyMappings"
+      :class="$style.hotkeyMappings"
+    >
+      <h2 :class="['mBM', $style.title]">Application Hotkey Mappings</h2>
 
-    <div :class="$style.categories">
-      <div
-        v-for="(mappings, category) in keyMappings"
-        :key="category"
-        :class="['mBM', $style.category]"
-      >
-        <h3 :class="['mBM', $style.categoryTitle]">{{ category }}</h3>
+      <div :class="$style.categories">
+        <div
+          v-for="(mappings, category) in HOTKEY_MAPPINGS"
+          :key="category"
+          :class="['mBM', $style.category]"
+        >
+          <h3 :class="['mBM', $style.categoryTitle]">{{ category }}</h3>
 
-        <ul :class="$style.list">
-          <li
-            v-for="mapping in mappings"
-            :key="mapping.description"
-            :class="['spaceBetween', $style.item]"
-          >
-            <p>{{ mapping.description }}</p>
+          <ul :class="$style.list">
+            <li
+              v-for="mapping in mappings"
+              :key="mapping.description"
+              :class="['spaceBetween', $style.item]"
+            >
+              <p>{{ mapping.description }}</p>
 
-            <p class="visuallyHidden">{{ mapping.helpText }}</p>
+              <p class="visuallyHidden">{{ mapping.helpText }}</p>
 
-            <div :class="$style.keys" :title="mapping.helpText">
-              <code v-for="key in mapping.keys" :key :class="$style.key">
-                {{ key }}
-              </code>
-            </div>
-          </li>
-        </ul>
+              <div :class="$style.keys" :title="mapping.helpText">
+                <code v-for="key in mapping.keys" :key :class="$style.key">
+                  {{ key }}
+                </code>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
+
+  <span v-if="isHotkeyListOpened" ref="fullscreen" class="fullscreen" />
 </template>
 
 <style module>

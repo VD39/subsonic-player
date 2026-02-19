@@ -107,150 +107,7 @@ exports[`Default > matches the snapshot 1`] = `
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
     <!--v-if-->
-  </footer>
-</div>"
-`;
-
-exports[`Default > when isHotkeyListOpened is true > matches the snapshot 1`] = `
-"<div class="mainLayout">
-  <header class="centerItems header">
-    <div class="spaceBetween inner centerItems"><a class="centerItems buttonLink mobileOnly mobileOnly" draggable="false" title="Home">
-        <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-      </a>
-      <div class="search">
-        <form novalidate="">
-          <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
-              <!--v-if-->
-            </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
-            </button>
-          </div>
-        </form>
-      </div>
-      <div class="centerItems secondary">
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" id="shuffle-all-button" title="Switch to list layout">
-            <phrows aria-hidden="true" class="icon" size="24" weight="regular"></phrows><span class="clamp text visuallyHidden">Switch to list layout</span>
-          </button></div>
-        <div class="secondaryItem"><button class="centerItems buttonLink" draggable="false" type="button" title="Activate dark mode">
-            <phmoon aria-hidden="true" class="icon" size="24" weight="regular"></phmoon><span class="clamp text visuallyHidden">Activate dark mode</span>
-          </button></div>
-        <div class="secondaryItem">
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
-            </button>
-            <!--v-if-->
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <aside>
-    <div class="centerItems column sidebarNavigation desktopOnly">
-      <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
-          <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
-        </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
-          <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
-        </button></div>
-      <nav class="fullWidth">
-        <ul class="mBM">
-          <li class="mBM">
-            <h4 class="strong mBM sidebarTitle">Browse</h4>
-            <ul>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
-                  <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Podcasts">
-                  <phapplepodcastslogo aria-hidden="true" class="icon" size="24" weight="regular"></phapplepodcastslogo><span class="clamp text">Podcasts</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Radio Stations">
-                  <phradio aria-hidden="true" class="icon" size="24" weight="regular"></phradio><span class="clamp text">Radio Stations</span>
-                </a></li>
-              <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Queue">
-                  <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text">Queue</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Bookmarks">
-                  <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
-                </a></li>
-            </ul>
-          </li>
-          <li class="mBM">
-            <h4 class="strong mBM sidebarTitle">Your library</h4>
-            <ul>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
-                  <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Artists">
-                  <phusersthree aria-hidden="true" class="icon" size="24" weight="regular"></phusersthree><span class="clamp text">Artists</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Playlists">
-                  <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Favourites">
-                  <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Favourites</span>
-                </a></li>
-              <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Genres">
-                  <phwaveform aria-hidden="true" class="icon" size="24" weight="regular"></phwaveform><span class="clamp text">Genres</span>
-                </a></li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="mBM">
-          <li>
-            <h4 class="strong mBM sidebarTitle">Playlist</h4>
-            <ul></ul>
-          </li>
-          <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
-              <phlistplus aria-hidden="true" class="icon" size="24" weight="regular"></phlistplus><span class="clamp text"> Add playlist </span>
-            </button></li>
-        </ul>
-      </nav>
-    </div>
-    <nav class="mobileOnly">
-      <ul class="inner centerAll spaceBetween mobileNavigation">
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
-            <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
-          </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Your library">
-            <phmusicnotes aria-hidden="true" class="icon" size="24" weight="regular"></phmusicnotes><span class="clamp text">Your library</span>
-          </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Playlists">
-            <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">Playlists</span>
-          </a></li>
-        <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Bookmarks">
-            <phbookmarks aria-hidden="true" class="icon" size="24" weight="regular"></phbookmarks><span class="clamp text">Bookmarks</span>
-          </a></li>
-      </ul>
-    </nav>
-  </aside>
-  <main class="main mainContent">
-    <div class="column mainContentInner noPaddingTop">
-      <nav class="pageNavigation mobileOnly mBL">
-        <div class="overflowShadow">
-          <div class="content">
-            <ul class="centerItems navigation">
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
-                  <!--v-if--><span class="clamp text">Discover</span>
-                </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
-                  <!--v-if--><span class="clamp text">Podcasts</span>
-                </a></li>
-              <li class="item"><a exactactiveclass="pageCurrentLink" class="centerItems buttonLink link pageLink link pageLink" draggable="false">
-                  <!--v-if--><span class="clamp text">Radio Stations</span>
-                </a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="column inner mBAllL">Default slot content.</div>
-    </div>
-  </main>
-  <footer>
-    <music-player-and-queue-stub></music-player-and-queue-stub>
-    <div class="hotkeyMappings">
-      <h2 class="mBM title">Application Hotkey Mappings</h2>
-      <div class="categories"></div>
-    </div>
+    <!--v-if-->
   </footer>
 </div>"
 `;
@@ -391,6 +248,7 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
   </main>
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
+    <!--v-if-->
     <!--v-if-->
   </footer>
 </div>"
@@ -533,6 +391,7 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
     <!--v-if-->
+    <!--v-if-->
   </footer>
 </div>"
 `;
@@ -673,6 +532,7 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
   </main>
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
+    <!--v-if-->
     <!--v-if-->
   </footer>
 </div>"
@@ -815,6 +675,7 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
     <!--v-if-->
+    <!--v-if-->
   </footer>
 </div>"
 `;
@@ -939,6 +800,7 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
   </main>
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
+    <!--v-if-->
     <!--v-if-->
   </footer>
 </div>"
@@ -1083,6 +945,7 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
   </main>
   <footer>
     <music-player-and-queue-stub></music-player-and-queue-stub>
+    <!--v-if-->
     <!--v-if-->
   </footer>
 </div>"

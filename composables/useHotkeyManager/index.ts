@@ -22,6 +22,7 @@ export function useHotkeyManager() {
   const { addPlaylistModal } = usePlaylist();
   const { toggleFavourite } = useFavourite();
   const { addRadioStationModal } = useRadioStation();
+  const { lockScroll, unlockScroll } = useScrollLock('hotkeyManager');
 
   const pressedKeys = ref(new Set<string>());
   const abortController = ref<AbortController | null>(null);
@@ -57,7 +58,7 @@ export function useHotkeyManager() {
       .join('+');
   }
 
-  // Convert key to be the same as key in HOTKEYS_MAPPINGS.
+  // Convert key to be the same as key in HOTKEY_MAPPINGS.
   function normaliseKey(eventKey: string) {
     const key = eventKey.trim().toLowerCase();
 
@@ -100,8 +101,8 @@ export function useHotkeyManager() {
 
     pressedKeys.value.add(event.key);
 
-    for (const category in HOTKEYS_MAPPINGS) {
-      const mappings = HOTKEYS_MAPPINGS[category];
+    for (const category in HOTKEY_MAPPINGS) {
+      const mappings = HOTKEY_MAPPINGS[category];
 
       for (const mapping of mappings) {
         if (isKeysMatchingPressedKeys(mapping.keys)) {
@@ -152,6 +153,12 @@ export function useHotkeyManager() {
 
   function toggleHotkeyList() {
     isHotkeyListOpened.value = !isHotkeyListOpened.value;
+
+    if (isHotkeyListOpened.value) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
   }
 
   onMounted(() => {
@@ -170,7 +177,7 @@ export function useHotkeyManager() {
     abortController.value?.abort();
   });
 
-  const HOTKEYS_MAPPINGS: HotkeysMapping = {
+  const HOTKEY_MAPPINGS: HotkeyMapping = {
     Global: [
       {
         action: () => {
@@ -413,7 +420,7 @@ export function useHotkeyManager() {
   };
 
   return {
-    HOTKEYS_MAPPINGS,
+    HOTKEY_MAPPINGS,
     isHotkeyListOpened,
   };
 }

@@ -5,7 +5,7 @@
     z-index: -1;
     content: '';
     background-color: var(--body-background-color);
-    opacity: 0.7;
+    opacity: 0.5;
   }
 }
 
