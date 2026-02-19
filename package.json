@@ -9,7 +9,7 @@
   "dependencies": {
     "@phosphor-icons/vue": "^2.2.1",
     "crypto-js": "^4.2.0",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.3.1",
     "nuxt-swiper": "^2.0.1",
     "vue": "^3.5.27"
   },
