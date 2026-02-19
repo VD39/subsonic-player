@@ -142,7 +142,6 @@ export function useModal() {
       addEventListener();
     }
 
-    console.log(`lockScroll: `, lockScroll);
     lockScroll();
   }
 

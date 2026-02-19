@@ -14,7 +14,6 @@ const emit = defineEmits<{
   click: [event: MouseEvent];
   contextMenu: [event: MouseEvent];
   dragStart: [event: DragEvent];
-  longPress: [event: TouchEvent];
 }>();
 
 const instance = getCurrentInstance();
@@ -22,16 +21,9 @@ const instance = getCurrentInstance();
 const { isAnyOpen } = useDropdownMenuState();
 
 const isTouching = ref(false);
-const longPressTriggered = ref(false);
-const longPressTimer = ref<null | ReturnType<typeof setTimeout>>(null);
 
-function cancelLongPress() {
+function cancelTouch() {
   isTouching.value = false;
-
-  if (longPressTimer.value) {
-    clearTimeout(longPressTimer.value);
-    longPressTimer.value = null;
-  }
 }
 
 // Only allow the event if the following is true.
@@ -43,23 +35,6 @@ function isInteractiveTarget(event: Event) {
 }
 
 function onClick(event: MouseEvent) {
-  // If long press was just triggered, prevent click from propagating.
-  if (longPressTriggered.value) {
-    // When the dropdown is open, allow clicks to propagate so the
-    // dropdown's window click listener can close the menu.
-    if (!isAnyOpen.value) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-
-    // Reset flag after a short delay to allow future clicks.
-    setTimeout(() => {
-      longPressTriggered.value = false;
-    }, 50);
-
-    return;
-  }
-
   if (isInteractiveTarget(event) || isAnyOpen.value) {
     return;
   }
@@ -79,9 +54,6 @@ function onContextMenu(event: MouseEvent) {
 }
 
 function onDragStart(event: DragEvent) {
-  cancelLongPress();
-  longPressTriggered.value = false;
-
   if (isInteractiveTarget(event)) {
     return;
   }
@@ -89,21 +61,8 @@ function onDragStart(event: DragEvent) {
   emit('dragStart', event);
 }
 
-function startLongPress(event: TouchEvent) {
-  if (isInteractiveTarget(event)) {
-    return;
-  }
-
+function onTouchStart() {
   isTouching.value = true;
-  longPressTriggered.value = false;
-
-  longPressTimer.value = setTimeout(() => {
-    longPressTriggered.value = true;
-
-    // Only emit longPress for touch events, otherwise onClick
-    // will be called.
-    emit('longPress', event);
-  }, 500);
 }
 
 const isDraggable = computed(
@@ -113,10 +72,6 @@ const isDraggable = computed(
     props.draggable &&
     !!instance?.vnode.props?.onDragStart,
 );
-
-onBeforeUnmount(() => {
-  cancelLongPress();
-});
 </script>
 
 <template>
@@ -127,10 +82,9 @@ onBeforeUnmount(() => {
     @click="onClick"
     @contextmenu="onContextMenu"
     @dragstart="onDragStart"
-    @touchcancel="cancelLongPress"
-    @touchend="cancelLongPress"
-    @touchmove="cancelLongPress"
-    @touchstart="startLongPress"
+    @touchcancel="cancelTouch"
+    @touchend="cancelTouch"
+    @touchstart="onTouchStart"
   >
     <slot />
   </component>

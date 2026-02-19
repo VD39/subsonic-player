@@ -201,16 +201,6 @@ describe('BookmarksTracksListItem', () => {
     });
   });
 
-  describe('when the InteractionWrapper component emits the longPress event', () => {
-    beforeEach(() => {
-      wrapper.findComponent(InteractionWrapper).vm.$emit('longPress');
-    });
-
-    it('calls the openDropdownMenu function', () => {
-      expect(openDropdownMenuMock).toHaveBeenCalled();
-    });
-  });
-
   describe('when the InteractionWrapper component emits the contextMenu event', () => {
     beforeEach(() => {
       wrapper.findComponent(InteractionWrapper).vm.$emit('contextMenu');

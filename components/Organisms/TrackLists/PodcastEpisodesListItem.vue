@@ -50,7 +50,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       @click="onClick"
       @contextMenu="openDropdownMenu"
       @dragStart="$emit('dragStart', $event)"
-      @longPress="openDropdownMenu"
     >
       <div class="trackCell trackPodcastEpisode column">
         <div>

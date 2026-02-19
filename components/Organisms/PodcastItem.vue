@@ -61,7 +61,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     class="layoutItem"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
-    @longPress="openDropdownMenu"
   >
     <div
       :class="[

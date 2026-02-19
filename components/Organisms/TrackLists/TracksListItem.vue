@@ -47,7 +47,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       @click="onClick"
       @contextMenu="openDropdownMenu"
       @dragStart="$emit('dragStart', $event)"
-      @longPress="openDropdownMenu"
     >
       <div class="trackCell">
         <div>
@@ -62,6 +61,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
           <FavouriteButton
             :id="track.id"
+            class="desktopOnly"
             :favourite="track.favourite"
             :type="track.type"
           />

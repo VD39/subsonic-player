@@ -41,7 +41,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     :class="$style.playlistsListItem"
     @click="navigateToPlaylist"
     @contextMenu="openDropdownMenu"
-    @longPress="openDropdownMenu"
   >
     <div :class="['centerItems', $style.playlistDetails]">
       <ImageLink

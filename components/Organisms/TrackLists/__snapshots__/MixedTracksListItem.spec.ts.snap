@@ -32,7 +32,7 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -125,7 +125,7 @@ exports[`MixedTracksListItem > when the hasAddToQueueEvent prop is true > matche
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -220,7 +220,7 @@ exports[`MixedTracksListItem > when the hideRemoveOption prop is true > matches 
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -458,7 +458,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -793,7 +793,7 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -881,7 +881,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -1447,7 +1447,7 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -1538,7 +1538,7 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
@@ -1626,7 +1626,7 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
               </div>
             </div>
           </div>
-        </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+        </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
           <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>

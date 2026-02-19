@@ -52,7 +52,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
                 </div>
               </div>
             </div>
-          </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
             <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
@@ -115,7 +115,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
                 </div>
               </div>
             </div>
-          </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
             <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
@@ -178,7 +178,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
                 </div>
               </div>
             </div>
-          </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
             <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
@@ -241,7 +241,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
                 </div>
               </div>
             </div>
-          </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
             <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
@@ -304,7 +304,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
                 </div>
               </div>
             </div>
-          </div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
+          </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
             <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>

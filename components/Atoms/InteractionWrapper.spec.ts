@@ -25,8 +25,6 @@ vi.mock('vue', async () => {
   };
 });
 
-vi.useFakeTimers();
-
 const isAnyOpenMock = ref(false);
 
 mockNuxtImport('useDropdownMenuState', () => () => ({
@@ -55,10 +53,6 @@ describe('InteractionWrapper', () => {
     containsClassMock.mockReset();
     containsClassMock.mockReturnValueOnce(false);
     wrapper = factory();
-  });
-
-  afterEach(() => {
-    vi.clearAllTimers();
   });
 
   it('matches the snapshot', () => {
@@ -125,30 +119,6 @@ describe('InteractionWrapper', () => {
         });
       });
 
-      describe('when a long press is currently triggered', () => {
-        beforeEach(async () => {
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(500);
-          await wrapper.trigger('click');
-        });
-
-        it('does not emit the click event', () => {
-          expect(wrapper.emitted('click')).toBeUndefined();
-        });
-
-        describe('when the long press resets', () => {
-          beforeEach(async () => {
-            vi.advanceTimersByTime(50);
-            await wrapper.trigger('click');
-          });
-
-          it('emits the click event', () => {
-            expect(wrapper.emitted('click')).toEqual([
-              [expect.any(MouseEvent)],
-            ]);
-          });
-        });
-      });
     });
   });
 
@@ -241,162 +211,16 @@ describe('InteractionWrapper', () => {
     });
 
     describe('when the target is not an interactive element', () => {
-      describe('when a touchstart event is already triggered', () => {
-        beforeEach(async () => {
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(499);
-          await wrapper.trigger('dragstart');
-        });
-
-        it('cancels the long press and does not emit the longPress event', () => {
-          vi.advanceTimersByTime(1);
-          expect(wrapper.emitted('longPress')).toBeUndefined();
-        });
-
-        it('emits the dragStart event', () => {
-          expect(wrapper.emitted('dragStart')).toEqual([
-            [expect.any(DragEvent)],
-          ]);
-        });
-      });
-    });
-  });
-
-  describe('when the touchstart event is triggered', () => {
-    describe('when the target is an interactive element', () => {
-      describe('when the closest target is a button', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('button'));
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(500);
-        });
-
-        it('does not emit the longPress event', () => {
-          expect(wrapper.emitted('longPress')).toBeUndefined();
-        });
+      beforeEach(async () => {
+        containsClassMock.mockReturnValueOnce(true);
+        await wrapper.trigger('dragstart');
       });
 
-      describe('when the closest target is an anchor element', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(500);
-        });
-
-        it('does not emit the longPress event', () => {
-          expect(wrapper.emitted('longPress')).toBeUndefined();
-        });
+      it('emits the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toEqual([
+          [expect.any(DragEvent)],
+        ]);
       });
-
-      describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          containsClassMock.mockReturnValueOnce(true);
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(500);
-        });
-
-        it('does not emit the longPress event', () => {
-          expect(wrapper.emitted('longPress')).toBeUndefined();
-        });
-      });
-    });
-
-    describe('when the target is not an interactive element', () => {
-      describe('when the touch is ended before 500ms', () => {
-        beforeEach(async () => {
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(499);
-        });
-
-        it('does not emit the longPress event', () => {
-          expect(wrapper.emitted('longPress')).toBeUndefined();
-        });
-      });
-
-      describe('when 500ms has passed', () => {
-        beforeEach(async () => {
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(500);
-        });
-
-        it('emits the longPress event', () => {
-          expect(wrapper.emitted('longPress')).toEqual([
-            [expect.any(TouchEvent)],
-          ]);
-        });
-      });
-
-      describe('when the touchmove event is triggered', () => {
-        beforeEach(async () => {
-          await wrapper.trigger('touchstart');
-          vi.advanceTimersByTime(200);
-          await wrapper.trigger('touchmove');
-          vi.advanceTimersByTime(300);
-        });
-
-        it('does not emit the longPress event', () => {
-          expect(wrapper.emitted('longPress')).toBeUndefined();
-        });
-      });
-
-      describe('when the draggable attribute is set to true', () => {
-        describe('when the touchstart event is triggered', () => {
-          beforeEach(() => {
-            onDragStartMock = vi.fn();
-            wrapper = factory();
-          });
-
-          it('sets the draggable attribute to false', async () => {
-            expect(wrapper.attributes('draggable')).toBe('true');
-            await wrapper.trigger('touchstart');
-            expect(wrapper.attributes('draggable')).toBe('false');
-            expect(wrapper.html()).toMatchSnapshot();
-          });
-
-          describe('when the touchend event is triggered', () => {
-            beforeEach(async () => {
-              await wrapper.trigger('touchstart');
-              await wrapper.trigger('touchend');
-            });
-
-            it('matches the snapshot', () => {
-              expect(wrapper.html()).toMatchSnapshot();
-            });
-
-            it('sets the draggable attribute to true', () => {
-              expect(wrapper.attributes('draggable')).toBe('true');
-            });
-          });
-
-          describe('when the touchcancel event is triggered', () => {
-            beforeEach(async () => {
-              await wrapper.trigger('touchstart');
-              await wrapper.trigger('touchcancel');
-            });
-
-            it('matches the snapshot', () => {
-              expect(wrapper.html()).toMatchSnapshot();
-            });
-
-            it('sets the draggable attribute to true', () => {
-              expect(wrapper.attributes('draggable')).toBe('true');
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe('when the component unmounts during an active touch', () => {
-    beforeEach(async () => {
-      await wrapper.trigger('touchstart');
-      vi.advanceTimersByTime(200);
-      wrapper.unmount();
-    });
-
-    it('does not emit the longPress event', () => {
-      expect(wrapper.emitted('longPress')).toBeUndefined();
     });
   });
 
@@ -461,6 +285,50 @@ describe('InteractionWrapper', () => {
 
       it('sets the draggable attribute to true', () => {
         expect(wrapper.attributes('draggable')).toBe('true');
+      });
+    });
+  });
+
+  describe('when the touchstart event is triggered', () => {
+    beforeEach(async () => {
+      onDragStartMock = vi.fn();
+      wrapper = factory();
+      await wrapper.trigger('touchstart');
+    });
+
+    it('sets the draggable attribute to false', () => {
+      expect(wrapper.attributes('draggable')).toBe('false');
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    describe('when the touchend event is triggered', () => {
+      beforeEach(async () => {
+        await wrapper.trigger('touchend');
+      });
+
+      it('sets the draggable attribute to true', () => {
+        expect(wrapper.attributes('draggable')).toBe('true');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+    });
+
+    describe('when the touchcancel event is triggered', () => {
+      beforeEach(async () => {
+        await wrapper.trigger('touchcancel');
+      });
+
+      it('sets the draggable attribute to true', () => {
+        expect(wrapper.attributes('draggable')).toBe('true');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
       });
     });
   });

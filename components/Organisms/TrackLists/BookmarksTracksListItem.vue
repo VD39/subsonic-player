@@ -44,7 +44,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     <InteractionWrapper
       @click="onClick"
       @contextMenu="openDropdownMenu"
-      @longPress="openDropdownMenu"
     >
       <div class="trackCell">
         <div>
