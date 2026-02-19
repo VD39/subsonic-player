@@ -118,7 +118,6 @@ describe('InteractionWrapper', () => {
           expect(wrapper.emitted('click')).toEqual([[expect.any(MouseEvent)]]);
         });
       });
-
     });
   });
 
@@ -217,9 +216,7 @@ describe('InteractionWrapper', () => {
       });
 
       it('emits the dragStart event', () => {
-        expect(wrapper.emitted('dragStart')).toEqual([
-          [expect.any(DragEvent)],
-        ]);
+        expect(wrapper.emitted('dragStart')).toEqual([[expect.any(DragEvent)]]);
       });
     });
   });

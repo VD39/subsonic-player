@@ -41,10 +41,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
 <template>
   <LazyLoadContent class="trackRow">
-    <InteractionWrapper
-      @click="onClick"
-      @contextMenu="openDropdownMenu"
-    >
+    <InteractionWrapper @click="onClick" @contextMenu="openDropdownMenu">
       <div class="trackCell">
         <div>
           <TrackPlayPause
