@@ -24,7 +24,7 @@
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^25.2.0",
     "@vite-pwa/assets-generator": "^1.0.2",
-    "@vite-pwa/nuxt": "^1.1.0",
+    "@vite-pwa/nuxt": "^1.1.1",
     "@vitest/coverage-istanbul": "^4.0.18",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.39.2",
