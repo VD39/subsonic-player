@@ -17,7 +17,7 @@ exports[`queue > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
@@ -109,7 +109,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
@@ -182,7 +182,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
     </div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">

@@ -7,7 +7,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -65,7 +65,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -123,7 +123,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -181,7 +181,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -239,7 +239,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -306,7 +306,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -364,7 +364,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -422,7 +422,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -480,7 +480,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">
@@ -538,7 +538,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
     </div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <div class="overlapWrapper trackPlayPause large withImage">

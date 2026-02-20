@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AlbumItem > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem" draggable="true">
+"<article class="interactionWrapper layoutItem" draggable="false">
   <div class="layoutImage albumImageWrapper">
     <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -44,7 +44,7 @@ exports[`AlbumItem > matches the snapshot 1`] = `
 `;
 
 exports[`AlbumItem > when album artists is an empty array > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem" draggable="true">
+"<article class="interactionWrapper layoutItem" draggable="false">
   <div class="layoutImage albumImageWrapper">
     <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -84,7 +84,7 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
 `;
 
 exports[`AlbumItem > when album artists is not an empty array > when the hideArtist prop is true > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem" draggable="true">
+"<article class="interactionWrapper layoutItem" draggable="false">
   <div class="layoutImage albumImageWrapper">
     <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>

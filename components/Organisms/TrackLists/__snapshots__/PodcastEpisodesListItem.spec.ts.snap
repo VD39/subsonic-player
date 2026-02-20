@@ -2,7 +2,7 @@
 
 exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow trackBorder spaceBetween">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
@@ -135,7 +135,7 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
 
 exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the podcast episode is downloaded > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow trackBorder spaceBetween">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
@@ -211,7 +211,7 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
 
 exports[`PodcastEpisodesListItem > when the podcast episode has no author > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow trackBorder spaceBetween">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
@@ -279,7 +279,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
 
 exports[`PodcastEpisodesListItem > when the podcast episode has no description > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow trackBorder spaceBetween">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
@@ -353,7 +353,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
 
 exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow trackBorder spaceBetween">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>

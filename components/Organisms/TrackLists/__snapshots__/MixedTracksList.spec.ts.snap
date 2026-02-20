@@ -1135,7 +1135,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
@@ -1208,7 +1208,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     </div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
@@ -1281,7 +1281,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     </div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
@@ -1354,7 +1354,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     </div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
@@ -1427,7 +1427,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     </div>
   </div>
   <div class="lazyLoadContent trackRow">
-    <div class="interactionWrapper" draggable="true">
+    <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">

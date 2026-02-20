@@ -9,7 +9,7 @@ exports[`AlbumsList > matches the snapshot 1`] = `
 
 exports[`AlbumsList > when the albums prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -36,7 +36,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -63,7 +63,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -90,7 +90,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -117,7 +117,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -149,7 +149,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
 
 exports[`AlbumsList > when the albums prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -176,7 +176,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -203,7 +203,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -230,7 +230,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -257,7 +257,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -289,7 +289,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
 
 exports[`AlbumsList > when the albums prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -316,7 +316,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -343,7 +343,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -370,7 +370,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
@@ -397,7 +397,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </ul>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem" draggable="true">
+  <article class="interactionWrapper layoutItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
       <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>

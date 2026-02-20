@@ -2,7 +2,7 @@
 
 exports[`AlbumTracksListItem > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
         <track-play-pause-stub image="image-0" trackid="track-0" tracknumber="1" hideimage="true" large="false"></track-play-pause-stub>
@@ -77,7 +77,7 @@ exports[`AlbumTracksListItem > matches the snapshot 1`] = `
 
 exports[`AlbumTracksListItem > when track.artists is an empty array > matches the snapshot 1`] = `
 "<div class="lazyLoadContent trackRow">
-  <div class="interactionWrapper" draggable="true">
+  <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
         <track-play-pause-stub image="image-0" trackid="track-0" tracknumber="1" hideimage="true" large="false"></track-play-pause-stub>

@@ -50,8 +50,10 @@ describe('InteractionWrapper', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
+    isAnyOpenMock.value = false;
     containsClassMock.mockReset();
     containsClassMock.mockReturnValueOnce(false);
+
     wrapper = factory();
   });
 
@@ -221,30 +223,39 @@ describe('InteractionWrapper', () => {
     });
   });
 
-  describe('when the isAnyOpen value is true', () => {
-    beforeEach(() => {
-      isAnyOpenMock.value = true;
+  describe('when the mouseenter event is triggered', () => {
+    beforeEach(async () => {
+      onDragStartMock = vi.fn();
+      wrapper = factory();
+      await wrapper.trigger('mouseenter');
     });
 
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the draggable attribute to false', () => {
-      expect(wrapper.attributes('draggable')).toBe('false');
+    it('sets the draggable attribute to true', () => {
+      expect(wrapper.attributes('draggable')).toBe('true');
     });
-  });
 
-  describe('when the isAnyOpen value is false', () => {
-    beforeEach(() => {
-      isAnyOpenMock.value = false;
+    describe('when the isAnyOpen value is true', () => {
+      beforeEach(() => {
+        isAnyOpenMock.value = true;
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the draggable attribute to false', () => {
+        expect(wrapper.attributes('draggable')).toBe('false');
+      });
     });
 
     describe('when the draggable prop is set to false', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          draggable: false,
-        });
+      beforeEach(async () => {
+        wrapper = factory({ draggable: false });
+        await wrapper.trigger('mouseenter');
       });
 
       it('matches the snapshot', () => {
@@ -257,8 +268,10 @@ describe('InteractionWrapper', () => {
     });
 
     describe('when the onDragStart event is not attached', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         onDragStartMock = undefined;
+        wrapper = factory();
+        await wrapper.trigger('mouseenter');
       });
 
       it('matches the snapshot', () => {
@@ -270,18 +283,17 @@ describe('InteractionWrapper', () => {
       });
     });
 
-    describe('when the isAnyOpen value and the draggable prop are set to true and the onDragStart event is attached', () => {
-      beforeEach(() => {
-        onDragStartMock = vi.fn();
-        wrapper = factory();
+    describe('when the mouseleave event is triggered', () => {
+      beforeEach(async () => {
+        await wrapper.trigger('mouseleave');
       });
 
       it('matches the snapshot', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('sets the draggable attribute to true', () => {
-        expect(wrapper.attributes('draggable')).toBe('true');
+      it('sets the draggable attribute to false', () => {
+        expect(wrapper.attributes('draggable')).toBe('false');
       });
     });
   });
@@ -293,39 +305,37 @@ describe('InteractionWrapper', () => {
       await wrapper.trigger('touchstart');
     });
 
-    it('sets the draggable attribute to false', () => {
-      expect(wrapper.attributes('draggable')).toBe('false');
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    describe('when the touchend event is triggered', () => {
+    describe('when the mouseenter event is triggered', () => {
       beforeEach(async () => {
-        await wrapper.trigger('touchend');
-      });
-
-      it('sets the draggable attribute to true', () => {
-        expect(wrapper.attributes('draggable')).toBe('true');
+        await wrapper.trigger('mouseenter');
       });
 
       it('matches the snapshot', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
+
+      it('sets the draggable attribute to false', () => {
+        expect(wrapper.attributes('draggable')).toBe('false');
+      });
     });
 
-    describe('when the touchcancel event is triggered', () => {
+    describe('when the mouseleave event is triggered', () => {
       beforeEach(async () => {
-        await wrapper.trigger('touchcancel');
+        await wrapper.trigger('mouseleave');
       });
 
-      it('sets the draggable attribute to true', () => {
-        expect(wrapper.attributes('draggable')).toBe('true');
-      });
+      describe('when the mouseenter event is triggered', () => {
+        beforeEach(async () => {
+          await wrapper.trigger('mouseenter');
+        });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('sets the draggable attribute to true', () => {
+          expect(wrapper.attributes('draggable')).toBe('true');
+        });
       });
     });
   });

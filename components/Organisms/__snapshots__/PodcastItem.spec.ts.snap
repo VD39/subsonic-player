@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PodcastItem > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem" draggable="true">
+"<article class="interactionWrapper layoutItem" draggable="false">
   <div class="layoutImage podcastImageWrapper">
     <figure><a class="interactionLink" draggable="false" title="Go to podcast title">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" loading="lazy" src="image"></div>

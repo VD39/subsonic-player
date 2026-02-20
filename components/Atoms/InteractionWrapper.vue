@@ -20,11 +20,8 @@ const instance = getCurrentInstance();
 
 const { isAnyOpen } = useDropdownMenuState();
 
-const isTouching = ref(false);
-
-function cancelTouch() {
-  isTouching.value = false;
-}
+const isMouseOver = ref(false);
+const isTouched = ref(false);
 
 // Only allow the event if the following is true.
 function isInteractiveTarget(event: Event) {
@@ -43,31 +40,44 @@ function onClick(event: MouseEvent) {
 }
 
 function onContextMenu(event: MouseEvent) {
+  event.preventDefault();
+  event.stopPropagation();
+
   if (isInteractiveTarget(event)) {
     return;
   }
-
-  event.preventDefault();
-  event.stopPropagation();
 
   emit('contextMenu', event);
 }
 
 function onDragStart(event: DragEvent) {
   if (isInteractiveTarget(event)) {
+    event.preventDefault();
+    event.stopPropagation();
     return;
   }
 
   emit('dragStart', event);
 }
 
+function onMouseEnter() {
+  if (!isTouched.value) {
+    isMouseOver.value = true;
+  }
+}
+
+function onMouseLeave() {
+  isMouseOver.value = false;
+  isTouched.value = false;
+}
+
 function onTouchStart() {
-  isTouching.value = true;
+  isTouched.value = true;
 }
 
 const isDraggable = computed(
   () =>
-    !isTouching.value &&
+    isMouseOver.value &&
     !isAnyOpen.value &&
     props.draggable &&
     !!instance?.vnode.props?.onDragStart,
@@ -82,8 +92,8 @@ const isDraggable = computed(
     @click="onClick"
     @contextmenu="onContextMenu"
     @dragstart="onDragStart"
-    @touchcancel="cancelTouch"
-    @touchend="cancelTouch"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave"
     @touchstart="onTouchStart"
   >
     <slot />
