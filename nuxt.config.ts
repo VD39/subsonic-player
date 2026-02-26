@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 5,
   },
-  ignore: ['coverage/**', 'docs/**'],
+  ignore: ['coverage/**', 'docs/**', '**/*.spec.ts'],
   imports: {
     dirs: IMPORT_DIRECTORIES,
   },

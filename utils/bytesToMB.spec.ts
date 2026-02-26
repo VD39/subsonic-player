@@ -13,7 +13,7 @@ describe('bytesToMB', () => {
     ['invalid', DEFAULT_VALUE],
     ['', DEFAULT_VALUE],
   ])('when bytes is %s', (input, expected) => {
-    it('returns the correct value', () => {
+    it('returns the correct response', () => {
       expect(bytesToMB(input)).toBe(expected);
     });
   });

@@ -1,5 +1,6 @@
 import {
   convertToTitleCase,
+  formatListToString,
   generateRandomString,
   replaceCharactersWithSpace,
   replaceSpacesWithCharacter,
@@ -9,13 +10,13 @@ import {
 
 describe('generateRandomString', () => {
   describe('when length is not defined', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(generateRandomString().length).toBe(15);
     });
   });
 
   describe('when length is defined', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(generateRandomString(20).length).toBe(20);
     });
   });
@@ -31,7 +32,7 @@ describe('replaceCharactersWithSpace', () => {
   ])(
     'when is string %s and replace characters is %s',
     (input, characters, output) => {
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(replaceCharactersWithSpace(input, characters)).toBe(output);
       });
     },
@@ -48,7 +49,7 @@ describe('replaceSpacesWithCharacter', () => {
   ])(
     'when is string %s and replace characters is %s',
     (input, characters, output) => {
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(replaceSpacesWithCharacter(input, characters)).toBe(output);
       });
     },
@@ -62,7 +63,7 @@ describe('sanitiseString', () => {
     ['~!@#$%^&*(){}[]`/=?+|-_;:\'",<.>', ''],
     ['      abcdefghijklmnopqrstuvwxyz      ', 'abcdefghijklmnopqrstuvwxyz'],
   ])('when is string %s and replace characters is %s', (input, output) => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(sanitiseString(input)).toBe(output);
     });
   });
@@ -74,8 +75,38 @@ describe('splitCamelCase', () => {
     ['kebab-case', 'kebab-case'],
     ['snake_case', 'snake_case'],
   ])('when is string %s', (input, output) => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(splitCamelCase(input)).toBe(output);
+    });
+  });
+});
+
+describe('formatListToString', () => {
+  describe('when list is empty', () => {
+    it('returns the correct response', () => {
+      expect(formatListToString([])).toBe('');
+    });
+  });
+
+  describe('when list has one item', () => {
+    it('returns the correct response', () => {
+      expect(formatListToString(['Artist A'])).toBe('Artist A');
+    });
+  });
+
+  describe('when list has two items', () => {
+    it('returns the correct response', () => {
+      expect(formatListToString(['Artist A', 'Artist B'])).toBe(
+        'Artist A & Artist B',
+      );
+    });
+  });
+
+  describe('when list has three or more items', () => {
+    it('returns the correct response', () => {
+      expect(formatListToString(['Artist A', 'Artist B', 'Artist C'])).toBe(
+        'Artist A, Artist B & Artist C',
+      );
     });
   });
 });
@@ -91,7 +122,7 @@ describe('convertToTitleCase', () => {
     ['^all 23lowercase44', '^All 23Lowercase44'],
     ['$ALL $$UPPERCASE', '$All $$Uppercase'],
   ])('when is string %s', (input, output) => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(convertToTitleCase(input)).toBe(output);
     });
   });

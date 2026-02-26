@@ -235,23 +235,9 @@ export function useAudioPlayer() {
       return;
     }
 
-    let mediaData = {};
-
-    if (isTrack.value) {
-      mediaData = {
-        album: (currentTrack.value as Track).album,
-        artist: (currentTrack.value as Track).artists
-          .map((artist) => artist.name)
-          .join(', '),
-      };
-    }
-
-    if (isPodcastEpisode.value) {
-      mediaData = {
-        album: (currentTrack.value as PodcastEpisode).podcastName,
-        artist: (currentTrack.value as PodcastEpisode).author,
-      };
-    }
+    const { album, artist, title } = getTrackDisplayMetadata(
+      currentTrack.value,
+    );
 
     navigator.mediaSession.metadata = new MediaMetadata({
       artwork: ['96', '128', '192', '256', '384', '512'].map((size) => ({
@@ -259,8 +245,9 @@ export function useAudioPlayer() {
         src: getImageUrl(currentTrack.value.image, size),
         type: 'image/jpeg',
       })),
-      title: currentTrack.value.name,
-      ...mediaData,
+      title,
+      ...(album && { album }),
+      ...(artist && { artist }),
     });
 
     /* istanbul ignore next -- @preserve */

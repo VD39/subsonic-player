@@ -2,14 +2,14 @@ import { convertToQueryString, isUrl } from './url';
 
 describe('convertToQueryString', () => {
   describe('when params is an empty object', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(convertToQueryString({})).toBe('');
     });
   });
 
   describe('when params is not an empty object', () => {
     describe('when params has a key that is an empty string', () => {
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(
           convertToQueryString({
             param: '',
@@ -19,7 +19,7 @@ describe('convertToQueryString', () => {
     });
 
     describe('when params has a key that is a string', () => {
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(
           convertToQueryString({
             param: 'Param',
@@ -30,7 +30,7 @@ describe('convertToQueryString', () => {
     });
 
     describe('when params has a key that is an array', () => {
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(
           convertToQueryString({
             param: ['Param', 'Param1'],
@@ -40,7 +40,7 @@ describe('convertToQueryString', () => {
     });
 
     describe('when params has a multiple values', () => {
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(
           convertToQueryString({
             param: 'Param',

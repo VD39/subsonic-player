@@ -1167,8 +1167,39 @@ describe('useAudioPlayer', () => {
         it('calls the MediaMetadata function with the correct parameters', () => {
           expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
             album: (queueTracks[0] as Track).album,
-            artist: expect.any(String),
-            artwork: expect.any(Array),
+            artist: 'name & name1',
+            artwork: [
+              {
+                sizes: '96x96',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '128x128',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '192x192',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '256x256',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '384x384',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '512x512',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+            ],
             title: queueTracks[0].name,
           });
         });
@@ -1187,7 +1218,38 @@ describe('useAudioPlayer', () => {
 
         it('calls the MediaMetadata function with the correct parameters', () => {
           expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
-            artwork: expect.any(Array),
+            artwork: [
+              {
+                sizes: '96x96',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '128x128',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '192x192',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '256x256',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '384x384',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '512x512',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+            ],
             title: radioStations[0].name,
           });
         });
@@ -1208,7 +1270,38 @@ describe('useAudioPlayer', () => {
         it('calls the MediaMetadata function with the correct parameters', () => {
           expect(globalThis.MediaMetadata).toHaveBeenCalledWith({
             album: (podcastEpisodes[0] as PodcastEpisode).podcastName,
-            artwork: expect.any(Array),
+            artwork: [
+              {
+                sizes: '96x96',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '128x128',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '192x192',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '256x256',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '384x384',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+              {
+                sizes: '512x512',
+                src: 'image',
+                type: 'image/jpeg',
+              },
+            ],
             title: podcastEpisodes[0].name,
           });
         });
@@ -1521,13 +1614,13 @@ describe('useAudioPlayer', () => {
 
   describe('when isCurrentTrack function is called', () => {
     describe('when current track id is the same as the id', () => {
-      it('returns the correct value', () => {
+      it('returns the correct response', () => {
         expect(result.composable.isCurrentTrack(queueTracks[4].id)).toBe(true);
       });
     });
 
     describe('when current track id is not the same as the id', () => {
-      it('returns the correct value', () => {
+      it('returns the correct response', () => {
         expect(result.composable.isCurrentTrack('no-id')).toBe(false);
       });
     });

@@ -33,7 +33,7 @@ describe('getIndex', () => {
     ['id2', 2],
     ['unknown', -1],
   ])('when id is %s', (id, output) => {
-    it('returns the correct value', () => {
+    it('returns the correct response', () => {
       expect(getIndex(arrayList, id)).toEqual(output);
     });
   });

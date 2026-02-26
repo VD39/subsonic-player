@@ -30,10 +30,6 @@ const imageSrc = computed(() => {
     return null;
   }
 
-  if (isUrl(props.image)) {
-    return props.image;
-  }
-
   return getImageUrl(props.image);
 });
 

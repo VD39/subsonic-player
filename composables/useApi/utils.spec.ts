@@ -4,7 +4,7 @@ import { getAuthParams, getBaseOptions, loadSession } from './utils';
 
 describe('getAuthParams', () => {
   describe('when params is an empty object', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(getAuthParams({})).toEqual({
         s: undefined,
         t: undefined,
@@ -14,7 +14,7 @@ describe('getAuthParams', () => {
   });
 
   describe('when params has all values', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(
         getAuthParams({
           param: 'param',
@@ -34,7 +34,7 @@ describe('getAuthParams', () => {
 
 describe('loadSession', () => {
   describe('when token is not in a correct format', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(loadSession('incorrect=value')).toEqual({
         salt: null,
         server: null,
@@ -45,7 +45,7 @@ describe('loadSession', () => {
   });
 
   describe('when token is in a correct format', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(loadSession(cookieMock)).toEqual({
         salt: 'salt',
         server: 'https://www.server.com',
@@ -58,7 +58,7 @@ describe('loadSession', () => {
 
 describe('getBaseOptions', () => {
   describe('when cookie is not in a correct format', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(getBaseOptions('incorrect=value')).toEqual({
         baseParams: {
           c: 'web',
@@ -74,7 +74,7 @@ describe('getBaseOptions', () => {
   });
 
   describe('when cookie is in a correct format', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(getBaseOptions(cookieMock)).toEqual({
         baseParams: {
           c: 'web',

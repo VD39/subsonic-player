@@ -1,19 +1,15 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import AlbumTracksListItem from './AlbumTracksListItem.vue';
 
-const isCurrentTrackMock = vi.fn().mockReturnValue(false);
-
-mockNuxtImport('useAudioPlayer', () => () => ({
-  isCurrentTrack: isCurrentTrackMock,
-}));
+const { isCurrentTrackMock } = useAudioPlayerMock();
 
 const track = getFormattedTracksMock()[0];
 

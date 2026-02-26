@@ -10,7 +10,7 @@ const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
 const clearQueueMock = vi.fn();
 const currentTimeMock = ref(0);
-const currentTrackMock = ref(queueTrack[0]);
+const currentTrackMock = ref<MixedMediaAndTrack>(queueTrack[0]);
 const fastForwardTrackMock = vi.fn();
 const hasCurrentTrackMock = ref(false);
 const hasNextTrackMock = ref(false);
@@ -32,6 +32,7 @@ const playTracksMock = vi.fn();
 const queueListMock = ref(queueTrack);
 const removeTrackFromQueueListMock = vi.fn();
 const repeatMock = ref(-1);
+const resetAudioPlayerMock = vi.fn();
 const rewindTrackMock = vi.fn();
 const setCurrentTimeMock = vi.fn();
 const setPlaybackRateMock = vi.fn();
@@ -75,6 +76,7 @@ export function useAudioPlayerMock() {
     queueList: queueListMock,
     removeTrackFromQueueList: removeTrackFromQueueListMock,
     repeat: repeatMock,
+    resetAudioPlayer: resetAudioPlayerMock,
     rewindTrack: rewindTrackMock,
     setCurrentTime: setCurrentTimeMock,
     setPlaybackRate: setPlaybackRateMock,
@@ -119,6 +121,7 @@ export function useAudioPlayerMock() {
     queueListMock,
     removeTrackFromQueueListMock,
     repeatMock,
+    resetAudioPlayerMock,
     rewindTrackMock,
     setCurrentTimeMock,
     setPlaybackRateMock,

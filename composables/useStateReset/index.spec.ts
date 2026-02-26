@@ -1,5 +1,7 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+
 import { useStateReset } from './index';
 
 const resetFavouritesMock = vi.fn();
@@ -38,11 +40,7 @@ mockNuxtImport('useAlbum', () => () => ({
   resetAlbums: resetAlbumsMock,
 }));
 
-const resetAudioPlayerMock = vi.fn();
-
-mockNuxtImport('useAudioPlayer', () => () => ({
-  resetAudioPlayer: resetAudioPlayerMock,
-}));
+const { resetAudioPlayerMock } = useAudioPlayerMock();
 
 const { resetAllUserState } = useStateReset();
 

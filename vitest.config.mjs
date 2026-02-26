@@ -11,7 +11,6 @@ export default defineVitestConfig({
         '**/constants/**',
         '**/docs/**',
         '**/navigations/**',
-        '**/plugins/**',
         '**/test/**',
         'app.vue',
         'components/Molecules/CarouselSwiper.vue',

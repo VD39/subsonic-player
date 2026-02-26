@@ -64,8 +64,8 @@ describe('Default', () => {
     );
   });
 
-  describe('when the lazyLoad prop is not set', () => {
-    describe('when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon', () => {
+  describe('when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon', () => {
+    describe('when the lazyLoad prop is not set', () => {
       beforeEach(() => {
         wrapper = factory({
           image: 'image',
@@ -176,31 +176,31 @@ describe('Default', () => {
         });
       });
     });
-  });
 
-  describe('when the lazyLoad prop is set to false', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        image: 'image',
-        lazyLoad: false,
-      });
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('does not add the IntersectionObserver function', () => {
-      expect(iOMock.observeMock).not.toHaveBeenCalled();
-    });
-
-    describe('when the component unmounts', () => {
+    describe('when the lazyLoad prop is set to false', () => {
       beforeEach(() => {
-        wrapper.unmount();
+        wrapper = factory({
+          image: 'image',
+          lazyLoad: false,
+        });
       });
 
-      it('does not call the IntersectionObserver disconnect function', () => {
-        expect(iOMock.disconnectMock).not.toHaveBeenCalled();
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not add the IntersectionObserver function', () => {
+        expect(iOMock.observeMock).not.toHaveBeenCalled();
+      });
+
+      describe('when the component unmounts', () => {
+        beforeEach(() => {
+          wrapper.unmount();
+        });
+
+        it('does not call the IntersectionObserver disconnect function', () => {
+          expect(iOMock.disconnectMock).not.toHaveBeenCalled();
+        });
       });
     });
   });

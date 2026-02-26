@@ -47,7 +47,7 @@ describe('getParams', () => {
       },
     ],
   ])('when params is %o', (params, output) => {
-    it('returns the correct value', () => {
+    it('returns the correct response', () => {
       expect(getParams(params)).toEqual(output);
     });
   });

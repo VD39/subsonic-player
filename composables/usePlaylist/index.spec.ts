@@ -2,7 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
-import { getFormattedPlaylistsMock } from '~/test/helpers';
+import { getFormattedPlaylistsMock } from '@/test/helpers';
 
 import { usePlaylist } from './index';
 

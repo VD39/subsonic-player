@@ -108,7 +108,7 @@ export const albumMock: AlbumWithSongsID3 = {
   id: 'id',
   name: 'name',
   playCount: 1,
-  song: [trackMock],
+  song: [trackMock, trackMock, trackMock, trackMock],
   songCount: 4,
   starred: apiDateMock,
   year: 2024,

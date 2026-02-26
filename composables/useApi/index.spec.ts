@@ -28,26 +28,34 @@ describe('useAPI', () => {
   });
 
   describe('getImageUrl', () => {
-    describe('when size is not set', () => {
-      it('returns the correct value', () => {
-        expect(getImageUrl('id')).toBe(
-          'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=500',
-        );
+    describe('when streamUrlId is a URL', () => {
+      it('returns the correct response', () => {
+        expect(getImageUrl('https://imageId.jpg')).toBe('https://imageId.jpg');
       });
     });
 
-    describe('when size is set', () => {
-      it('returns the correct value', () => {
-        expect(getImageUrl('id', '250')).toBe(
-          'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=250',
-        );
+    describe('when streamUrlId is not a URL', () => {
+      describe('when size is not set', () => {
+        it('returns the correct response', () => {
+          expect(getImageUrl('id')).toBe(
+            'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=500',
+          );
+        });
+      });
+
+      describe('when size is set', () => {
+        it('returns the correct response', () => {
+          expect(getImageUrl('id', '250')).toBe(
+            'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id&size=250',
+          );
+        });
       });
     });
   });
 
   describe('getStreamUrl', () => {
     describe('when streamUrlId is a URL', () => {
-      it('returns the correct value', () => {
+      it('returns the correct response', () => {
         expect(getStreamUrl('https://streamUrlId.mp3')).toBe(
           'https://streamUrlId.mp3',
         );
@@ -55,7 +63,7 @@ describe('useAPI', () => {
     });
 
     describe('when streamUrlId is not a URL', () => {
-      it('returns the correct value', () => {
+      it('returns the correct response', () => {
         expect(getStreamUrl('id')).toBe(
           'https://www.server.com/rest/stream?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id',
         );
@@ -64,7 +72,7 @@ describe('useAPI', () => {
   });
 
   describe('getDownloadUrl', () => {
-    it('returns the correct value', () => {
+    it('returns the correct response', () => {
       expect(getDownloadUrl('id')).toBe(
         'https://www.server.com/rest/download?s=salt&t=token&u=username&c=web&f=json&v=1.15.0&id=id',
       );

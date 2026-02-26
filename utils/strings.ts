@@ -17,6 +17,22 @@ export function convertToTitleCase(str: string) {
     .join(' ');
 }
 
+export function formatListToString(items: string[]) {
+  if (!items.length) {
+    return '';
+  }
+
+  if (items.length === 1) {
+    return items[0];
+  }
+
+  if (items.length === 2) {
+    return items.join(' & ');
+  }
+
+  return `${items.slice(0, -1).join(', ')} & ${items.at(-1)}`;
+}
+
 export function generateRandomString(length = 15) {
   return Array.from({ length }, () =>
     Math.random().toString(36).charAt(2),

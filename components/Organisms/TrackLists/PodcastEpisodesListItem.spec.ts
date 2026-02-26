@@ -1,20 +1,16 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import PodcastEpisodesListItem from './PodcastEpisodesListItem.vue';
 
-const isCurrentTrackMock = vi.fn().mockReturnValue(false);
-
-mockNuxtImport('useAudioPlayer', () => () => ({
-  isCurrentTrack: isCurrentTrackMock,
-}));
+const { isCurrentTrackMock } = useAudioPlayerMock();
 
 const downloadedEpisode = getFormattedPodcastEpisodesMock()[0];
 const noneDownloadedEpisode = getFormattedPodcastEpisodesMock(1, {

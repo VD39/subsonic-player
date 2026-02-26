@@ -116,6 +116,7 @@ const ICONS = [
   PhXCircle,
 ];
 
+/* istanbul ignore next -- @preserve */
 export default defineNuxtPlugin((nuxtApp) => {
   for (const icon of ICONS) {
     nuxtApp.vueApp.component(icon.name!, icon);

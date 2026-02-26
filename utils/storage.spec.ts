@@ -14,7 +14,7 @@ describe('getLocalStorage', () => {
   });
 
   describe('when key in localStorage does not exist', () => {
-    it('returns correct value', () => {
+    it('returns the correct response', () => {
       expect(getLocalStorage('key')).toBe('');
     });
   });
@@ -32,7 +32,7 @@ describe('getLocalStorage', () => {
         storage = getLocalStorage('key');
       });
 
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(storage).toEqual({
           storage: 'storage',
         });
@@ -49,7 +49,7 @@ describe('getLocalStorage', () => {
         expect(consoleErrorSpy).toHaveBeenCalled();
       });
 
-      it('returns correct value', () => {
+      it('returns the correct response', () => {
         expect(storage).toBe('');
       });
     });

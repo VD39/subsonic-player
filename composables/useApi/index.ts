@@ -20,6 +20,11 @@ export function useAPI() {
   }
 
   function getImageUrl(image: string, size = IMAGE_SIZE) {
+    // If radio station.
+    if (isUrl(image)) {
+      return image;
+    }
+
     return getUrl('getCoverArt', {
       id: image,
       size,

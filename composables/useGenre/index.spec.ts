@@ -74,7 +74,7 @@ describe('useGenre', () => {
         expect(getAlbumsMock).toHaveBeenCalled();
       });
 
-      it('returns the correct value', () => {
+      it('returns the correct response', () => {
         expect(results).toEqual(['albums']);
       });
     });
@@ -91,7 +91,7 @@ describe('useGenre', () => {
         });
       });
 
-      it('returns the correct value', () => {
+      it('returns the correct response', () => {
         expect(results).toEqual(['tracks']);
       });
 
@@ -135,7 +135,7 @@ describe('useGenre', () => {
     });
 
     describe(`when route media type is not ${ROUTE_MEDIA_TYPE_PARAMS.Albums} or ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
-      it('returns the correct value', async () => {
+      it('returns the correct response', async () => {
         expect(await getMediaByGenre({} as MediaByGenreParams)).toEqual([]);
       });
     });

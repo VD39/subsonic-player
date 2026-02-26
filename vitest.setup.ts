@@ -48,12 +48,21 @@ config.global.stubs = {
 };
 
 vi.stubGlobal('defineEventHandler', (func: unknown) => func);
-
-// Stub $fetch with .create() to prevent ReferenceError from Nuxt's internal manifest.js.
-const $fetchMock = Object.assign(vi.fn().mockResolvedValue({}), {
-  create: vi.fn().mockReturnValue(vi.fn().mockResolvedValue({})),
-});
-
-vi.stubGlobal('$fetch', $fetchMock);
-
 vi.stubGlobal('getQuery', () => ({ id: 'id' }));
+
+// Assign $fetch directly on globalThis (not via vi.stubGlobal) so that it
+// survives vitest's per-file cleanup.  Nuxt's payload.client plugin schedules
+// `setTimeout(getAppManifest, 1e3)` which fires *after* the test file is torn
+// down, and vi.stubGlobal values are restored (removed) at that point.
+if (!globalThis.$fetch) {
+  const fetchFn = (..._args: unknown[]) => Promise.resolve({});
+  globalThis.$fetch = Object.assign(fetchFn, {
+    create: () =>
+      Object.assign((..._args: unknown[]) => Promise.resolve({}), {
+        create:
+          () =>
+          (..._args: unknown[]) =>
+            Promise.resolve({}),
+      }),
+  }) as typeof globalThis.$fetch;
+}
