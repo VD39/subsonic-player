@@ -9,25 +9,25 @@ if (!outfile) throw new Error('Usage: gen-manifest <outfile>');
 const appinfo = require('../appinfo.json');
 const ipkfile = `${appinfo.id}_${appinfo.version}_all.ipk`;
 const ipkhash = crypto
-    .createHash('sha256')
-    .update(fs.readFileSync(ipkfile))
-    .digest('hex');
+  .createHash('sha256')
+  .update(fs.readFileSync(ipkfile))
+  .digest('hex');
 
 fs.writeFileSync(
-    outfile,
-    JSON.stringify({
-        id: appinfo.id,
-        version: appinfo.version,
-        type: appinfo.type,
-        title: appinfo.title,
-        appDescription: appinfo.appDescription,
-        iconUri:
-            'https://raw.githubusercontent.com/pando85/subsonic-player-webos/main/webos/assets/icon_160.png',
-        sourceUrl: 'https://github.com/pando85/subsonic-player-webos',
-        rootRequired: false,
-        ipkUrl: ipkfile,
-        ipkHash: {
-            sha256: ipkhash
-        }
-    })
+  outfile,
+  JSON.stringify({
+    appDescription: appinfo.appDescription,
+    iconUri:
+      'https://raw.githubusercontent.com/pando85/subsonic-player-webos/main/webos/assets/icon_160.png',
+    id: appinfo.id,
+    ipkHash: {
+      sha256: ipkhash,
+    },
+    ipkUrl: ipkfile,
+    rootRequired: false,
+    sourceUrl: 'https://github.com/pando85/subsonic-player-webos',
+    title: appinfo.title,
+    type: appinfo.type,
+    version: appinfo.version,
+  }),
 );
