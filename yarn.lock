@@ -8483,10 +8483,10 @@ postcss-convert-values@^7.0.8:
     browserslist "^4.27.0"
     postcss-value-parser "^4.2.0"
 
-postcss-custom-media@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-12.0.0.tgz#3fcbfeaf1243592d4d8469589a016d3d8e55dcc4"
-  integrity sha512-jIgEvqceN6ru2uQ0f75W1g+JDi0UyECFeJKjPG7UcSkW3+03LDKH2c6h+9C0XuDTV4y2pEHmD5AJtVBq1OGnZA==
+postcss-custom-media@^12.0.0, postcss-custom-media@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-12.0.1.tgz#92ddc08c0f3140d82e64d26b8481b7be795031b4"
+  integrity sha512-66syE14+VeqkUf0rRX0bvbTCbNRJF132jD+ceo8th1dap2YJEAqpdh5uG98CE3IbgHT7m9XM0GIlOazNWqQdeA==
   dependencies:
     "@csstools/cascade-layer-name-parser" "^3.0.0"
     "@csstools/css-parser-algorithms" "^4.0.0"
