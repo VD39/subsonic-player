@@ -80,4 +80,36 @@ describe('PodcastItem', () => {
       expect(openDropdownMenuMock).toHaveBeenCalled();
     });
   });
+
+  describe('when the DropdownMenu component emits the opened event', () => {
+    beforeEach(() => {
+      wrapper.findComponent({ ref: 'dropdownMenuRef' }).vm.$emit('opened');
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('adds the dropdownOpened class', () => {
+      expect(wrapper.findComponent(InteractionWrapper).classes()).toContain(
+        'dropdownOpened',
+      );
+    });
+
+    describe('when the DropdownMenu component emits the closed event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'dropdownMenuRef' }).vm.$emit('closed');
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('removes the dropdownOpened class', () => {
+        expect(
+          wrapper.findComponent(InteractionWrapper).classes(),
+        ).not.toContain('dropdownOpened');
+      });
+    });
+  });
 });

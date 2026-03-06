@@ -40,12 +40,12 @@ function onClick(event: MouseEvent) {
 }
 
 function onContextMenu(event: MouseEvent) {
-  event.preventDefault();
-  event.stopPropagation();
-
   if (isInteractiveTarget(event)) {
     return;
   }
+
+  event.preventDefault();
+  event.stopPropagation();
 
   emit('contextMenu', event);
 }

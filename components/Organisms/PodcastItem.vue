@@ -37,6 +37,10 @@ const buttonProps = computed(() => ({
   text: `Play podcast ${props.podcast.name}`,
 }));
 
+async function goToPodcast() {
+  await navigateTo(podcastProps.value.toLink);
+}
+
 function onClosedDropdown() {
   isDropdownOpened.value = false;
 }
@@ -58,26 +62,25 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 <template>
   <InteractionWrapper
     is="article"
-    class="layoutItem"
+    :class="[
+      'layoutItem',
+      $style.podcastItem,
+      {
+        [$style.dropdownOpened]: isDropdownOpened,
+      },
+    ]"
+    @click="goToPodcast"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
   >
-    <div
-      :class="[
-        'layoutImage',
-        $style.podcastImageWrapper,
-        {
-          [$style.dropdownOpened]: isDropdownOpened,
-        },
-      ]"
-    >
+    <div :class="['layoutImage', $style.podcastImageWrapper]">
       <ImageLink
         :image="podcast.image"
         :title="podcastProps.title"
         :to="podcastProps.toLink"
       />
 
-      <div :class="['hideOnListLayout', $style.actions]">
+      <div :class="['hideOnListLayout', $style.actions, $style.hoverActions]">
         <ButtonLink
           ref="playPodcastButtonLink"
           class="themeHoverButton"
@@ -87,43 +90,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         >
           {{ buttonProps.text }}
         </ButtonLink>
-
-        <div :class="$style.actionsRight">
-          <DropdownMenu
-            ref="dropdownMenuRef"
-            @closed="onClosedDropdown"
-            @opened="onOpenedDropdown"
-          >
-            <DropdownItem
-              ref="playPodcast"
-              @click="$emit('playPodcast', podcast)"
-            >
-              Play podcast
-            </DropdownItem>
-            <DropdownItem
-              ref="addPodcastToQueue"
-              @click="$emit('addPodcastToQueue', podcast)"
-            >
-              Add to queue
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem is="nuxt-link" :to="podcastProps.toLink">
-              Go to podcast
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem
-              ref="mediaInformation"
-              @click="$emit('mediaInformation', podcast)"
-            >
-              Media information
-            </DropdownItem>
-          </DropdownMenu>
-        </div>
       </div>
     </div>
 
     <div class="layoutContent">
-      <p class="strong smallFont clamp2">
+      <p class="mBXS strong smallFont clamp2">
         <NuxtLink
           :aria-label="podcastProps.title"
           class="layoutLink"
@@ -134,48 +105,78 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         </NuxtLink>
       </p>
     </div>
+
+    <div :class="['layoutDropdownMenu', $style.hoverActions]">
+      <DropdownMenu
+        ref="dropdownMenuRef"
+        @closed="onClosedDropdown"
+        @opened="onOpenedDropdown"
+      >
+        <DropdownItem ref="playPodcast" @click="$emit('playPodcast', podcast)">
+          Play podcast
+        </DropdownItem>
+        <DropdownItem
+          ref="addPodcastToQueue"
+          @click="$emit('addPodcastToQueue', podcast)"
+        >
+          Add to queue
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem is="nuxt-link" :to="podcastProps.toLink">
+          Go to podcast
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem
+          ref="mediaInformation"
+          @click="$emit('mediaInformation', podcast)"
+        >
+          Media information
+        </DropdownItem>
+      </DropdownMenu>
+    </div>
   </InteractionWrapper>
 </template>
 
 <style module>
-.podcastImageWrapper {
+.podcastItem {
   position: relative;
 
   @media (hover: hover) {
     &:hover,
     &:focus,
     &:focus-within {
-      .actions {
-        --podcast-actions-opacity: 1;
-        --podcast-actions-z-index: 10;
+      .hoverActions {
+        --podcast-hover-actions-opacity: 1;
+        --podcast-hover-actions-z-index: 10;
       }
     }
   }
 }
 
-.actions {
-  --podcast-actions-opacity: 0;
-  --podcast-actions-z-index: -2;
-
-  position: absolute;
-  inset: auto var(--default-space) var(--default-space);
-  z-index: var(--podcast-actions-z-index);
-  display: flex;
-  gap: var(--default-space);
-  width: var(--width-height-100);
-  opacity: var(--podcast-actions-opacity);
-  transition: opacity var(--transition);
-
-  .dropdownOpened & {
-    --podcast-actions-opacity: 1;
-    --podcast-actions-z-index: 10;
-  }
+.podcastImageWrapper {
+  position: relative;
 }
 
-.actionsRight {
+.actions {
+  position: absolute;
+  inset: auto 0 0;
   display: flex;
-  flex-direction: row;
-  gap: var(--default-space);
-  margin-left: auto;
+  justify-content: space-between;
+  width: var(--width-height-100);
+  padding: var(--default-space);
+  transition: opacity var(--transition);
+}
+
+.hoverActions {
+  --podcast-hover-actions-opacity: 0;
+  --podcast-hover-actions-z-index: -2;
+
+  z-index: var(--podcast-hover-actions-z-index);
+  opacity: var(--podcast-hover-actions-opacity);
+
+  .dropdownOpened & {
+    --podcast-hover-actions-opacity: 1;
+    --podcast-hover-actions-z-index: 10;
+  }
 }
 </style>

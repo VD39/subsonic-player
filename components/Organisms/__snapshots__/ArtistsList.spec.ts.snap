@@ -14,7 +14,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink globalLink" draggable="false">artist-0</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -22,7 +22,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink globalLink" draggable="false">artist-1</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -30,7 +30,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink globalLink" draggable="false">artist-2</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -38,7 +38,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink globalLink" draggable="false">artist-3</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -46,7 +46,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink globalLink" draggable="false">artist-4</a></p>
     </div>
   </article>
 </section>"
@@ -59,7 +59,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink globalLink" draggable="false">artist-0</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -67,7 +67,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink globalLink" draggable="false">artist-1</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -75,7 +75,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink globalLink" draggable="false">artist-2</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -83,7 +83,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink globalLink" draggable="false">artist-3</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -91,7 +91,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink globalLink" draggable="false">artist-4</a></p>
     </div>
   </article>
 </section>"
@@ -104,7 +104,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink globalLink" draggable="false">artist-0</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -112,7 +112,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink globalLink" draggable="false">artist-1</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -120,7 +120,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink globalLink" draggable="false">artist-2</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -128,7 +128,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink globalLink" draggable="false">artist-3</a></p>
     </div>
   </article>
   <article class="layoutItem">
@@ -136,7 +136,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="layoutContent">
-      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
+      <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink globalLink" draggable="false">artist-4</a></p>
     </div>
   </article>
 </section>"

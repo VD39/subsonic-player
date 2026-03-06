@@ -10,7 +10,7 @@ exports[`artists > matches the snapshot 1`] = `
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="layoutContent">
-        <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+        <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink globalLink" draggable="false">artist-0</a></p>
       </div>
     </article>
     <article class="layoutItem">
@@ -18,7 +18,7 @@ exports[`artists > matches the snapshot 1`] = `
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="layoutContent">
-        <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
+        <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink globalLink" draggable="false">artist-1</a></p>
       </div>
     </article>
     <article class="layoutItem">
@@ -26,7 +26,7 @@ exports[`artists > matches the snapshot 1`] = `
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="layoutContent">
-        <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
+        <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink globalLink" draggable="false">artist-2</a></p>
       </div>
     </article>
   </section>

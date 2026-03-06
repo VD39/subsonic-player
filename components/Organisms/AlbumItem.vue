@@ -39,6 +39,10 @@ const buttonProps = computed(() => ({
   text: `Play album ${props.album.name}`,
 }));
 
+async function goToAlbum() {
+  await navigateTo(albumProps.value.toLink);
+}
+
 function onClosedDropdown() {
   isDropdownOpened.value = false;
 }
@@ -60,26 +64,25 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 <template>
   <InteractionWrapper
     is="article"
-    class="layoutItem"
+    :class="[
+      'layoutItem',
+      $style.albumItem,
+      {
+        [$style.dropdownOpened]: isDropdownOpened,
+      },
+    ]"
+    @click="goToAlbum"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
   >
-    <div
-      :class="[
-        'layoutImage',
-        $style.albumImageWrapper,
-        {
-          [$style.dropdownOpened]: isDropdownOpened,
-        },
-      ]"
-    >
+    <div :class="['layoutImage', $style.albumImageWrapper]">
       <ImageLink
         :image="album.image"
         :title="albumProps.title"
         :to="albumProps.toLink"
       />
 
-      <div :class="['hideOnListLayout', $style.actions]">
+      <div :class="['hideOnListLayout', $style.actions, $style.hoverActions]">
         <ButtonLink
           ref="playAlbumButtonLink"
           class="themeHoverButton"
@@ -90,47 +93,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           {{ buttonProps.text }}
         </ButtonLink>
 
-        <div :class="$style.actionsRight">
-          <FavouriteButton
-            :id="album.id"
-            :favourite="album.favourite"
-            :type="album.type"
-          />
-
-          <DropdownMenu
-            ref="dropdownMenuRef"
-            @closed="onClosedDropdown"
-            @opened="onOpenedDropdown"
-          >
-            <DropdownItem ref="playAlbum" @click="$emit('playAlbum', album)">
-              Play album
-            </DropdownItem>
-            <DropdownItem ref="addToQueue" @click="$emit('addToQueue', album)">
-              Add to queue
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem is="nuxt-link" :to="albumProps.toLink">
-              Go to album
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem
-              ref="mediaInformation"
-              @click="$emit('mediaInformation', album)"
-            >
-              Media information
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem is="span">
-              <FavouriteButton
-                :id="album.id"
-                class="globalLink"
-                :favourite="album.favourite"
-                showText
-                :type="album.type"
-              />
-            </DropdownItem>
-          </DropdownMenu>
-        </div>
+        <FavouriteButton
+          :id="album.id"
+          :favourite="album.favourite"
+          :type="album.type"
+        />
       </div>
     </div>
 
@@ -152,48 +119,85 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         class="smallFont clamp2"
       />
     </div>
+
+    <div :class="['layoutDropdownMenu', $style.hoverActions]">
+      <DropdownMenu
+        ref="dropdownMenuRef"
+        @closed="onClosedDropdown"
+        @opened="onOpenedDropdown"
+      >
+        <DropdownItem ref="playAlbum" @click="$emit('playAlbum', album)">
+          Play album
+        </DropdownItem>
+        <DropdownItem ref="addToQueue" @click="$emit('addToQueue', album)">
+          Add to queue
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem is="nuxt-link" :to="albumProps.toLink">
+          Go to album
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem
+          ref="mediaInformation"
+          @click="$emit('mediaInformation', album)"
+        >
+          Media information
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem is="span">
+          <FavouriteButton
+            :id="album.id"
+            class="globalLink"
+            :favourite="album.favourite"
+            showText
+            :type="album.type"
+          />
+        </DropdownItem>
+      </DropdownMenu>
+    </div>
   </InteractionWrapper>
 </template>
 
 <style module>
-.albumImageWrapper {
+.albumItem {
   position: relative;
 
   @media (hover: hover) {
     &:hover,
     &:focus,
     &:focus-within {
-      .actions {
-        --album-actions-opacity: 1;
-        --album-actions-z-index: 10;
+      .hoverActions {
+        --album-hover-actions-opacity: 1;
+        --album-hover-actions-z-index: 10;
       }
     }
   }
 }
 
-.actions {
-  --album-actions-opacity: 0;
-  --album-actions-z-index: -2;
-
-  position: absolute;
-  inset: auto var(--default-space) var(--default-space);
-  z-index: var(--album-actions-z-index);
-  display: flex;
-  gap: var(--default-space);
-  width: var(--width-height-100);
-  opacity: var(--album-actions-opacity);
-  transition: opacity var(--transition);
-
-  .dropdownOpened & {
-    --album-actions-opacity: 1;
-    --album-actions-z-index: 10;
-  }
+.albumImageWrapper {
+  position: relative;
 }
 
-.actionsRight {
+.actions {
+  position: absolute;
+  inset: auto 0 0;
   display: flex;
-  flex-direction: row;
-  gap: var(--default-space);
-  margin-left: auto;
+  justify-content: space-between;
+  width: var(--width-height-100);
+  padding: var(--default-space);
+  transition: opacity var(--transition);
+}
+
+.hoverActions {
+  --album-hover-actions-opacity: 0;
+  --album-hover-actions-z-index: -2;
+
+  z-index: var(--album-hover-actions-z-index);
+  opacity: var(--album-hover-actions-opacity);
+
+  .dropdownOpened & {
+    --album-hover-actions-opacity: 1;
+    --album-hover-actions-z-index: 10;
+  }
 }
 </style>

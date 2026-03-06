@@ -10,6 +10,13 @@
   @extend .link;
 }
 
+.layoutDropdownMenu {
+  position: absolute;
+  inset: 0 0 auto auto;
+  z-index: 15 !important;
+  padding: var(--default-space);
+}
+
 .listLayout {
   .layoutItem {
     @extend .trackRow;
@@ -34,7 +41,14 @@
     border-radius: var(--border-radius-medium);
   }
 
-  .layoutLink {
-    @extend .globalLink;
+  .layoutDropdownMenu {
+    position: unset;
+    padding: 0;
+    margin-left: auto;
+    opacity: 1;
+  }
+
+  .hideOnListLayout {
+    display: none;
   }
 }

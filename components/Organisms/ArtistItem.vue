@@ -29,7 +29,7 @@ const artistProps = computed(() => ({
       <p class="strong smallFont clamp2">
         <NuxtLink
           :aria-label="artistProps.title"
-          class="layoutLink"
+          class="layoutLink globalLink"
           draggable="false"
           :to="artistProps.toLink"
         >
