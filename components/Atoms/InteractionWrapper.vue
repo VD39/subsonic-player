@@ -40,7 +40,7 @@ function onClick(event: MouseEvent) {
 }
 
 function onContextMenu(event: MouseEvent) {
-  if (isInteractiveTarget(event)) {
+  if (!isTouched.value && isInteractiveTarget(event)) {
     return;
   }
 

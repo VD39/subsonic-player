@@ -1,10 +1,18 @@
 <script setup lang="ts">
-const props = defineProps<{
-  buffer?: number;
-  delay?: boolean;
-  max: number;
-  min: number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    buffer?: number;
+    delay?: boolean;
+    height?: number;
+    hideThumb?: boolean;
+    max: number;
+    min: number;
+  }>(),
+  {
+    buffer: undefined,
+    height: 6,
+  },
+);
 
 const emit = defineEmits<{
   change: [value: number];
@@ -25,6 +33,7 @@ const bufferProgress = ref(getProgress(props.buffer));
 
 const hoverProgress = computed(() => getProgress(hoverValue.value));
 const isStandard = computed(() => !props.max);
+const showThumb = computed(() => !props.hideThumb && !isStandard.value);
 
 function getProgress(newValue = 0) {
   if (!sliderRef.value) {
@@ -156,6 +165,9 @@ onUnmounted(() => {
         [$style.standard]: isStandard,
       },
     ]"
+    :style="{
+      '--input-slider-height': `${height}px`,
+    }"
   >
     <div
       ref="sliderRef"
@@ -181,7 +193,7 @@ onUnmounted(() => {
       </div>
 
       <div
-        v-if="!isStandard"
+        v-if="showThumb"
         ref="thumb"
         :class="$style.thumb"
         :style="{ left: `${progress - 6}px` }"
@@ -190,7 +202,7 @@ onUnmounted(() => {
       />
 
       <div
-        v-if="$slots.default && !isStandard"
+        v-if="$slots.default && showThumb"
         ref="tooltip"
         :class="['mBS', 'strong', 'smallFont', $style.tooltip]"
         :style="{ left: `${hoverProgress}px` }"
@@ -219,7 +231,7 @@ onUnmounted(() => {
 
 .slider {
   width: var(--width-height-100);
-  height: 6px;
+  height: var(--input-slider-height);
   cursor: pointer;
   background-color: var(--invert-color);
 

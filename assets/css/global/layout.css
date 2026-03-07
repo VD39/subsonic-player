@@ -13,8 +13,12 @@
 .layoutDropdownMenu {
   position: absolute;
   inset: 0 0 auto auto;
-  z-index: 15 !important;
+  z-index: 10 !important;
   padding: var(--default-space);
+
+  .dropdownMenuOpened & {
+    z-index: 11 !important;
+  }
 }
 
 .listLayout {

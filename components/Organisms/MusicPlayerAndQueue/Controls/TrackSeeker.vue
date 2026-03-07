@@ -20,6 +20,7 @@ const ariaValueText = computed(
   <InputRange
     v-slot="{ pendingValue }"
     v-model="currentTime"
+    v-bind="$attrs"
     aria-label="Seek"
     :aria-valuetext="ariaValueText"
     :buffer="bufferedDuration"

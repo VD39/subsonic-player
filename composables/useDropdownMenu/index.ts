@@ -5,6 +5,7 @@ export function useDropdownMenu(options: DropdownOptions) {
 
   const { lockScroll, unlockScroll } = useScrollLock('dropdown', [
     'disableAllPointerEvents',
+    'dropdownMenuOpened',
   ]);
 
   const activeMenuId = useState<null | string>(

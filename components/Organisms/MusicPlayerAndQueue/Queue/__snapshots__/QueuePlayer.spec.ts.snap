@@ -29,7 +29,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -121,7 +121,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             </div>
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -208,7 +208,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -296,7 +296,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -388,7 +388,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -476,7 +476,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -568,7 +568,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -656,7 +656,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -743,7 +743,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -821,7 +821,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -897,7 +897,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -978,7 +978,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -1054,7 +1054,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>

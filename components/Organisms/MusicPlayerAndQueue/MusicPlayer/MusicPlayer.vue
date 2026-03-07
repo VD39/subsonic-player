@@ -86,6 +86,12 @@ const { currentTrack } = useAudioPlayer();
 
       <PlayerOptions :class="['desktopOnly', $style.playerOptions]" />
     </div>
+
+    <TrackSeeker
+      :class="['mobileOnly', $style.trackSeeker]"
+      :height="3"
+      hideThumb
+    />
   </div>
 </template>
 
@@ -95,7 +101,7 @@ const { currentTrack } = useAudioPlayer();
 
   position: fixed;
   inset: auto 0 var(--music-player-bottom);
-  z-index: 9;
+  z-index: 10;
   height: var(--media-player-height);
   max-height: var(--media-player-height);
   background-color: var(--background-color);
@@ -109,7 +115,7 @@ const { currentTrack } = useAudioPlayer();
 
 .trackSeeker {
   position: absolute;
-  z-index: 9;
+  z-index: 10;
   display: block;
   transform: translateY(-50%);
 }

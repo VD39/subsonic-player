@@ -159,6 +159,50 @@ describe('InputRange', () => {
     });
   });
 
+  describe('when the height prop is not set', () => {
+    it('sets the correct style attribute on the wrapper element', () => {
+      expect(wrapper.attributes('style')).toBe('--input-slider-height: 6px;');
+    });
+  });
+
+  describe('when the height prop is set', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        height: 10,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct style attribute on the wrapper element', () => {
+      expect(wrapper.attributes('style')).toBe('--input-slider-height: 10px;');
+    });
+  });
+
+  describe('when the hideThumb prop is not set', () => {
+    it('shows the thumb element', () => {
+      expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(true);
+    });
+  });
+
+  describe('when the hideThumb prop is set to true', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        hideThumb: true,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the thumb element', () => {
+      expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(false);
+    });
+  });
+
   describe('when default slot is not set', () => {
     it('does not show the tooltip element', () => {
       expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(false);
@@ -176,6 +220,27 @@ describe('InputRange', () => {
             default: '<p>{{ pendingValue }}</p>',
           },
         );
+      });
+
+      it('does not show the tooltip element', () => {
+        expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(false);
+      });
+    });
+
+    describe('when the hideThumb prop is set to true', () => {
+      beforeEach(() => {
+        wrapper = factory(
+          {
+            hideThumb: true,
+          },
+          {
+            default: '<p>{{ pendingValue }}</p>',
+          },
+        );
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
       });
 
       it('does not show the tooltip element', () => {

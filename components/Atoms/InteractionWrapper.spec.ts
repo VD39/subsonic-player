@@ -62,39 +62,37 @@ describe('InteractionWrapper', () => {
   });
 
   describe('when the click event is triggered', () => {
-    describe('when the target is an interactive element', () => {
-      describe('when the closest target is a button', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('button'));
-          await wrapper.trigger('click');
-        });
-
-        it('does not emit the click event', () => {
-          expect(wrapper.emitted('click')).toBeUndefined();
-        });
+    describe('when the closest target is a button', () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('button'));
+        await wrapper.trigger('click');
       });
 
-      describe('when the closest target is an anchor element', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          await wrapper.trigger('click');
-        });
+      it('does not emit the click event', () => {
+        expect(wrapper.emitted('click')).toBeUndefined();
+      });
+    });
 
-        it('does not emit the click event', () => {
-          expect(wrapper.emitted('click')).toBeUndefined();
-        });
+    describe('when the closest target is an anchor element', () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('a'));
+        await wrapper.trigger('click');
       });
 
-      describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          containsClassMock.mockReturnValueOnce(true);
-          await wrapper.trigger('click');
-        });
+      it('does not emit the click event', () => {
+        expect(wrapper.emitted('click')).toBeUndefined();
+      });
+    });
 
-        it('does not emit the click event', () => {
-          expect(wrapper.emitted('click')).toBeUndefined();
-        });
+    describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('a'));
+        containsClassMock.mockReturnValueOnce(true);
+        await wrapper.trigger('click');
+      });
+
+      it('does not emit the click event', () => {
+        expect(wrapper.emitted('click')).toBeUndefined();
       });
     });
 
@@ -124,39 +122,37 @@ describe('InteractionWrapper', () => {
   });
 
   describe('when the contextmenu event is triggered', () => {
-    describe('when the target is an interactive element', () => {
-      describe('when the closest target is a button', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('button'));
-          await wrapper.trigger('contextmenu');
-        });
-
-        it('does not emit the contextMenu event', () => {
-          expect(wrapper.emitted('contextMenu')).toBeUndefined();
-        });
+    describe('when the closest target is a button', () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('button'));
+        await wrapper.trigger('contextmenu');
       });
 
-      describe('when the closest target is an anchor element', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          await wrapper.trigger('contextmenu');
-        });
+      it('does not emit the contextMenu event', () => {
+        expect(wrapper.emitted('contextMenu')).toBeUndefined();
+      });
+    });
 
-        it('does not emit the contextMenu event', () => {
-          expect(wrapper.emitted('contextMenu')).toBeUndefined();
-        });
+    describe('when the closest target is an anchor element', () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('a'));
+        await wrapper.trigger('contextmenu');
       });
 
-      describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          containsClassMock.mockReturnValueOnce(true);
-          await wrapper.trigger('contextmenu');
-        });
+      it('does not emit the contextMenu event', () => {
+        expect(wrapper.emitted('contextMenu')).toBeUndefined();
+      });
+    });
 
-        it('does not emit the contextMenu event', () => {
-          expect(wrapper.emitted('contextMenu')).toBeUndefined();
-        });
+    describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('a'));
+        containsClassMock.mockReturnValueOnce(true);
+        await wrapper.trigger('contextmenu');
+      });
+
+      it('does not emit the contextMenu event', () => {
+        expect(wrapper.emitted('contextMenu')).toBeUndefined();
       });
     });
 
@@ -175,39 +171,37 @@ describe('InteractionWrapper', () => {
   });
 
   describe('when the dragstart event is triggered', () => {
-    describe('when the target is an interactive element', () => {
-      describe('when the closest target is a button', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('button'));
-          await wrapper.trigger('dragstart');
-        });
-
-        it('does not emit the dragStart event', () => {
-          expect(wrapper.emitted('dragStart')).toBeUndefined();
-        });
+    describe('when the closest target is a button', () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('button'));
+        await wrapper.trigger('dragstart');
       });
 
-      describe('when the closest target is an anchor element', () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          await wrapper.trigger('dragstart');
-        });
+      it('does not emit the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toBeUndefined();
+      });
+    });
 
-        it('does not emit the dragStart event', () => {
-          expect(wrapper.emitted('dragStart')).toBeUndefined();
-        });
+    describe('when the closest target is an anchor element', () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('a'));
+        await wrapper.trigger('dragstart');
       });
 
-      describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
-        beforeEach(async () => {
-          closestSpy.mockReturnValueOnce(document.createElement('a'));
-          containsClassMock.mockReturnValueOnce(true);
-          await wrapper.trigger('dragstart');
-        });
+      it('does not emit the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toBeUndefined();
+      });
+    });
 
-        it('does not emit the dragStart event', () => {
-          expect(wrapper.emitted('dragStart')).toBeUndefined();
-        });
+    describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+      beforeEach(async () => {
+        closestSpy.mockReturnValueOnce(document.createElement('a'));
+        containsClassMock.mockReturnValueOnce(true);
+        await wrapper.trigger('dragstart');
+      });
+
+      it('does not emit the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toBeUndefined();
       });
     });
 
@@ -303,6 +297,61 @@ describe('InteractionWrapper', () => {
       onDragStartMock = vi.fn();
       wrapper = factory();
       await wrapper.trigger('touchstart');
+    });
+
+    describe('when the contextmenu event is triggered', () => {
+      describe('when the closest target is a button', () => {
+        beforeEach(async () => {
+          closestSpy.mockReturnValueOnce(document.createElement('button'));
+          await wrapper.trigger('contextmenu');
+        });
+
+        it('emits the contextMenu event', () => {
+          expect(wrapper.emitted('contextMenu')).toEqual([
+            [expect.any(MouseEvent)],
+          ]);
+        });
+      });
+
+      describe('when the closest target is an anchor element', () => {
+        beforeEach(async () => {
+          closestSpy.mockReturnValueOnce(document.createElement('a'));
+          await wrapper.trigger('contextmenu');
+        });
+
+        it('emits the contextMenu event', () => {
+          expect(wrapper.emitted('contextMenu')).toEqual([
+            [expect.any(MouseEvent)],
+          ]);
+        });
+      });
+
+      describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+        beforeEach(async () => {
+          closestSpy.mockReturnValueOnce(document.createElement('a'));
+          containsClassMock.mockReturnValueOnce(true);
+          await wrapper.trigger('contextmenu');
+        });
+
+        it('emits the contextMenu event', () => {
+          expect(wrapper.emitted('contextMenu')).toEqual([
+            [expect.any(MouseEvent)],
+          ]);
+        });
+      });
+
+      describe('when the target is not an interactive element', () => {
+        beforeEach(async () => {
+          containsClassMock.mockReturnValueOnce(true);
+          await wrapper.trigger('contextmenu');
+        });
+
+        it('emits the contextMenu event', () => {
+          expect(wrapper.emitted('contextMenu')).toEqual([
+            [expect.any(MouseEvent)],
+          ]);
+        });
+      });
     });
 
     describe('when the mouseenter event is triggered', () => {
