@@ -4,31 +4,33 @@ exports[`PlaybackRateButton > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
     <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
   </button>
-  <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-    <ul class="hasPointerEvents">
-      <li class="centerItems dropdownTitle">
-        <p class="strong smallFont">Playback speed</p>
-      </li>
-      <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-          <!--v-if--><span class="clamp text">0.5x</span>
-        </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-          <!--v-if--><span class="clamp text">0.75x</span>
-        </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item selected spaceBetween item selected" draggable="false" type="button">
-          <!--v-if--><span class="clamp text">Normal</span>
-        </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-          <!--v-if--><span class="clamp text">1.5x</span>
-        </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-          <!--v-if--><span class="clamp text">2x</span>
-        </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-          <!--v-if--><span class="clamp text">2.5x</span>
-        </button></li>
-    </ul>
-  </div>
+  <teleport-stub to="#teleports">
+    <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+      <ul class="hasPointerEvents">
+        <li class="centerItems dropdownTitle">
+          <p class="strong smallFont">Playback speed</p>
+        </li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">0.5x</span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">0.75x</span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item selected spaceBetween item selected" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">Normal</span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">1.5x</span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">2x</span>
+          </button></li>
+        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">2.5x</span>
+          </button></li>
+      </ul>
+    </div>
+  </teleport-stub>
 </div>"
 `;

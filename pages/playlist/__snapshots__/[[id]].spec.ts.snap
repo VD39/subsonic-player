@@ -42,23 +42,25 @@ exports[`[[id]] > when getPlaylistTracksById does return data > matches the snap
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-              <ul class="hasPointerEvents">
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Edit Playlist </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Delete Playlist </span>
-                  </button></li>
-                <li aria-hidden="true" class="divider"></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Add to queue </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Play Tracks </span>
-                  </button></li>
-              </ul>
-            </div>
+            <teleport-stub to="#teleports">
+              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents">
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Edit Playlist </span>
+                    </button></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Delete Playlist </span>
+                    </button></li>
+                  <li aria-hidden="true" class="divider"></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Add to queue </span>
+                    </button></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Play Tracks </span>
+                    </button></li>
+                </ul>
+              </div>
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -100,17 +102,19 @@ exports[`[[id]] > when getPlaylistTracksById does return data > when playlist tr
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-              <ul class="hasPointerEvents">
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Edit Playlist </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Delete Playlist </span>
-                  </button></li>
-                <!--v-if-->
-              </ul>
-            </div>
+            <teleport-stub to="#teleports">
+              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents">
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Edit Playlist </span>
+                    </button></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Delete Playlist </span>
+                    </button></li>
+                  <!--v-if-->
+                </ul>
+              </div>
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -152,23 +156,25 @@ exports[`[[id]] > when getPlaylistTracksById does return data > when playlist.tr
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
             </button>
-            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-              <ul class="hasPointerEvents">
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Edit Playlist </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Delete Playlist </span>
-                  </button></li>
-                <li aria-hidden="true" class="divider"></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Add to queue </span>
-                  </button></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text"> Play Tracks </span>
-                  </button></li>
-              </ul>
-            </div>
+            <teleport-stub to="#teleports">
+              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents">
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Edit Playlist </span>
+                    </button></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Delete Playlist </span>
+                    </button></li>
+                  <li aria-hidden="true" class="divider"></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Add to queue </span>
+                    </button></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text"> Play Tracks </span>
+                    </button></li>
+                </ul>
+              </div>
+            </teleport-stub>
           </div>
         </div>
       </div>

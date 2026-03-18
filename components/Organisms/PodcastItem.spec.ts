@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
@@ -7,9 +8,13 @@ import { formattedPodcastMock } from '@/test/fixtures';
 
 import PodcastItem from './PodcastItem.vue';
 
-const podcast = formattedPodcastMock;
+const navigateToMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('navigateTo', () => navigateToMock);
 
 const openDropdownMenuMock = vi.fn();
+
+const podcast = formattedPodcastMock;
 
 function factory(props = {}) {
   return mount(PodcastItem, {
@@ -59,6 +64,22 @@ describe('PodcastItem', () => {
     },
   );
 
+  describe('when the InteractionWrapper component emits the click event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(InteractionWrapper).vm.$emit('click');
+    });
+
+    it('calls the navigateTo function with the correct parameters', () => {
+      expect(navigateToMock).toHaveBeenCalledWith({
+        name: ROUTE_NAMES.podcast,
+        params: {
+          [ROUTE_PARAM_KEYS.podcast.id]: podcast.id,
+          [ROUTE_PARAM_KEYS.podcast.sortBy]: ROUTE_PODCAST_SORT_BY_PARAMS.All,
+        },
+      });
+    });
+  });
+
   describe('when the InteractionWrapper component emits the dragStart event', () => {
     beforeEach(() => {
       wrapper
@@ -78,38 +99,6 @@ describe('PodcastItem', () => {
 
     it('calls the openDropdownMenu function', () => {
       expect(openDropdownMenuMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('when the DropdownMenu component emits the opened event', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'dropdownMenuRef' }).vm.$emit('opened');
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('adds the dropdownOpened class', () => {
-      expect(wrapper.findComponent(InteractionWrapper).classes()).toContain(
-        'dropdownOpened',
-      );
-    });
-
-    describe('when the DropdownMenu component emits the closed event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'dropdownMenuRef' }).vm.$emit('closed');
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('removes the dropdownOpened class', () => {
-        expect(
-          wrapper.findComponent(InteractionWrapper).classes(),
-        ).not.toContain('dropdownOpened');
-      });
     });
   });
 });

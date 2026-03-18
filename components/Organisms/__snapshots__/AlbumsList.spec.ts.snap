@@ -31,7 +31,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -57,7 +59,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -83,7 +87,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -109,7 +115,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -135,7 +143,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -166,7 +176,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -192,7 +204,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -218,7 +232,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -244,7 +260,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -270,7 +288,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -301,7 +321,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -327,7 +349,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -353,7 +377,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -379,7 +405,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>
@@ -405,7 +433,9 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
         </button>
-        <!--v-if-->
+        <teleport-stub to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
       </div>
     </div>
   </article>

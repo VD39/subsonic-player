@@ -73,7 +73,9 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
     </div>
@@ -136,7 +138,9 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
     </div>
@@ -199,7 +203,9 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
     </div>
@@ -262,7 +268,9 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
     </div>
@@ -325,7 +333,9 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
     </div>

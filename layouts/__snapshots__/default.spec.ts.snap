@@ -140,7 +140,9 @@ exports[`Default > when route name is index > matches the snapshot 1`] = `
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <!--v-if-->
+            <teleport-stub to="#teleports">
+              <!--v-if-->
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -282,7 +284,9 @@ exports[`Default > when route name is podcast-sortBy-id > matches the snapshot 1
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <!--v-if-->
+            <teleport-stub to="#teleports">
+              <!--v-if-->
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -424,7 +428,9 @@ exports[`Default > when route name is podcasts > matches the snapshot 1`] = `
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <!--v-if-->
+            <teleport-stub to="#teleports">
+              <!--v-if-->
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -566,7 +572,9 @@ exports[`Default > when route name is radio-stations > matches the snapshot 1`] 
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <!--v-if-->
+            <teleport-stub to="#teleports">
+              <!--v-if-->
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -708,7 +716,9 @@ exports[`Default > when user is defined > matches the snapshot 1`] = `
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <!--v-if-->
+            <teleport-stub to="#teleports">
+              <!--v-if-->
+            </teleport-stub>
           </div>
         </div>
       </div>
@@ -834,26 +844,28 @@ exports[`Default > when user is defined > when the DropdownMenu component is cli
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View account details">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text">username</span>
             </button>
-            <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-              <ul class="hasPointerEvents">
-                <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
-                    <!--v-if--><span class="clamp text"> Profile </span>
-                  </a></li>
-                <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
-                    <!--v-if--><span class="clamp text"> Files </span>
-                  </a></li>
-                <li class="dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="server" target="_blank">
-                    <!--v-if--><span class="clamp text"> Server </span>
-                  </a></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <!--v-if--><span class="clamp text">Scan</span>
-                  </button></li>
-                <li aria-hidden="true" class="divider"></li>
-                <li class="dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                    <phsignout aria-hidden="true" class="icon" size="24" weight="regular"></phsignout><span class="clamp text"> Log out </span>
-                  </button></li>
-              </ul>
-            </div>
+            <teleport-stub to="#teleports">
+              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents">
+                  <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+                      <!--v-if--><span class="clamp text"> Profile </span>
+                    </a></li>
+                  <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+                      <!--v-if--><span class="clamp text"> Files </span>
+                    </a></li>
+                  <li class="dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="server" target="_blank">
+                      <!--v-if--><span class="clamp text"> Server </span>
+                    </a></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <!--v-if--><span class="clamp text">Scan</span>
+                    </button></li>
+                  <li aria-hidden="true" class="divider"></li>
+                  <li class="dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+                      <phsignout aria-hidden="true" class="icon" size="24" weight="regular"></phsignout><span class="clamp text"> Log out </span>
+                    </button></li>
+                </ul>
+              </div>
+            </teleport-stub>
           </div>
         </div>
       </div>

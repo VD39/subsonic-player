@@ -22,8 +22,6 @@ const emit = defineEmits<{
 
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 
-const isDropdownOpened = ref(false);
-
 const albumProps = computed(() => ({
   title: `Go to album ${props.album.name}`,
   toLink: {
@@ -43,34 +41,19 @@ async function goToAlbum() {
   await navigateTo(albumProps.value.toLink);
 }
 
-function onClosedDropdown() {
-  isDropdownOpened.value = false;
-}
-
 function onDragStart(event: DragEvent) {
   emit('dragStart', props.album, event);
 }
 
-function onOpenedDropdown() {
-  isDropdownOpened.value = true;
-}
-
 function openDropdownMenu(event: MouseEvent | TouchEvent) {
   dropdownMenuRef.value?.openDropdownMenu(event);
-  onOpenedDropdown();
 }
 </script>
 
 <template>
   <InteractionWrapper
     is="article"
-    :class="[
-      'layoutItem',
-      $style.albumItem,
-      {
-        [$style.dropdownOpened]: isDropdownOpened,
-      },
-    ]"
+    :class="['layoutItem', $style.albumItem]"
     @click="goToAlbum"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
@@ -121,11 +104,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     </div>
 
     <div :class="['layoutDropdownMenu', $style.hoverActions]">
-      <DropdownMenu
-        ref="dropdownMenuRef"
-        @closed="onClosedDropdown"
-        @opened="onOpenedDropdown"
-      >
+      <DropdownMenu ref="dropdownMenuRef">
         <DropdownItem ref="playAlbum" @click="$emit('playAlbum', album)">
           Play album
         </DropdownItem>
@@ -162,13 +141,15 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 .albumItem {
   position: relative;
 
-  @media (hover: hover) {
-    &:hover,
-    &:focus,
-    &:focus-within {
-      .hoverActions {
-        --album-hover-actions-opacity: 1;
-        --album-hover-actions-z-index: 10;
+  :not(.dropdownMenuOpened) & {
+    @media (hover: hover) {
+      &:hover,
+      &:focus,
+      &:focus-within {
+        .hoverActions {
+          --album-hover-actions-opacity: 1;
+          --album-hover-actions-z-index: 10;
+        }
       }
     }
   }
@@ -194,10 +175,5 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
   z-index: var(--album-hover-actions-z-index);
   opacity: var(--album-hover-actions-opacity);
-
-  .dropdownOpened & {
-    --album-hover-actions-opacity: 1;
-    --album-hover-actions-z-index: 10;
-  }
 }
 </style>

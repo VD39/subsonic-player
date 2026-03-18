@@ -19,8 +19,6 @@ const emit = defineEmits<{
 
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 
-const isDropdownOpened = ref(false);
-
 const podcastProps = computed(() => ({
   title: `Go to podcast ${props.podcast.name}`,
   toLink: {
@@ -41,34 +39,19 @@ async function goToPodcast() {
   await navigateTo(podcastProps.value.toLink);
 }
 
-function onClosedDropdown() {
-  isDropdownOpened.value = false;
-}
-
 function onDragStart(event: DragEvent) {
   emit('dragStart', props.podcast, event);
 }
 
-function onOpenedDropdown() {
-  isDropdownOpened.value = true;
-}
-
 function openDropdownMenu(event: MouseEvent | TouchEvent) {
   dropdownMenuRef.value?.openDropdownMenu(event);
-  onOpenedDropdown();
 }
 </script>
 
 <template>
   <InteractionWrapper
     is="article"
-    :class="[
-      'layoutItem',
-      $style.podcastItem,
-      {
-        [$style.dropdownOpened]: isDropdownOpened,
-      },
-    ]"
+    :class="['layoutItem', $style.podcastItem]"
     @click="goToPodcast"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
@@ -107,11 +90,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     </div>
 
     <div :class="['layoutDropdownMenu', $style.hoverActions]">
-      <DropdownMenu
-        ref="dropdownMenuRef"
-        @closed="onClosedDropdown"
-        @opened="onOpenedDropdown"
-      >
+      <DropdownMenu ref="dropdownMenuRef">
         <DropdownItem ref="playPodcast" @click="$emit('playPodcast', podcast)">
           Play podcast
         </DropdownItem>
@@ -141,13 +120,15 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 .podcastItem {
   position: relative;
 
-  @media (hover: hover) {
-    &:hover,
-    &:focus,
-    &:focus-within {
-      .hoverActions {
-        --podcast-hover-actions-opacity: 1;
-        --podcast-hover-actions-z-index: 10;
+  :not(.dropdownMenuOpened) & {
+    @media (hover: hover) {
+      &:hover,
+      &:focus,
+      &:focus-within {
+        .hoverActions {
+          --podcast-hover-actions-opacity: 1;
+          --podcast-hover-actions-z-index: 10;
+        }
       }
     }
   }
@@ -173,10 +154,5 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
   z-index: var(--podcast-hover-actions-z-index);
   opacity: var(--podcast-hover-actions-opacity);
-
-  .dropdownOpened & {
-    --podcast-hover-actions-opacity: 1;
-    --podcast-hover-actions-z-index: 10;
-  }
 }
 </style>

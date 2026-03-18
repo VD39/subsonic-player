@@ -55,7 +55,9 @@ exports[`PlayerOptions > when currentTrack value does not have a favourite key >
   <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
       <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
     </button>
-    <!--v-if-->
+    <teleport-stub to="#teleports">
+      <!--v-if-->
+    </teleport-stub>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
     <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
   </button>
@@ -89,7 +91,9 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
   <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
       <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
     </button>
-    <!--v-if-->
+    <teleport-stub to="#teleports">
+      <!--v-if-->
+    </teleport-stub>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
     <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
   </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">

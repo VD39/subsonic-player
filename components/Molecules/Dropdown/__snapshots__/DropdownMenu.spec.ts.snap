@@ -4,7 +4,9 @@ exports[`DropdownMenu > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
     <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
-  <!--v-if-->
+  <teleport-stub to="#teleports">
+    <!--v-if-->
+  </teleport-stub>
 </div>"
 `;
 
@@ -12,9 +14,11 @@ exports[`DropdownMenu > when isOpen changes to true > matches the snapshot 1`] =
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
     <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
-  <div class="backdrop dropdown fade-enter-from fade-enter-active">
-    <ul class="hasPointerEvents">Default slot content.</ul>
-  </div>
+  <teleport-stub to="#teleports">
+    <div class="backdrop dropdown fade-enter-from fade-enter-active">
+      <ul class="hasPointerEvents">Default slot content.</ul>
+    </div>
+  </teleport-stub>
 </div>"
 `;
 
@@ -22,9 +26,11 @@ exports[`DropdownMenu > when isOpen changes to true > when isOpen changes to fal
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
     <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
   </button>
-  <div class="backdrop dropdown fade-enter-from fade-leave-from fade-leave-active">
-    <ul class="hasPointerEvents">Default slot content.</ul>
-  </div>
-  <!--v-if-->
+  <teleport-stub to="#teleports">
+    <div class="backdrop dropdown fade-enter-from fade-leave-from fade-leave-active">
+      <ul class="hasPointerEvents">Default slot content.</ul>
+    </div>
+    <!--v-if-->
+  </teleport-stub>
 </div>"
 `;

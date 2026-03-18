@@ -66,7 +66,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -130,7 +132,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -194,7 +198,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -258,7 +264,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -322,7 +330,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -399,7 +409,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -463,7 +475,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -527,7 +541,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -591,7 +607,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
@@ -655,7 +673,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
           </button>
-          <!--v-if-->
+          <teleport-stub to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">

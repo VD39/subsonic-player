@@ -50,10 +50,6 @@ describe('DropdownMenu', () => {
     it('does not show the dropdown list element', () => {
       expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
     });
-
-    it('does not emit the opened event', () => {
-      expect(wrapper.emitted('opened')).toBeUndefined();
-    });
   });
 
   describe('when isOpen changes to true', () => {
@@ -70,10 +66,6 @@ describe('DropdownMenu', () => {
       expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(true);
     });
 
-    it('emits the opened event', () => {
-      expect(wrapper.emitted('opened')).toEqual([[]]);
-    });
-
     describe('when isOpen changes to false', () => {
       beforeAll(async () => {
         isOpenMock.value = false;
@@ -86,10 +78,6 @@ describe('DropdownMenu', () => {
 
       it('does not show the dropdown list element', () => {
         expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
-      });
-
-      it('emits the closed event', () => {
-        expect(wrapper.emitted('closed')).toEqual([[]]);
       });
     });
   });

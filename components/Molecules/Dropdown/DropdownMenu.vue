@@ -15,11 +15,6 @@ withDefaults(
   },
 );
 
-const emit = defineEmits<{
-  closed: [];
-  opened: [];
-}>();
-
 const dropdownListRef = useTemplateRef('dropdownListRef');
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 
@@ -36,14 +31,6 @@ function toggleDropdownMenu() {
     openDropdownMenu();
   }
 }
-
-watch(isOpen, (isDropdownOpen) => {
-  if (isDropdownOpen) {
-    emit('opened');
-  } else {
-    emit('closed');
-  }
-});
 
 defineExpose({
   openDropdownMenu,
@@ -63,18 +50,20 @@ defineExpose({
       {{ text }}
     </ButtonLink>
 
-    <transition name="fade">
-      <div
-        v-if="isOpen"
-        ref="dropdownListRef"
-        :class="['backdrop', $style.dropdown]"
-        :style="menuStyle"
-      >
-        <ul class="hasPointerEvents">
-          <slot />
-        </ul>
-      </div>
-    </transition>
+    <Teleport to="#teleports">
+      <transition name="fade">
+        <div
+          v-if="isOpen"
+          ref="dropdownListRef"
+          :class="['backdrop', $style.dropdown]"
+          :style="menuStyle"
+        >
+          <ul class="hasPointerEvents">
+            <slot />
+          </ul>
+        </div>
+      </transition>
+    </Teleport>
   </div>
 </template>
 
