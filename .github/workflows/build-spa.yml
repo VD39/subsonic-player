@@ -1,6 +1,7 @@
 name: Build SPA
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       is-release:
