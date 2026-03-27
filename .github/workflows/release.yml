@@ -2,14 +2,10 @@ name: Release
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
 
 jobs:
   build-spa:
     uses: ./.github/workflows/build-spa.yml
-    with:
-      is-release: true
     permissions:
       contents: write
 

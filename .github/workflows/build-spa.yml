@@ -3,10 +3,6 @@ name: Build SPA
 on:
   workflow_dispatch:
   workflow_call:
-    inputs:
-      is-release:
-        type: boolean
-        default: false
 
 jobs:
   build:
@@ -20,6 +16,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          fetch-tags: true
 
       - name: Set version metadata 🏷️
         run: |
@@ -28,16 +25,29 @@ jobs:
           echo "ARTIFACT_NAME=subsonic-player-static-${SHORT_SHA}" >> $GITHUB_ENV
           echo "TARBALL_NAME=subsonic-player-static-${SHORT_SHA}.tar.gz" >> $GITHUB_ENV
 
-      - name: Generate release notes 📝
-        if: inputs.is-release
+      - name: Compute release tag 🏷️
         run: |
-          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          LATEST=$(git tag --list 'v*' --sort=-version:refname | head -n1)
+          if [ -z "$LATEST" ]; then
+            TAG="v1.0.0"
+          else
+            MAJOR=$(echo "$LATEST" | sed 's/^v//' | cut -d. -f1)
+            MINOR=$(echo "$LATEST" | sed 's/^v//' | cut -d. -f2)
+            PATCH=$(echo "$LATEST" | sed 's/^v//' | cut -d. -f3)
+            PATCH=$((PATCH + 1))
+            TAG="v${MAJOR}.${MINOR}.${PATCH}"
+          fi
+          echo "RELEASE_TAG=${TAG}" >> $GITHUB_ENV
+
+      - name: Generate release notes 📝
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
           if [ -n "$PREV_TAG" ]; then
             echo "Changes since ${PREV_TAG}:" > release-notes.md
             git log ${PREV_TAG}..HEAD --pretty=format:'- `%h` %s' \
               | grep -v 'dependabot\|Bump ' >> release-notes.md
           else
-            echo "Recent commits:" > release-notes.md
+            echo "Initial release" > release-notes.md
             git log --max-count=15 --pretty=format:'- `%h` %s' \
               | grep -v 'dependabot\|Bump ' >> release-notes.md
           fi
@@ -67,9 +77,11 @@ jobs:
           path: ${{ env.TARBALL_NAME }}
           retention-days: 7
 
-      - name: Upload to release 🚀
-        if: inputs.is-release
+      - name: Create release 🚀
         uses: softprops/action-gh-release@v2
         with:
-          files: ${{ env.TARBALL_NAME }}
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: ${{ env.RELEASE_TAG }}
           body_path: release-notes.md
+          files: ${{ env.TARBALL_NAME }}
+          make_latest: true
