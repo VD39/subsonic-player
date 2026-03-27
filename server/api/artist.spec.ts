@@ -1,6 +1,6 @@
 import type { MockInstance } from 'vitest';
 
-import { cookieMock } from '@/test/fixtures';
+import { artistDataMock, artistInfo2Mock, cookieMock } from '@/test/fixtures';
 
 import artistApi from './artist';
 
@@ -78,29 +78,23 @@ describe('artist-api', () => {
       $fetchMock
         .mockResolvedValueOnce({
           'subsonic-response': {
-            artistInfo2: {
-              id: 'id',
-              musicBrainzId: 'musicBrainzId',
-            },
+            artistInfo2: artistInfo2Mock,
             status: 'ok',
           },
         })
         .mockResolvedValueOnce({
           'subsonic-response': {
-            artist: {
-              id: 'id',
-              name: 'name',
-            },
+            artist: artistDataMock,
             status: 'ok',
           },
         })
         .mockResolvedValueOnce({
-          data: {
+          'subsonic-response': {
             status: 'ok',
           },
         })
         .mockResolvedValueOnce({
-          data: {
+          'subsonic-response': {
             status: 'ok',
           },
         });
@@ -110,7 +104,6 @@ describe('artist-api', () => {
       expect(await artistApi({} as never)).toEqual({
         data: expect.objectContaining({
           id: 'id',
-          musicBrainzUrl: 'https://musicbrainz.org/artist/musicBrainzId',
           name: 'name',
         }),
       });

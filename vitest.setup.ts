@@ -42,6 +42,8 @@ mockNuxtImport('debounce', () => {
   };
 });
 
+mockNuxtImport('useId', () => () => Math.random().toString(36).substring(2));
+
 config.global.stubs = {
   RouterLink: RouterLinkStub,
   teleport: true,

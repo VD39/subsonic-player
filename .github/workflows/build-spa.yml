@@ -1,0 +1,74 @@
+name: Build SPA
+
+on:
+  workflow_call:
+    inputs:
+      is-release:
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    name: Build SPA static export
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout branch 🛎
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set version metadata 🏷️
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          echo "SHORT_SHA=${SHORT_SHA}" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=subsonic-player-static-${SHORT_SHA}" >> $GITHUB_ENV
+          echo "TARBALL_NAME=subsonic-player-static-${SHORT_SHA}.tar.gz" >> $GITHUB_ENV
+
+      - name: Generate release notes 📝
+        if: inputs.is-release
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -n "$PREV_TAG" ]; then
+            echo "Changes since ${PREV_TAG}:" > release-notes.md
+            git log ${PREV_TAG}..HEAD --pretty=format:'- `%h` %s' \
+              | grep -v 'dependabot\|Bump ' >> release-notes.md
+          else
+            echo "Recent commits:" > release-notes.md
+            git log --max-count=15 --pretty=format:'- `%h` %s' \
+              | grep -v 'dependabot\|Bump ' >> release-notes.md
+          fi
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - name: Install dependencies 👨🏻‍💻
+        run: yarn --frozen-lockfile
+
+      - name: Build SPA 📦
+        run: yarn generate
+        env:
+          SPA_MODE: "true"
+
+      - name: Package artifacts 🗜️
+        run: |
+          tar -czvf ${{ env.TARBALL_NAME }} -C .output/public .
+
+      - name: Upload build artifacts ☁️
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.TARBALL_NAME }}
+          retention-days: 7
+
+      - name: Upload to release 🚀
+        if: inputs.is-release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.TARBALL_NAME }}
+          body_path: release-notes.md

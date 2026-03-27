@@ -140,7 +140,7 @@ describe('MixedTracksListItem', () => {
 
       describe('when the track does not have a podcastName key', () => {
         beforeEach(() => {
-          const track = getFormattedPodcastEpisodesMock(1)[0];
+          const track = getFormattedPodcastEpisodesMock()[0];
 
           delete (track as Partial<PodcastEpisode>).podcastName;
 
@@ -206,7 +206,7 @@ describe('MixedTracksListItem', () => {
         describe('when track.podcastName is defined', () => {
           beforeEach(() => {
             wrapper = factory({
-              track: getFormattedPodcastEpisodesMock(1)[0],
+              track: getFormattedPodcastEpisodesMock()[0],
             });
           });
 
@@ -298,7 +298,7 @@ describe('MixedTracksListItem', () => {
 
       describe('when the track does not have an author key', () => {
         beforeEach(() => {
-          const track = getFormattedPodcastEpisodesMock(1)[0];
+          const track = getFormattedPodcastEpisodesMock()[0];
 
           delete (track as Partial<PodcastEpisode>).author;
 
@@ -449,7 +449,7 @@ describe('MixedTracksListItem', () => {
   describe(`when track.type is ${MEDIA_TYPE.radioStation}`, () => {
     beforeEach(() => {
       wrapper = factory({
-        track: getFormattedRadioStationMock(1)[0],
+        track: getFormattedRadioStationMock()[0],
       });
     });
 
@@ -478,7 +478,7 @@ describe('MixedTracksListItem', () => {
 
   describe('when the track does not have an albumId key', () => {
     beforeEach(() => {
-      const track = getFormattedTracksMock(1)[0];
+      const track = getFormattedTracksMock()[0];
 
       delete (track as Partial<Track>).albumId;
 
@@ -550,7 +550,7 @@ describe('MixedTracksListItem', () => {
     describe('when track.podcastId is defined', () => {
       beforeEach(() => {
         wrapper = factory({
-          track: getFormattedPodcastEpisodesMock(1)[0],
+          track: getFormattedPodcastEpisodesMock()[0],
         });
       });
 
@@ -608,7 +608,7 @@ describe('MixedTracksListItem', () => {
     describe('when track.homePageUrl is defined', () => {
       beforeEach(() => {
         wrapper = factory({
-          track: getFormattedRadioStationMock(1)[0],
+          track: getFormattedRadioStationMock()[0],
         });
       });
 

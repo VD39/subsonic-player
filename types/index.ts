@@ -1,4 +1,4 @@
-import type { NuxtLinkProps } from '#app';
+import type { NuxtLinkProps } from 'nuxt/app';
 
 export type ButtonLinkIs = 'button' | LinkIs;
 

@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -20,6 +24,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
+          cache: yarn
 
       - name: Install dependencies 👨🏻‍💻
         run: yarn --frozen-lockfile
@@ -31,4 +36,4 @@ jobs:
         run: yarn lint
 
       - name: Run tests 🧪
-        run: yarn test
+        run: yarn test:once

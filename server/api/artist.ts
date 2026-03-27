@@ -1,4 +1,4 @@
-import type { UseFetchOptions } from '#app';
+import type { UseFetchOptions } from 'nuxt/app';
 
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
@@ -33,53 +33,24 @@ export default defineEventHandler(async (event) => {
       }
 
       if (subsonicResponse.status === 'ok') {
-        return subsonicResponse;
+        return {
+          data: subsonicResponse as DataT,
+        };
       }
+
+      return {
+        data: null,
+      };
     } catch {
-      return null;
+      return {
+        data: null,
+      };
     }
   }
 
-  const artistInfoResponse = await fetchData('/getArtistInfo2', {
-    query: {
-      id,
-    },
-  });
-
-  const artistResponse = await fetchData('/getArtist', {
-    query: {
-      id,
-    },
-  });
-
-  if (!artistInfoResponse || !artistResponse) {
-    return {
-      data: null,
-    };
-  }
-
-  const similarSongsResponse = await fetchData('/getSimilarSongs2', {
-    query: {
-      count: PREVIEW_TRACK_COUNT,
-      id,
-    },
-  });
-
-  const topSongsResponse = await fetchData('/getTopSongs', {
-    query: {
-      artist: artistResponse.artist.name,
-      count: PREVIEW_TRACK_COUNT,
-    },
-  });
-
-  const mergedArtists = {
-    ...artistInfoResponse.artistInfo2,
-    ...artistResponse.artist,
-    similarSongs: similarSongsResponse?.similarSongs2?.song,
-    topSongs: topSongsResponse?.topSongs?.song,
-  };
+  const result = await fetchAndMergeArtistData(id as string, fetchData);
 
   return {
-    data: formatArtist(mergedArtists),
+    data: result,
   };
 });

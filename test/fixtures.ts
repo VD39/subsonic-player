@@ -124,6 +124,25 @@ export const artistMock: ArtistWithAlbumsID3 = {
   starred: apiDateMock,
 };
 
+export const artistInfo2Mock: ArtistInfo2 = {
+  musicBrainzId: 'musicBrainzId',
+};
+
+export const artistDataMock: ArtistWithAlbumsID3 = {
+  album: [albumMock],
+  albumCount: 0,
+  id: 'id',
+  name: 'name',
+};
+
+export const similarSongsMock: SimilarSongs2 = {
+  song: [trackMock],
+};
+
+export const topSongsMock: TopSongs = {
+  song: [trackMock],
+};
+
 export const playlistMock: PlaylistWithSongs = {
   changed: apiDateMock,
   comment: '',

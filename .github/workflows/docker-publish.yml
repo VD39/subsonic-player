@@ -1,6 +1,7 @@
 name: Docker Publish Latest
 
 on:
+  workflow_call:
   workflow_dispatch:
 
 env:
@@ -11,29 +12,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout branch 🛎
         uses: actions/checkout@v6
 
-      - name: Set up Docker Buildx
+      - name: Get Node version 📋
+        id: node-version
+        run: echo "version=$(cat .nvmrc)" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx 🏗
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to DockerHub
+      - name: Login to DockerHub 🔐
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Set up QEMU
+      - name: Set up QEMU 🖥️
         uses: docker/setup-qemu-action@v3
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image 📦
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
+          build-args: |
+            NODE_VERSION=${{ steps.node-version.outputs.version }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.APP_NAME }}:latest
 
-      - name: Update Docker description
+      - name: Update Docker description 📝
         uses: peter-evans/dockerhub-description@v5
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}

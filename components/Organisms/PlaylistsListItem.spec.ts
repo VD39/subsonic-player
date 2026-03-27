@@ -12,7 +12,7 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const playlist = getFormattedPlaylistsMock(1)[0];
+const playlist = getFormattedPlaylistsMock()[0];
 
 const openDropdownMenuMock = vi.fn();
 

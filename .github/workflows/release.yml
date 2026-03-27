@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-spa:
+    uses: ./.github/workflows/build-spa.yml
+    with:
+      is-release: true
+    permissions:
+      contents: write
+
+  docker-publish:
+    uses: ./.github/workflows/docker-publish.yml
+    secrets: inherit

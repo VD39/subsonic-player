@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AsyncDataRequestStatus } from '#app';
+import type { AsyncDataRequestStatus } from 'nuxt/app';
 
 import MainLoader from '@/components/Atoms/MainLoader.vue';
 

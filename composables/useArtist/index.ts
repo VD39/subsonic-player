@@ -12,9 +12,21 @@ export function useArtist() {
     return artistsData || [];
   }
 
-  /* istanbul ignore next -- @preserve */
   function getArtist(id: string) {
     const route = useRoute();
+    const config = useRuntimeConfig();
+
+    if (config.public.SPA_MODE) {
+      return useAsyncData(
+        route.fullPath,
+        () => fetchAndMergeArtistData(id, fetchData),
+        {
+          default: () => null,
+          getCachedData: (key, nuxtApp) =>
+            nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+        },
+      );
+    }
 
     return useFetch('/api/artist', {
       default: () => null,

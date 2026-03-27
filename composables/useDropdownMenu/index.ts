@@ -13,7 +13,7 @@ export function useDropdownMenu(options: DropdownOptions) {
     () => null,
   );
 
-  const menuId = crypto.randomUUID();
+  const menuId = useId();
 
   const abortController = ref<AbortController | null>(null);
   const menuStyle = ref<Record<string, string>>({});

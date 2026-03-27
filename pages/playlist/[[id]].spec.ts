@@ -349,7 +349,7 @@ describe('[[id]]', () => {
     describe(`when playlist.id is equal to ${RANDOM_PLAYLIST.id}`, () => {
       beforeEach(async () => {
         playlistMock.value = {
-          ...getFormattedPlaylistsMock(1, {})[0],
+          ...getFormattedPlaylistsMock()[0],
           id: RANDOM_PLAYLIST.id,
         };
 
