@@ -4,11 +4,6 @@ export function useAuth() {
   const { fetchData } = useAPI();
   const user = useUser();
   const { resetAllUserState } = useStateReset();
-  const authCookie = useCookie(COOKIE_NAMES.auth, {
-    expires: new Date(
-      new Date().setDate(new Date().getDate() + DAYS_COOKIE_EXPIRES),
-    ),
-  });
 
   const loading = ref(false);
   const error = ref<null | string>(null);
@@ -105,7 +100,7 @@ export function useAuth() {
   function resetAuth() {
     isAuthenticated.value = false;
     user.value = null;
-    authCookie.value = null;
+    setAuthToken(null); // Clear both cookie AND localStorage for webOS
     error.value = null;
   }
 
