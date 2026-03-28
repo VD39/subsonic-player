@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      SHORT_SHA: ""
+      ARTIFACT_NAME: ""
+      TARBALL_NAME: ""
+      RELEASE_TAG: ""
 
     steps:
       - name: Checkout branch 🛎
@@ -27,17 +32,7 @@ jobs:
 
       - name: Compute release tag 🏷️
         run: |
-          LATEST=$(git tag --list 'v*' --sort=-version:refname | head -n1)
-          if [ -z "$LATEST" ]; then
-            TAG="v1.0.0"
-          else
-            MAJOR=$(echo "$LATEST" | sed 's/^v//' | cut -d. -f1)
-            MINOR=$(echo "$LATEST" | sed 's/^v//' | cut -d. -f2)
-            PATCH=$(echo "$LATEST" | sed 's/^v//' | cut -d. -f3)
-            PATCH=$((PATCH + 1))
-            TAG="v${MAJOR}.${MINOR}.${PATCH}"
-          fi
-          echo "RELEASE_TAG=${TAG}" >> $GITHUB_ENV
+          echo "RELEASE_TAG=${SHORT_SHA}" >> $GITHUB_ENV
 
       - name: Generate release notes 📝
         run: |
