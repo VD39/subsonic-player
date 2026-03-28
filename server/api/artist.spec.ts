@@ -1,23 +1,32 @@
-import type { MockInstance } from 'vitest';
-
 import { artistDataMock, artistInfo2Mock, cookieMock } from '@/test/fixtures';
 
-import artistApi from './artist';
+const mockGetCookie = vi.hoisted(() => vi.fn(() => cookieMock));
+const mock$fetch = vi.hoisted(() => vi.fn());
 
-const $fetchMock = vi.spyOn(globalThis, '$fetch') as MockInstance;
+vi.mock('h3', () => ({
+  defineEventHandler: (func: unknown) => func,
+  getCookie: mockGetCookie,
+  getQuery: () => ({ id: 'id' }),
+}));
+
+vi.mock('ofetch', () => ({
+  $fetch: mock$fetch,
+}));
 
 describe('artist-api', () => {
   afterEach(() => {
-    vi.stubGlobal('getCookie', () => cookieMock);
+    vi.clearAllMocks();
+    vi.resetModules();
   });
 
   describe('when getCookie returns undefined', () => {
     beforeEach(() => {
-      vi.stubGlobal('getCookie', () => undefined);
+      mockGetCookie.mockReturnValue(undefined as unknown as string);
     });
 
     it('returns the correct response', async () => {
-      expect(await artistApi({} as never)).toEqual({
+      const { default: artistApiFresh } = await import('./artist');
+      expect(await artistApiFresh({} as never)).toEqual({
         data: null,
       });
     });
@@ -25,11 +34,13 @@ describe('artist-api', () => {
 
   describe('when $fetch response for getArtistInfo2 or getArtist return null', () => {
     beforeEach(() => {
-      $fetchMock.mockResolvedValueOnce(null).mockResolvedValueOnce(null);
+      mockGetCookie.mockReturnValue(cookieMock);
+      mock$fetch.mockResolvedValueOnce(null).mockResolvedValueOnce(null);
     });
 
     it('returns the correct response', async () => {
-      expect(await artistApi({} as never)).toEqual({
+      const { default: artistApiFresh } = await import('./artist');
+      expect(await artistApiFresh({} as never)).toEqual({
         data: null,
       });
     });
@@ -37,7 +48,8 @@ describe('artist-api', () => {
 
   describe("when $fetch response for getArtistInfo2 or getArtist don't return a subsonic-response key", () => {
     beforeEach(() => {
-      $fetchMock
+      mockGetCookie.mockReturnValue(cookieMock);
+      mock$fetch
         .mockResolvedValueOnce({
           'subsonic-response': {},
         })
@@ -45,7 +57,8 @@ describe('artist-api', () => {
     });
 
     it('returns the correct response', async () => {
-      expect(await artistApi({} as never)).toEqual({
+      const { default: artistApiFresh } = await import('./artist');
+      expect(await artistApiFresh({} as never)).toEqual({
         data: null,
       });
     });
@@ -53,7 +66,8 @@ describe('artist-api', () => {
 
   describe('when $fetch response for getArtistInfo2 or getArtist status is not ok', () => {
     beforeEach(() => {
-      $fetchMock
+      mockGetCookie.mockReturnValue(cookieMock);
+      mock$fetch
         .mockResolvedValueOnce({
           'subsonic-response': {
             status: 'failed',
@@ -67,7 +81,8 @@ describe('artist-api', () => {
     });
 
     it('returns the correct response', async () => {
-      expect(await artistApi({} as never)).toEqual({
+      const { default: artistApiFresh } = await import('./artist');
+      expect(await artistApiFresh({} as never)).toEqual({
         data: null,
       });
     });
@@ -75,7 +90,8 @@ describe('artist-api', () => {
 
   describe('when $fetch response for getArtistInfo2 and getArtist returns a value', () => {
     beforeEach(() => {
-      $fetchMock
+      mockGetCookie.mockReturnValue(cookieMock);
+      mock$fetch
         .mockResolvedValueOnce({
           'subsonic-response': {
             artistInfo2: artistInfo2Mock,
@@ -101,7 +117,8 @@ describe('artist-api', () => {
     });
 
     it('returns the correct response', async () => {
-      expect(await artistApi({} as never)).toEqual({
+      const { default: artistApiFresh } = await import('./artist');
+      expect(await artistApiFresh({} as never)).toEqual({
         data: expect.objectContaining({
           id: 'id',
           name: 'name',

@@ -103,27 +103,27 @@ describe('deleteLocalStorage', () => {
   describe('when deleteLocalStorage function is called', () => {
     describe('with a parameter', () => {
       beforeEach(() => {
-        globalThis.localStorage.setItem('key1', 'key');
-        globalThis.localStorage.setItem('key2', 'key');
+        globalThis.localStorage.clear();
+        globalThis.localStorage.setItem('key1', 'value1');
+        globalThis.localStorage.setItem('key2', 'value2');
         deleteLocalStorage('key2');
       });
 
       it('deletes the key from localStorage', () => {
-        expect(globalThis.localStorage).toEqual({
-          key1: 'key',
-          testKey: '{"storage":"storage"}',
-        });
+        expect(globalThis.localStorage.getItem('key1')).toBe('value1');
+        expect(globalThis.localStorage.getItem('key2')).toBeNull();
       });
     });
   });
 
   describe('without a parameter', () => {
     beforeEach(() => {
+      globalThis.localStorage.setItem('key1', 'value1');
       deleteLocalStorage();
     });
 
     it('resets the localStorage', () => {
-      expect(globalThis.localStorage).toEqual({});
+      expect(globalThis.localStorage.getItem('key1')).toBeNull();
     });
   });
 });

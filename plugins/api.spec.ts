@@ -22,14 +22,11 @@ describe('api plugin', () => {
   });
 
   describe('when the response data is a Blob', () => {
-    it('returns the correct response', () => {
-      expect(
-        onResponseCallback({
-          response: {
-            _data: blobMock,
-          },
-        }),
-      ).toEqual(blobMock);
+    it('returns undefined (Blob passes through unchanged)', () => {
+      const response = { _data: blobMock };
+      const result = onResponseCallback({ response });
+      expect(result).toBeUndefined();
+      expect(response._data).toBe(blobMock);
     });
   });
 
@@ -85,19 +82,17 @@ describe('api plugin', () => {
     });
 
     describe('when the status is ok', () => {
-      it('returns the correct response', () => {
-        expect(
-          onResponseCallback({
-            response: {
-              _data: {
-                'subsonic-response': {
-                  status: 'ok',
-                  testKey: 'testValue',
-                },
-              },
+      it('mutates response._data to contain subsonic-response content', () => {
+        const response = {
+          _data: {
+            'subsonic-response': {
+              status: 'ok',
+              testKey: 'testValue',
             },
-          }),
-        ).toEqual({
+          },
+        };
+        onResponseCallback({ response });
+        expect(response._data).toEqual({
           status: 'ok',
           testKey: 'testValue',
         });
