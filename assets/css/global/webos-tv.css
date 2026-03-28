@@ -61,6 +61,27 @@ body.webosTV .desktopOnly[class*='trackSeeker'] {
   display: block !important;
 }
 
+/* Make track seeker/progress bar more visible on TV - increase height */
+body.webosTV .desktopOnly[class*='trackSeeker'] [class*='slider'],
+body.webosTV .desktopOnly[class*='trackSeeker'] [class*='inputRange'] {
+  height: 10px !important;
+  min-height: 10px !important;
+}
+
+/* Increase progress bar thickness */
+body.webosTV .desktopOnly[class*='trackSeeker'] [class*='process'],
+body.webosTV .desktopOnly[class*='trackSeeker'] [class*='buffer'],
+body.webosTV .desktopOnly[class*='trackSeeker'] [class*='progressWrapper'] {
+  height: 10px !important;
+}
+
+/* Make thumb larger for TV */
+body.webosTV .desktopOnly[class*='trackSeeker'] [class*='thumb'] {
+  width: 18px !important;
+  height: 18px !important;
+  box-shadow: 0 0 10px color-mix(in oklab, var(--theme-color) 50%, transparent) !important;
+}
+
 /* Hide the mobile play/pause button on TV (we use the desktop controls) */
 body.webosTV .mobileOnly[class*='playPauseButton'] {
   display: none !important;
@@ -245,6 +266,7 @@ body.webosTV h3 a svg {
 /* ============================================
    Simple Focus States for TV Remote
    Uses theme color - works with light/dark themes
+   Enhanced for 10-foot UI visibility
    ============================================ */
 
 body.webosTV :focus,
@@ -253,7 +275,9 @@ body.webosTV nav ul[class*='mobileNavigation'] a:focus,
 body.webosTV nav ul[class*='mobileNavigation'] a:focus-visible {
   outline: none;
   border-radius: var(--border-radius-small);
-  box-shadow: 0 0 0 4px var(--theme-color);
+  box-shadow:
+    0 0 0 6px var(--theme-color),
+    0 0 20px color-mix(in oklab, var(--theme-color) 50%, transparent);
 }
 
 body.webosTV .trackRow a:focus,
@@ -268,12 +292,14 @@ body.webosTV .layoutImage a:focus,
 body.webosTV .layoutImage a:focus-visible {
   display: block;
   border-radius: var(--border-radius-large);
-  box-shadow: 0 0 0 4px var(--theme-color) !important;
+  box-shadow:
+    0 0 0 6px var(--theme-color),
+    0 0 30px color-mix(in oklab, var(--theme-color) 60%, transparent) !important;
 }
 
 /* Ensure album image links and genres are block-level for proper focus and dimensions */
 body.webosTV .layoutImage,
-body.webosTV swiper-slide[data-test-id="random-genre-item"] {
+body.webosTV swiper-slide[data-test-id='random-genre-item'] {
   padding: 4px !important;
 }
 
@@ -294,13 +320,17 @@ body.webosTV h2 {
 body.webosTV h2:focus,
 body.webosTV h2:focus-visible {
   border-radius: var(--border-radius-small);
-  box-shadow: 0 0 0 3px var(--theme-color) !important;
+  box-shadow:
+    0 0 0 5px var(--theme-color),
+    0 0 15px color-mix(in oklab, var(--theme-color) 50%, transparent) !important;
 }
 
 /* Enhanced focus for entire playlist card */
 body.webosTV article[data-test-id='playlist'] a:focus,
 body.webosTV article[data-test-id='playlist'] a:focus-visible {
-  box-shadow: 0 0 25px color-mix(in oklab, var(--theme-color) 60%, transparent) !important;
+  box-shadow:
+    0 0 0 6px var(--theme-color),
+    0 0 30px color-mix(in oklab, var(--theme-color) 60%, transparent) !important;
   transform: scale(1.02);
   transition: all 0.2s ease;
 }
@@ -345,7 +375,7 @@ body.webosTV .layoutContent button:focus {
 
 /* ============================================
    Enhanced Track Row Focus for Navigation
-   Make focused track rows clearly visible
+   Make focused track rows clearly visible with strong highlight
    ============================================ */
 
 /* When a button inside a track row has focus, highlight the entire row */
@@ -354,9 +384,10 @@ body.webosTV .trackRow:focus-within {
   z-index: 1;
   background-color: color-mix(
     in oklab,
-    var(--theme-color) 20%,
+    var(--theme-color) 30%,
     transparent
   ) !important;
+  box-shadow: inset 0 0 0 2px var(--theme-color);
 }
 
 /* Extra emphasis on the focused play button */
@@ -399,18 +430,21 @@ body.webosTV .trackRow [class*='playPauseWrapper'] button {
    Add background highlight to focused page nav buttons
    ============================================ */
 
-/* SUPER VISIBLE TEST - Enhanced focus for page navigation buttons (Discover, Podcasts, Radio) */
+/* Enhanced focus for page navigation buttons (Discover, Podcasts, Radio) */
 body.webosTV .pageLink:focus,
 body.webosTV .pageLink:focus-visible {
   font-weight: var(--font-weight-bold) !important;
   outline: 0 !important;
 
-  /* Very obvious background for testing */
+  /* Visible background for TV */
   background-color: color-mix(
     in oklab,
-    var(--theme-color) 40%,
+    var(--theme-color) 50%,
     transparent
   ) !important;
-  transform: scale(1.1);
+  box-shadow:
+    0 0 0 5px var(--theme-color),
+    0 0 20px color-mix(in oklab, var(--theme-color) 40%, transparent);
+  transform: scale(1.08);
   transition: all 0.2s ease;
 }
