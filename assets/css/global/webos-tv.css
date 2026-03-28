@@ -282,17 +282,32 @@ body.webosTV .focused {
   transition: background-color 0.15s ease;
 }
 
-/* Album/artist/playlist image links - prominent border */
+/* Album/artist/playlist image links - use box-shadow to avoid clipping */
 body.webosTV .layoutImage a.focused {
-  outline: 4px solid var(--theme-color) !important;
-  outline-offset: 4px;
-  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: 0 0 0 4px var(--theme-color) !important;
 }
 
 /* Ensure album image links and genres are block-level for proper focus and dimensions */
 body.webosTV .layoutImage,
 body.webosTV swiper-slide[data-test-id='random-genre-item'] {
   padding: 4px !important;
+}
+
+/* Override overflow:hidden on listLayout to prevent clipping focus box-shadow */
+body.webosTV .listLayout .layoutImage {
+  overflow: visible !important;
+}
+
+/* Allow focus box-shadow to be visible on carousel swiper items */
+body.webosTV swiper-container {
+  overflow: visible !important;
+}
+
+/* Add padding to carousel wrapper to accommodate focus box-shadow */
+body.webosTV [class*='carouselSwiper'] {
+  padding: 4px !important;
+  margin: -4px !important;
 }
 
 body.webosTV .layoutImage a {
@@ -315,10 +330,10 @@ body.webosTV h2.focused {
   ) !important;
 }
 
-/* Playlist card focus */
+/* Playlist card focus - use box-shadow to avoid clipping */
 body.webosTV article[data-test-id='playlist'] a.focused {
-  outline: 4px solid var(--theme-color) !important;
-  outline-offset: 3px;
+  outline: none !important;
+  box-shadow: 0 0 0 4px var(--theme-color) !important;
   transform: scale(1.02);
   transition: transform 0.2s ease;
 }
