@@ -35,6 +35,13 @@ export default defineVitestConfig({
     environment: 'nuxt',
     exclude: [...configDefaults.exclude, '**/docs/**', '.nuxt/**'],
     globals: true,
+    maxConcurrency: 4,
+    pool: 'forks',
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
     setupFiles: ['./vitest.setup.ts'],
   },
 });

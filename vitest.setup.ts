@@ -4,6 +4,25 @@ import { vi } from 'vitest';
 
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
+// Mock localStorage for tests (webOS utilities use localStorage)
+const localStorageMock = (() => {
+  let store: Record<string, string> = {};
+  return {
+    clear: () => {
+      store = {};
+    },
+    getItem: (key: string) => store[key] || null,
+    removeItem: (key: string) => {
+      store[key] = '';
+    },
+    setItem: (key: string, value: string) => {
+      store[key] = value;
+    },
+  };
+})();
+
+globalThis.localStorage = localStorageMock as Storage;
+
 intersectionObserverMock([
   {
     isIntersecting: true,

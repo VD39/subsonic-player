@@ -17,7 +17,9 @@ const ENVIRONMENT_VARIABLES = {
   LOAD_SIZE: process.env.LOAD_SIZE || '50',
   MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',
   SERVER_URL: process.env.SERVER_URL || '',
-  SPA_MODE: process.env.SPA_MODE === 'true',
+  // webOS builds are always SPA mode (no SSR, no server API)
+  SPA_MODE:
+    process.env.SPA_MODE === 'true' || process.env.WEBOS_BUILD === 'true',
 };
 
 export default defineNuxtConfig({
@@ -39,9 +41,6 @@ export default defineNuxtConfig({
   },
   features: {
     inlineStyles: process.env.WEBOS_BUILD !== 'true',
-  },
-  future: {
-    compatibilityVersion: 5,
   },
   ignore: ['coverage/**', 'docs/**', '**/*.spec.ts'],
   imports: {
