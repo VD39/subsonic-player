@@ -7,10 +7,10 @@ set -e
 
 echo "🚀 Building Subsonic Player for webOS..."
 
-# Step 1: Build the Nuxt app as static SPA with webOS-specific settings
-echo "📦 Step 1: Building Nuxt static app for webOS..."
+# Step 1: Generate the Nuxt app as static SPA with webOS-specific settings
+echo "📦 Step 1: Generating Nuxt static app for webOS..."
 cd "$(dirname "$0")/.."
-WEBOS_BUILD=true yarn build
+WEBOS_BUILD=true yarn nuxt generate
 
 # Step 2: Clean previous webOS build
 echo "🧹 Step 2: Cleaning previous webOS build..."
