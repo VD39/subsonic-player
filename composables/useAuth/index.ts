@@ -23,14 +23,12 @@ export function useAuth() {
 
   async function autoLogin() {
     if (!user.value?.server) {
-      logout();
       return;
     }
 
     const { data: loggedIn, error: loginError } = await fetchData('/ping');
 
     if (loginError?.message) {
-      logout();
       return;
     }
 
