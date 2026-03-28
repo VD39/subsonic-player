@@ -115,7 +115,21 @@ docker run -d \
 
 The application will be accessible at `http://localhost:3000`.
 
-### Method 2: Local Development
+### Method 2: Static SPA Export
+
+Pre-built static SPA archives are published as [GitHub Releases][github-releases]. Each release contains a `.tar.gz` tarball that can be served by any static file host (Nginx, Caddy, Apache, S3, etc.).
+
+1. Download the latest tarball from the [Releases][github-releases] page.
+
+2. Extract the archive:
+
+   ```bash
+   tar -xzvf subsonic-player-static-*.tar.gz -C /var/www/subsonic-player
+   ```
+
+3. Serve the extracted directory with your preferred static file server.
+
+### Method 3: Local Development
 
 This method skips Docker and runs the application directly using Node.js and Yarn.
 
@@ -186,6 +200,7 @@ This project is licensed under the AGPLv3 license. Full license details availabl
 [env-vars]: #-environment-variables
 [license]: LICENSE
 [github]: https://github.com/VD39/subsonic-player
+[github-releases]: https://github.com/VD39/subsonic-player/releases
 [docker-hub]: https://hub.docker.com/r/vd39/subsonic-player
 
 <!-- Badges -->
