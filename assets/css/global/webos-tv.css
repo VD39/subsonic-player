@@ -264,37 +264,29 @@ body.webosTV h3 a svg {
 }
 
 /* ============================================
-   Simple Focus States for TV Remote
-   Uses theme color - works with light/dark themes
-   Enhanced for 10-foot UI visibility
+   Focus States for TV Remote
+   Uses .focused class (managed by webos-input plugin)
+   Solid outline + background for maximum visibility on TV
    ============================================ */
 
-body.webosTV :focus,
-body.webosTV :focus-visible,
-body.webosTV nav ul[class*='mobileNavigation'] a:focus,
-body.webosTV nav ul[class*='mobileNavigation'] a:focus-visible {
-  outline: none;
-  border-radius: var(--border-radius-small);
-  box-shadow:
-    0 0 0 6px var(--theme-color),
-    0 0 20px color-mix(in oklab, var(--theme-color) 50%, transparent);
+/* Default focus style - solid purple outline + background tint */
+body.webosTV .focused {
+  outline: 3px solid var(--theme-color) !important;
+  outline-offset: 2px;
+  background-color: color-mix(
+    in oklab,
+    var(--theme-color) 25%,
+    transparent
+  ) !important;
+  box-shadow: none;
+  transition: background-color 0.15s ease;
 }
 
-body.webosTV .trackRow a:focus,
-body.webosTV .trackRow a:focus-visible {
-  box-shadow: none !important;
-}
-
-/* Enhanced focus for album/artist/playlist image links */
-
-/* Use inset outline + box-shadow to prevent clipping */
-body.webosTV .layoutImage a:focus,
-body.webosTV .layoutImage a:focus-visible {
-  display: block;
-  border-radius: var(--border-radius-large);
-  box-shadow:
-    0 0 0 6px var(--theme-color),
-    0 0 30px color-mix(in oklab, var(--theme-color) 60%, transparent) !important;
+/* Album/artist/playlist image links - prominent border */
+body.webosTV .layoutImage a.focused {
+  outline: 4px solid var(--theme-color) !important;
+  outline-offset: 4px;
+  background-color: transparent !important;
 }
 
 /* Ensure album image links and genres are block-level for proper focus and dimensions */
@@ -312,27 +304,40 @@ body.webosTV .layoutImage figure {
   display: block !important;
 }
 
-/* Make h2 headings focusable for section navigation on TV */
-body.webosTV h2 {
-  outline: none;
+/* h2 headings focus */
+body.webosTV h2.focused {
+  outline: 3px solid var(--theme-color) !important;
+  outline-offset: 3px;
+  background-color: color-mix(
+    in oklab,
+    var(--theme-color) 20%,
+    transparent
+  ) !important;
 }
 
-body.webosTV h2:focus,
-body.webosTV h2:focus-visible {
-  border-radius: var(--border-radius-small);
-  box-shadow:
-    0 0 0 5px var(--theme-color),
-    0 0 15px color-mix(in oklab, var(--theme-color) 50%, transparent) !important;
-}
-
-/* Enhanced focus for entire playlist card */
-body.webosTV article[data-test-id='playlist'] a:focus,
-body.webosTV article[data-test-id='playlist'] a:focus-visible {
-  box-shadow:
-    0 0 0 6px var(--theme-color),
-    0 0 30px color-mix(in oklab, var(--theme-color) 60%, transparent) !important;
+/* Playlist card focus */
+body.webosTV article[data-test-id='playlist'] a.focused {
+  outline: 4px solid var(--theme-color) !important;
+  outline-offset: 3px;
   transform: scale(1.02);
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+/* Track row focus - full row highlight */
+body.webosTV .trackRow.focused {
+  outline: 2px solid var(--theme-color) !important;
+  outline-offset: -2px;
+  background-color: color-mix(
+    in oklab,
+    var(--theme-color) 30%,
+    transparent
+  ) !important;
+}
+
+/* Track row links don't need extra styling */
+body.webosTV .trackRow a.focused {
+  outline: none !important;
+  background-color: transparent !important;
 }
 
 /* ============================================
@@ -378,21 +383,10 @@ body.webosTV .layoutContent button:focus {
    Make focused track rows clearly visible with strong highlight
    ============================================ */
 
-/* When a button inside a track row has focus, highlight the entire row */
-body.webosTV .trackRow:focus-within {
-  position: relative;
-  z-index: 1;
-  background-color: color-mix(
-    in oklab,
-    var(--theme-color) 30%,
-    transparent
-  ) !important;
-  box-shadow: inset 0 0 0 2px var(--theme-color);
-}
+/* Track row is highlighted via .focused class added by plugin */
 
 /* Extra emphasis on the focused play button */
-body.webosTV .trackRow button:focus,
-body.webosTV .trackRow button:focus-visible {
+body.webosTV .trackRow button.focused {
   outline: none !important;
   background-color: transparent !important;
 }
@@ -431,20 +425,15 @@ body.webosTV .trackRow [class*='playPauseWrapper'] button {
    ============================================ */
 
 /* Enhanced focus for page navigation buttons (Discover, Podcasts, Radio) */
-body.webosTV .pageLink:focus,
-body.webosTV .pageLink:focus-visible {
+body.webosTV .pageLink.focused {
   font-weight: var(--font-weight-bold) !important;
-  outline: 0 !important;
-
-  /* Visible background for TV */
+  outline: 3px solid var(--theme-color) !important;
+  outline-offset: 2px;
   background-color: color-mix(
     in oklab,
-    var(--theme-color) 50%,
+    var(--theme-color) 40%,
     transparent
   ) !important;
-  box-shadow:
-    0 0 0 5px var(--theme-color),
-    0 0 20px color-mix(in oklab, var(--theme-color) 40%, transparent);
-  transform: scale(1.08);
-  transition: all 0.2s ease;
+  transform: scale(1.05);
+  transition: all 0.15s ease;
 }

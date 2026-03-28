@@ -37,6 +37,67 @@ export default defineNuxtPlugin((nuxtApp) => {
   // Add webosTV class to body for TV-specific CSS styles
   document.body.classList.add('webosTV');
 
+  // Track currently focused element for .focused CSS class
+  let currentFocusedElement: HTMLElement | null = null;
+
+  /**
+   * Update .focused class on elements
+   * This provides a reliable visual focus indicator for TV browsers
+   * where :focus pseudo-class styling may not work consistently
+   */
+  function updateFocusedClass(newElement: HTMLElement | null): void {
+    // Remove .focused from previous element
+    if (currentFocusedElement) {
+      currentFocusedElement.classList.remove('focused');
+      // Also remove from parent trackRow if present
+      const trackRow = currentFocusedElement.closest('.trackRow');
+      if (trackRow) {
+        trackRow.classList.remove('focused');
+      }
+    }
+
+    // Add .focused to new element
+    if (newElement) {
+      newElement.classList.add('focused');
+      // Also add to parent trackRow for track list highlighting
+      const trackRow = newElement.closest('.trackRow');
+      if (trackRow) {
+        trackRow.classList.add('focused');
+      }
+    }
+
+    currentFocusedElement = newElement;
+  }
+
+  /**
+   * Handle focusin event - update .focused class
+   */
+  function onFocusIn(evt: FocusEvent): void {
+    const target = evt.target as HTMLElement;
+    if (target && target !== document.body) {
+      updateFocusedClass(target);
+    }
+  }
+
+  /**
+   * Handle focusout event - remove .focused class
+   */
+  function onFocusOut(): void {
+    // Small delay to allow focusin to fire for new element first
+    setTimeout(() => {
+      if (
+        currentFocusedElement &&
+        document.activeElement !== currentFocusedElement
+      ) {
+        updateFocusedClass(null);
+      }
+    }, 10);
+  }
+
+  // Add focus event listeners for .focused class management
+  document.addEventListener('focusin', onFocusIn);
+  document.addEventListener('focusout', onFocusOut);
+
   // Setup search input toggle behavior for TV (with retry logic)
   const setupSearchToggle = () => {
     let searchExpanded = false;
