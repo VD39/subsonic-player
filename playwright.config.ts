@@ -42,6 +42,23 @@ export default defineConfig<ConfigOptions>({
         },
       },
     },
+    {
+      name: 'webos',
+      testMatch: /webos\/e2e\/.*\.spec\.ts/,
+      use: {
+        video: {
+          mode: 'on',
+          size: {
+            height: 1080,
+            width: 1920,
+          },
+        },
+        viewport: {
+          height: 1080,
+          width: 1920,
+        },
+      },
+    },
   ],
   reporter: 'html',
   retries: process.env.CI ? 2 : 0,

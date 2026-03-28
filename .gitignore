@@ -58,3 +58,4 @@ webos/*
 !webos/*.md
 !webos/assets
 !webos/tools
+!webos/e2e

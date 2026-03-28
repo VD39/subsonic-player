@@ -89,7 +89,9 @@
     "prepare": "husky",
     "preview": "nuxt preview",
     "test": "vitest",
-    "test:once": "yarn test --run"
+    "test:once": "yarn test --run",
+    "test:webos": "playwright test --project=webos",
+    "test:webos:ui": "playwright test --project=webos --ui"
   },
   "type": "module",
   "version": "1.0.0"
