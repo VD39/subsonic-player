@@ -140,6 +140,12 @@ describe('PodcastEpisodesListItem', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(true);
     });
 
+    it('shows the add to queue ButtonLink component', () => {
+      expect(wrapper.findComponent({ ref: 'addToQueueButton' }).exists()).toBe(
+        true,
+      );
+    });
+
     it('shows the play episode DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(true);
     });
@@ -165,6 +171,7 @@ describe('PodcastEpisodesListItem', () => {
       ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
       ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
       ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
+      ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
       ['play episode DropdownItem', 'playEpisode', 'playEpisode'],
     ])(
       'when the %s component emits the click event',
@@ -229,6 +236,12 @@ describe('PodcastEpisodesListItem', () => {
 
     it('does not show the add to queue DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(false);
+    });
+
+    it('does not show the add to queue ButtonLink component', () => {
+      expect(wrapper.findComponent({ ref: 'addToQueueButton' }).exists()).toBe(
+        false,
+      );
     });
 
     it('does not show the play episode DropdownItem component', () => {

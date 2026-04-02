@@ -57,6 +57,9 @@ exports[`TracksListItem > matches the snapshot 1`] = `
       </div>
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -140,6 +143,9 @@ exports[`TracksListItem > when track.album is undefined > matches the snapshot 1
       </div>
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -213,6 +219,9 @@ exports[`TracksListItem > when track.artists is an empty array > matches the sna
       <p>--</p>
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">

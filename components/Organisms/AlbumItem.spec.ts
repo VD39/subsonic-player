@@ -91,6 +91,7 @@ describe('AlbumItem', () => {
 
   describe.each([
     ['play album ButtonLink', 'playAlbumButtonLink', 'playAlbum'],
+    ['add to queue ButtonLink', 'addToQueueButtonLink', 'addToQueue'],
     ['play album DropdownItem', 'playAlbum', 'playAlbum'],
     ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],

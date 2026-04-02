@@ -66,15 +66,26 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       />
 
       <div :class="['hideOnListLayout', $style.actions, $style.hoverActions]">
-        <ButtonLink
-          ref="playAlbumButtonLink"
-          class="themeHoverButton"
-          :icon="buttonProps.icon"
-          :title="buttonProps.text"
-          @click="$emit('playAlbum', album)"
-        >
-          {{ buttonProps.text }}
-        </ButtonLink>
+        <div :class="['centerItems', $style.actionsLeft]">
+          <ButtonLink
+            ref="playAlbumButtonLink"
+            class="themeHoverButton"
+            :icon="buttonProps.icon"
+            :title="buttonProps.text"
+            @click="$emit('playAlbum', album)"
+          >
+            {{ buttonProps.text }}
+          </ButtonLink>
+
+          <ButtonLink
+            ref="addToQueueButtonLink"
+            :icon="ICONS.add"
+            title="Add album to queue"
+            @click="$emit('addToQueue', album)"
+          >
+            Add album to queue
+          </ButtonLink>
+        </div>
 
         <FavouriteButton
           :id="album.id"
@@ -167,6 +178,10 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
   width: var(--width-height-100);
   padding: var(--default-space);
   transition: opacity var(--transition);
+}
+
+.actionsLeft {
+  gap: var(--default-space);
 }
 
 .hoverActions {

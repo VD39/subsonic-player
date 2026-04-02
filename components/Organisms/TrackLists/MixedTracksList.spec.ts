@@ -133,6 +133,12 @@ describe('MixedTracksList', () => {
             .props('hasAddToQueueEvent'),
         ).toBe(false);
       });
+
+      it('does not show the add to queue header element', () => {
+        expect(wrapper.find({ ref: 'trackAddToQueueHeader' }).exists()).toBe(
+          false,
+        );
+      });
     });
 
     describe('when the onAddToQueue event is attached', () => {
@@ -147,6 +153,12 @@ describe('MixedTracksList', () => {
             .findComponent(MixedTracksListItem)
             .props('hasAddToQueueEvent'),
         ).toBe(true);
+      });
+
+      it('shows the add to queue header element', () => {
+        expect(wrapper.find({ ref: 'trackAddToQueueHeader' }).exists()).toBe(
+          true,
+        );
       });
 
       describe('when the MixedTracksListItem component emits the addToQueue event', () => {

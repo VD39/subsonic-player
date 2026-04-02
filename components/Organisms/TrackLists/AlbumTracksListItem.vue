@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
@@ -78,6 +79,15 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         {{ track.formattedDuration }}
       </time>
 
+      <div class="trackCell trackOptions">
+        <ButtonLink
+          ref="addToQueueButton"
+          :icon="ICONS.add"
+          @click="$emit('addToQueue')"
+        >
+          Add to queue
+        </ButtonLink>
+      </div>
       <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
           <DropdownItem ref="playTrack" @click="$emit('playTrack')">

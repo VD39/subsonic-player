@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
@@ -60,6 +61,16 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             />
           </MarqueeScroll>
         </div>
+      </div>
+
+      <div class="trackCell trackOptions">
+        <ButtonLink
+          ref="addToQueueButton"
+          :icon="ICONS.add"
+          @click="$emit('addToQueue')"
+        >
+          Add to queue
+        </ButtonLink>
       </div>
 
       <div class="trackCell trackOptions">

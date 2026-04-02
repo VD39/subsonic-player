@@ -44,6 +44,11 @@ const hasDragStartEvent = computed(
       </div>
       <div class="trackCell trackOptions" />
       <div
+        v-if="hasAddToQueueEvent"
+        ref="trackAddToQueueHeader"
+        class="trackCell trackOptions"
+      />
+      <div
         v-if="!hideRemoveOption"
         ref="trackRemoveHeader"
         class="trackCell trackOptions"

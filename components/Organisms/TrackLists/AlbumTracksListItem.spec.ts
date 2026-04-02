@@ -73,6 +73,7 @@ describe('AlbumTracksListItem', () => {
   });
 
   describe.each([
+    ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
     ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],
     ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],

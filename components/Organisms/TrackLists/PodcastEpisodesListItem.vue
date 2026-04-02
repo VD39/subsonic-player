@@ -125,6 +125,15 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             >
               Episode information
             </ButtonLink>
+
+            <ButtonLink
+              v-if="episode.downloaded"
+              ref="addToQueueButton"
+              :icon="ICONS.add"
+              @click="$emit('addToQueue')"
+            >
+              Add to queue
+            </ButtonLink>
           </div>
 
           <MarqueeScroll>

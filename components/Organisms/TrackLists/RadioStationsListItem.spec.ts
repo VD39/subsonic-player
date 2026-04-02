@@ -76,6 +76,7 @@ describe('RadioStationsListItem', () => {
   });
 
   describe.each([
+    ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
     ['play radio station DropdownItem', 'playRadioStation', 'playRadioStation'],
     ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
     ['edit radio station DropdownItem', 'editRadioStation', 'editRadioStation'],

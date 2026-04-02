@@ -21,6 +21,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
     <div class="trackHeader">
       <div class="trackCell">{{ trackHeaderNames[0] }}</div>
       <div class="trackCell trackOptions" />
+      <div class="trackCell trackOptions" />
     </div>
 
     <RadioStationsListItem

@@ -25,11 +25,15 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
             <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -55,11 +59,15 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
             <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -164,11 +172,15 @@ exports[`library > when data returns a value > when artists is an empty array > 
             <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -194,11 +206,15 @@ exports[`library > when data returns a value > when artists is an empty array > 
             <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -262,11 +278,15 @@ exports[`library > when data returns a value > when genres is an empty array > m
             <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -292,11 +312,15 @@ exports[`library > when data returns a value > when genres is an empty array > m
             <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -388,11 +412,15 @@ exports[`library > when data returns a value > when playlists is an empty array 
             <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -418,11 +446,15 @@ exports[`library > when data returns a value > when playlists is an empty array 
             <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>
@@ -523,11 +555,15 @@ exports[`library > when data returns a value > when playlists is not an empty ar
             <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
@@ -553,11 +589,15 @@ exports[`library > when data returns a value > when playlists is not an empty ar
             <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
-            <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
-              </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
+            <div class="hideOnListLayout actions hoverActions">
+              <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
+                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
+                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
-              </button></div>
+              </button>
+            </div>
           </div>
           <div class="layoutContent">
             <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-1" class="layoutLink" draggable="false">album-1</a></p>

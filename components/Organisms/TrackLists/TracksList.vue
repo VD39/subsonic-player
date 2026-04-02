@@ -26,6 +26,7 @@ const trackHeaderNames = TRACK_HEADER_NAMES.tracks;
       <div class="trackCell trackSecondary">{{ trackHeaderNames[2] }}</div>
       <div class="trackCell trackTime">{{ trackHeaderNames[3] }}</div>
       <div class="trackCell trackOptions" />
+      <div class="trackCell trackOptions" />
     </div>
 
     <TracksListItem

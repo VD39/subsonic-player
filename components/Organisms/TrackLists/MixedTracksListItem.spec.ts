@@ -642,6 +642,12 @@ describe('MixedTracksListItem', () => {
     it('does not show the add to queue DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(false);
     });
+
+    it('does not show the add to queue ButtonLink component', () => {
+      expect(wrapper.findComponent({ ref: 'addToQueueButton' }).exists()).toBe(
+        false,
+      );
+    });
   });
 
   describe('when the hasAddToQueueEvent prop is true', () => {
@@ -659,9 +665,25 @@ describe('MixedTracksListItem', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(true);
     });
 
+    it('shows the add to queue ButtonLink component', () => {
+      expect(wrapper.findComponent({ ref: 'addToQueueButton' }).exists()).toBe(
+        true,
+      );
+    });
+
     describe('when the add to queue DropdownItem component emits the click event', () => {
       beforeEach(() => {
         wrapper.findComponent({ ref: 'addToQueue' }).vm.$emit('click');
+      });
+
+      it('emits the addToQueue event', () => {
+        expect(wrapper.emitted('addToQueue')).toEqual([[]]);
+      });
+    });
+
+    describe('when the add to queue ButtonLink component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'addToQueueButton' }).vm.$emit('click');
       });
 
       it('emits the addToQueue event', () => {

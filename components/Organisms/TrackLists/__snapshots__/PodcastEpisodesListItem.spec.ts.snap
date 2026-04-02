@@ -30,6 +30,8 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
         <div class="marqueeScroll">
@@ -106,7 +108,9 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button></div>
+          </button>
+          <!--v-if-->
+        </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">
@@ -163,6 +167,8 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
         <div class="marqueeScroll">
@@ -234,6 +240,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
         <div class="marqueeScroll">
@@ -308,6 +316,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
         <div class="marqueeScroll">
@@ -381,6 +391,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
         <div class="marqueeScroll">
@@ -457,7 +469,9 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button></div>
+          </button>
+          <!--v-if-->
+        </div>
         <div class="marqueeScroll">
           <div class="bulletList inner">
             <div class="content">

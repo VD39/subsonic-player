@@ -224,6 +224,16 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         </DropdownMenu>
       </div>
 
+      <div v-if="hasAddToQueueEvent" class="trackCell trackOptions">
+        <ButtonLink
+          ref="addToQueueButton"
+          :icon="ICONS.add"
+          @click="$emit('addToQueue')"
+        >
+          Add to queue
+        </ButtonLink>
+      </div>
+
       <div
         v-if="!hideRemoveOption"
         ref="trackRemoveRow"
