@@ -24,8 +24,8 @@ export function useHotkeyManager() {
   const { addRadioStationModal } = useRadioStation();
   const { lockScroll, unlockScroll } = useScrollLock('hotkeyManager');
 
-  const pressedKeys = new Set<string>();
-  let abortController: AbortController | null = null;
+  const pressedKeys = ref(new Set<string>());
+  const abortController = ref<AbortController | null>(null);
 
   const isHotkeyListOpened = useState(
     STATE_NAMES.hotKeyListOpened,
@@ -46,7 +46,7 @@ export function useHotkeyManager() {
 
   function isKeysMatchingPressedKeys(mappedKeys: string[]) {
     const joinedMappedKeys = joinKeys(mappedKeys);
-    const joinedPressedKeys = joinKeys(pressedKeys);
+    const joinedPressedKeys = joinKeys(pressedKeys.value);
 
     return joinedMappedKeys === joinedPressedKeys;
   }
@@ -99,7 +99,7 @@ export function useHotkeyManager() {
       return;
     }
 
-    pressedKeys.add(event.key);
+    pressedKeys.value.add(event.key);
 
     for (const category in HOTKEY_MAPPINGS) {
       const mappings = HOTKEY_MAPPINGS[category];
@@ -132,17 +132,17 @@ export function useHotkeyManager() {
 
   // Clear all keys when window loses focus.
   function onBlur() {
-    pressedKeys.clear();
+    pressedKeys.value.clear();
   }
 
   function onKeyup(event: KeyboardEvent) {
-    pressedKeys.delete(event.key);
+    pressedKeys.value.delete(event.key);
   }
 
   // Clear all keys when tab becomes hidden (e.g. print dialog opened).
   function onVisibilityChange() {
     if (document.visibilityState === 'hidden') {
-      pressedKeys.clear();
+      pressedKeys.value.clear();
     }
   }
 
@@ -162,8 +162,8 @@ export function useHotkeyManager() {
   }
 
   onMounted(() => {
-    abortController = new AbortController();
-    const { signal } = abortController;
+    abortController.value = new AbortController();
+    const { signal } = abortController.value;
 
     globalThis.addEventListener('blur', onBlur, { signal });
     document.addEventListener('keydown', onKeydown, { capture: true, signal });
@@ -174,7 +174,7 @@ export function useHotkeyManager() {
   });
 
   onUnmounted(() => {
-    abortController?.abort();
+    abortController.value?.abort();
   });
 
   const HOTKEY_MAPPINGS: HotkeyMapping = {

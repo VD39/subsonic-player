@@ -23,10 +23,10 @@ const internalModal = defineModel<number>();
 const sliderRef = useTemplateRef('sliderRef');
 
 const isSeeking = ref(false);
-let isHovering = false;
+const isHovering = ref(false);
 const hoverValue = ref(internalModal.value);
-let pendingValue = internalModal.value;
-let abortController: AbortController | null = null;
+const pendingValue = ref(internalModal.value);
+const abortController = ref<AbortController | null>(null);
 
 const progress = ref(getProgress(internalModal.value));
 const bufferProgress = ref(getProgress(props.buffer));
@@ -69,8 +69,8 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
   hoverValue.value = clippedValue;
 
   if (isSeeking.value) {
-    pendingValue = clippedValue;
-    progress.value = getProgress(pendingValue);
+    pendingValue.value = clippedValue;
+    progress.value = getProgress(pendingValue.value);
 
     // Don't update value when scrolling.
     if (!props.delay) {
@@ -80,15 +80,15 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
 }
 
 function onMouseMove(event: MouseEvent | TouchEvent) {
-  isHovering = false;
+  isHovering.value = false;
   modifyProgress(event);
 }
 
 function onMouseUp() {
   updateValue();
 
-  abortController?.abort();
-  abortController = null;
+  abortController.value?.abort();
+  abortController.value = null;
 
   isSeeking.value = false;
 }
@@ -97,8 +97,8 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   isSeeking.value = true;
   modifyProgress(event);
 
-  abortController = new AbortController();
-  const { signal } = abortController;
+  abortController.value = new AbortController();
+  const { signal } = abortController.value;
 
   document.addEventListener('mouseup', onMouseUp, { signal });
   document.addEventListener('mousemove', onMouseMove, { signal });
@@ -114,13 +114,13 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
 }
 
 function onSliderMouseMove(event: MouseEvent) {
-  if (isHovering) {
+  if (isHovering.value) {
     modifyProgress(event);
   }
 }
 
 function onSliderMouseOver() {
-  isHovering = true;
+  isHovering.value = true;
 }
 
 function updateProgress() {
@@ -135,8 +135,8 @@ function updateProgress() {
 }
 
 function updateValue() {
-  internalModal.value = pendingValue;
-  emit('change', pendingValue!);
+  internalModal.value = pendingValue.value;
+  emit('change', pendingValue.value!);
 }
 
 watch(() => [props.buffer, internalModal.value], updateProgress, {

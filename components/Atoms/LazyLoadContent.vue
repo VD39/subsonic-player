@@ -4,14 +4,14 @@ const { isHydrating } = useNuxtApp();
 const rootRef = useTemplateRef('rootRef');
 
 const loadSlot = ref(!!import.meta.server || !!isHydrating);
-let intersectionObserver: IntersectionObserver | null = null;
+const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 onMounted(() => {
   if (!rootRef.value || !!isHydrating) {
     return;
   }
 
-  intersectionObserver = new IntersectionObserver(
+  intersectionObserver.value = new IntersectionObserver(
     ([entry], observer) => {
       if (entry && entry.isIntersecting) {
         loadSlot.value = true;
@@ -24,11 +24,11 @@ onMounted(() => {
     },
   );
 
-  intersectionObserver.observe(rootRef.value);
+  intersectionObserver.value.observe(rootRef.value);
 });
 
 onUnmounted(() => {
-  intersectionObserver?.disconnect();
+  intersectionObserver.value?.disconnect();
 });
 </script>
 

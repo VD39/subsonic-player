@@ -13,7 +13,7 @@ const emit = defineEmits<{
 
 const infiniteScrollerRef = useTemplateRef('infiniteScrollerRef');
 
-let intersectionObserver: IntersectionObserver | null = null;
+const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 const buttonProps = computed(() => ({
   icon: props.loading ? SpinningLoader : undefined,
@@ -29,7 +29,7 @@ onMounted(() => {
     return;
   }
 
-  intersectionObserver = new IntersectionObserver(
+  intersectionObserver.value = new IntersectionObserver(
     ([entry], observer) => {
       if (entry && entry.isIntersecting) {
         if (props.hasMore && !props.loading) {
@@ -46,11 +46,11 @@ onMounted(() => {
     },
   );
 
-  intersectionObserver.observe(infiniteScrollerRef.value);
+  intersectionObserver.value.observe(infiniteScrollerRef.value);
 });
 
 onUnmounted(() => {
-  intersectionObserver?.disconnect();
+  intersectionObserver.value?.disconnect();
 });
 </script>
 

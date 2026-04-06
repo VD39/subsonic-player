@@ -8,8 +8,8 @@ const disableClonedContent = ref(true);
 const marqueeScrollRef = useTemplateRef('marqueeScrollRef');
 const marqueeContentRef = useTemplateRef('marqueeContentRef');
 
-let mutationObserver: MutationObserver | null = null;
-let intersectionObserver: IntersectionObserver | null = null;
+const mutationObserver = ref<MutationObserver | null>(null);
+const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 function getCloneData() {
   if (
@@ -68,7 +68,7 @@ onMounted(() => {
     return;
   }
 
-  intersectionObserver = new IntersectionObserver(
+  intersectionObserver.value = new IntersectionObserver(
     ([entry]) => {
       if (entry && entry.isIntersecting) {
         getCloneData();
@@ -83,12 +83,12 @@ onMounted(() => {
     },
   );
 
-  intersectionObserver.observe(marqueeScrollRef.value);
+  intersectionObserver.value.observe(marqueeScrollRef.value);
 
   // To watch slot data when it changes.
-  mutationObserver = new MutationObserver(onResize);
+  mutationObserver.value = new MutationObserver(onResize);
 
-  mutationObserver.observe(marqueeContentRef.value, {
+  mutationObserver.value.observe(marqueeContentRef.value, {
     childList: true,
     subtree: true,
   });
@@ -96,8 +96,8 @@ onMounted(() => {
 
 onUnmounted(() => {
   globalThis.removeEventListener('resize', onResize);
-  mutationObserver?.disconnect();
-  intersectionObserver?.disconnect();
+  mutationObserver.value?.disconnect();
+  intersectionObserver.value?.disconnect();
 });
 </script>
 

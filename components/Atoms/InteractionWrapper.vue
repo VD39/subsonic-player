@@ -21,7 +21,7 @@ const instance = getCurrentInstance();
 const { isAnyOpen } = useDropdownMenuState();
 
 const isMouseOver = ref(false);
-let isTouched = false;
+const isTouched = ref(false);
 
 // Only allow the event if the following is true.
 function isInteractiveTarget(event: Event) {
@@ -40,7 +40,7 @@ function onClick(event: MouseEvent) {
 }
 
 function onContextMenu(event: MouseEvent) {
-  if (!isTouched && isInteractiveTarget(event)) {
+  if (!isTouched.value && isInteractiveTarget(event)) {
     return;
   }
 
@@ -61,18 +61,18 @@ function onDragStart(event: DragEvent) {
 }
 
 function onMouseEnter() {
-  if (!isTouched) {
+  if (!isTouched.value) {
     isMouseOver.value = true;
   }
 }
 
 function onMouseLeave() {
   isMouseOver.value = false;
-  isTouched = false;
+  isTouched.value = false;
 }
 
 function onTouchStart() {
-  isTouched = true;
+  isTouched.value = true;
 }
 
 const isDraggable = computed(
