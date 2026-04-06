@@ -19,7 +19,7 @@ const preloadImageRef = useTemplateRef('preloadImageRef');
 
 const loading = ref(true);
 const loadImage = ref(false);
-const intersectionObserver = ref<IntersectionObserver | null>(null);
+let intersectionObserver: IntersectionObserver | null = null;
 
 function onImageLoad() {
   loading.value = false;
@@ -38,7 +38,7 @@ onMounted(() => {
     return;
   }
 
-  intersectionObserver.value = new IntersectionObserver(
+  intersectionObserver = new IntersectionObserver(
     ([entry], observer) => {
       if (entry && entry.isIntersecting) {
         loadImage.value = true;
@@ -51,11 +51,11 @@ onMounted(() => {
     },
   );
 
-  intersectionObserver.value.observe(preloadImageRef.value);
+  intersectionObserver.observe(preloadImageRef.value);
 });
 
 onUnmounted(() => {
-  intersectionObserver.value?.disconnect();
+  intersectionObserver?.disconnect();
 });
 </script>
 

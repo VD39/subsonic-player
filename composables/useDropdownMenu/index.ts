@@ -15,7 +15,7 @@ export function useDropdownMenu(options: DropdownOptions) {
 
   const menuId = useId();
 
-  const abortController = ref<AbortController | null>(null);
+  let abortController: AbortController | null = null;
   const menuStyle = ref<Record<string, string>>({});
 
   const isOpen = computed(() => activeMenuId.value === menuId);
@@ -71,8 +71,8 @@ export function useDropdownMenu(options: DropdownOptions) {
 
   function cleanup() {
     menuStyle.value = {};
-    abortController.value?.abort();
-    abortController.value = null;
+    abortController?.abort();
+    abortController = null;
     unlockScroll();
   }
 
@@ -137,8 +137,8 @@ export function useDropdownMenu(options: DropdownOptions) {
 
   function setupListeners() {
     lockScroll();
-    abortController.value = new AbortController();
-    const { signal } = abortController.value;
+    abortController = new AbortController();
+    const { signal } = abortController;
 
     globalThis.addEventListener('click', onClick, { signal });
     globalThis.addEventListener('contextmenu', onContextMenu, { signal });

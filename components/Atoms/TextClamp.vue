@@ -10,7 +10,7 @@ defineEmits<{
 
 const textRef = useTemplateRef('textRef');
 
-const tempText = ref('');
+let tempText = '';
 const showButton = ref(false);
 
 async function updateClamp() {
@@ -23,14 +23,14 @@ async function updateClamp() {
   showButton.value = false;
 
   if (textRef.value.getClientRects().length <= props.maxLines) {
-    tempText.value = props.text;
-    textRef.value.innerHTML = tempText.value;
+    tempText = props.text;
+    textRef.value.innerHTML = tempText;
   }
 
   if (textRef.value.getClientRects().length > props.maxLines) {
     while (textRef.value.getClientRects().length > props.maxLines) {
-      tempText.value = props.text.substring(0, tempText.value.length - 1);
-      textRef.value.innerHTML = tempText.value;
+      tempText = props.text.substring(0, tempText.length - 1);
+      textRef.value.innerHTML = tempText;
     }
 
     textRef.value.innerHTML = `${textRef.value.innerText
@@ -49,7 +49,7 @@ onMounted(() => {
   }
 
   textRef.value.innerHTML = props.text;
-  tempText.value = textRef.value.innerText;
+  tempText = textRef.value.innerText;
 
   updateClamp();
 
