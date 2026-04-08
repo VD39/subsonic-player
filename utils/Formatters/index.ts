@@ -12,7 +12,7 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
     year = DEFAULT_VALUE,
   } = album;
 
-  const tracks = song.map(formatTrack);
+  const tracks = song.map((track, index) => formatTrack(track, index));
   const tracksByDiscNumber = groupTracksByDiscNumber(tracks);
 
   return {
@@ -44,7 +44,7 @@ export function formatAllMedia(favourites: Starred2): AllMedia {
   return {
     albums: album.map(formatAlbum),
     artists: artist.map(formatArtist),
-    tracks: song.map(formatTrack),
+    tracks: song.map((track, index) => formatTrack(track, index)),
   };
 }
 
@@ -85,8 +85,10 @@ export function formatArtist(
       : undefined,
     name,
     similarArtist: similarArtist.map(formatSimilarArtist),
-    similarTracks: similarSongs.map(formatTrack),
-    topTracks: topSongs.map(formatTrack),
+    similarTracks: similarSongs.map((track, index) =>
+      formatTrack(track, index),
+    ),
+    topTracks: topSongs.map((track, index) => formatTrack(track, index)),
     totalAlbums,
     totalTracks: getTracksTotal(album),
     type: MEDIA_TYPE.artist,

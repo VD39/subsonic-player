@@ -51,7 +51,7 @@ onMounted(() => {
   textRef.value.innerHTML = props.text;
   tempText.value = textRef.value.innerText;
 
-  updateClamp();
+  requestAnimationFrame(() => updateClamp());
 
   globalThis.addEventListener('resize', onResize);
 });

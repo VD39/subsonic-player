@@ -17,9 +17,10 @@ export default defineNuxtPlugin(() => {
       }
 
       if (subsonicResponse.status === 'ok') {
-        return (response._data = {
+        response._data = {
           ...subsonicResponse,
-        });
+        };
+        return response._data;
       }
     },
   });

@@ -48,8 +48,10 @@ export function useMediaLibrary() {
       transform: /* istanbul ignore next -- @preserve */ (response) => ({
         folders: (response.indexes.index || [])
           .flatMap((index) => index.artist!)
-          .map(formatArtist),
-        tracks: (response.indexes.child || []).map(formatTrack),
+          .map((artist) => formatArtist(artist)),
+        tracks: (response.indexes.child || []).map((track, index) =>
+          formatTrack(track, index),
+        ),
       }),
     });
 
@@ -65,10 +67,12 @@ export function useMediaLibrary() {
         const items = response.directory.child || [];
 
         return {
-          folders: items.filter((item) => item.isDir).map(formatTrack),
+          folders: items
+            .filter((item) => item.isDir)
+            .map((item, index) => formatTrack(item, index)),
           tracks: items
             .filter((item) => !item.isDir && item.type === 'music')
-            .map(formatTrack),
+            .map((item, index) => formatTrack(item, index)),
         };
       },
     });

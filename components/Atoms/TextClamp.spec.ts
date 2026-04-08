@@ -9,6 +9,13 @@ import TextClamp from './TextClamp.vue';
 const TEXT_TO_CLAMP =
   'This is a long test text that will definitely exceed the max lines set by the component.';
 
+const requestAnimationFrameSpy = vi
+  .spyOn(globalThis, 'requestAnimationFrame')
+  .mockImplementation((callback) => {
+    callback(0);
+    return 0;
+  });
+
 const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
   windowEventListenerMock();
 
@@ -43,6 +50,10 @@ describe('TextClamp', () => {
       'resize',
       expect.any(Function),
     );
+  });
+
+  it('calls the checkClamp function', () => {
+    expect(requestAnimationFrameSpy).toHaveBeenCalled();
   });
 
   it('sets the correct style attribute on the clamp element', () => {

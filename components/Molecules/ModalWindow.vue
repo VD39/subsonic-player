@@ -8,23 +8,23 @@ const { closeModal, modal } = useModal();
 <template>
   <Teleport to="#teleports">
     <transition name="fade">
-      <div
+      <dialog
         v-if="modal.component"
         ref="modalContainer"
         aria-labelledby="modal-title"
-        aria-modal="true"
         class="fullscreen centerAll"
-        role="dialog"
+        :class="$style.modalDialog"
+        open
         @click.self="closeModal"
       >
-        <div
-          ref="modalContent"
-          :class="$style.modalContent"
-          role="document"
-          @click.stop
-        >
+        <div ref="modalContent" :class="$style.modalContent" @click.stop>
           <HeaderWithAction :class="$style.headerWithAction">
-            <h3 v-if="modal.title" ref="title" :class="$style.title">
+            <h3
+              v-if="modal.title"
+              id="modal-title"
+              ref="title"
+              :class="$style.title"
+            >
               {{ modal.title }}
             </h3>
 
@@ -49,12 +49,22 @@ const { closeModal, modal } = useModal();
             />
           </div>
         </div>
-      </div>
+      </dialog>
     </transition>
   </Teleport>
 </template>
 
 <style module>
+.modalDialog {
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  overflow: visible;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
 .modalContent {
   position: relative;
   width: 80%;
