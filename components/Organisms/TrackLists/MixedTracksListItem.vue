@@ -11,6 +11,7 @@ import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
   hasAddToQueueEvent?: boolean;
@@ -138,9 +139,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
       <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
-          <DropdownItem ref="playTrack" @click="$emit('playTrack')">
-            Play Track
-          </DropdownItem>
+          <TrackPlayPauseDropdownItem
+            :trackId="track.id"
+            :type="track.type"
+            @playTrack="$emit('playTrack')"
+          />
           <DropdownItem
             v-if="hasAddToQueueEvent"
             ref="addToQueue"
@@ -205,16 +208,18 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               Download track
             </DropdownItem>
           </template>
-          <DropdownDivider />
-          <DropdownItem is="span" v-if="'favourite' in track">
-            <FavouriteButton
-              :id="track.id"
-              class="globalLink"
-              :favourite="track.favourite"
-              showText
-              :type="track.type"
-            />
-          </DropdownItem>
+          <template v-if="'favourite' in track">
+            <DropdownDivider />
+            <DropdownItem is="span">
+              <FavouriteButton
+                :id="track.id"
+                class="globalLink"
+                :favourite="track.favourite"
+                showText
+                :type="track.type"
+              />
+            </DropdownItem>
+          </template>
           <template v-if="!hideRemoveOption">
             <DropdownDivider />
             <DropdownItem ref="dropdownItemRemove" @click="$emit('remove')">

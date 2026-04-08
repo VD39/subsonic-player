@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TrackPlayPauseDropdownItem > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+    <!--v-if--><span class="clamp text">Play Track</span>
+  </button></li>"
+`;
+
+exports[`TrackPlayPauseDropdownItem > when the isCurrentTrack value returns true > when the isPlaying value is false > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+    <!--v-if--><span class="clamp text">Play Track</span>
+  </button></li>"
+`;
+
+exports[`TrackPlayPauseDropdownItem > when the isCurrentTrack value returns true > when the isPlaying value is true > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+    <!--v-if--><span class="clamp text">Play Track</span>
+  </button></li>"
+`;
+
+exports[`TrackPlayPauseDropdownItem > when the type prop is podcastEpisode > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+    <!--v-if--><span class="clamp text">Play Episode</span>
+  </button></li>"
+`;
+
+exports[`TrackPlayPauseDropdownItem > when the type prop is radioStation > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+    <!--v-if--><span class="clamp text">Play Station</span>
+  </button></li>"
+`;
+
+exports[`TrackPlayPauseDropdownItem > when the type prop is track > matches the snapshot 1`] = `
+"<li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+    <!--v-if--><span class="clamp text">Play Track</span>
+  </button></li>"
+`;

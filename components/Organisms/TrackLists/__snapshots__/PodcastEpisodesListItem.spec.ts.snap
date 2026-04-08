@@ -48,9 +48,7 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Episode </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
@@ -185,9 +183,7 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Episode </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
@@ -258,9 +254,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Episode </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
@@ -334,9 +328,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Episode </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
@@ -409,9 +401,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Episode </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>

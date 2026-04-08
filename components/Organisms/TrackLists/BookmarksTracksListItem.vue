@@ -9,6 +9,7 @@ import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
   bookmark: Bookmark;
@@ -95,9 +96,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
       <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
-          <DropdownItem ref="playTrack" @click="$emit('playTrack')">
-            Play Track
-          </DropdownItem>
+          <TrackPlayPauseDropdownItem
+            :trackId="bookmark.id"
+            :type="bookmark.type"
+            @playTrack="$emit('playTrack')"
+          />
           <DropdownItem ref="addToPlaylist" @click="$emit('addToPlaylist')">
             Add to playlist
           </DropdownItem>

@@ -49,9 +49,7 @@ exports[`BookmarksTracksListItem > matches the snapshot 1`] = `
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Track </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
@@ -122,9 +120,7 @@ exports[`BookmarksTracksListItem > when bookmark.author is undefined > matches t
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Track </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
@@ -205,9 +201,7 @@ exports[`BookmarksTracksListItem > when bookmark.podcastId is undefined > matche
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Track </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
@@ -278,9 +272,7 @@ exports[`BookmarksTracksListItem > when bookmark.podcastName is undefined > matc
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play Track </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>

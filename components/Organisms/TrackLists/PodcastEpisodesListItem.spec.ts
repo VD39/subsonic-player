@@ -5,6 +5,7 @@ import { mount } from '@vue/test-utils';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
@@ -30,6 +31,7 @@ function factory(props = {}) {
           template: '<div><slot /></div>',
         },
         TrackPlayPause: true,
+        TrackPlayPauseDropdownItem: true,
       },
     },
     props: {
@@ -146,8 +148,10 @@ describe('PodcastEpisodesListItem', () => {
       );
     });
 
-    it('shows the play episode DropdownItem component', () => {
-      expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(true);
+    it('shows the TrackPlayPauseDropdownItem component', () => {
+      expect(wrapper.findComponent(TrackPlayPauseDropdownItem).exists()).toBe(
+        true,
+      );
     });
 
     it('does not show the download episode DropdownItem component', () => {
@@ -172,7 +176,6 @@ describe('PodcastEpisodesListItem', () => {
       ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
       ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
       ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
-      ['play episode DropdownItem', 'playEpisode', 'playEpisode'],
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName) => {
@@ -185,6 +188,16 @@ describe('PodcastEpisodesListItem', () => {
         });
       },
     );
+
+    describe('when the TrackPlayPauseDropdownItem component emits the playTrack event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(TrackPlayPauseDropdownItem).vm.$emit('playTrack');
+      });
+
+      it('emits the playEpisode event', () => {
+        expect(wrapper.emitted('playEpisode')).toEqual([[]]);
+      });
+    });
 
     describe('when the TrackPlayPause component emits the playTrack event', () => {
       beforeEach(() => {
@@ -244,8 +257,8 @@ describe('PodcastEpisodesListItem', () => {
       );
     });
 
-    it('does not show the play episode DropdownItem component', () => {
-      expect(wrapper.findComponent({ ref: 'playEpisode' }).exists()).toBe(
+    it('does not show the TrackPlayPauseDropdownItem component', () => {
+      expect(wrapper.findComponent(TrackPlayPauseDropdownItem).exists()).toBe(
         false,
       );
     });

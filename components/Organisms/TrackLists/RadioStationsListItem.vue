@@ -8,6 +8,7 @@ import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
   index: number;
@@ -75,12 +76,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
       <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
-          <DropdownItem
-            ref="playRadioStation"
-            @click="$emit('playRadioStation')"
-          >
-            Play station
-          </DropdownItem>
+          <TrackPlayPauseDropdownItem
+            :trackId="radioStation.id"
+            :type="radioStation.type"
+            @playTrack="$emit('playRadioStation')"
+          />
           <DropdownItem ref="addToQueue" @click="$emit('addToQueue')">
             Add to queue
           </DropdownItem>

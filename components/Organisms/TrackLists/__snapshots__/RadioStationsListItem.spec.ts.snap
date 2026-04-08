@@ -18,9 +18,7 @@ exports[`RadioStationsListItem > matches the snapshot 1`] = `
       </button></div>
     <div class="trackCell trackOptions">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play station </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
@@ -61,9 +59,7 @@ exports[`RadioStationsListItem > when radioStation.homePageUrl is undefined > ma
       </button></div>
     <div class="trackCell trackOptions">
       <div>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Play station </span>
-          </button></li>
+        <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
         <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>

@@ -4,6 +4,7 @@ import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedRadioStationMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
@@ -26,6 +27,7 @@ function factory(props = {}) {
           template: '<div><slot /></div>',
         },
         TrackPlayPause: true,
+        TrackPlayPauseDropdownItem: true,
       },
     },
     props: {
@@ -77,7 +79,6 @@ describe('RadioStationsListItem', () => {
 
   describe.each([
     ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
-    ['play radio station DropdownItem', 'playRadioStation', 'playRadioStation'],
     ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
     ['edit radio station DropdownItem', 'editRadioStation', 'editRadioStation'],
     [
@@ -97,6 +98,16 @@ describe('RadioStationsListItem', () => {
       });
     },
   );
+
+  describe('when the TrackPlayPauseDropdownItem component emits the playTrack event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(TrackPlayPauseDropdownItem).vm.$emit('playTrack');
+    });
+
+    it('emits the playRadioStation event', () => {
+      expect(wrapper.emitted('playRadioStation')).toEqual([[]]);
+    });
+  });
 
   describe('when the TrackPlayPause component emits the playTrack event', () => {
     beforeEach(async () => {

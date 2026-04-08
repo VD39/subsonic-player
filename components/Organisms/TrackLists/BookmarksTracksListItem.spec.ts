@@ -4,6 +4,7 @@ import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedBookmarksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
@@ -26,6 +27,7 @@ function factory(props = {}) {
           template: '<div><slot /></div>',
         },
         TrackPlayPause: true,
+        TrackPlayPauseDropdownItem: true,
       },
     },
     props: {
@@ -146,7 +148,6 @@ describe('BookmarksTracksListItem', () => {
     ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],
     ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
-    ['play track DropdownItem', 'playTrack', 'playTrack'],
     ['remove DropdownItem', 'dropdownItemRemove', 'remove'],
     ['remove ButtonLink', 'removeButton', 'remove'],
   ])(
@@ -161,6 +162,16 @@ describe('BookmarksTracksListItem', () => {
       });
     },
   );
+
+  describe('when the TrackPlayPauseDropdownItem component emits the playTrack event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(TrackPlayPauseDropdownItem).vm.$emit('playTrack');
+    });
+
+    it('emits the playTrack event', () => {
+      expect(wrapper.emitted('playTrack')).toEqual([[]]);
+    });
+  });
 
   describe('when the TrackPlayPause component emits the playTrack event', () => {
     beforeEach(async () => {

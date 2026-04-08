@@ -8,6 +8,7 @@ import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisode.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
   episode: PodcastEpisode;
@@ -154,9 +155,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       <div class="trackCell trackOptions trackPodcastEpisode">
         <DropdownMenu ref="dropdownMenuRef">
           <template v-if="episode.downloaded">
-            <DropdownItem ref="playEpisode" @click="$emit('playEpisode')">
-              Play Episode
-            </DropdownItem>
+            <TrackPlayPauseDropdownItem
+              :trackId="episode.id"
+              :type="episode.type"
+              @playTrack="$emit('playEpisode')"
+            />
             <DropdownItem ref="addToQueue" @click="$emit('addToQueue')">
               Add to queue
             </DropdownItem>
