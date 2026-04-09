@@ -17,14 +17,14 @@ export function useAuth() {
 
   async function autoLogin() {
     if (!user.value?.server) {
-      logoutAndRedirect();
+      basicReset();
       return;
     }
 
     const { data: loggedIn, error: loginError } = await fetchData('/ping');
 
     if (loginError?.message) {
-      logoutAndRedirect();
+      basicReset();
       return;
     }
 
@@ -78,12 +78,16 @@ export function useAuth() {
     loading.value = false;
   }
 
+  // Reset all user-related states.
+  function basicReset() {
+    resetAuth();
+    resetAllUserState();
+  }
+
   async function logoutAndRedirect() {
     clearNuxtData();
 
-    // Reset all user-related states.
-    resetAuth();
-    resetAllUserState();
+    basicReset();
 
     await navigateTo({
       name: ROUTE_NAMES.login,

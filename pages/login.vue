@@ -13,13 +13,11 @@ const { error, isAuthenticated, loading, login } = useAuth();
 
 async function checkLogin() {
   if (isAuthenticated.value) {
-    const redirect = route.query.redirect?.toString();
+    const destination = route.query.redirect?.toString() || {
+      name: ROUTE_NAMES.index,
+    };
 
-    await navigateTo(
-      redirect ?? {
-        name: ROUTE_NAMES.index,
-      },
-    );
+    return navigateTo(destination);
   }
 }
 

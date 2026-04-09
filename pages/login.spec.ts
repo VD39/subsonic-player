@@ -89,7 +89,7 @@ describe('login', () => {
         });
       });
 
-      describe('and there is a redirect query parameter', () => {
+      describe('when there is a redirect query parameter', () => {
         beforeEach(() => {
           routeMock.mockReturnValue({
             query: {

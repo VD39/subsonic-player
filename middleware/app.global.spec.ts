@@ -87,21 +87,44 @@ describe('app-global-middleware', () => {
     });
 
     describe(`when route.to.name is ${ROUTE_NAMES.login}`, () => {
-      beforeEach(async () => {
-        appGlobalMiddleware(
-          {
-            ...routeMock,
-            name: ROUTE_NAMES.login,
-          },
-          routeMock,
-        );
+      describe('when there is no redirect query parameter', () => {
+        beforeEach(async () => {
+          appGlobalMiddleware(
+            {
+              ...routeMock,
+              name: ROUTE_NAMES.login,
+            },
+            routeMock,
+          );
 
-        await flushPromises();
+          await flushPromises();
+        });
+
+        it('calls the navigateTo function with correct parameters', () => {
+          expect(navigateToMock).toHaveBeenCalledWith({
+            name: ROUTE_NAMES.index,
+          });
+        });
       });
 
-      it('calls the navigateTo function with correct parameters', () => {
-        expect(navigateToMock).toHaveBeenCalledWith({
-          name: ROUTE_NAMES.index,
+      describe('when there is a redirect query parameter', () => {
+        beforeEach(async () => {
+          appGlobalMiddleware(
+            {
+              ...routeMock,
+              name: ROUTE_NAMES.login,
+              query: {
+                redirect: '/albums',
+              },
+            },
+            routeMock,
+          );
+
+          await flushPromises();
+        });
+
+        it('calls the navigateTo function with correct parameters', () => {
+          expect(navigateToMock).toHaveBeenCalledWith('/albums');
         });
       });
     });

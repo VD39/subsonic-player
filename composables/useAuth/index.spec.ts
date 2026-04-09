@@ -69,89 +69,91 @@ describe('useAuth', () => {
       it('does not call the fetchData function', () => {
         expect(fetchDataMock).not.toHaveBeenCalled();
       });
-      it('sets the correct useCookie value', () => {
-        expect(useCookieMock.value).toBe(null);
-      });
 
       it('sets the correct isAuthenticated value', () => {
         expect(result.composable.isAuthenticated.value).toBe(false);
       });
 
-      it('calls the clearNuxtData function', () => {
-        expect(clearNuxtDataMock).toHaveBeenCalled();
+      it('sets the correct useCookie value', () => {
+        expect(useCookieMock.value).toBe(null);
       });
 
       it('calls the resetAllUserState function', () => {
         expect(resetAllUserStateMock).toHaveBeenCalled();
       });
 
-      it('calls the navigateTo function with the correct parameters', () => {
-        expect(navigateToMock).toHaveBeenCalledWith({
-          name: ROUTE_NAMES.login,
-        });
+      it('does not call the clearNuxtData function', () => {
+        expect(clearNuxtDataMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the navigateTo function', () => {
+        expect(navigateToMock).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when cookie is defined', () => {
+    beforeEach(() => {
+      useCookieMock.value = cookieMock;
+      result = withSetup(useAuth);
+    });
+
+    it('sets the user value bases on cookie', () => {
+      expect(useUserMock.value).toEqual({
+        salt: 'salt',
+        server: 'https://www.server.com',
+        token: 'token',
+        username: 'username',
       });
     });
 
-    describe('when cookie is defined', () => {
+    describe('when the autoLogin function is called', () => {
       beforeEach(() => {
-        useCookieMock.value = cookieMock;
-        result = withSetup(useAuth);
+        result.composable.autoLogin();
       });
 
-      it('sets the user value bases on cookie', () => {
-        expect(useUserMock.value).toEqual({
-          salt: 'salt',
-          server: 'https://www.server.com',
-          token: 'token',
-          username: 'username',
+      it('calls the fetchData function', () => {
+        expect(fetchDataMock).toHaveBeenCalled();
+      });
+
+      describe('when fetchData response returns is successful', () => {
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(true);
+        });
+
+        it('does not call the navigateTo function', () => {
+          expect(navigateToMock).not.toHaveBeenCalled();
         });
       });
 
-      describe('when the autoLogin function is called', () => {
+      describe('when fetchData response returns is not successful', () => {
         beforeEach(() => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+            error: new Error('Error message.'),
+          });
+
           result.composable.autoLogin();
         });
 
-        it('calls the fetchData function', () => {
-          expect(fetchDataMock).toHaveBeenCalled();
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(false);
         });
 
-        describe('when fetchData response returns is successful', () => {
-          it('sets the correct isAuthenticated value', () => {
-            expect(result.composable.isAuthenticated.value).toBe(true);
-          });
+        it('sets the correct useCookie value', () => {
+          expect(useCookieMock.value).toBe(null);
         });
 
-        describe('when fetchData response returns is not successful', () => {
-          beforeEach(() => {
-            fetchDataMock.mockResolvedValue({
-              data: null,
-              error: new Error('Error message.'),
-            });
+        it('calls the resetAllUserState function', () => {
+          expect(resetAllUserStateMock).toHaveBeenCalled();
+        });
 
-            result.composable.autoLogin();
-          });
-          it('sets the correct useCookie value', () => {
-            expect(useCookieMock.value).toBe(null);
-          });
+        it('does not call the clearNuxtData function', () => {
+          expect(clearNuxtDataMock).not.toHaveBeenCalled();
+        });
 
-          it('sets the correct isAuthenticated value', () => {
-            expect(result.composable.isAuthenticated.value).toBe(false);
-          });
-
-          it('calls the clearNuxtData function', () => {
-            expect(clearNuxtDataMock).toHaveBeenCalled();
-          });
-
-          it('calls the resetAllUserState function', () => {
-            expect(resetAllUserStateMock).toHaveBeenCalled();
-          });
-
-          it('calls the navigateTo function with the correct parameters', () => {
-            expect(navigateToMock).toHaveBeenCalledWith({
-              name: ROUTE_NAMES.login,
-            });
-          });
+        it('does not call the navigateTo function', () => {
+          expect(navigateToMock).not.toHaveBeenCalled();
         });
       });
     });

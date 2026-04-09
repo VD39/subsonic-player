@@ -23,9 +23,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
 
   if (to.name === ROUTE_NAMES.login && isAuthenticated.value) {
-    return navigateTo({
+    const destination = to.query.redirect?.toString() || {
       name: ROUTE_NAMES.index,
-    });
+    };
+
+    return navigateTo(destination);
   }
 
   if (to.name !== ROUTE_NAMES.login && !isAuthenticated.value) {
