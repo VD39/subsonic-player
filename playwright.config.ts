@@ -7,6 +7,7 @@ const timeout = 10000 * 15 * 2;
 
 export default defineConfig<ConfigOptions>({
   forbidOnly: !!process.env.CI,
+  fullyParallel: true,
   projects: [
     {
       name: 'desktop',

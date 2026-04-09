@@ -12,17 +12,31 @@ const TEST_SETTINGS = {
   videoPath: 'docs/videos',
 };
 
+async function changeLayoutToGrid(page: Page) {
+  await page.locator('[title="Switch to grid layout"]').click();
+  await page.waitForTimeout(10000);
+}
+
+async function changeLayoutToList(page: Page) {
+  await page.locator('[title="Switch to list layout"]').click();
+  await page.waitForTimeout(10000);
+}
+
 function getPath(rootPath: string, device: string, isDark = false) {
   return `${rootPath}/${device}${isDark ? '-dark' : '-light'}`;
 }
 
 async function goToAlbumPage(page: Page, device: string) {
   await goToPage(page, 5, device);
+  await changeLayoutToList(page);
+  await changeLayoutToGrid(page);
   await goToSubPage(page);
 }
 
 async function goToArtistPage(page: Page, device: string) {
   await goToPage(page, 6, device);
+  await changeLayoutToList(page);
+  await changeLayoutToGrid(page);
   await goToSubPage(page);
 }
 
@@ -62,6 +76,8 @@ async function goToPagesMobile(page: Page, device: string, isDark = false) {
 
 async function goToPodcastsPageDesktop(page: Page, device: string) {
   await goToPage(page, 1, device);
+  await changeLayoutToList(page);
+  await changeLayoutToGrid(page);
   await goToSubPage(page);
 }
 
@@ -71,7 +87,7 @@ async function goToPodcastsPageMobile(page: Page) {
 }
 
 async function goToSubPage(page: Page) {
-  await page.locator('section article a').first().click();
+  await page.locator('section article a').nth(1).click();
   await page.waitForTimeout(10000);
 }
 
@@ -82,8 +98,8 @@ async function login(page: Page, isDark = false) {
     await selectDarkThemeMode(page);
   }
 
-  await page.getByLabel('Server').fill(TEST_SETTINGS.loginDetails.server);
-  await page.getByLabel('Username').fill(TEST_SETTINGS.loginDetails.username);
+  await page.getByLabel('server').fill(TEST_SETTINGS.loginDetails.server);
+  await page.getByLabel('username').fill(TEST_SETTINGS.loginDetails.username);
   await page.getByLabel('password').fill(TEST_SETTINGS.loginDetails.password);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.waitForURL('/', { waitUntil: 'load' });
