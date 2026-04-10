@@ -165,13 +165,12 @@ Changes you make to the code will automatically trigger a rebuild and refresh of
 
 ## 🔧 Environment Variables
 
-| Variable                     | Default     | Description                                                                                                  |
-| ---------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------ |
-| `NUXT_PUBLIC_SERVER_URL`     | `undefined` | Subsonic server URL                                                                                          |
-| `NUXT_PUBLIC_MAIN_APP_TITLE` | `Music App` | Browser tab title                                                                                            |
-| `NUXT_PUBLIC_LOAD_SIZE`      | `50`        | Items loaded per scroll                                                                                      |
-| `NUXT_PUBLIC_IMAGE_SIZE`     | `500`       | Album art image size (in pixels)                                                                             |
-| `SPA_MODE`                   | `false`     | Builds and runs the application in Single Page Application (SPA) mode, disabling Server-Side Rendering (SSR) |
+| Variable                     | Default     | Description                      |
+| ---------------------------- | ----------- | -------------------------------- |
+| `NUXT_PUBLIC_SERVER_URL`     | `undefined` | Subsonic server URL              |
+| `NUXT_PUBLIC_MAIN_APP_TITLE` | `Music App` | Browser tab title                |
+| `NUXT_PUBLIC_LOAD_SIZE`      | `50`        | Items loaded per scroll          |
+| `NUXT_PUBLIC_IMAGE_SIZE`     | `500`       | Album art image size (in pixels) |
 
 ## 🤝 Contributing
 
