@@ -72,6 +72,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -81,7 +82,6 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -148,6 +148,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -157,7 +158,6 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -224,6 +224,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -233,7 +234,6 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -300,6 +300,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -309,7 +310,6 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -376,6 +376,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -385,7 +386,6 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -466,6 +466,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -475,7 +476,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -542,6 +542,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -551,7 +552,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -618,6 +618,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -627,7 +628,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -694,6 +694,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -703,7 +704,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -770,6 +770,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -779,7 +780,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -860,6 +860,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -869,7 +870,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <!--v-if-->
     </div>
   </div>
@@ -934,6 +934,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -943,7 +944,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <!--v-if-->
     </div>
   </div>
@@ -1008,6 +1008,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1017,7 +1018,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <!--v-if-->
     </div>
   </div>
@@ -1082,6 +1082,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1091,7 +1092,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <!--v-if-->
     </div>
   </div>
@@ -1156,6 +1156,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <!--v-if-->
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1165,7 +1166,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <!--v-if-->
       <!--v-if-->
     </div>
   </div>
@@ -1244,6 +1244,9 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1253,9 +1256,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
-        </button></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -1322,6 +1322,9 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1331,9 +1334,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
-        </button></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -1400,6 +1400,9 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1409,9 +1412,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
-        </button></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -1478,6 +1478,9 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1487,9 +1490,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
-        </button></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>
@@ -1556,6 +1556,9 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </div>
         </div>
       </div><time class="trackCell trackTime">02:00</time>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -1565,9 +1568,6 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </teleport-stub>
         </div>
       </div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
-        </button></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
           <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
         </button></div>

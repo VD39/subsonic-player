@@ -56,6 +56,7 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -84,7 +85,6 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -148,6 +148,9 @@ exports[`MixedTracksListItem > when the hasAddToQueueEvent prop is true > matche
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -178,9 +181,6 @@ exports[`MixedTracksListItem > when the hasAddToQueueEvent prop is true > matche
           </button></li>
       </div>
     </div>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
-      </button></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -244,6 +244,7 @@ exports[`MixedTracksListItem > when the hideRemoveOption prop is true > matches 
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -269,7 +270,6 @@ exports[`MixedTracksListItem > when the hideRemoveOption prop is true > matches 
         <!--v-if-->
       </div>
     </div>
-    <!--v-if-->
     <!--v-if-->
   </div>
 </div>"
@@ -312,6 +312,7 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">00:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
@@ -329,7 +330,6 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -388,6 +388,7 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
         </div>
       </div>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -413,7 +414,6 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -473,6 +473,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -501,7 +502,6 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -556,6 +556,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
         </div>
       </div>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -583,7 +584,6 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -634,6 +634,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
         </div>
       </div>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -661,7 +662,6 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -712,6 +712,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
         </div>
       </div>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -739,7 +740,6 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -807,6 +807,7 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -833,7 +834,6 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -883,6 +883,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -911,7 +912,6 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -966,6 +966,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
         </div>
       </div>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -993,7 +994,6 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1042,6 +1042,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -1069,7 +1070,6 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1118,6 +1118,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -1145,7 +1146,6 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1208,6 +1208,7 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -1235,7 +1236,6 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1280,6 +1280,7 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">00:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
@@ -1297,7 +1298,6 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1356,6 +1356,7 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
         </div>
       </div>
     </div><time class="trackCell trackTime">00:19</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
@@ -1381,7 +1382,6 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1441,6 +1441,7 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -1469,7 +1470,6 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1537,6 +1537,7 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -1563,7 +1564,6 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1613,6 +1613,7 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">02:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
@@ -1641,7 +1642,6 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
@@ -1686,6 +1686,7 @@ exports[`MixedTracksListItem > when track.type is radioStation > matches the sna
     <div class="trackCell trackSecondary">
       <p>--</p>
     </div><time class="trackCell trackTime">00:00</time>
+    <!--v-if-->
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
@@ -1705,7 +1706,6 @@ exports[`MixedTracksListItem > when track.type is radioStation > matches the sna
           </button></li>
       </div>
     </div>
-    <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>

@@ -89,6 +89,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           Add to queue
         </ButtonLink>
       </div>
+
       <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
           <TrackPlayPauseDropdownItem

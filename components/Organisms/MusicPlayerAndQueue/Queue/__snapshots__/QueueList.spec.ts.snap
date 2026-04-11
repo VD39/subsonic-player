@@ -82,6 +82,7 @@ exports[`QueueList > matches the snapshot 1`] = `
             </div>
           </div>
         </div><time class="trackCell trackTime">02:00</time>
+        <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
@@ -91,7 +92,6 @@ exports[`QueueList > matches the snapshot 1`] = `
             </teleport-stub>
           </div>
         </div>
-        <!--v-if-->
         <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
             <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
           </button></div>

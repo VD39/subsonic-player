@@ -137,6 +137,16 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         {{ track.formattedDuration }}
       </time>
 
+      <div v-if="hasAddToQueueEvent" class="trackCell trackOptions">
+        <ButtonLink
+          ref="addToQueueButton"
+          :icon="ICONS.add"
+          @click="$emit('addToQueue')"
+        >
+          Add to queue
+        </ButtonLink>
+      </div>
+
       <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
           <TrackPlayPauseDropdownItem
@@ -227,16 +237,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             </DropdownItem>
           </template>
         </DropdownMenu>
-      </div>
-
-      <div v-if="hasAddToQueueEvent" class="trackCell trackOptions">
-        <ButtonLink
-          ref="addToQueueButton"
-          :icon="ICONS.add"
-          @click="$emit('addToQueue')"
-        >
-          Add to queue
-        </ButtonLink>
       </div>
 
       <div
