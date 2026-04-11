@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AppUpdateModal > matches the snapshot 1`] = `
+"<div class="content">
+  <p>A new version is available. Update now to get the latest features.</p>
+  <p><strong>Note:</strong> Updating the app will cause the current page to reload. </p>
+  <div class="centerItems actions"><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="button">
+      <!--v-if--><span class="clamp text">Update</span>
+    </button><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="button">
+      <!--v-if--><span class="clamp text"> Dismiss </span>
+    </button></div>
+</div>"
+`;

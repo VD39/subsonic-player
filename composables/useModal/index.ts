@@ -1,5 +1,6 @@
 import ReadMore from '@/components/Atoms/ReadMore.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
+import AppUpdateModal from '@/components/Molecules/AppUpdateModal.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
 import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
 import TrackInformation from '@/components/Molecules/TrackInformation.vue';
@@ -93,6 +94,14 @@ export function useModal() {
     };
   }
 
+  function openAppUpdateModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      attrs,
+      component: markRaw(AppUpdateModal),
+      title: 'Update available',
+    };
+  }
+
   function openAddToPlaylistFormModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
@@ -117,6 +126,9 @@ export function useModal() {
         break;
       case MODAL_TYPE.albumDetailsModal:
         openAlbumDetailsModal(attrs);
+        break;
+      case MODAL_TYPE.appUpdateModal:
+        openAppUpdateModal(attrs);
         break;
       case MODAL_TYPE.podcastEpisodeInformationModal:
         openPodcastEpisodeInformationModal(attrs);
@@ -146,6 +158,7 @@ export function useModal() {
   }
 
   function closeModal() {
+    modal.value.attrs?.onModalClose?.();
     modal.value = DEFAULT_STATE;
 
     if (import.meta.client) {

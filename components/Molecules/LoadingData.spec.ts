@@ -22,7 +22,7 @@ describe('LoadingData', () => {
 
   describe.each([
     ['pending', true, false],
-    ['idle', false, true],
+    ['idle', true, false],
     ['success', false, true],
     ['error', false, true],
   ])(

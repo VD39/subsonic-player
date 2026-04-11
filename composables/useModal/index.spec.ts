@@ -2,6 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import ReadMore from '@/components/Atoms/ReadMore.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
+import AppUpdateModal from '@/components/Molecules/AppUpdateModal.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
 import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
@@ -21,6 +22,8 @@ mockNuxtImport('useScrollLock', () => () => ({
   unlockScroll: unlockScrollMock,
 }));
 
+const onModalCloseMock = vi.fn();
+
 const {
   documentAddEventListenerSpy,
   documentEvents,
@@ -34,7 +37,7 @@ describe('useModal', () => {
     expect(modal.value).toEqual(DEFAULT_STATE);
   });
 
-  describe('when openModal function is called', () => {
+  describe('when the openModal function is called', () => {
     describe.each([
       [
         MODAL_TYPE.addPlaylistModal,
@@ -85,6 +88,14 @@ describe('useModal', () => {
         },
       ],
       [
+        MODAL_TYPE.appUpdateModal,
+        AppUpdateModal,
+        'Update available',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
         MODAL_TYPE.podcastEpisodeInformationModal,
         PodcastEpisodeInformation,
         'Podcast episode information',
@@ -124,7 +135,7 @@ describe('useModal', () => {
           attrs: 'attrs',
         },
       ],
-    ])('when modalType is %s', (modalType, component, title, attrs) => {
+    ])('when the modalType is %s', (modalType, component, title, attrs) => {
       beforeAll(() => {
         openModal(modalType);
       });
@@ -144,7 +155,7 @@ describe('useModal', () => {
         expect(lockScrollMock).toHaveBeenCalled();
       });
 
-      describe('when attrs are not set', () => {
+      describe('when the attrs are not set', () => {
         it('sets the correct modal value', () => {
           expect(modal.value).toEqual({
             attrs: {},
@@ -154,7 +165,7 @@ describe('useModal', () => {
         });
       });
 
-      describe('when attrs are set', () => {
+      describe('when the attrs are set', () => {
         beforeAll(() => {
           openModal(modalType, attrs);
         });
@@ -190,7 +201,7 @@ describe('useModal', () => {
         });
       });
 
-      describe('when esc key is pressed', () => {
+      describe('when the esc key is pressed', () => {
         beforeAll(() => {
           documentEvents.keydown({ key: 'Escape' });
         });
@@ -213,7 +224,7 @@ describe('useModal', () => {
     });
   });
 
-  describe('when openModal function is called with an model type undefined', () => {
+  describe('when the openModal function is called with an model type undefined', () => {
     beforeEach(() => {
       openModal('unKnown' as ModalType);
     });
@@ -223,7 +234,7 @@ describe('useModal', () => {
     });
   });
 
-  describe('when closeModal function is called', () => {
+  describe('when the closeModal function is called', () => {
     beforeEach(() => {
       openModal(MODAL_TYPE.updatePlaylistModal);
       closeModal();
@@ -242,6 +253,19 @@ describe('useModal', () => {
 
     it('calls the unlockScroll function', () => {
       expect(unlockScrollMock).toHaveBeenCalled();
+    });
+
+    describe('when the onModalClose attr is set', () => {
+      beforeEach(() => {
+        openModal(MODAL_TYPE.updatePlaylistModal, {
+          onModalClose: onModalCloseMock,
+        });
+        closeModal();
+      });
+
+      it('calls the onModalClose function', () => {
+        expect(onModalCloseMock).toHaveBeenCalled();
+      });
     });
   });
 });

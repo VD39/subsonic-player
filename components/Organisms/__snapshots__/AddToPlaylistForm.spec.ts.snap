@@ -61,7 +61,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -76,7 +76,7 @@ exports[`AddToPlaylistForm > when the playlists prop is an empty array > matches
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -144,7 +144,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > mat
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -212,7 +212,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -280,7 +280,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -308,7 +308,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -376,7 +376,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>
@@ -444,7 +444,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
         <!--v-if-->
       </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
       <!--v-if-->
-    </div><button class="centerItems buttonLink submitButton submitButton" draggable="false" type="submit">
+    </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
     </button>
   </div>

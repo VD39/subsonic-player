@@ -11,7 +11,10 @@ const DEFAULT_PRESET = {
   },
 } as Partial<Asset>;
 
-export function createPWAConfig(mainAppTitle: string): NuxtConfig {
+export function createPWAConfig(
+  mainAppTitle: string,
+  spaMode: boolean,
+): NuxtConfig {
   if (process.env.NODE_ENV !== 'production') {
     return {
       pwa: {
@@ -19,6 +22,8 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
       },
     };
   }
+
+  const globPatterns = [`**/*.{${spaMode ? 'html,' : ''}js,css,ico,woff2}`];
 
   return {
     pwa: {
@@ -33,7 +38,7 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
       },
       includeAssets: ['*.svg', '*.png'],
       injectManifest: {
-        globPatterns: ['**/*.{js,css,html,ico,woff2}'],
+        globPatterns,
       },
       injectRegister: 'auto',
       manifest: {
@@ -56,7 +61,7 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
           client_mode: ['navigate-existing', 'auto'],
         },
         name: mainAppTitle,
-        orientation: 'any',
+        orientation: 'natural',
         prefer_related_applications: false,
         protocol_handlers: [],
         related_applications: [],
@@ -103,13 +108,13 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
           },
         },
       },
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       workbox: {
         cleanupOutdatedCaches: true,
-        clientsClaim: true,
-        globPatterns: ['**/*.{js,css,html,ico,woff2}'],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
-        navigateFallback: '/',
+        globPatterns,
+        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+        navigationPreload: !spaMode,
+        ...(spaMode && { navigateFallback: '/' }),
         runtimeCaching: [
           {
             handler: 'CacheFirst',
@@ -120,7 +125,7 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
               cacheName: 'audio-cache',
               expiration: {
                 maxAgeSeconds: 60 * 60 * 24 * 30,
-                maxEntries: 100,
+                maxEntries: 50,
               },
               plugins: [
                 {
@@ -192,7 +197,7 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
                 maxAgeSeconds: 60 * 60 * 24,
                 maxEntries: 100,
               },
-              networkTimeoutSeconds: 10,
+              networkTimeoutSeconds: 5,
             },
             urlPattern: /^https?:\/\/.*\/rest\/.*/i,
           },
@@ -212,7 +217,6 @@ export function createPWAConfig(mainAppTitle: string): NuxtConfig {
             urlPattern: /^https?:\/\/.*\/(ping|getLicense|getUser)$/i,
           },
         ],
-        skipWaiting: true,
       },
     },
   };

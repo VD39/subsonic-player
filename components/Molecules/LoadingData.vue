@@ -7,7 +7,9 @@ const props = defineProps<{
   status: AsyncDataRequestStatus;
 }>();
 
-const showLoader = computed(() => props.status === 'pending');
+const showLoader = computed(
+  () => props.status === 'pending' || props.status === 'idle',
+);
 </script>
 
 <template>

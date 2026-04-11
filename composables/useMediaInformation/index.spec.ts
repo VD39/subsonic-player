@@ -156,7 +156,7 @@ describe('useMediaInformation', () => {
         openTrackInformationModal(track);
       });
 
-      it('calls the openModal function with correct parameters', () => {
+      it('calls the openModal function with the correct parameters', () => {
         expect(openModalMock).toHaveBeenCalledWith(modalType, attrs);
       });
     });

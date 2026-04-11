@@ -21,7 +21,7 @@ const { frequentAlbums, getDiscoverAlbums, newestAlbums, recentAlbums } =
 const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
-const { refresh, status } = useLazyAsyncData(
+const { refresh, status } = useAsyncData(
   ASYNC_DATA_NAMES.index,
   async () => {
     const [, favourites] = await Promise.all([

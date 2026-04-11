@@ -20,7 +20,7 @@ exports[`login > matches the snapshot 1`] = `
         <!--v-if-->
       </div>
     </div>
-    <!--v-if--><button class="centerItems buttonLink centerAll fullWidth submitButton formButton submitButton formButton" draggable="false" type="submit">
+    <!--v-if--><button class="centerItems buttonLink centerAll fullWidth actionButton formButton actionButton formButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text"> Login </span>
     </button>
   </form>

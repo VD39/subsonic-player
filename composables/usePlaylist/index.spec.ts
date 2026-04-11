@@ -481,8 +481,18 @@ describe('usePlaylist', () => {
       handlers = openModalMock.mock.calls[0][1];
     });
 
-    it('calls the openModal function with correct modal type and handlers', () => {
-      expect(openModalMock).toHaveBeenCalled();
+    it('calls the openModal function with the correct parameters', () => {
+      expect(openModalMock).toHaveBeenCalledWith(
+        MODAL_TYPE.addToPlaylistModal,
+        {
+          loading: expect.any(Object),
+          newlyCreatedPlaylistId: expect.any(Object),
+          onAddToPlaylist: expect.any(Function),
+          onRemoveFromPlaylist: expect.any(Function),
+          onSubmit: expect.any(Function),
+          playlists: expect.any(Object),
+        },
+      );
     });
 
     describe('when the onAddToPlaylist function is called', () => {

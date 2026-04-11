@@ -82,7 +82,7 @@ mockNuxtImport('useAlbum', () => () => ({
 
 const refreshMock = vi.fn();
 
-mockNuxtImport('useLazyAsyncData', () => () => ({
+mockNuxtImport('useAsyncData', () => () => ({
   refresh: refreshMock,
   status: ref('success'),
 }));

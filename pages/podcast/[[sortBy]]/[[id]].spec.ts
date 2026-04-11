@@ -177,7 +177,7 @@ describe('[[id]]', () => {
             wrapper.findComponent(TextClamp).vm.$emit('more');
           });
 
-          it('calls the openModal function with correct parameters', () => {
+          it('calls the openModal function with the correct parameters', () => {
             expect(openModalMock).toHaveBeenCalledWith(
               MODAL_TYPE.readMoreModal,
               {

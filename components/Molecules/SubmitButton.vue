@@ -12,7 +12,7 @@ const icon = computed(() => (props.loading ? SpinningLoader : undefined));
 
 <template>
   <ButtonLink
-    :class="$style.submitButton"
+    class="actionButton"
     :disabled="loading"
     :fullWidth
     :icon
@@ -23,20 +23,3 @@ const icon = computed(() => (props.loading ? SpinningLoader : undefined));
     <slot />
   </ButtonLink>
 </template>
-
-<style module>
-.submitButton {
-  --button-hover-color: var(--body-background-color);
-
-  background-color: var(--button-hover-color);
-  border: 1px solid var(--theme-color);
-  border-radius: var(--border-radius-medium);
-
-  @media (hover: hover) {
-    &:hover,
-    &:focus {
-      --button-hover-color: var(--hover-selected-color);
-    }
-  }
-}
-</style>

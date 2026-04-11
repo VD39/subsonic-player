@@ -80,5 +80,8 @@ export default defineNuxtConfig({
     },
     typeCheck: 'build',
   },
-  ...createPWAConfig(ENVIRONMENT_VARIABLES.MAIN_APP_TITLE),
+  ...createPWAConfig(
+    ENVIRONMENT_VARIABLES.MAIN_APP_TITLE,
+    ENVIRONMENT_VARIABLES.SPA_MODE,
+  ),
 });
