@@ -6,3 +6,5 @@ export interface DataMock {
 export type EventCallback = (
   event?: Partial<DragEvent | Event | KeyboardEvent | MouseEvent | TouchEvent>,
 ) => void;
+
+export type EventHandler = (...args: unknown[]) => void;

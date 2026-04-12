@@ -2,6 +2,7 @@ export const REWIND_TRACK_TIME = 10;
 export const FAST_FORWARD_TRACK_TIME = 30;
 export const VOLUME_INCREASE = 0.02;
 export const SAVE_INTERVAL = 2000;
+export const PREFETCH_TRACK_COUNT = 3;
 
 export const PLAYBACK_RATES = [
   {
@@ -32,6 +33,7 @@ export const PLAYBACK_RATES = [
 
 export const AUDIO_PLAYER_DEFAULT_STATES = {
   audioPlayer: null,
+  audioPreloader: null,
   bufferedDuration: 0,
   currentQueueIndex: -1,
   currentTime: 0,
@@ -60,3 +62,12 @@ export const REWIND_FAST_FORWARD_TITLES = {
   fastForward: `Fast forward back ${FAST_FORWARD_TRACK_TIME} seconds`,
   rewind: `Rewind back ${REWIND_TRACK_TIME} seconds`,
 } as const;
+
+export const MEDIA_SESSION_ARTWORK_SIZES = [
+  '96',
+  '128',
+  '192',
+  '256',
+  '384',
+  '512',
+] as const;

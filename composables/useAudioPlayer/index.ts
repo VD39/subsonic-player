@@ -11,6 +11,12 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPlayer,
   );
 
+  // Audio preloader for buffering upcoming tracks.
+  const preloader = useState<AudioPreloader | null>(
+    STATE_NAMES.playerAudioPreloader,
+    () => AUDIO_PLAYER_DEFAULT_STATES.audioPreloader,
+  );
+
   // Save interval state for saving podcast current time.
   const saveInterval = useState<null | ReturnType<typeof setInterval>>(
     STATE_NAMES.playerSaveInterval,
@@ -155,6 +161,7 @@ export function useAudioPlayer() {
 
     setVolume(SAVED_STATE.volume);
     setPlaybackRate(SAVED_STATE.playbackRate);
+    prefetchUpcomingTracks();
   }
 
   function saveState() {
@@ -240,7 +247,7 @@ export function useAudioPlayer() {
     );
 
     navigator.mediaSession.metadata = new MediaMetadata({
-      artwork: ['96', '128', '192', '256', '384', '512'].map((size) => ({
+      artwork: MEDIA_SESSION_ARTWORK_SIZES.map((size) => ({
         sizes: `${size}x${size}`,
         src: getImageUrl(currentTrack.value.image, size),
         type: 'image/jpeg',
@@ -370,8 +377,36 @@ export function useAudioPlayer() {
 
   function loadTrack(track: MixedTrack) {
     const url = getStreamUrl(track.streamUrlId!);
-    audioPlayer.value?.load(url);
+    const preloadedElement = preloader.value?.consume(url);
+
+    if (preloadedElement) {
+      audioPlayer.value?.loadFromElement(preloadedElement);
+      isBuffering.value = false;
+    } else {
+      audioPlayer.value?.load(url);
+    }
+
     setMediaMetadata();
+  }
+
+  function prefetchUpcomingTracks() {
+    if (!queueList.value.length) {
+      return;
+    }
+
+    const urlsToKeep = new Set<string>();
+
+    for (const track of getTracksToPreload(
+      queueList.value,
+      currentQueueIndex.value,
+      repeat.value,
+    )) {
+      const url = getStreamUrl(track.streamUrlId!);
+      urlsToKeep.add(url);
+      preloader.value?.preload(url);
+    }
+
+    preloader.value?.prune(urlsToKeep);
   }
 
   async function changeTrack(track: MixedTrack) {
@@ -387,6 +422,7 @@ export function useAudioPlayer() {
     }
 
     saveState();
+    prefetchUpcomingTracks();
   }
 
   // Next/previous state.
@@ -475,6 +511,7 @@ export function useAudioPlayer() {
     }
 
     saveState();
+    prefetchUpcomingTracks();
   }
 
   async function replayCurrent() {
@@ -492,6 +529,7 @@ export function useAudioPlayer() {
     }
 
     saveState();
+    prefetchUpcomingTracks();
   }
 
   function resetAudioPlayerQueue() {
@@ -563,6 +601,7 @@ export function useAudioPlayer() {
   // Queue actions.
   function clearQueue() {
     audioPlayer.value?.unload();
+    preloader.value?.clear();
     resetAudioPlayerTimes();
     queueList.value = [];
     currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
@@ -613,6 +652,7 @@ export function useAudioPlayer() {
     }
 
     saveState();
+    prefetchUpcomingTracks();
   }
 
   function addTracksToQueueList(tracks: MixedTrack[]) {
@@ -630,6 +670,7 @@ export function useAudioPlayer() {
     }
 
     saveState();
+    prefetchUpcomingTracks();
   }
 
   async function addTrackToQueue(track: MixedTrack) {
@@ -654,11 +695,13 @@ export function useAudioPlayer() {
   /* istanbul ignore next -- @preserve */
   function resetAudioPlayer() {
     audioPlayer.value?.unload();
+    preloader.value?.clear();
     resetAudioPlayerState();
   }
 
   function setAudioPlayer() {
     audioPlayer.value = new AudioPlayer();
+    preloader.value = new AudioPreloader();
 
     // Audio actions.
     audioPlayer.value.onTimeupdate((newCurrentTime: number) => {

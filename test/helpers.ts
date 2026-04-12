@@ -113,7 +113,10 @@ export function getFormattedQueueTracksMock(
     ...params,
     id: `queue-${params.type || formattedTrackMock.type}-${index}-id`,
     name: `queue-${params.type || formattedTrackMock.type}-${index}-name`,
-    streamUrlId: `queue-streamUrlId${index}`,
+    streamUrlId:
+      'streamUrlId' in params
+        ? params.streamUrlId!
+        : `queue-streamUrlId${index}`,
   }));
 }
 

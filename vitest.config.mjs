@@ -14,7 +14,6 @@ export default defineVitestConfig({
         '**/test/**',
         'app.vue',
         'components/Molecules/CarouselSwiper.vue',
-        'composables/useAudioPlayer/player.ts',
         'error.vue',
         'nuxt.config.ts',
         ...coverageConfigDefaults.exclude,

@@ -32,6 +32,7 @@ let onTimeupdateCb: CB;
 let onWaitingCb: CB;
 
 const changePlaybackRateMock = vi.fn();
+const loadFromElementMock = vi.fn();
 const setVolumeMock = vi.fn();
 const loadMock = vi.fn();
 const onBufferedMock = vi.fn((cb) => (onBufferedCb = cb));
@@ -49,6 +50,7 @@ mockNuxtImport('AudioPlayer', () =>
     return {
       changePlaybackRate: changePlaybackRateMock,
       load: loadMock,
+      loadFromElement: loadFromElementMock,
       onBuffered: onBufferedMock,
       onCanPlay: onCanPlayMock,
       onEnded: onEndedMock,
@@ -59,6 +61,24 @@ mockNuxtImport('AudioPlayer', () =>
       setCurrentTime: setCurrentTimeMock,
       setVolume: setVolumeMock,
       unload: unloadMock,
+    };
+  }),
+);
+
+const preloadMock = vi.fn();
+const consumeMock = vi.fn();
+const pruneMock = vi.fn();
+const clearPreloaderMock = vi.fn();
+
+mockNuxtImport('AudioPreloader', () =>
+  vi.fn(function () {
+    return {
+      clear: clearPreloaderMock,
+      consume: consumeMock,
+      has: vi.fn(() => false),
+      preload: preloadMock,
+      prune: pruneMock,
+      size: 0,
     };
   }),
 );
@@ -271,6 +291,14 @@ describe('useAudioPlayer', () => {
       it('sets the correct hasCurrentTrack value', () => {
         expect(result.composable.hasCurrentTrack.value).toBe(true);
       });
+
+      it('calls the audio preloader preload function with the correct parameters', () => {
+        expect(preloadMock).toHaveBeenCalledWith(queueList[0].streamUrlId);
+      });
+
+      it('calls the audio preloader prune function', () => {
+        expect(pruneMock).toHaveBeenCalled();
+      });
     });
 
     describe('when queueList value is not set', () => {
@@ -381,6 +409,14 @@ describe('useAudioPlayer', () => {
         }),
       );
     });
+
+    it('calls the audio preloader prune function', () => {
+      expect(pruneMock).toHaveBeenCalled();
+    });
+
+    it('does not call the audio preloader preload function', () => {
+      expect(preloadMock).not.toHaveBeenCalled();
+    });
   });
 
   describe('when addTracksToQueue function is called', () => {
@@ -434,6 +470,15 @@ describe('useAudioPlayer', () => {
 
       it('does not call the audio play function', () => {
         expect(playMock).not.toHaveBeenCalled();
+      });
+
+      it('calls the audio preloader preload function with the correct parameters', () => {
+        expect(preloadMock).toHaveBeenCalledWith(queueTracks[1].streamUrlId);
+        expect(preloadMock).toHaveBeenCalledWith(queueTracks[2].streamUrlId);
+      });
+
+      it('calls the audio preloader prune function', () => {
+        expect(pruneMock).toHaveBeenCalled();
       });
     });
   });
@@ -497,6 +542,15 @@ describe('useAudioPlayer', () => {
           expect(result.composable.currentTrack.value.id).toBe(
             queueTracks[4].id,
           );
+        });
+
+        it('calls the audio preloader preload function with the correct parameters', () => {
+          expect(preloadMock).toHaveBeenCalledWith(queueTracks[5].streamUrlId);
+          expect(preloadMock).toHaveBeenCalledWith(queueTracks[3].streamUrlId);
+        });
+
+        it('calls the audio preloader prune function', () => {
+          expect(pruneMock).toHaveBeenCalled();
         });
       });
 
@@ -705,6 +759,10 @@ describe('useAudioPlayer', () => {
           queueList: [],
         }),
       );
+    });
+
+    it('calls the audio preloader clear function', () => {
+      expect(clearPreloaderMock).toHaveBeenCalled();
     });
   });
 
@@ -1133,6 +1191,38 @@ describe('useAudioPlayer', () => {
     it('calls the audio play function', () => {
       expect(playMock).toHaveBeenCalled();
     });
+
+    it('calls the audio preloader preload function with the correct parameters', () => {
+      expect(preloadMock).toHaveBeenCalledWith(queueTracks[1].streamUrlId);
+      expect(preloadMock).toHaveBeenCalledWith(queueTracks[2].streamUrlId);
+      expect(preloadMock).toHaveBeenCalledWith(queueTracks[3].streamUrlId);
+    });
+
+    it('calls the audio preloader prune function', () => {
+      expect(pruneMock).toHaveBeenCalled();
+    });
+
+    describe('when a pre-loaded element exists for the current track', () => {
+      beforeAll(async () => {
+        vi.clearAllMocks();
+        consumeMock.mockReturnValueOnce(queueTracks[0].streamUrlId);
+        await result.composable.playTracks([...queueTracks]);
+      });
+
+      afterAll(() => {
+        consumeMock.mockReturnValue(null);
+      });
+
+      it('calls the audio loadFromElement function with the correct parameters', () => {
+        expect(loadFromElementMock).toHaveBeenCalledWith(
+          queueTracks[0].streamUrlId,
+        );
+      });
+
+      it('sets the correct isBuffering value', () => {
+        expect(result.composable.isBuffering.value).toBe(false);
+      });
+    });
   });
 
   describe('when playCurrentTrack function is called', () => {
@@ -1483,6 +1573,16 @@ describe('useAudioPlayer', () => {
 
       it('calls the audio play function', () => {
         expect(playMock).toHaveBeenCalled();
+      });
+
+      it('calls the audio preloader preload function with the correct parameters', () => {
+        expect(preloadMock).toHaveBeenCalledWith(queueTracks[1].streamUrlId);
+        expect(preloadMock).toHaveBeenCalledWith(queueTracks[2].streamUrlId);
+        expect(preloadMock).toHaveBeenCalledWith(queueTracks[3].streamUrlId);
+      });
+
+      it('calls the audio preloader prune function', () => {
+        expect(pruneMock).toHaveBeenCalled();
       });
     });
   });

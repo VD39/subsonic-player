@@ -1,5 +1,5 @@
 export class AudioPlayer {
-  private readonly audio: HTMLAudioElement;
+  private audio: HTMLAudioElement;
 
   constructor() {
     this.audio = new Audio();
@@ -15,6 +15,15 @@ export class AudioPlayer {
     this.unload();
     this.audio.setAttribute('src', source);
     this.audio.load();
+  }
+
+  loadFromElement(element: HTMLAudioElement) {
+    const currentVolume = this.audio.volume;
+    this.removeEventListeners();
+    this.unload();
+    this.audio = element;
+    this.audio.volume = currentVolume;
+    this.addEventListeners();
   }
 
   onBuffered(callback: (bufferedTime: number) => void) {
@@ -66,38 +75,13 @@ export class AudioPlayer {
   }
 
   private addEventListeners() {
-    this.audio.addEventListener('loadedmetadata', () => {
-      this.loadedMetadataCallback(this.audio.duration);
-    });
-
-    this.audio.addEventListener('progress', this.setBufferProgress);
-
-    this.audio.addEventListener('timeupdate', () => {
-      if (!this.audio.currentTime) {
-        return;
-      }
-
-      // trunc value as current time is a decimal. This should prevent an
-      // Uncaught TypeError of the position being more than the duration.
-      this.timeupdateCallback(Math.trunc(this.audio.currentTime));
-      this.setBufferProgress();
-    });
-
-    this.audio.addEventListener('canplay', () => {
-      this.canPlayCallback();
-    });
-
-    this.audio.addEventListener('canplaythrough', () => {
-      this.canPlayCallback();
-    });
-
-    this.audio.addEventListener('waiting', () => {
-      this.waitingCallback();
-    });
-
-    this.audio.addEventListener('ended', () => {
-      this.endedCallback();
-    });
+    this.audio.addEventListener('loadedmetadata', this.handleLoadedMetadata);
+    this.audio.addEventListener('progress', this.handleProgress);
+    this.audio.addEventListener('timeupdate', this.handleTimeupdate);
+    this.audio.addEventListener('canplay', this.handleCanPlay);
+    this.audio.addEventListener('canplaythrough', this.handleCanPlayThrough);
+    this.audio.addEventListener('waiting', this.handleWaiting);
+    this.audio.addEventListener('ended', this.handleEnded);
   }
 
   private bufferedCallback: (bufferedTime: number) => void = () => ({});
@@ -106,9 +90,54 @@ export class AudioPlayer {
 
   private endedCallback: () => void = () => ({});
 
+  private readonly handleCanPlay = () => {
+    this.canPlayCallback();
+  };
+
+  private readonly handleCanPlayThrough = () => {
+    this.canPlayCallback();
+  };
+
+  private readonly handleEnded = () => {
+    this.endedCallback();
+  };
+
+  private readonly handleLoadedMetadata = () => {
+    this.loadedMetadataCallback(this.audio.duration);
+  };
+
+  private readonly handleProgress = () => {
+    this.setBufferProgress();
+  };
+
+  private readonly handleTimeupdate = () => {
+    if (!this.audio.currentTime) {
+      return;
+    }
+
+    // trunc value as current time is a decimal. This should prevent an
+    // Uncaught TypeError of the position being more than the duration.
+    this.timeupdateCallback(Math.trunc(this.audio.currentTime));
+    this.setBufferProgress();
+  };
+
+  private readonly handleWaiting = () => {
+    this.waitingCallback();
+  };
+
   private loadedMetadataCallback: (duration: number) => void = () => ({});
 
-  private setBufferProgress() {
+  private removeEventListeners() {
+    this.audio.removeEventListener('loadedmetadata', this.handleLoadedMetadata);
+    this.audio.removeEventListener('progress', this.handleProgress);
+    this.audio.removeEventListener('timeupdate', this.handleTimeupdate);
+    this.audio.removeEventListener('canplay', this.handleCanPlay);
+    this.audio.removeEventListener('canplaythrough', this.handleCanPlayThrough);
+    this.audio.removeEventListener('waiting', this.handleWaiting);
+    this.audio.removeEventListener('ended', this.handleEnded);
+  }
+
+  private readonly setBufferProgress = () => {
     const duration = this.audio?.duration || 0;
 
     if (duration > 0) {
@@ -125,7 +154,7 @@ export class AudioPlayer {
         }
       }
     }
-  }
+  };
 
   private timeupdateCallback: (currentTime: number) => void = () => ({});
 

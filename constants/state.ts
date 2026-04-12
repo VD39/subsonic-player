@@ -15,6 +15,7 @@ export const STATE_NAMES = {
   newestAlbums: 'newest-albums',
   newestPodcastEpisodes: 'newest-podcast-episodes',
   playerAudioPlayer: 'player-audio-player',
+  playerAudioPreloader: 'player-audio-preloader',
   playerBufferedLength: 'player-buffered-length',
   playerCurrentQueueIndex: 'player-current-queue-index',
   playerCurrentTime: 'player-current-time',
