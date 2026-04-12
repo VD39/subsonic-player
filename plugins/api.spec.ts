@@ -10,8 +10,6 @@ globalThis.$fetch = {
   }),
 } as unknown as typeof $fetch;
 
-const blobMock = new Blob(['test-blob']);
-
 describe('api plugin', () => {
   beforeEach(() => {
     apiPlugin(undefined as never);
@@ -19,18 +17,6 @@ describe('api plugin', () => {
 
   afterEach(() => {
     vi.clearAllMocks();
-  });
-
-  describe('when the response data is a Blob', () => {
-    it('returns the correct response', () => {
-      expect(
-        onResponseCallback({
-          response: {
-            _data: blobMock,
-          },
-        }),
-      ).toEqual(blobMock);
-    });
   });
 
   describe('when the response data does not have a subsonic-response key', () => {

@@ -4,10 +4,6 @@ export default defineNuxtPlugin(() => {
       Accept: 'application/json',
     },
     onResponse({ response }) {
-      if (response._data instanceof Blob) {
-        return response._data;
-      }
-
       const subsonicResponse = response._data['subsonic-response'];
 
       if (subsonicResponse?.status !== 'ok') {

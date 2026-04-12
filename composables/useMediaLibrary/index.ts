@@ -1,5 +1,5 @@
 export function useMediaLibrary() {
-  const { fetchData } = useAPI();
+  const { fetchData, getDownloadUrl } = useAPI();
   const { addSuccessSnack } = useSnack();
 
   async function startScan() {
@@ -10,18 +10,12 @@ export function useMediaLibrary() {
     }
   }
 
-  async function downloadMedia(track: DownloadTrack) {
-    const { data: downloadMediaData } = await fetchData<Blob>('/download', {
-      method: 'GET',
-      query: {
-        id: track.streamUrlId,
-      },
-      responseType: 'blob',
-    });
-
-    if (downloadMediaData) {
-      downloadFileFromBlob(downloadMediaData, track);
+  function downloadMedia(track: DownloadTrack) {
+    if (!track.streamUrlId) {
+      return null;
     }
+
+    globalThis.location.assign(getDownloadUrl(track.streamUrlId));
   }
 
   async function getMusicFolders() {

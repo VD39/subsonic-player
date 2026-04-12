@@ -2,10 +2,11 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
-import { trackBlobMock } from '@/test/fixtures';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import { useMediaLibrary } from './index';
+
+const windowLocationAssignSpy = vi.spyOn(globalThis.location, 'assign');
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
@@ -22,12 +23,6 @@ mockNuxtImport('useSnack', () => () => ({
   addSuccessSnack: addSuccessSnackMock,
 }));
 
-const downloadFileFromBlobMock = vi.hoisted(() => vi.fn());
-
-mockNuxtImport('downloadFileFromBlob', () => downloadFileFromBlobMock);
-
-const track = getFormattedTracksMock()[0];
-
 const {
   downloadMedia,
   getFiles,
@@ -37,33 +32,30 @@ const {
   startScan,
 } = useMediaLibrary();
 
+const track = getFormattedTracksMock()[0];
+
 describe('useMediaLibrary', () => {
   describe('when the downloadMedia function is called', () => {
-    describe('when fetchData response returns null', () => {
+    describe('when the track does not have a streamUrlId property', () => {
       beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
+        downloadMedia({
+          ...track,
+          streamUrlId: '',
         });
-
-        downloadMedia(track);
       });
 
-      it('does not call the downloadFileFromBlob function', () => {
-        expect(downloadFileFromBlobMock).not.toHaveBeenCalled();
+      it('does not call the window.location.assign function', () => {
+        expect(windowLocationAssignSpy).not.toHaveBeenCalled();
       });
     });
 
-    describe('when fetchData response returns a value', () => {
+    describe('when the track has a streamUrlId property', () => {
       beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: trackBlobMock,
-        });
-
         downloadMedia(track);
       });
 
-      it('calls the downloadFileFromBlob function', () => {
-        expect(downloadFileFromBlobMock).toHaveBeenCalled();
+      it('calls the window.location.assign with the correct value', () => {
+        expect(windowLocationAssignSpy).toHaveBeenCalledWith(track.streamUrlId);
       });
     });
   });
