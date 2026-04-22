@@ -8,6 +8,7 @@ const {
   playTrackFromQueueList,
   queueList,
   removeTrackFromQueueList,
+  reorderQueueTrack,
 } = useAudioPlayer();
 const { addToPlaylistModal } = usePlaylist();
 const { downloadMedia } = useMediaLibrary();
@@ -43,5 +44,6 @@ useHead({
     @mediaInformation="openTrackInformationModal"
     @playTrack="playTrackFromQueueList"
     @remove="({ id }) => removeTrackFromQueueList(id)"
+    @sortList="reorderQueueTrack"
   />
 </template>

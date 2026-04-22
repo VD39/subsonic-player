@@ -11,7 +11,7 @@ exports[`PlaylistsList > when the playlists prop is not an empty array > matches
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 1; --loop-rows-tablet: 2; --loop-rows-desktop: 2; --loop-grid-gap: 24px;">
   <article class="interactionWrapper playlistsListItem" draggable="false">
     <div class="centerItems playlistDetails">
-      <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-0">
+      <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-0">
           <div class="centerAll preloadImage">
             <div class="iconImage">
               <phplaylist class="icon"></phplaylist>
@@ -38,7 +38,7 @@ exports[`PlaylistsList > when the playlists prop is not an empty array > matches
   </article>
   <article class="interactionWrapper playlistsListItem" draggable="false">
     <div class="centerItems playlistDetails">
-      <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-1">
+      <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-1">
           <div class="centerAll preloadImage">
             <div class="iconImage">
               <phplaylist class="icon"></phplaylist>
@@ -65,7 +65,7 @@ exports[`PlaylistsList > when the playlists prop is not an empty array > matches
   </article>
   <article class="interactionWrapper playlistsListItem" draggable="false">
     <div class="centerItems playlistDetails">
-      <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-2">
+      <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-2">
           <div class="centerAll preloadImage">
             <div class="iconImage">
               <phplaylist class="icon"></phplaylist>
@@ -92,7 +92,7 @@ exports[`PlaylistsList > when the playlists prop is not an empty array > matches
   </article>
   <article class="interactionWrapper playlistsListItem" draggable="false">
     <div class="centerItems playlistDetails">
-      <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-3">
+      <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-3">
           <div class="centerAll preloadImage">
             <div class="iconImage">
               <phplaylist class="icon"></phplaylist>
@@ -119,7 +119,7 @@ exports[`PlaylistsList > when the playlists prop is not an empty array > matches
   </article>
   <article class="interactionWrapper playlistsListItem" draggable="false">
     <div class="centerItems playlistDetails">
-      <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-4">
+      <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-4">
           <div class="centerAll preloadImage">
             <div class="iconImage">
               <phplaylist class="icon"></phplaylist>

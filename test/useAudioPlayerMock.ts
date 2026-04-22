@@ -31,6 +31,7 @@ const playTrackFromQueueListMock = vi.fn();
 const playTracksMock = vi.fn();
 const queueListMock = ref(queueTrack);
 const removeTrackFromQueueListMock = vi.fn();
+const reorderQueueTrackMock = vi.fn();
 const repeatMock = ref(-1);
 const resetAudioPlayerMock = vi.fn();
 const rewindTrackMock = vi.fn();
@@ -75,6 +76,7 @@ export function useAudioPlayerMock() {
     playTracks: playTracksMock,
     queueList: queueListMock,
     removeTrackFromQueueList: removeTrackFromQueueListMock,
+    reorderQueueTrack: reorderQueueTrackMock,
     repeat: repeatMock,
     resetAudioPlayer: resetAudioPlayerMock,
     rewindTrack: rewindTrackMock,
@@ -120,6 +122,7 @@ export function useAudioPlayerMock() {
     playTracksMock,
     queueListMock,
     removeTrackFromQueueListMock,
+    reorderQueueTrackMock,
     repeatMock,
     resetAudioPlayerMock,
     rewindTrackMock,

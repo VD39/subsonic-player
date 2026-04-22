@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -7,6 +8,12 @@ import MixedTracksListItem from '@/components/Organisms/TrackLists/MixedTracksLi
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import MixedTracksList from './MixedTracksList.vue';
+
+let onReorderMock: SortableListOptions['onReorder'];
+
+mockNuxtImport('useSortableList', () => (options: SortableListOptions) => {
+  onReorderMock = options.onReorder;
+});
 
 let onAddToQueueMock: typeof vi.fn | undefined = undefined;
 let onDragStartMock: typeof vi.fn | undefined = undefined;
@@ -206,6 +213,16 @@ describe('MixedTracksList', () => {
         it('emits the dragStart event with the correct value', () => {
           expect(wrapper.emitted('dragStart')).toEqual([[track, DragEvent]]);
         });
+      });
+    });
+
+    describe('when the useSortableList onReorder function is called', () => {
+      beforeEach(() => {
+        onReorderMock?.(1, 3);
+      });
+
+      it('emits the sortList event with the correct parameters', () => {
+        expect(wrapper.emitted('sortList')).toEqual([[1, 3]]);
       });
     });
   });

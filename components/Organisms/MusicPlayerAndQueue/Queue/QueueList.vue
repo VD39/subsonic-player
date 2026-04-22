@@ -7,6 +7,7 @@ const {
   playTrackFromQueueList,
   queueList,
   removeTrackFromQueueList,
+  reorderQueueTrack,
 } = useAudioPlayer();
 const { toggleQueueList } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
@@ -46,12 +47,14 @@ const { openTrackInformationModal } = useMediaInformation();
     <h2>Queue ({{ queueList.length }})</h2>
 
     <MixedTracksList
+      class="mBXL"
       :tracks="queueList"
       @addToPlaylist="addToPlaylistModal"
       @downloadMedia="downloadMedia"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playTrackFromQueueList"
       @remove="({ id }) => removeTrackFromQueueList(id)"
+      @sortList="reorderQueueTrack"
     />
   </div>
 </template>

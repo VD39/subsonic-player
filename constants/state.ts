@@ -43,6 +43,7 @@ export const STATE_NAMES = {
   sideBarCollapsed: 'sidebar-collapsed',
   sideBarWidth: 'sidebar-width',
   snacks: 'snacks',
+  sortableIsDragging: 'sortable-is-dragging',
   theme: 'theme',
   userAuthenticated: 'user-authenticated',
 } as const;

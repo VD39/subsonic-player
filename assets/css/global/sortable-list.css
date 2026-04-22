@@ -1,0 +1,25 @@
+.sortableListContainer {
+  position: relative;
+}
+
+.sortableItem {
+  will-change: transform;
+}
+
+.sortableItemIdle {
+  transition: transform var(--transition);
+}
+
+.sortableDragHandle {
+  cursor: grab;
+}
+
+.sortableItemDraggable {
+  z-index: 10;
+  cursor: grabbing;
+  background-color: var(--track-hover-background-color) !important;
+
+  .sortableDragHandle {
+    cursor: grabbing;
+  }
+}

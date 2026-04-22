@@ -152,15 +152,13 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 .albumItem {
   position: relative;
 
-  :not(.dropdownMenuOpened) & {
-    @media (hover: hover) {
-      &:hover,
-      &:focus,
-      &:focus-within {
-        .hoverActions {
-          --album-hover-actions-opacity: 1;
-          --album-hover-actions-z-index: 10;
-        }
+  @media (hover: hover) {
+    &:hover,
+    &:focus,
+    &:focus-within {
+      .hoverActions {
+        --album-hover-actions-opacity: 1;
+        --album-hover-actions-z-index: 10;
       }
     }
   }

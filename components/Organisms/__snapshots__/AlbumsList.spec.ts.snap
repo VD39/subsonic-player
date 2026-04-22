@@ -11,7 +11,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -43,7 +43,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -75,7 +75,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -107,7 +107,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -139,7 +139,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -176,7 +176,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -208,7 +208,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -240,7 +240,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -272,7 +272,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -304,7 +304,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -341,7 +341,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -373,7 +373,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -405,7 +405,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-2">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -437,7 +437,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-3">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">
@@ -469,7 +469,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
   </article>
   <article class="interactionWrapper layoutItem albumItem" draggable="false">
     <div class="layoutImage albumImageWrapper">
-      <figure><a class="interactionLink" draggable="false" title="Go to album album-4">
+      <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout actions hoverActions">

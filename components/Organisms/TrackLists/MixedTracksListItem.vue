@@ -246,13 +246,24 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       >
         <ButtonLink
           ref="removeButton"
-          icon="PhX"
+          :icon="ICONS.close"
           iconSize="small"
           iconWeight="bold"
           title="Remove track"
           @click="$emit('remove')"
         >
           Remove track
+        </ButtonLink>
+      </div>
+
+      <div class="trackCell trackOptions">
+        <ButtonLink
+          :class="SORTABLE_LIST_CLASS_NAMES.dragHandle"
+          :icon="ICONS.reorder"
+          iconSize="small"
+          title="Drag to reorder"
+        >
+          Drag to reorder
         </ButtonLink>
       </div>
     </InteractionWrapper>

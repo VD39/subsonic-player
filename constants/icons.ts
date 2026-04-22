@@ -40,6 +40,7 @@ export const ICONS = {
   radioStation: 'PhRadio',
   refresh: 'PhArrowsClockwise',
   remove: 'PhMinusCircle',
+  reorder: 'PhList',
   repeat: 'PhRepeat',
   repeatOnce: 'PhRepeatOnce',
   rewind: 'PhRewind',

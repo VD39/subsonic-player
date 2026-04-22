@@ -31,6 +31,12 @@ mockNuxtImport('useDropdownMenuState', () => () => ({
   isAnyOpen: isAnyOpenMock,
 }));
 
+const isDraggingMock = ref(false);
+
+mockNuxtImport('useSortableListState', () => () => ({
+  isDragging: isDraggingMock,
+}));
+
 const closestSpy = vi.spyOn(HTMLElement.prototype, 'closest');
 
 const { containsClassMock } = classListMock();
@@ -51,6 +57,7 @@ describe('InteractionWrapper', () => {
 
   beforeEach(() => {
     isAnyOpenMock.value = false;
+    isDraggingMock.value = false;
     containsClassMock.mockReset();
     containsClassMock.mockReturnValueOnce(false);
 
@@ -84,7 +91,7 @@ describe('InteractionWrapper', () => {
       });
     });
 
-    describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+    describe(`when the closest target does contain the ${INTERACTION_WRAPPER_LINK_CLASS} class`, () => {
       beforeEach(async () => {
         closestSpy.mockReturnValueOnce(document.createElement('a'));
         containsClassMock.mockReturnValueOnce(true);
@@ -144,7 +151,7 @@ describe('InteractionWrapper', () => {
       });
     });
 
-    describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+    describe(`when the closest target does contain the ${INTERACTION_WRAPPER_LINK_CLASS} class`, () => {
       beforeEach(async () => {
         closestSpy.mockReturnValueOnce(document.createElement('a'));
         containsClassMock.mockReturnValueOnce(true);
@@ -166,6 +173,17 @@ describe('InteractionWrapper', () => {
         expect(wrapper.emitted('contextMenu')).toEqual([
           [expect.any(MouseEvent)],
         ]);
+      });
+    });
+
+    describe('when isDragging is true', () => {
+      beforeEach(async () => {
+        isDraggingMock.value = true;
+        await wrapper.trigger('contextmenu');
+      });
+
+      it('does not emit the contextMenu event', () => {
+        expect(wrapper.emitted('contextMenu')).toBeUndefined();
       });
     });
   });
@@ -193,7 +211,7 @@ describe('InteractionWrapper', () => {
       });
     });
 
-    describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+    describe(`when the closest target does contain the ${INTERACTION_WRAPPER_LINK_CLASS} class`, () => {
       beforeEach(async () => {
         closestSpy.mockReturnValueOnce(document.createElement('a'));
         containsClassMock.mockReturnValueOnce(true);
@@ -326,7 +344,7 @@ describe('InteractionWrapper', () => {
         });
       });
 
-      describe(`when the closest target does contain the ${INTERACTION_LINK_CLASS} class`, () => {
+      describe(`when the closest target does contain the ${INTERACTION_WRAPPER_LINK_CLASS} class`, () => {
         beforeEach(async () => {
           closestSpy.mockReturnValueOnce(document.createElement('a'));
           containsClassMock.mockReturnValueOnce(true);

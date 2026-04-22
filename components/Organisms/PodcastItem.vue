@@ -120,15 +120,13 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 .podcastItem {
   position: relative;
 
-  :not(.dropdownMenuOpened) & {
-    @media (hover: hover) {
-      &:hover,
-      &:focus,
-      &:focus-within {
-        .hoverActions {
-          --podcast-hover-actions-opacity: 1;
-          --podcast-hover-actions-z-index: 10;
-        }
+  @media (hover: hover) {
+    &:hover,
+    &:focus,
+    &:focus-within {
+      .hoverActions {
+        --podcast-hover-actions-opacity: 1;
+        --podcast-hover-actions-z-index: 10;
       }
     }
   }

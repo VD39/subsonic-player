@@ -7,7 +7,7 @@ defineProps<{
   tracks: MixedTrack[];
 }>();
 
-defineEmits<{
+const emit = defineEmits<{
   addToPlaylist: [trackId: string, index: number];
   addToQueue: [track: MixedTrack];
   downloadMedia: [track: MixedTrack];
@@ -20,7 +20,10 @@ defineEmits<{
       index: number;
     },
   ];
+  sortList: [fromIndex: number, toIndex: number];
 }>();
+
+const sortableListContainerRef = useTemplateRef('sortableListContainerRef');
 
 const trackHeaderNames = TRACK_HEADER_NAMES.mix;
 
@@ -31,6 +34,12 @@ const hasAddToQueueEvent = computed(
 const hasDragStartEvent = computed(
   () => !!getCurrentInstance()?.vnode.props?.onDragStart,
 );
+
+useSortableList({
+  listContainerRef: sortableListContainerRef,
+  onReorder: (fromIndex: number, toIndex: number) =>
+    emit('sortList', fromIndex, toIndex),
+});
 </script>
 
 <template>
@@ -53,24 +62,31 @@ const hasDragStartEvent = computed(
         ref="trackRemoveHeader"
         class="trackCell trackOptions"
       />
+      <div class="trackCell trackOptions" />
     </div>
 
-    <MixedTracksListItem
-      v-for="(track, index) in tracks"
-      :key="track.id"
-      :hasAddToQueueEvent
-      :hasDragStartEvent
-      :hideRemoveOption
-      :index
-      :track
-      @addToPlaylist="$emit('addToPlaylist', track.id, index)"
-      @addToQueue="$emit('addToQueue', track)"
-      @downloadMedia="$emit('downloadMedia', track)"
-      @dragStart="(event) => $emit('dragStart', track, event)"
-      @mediaInformation="$emit('mediaInformation', track)"
-      @playTrack="$emit('playTrack', index)"
-      @remove="$emit('remove', { id: track.id, index })"
-    />
+    <div ref="sortableListContainerRef" class="sortableListContainer">
+      <MixedTracksListItem
+        v-for="(track, index) in tracks"
+        :key="track.id"
+        :class="[
+          SORTABLE_LIST_CLASS_NAMES.item,
+          SORTABLE_LIST_CLASS_NAMES.idle,
+        ]"
+        :hasAddToQueueEvent
+        :hasDragStartEvent
+        :hideRemoveOption
+        :index
+        :track
+        @addToPlaylist="$emit('addToPlaylist', track.id, index)"
+        @addToQueue="$emit('addToQueue', track)"
+        @downloadMedia="$emit('downloadMedia', track)"
+        @dragStart="(event) => $emit('dragStart', track, event)"
+        @mediaInformation="$emit('mediaInformation', track)"
+        @playTrack="$emit('playTrack', index)"
+        @remove="$emit('remove', { id: track.id, index })"
+      />
+    </div>
   </div>
 
   <NoMediaMessage

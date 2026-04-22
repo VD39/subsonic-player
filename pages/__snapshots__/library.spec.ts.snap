@@ -22,7 +22,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -56,7 +56,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -101,7 +101,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
     <swiper-container>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -111,7 +111,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -121,7 +121,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -169,7 +169,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -203,7 +203,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -275,7 +275,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -309,7 +309,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -354,7 +354,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
     <swiper-container>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -364,7 +364,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -374,7 +374,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -409,7 +409,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -443,7 +443,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -488,7 +488,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
     <swiper-container>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -498,7 +498,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -508,7 +508,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -552,7 +552,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-0">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -586,7 +586,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
       <swiper-slide data-test-id="random-album-item">
         <article class="interactionWrapper layoutItem albumItem" draggable="false">
           <div class="layoutImage albumImageWrapper">
-            <figure><a class="interactionLink" draggable="false" title="Go to album album-1">
+            <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout actions hoverActions">
@@ -631,7 +631,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
     <swiper-container>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -641,7 +641,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -651,7 +651,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -699,7 +699,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
     <swiper-container>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-0">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -709,7 +709,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-1">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">
@@ -719,7 +719,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
       </swiper-slide>
       <swiper-slide data-test-id="random-artist-item">
         <article class="layoutItem">
-          <figure class="layoutImage"><a class="interactionLink" draggable="false" title="Go to artist artist-2">
+          <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
               <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
             </a></figure>
           <div class="layoutContent">

@@ -105,9 +105,10 @@ export function useDragAndDrop() {
   function dragEnter(event: DragEvent) {
     event.preventDefault();
 
-    const element = (event.target as HTMLElement)?.closest(
-      `.${DRAG_AND_DROP_CLASS_NAMES.isDroppable}`,
-    ) as HTMLElement;
+    const element = findClosestElement(
+      event.target,
+      DRAG_AND_DROP_CLASS_NAMES.isDroppable,
+    );
 
     element?.classList.add(DRAG_AND_DROP_CLASS_NAMES.validDropZone);
     element?.addEventListener('dragleave', dragLeave);

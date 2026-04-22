@@ -4,19 +4,11 @@ import { mount } from '@vue/test-utils';
 
 import { windowEventListenerMock } from '@/test/eventListenersMock';
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
+import { mutationObserverMock } from '@/test/mutationObserverMock';
 
 import MarqueeScroll from './MarqueeScroll.vue';
 
-const disconnectMock = vi.fn();
-const observeMock = vi.fn();
-
-vi.spyOn(globalThis, 'MutationObserver').mockImplementation(function () {
-  return {
-    disconnect: disconnectMock,
-    observe: observeMock,
-    takeRecords: vi.fn(),
-  };
-});
+const { disconnectMock, observeMock } = mutationObserverMock();
 
 const {
   windowAddEventListenerSpy,

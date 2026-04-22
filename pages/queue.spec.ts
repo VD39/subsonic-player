@@ -47,6 +47,7 @@ const {
   playTrackFromQueueListMock,
   queueListMock,
   removeTrackFromQueueListMock,
+  reorderQueueTrackMock,
 } = useAudioPlayerMock();
 
 const queueTrack = getFormattedTracksMock()[0];
@@ -177,6 +178,16 @@ describe('queue', () => {
 
     it('calls the removeTrackFromQueueList function with the correct parameters', () => {
       expect(removeTrackFromQueueListMock).toHaveBeenCalledWith(queueTrack.id);
+    });
+  });
+
+  describe('when the MixedTracksList component emits the sortList event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(MixedTracksList).vm.$emit('sortList', 0, 2);
+    });
+
+    it('calls the reorderQueueTrack function with the correct parameters', () => {
+      expect(reorderQueueTrackMock).toHaveBeenCalledWith(0, 2);
     });
   });
 });

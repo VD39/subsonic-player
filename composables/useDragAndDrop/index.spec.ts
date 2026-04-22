@@ -18,16 +18,12 @@ const jsonParseSpy = vi.spyOn(JSON, 'parse');
 const requestAnimationFrameSpy = vi.spyOn(globalThis, 'requestAnimationFrame');
 const cancelAnimationFrameSpy = vi.spyOn(globalThis, 'cancelAnimationFrame');
 const querySelectorSpy = vi.spyOn(HTMLElement.prototype, 'querySelector');
-const closestSpy = vi.spyOn(HTMLElement.prototype, 'closest');
+
 const containsSpy = vi
   .spyOn(HTMLElement.prototype, 'contains')
   .mockReturnValue(false);
 
-HTMLElement.prototype.getBoundingClientRect = () =>
-  ({
-    left: 50,
-    top: 20,
-  }) as DOMRect;
+HTMLElement.prototype.getBoundingClientRect = () => new DOMRect(50, 20, 0, 0);
 
 const getDataMock = vi.fn();
 const setDataMock = vi.fn();
@@ -86,6 +82,10 @@ const addToPlaylistMock = vi.fn();
 mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylist: addToPlaylistMock,
 }));
+
+const findClosestElementMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('findClosestElement', () => findClosestElementMock);
 
 const { addTracksToQueueMock } = useAudioPlayerMock();
 
@@ -472,9 +472,9 @@ describe('useDragAndDrop', () => {
         vi.clearAllMocks();
       });
 
-      describe('when closest does not return a value', () => {
+      describe('when findClosestElement does not return a value', () => {
         beforeEach(() => {
-          closestSpy.mockReturnValue(null);
+          findClosestElementMock.mockReturnValue(null);
 
           documentEvents.dragenter({
             preventDefault: vi.fn(),
@@ -487,9 +487,11 @@ describe('useDragAndDrop', () => {
         });
       });
 
-      describe('when closest does return a value', () => {
+      describe('when findClosestElement does return a value', () => {
         beforeEach(() => {
-          closestSpy.mockReturnValue(document.createElement('span'));
+          findClosestElementMock.mockReturnValue(
+            document.createElement('span'),
+          );
 
           documentEvents.dragenter({
             preventDefault: vi.fn(),

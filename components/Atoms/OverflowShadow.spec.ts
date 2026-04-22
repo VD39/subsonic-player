@@ -2,7 +2,8 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import { windowEventListenerMock } from '../../test/eventListenersMock';
+import { windowEventListenerMock } from '@/test/eventListenersMock';
+
 import OverflowShadow from './OverflowShadow.vue';
 
 const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =

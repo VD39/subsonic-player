@@ -3,7 +3,7 @@
 exports[`PlaylistsListItem > matches the snapshot 1`] = `
 "<article class="interactionWrapper playlistsListItem" draggable="false">
   <div class="centerItems playlistDetails">
-    <figure class="imageLink"><a class="interactionLink" draggable="false" title="Go to playlist playlist-0">
+    <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-0">
         <div class="centerAll preloadImage">
           <div class="iconImage">
             <phplaylist class="icon"></phplaylist>

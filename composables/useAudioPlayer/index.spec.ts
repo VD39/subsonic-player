@@ -1971,6 +1971,112 @@ describe('useAudioPlayer', () => {
     });
   });
 
+  describe('when reorderQueueTrack function is called', () => {
+    beforeAll(() => {
+      result.composable.queueList.value = [...queueTracks];
+      result.composable.playTrackFromQueueList(2);
+    });
+
+    describe.each([
+      [-1, 0],
+      [0, -1],
+      [0, queueTracks.length],
+      [queueTracks.length, 0],
+      [2, 2],
+    ])('when fromIndex is %i and toIndex is %i', (fromIndex, toIndex) => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        result.composable.reorderQueueTrack(fromIndex, toIndex);
+      });
+
+      it('does not change the queueList value', () => {
+        expect(result.composable.queueList.value).toEqual(queueTracks);
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when fromIndex and toIndex are valid and different', () => {
+      describe('when the moved track is the current track', () => {
+        beforeAll(() => {
+          result.composable.queueList.value = [...queueTracks];
+          result.composable.playTrackFromQueueList(2);
+          vi.clearAllMocks();
+          result.composable.reorderQueueTrack(2, 4);
+        });
+
+        it('moves the track to the correct position', () => {
+          expect(result.composable.queueList.value[4]).toEqual(queueTracks[2]);
+        });
+
+        it('calls the setLocalStorage function with the correct parameters', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            STATE_NAMES.playerState,
+            expect.objectContaining({
+              currentQueueIndex: 4,
+            }),
+          );
+        });
+      });
+
+      describe('when the moved track is above the current track and moves to or past it', () => {
+        beforeAll(() => {
+          result.composable.queueList.value = [...queueTracks];
+          result.composable.playTrackFromQueueList(3);
+          vi.clearAllMocks();
+          result.composable.reorderQueueTrack(1, 3);
+        });
+
+        it('calls the setLocalStorage function with the correct parameters', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            STATE_NAMES.playerState,
+            expect.objectContaining({
+              currentQueueIndex: 2,
+            }),
+          );
+        });
+      });
+
+      describe('when the moved track is below the current track and moves to or before it', () => {
+        beforeAll(() => {
+          result.composable.queueList.value = [...queueTracks];
+          result.composable.playTrackFromQueueList(2);
+          vi.clearAllMocks();
+          result.composable.reorderQueueTrack(4, 2);
+        });
+
+        it('calls the setLocalStorage function with the correct parameters', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            STATE_NAMES.playerState,
+            expect.objectContaining({
+              currentQueueIndex: 3,
+            }),
+          );
+        });
+      });
+
+      describe('when the moved track does not affect the current track index', () => {
+        beforeAll(() => {
+          result.composable.queueList.value = [...queueTracks];
+          result.composable.playTrackFromQueueList(2);
+          vi.clearAllMocks();
+          result.composable.reorderQueueTrack(0, 1);
+        });
+
+        it('calls the setLocalStorage function with the correct parameters', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            STATE_NAMES.playerState,
+            expect.objectContaining({
+              currentQueueIndex: 2,
+            }),
+          );
+        });
+      });
+    });
+  });
+
   describe('when resetAudioPlayer function is called', () => {
     beforeAll(() => {
       result.composable.resetAudioPlayer();

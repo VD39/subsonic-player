@@ -655,6 +655,37 @@ export function useAudioPlayer() {
     prefetchUpcomingTracks();
   }
 
+  function reorderQueueTrack(fromIndex: number, toIndex: number) {
+    if (
+      fromIndex < 0 ||
+      fromIndex >= queueList.value.length ||
+      toIndex < 0 ||
+      toIndex >= queueList.value.length ||
+      fromIndex === toIndex
+    ) {
+      return;
+    }
+
+    const [movedTrack] = queueList.value.splice(fromIndex, 1);
+    queueList.value.splice(toIndex, 0, movedTrack);
+
+    if (currentQueueIndex.value === fromIndex) {
+      currentQueueIndex.value = toIndex;
+    } else if (
+      fromIndex < currentQueueIndex.value &&
+      toIndex >= currentQueueIndex.value
+    ) {
+      currentQueueIndex.value -= 1;
+    } else if (
+      fromIndex > currentQueueIndex.value &&
+      toIndex <= currentQueueIndex.value
+    ) {
+      currentQueueIndex.value += 1;
+    }
+
+    saveState();
+  }
+
   function addTracksToQueueList(tracks: MixedTrack[]) {
     queueList.value.push(...tracks);
   }
@@ -808,6 +839,7 @@ export function useAudioPlayer() {
     playTracks,
     queueList,
     removeTrackFromQueueList,
+    reorderQueueTrack,
     repeat,
     resetAudioPlayer,
     rewindTrack,

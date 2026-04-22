@@ -19,6 +19,7 @@ const emit = defineEmits<{
 const instance = getCurrentInstance();
 
 const { isAnyOpen } = useDropdownMenuState();
+const { isDragging } = useSortableListState();
 
 const isMouseOver = ref(false);
 const isTouched = ref(false);
@@ -28,11 +29,13 @@ function isInteractiveTarget(event: Event) {
   const target = event.target as HTMLElement;
   const element = target.closest('a, button');
 
-  return !!element && !element.classList.contains(INTERACTION_LINK_CLASS);
+  return (
+    !!element && !element.classList.contains(INTERACTION_WRAPPER_LINK_CLASS)
+  );
 }
 
 function onClick(event: MouseEvent) {
-  if (isInteractiveTarget(event) || isAnyOpen.value) {
+  if (isInteractiveTarget(event) || isAnyOpen.value || isDragging.value) {
     return;
   }
 
@@ -40,6 +43,12 @@ function onClick(event: MouseEvent) {
 }
 
 function onContextMenu(event: MouseEvent) {
+  if (isDragging.value) {
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+  }
+
   if (!isTouched.value && isInteractiveTarget(event)) {
     return;
   }
@@ -79,6 +88,7 @@ const isDraggable = computed(
   () =>
     isMouseOver.value &&
     !isAnyOpen.value &&
+    !isDragging.value &&
     props.draggable &&
     !!instance?.vnode.props?.onDragStart,
 );

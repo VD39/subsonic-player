@@ -2,11 +2,12 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import { abortControllerMock } from '../../test/abortControllerMock';
+import { abortControllerMock } from '@/test/abortControllerMock';
 import {
   documentEventListenerMock,
   windowEventListenerMock,
-} from '../../test/eventListenersMock';
+} from '@/test/eventListenersMock';
+
 import InputRange from './InputRange.vue';
 
 const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
@@ -14,11 +15,7 @@ const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
 const { documentAddEventListenerSpy } = documentEventListenerMock();
 const { abortControllerConstructorMock, abortMock, signalMock } =
   abortControllerMock();
-HTMLElement.prototype.getBoundingClientRect = () =>
-  ({
-    left: 0,
-    width: 100,
-  }) as DOMRect;
+HTMLElement.prototype.getBoundingClientRect = () => new DOMRect(0, 0, 100, 0);
 
 function factory(props = {}, slots = {}) {
   return mount(InputRange, {
@@ -731,10 +728,7 @@ describe('InputRange', () => {
   describe('when the window change size is called', () => {
     beforeEach(() => {
       HTMLElement.prototype.getBoundingClientRect = () =>
-        ({
-          left: 0,
-          width: 200,
-        }) as DOMRect;
+        new DOMRect(0, 0, 200, 0);
 
       globalThis.dispatchEvent(new CustomEvent('resize'));
     });

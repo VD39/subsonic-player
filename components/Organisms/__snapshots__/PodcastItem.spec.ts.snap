@@ -3,7 +3,7 @@
 exports[`PodcastItem > matches the snapshot 1`] = `
 "<article class="interactionWrapper layoutItem podcastItem" draggable="false">
   <div class="layoutImage podcastImageWrapper">
-    <figure><a class="interactionLink" draggable="false" title="Go to podcast title">
+    <figure><a class="interactionWrapperLink" draggable="false" title="Go to podcast title">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
     <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play podcast title">

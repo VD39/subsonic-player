@@ -1,1 +1,1 @@
-export const INTERACTION_LINK_CLASS = 'interactionLink';
+export const INTERACTION_WRAPPER_LINK_CLASS = 'interactionWrapperLink';

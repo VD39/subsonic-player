@@ -88,6 +88,9 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -184,6 +187,9 @@ exports[`MixedTracksListItem > when the hasAddToQueueEvent prop is true > matche
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -271,6 +277,9 @@ exports[`MixedTracksListItem > when the hideRemoveOption prop is true > matches 
       </div>
     </div>
     <!--v-if-->
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -332,6 +341,9 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -416,6 +428,9 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -505,6 +520,9 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -587,6 +605,9 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -665,6 +686,9 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -742,6 +766,9 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -837,6 +864,9 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -914,6 +944,9 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -997,6 +1030,9 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -1073,6 +1109,9 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -1148,6 +1187,9 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -1239,6 +1281,9 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -1300,6 +1345,9 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -1384,6 +1432,9 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -1472,6 +1523,9 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -1567,6 +1621,9 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -1645,6 +1702,9 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+      </button></div>
   </div>
 </div>"
 `;
@@ -1708,6 +1768,9 @@ exports[`MixedTracksListItem > when track.type is radioStation > matches the sna
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
         <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+      </button></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
+        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"

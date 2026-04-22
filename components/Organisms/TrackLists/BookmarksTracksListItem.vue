@@ -140,7 +140,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       <div class="trackCell trackOptions">
         <ButtonLink
           ref="removeButton"
-          icon="PhX"
+          :icon="ICONS.close"
           iconSize="small"
           iconWeight="bold"
           title="Remove track from bookmarks"

@@ -10,7 +10,12 @@ defineProps<{
 
 <template>
   <figure>
-    <NuxtLink :class="INTERACTION_LINK_CLASS" draggable="false" :title :to>
+    <NuxtLink
+      :class="INTERACTION_WRAPPER_LINK_CLASS"
+      draggable="false"
+      :title
+      :to
+    >
       <PreloadImage :alt="title" :image />
     </NuxtLink>
   </figure>

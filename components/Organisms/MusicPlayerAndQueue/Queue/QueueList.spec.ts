@@ -18,6 +18,7 @@ const {
   clearQueueMock,
   playTrackFromQueueListMock,
   removeTrackFromQueueListMock,
+  reorderQueueTrackMock,
 } = useAudioPlayerMock();
 
 function factory(props = {}) {
@@ -43,7 +44,7 @@ describe('QueueList', () => {
     expect(wrapper.findComponent(MixedTracksList).exists()).toBe(true);
   });
 
-  describe('when MixedTracksList component emits a playTrack event', () => {
+  describe('when the MixedTracksList component emits a playTrack event', () => {
     beforeEach(() => {
       wrapper.findComponent(MixedTracksList).vm.$emit('playTrack');
     });
@@ -53,7 +54,7 @@ describe('QueueList', () => {
     });
   });
 
-  describe('when MixedTracksList component emits a remove event', () => {
+  describe('when the MixedTracksList component emits a remove event', () => {
     beforeEach(() => {
       wrapper.findComponent(MixedTracksList).vm.$emit('remove', {
         id: 'id',
@@ -82,6 +83,16 @@ describe('QueueList', () => {
 
     it('calls the clearQueue function', () => {
       expect(clearQueueMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the MixedTracksList component emits a sortList event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(MixedTracksList).vm.$emit('sortList', 0, 2);
+    });
+
+    it('calls the reorderQueueTrack function with the correct parameters', () => {
+      expect(reorderQueueTrackMock).toHaveBeenCalledWith(0, 2);
     });
   });
 });
