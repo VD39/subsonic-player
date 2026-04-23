@@ -35,10 +35,19 @@ const hasDragStartEvent = computed(
   () => !!getCurrentInstance()?.vnode.props?.onDragStart,
 );
 
+const hasSortListEvent = computed(
+  () => !!getCurrentInstance()?.vnode.props?.onSortList,
+);
+
 useSortableList({
   listContainerRef: sortableListContainerRef,
-  onReorder: (fromIndex: number, toIndex: number) =>
-    emit('sortList', fromIndex, toIndex),
+  onReorder: (fromIndex: number, toIndex: number) => {
+    if (!hasSortListEvent.value) {
+      return;
+    }
+
+    emit('sortList', fromIndex, toIndex);
+  },
 });
 </script>
 
@@ -62,7 +71,11 @@ useSortableList({
         ref="trackRemoveHeader"
         class="trackCell trackOptions"
       />
-      <div class="trackCell trackOptions" />
+      <div
+        v-if="hasSortListEvent"
+        ref="trackSortListHeader"
+        class="trackCell trackOptions"
+      />
     </div>
 
     <div ref="sortableListContainerRef" class="sortableListContainer">
@@ -75,6 +88,7 @@ useSortableList({
         ]"
         :hasAddToQueueEvent
         :hasDragStartEvent
+        :hasSortListEvent
         :hideRemoveOption
         :index
         :track
@@ -84,7 +98,12 @@ useSortableList({
         @dragStart="(event) => $emit('dragStart', track, event)"
         @mediaInformation="$emit('mediaInformation', track)"
         @playTrack="$emit('playTrack', index)"
-        @remove="$emit('remove', { id: track.id, index })"
+        @remove="
+          $emit('remove', {
+            id: track.id,
+            index,
+          })
+        "
       />
     </div>
   </div>

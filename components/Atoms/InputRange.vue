@@ -100,9 +100,12 @@ function onSliderMouseDown(event: MouseEvent | TouchEvent) {
   abortController.value = new AbortController();
   const { signal } = abortController.value;
 
-  document.addEventListener('mouseup', onMouseUp, { signal });
-  document.addEventListener('mousemove', onMouseMove, { signal });
-
+  document.addEventListener('mouseup', onMouseUp, {
+    signal,
+  });
+  document.addEventListener('mousemove', onMouseMove, {
+    signal,
+  });
   document.addEventListener('touchend', onMouseUp, {
     passive: true,
     signal,

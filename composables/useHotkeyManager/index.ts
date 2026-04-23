@@ -165,9 +165,17 @@ export function useHotkeyManager() {
     abortController.value = new AbortController();
     const { signal } = abortController.value;
 
-    globalThis.addEventListener('blur', onBlur, { signal });
-    document.addEventListener('keydown', onKeydown, { capture: true, signal });
-    document.addEventListener('keyup', onKeyup, { capture: true, signal });
+    globalThis.addEventListener('blur', onBlur, {
+      signal,
+    });
+    document.addEventListener('keydown', onKeydown, {
+      capture: true,
+      signal,
+    });
+    document.addEventListener('keyup', onKeyup, {
+      capture: true,
+      signal,
+    });
     document.addEventListener('visibilitychange', onVisibilityChange, {
       signal,
     });

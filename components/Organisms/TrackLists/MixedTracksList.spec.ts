@@ -17,6 +17,7 @@ mockNuxtImport('useSortableList', () => (options: SortableListOptions) => {
 
 let onAddToQueueMock: typeof vi.fn | undefined = undefined;
 let onDragStartMock: typeof vi.fn | undefined = undefined;
+let onSortListMock: typeof vi.fn | undefined = undefined;
 
 vi.mock('vue', async () => {
   const vue = await vi.importActual<typeof import('vue')>('vue');
@@ -29,6 +30,7 @@ vi.mock('vue', async () => {
         props: {
           onAddToQueue: onAddToQueueMock,
           onDragStart: onDragStartMock,
+          onSortList: onSortListMock,
         },
       },
     })),
@@ -216,13 +218,54 @@ describe('MixedTracksList', () => {
       });
     });
 
-    describe('when the useSortableList onReorder function is called', () => {
-      beforeEach(() => {
-        onReorderMock?.(1, 3);
+    describe('when the onSortList event is not attached', () => {
+      it('passes false for hasSortListEvent prop', () => {
+        expect(
+          wrapper.findComponent(MixedTracksListItem).props('hasSortListEvent'),
+        ).toBe(false);
       });
 
-      it('emits the sortList event with the correct parameters', () => {
-        expect(wrapper.emitted('sortList')).toEqual([[1, 3]]);
+      it('does not show the sort list header element', () => {
+        expect(wrapper.find({ ref: 'trackSortListHeader' }).exists()).toBe(
+          false,
+        );
+      });
+
+      describe('when the useSortableList onReorder function is called', () => {
+        beforeEach(() => {
+          onReorderMock?.(1, 3);
+        });
+
+        it('does not emit the sortList event', () => {
+          expect(wrapper.emitted('sortList')).toBeUndefined();
+        });
+      });
+    });
+
+    describe('when the onSortList event is attached', () => {
+      beforeEach(() => {
+        onSortListMock = vi.fn();
+        wrapper = factory();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('passes true for hasSortListEvent prop', () => {
+        expect(
+          wrapper.findComponent(MixedTracksListItem).props('hasSortListEvent'),
+        ).toBe(true);
+      });
+
+      describe('when the useSortableList onReorder function is called', () => {
+        beforeEach(() => {
+          onReorderMock?.(1, 3);
+        });
+
+        it('emits the sortList event with the correct parameters', () => {
+          expect(wrapper.emitted('sortList')).toEqual([[1, 3]]);
+        });
       });
     });
   });

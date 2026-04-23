@@ -16,6 +16,7 @@ import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDro
 const props = defineProps<{
   hasAddToQueueEvent?: boolean;
   hasDragStartEvent?: boolean;
+  hasSortListEvent?: boolean;
   hideRemoveOption?: boolean;
   index: number;
   track: MixedTrack;
@@ -256,7 +257,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         </ButtonLink>
       </div>
 
-      <div class="trackCell trackOptions">
+      <div
+        v-if="hasSortListEvent"
+        ref="trackSortRow"
+        class="trackCell trackOptions"
+      >
         <ButtonLink
           :class="SORTABLE_LIST_CLASS_NAMES.dragHandle"
           :icon="ICONS.reorder"

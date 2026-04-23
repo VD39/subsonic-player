@@ -139,9 +139,15 @@ export function useDropdownMenu(options: DropdownOptions) {
     abortController.value = new AbortController();
     const { signal } = abortController.value;
 
-    globalThis.addEventListener('click', onClick, { signal });
-    globalThis.addEventListener('contextmenu', onContextMenu, { signal });
-    document.addEventListener('keydown', onKeydown, { signal });
+    globalThis.addEventListener('click', onClick, {
+      signal,
+    });
+    globalThis.addEventListener('contextmenu', onContextMenu, {
+      signal,
+    });
+    document.addEventListener('keydown', onKeydown, {
+      signal,
+    });
   }
 
   onBeforeUnmount(() => {

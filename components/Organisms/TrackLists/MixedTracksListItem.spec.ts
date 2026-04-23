@@ -640,6 +640,28 @@ describe('MixedTracksListItem', () => {
     });
   });
 
+  describe('when the hasSortListEvent prop is false', () => {
+    it('does not show the track sort row element', () => {
+      expect(wrapper.find({ ref: 'trackSortRow' }).exists()).toBe(false);
+    });
+  });
+
+  describe('when the hasSortListEvent prop is true', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        hasSortListEvent: true,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the track sort row element', () => {
+      expect(wrapper.find({ ref: 'trackSortRow' }).exists()).toBe(true);
+    });
+  });
+
   describe('when the hasAddToQueueEvent prop is false', () => {
     it('does not show the add to queue DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(false);
