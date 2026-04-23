@@ -156,6 +156,7 @@ export function useAudioPlayer() {
 
     if (hasCurrentTrack.value) {
       loadTrack(currentTrack.value);
+      setMediaMetadata();
       setCurrentTime(SAVED_STATE.currentTime);
     }
 
@@ -385,8 +386,6 @@ export function useAudioPlayer() {
     } else {
       audioPlayer.value?.load(url);
     }
-
-    setMediaMetadata();
   }
 
   function prefetchUpcomingTracks() {
@@ -413,6 +412,7 @@ export function useAudioPlayer() {
     trackHasScrobbled.value = false;
 
     clearSaveInterval();
+    setMediaMetadata();
     loadTrack(track);
     setMediaSessionPositionState();
     await playTrack();

@@ -7,23 +7,31 @@ export class AudioPlayer {
     this.addEventListeners();
   }
 
+  private static detachSource(audio: HTMLAudioElement) {
+    audio.src = '';
+    audio.removeAttribute('src');
+    audio.load();
+  }
+
   changePlaybackRate(rate: number) {
     this.audio.playbackRate = rate;
   }
 
   load(source: string) {
-    this.unload();
-    this.audio.setAttribute('src', source);
+    this.audio.pause();
+    this.audio.src = source;
     this.audio.load();
   }
 
   loadFromElement(element: HTMLAudioElement) {
     const currentVolume = this.audio.volume;
+    const oldAudio = this.audio;
     this.removeEventListeners();
-    this.unload();
+    oldAudio.pause();
     this.audio = element;
     this.audio.volume = currentVolume;
     this.addEventListeners();
+    AudioPlayer.detachSource(oldAudio);
   }
 
   onBuffered(callback: (bufferedTime: number) => void) {
@@ -69,9 +77,7 @@ export class AudioPlayer {
 
   unload() {
     this.audio.pause();
-    this.audio.src = '';
-    this.audio.removeAttribute('src');
-    this.audio.load();
+    AudioPlayer.detachSource(this.audio);
   }
 
   private addEventListeners() {

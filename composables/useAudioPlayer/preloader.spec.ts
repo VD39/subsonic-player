@@ -2,7 +2,7 @@ import { audioElementMock } from '@/test/audioElementMock';
 
 import { AudioPreloader } from './preloader';
 
-const { audio, audioLoadMock, removeAttributeMock } = audioElementMock();
+const { audioLoadMock, audioMock, removeAttributeMock } = audioElementMock();
 
 describe('AudioPreloader', () => {
   let preloader: AudioPreloader;
@@ -25,7 +25,7 @@ describe('AudioPreloader', () => {
     });
 
     it('sets the correct audio src value', () => {
-      expect(audio.src).toBe('stream-url');
+      expect(audioMock.src).toBe('stream-url');
     });
 
     describe('when the same url is preloaded again', () => {
@@ -69,7 +69,7 @@ describe('AudioPreloader', () => {
         });
 
         it('returns the correct response', () => {
-          expect(result).toBe(audio);
+          expect(result).toBe(audioMock);
         });
 
         it('removes the url from the pool', () => {
@@ -83,7 +83,7 @@ describe('AudioPreloader', () => {
 
       describe('when the audio element has an error', () => {
         beforeAll(() => {
-          audio.error = {
+          audioMock.error = {
             code: 4,
             message: 'MEDIA_ERR_SRC_NOT_SUPPORTED',
           } as MediaError;
@@ -92,7 +92,7 @@ describe('AudioPreloader', () => {
         });
 
         afterAll(() => {
-          audio.error = null;
+          audioMock.error = null;
         });
 
         it('returns the correct response', () => {

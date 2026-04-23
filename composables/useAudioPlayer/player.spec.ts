@@ -3,17 +3,18 @@ import { audioElementMock } from '@/test/audioElementMock';
 import { AudioPlayer } from './player';
 
 const {
-  audio,
+  audioEvents,
   audioLoadMock,
-  eventHandlers,
+  audioMock,
   pauseMock,
   playMock,
   removeAttributeMock,
   removeEventListenerMock,
-  setAttributeMock,
 } = audioElementMock();
-const { addEventListenerMock: newAddEventListenerMock, audio: newAudio } =
-  audioElementMock();
+const {
+  addEventListenerMock: newAddEventListenerMock,
+  audioMock: newAudioMock,
+} = audioElementMock();
 
 describe('AudioPlayer', () => {
   let player: AudioPlayer;
@@ -32,7 +33,7 @@ describe('AudioPlayer', () => {
     });
 
     it('sets the correct playbackRate value', () => {
-      expect(audio.playbackRate).toBe(1.5);
+      expect(audioMock.playbackRate).toBe(1.5);
     });
   });
 
@@ -63,8 +64,8 @@ describe('AudioPlayer', () => {
       expect(pauseMock).toHaveBeenCalled();
     });
 
-    it('calls the audio setAttribute function with the correct parameters', () => {
-      expect(setAttributeMock).toHaveBeenCalledWith('src', 'stream-url');
+    it('sets the audio src to the correct value', () => {
+      expect(audioMock.src).toBe('stream-url');
     });
 
     it('calls the audio load function', () => {
@@ -98,7 +99,7 @@ describe('AudioPlayer', () => {
     });
 
     it('sets the correct currentTime value', () => {
-      expect(audio.currentTime).toBe(42);
+      expect(audioMock.currentTime).toBe(42);
     });
   });
 
@@ -109,7 +110,7 @@ describe('AudioPlayer', () => {
       });
 
       it('sets the correct volume value', () => {
-        expect(audio.volume).toBe(1);
+        expect(audioMock.volume).toBe(1);
       });
     });
 
@@ -119,7 +120,7 @@ describe('AudioPlayer', () => {
       });
 
       it('sets the correct volume value', () => {
-        expect(audio.volume).toBe(0);
+        expect(audioMock.volume).toBe(0);
       });
     });
 
@@ -129,7 +130,7 @@ describe('AudioPlayer', () => {
       });
 
       it('sets the correct volume value', () => {
-        expect(audio.volume).toBe(0.75);
+        expect(audioMock.volume).toBe(0.75);
       });
     });
   });
@@ -143,7 +144,7 @@ describe('AudioPlayer', () => {
 
     describe('when the canplay event is fired', () => {
       beforeAll(() => {
-        eventHandlers.canplay();
+        audioEvents.canplay();
       });
 
       it('calls the callback', () => {
@@ -153,7 +154,7 @@ describe('AudioPlayer', () => {
 
     describe('when the canplaythrough event is fired', () => {
       beforeAll(() => {
-        eventHandlers.canplaythrough();
+        audioEvents.canplaythrough();
       });
 
       it('calls the callback', () => {
@@ -167,7 +168,7 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onEnded(callbackMock);
-      eventHandlers.ended();
+      audioEvents.ended();
     });
 
     it('calls the callback', () => {
@@ -179,9 +180,9 @@ describe('AudioPlayer', () => {
     const callbackMock = vi.fn();
 
     beforeAll(() => {
-      audio.duration = 180;
+      audioMock.duration = 180;
       player.onLoadedMetadata(callbackMock);
-      eventHandlers.loadedmetadata();
+      audioEvents.loadedmetadata();
     });
 
     it('calls the callback with the correct parameters', () => {
@@ -194,7 +195,7 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onWaiting(callbackMock);
-      eventHandlers.waiting();
+      audioEvents.waiting();
     });
 
     it('calls the callback', () => {
@@ -211,8 +212,8 @@ describe('AudioPlayer', () => {
 
     describe('when currentTime is 0', () => {
       beforeAll(() => {
-        audio.currentTime = 0;
-        eventHandlers.timeupdate();
+        audioMock.currentTime = 0;
+        audioEvents.timeupdate();
       });
 
       it('does not call the callback', () => {
@@ -222,8 +223,8 @@ describe('AudioPlayer', () => {
 
     describe('when currentTime is greater than 0', () => {
       beforeAll(() => {
-        audio.currentTime = 10.7;
-        eventHandlers.timeupdate();
+        audioMock.currentTime = 10.7;
+        audioEvents.timeupdate();
       });
 
       it('calls the callback with the correct parameters', () => {
@@ -241,8 +242,8 @@ describe('AudioPlayer', () => {
 
     describe('when the audio duration is 0', () => {
       beforeAll(() => {
-        audio.duration = 0;
-        eventHandlers.progress();
+        audioMock.duration = 0;
+        audioEvents.progress();
       });
 
       it('does not call the callback', () => {
@@ -253,14 +254,14 @@ describe('AudioPlayer', () => {
     describe('when the audio duration is greater than 0', () => {
       describe('when the buffered range does not contain the currentTime', () => {
         beforeAll(() => {
-          audio.buffered = {
+          audioMock.buffered = {
             end: vi.fn(() => 30),
             length: 1,
             start: vi.fn(() => 20),
           } as unknown as TimeRanges;
-          audio.currentTime = 10;
-          audio.duration = 60;
-          eventHandlers.progress();
+          audioMock.currentTime = 10;
+          audioMock.duration = 60;
+          audioEvents.progress();
         });
 
         it('does not call the callback', () => {
@@ -270,14 +271,14 @@ describe('AudioPlayer', () => {
 
       describe('when the buffered range contains the currentTime', () => {
         beforeAll(() => {
-          audio.buffered = {
+          audioMock.buffered = {
             end: vi.fn(() => 30),
             length: 1,
             start: vi.fn(() => 0),
           } as unknown as TimeRanges;
-          audio.currentTime = 10;
-          audio.duration = 60;
-          eventHandlers.progress();
+          audioMock.currentTime = 10;
+          audioMock.duration = 60;
+          audioEvents.progress();
         });
 
         it('calls the callback with the correct parameters', () => {
@@ -289,12 +290,29 @@ describe('AudioPlayer', () => {
 
   describe('when the loadFromElement function is called', () => {
     beforeAll(() => {
-      audio.volume = 0.5;
-      player.loadFromElement(newAudio as unknown as HTMLAudioElement);
+      vi.clearAllMocks();
+      audioMock.volume = 0.5;
+      player.loadFromElement(newAudioMock as unknown as HTMLAudioElement);
     });
 
     it('removes event listeners from the old element', () => {
       expect(removeEventListenerMock).toHaveBeenCalled();
+    });
+
+    it('pauses the old element', () => {
+      expect(pauseMock).toHaveBeenCalled();
+    });
+
+    it('cleans up the old element src', () => {
+      expect(audioMock.src).toBe('');
+    });
+
+    it('removes the src attribute from the old element', () => {
+      expect(removeAttributeMock).toHaveBeenCalledWith('src');
+    });
+
+    it('calls load on the old element to release resources', () => {
+      expect(audioLoadMock).toHaveBeenCalled();
     });
 
     it('adds event listeners to the new element', () => {
@@ -302,7 +320,7 @@ describe('AudioPlayer', () => {
     });
 
     it('sets the correct volume on the new element', () => {
-      expect(newAudio.volume).toBe(0.5);
+      expect(newAudioMock.volume).toBe(0.5);
     });
   });
 });
