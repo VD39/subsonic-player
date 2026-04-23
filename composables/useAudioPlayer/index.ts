@@ -684,6 +684,7 @@ export function useAudioPlayer() {
     }
 
     saveState();
+    prefetchUpcomingTracks();
   }
 
   function addTracksToQueueList(tracks: MixedTrack[]) {

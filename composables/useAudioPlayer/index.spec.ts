@@ -2019,6 +2019,14 @@ describe('useAudioPlayer', () => {
             }),
           );
         });
+
+        it('calls the audio preloader preload function', () => {
+          expect(preloadMock).toHaveBeenCalled();
+        });
+
+        it('calls the audio preloader prune function', () => {
+          expect(pruneMock).toHaveBeenCalled();
+        });
       });
 
       describe('when the moved track is above the current track and moves to or past it', () => {
@@ -2036,6 +2044,14 @@ describe('useAudioPlayer', () => {
               currentQueueIndex: 2,
             }),
           );
+        });
+
+        it('calls the audio preloader preload function', () => {
+          expect(preloadMock).toHaveBeenCalled();
+        });
+
+        it('calls the audio preloader prune function', () => {
+          expect(pruneMock).toHaveBeenCalled();
         });
       });
 
@@ -2055,6 +2071,14 @@ describe('useAudioPlayer', () => {
             }),
           );
         });
+
+        it('calls the audio preloader preload function', () => {
+          expect(preloadMock).toHaveBeenCalled();
+        });
+
+        it('calls the audio preloader prune function', () => {
+          expect(pruneMock).toHaveBeenCalled();
+        });
       });
 
       describe('when the moved track does not affect the current track index', () => {
@@ -2072,6 +2096,14 @@ describe('useAudioPlayer', () => {
               currentQueueIndex: 2,
             }),
           );
+        });
+
+        it('calls the audio preloader preload function', () => {
+          expect(preloadMock).toHaveBeenCalled();
+        });
+
+        it('calls the audio preloader prune function', () => {
+          expect(pruneMock).toHaveBeenCalled();
         });
       });
     });
