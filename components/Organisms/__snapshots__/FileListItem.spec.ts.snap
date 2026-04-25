@@ -21,17 +21,17 @@ exports[`FileListItem > matches the snapshot 1`] = `
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
       </div>

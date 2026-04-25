@@ -13,7 +13,7 @@ defineEmits<{
 </script>
 
 <template>
-  <li :class="$style.dropdownItem">
+  <li :class="['centerItems', $style.dropdownItem]">
     <span
       v-if="is === 'span'"
       ref="spanElement"
@@ -47,9 +47,7 @@ defineEmits<{
 <style module>
 .dropdownItem {
   position: relative;
-  display: flex;
   flex-wrap: nowrap;
-  align-items: center;
 }
 
 .spanItem {

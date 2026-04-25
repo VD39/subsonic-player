@@ -20,7 +20,6 @@ export const ROUTE_NAMES = {
   queue: 'queue',
   radioStations: 'radio-stations',
   search: 'search-mediaType-query',
-  userProfile: 'user-profile',
 } as const;
 
 export const ROUTE_PARAM_KEYS = {

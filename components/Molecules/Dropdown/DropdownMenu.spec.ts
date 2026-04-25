@@ -158,4 +158,28 @@ describe('DropdownMenu', () => {
       });
     });
   });
+
+  describe('when the icon slot is provided', () => {
+    let iconWrapper: VueWrapper;
+
+    beforeEach(() => {
+      iconWrapper = mount(DropdownMenu, {
+        attachTo: document.body,
+        slots: {
+          default: 'Default slot content.',
+          icon: '<span data-test="custom-icon">Custom icon</span>',
+        },
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(iconWrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the icon slot content in the ButtonLink', () => {
+      expect(iconWrapper.findComponent(ButtonLink).html()).toContain(
+        'Custom icon',
+      );
+    });
+  });
 });

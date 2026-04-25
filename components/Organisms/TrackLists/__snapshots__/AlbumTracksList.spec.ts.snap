@@ -21,7 +21,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause">
-            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0" style="display: none;"></div>
+            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
             <p class="overlap trackNumber">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -75,7 +75,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub to="#teleports">
             <!--v-if-->
@@ -89,7 +89,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause">
-            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1" style="display: none;"></div>
+            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
             <p class="overlap trackNumber">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -143,7 +143,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub to="#teleports">
             <!--v-if-->
@@ -157,7 +157,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause">
-            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2" style="display: none;"></div>
+            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
             <p class="overlap trackNumber">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -211,7 +211,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub to="#teleports">
             <!--v-if-->
@@ -225,7 +225,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause">
-            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3" style="display: none;"></div>
+            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
             <p class="overlap trackNumber">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -279,7 +279,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub to="#teleports">
             <!--v-if-->
@@ -293,7 +293,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause">
-            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4" style="display: none;"></div>
+            <div class="centerAll preloadImage overlap preloadImage hideImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
             <p class="overlap trackNumber">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -347,7 +347,7 @@ exports[`AlbumTracksList > when the tracks prop is not an empty array > matches 
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub to="#teleports">
             <!--v-if-->

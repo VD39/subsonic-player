@@ -2,7 +2,7 @@
 
 exports[`DropdownMenu > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
   </button>
   <teleport-stub to="#teleports">
     <!--v-if-->
@@ -12,7 +12,7 @@ exports[`DropdownMenu > matches the snapshot 1`] = `
 
 exports[`DropdownMenu > when isOpen changes to true > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
   </button>
   <teleport-stub to="#teleports">
     <div class="backdrop dropdown fade-enter-from fade-enter-active">
@@ -24,13 +24,23 @@ exports[`DropdownMenu > when isOpen changes to true > matches the snapshot 1`] =
 
 exports[`DropdownMenu > when isOpen changes to true > when isOpen changes to false > matches the snapshot 1`] = `
 "<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+    <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
   </button>
   <teleport-stub to="#teleports">
     <div class="backdrop dropdown fade-enter-from fade-leave-from fade-leave-active">
       <ul class="hasPointerEvents">Default slot content.</ul>
     </div>
     <!--v-if-->
+  </teleport-stub>
+</div>"
+`;
+
+exports[`DropdownMenu > when the icon slot is provided > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More"><span data-test="custom-icon">Custom icon</span><span class="clamp text visuallyHidden"> More</span></button>
+  <teleport-stub to="#teleports">
+    <div class="backdrop dropdown" style="left: 20px; top: 10px;">
+      <ul class="hasPointerEvents">Default slot content.</ul>
+    </div>
   </teleport-stub>
 </div>"
 `;

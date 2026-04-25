@@ -117,6 +117,53 @@ describe('ButtonLink', () => {
     });
   });
 
+  describe('when the icon slot is provided', () => {
+    beforeEach(() => {
+      wrapper = mount(ButtonLink, {
+        slots: {
+          default: 'Default slot content.',
+          icon: '<span data-test="custom-icon">Custom icon</span>',
+        },
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not show the icon component', () => {
+      expect(wrapper.find({ ref: 'iconComponent' }).exists()).toBe(false);
+    });
+
+    describe('when the iconPosition prop is not set', () => {
+      it('does not add the alignRight class', () => {
+        expect(wrapper.classes()).not.toContain('alignRight');
+      });
+    });
+
+    describe('when the iconPosition prop is set to right', () => {
+      beforeEach(() => {
+        wrapper = mount(ButtonLink, {
+          props: {
+            iconPosition: 'right',
+          },
+          slots: {
+            default: 'Default slot content.',
+            icon: '<span data-test="custom-icon">Custom icon</span>',
+          },
+        });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('adds the alignRight class', () => {
+        expect(wrapper.classes()).toContain('alignRight');
+      });
+    });
+  });
+
   describe('when the disabled prop is not set', () => {
     it('does not add the disabled class', () => {
       expect(wrapper.classes()).not.toContain('disabled');

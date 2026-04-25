@@ -13,64 +13,6 @@ exports[`InputRange > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`InputRange > when default slot is set > when the hideThumb prop is set to true > matches the snapshot 1`] = `
-"<div class="inputRange" style="--input-slider-height: 6px;">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
-      <!--v-if-->
-    </div>
-    <!--v-if-->
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
-exports[`InputRange > when default slot is set > when the max prop greater than 0 > matches the snapshot 1`] = `
-"<div class="inputRange" style="--input-slider-height: 6px;">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
-      <!--v-if-->
-    </div>
-    <div class="thumb" style="left: 19px;"></div>
-    <div class="mBS strong smallFont tooltip" style="left: 25px;">
-      <p>2.5</p>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`InputRange > when default slot is set > when the max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is called before > matches the snapshot 1`] = `
-"<div class="inputRange" style="--input-slider-height: 6px;">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
-      <!--v-if-->
-    </div>
-    <div class="thumb" style="left: 19px;"></div>
-    <div class="mBS strong smallFont tooltip" style="left: 80px;">
-      <p>8</p>
-    </div>
-  </div>
-</div>"
-`;
-
-exports[`InputRange > when default slot is set > when the max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is not called before > matches the snapshot 1`] = `
-"<div class="inputRange" style="--input-slider-height: 6px;">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
-      <!--v-if-->
-    </div>
-    <div class="thumb" style="left: 19px;"></div>
-    <div class="mBS strong smallFont tooltip" style="left: 25px;">
-      <p>2.5</p>
-    </div>
-  </div>
-</div>"
-`;
-
 exports[`InputRange > when model value updates > matches the snapshot 1`] = `
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
@@ -106,6 +48,64 @@ exports[`InputRange > when the bufferLength prop is set to true > when buffer du
     </div>
     <div class="thumb" style="left: 19px;"></div>
     <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the default slot is set > when the hideThumb prop is set to true > matches the snapshot 1`] = `
+"<div class="inputRange" style="--input-slider-height: 6px;">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 25px;"></div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the default slot is set > when the max prop greater than 0 > matches the snapshot 1`] = `
+"<div class="inputRange" style="--input-slider-height: 6px;">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 25px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 19px;"></div>
+    <div class="mBS strong smallFont tooltip" style="left: 25px;">
+      <p>2.5</p>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the default slot is set > when the max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is called before > matches the snapshot 1`] = `
+"<div class="inputRange" style="--input-slider-height: 6px;">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 25px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 19px;"></div>
+    <div class="mBS strong smallFont tooltip" style="left: 80px;">
+      <p>8</p>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`InputRange > when the default slot is set > when the max prop greater than 0 > when the mousemove on slider is called > when the mouseover on slider is not called before > matches the snapshot 1`] = `
+"<div class="inputRange" style="--input-slider-height: 6px;">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="process" style="width: 25px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 19px;"></div>
+    <div class="mBS strong smallFont tooltip" style="left: 25px;">
+      <p>2.5</p>
+    </div>
   </div>
 </div>"
 `;

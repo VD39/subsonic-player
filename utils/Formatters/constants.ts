@@ -21,4 +21,5 @@ export const IMAGE_DEFAULT_BY_TYPE: Record<string, Icon> = {
   podcastEpisode: ICONS.podcastEpisode,
   radioStation: ICONS.radioStation,
   track: ICONS.track,
+  user: ICONS.user,
 };

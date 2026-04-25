@@ -15,18 +15,18 @@ exports[`PodcastItem > matches the snapshot 1`] = `
   </div>
   <div class="layoutDropdownMenu hoverActions">
     <div>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play podcast </span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Add to queue </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+      <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to podcast </span>
         </a></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
     </div>

@@ -27,13 +27,13 @@ describe('HeaderWithAction', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when actions slot is not set', () => {
+  describe('when the actions slot is not set', () => {
     it('does not show the actions wrapper', () => {
       expect(wrapper.find({ ref: 'actions' }).exists()).toBe(false);
     });
   });
 
-  describe('when actions slot is set', () => {
+  describe('when the actions slot is set', () => {
     beforeEach(() => {
       wrapper = factory(undefined, {
         actions: 'Actions slot content.',

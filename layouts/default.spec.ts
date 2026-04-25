@@ -3,9 +3,6 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import SearchForm from '@/components/Molecules/SearchForm.vue';
 
@@ -14,22 +11,6 @@ import DefaultLayout from './default.vue';
 const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
-
-const userMock = vi.hoisted(() => vi.fn(() => ref<null | User>(null)));
-
-mockNuxtImport('useUser', () => userMock);
-
-const logoutAndRedirectMock = vi.fn();
-
-mockNuxtImport('useAuth', () => () => ({
-  logoutAndRedirect: logoutAndRedirectMock,
-}));
-
-const startScanMock = vi.fn();
-
-mockNuxtImport('useMediaLibrary', () => () => ({
-  startScan: startScanMock,
-}));
 
 const { routeMock } = vi.hoisted(() => ({
   routeMock: vi.fn().mockReturnValue({
@@ -45,6 +26,7 @@ function factory(props = {}) {
     global: {
       stubs: {
         MusicPlayerAndQueue: true,
+        UserMenu: true,
       },
     },
     props: {
@@ -56,7 +38,7 @@ function factory(props = {}) {
   });
 }
 
-describe('Default', () => {
+describe('DefaultLayout', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {
@@ -69,74 +51,6 @@ describe('Default', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
-  });
-
-  describe('when user is not defined', () => {
-    it('does not show the user element', () => {
-      expect(wrapper.find({ ref: 'userDetails' }).exists()).toBe(false);
-    });
-  });
-
-  describe('when user is defined', () => {
-    beforeEach(() => {
-      userMock.mockReturnValue(
-        ref({
-          salt: 'salt',
-          server: 'server',
-          token: 'token',
-          username: 'username',
-        }),
-      );
-      wrapper = factory();
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('shows the user element', () => {
-      expect(wrapper.find({ ref: 'userDetails' }).exists()).toBe(true);
-    });
-
-    describe('when the DropdownMenu component is clicked', () => {
-      beforeEach(async () => {
-        wrapper
-          .findComponent(DropdownMenu)
-          .findComponent(ButtonLink)
-          .vm.$emit('click');
-        await wrapper.vm.$nextTick();
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('shows the correct number of DropdownItem component', () => {
-        expect(wrapper.findAllComponents(DropdownItem).length).toBe(5);
-      });
-
-      describe('when the scan DropdownItem component emits the click event', () => {
-        beforeEach(async () => {
-          wrapper.findComponent({ ref: 'scan' }).vm.$emit('click');
-          await wrapper.vm.$nextTick();
-        });
-
-        it('calls the startScan function', () => {
-          expect(startScanMock).toHaveBeenCalled();
-        });
-      });
-
-      describe('when the logoutAndRedirect DropdownItem component emits the click event', () => {
-        beforeEach(async () => {
-          wrapper.findComponent({ ref: 'logoutButton' }).vm.$emit('click');
-          await wrapper.vm.$nextTick();
-        });
-
-        it('calls the logoutAndRedirect function', () => {
-          expect(logoutAndRedirectMock).toHaveBeenCalled();
-        });
-      });
-    });
   });
 
   describe('when the SearchForm component emits a search event', () => {

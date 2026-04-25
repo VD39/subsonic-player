@@ -19,18 +19,18 @@ exports[`RadioStationsListItem > matches the snapshot 1`] = `
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="homepageUrl" target="_blank">
+        <li class="centerItems dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="homepageUrl" target="_blank">
             <!--v-if--><span class="clamp text"> Visit station </span>
           </a></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Edit station </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Delete station </span>
           </button></li>
       </div>
@@ -60,15 +60,15 @@ exports[`RadioStationsListItem > when radioStation.homePageUrl is undefined > ma
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Edit station </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Delete station </span>
           </button></li>
       </div>

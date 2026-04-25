@@ -47,6 +47,10 @@ defineExpose({
       :title
       @click="toggleDropdownMenu"
     >
+      <template v-if="$slots.icon" #icon>
+        <slot name="icon" />
+      </template>
+
       {{ text }}
     </ButtonLink>
 

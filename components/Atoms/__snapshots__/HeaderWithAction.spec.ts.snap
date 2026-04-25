@@ -6,7 +6,7 @@ exports[`HeaderWithAction > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`HeaderWithAction > when actions slot is set > matches the snapshot 1`] = `
+exports[`HeaderWithAction > when the actions slot is set > matches the snapshot 1`] = `
 "<div class="centerItems spaceBetween">Default slot content.<div class="centerItems">Actions slot content.</div>
 </div>"
 `;

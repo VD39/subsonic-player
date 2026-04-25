@@ -36,7 +36,7 @@ const isComponent =
       'centerItems',
       $style.buttonLink,
       {
-        [$style.alignRight]: icon && iconPosition === 'right',
+        [$style.alignRight]: ($slots.icon || icon) && iconPosition === 'right',
         [$style.disabled]: disabled,
         'centerAll fullWidth': fullWidth,
       },
@@ -46,16 +46,18 @@ const isComponent =
     :type
     v-bind="$attrs"
   >
-    <component
-      :is="icon"
-      v-if="icon"
-      ref="iconComponent"
-      aria-hidden="true"
-      :class="$style.icon"
-      :color="iconColor"
-      :size="ICON_SIZE[iconSize]"
-      :weight="iconWeight"
-    />
+    <slot name="icon">
+      <component
+        :is="icon"
+        v-if="icon"
+        ref="iconComponent"
+        aria-hidden="true"
+        :class="$style.icon"
+        :color="iconColor"
+        :size="ICON_SIZE[iconSize]"
+        :weight="iconWeight"
+      />
+    </slot>
 
     <span
       ref="text"

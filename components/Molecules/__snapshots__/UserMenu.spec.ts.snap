@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UserMenu > matches the snapshot 1`] = `
+"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View details">
+    <div class="centerAll preloadImage avatar"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="avatar-url"></div><span class="clamp text visuallyHidden"> More</span>
+  </button>
+  <teleport-stub to="#teleports">
+    <div class="backdrop dropdown">
+      <ul class="hasPointerEvents">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+            <!--v-if--><span class="clamp text"> Files </span>
+          </a></li>
+        <li class="centerItems dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="server" target="_blank">
+            <!--v-if--><span class="clamp text"> Server </span>
+          </a></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text">Scan files</span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <phsignout aria-hidden="true" class="icon" size="24" weight="regular"></phsignout><span class="clamp text"> Log out </span>
+          </button></li>
+      </ul>
+    </div>
+  </teleport-stub>
+</div>"
+`;

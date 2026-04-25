@@ -16,6 +16,7 @@ export default defineNuxtPlugin(() => {
         response._data = {
           ...subsonicResponse,
         };
+
         return response._data;
       }
     },

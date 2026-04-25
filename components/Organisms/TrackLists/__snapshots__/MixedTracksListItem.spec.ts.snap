@@ -61,26 +61,26 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -155,29 +155,29 @@ exports[`MixedTracksListItem > when the hasAddToQueueEvent prop is true > matche
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to queue </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -251,26 +251,26 @@ exports[`MixedTracksListItem > when the hasSortListEvent prop is true > matches 
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -346,24 +346,24 @@ exports[`MixedTracksListItem > when the hideRemoveOption prop is true > matches 
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -423,7 +423,7 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -492,7 +492,7 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
@@ -500,15 +500,15 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -578,26 +578,26 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -662,25 +662,25 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -741,25 +741,25 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -820,25 +820,25 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -916,7 +916,7 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
@@ -924,16 +924,16 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -993,26 +993,26 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1077,25 +1077,25 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1154,25 +1154,25 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1231,25 +1231,25 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1322,25 +1322,25 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1403,7 +1403,7 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1472,7 +1472,7 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
@@ -1480,15 +1480,15 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1558,26 +1558,26 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1655,7 +1655,7 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
@@ -1663,16 +1663,16 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1732,26 +1732,26 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+        <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>
@@ -1810,13 +1810,13 @@ exports[`MixedTracksListItem > when track.type is radioStation > matches the sna
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <!--v-if-->
-        <li class="dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="homepageUrl" target="_blank">
+        <li class="centerItems dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="homepageUrl" target="_blank">
             <!--v-if--><span class="clamp text"> Visit station </span>
           </a></li>
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
-        <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
           </button></li>
       </div>

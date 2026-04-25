@@ -48,6 +48,10 @@ exports[`ButtonLink > when the icon prop is set > when the iconPosition prop is 
 </button>"
 `;
 
+exports[`ButtonLink > when the icon slot is provided > matches the snapshot 1`] = `"<button class="centerItems buttonLink" draggable="false" type="button"><span data-test="custom-icon">Custom icon</span><span class="clamp text visuallyHidden">Default slot content.</span></button>"`;
+
+exports[`ButtonLink > when the icon slot is provided > when the iconPosition prop is set to right > matches the snapshot 1`] = `"<button class="centerItems buttonLink alignRight" draggable="false" type="button"><span data-test="custom-icon">Custom icon</span><span class="clamp text visuallyHidden">Default slot content.</span></button>"`;
+
 exports[`ButtonLink > when the showText prop is set to true > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button">
   <!--v-if--><span class="clamp text">Default slot content.</span>

@@ -200,13 +200,13 @@ describe('InputRange', () => {
     });
   });
 
-  describe('when default slot is not set', () => {
+  describe('when the default slot is not set', () => {
     it('does not show the tooltip element', () => {
       expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(false);
     });
   });
 
-  describe('when default slot is set', () => {
+  describe('when the default slot is set', () => {
     describe('when the max prop equal to 0', () => {
       beforeEach(() => {
         wrapper = factory(

@@ -2,7 +2,7 @@ import MD5 from 'crypto-js/md5';
 
 export function useAuth() {
   const { fetchData } = useAPI();
-  const user = useUser();
+  const { clearUser, setUser, user } = useUser();
   const { resetAllUserState } = useStateReset();
   const authCookie = useCookie(COOKIE_NAMES.auth, {
     expires: new Date(
@@ -13,7 +13,7 @@ export function useAuth() {
   const loading = ref(false);
   const error = ref<null | string>(null);
   const isAuthenticated = useState(STATE_NAMES.userAuthenticated, () => false);
-  user.value = loadSession(authCookie.value!);
+  setUser(authCookie.value!);
 
   async function autoLogin() {
     if (!user.value?.server) {
@@ -71,7 +71,7 @@ export function useAuth() {
 
     if (loggedIn) {
       authCookie.value = convertToQueryString(params);
-      user.value = loadSession(authCookie.value);
+      setUser(authCookie.value);
       isAuthenticated.value = true;
     }
 
@@ -96,7 +96,7 @@ export function useAuth() {
 
   function resetAuth() {
     isAuthenticated.value = false;
-    user.value = null;
+    clearUser();
     authCookie.value = null;
     error.value = null;
   }

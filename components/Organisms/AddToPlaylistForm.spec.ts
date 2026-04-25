@@ -163,7 +163,7 @@ describe('AddToPlaylistForm', () => {
             );
           });
 
-          it('updates slot data on the ButtonLink component', () => {
+          it('updates the slot data on the ButtonLink component', () => {
             expect(wrapper.findComponent(ButtonLink).text()).toContain(
               buttonProps.add.text,
             );

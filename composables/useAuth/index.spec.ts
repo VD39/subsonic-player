@@ -20,9 +20,17 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const useUserMock = ref();
+const useUserMock = ref<null | User>(null);
+const clearUserMock = vi.fn();
+const setUserMock = vi.fn((cookie: string) => {
+  useUserMock.value = loadSession(cookie);
+});
 
-mockNuxtImport('useUser', () => () => useUserMock);
+mockNuxtImport('useUser', () => () => ({
+  clearUser: clearUserMock,
+  setUser: setUserMock,
+  user: useUserMock,
+}));
 
 mockNuxtImport('generateRandomString', () => () => 'randomString');
 
@@ -52,13 +60,8 @@ describe('useAuth', () => {
       result = withSetup(useAuth);
     });
 
-    it('sets the user value bases on cookie', () => {
-      expect(useUserMock.value).toEqual({
-        salt: null,
-        server: null,
-        token: null,
-        username: null,
-      });
+    it('calls the setUser function with the cookie value', () => {
+      expect(setUserMock).toHaveBeenCalledWith(null);
     });
 
     describe('when the autoLogin function is called', () => {
@@ -98,13 +101,8 @@ describe('useAuth', () => {
       result = withSetup(useAuth);
     });
 
-    it('sets the user value bases on cookie', () => {
-      expect(useUserMock.value).toEqual({
-        salt: 'salt',
-        server: 'https://www.server.com',
-        token: 'token',
-        username: 'username',
-      });
+    it('calls the setUser function with the cookie value', () => {
+      expect(setUserMock).toHaveBeenCalledWith(cookieMock);
     });
 
     describe('when the autoLogin function is called', () => {
@@ -211,13 +209,10 @@ describe('useAuth', () => {
         );
       });
 
-      it('sets the correct user value', () => {
-        expect(useUserMock.value).toEqual({
-          salt: 'randomString',
-          server: 'https://www.server.com',
-          token: 'MD5',
-          username: 'username',
-        });
+      it('calls the setUser function with the cookie value', () => {
+        expect(setUserMock).toHaveBeenCalledWith(
+          'salt=randomString&server=https%253A%252F%252Fwww.server.com&token=MD5&username=username',
+        );
       });
 
       it('sets the correct isAuthenticated value', () => {
@@ -237,6 +232,10 @@ describe('useAuth', () => {
 
     it('sets the correct useCookie value', () => {
       expect(useCookieMock.value).toBe(null);
+    });
+
+    it('calls the clearUser function', () => {
+      expect(clearUserMock).toHaveBeenCalled();
     });
 
     it('sets the correct isAuthenticated value', () => {

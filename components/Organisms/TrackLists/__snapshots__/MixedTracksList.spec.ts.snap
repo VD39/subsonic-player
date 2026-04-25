@@ -77,7 +77,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -154,7 +154,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -231,7 +231,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -308,7 +308,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -385,7 +385,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -479,7 +479,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -556,7 +556,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -633,7 +633,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -710,7 +710,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -787,7 +787,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -881,7 +881,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -956,7 +956,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1031,7 +1031,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1106,7 +1106,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1181,7 +1181,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1275,7 +1275,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1354,7 +1354,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1433,7 +1433,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1512,7 +1512,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1591,7 +1591,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1687,7 +1687,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1768,7 +1768,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1849,7 +1849,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -1930,7 +1930,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->
@@ -2011,7 +2011,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
         <div class="trackCell trackOptions">
           <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden">More</span>
+              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
               <!--v-if-->

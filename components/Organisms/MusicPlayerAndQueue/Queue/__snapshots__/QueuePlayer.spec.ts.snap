@@ -149,7 +149,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->
@@ -239,7 +239,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->
@@ -329,7 +329,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->
@@ -423,7 +423,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->
@@ -513,7 +513,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->
@@ -607,7 +607,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->
@@ -697,7 +697,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
             <!--v-if-->
             <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+                <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
                 <!--v-if-->

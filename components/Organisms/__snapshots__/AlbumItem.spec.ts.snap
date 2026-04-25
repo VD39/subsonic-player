@@ -25,22 +25,22 @@ exports[`AlbumItem > matches the snapshot 1`] = `
   </div>
   <div class="layoutDropdownMenu hoverActions">
     <div>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play album </span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Add to queue </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+      <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
     </div>
   </div>
 </article>"
@@ -68,22 +68,22 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
   </div>
   <div class="layoutDropdownMenu hoverActions">
     <div>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play album </span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Add to queue </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+      <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
     </div>
   </div>
 </article>"
@@ -111,22 +111,22 @@ exports[`AlbumItem > when album artists is not an empty array > when the hideArt
   </div>
   <div class="layoutDropdownMenu hoverActions">
     <div>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play album </span>
         </button></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Add to queue </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+      <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
     </div>
   </div>
 </article>"

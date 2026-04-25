@@ -1,21 +1,16 @@
 <script setup lang="ts">
 import HotkeyMappings from '@/components/Atoms/HotkeyMappings.vue';
-import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import LayoutButton from '@/components/Molecules/LayoutButton.vue';
 import MobileNavigation from '@/components/Molecules/MobileNavigation.vue';
 import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
 import SearchForm from '@/components/Molecules/SearchForm.vue';
 import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
+import UserMenu from '@/components/Molecules/UserMenu.vue';
 import MusicPlayerAndQueue from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
 
 const route = useRoute();
-const user = useUser();
-const { logoutAndRedirect } = useAuth();
-const { startScan } = useMediaLibrary();
 
 async function onSubmit(term: string) {
   await navigateTo({
@@ -42,55 +37,12 @@ const showPageNavigation = computed(() =>
           <SearchForm @submit="onSubmit" />
         </div>
 
-        <div
-          v-if="user"
-          ref="userDetails"
-          :class="['centerItems', $style.secondary]"
-        >
-          <div :class="$style.secondaryItem">
-            <LayoutButton />
-          </div>
+        <div :class="['centerItems', $style.secondary]">
+          <LayoutButton />
 
-          <div :class="$style.secondaryItem">
-            <ThemeSwitcher />
-          </div>
+          <ThemeSwitcher />
 
-          <div :class="$style.secondaryItem">
-            <DropdownMenu
-              showText
-              :text="user.username!"
-              title="View account details"
-            >
-              <DropdownItem
-                is="nuxt-link"
-                :to="{
-                  name: ROUTE_NAMES.userProfile,
-                }"
-              >
-                Profile
-              </DropdownItem>
-              <DropdownItem
-                is="nuxt-link"
-                :to="{
-                  name: ROUTE_NAMES.files,
-                }"
-              >
-                Files
-              </DropdownItem>
-              <DropdownItem is="a" :href="user.server" target="_blank">
-                Server
-              </DropdownItem>
-              <DropdownItem ref="scan" @click="startScan">Scan</DropdownItem>
-              <DropdownDivider />
-              <DropdownItem
-                ref="logoutButton"
-                :icon="ICONS.signOut"
-                @click="logoutAndRedirect"
-              >
-                Log out
-              </DropdownItem>
-            </DropdownMenu>
-          </div>
+          <UserMenu />
         </div>
       </div>
     </header>
@@ -161,7 +113,6 @@ const showPageNavigation = computed(() =>
 
 .secondary {
   gap: var(--default-space);
-  margin-right: calc(var(--default-space) * -2);
 }
 
 .mainContent {

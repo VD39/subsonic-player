@@ -17,7 +17,7 @@ function factory(props = {}) {
   });
 }
 
-describe('Default', () => {
+describe('PreloadImage', () => {
   let wrapper: VueWrapper;
   let iOMock: ReturnType<typeof intersectionObserverMock>;
 
@@ -191,6 +191,29 @@ describe('Default', () => {
 
       it('does not add the IntersectionObserver function', () => {
         expect(iOMock.observeMock).not.toHaveBeenCalled();
+      });
+
+      it('shows the image immediately', () => {
+        expect(wrapper.find({ ref: 'img' }).isVisible()).toBe(true);
+      });
+
+      describe('when the image has finished loading', () => {
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'img' }).trigger('load');
+          await wrapper.vm.$nextTick();
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('does not show the placeholder', () => {
+          expect(wrapper.find({ ref: 'imageLoader' }).isVisible()).toBe(false);
+        });
+
+        it('shows the image', () => {
+          expect(wrapper.find({ ref: 'img' }).isVisible()).toBe(true);
+        });
       });
 
       describe('when the component unmounts', () => {

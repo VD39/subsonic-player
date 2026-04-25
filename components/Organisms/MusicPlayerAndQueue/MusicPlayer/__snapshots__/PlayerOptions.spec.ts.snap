@@ -53,7 +53,7 @@ exports[`PlayerOptions > when currentTrack value does not have a favourite key >
     </div>
   </div>
   <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-      <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+      <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub to="#teleports">
       <!--v-if-->
@@ -89,7 +89,7 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
     </div>
   </div>
   <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-      <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden">More</span>
+      <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub to="#teleports">
       <!--v-if-->

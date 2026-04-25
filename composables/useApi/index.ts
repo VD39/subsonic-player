@@ -42,6 +42,12 @@ export function useAPI() {
     });
   }
 
+  function getAvatarUrl(username: string) {
+    return getUrl('getAvatar', {
+      username,
+    });
+  }
+
   function getDownloadUrl(id: string) {
     return getUrl('download', {
       id,
@@ -96,6 +102,7 @@ export function useAPI() {
 
   return {
     fetchData,
+    getAvatarUrl,
     getDownloadUrl,
     getImageUrl,
     getStreamUrl,

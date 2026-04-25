@@ -54,13 +54,13 @@ describe('NavigationItem', () => {
     });
   });
 
-  describe('when slot data is not added', () => {
+  describe('when the default slot is not set', () => {
     it('does not show the navigation element', () => {
       expect(wrapper.find({ ref: 'navigation' }).exists()).toBe(false);
     });
   });
 
-  describe('when slot data is added', () => {
+  describe('when the default slot is set', () => {
     beforeEach(() => {
       wrapper = factory(undefined, {
         default: 'Default slot content.',
