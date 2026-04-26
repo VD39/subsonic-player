@@ -29,7 +29,7 @@ function update() {
     <p>A new version is available. Update now to get the latest features.</p>
 
     <p>
-      <strong>Note:</strong>
+      <span class="strong">Note:</span>
       Updating the app will cause the current page to reload.
     </p>
 

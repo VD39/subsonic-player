@@ -4,17 +4,17 @@ import { mount } from '@vue/test-utils';
 
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 
-import AppUpdateModal from './AppUpdateModal.vue';
+import AppUpdate from './AppUpdate.vue';
 
 function factory(props = {}) {
-  return mount(AppUpdateModal, {
+  return mount(AppUpdate, {
     props: {
       ...props,
     },
   });
 }
 
-describe('AppUpdateModal', () => {
+describe('AppUpdate', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {

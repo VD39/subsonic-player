@@ -1,5 +1,7 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
+import { cookieMock } from '@/test/fixtures';
+
 import { useUser } from './index';
 
 const getAvatarUrlMock = vi.fn(() => 'http://server/avatar');
@@ -110,13 +112,13 @@ describe('useUser', () => {
 
   describe('when the setUser function is called', () => {
     beforeEach(() => {
-      setUser('salt=salt&server=server&token=token&username=username');
+      setUser(cookieMock);
     });
 
     it('sets the user value from the cookie string', () => {
       expect(user.value).toEqual({
         salt: 'salt',
-        server: 'server',
+        server: 'https://www.server.com',
         token: 'token',
         username: 'username',
       });

@@ -7,14 +7,21 @@ exports[`UserMenu > matches the snapshot 1`] = `
   <teleport-stub to="#teleports">
     <div class="backdrop dropdown">
       <ul class="hasPointerEvents">
+        <li class="centerItems dropdownTitle">
+          <p class="strong smallFont">username</p>
+        </li>
+        <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Files </span>
           </a></li>
-        <li class="centerItems dropdownItem" href="server" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="server" target="_blank">
+        <li class="centerItems dropdownItem" href="https://www.server.com" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="https://www.server.com" target="_blank">
             <!--v-if--><span class="clamp text"> Server </span>
           </a></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text">Scan files</span>
+            <!--v-if--><span class="clamp text"> Scan files </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> About </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">

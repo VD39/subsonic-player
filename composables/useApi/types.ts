@@ -397,13 +397,11 @@ export interface Starred2 {
 }
 
 export interface SubsonicResponse {
-  // Base Subsonic Response.
   album: AlbumWithSongsID3;
   albumInfo: AlbumInfo;
   albumList: AlbumList;
   albumList2: AlbumList2;
   artist: ArtistWithAlbumsID3;
-
   artistInfo: ArtistInfo;
   artistInfo2: ArtistInfo2;
   artists: ArtistsID3;
@@ -411,7 +409,6 @@ export interface SubsonicResponse {
   chatMessages: ChatMessages;
   directory: Directory;
   error: Error;
-  // File.
   file: Blob;
   genres: Genres;
   indexes: Indexes;
@@ -441,7 +438,6 @@ export interface SubsonicResponse {
   songsByGenre: Songs;
   starred: Starred;
   starred2: Starred2;
-  // Base Subsonic Response.
   status: ResponseStatus;
   topSongs: TopSongs;
   type: string;
@@ -449,7 +445,6 @@ export interface SubsonicResponse {
   users: Users;
   version: string;
   videoInfo: VideoInfo;
-
   videos: Videos;
 }
 

@@ -1,20 +1,28 @@
 name: Build SPA
 
 on:
-  workflow_dispatch:
   workflow_call:
+  workflow_dispatch:
 
 jobs:
+  metadata:
+    uses: ./.github/workflows/compute-build-metadata.yml
+    with:
+      version_policy: release
+
   build:
     name: Build SPA static export
+    needs: metadata
     runs-on: ubuntu-latest
     permissions:
       contents: write
     env:
-      SHORT_SHA: ""
-      ARTIFACT_NAME: ""
-      TARBALL_NAME: ""
-      RELEASE_TAG: ""
+      APP_RELEASE_DATE: ${{ needs.metadata.outputs.app_release_date }}
+      APP_VERSION: ${{ needs.metadata.outputs.app_version }}
+      ARTIFACT_NAME: subsonic-player-static-${{ needs.metadata.outputs.short_sha }}
+      RELEASE_TAG: ${{ needs.metadata.outputs.short_sha }}
+      SHORT_SHA: ${{ needs.metadata.outputs.short_sha }}
+      TARBALL_NAME: subsonic-player-static-${{ needs.metadata.outputs.short_sha }}.tar.gz
 
     steps:
       - name: Checkout branch 🛎
@@ -22,17 +30,6 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
-
-      - name: Set version metadata 🏷️
-        run: |
-          SHORT_SHA=$(git rev-parse --short HEAD)
-          echo "SHORT_SHA=${SHORT_SHA}" >> $GITHUB_ENV
-          echo "ARTIFACT_NAME=subsonic-player-static-${SHORT_SHA}" >> $GITHUB_ENV
-          echo "TARBALL_NAME=subsonic-player-static-${SHORT_SHA}.tar.gz" >> $GITHUB_ENV
-
-      - name: Compute release tag 🏷️
-        run: |
-          echo "RELEASE_TAG=${SHORT_SHA}" >> $GITHUB_ENV
 
       - name: Generate release notes 📝
         run: |
@@ -60,6 +57,8 @@ jobs:
         run: yarn generate
         env:
           SPA_MODE: "true"
+          APP_RELEASE_DATE: ${{ env.APP_RELEASE_DATE }}
+          APP_VERSION: ${{ env.APP_VERSION }}
 
       - name: Package artifacts 🗜️
         run: |

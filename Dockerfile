@@ -13,6 +13,12 @@ WORKDIR /app
 # Create build stage.
 FROM base AS build
 
+ARG APP_VERSION=dev
+ARG APP_RELEASE_DATE=
+
+ENV APP_VERSION=${APP_VERSION}
+ENV APP_RELEASE_DATE=${APP_RELEASE_DATE}
+
 # Copy package.json and yarn.lock files to the working directory.
 COPY ./package.json .
 COPY ./yarn.lock .

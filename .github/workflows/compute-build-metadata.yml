@@ -1,0 +1,65 @@
+name: Compute Build Metadata
+
+on:
+  workflow_call:
+    inputs:
+      version_policy:
+        description: Version policy to use (preview or release)
+        required: true
+        type: string
+    outputs:
+      app_release_date:
+        description: App release date in dd-mm-yyyy format
+        value: ${{ jobs.compute.outputs.app_release_date }}
+      app_version:
+        description: Resolved app version
+        value: ${{ jobs.compute.outputs.app_version }}
+      short_sha:
+        description: Short commit SHA
+        value: ${{ jobs.compute.outputs.short_sha }}
+
+jobs:
+  compute:
+    runs-on: ubuntu-latest
+    outputs:
+      app_release_date: ${{ steps.metadata.outputs.app_release_date }}
+      app_version: ${{ steps.metadata.outputs.app_version }}
+      short_sha: ${{ steps.metadata.outputs.short_sha }}
+
+    steps:
+      - name: Checkout branch 🛎
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Compute metadata 🏷️
+        id: metadata
+        env:
+          VERSION_POLICY: ${{ inputs.version_policy }}
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          APP_RELEASE_DATE=$(date +%d-%m-%Y)
+          TAG_VERSION=$(git describe --tags --exact-match 2>/dev/null || true)
+          TAG_VERSION=${TAG_VERSION#v}
+
+          case "$VERSION_POLICY" in
+            preview)
+              APP_VERSION="$SHORT_SHA"
+              ;;
+            release)
+              if [ -n "$TAG_VERSION" ]; then
+                APP_VERSION="$TAG_VERSION"
+              else
+                APP_VERSION="$SHORT_SHA"
+              fi
+              ;;
+            *)
+              echo "Unsupported version-policy: $VERSION_POLICY"
+              exit 1
+              ;;
+          esac
+
+          echo "short_sha=${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+          echo "app_release_date=${APP_RELEASE_DATE}" >> "$GITHUB_OUTPUT"
+          echo "app_version=${APP_VERSION}" >> "$GITHUB_OUTPUT"

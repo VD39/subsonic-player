@@ -8,7 +8,13 @@ env:
   APP_NAME: subsonic-player
 
 jobs:
+  metadata:
+    uses: ./.github/workflows/compute-build-metadata.yml
+    with:
+      version_policy: release
+
   deploy:
+    needs: metadata
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +44,8 @@ jobs:
           push: true
           build-args: |
             NODE_VERSION=${{ steps.node-version.outputs.version }}
+            APP_RELEASE_DATE=${{ needs.metadata.outputs.app_release_date }}
+            APP_VERSION=${{ needs.metadata.outputs.app_version }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.APP_NAME }}:latest
 
       - name: Update Docker description 📝

@@ -15,7 +15,7 @@ mockNuxtImport('useUser', () => () => ({
   getAvatar: getAvatarMock,
   user: ref({
     salt: 'salt',
-    server: 'server',
+    server: 'https://www.server.com',
     token: 'token',
     username: 'username',
   }),
@@ -31,6 +31,12 @@ const startScanMock = vi.fn();
 
 mockNuxtImport('useMediaLibrary', () => () => ({
   startScan: startScanMock,
+}));
+
+const openAboutAppModalMock = vi.fn();
+
+mockNuxtImport('useServerInfo', () => () => ({
+  openAboutAppModal: openAboutAppModalMock,
 }));
 
 function factory() {
@@ -60,7 +66,7 @@ describe('UserMenu', () => {
 
   describe('when the scan DropdownItem component emits the click event', () => {
     beforeEach(async () => {
-      wrapper.findComponent({ ref: 'scanButton' }).vm.$emit('click');
+      wrapper.findComponent({ ref: 'scanDropdownItem' }).vm.$emit('click');
       await wrapper.vm.$nextTick();
     });
 
@@ -69,14 +75,25 @@ describe('UserMenu', () => {
     });
   });
 
-  describe('when the logoutAndRedirect DropdownItem component emits the click event', () => {
+  describe('when the logout DropdownItem component emits the click event', () => {
     beforeEach(async () => {
-      wrapper.findComponent({ ref: 'logoutButton' }).vm.$emit('click');
+      wrapper.findComponent({ ref: 'logoutDropdownItem' }).vm.$emit('click');
       await wrapper.vm.$nextTick();
     });
 
     it('calls the logoutAndRedirect function', () => {
       expect(logoutAndRedirectMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the about app DropdownItem component emits the click event', () => {
+    beforeEach(async () => {
+      wrapper.findComponent({ ref: 'aboutDropdownItem' }).vm.$emit('click');
+      await wrapper.vm.$nextTick();
+    });
+
+    it('calls the openAboutAppModal function', () => {
+      expect(openAboutAppModalMock).toHaveBeenCalled();
     });
   });
 });

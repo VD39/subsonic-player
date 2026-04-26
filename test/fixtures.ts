@@ -342,3 +342,16 @@ export const gridWrapperPropsMock = {
     tablet: '0',
   },
 };
+
+export const appInformationMock: AppInformation = {
+  githubUrl: 'https://github.com/url',
+  releaseDate: 'Jan 02, 2025',
+  version: '2.5.0',
+};
+
+export const serverInformationMock: ServerInformation = {
+  name: 'type',
+  openSubsonic: 'Yes',
+  url: 'https://www.server.com',
+  version: '1.16.1',
+};

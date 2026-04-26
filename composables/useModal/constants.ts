@@ -5,6 +5,7 @@ export const DEFAULT_STATE = {
 };
 
 export const MODAL_TYPE = {
+  aboutAppModal: 'aboutAppModal',
   addPlaylistModal: 'addPlaylistModal',
   addPodcastModal: 'addPodcastModal',
   addRadioStationModal: 'addRadioStationModal',

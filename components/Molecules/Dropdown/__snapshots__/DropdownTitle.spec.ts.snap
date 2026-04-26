@@ -3,5 +3,6 @@
 exports[`DropdownTitle > matches the snapshot 1`] = `
 "<li class="centerItems dropdownTitle">
   <p class="strong smallFont">Default slot content.</p>
-</li>"
+</li>
+<li aria-hidden="true" class="divider"></li>"
 `;

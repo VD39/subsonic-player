@@ -48,6 +48,16 @@ export function formatAllMedia(favourites: Starred2): AllMedia {
   };
 }
 
+export function formatAppInformation(subsonicResponse: SubsonicResponse) {
+  const { openSubsonic, type, version } = subsonicResponse;
+
+  return {
+    name: type,
+    openSubsonic: openSubsonic ? 'Yes' : 'No',
+    version,
+  };
+}
+
 export function formatArtist(
   artistData: Partial<
     { similarSongs: SimilarSongs2['song'] } & {

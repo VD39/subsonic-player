@@ -1,8 +1,9 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import ReadMore from '@/components/Atoms/ReadMore.vue';
+import AboutApp from '@/components/Molecules/AboutApp.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
-import AppUpdateModal from '@/components/Molecules/AppUpdateModal.vue';
+import AppUpdate from '@/components/Molecules/AppUpdate.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
 import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
@@ -89,7 +90,7 @@ describe('useModal', () => {
       ],
       [
         MODAL_TYPE.appUpdateModal,
-        AppUpdateModal,
+        AppUpdate,
         'Update available',
         {
           attrs: 'attrs',
@@ -131,6 +132,14 @@ describe('useModal', () => {
         MODAL_TYPE.addToPlaylistModal,
         AddToPlaylistForm,
         'Add to playlist',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.aboutAppModal,
+        AboutApp,
+        'About',
         {
           attrs: 'attrs',
         },

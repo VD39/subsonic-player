@@ -13,6 +13,7 @@ import { MEDIA_TYPE } from './constants';
 import {
   formatAlbum,
   formatAllMedia,
+  formatAppInformation,
   formatArtist,
   formatBookmark,
   formatGenre,
@@ -139,6 +140,38 @@ describe('formatAllMedia', () => {
   });
 });
 
+describe('formatAppInformation', () => {
+  it('returns the correct values', () => {
+    expect(
+      formatAppInformation({
+        openSubsonic: true,
+        type: 'type',
+        version: 'version',
+      } as SubsonicResponse),
+    ).toEqual({
+      name: 'type',
+      openSubsonic: 'Yes',
+      version: 'version',
+    });
+  });
+
+  describe('when openSubsonic is false', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatAppInformation({
+          openSubsonic: false,
+          type: 'type',
+          version: 'version',
+        } as SubsonicResponse),
+      ).toEqual(
+        expect.objectContaining({
+          openSubsonic: 'No',
+        }),
+      );
+    });
+  });
+});
+
 describe('formatArtist', () => {
   it('returns the correct values', () => {
     expect(formatArtist(artistMock)).toEqual({
@@ -249,6 +282,28 @@ describe('formatArtist', () => {
       8,
       {
         totalAlbums: 8,
+      },
+    ],
+    [
+      'similarSongs',
+      [trackMock],
+      {
+        similarTracks: [
+          expect.objectContaining({
+            id: 'id',
+          }),
+        ],
+      },
+    ],
+    [
+      'topSongs',
+      [trackMock],
+      {
+        topTracks: [
+          expect.objectContaining({
+            id: 'id',
+          }),
+        ],
       },
     ],
   ])('when %s is defined', (key, value, outcome) => {

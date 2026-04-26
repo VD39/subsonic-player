@@ -2,11 +2,13 @@
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import DropdownTitle from '@/components/Molecules/Dropdown/DropdownTitle.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 const { getAvatar, user } = useUser();
 const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
+const { openAboutAppModal } = useServerInfo();
 
 const userAvatar = ref<Icon | string>(IMAGE_DEFAULT_BY_TYPE.user);
 
@@ -25,6 +27,9 @@ watchEffect(async () => {
       />
     </template>
 
+    <DropdownTitle>
+      {{ user!.username }}
+    </DropdownTitle>
     <DropdownItem
       is="nuxt-link"
       :to="{
@@ -36,10 +41,15 @@ watchEffect(async () => {
     <DropdownItem is="a" :href="user!.server" target="_blank">
       Server
     </DropdownItem>
-    <DropdownItem ref="scanButton" @click="startScan">Scan files</DropdownItem>
+    <DropdownItem ref="scanDropdownItem" @click="startScan">
+      Scan files
+    </DropdownItem>
+    <DropdownItem ref="aboutDropdownItem" @click="openAboutAppModal">
+      About
+    </DropdownItem>
     <DropdownDivider />
     <DropdownItem
-      ref="logoutButton"
+      ref="logoutDropdownItem"
       :icon="ICONS.logOut"
       @click="logoutAndRedirect"
     >

@@ -17,7 +17,14 @@ env:
   APP_NAME: subsonic-player
 
 jobs:
+  metadata:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    uses: ./.github/workflows/compute-build-metadata.yml
+    with:
+      version_policy: preview
+
   deploy:
+    needs: metadata
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
@@ -48,4 +55,6 @@ jobs:
           push: true
           build-args: |
             NODE_VERSION=${{ steps.node-version.outputs.version }}
+            APP_RELEASE_DATE=${{ needs.metadata.outputs.app_release_date }}
+            APP_VERSION=${{ needs.metadata.outputs.app_version }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.APP_NAME }}:preview

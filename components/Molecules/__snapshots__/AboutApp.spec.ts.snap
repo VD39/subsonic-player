@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AboutApp > matches the snapshot 1`] = `
+"<div class="mBXL aboutApp">
+  <h3 class="mBM">Server</h3>
+  <p><span class="strong">Name: </span> type</p>
+  <p><span class="strong">Version: </span> 1.16.1</p>
+  <p><span class="strong">URL: </span><a href="https://www.server.com" rel="noopener noreferrer" target="_blank">https://www.server.com</a></p>
+  <p><span class="strong">OpenSubsonic enabled: </span> Yes</p>
+</div>
+<div class="aboutApp">
+  <h3 class="mBM">App</h3>
+  <p><span class="strong">App version: </span><a rel="noopener noreferrer" target="_blank">2.5.0</a></p>
+  <p><span class="strong">Released: </span> Jan 02, 2025</p>
+  <p><a rel="noopener noreferrer" target="_blank"> Subsonic Player </a></p>
+  <p><a href="https://github.com/url" rel="noopener noreferrer" target="_blank"> Source code </a></p>
+  <p><a rel="noopener noreferrer" target="_blank"> Bug reports </a></p>
+</div>"
+`;
