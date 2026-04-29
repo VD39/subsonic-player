@@ -2,6 +2,7 @@ export const STATE_NAMES = {
   bookmarks: 'bookmarks',
   currentUser: 'current-user',
   dropdownActiveMenuId: 'dropdown-active-menu-id',
+  dropdownOpenEventCount: 'dropdown-open-event-count',
   favouriteIds: 'favourite-ids',
   favourites: 'favourites',
   frequentAlbums: 'frequent-albums',

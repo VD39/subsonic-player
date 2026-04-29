@@ -5,6 +5,7 @@ import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import DropdownSubmenu from '@/components/Molecules/Dropdown/DropdownSubmenu.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import ImageLink from '@/components/Organisms/ImageLink.vue';
 
@@ -126,6 +127,21 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         <DropdownItem is="nuxt-link" :to="albumProps.toLink">
           Go to album
         </DropdownItem>
+        <DropdownSubmenu v-if="album.artists.length" text="Artist">
+          <DropdownItem
+            is="nuxt-link"
+            v-for="artist in album.artists"
+            :key="artist.id"
+            :to="{
+              name: ROUTE_NAMES.artist,
+              params: {
+                [ROUTE_PARAM_KEYS.artist.id]: artist.id,
+              },
+            }"
+          >
+            {{ artist.name }}
+          </DropdownItem>
+        </DropdownSubmenu>
         <DropdownDivider />
         <DropdownItem
           ref="mediaInformation"

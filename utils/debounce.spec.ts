@@ -71,4 +71,21 @@ describe('debounce', () => {
       expect(callbackMock).toHaveBeenCalledWith('fourth');
     });
   });
+
+  describe('when the cancel function is called', () => {
+    beforeEach(() => {
+      callbackMock.mockReturnValue('success');
+
+      const debounceFunction = debounce(callbackMock);
+
+      debounceFunction();
+      debounceFunction.cancel();
+
+      vi.advanceTimersByTime(200);
+    });
+
+    it('does not call the callback function', () => {
+      expect(callbackMock).not.toHaveBeenCalled();
+    });
+  });
 });

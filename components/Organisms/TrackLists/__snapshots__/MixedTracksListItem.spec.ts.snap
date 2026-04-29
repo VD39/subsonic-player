@@ -69,6 +69,11 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -166,6 +171,11 @@ exports[`MixedTracksListItem > when the hasAddToQueueEvent prop is true > matche
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -259,6 +269,11 @@ exports[`MixedTracksListItem > when the hasSortListEvent prop is true > matches 
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -354,6 +369,11 @@ exports[`MixedTracksListItem > when the hideRemoveOption prop is true > matches 
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -417,6 +437,7 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
         <!--v-if-->
@@ -496,6 +517,7 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
         <!--v-if-->
@@ -586,6 +608,11 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -671,6 +698,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -750,6 +778,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -828,6 +857,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
+        <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -922,6 +952,11 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -1000,6 +1035,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
@@ -1086,6 +1122,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -1163,6 +1200,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
         <!--v-if-->
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -1239,6 +1277,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to podcast </span>
           </a></li>
+        <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -1330,6 +1369,11 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -1397,6 +1441,7 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
         <!--v-if-->
@@ -1476,6 +1521,7 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
         <!--v-if-->
@@ -1566,6 +1612,11 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -1661,6 +1712,11 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <!--v-if-->
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -1741,6 +1797,7 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
           </a></li>
         <!--v-if-->
         <!--v-if-->
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -1808,6 +1865,7 @@ exports[`MixedTracksListItem > when track.type is radioStation > matches the sna
         <!--v-if-->
         <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
         <li class="centerItems dropdownItem" href="homepageUrl" target="_blank"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" href="homepageUrl" target="_blank">

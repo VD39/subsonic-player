@@ -66,10 +66,12 @@ describe('getPointerPosition', () => {
   describe('when event is a mouse event', () => {
     it('returns the correct response', () => {
       expect(
-        getPointerPosition({
-          clientX: 200,
-          clientY: 300,
-        } as unknown as MouseEvent),
+        getPointerPosition(
+          new MouseEvent('click', {
+            clientX: 200,
+            clientY: 300,
+          }),
+        ),
       ).toEqual(
         expect.objectContaining({
           clientX: 200,

@@ -43,7 +43,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -77,7 +77,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -190,7 +190,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -224,7 +224,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -296,7 +296,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -330,7 +330,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -430,7 +430,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -464,7 +464,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -573,7 +573,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">
@@ -607,7 +607,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
             </ul>
           </div>
           <div class="layoutDropdownMenu hoverActions">
-            <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+            <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
                 <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub to="#teleports">

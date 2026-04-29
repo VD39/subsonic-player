@@ -73,6 +73,11 @@ exports[`TracksListItem > matches the snapshot 1`] = `
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -157,6 +162,11 @@ exports[`TracksListItem > when track.album is undefined > matches the snapshot 1
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
@@ -231,6 +241,7 @@ exports[`TracksListItem > when track.artists is an empty array > matches the sna
         <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>

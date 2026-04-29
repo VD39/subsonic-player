@@ -3,15 +3,11 @@ let activeCleanup: (() => void) | null = null;
 export function useDropdownMenu(options: DropdownOptions) {
   const { dropdownListRef, dropdownMenuRef } = options;
 
+  const { activeMenuId, clearActiveMenuId, setActiveMenuId } =
+    useDropdownMenuState();
   const { lockScroll, unlockScroll } = useScrollLock('dropdown', [
     'disableAllPointerEvents',
   ]);
-
-  const activeMenuId = useState<null | string>(
-    STATE_NAMES.dropdownActiveMenuId,
-    () => null,
-  );
-
   const menuId = useId();
 
   const abortController = ref<AbortController | null>(null);
@@ -78,7 +74,7 @@ export function useDropdownMenu(options: DropdownOptions) {
   function closeDropdownMenu() {
     if (activeMenuId.value === menuId) {
       activeCleanup?.();
-      activeMenuId.value = null;
+      clearActiveMenuId();
       activeCleanup = null;
     }
   }
@@ -130,7 +126,7 @@ export function useDropdownMenu(options: DropdownOptions) {
       activeCleanup?.();
     }
 
-    activeMenuId.value = menuId;
+    setActiveMenuId(menuId);
     activeCleanup = cleanup;
   }
 
@@ -143,6 +139,9 @@ export function useDropdownMenu(options: DropdownOptions) {
       signal,
     });
     globalThis.addEventListener('contextmenu', onContextMenu, {
+      signal,
+    });
+    globalThis.addEventListener('resize', closeDropdownMenu, {
       signal,
     });
     document.addEventListener('keydown', onKeydown, {

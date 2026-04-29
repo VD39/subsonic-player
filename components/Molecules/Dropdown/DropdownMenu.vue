@@ -15,8 +15,8 @@ withDefaults(
   },
 );
 
-const dropdownListRef = useTemplateRef('dropdownListRef');
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
+const dropdownListRef = useTemplateRef('dropdownListRef');
 
 const { closeDropdownMenu, isOpen, menuStyle, openDropdownMenu } =
   useDropdownMenu({
@@ -38,7 +38,7 @@ defineExpose({
 </script>
 
 <template>
-  <div ref="dropdownMenuRef" :class="['centerItems', $style.dropdownMenu]">
+  <div ref="dropdownMenuRef" class="centerItems dropdownWrapper">
     <ButtonLink
       :class="$style.buttonLink"
       :icon
@@ -59,10 +59,16 @@ defineExpose({
         <div
           v-if="isOpen"
           ref="dropdownListRef"
-          :class="['backdrop', $style.dropdown]"
+          :class="['backdrop', 'dropdownOverlay', $style.dropdown]"
           :style="menuStyle"
         >
-          <ul class="hasPointerEvents">
+          <ul
+            :class="[
+              'hasPointerEvents',
+              'dropdownContent',
+              $style.dropdownContent,
+            ]"
+          >
             <slot />
           </ul>
         </div>
@@ -72,30 +78,26 @@ defineExpose({
 </template>
 
 <style module>
-.dropdownMenu {
-  position: relative;
-}
-
 .buttonLink {
   text-transform: uppercase;
 }
 
 .dropdown {
-  position: fixed;
-  z-index: 12;
-  min-width: 180px;
-  padding: var(--space-4) 0;
-  background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-medium);
-  box-shadow: var(--dark-box-shadow-medium);
-
   @media (--mobile-only) {
     inset: auto var(--space-12) calc(var(--header-height) + var(--space-12)) !important;
   }
 
   @media (--tablet-up) {
     inset: auto;
+  }
+}
+
+.dropdownContent {
+  max-height: 70vh;
+  overflow-x: auto;
+
+  @media (--tablet-up) {
+    max-height: 90vh;
   }
 }
 </style>

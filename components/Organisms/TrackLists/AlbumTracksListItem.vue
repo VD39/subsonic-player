@@ -7,6 +7,7 @@ import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
+import DropdownSubmenu from '@/components/Molecules/Dropdown/DropdownSubmenu.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import TrackMeta from '@/components/Molecules/TrackMeta.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
@@ -103,6 +104,22 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           <DropdownItem ref="addToPlaylist" @click="$emit('addToPlaylist')">
             Add to playlist
           </DropdownItem>
+          <DropdownDivider />
+          <DropdownSubmenu v-if="track.artists.length" text="Artists">
+            <DropdownItem
+              is="nuxt-link"
+              v-for="artist in track.artists"
+              :key="artist.id"
+              :to="{
+                name: ROUTE_NAMES.artist,
+                params: {
+                  [ROUTE_PARAM_KEYS.artist.id]: artist.id,
+                },
+              }"
+            >
+              {{ artist.name }}
+            </DropdownItem>
+          </DropdownSubmenu>
           <DropdownDivider />
           <DropdownItem
             ref="mediaInformation"

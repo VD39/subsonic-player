@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropdownSubmenu > matches the snapshot 1`] = `
+"<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdown><span class="clamp text">Test Submenu</span>
+  </button>
+  <!--v-if-->
+</li>"
+`;
+
+exports[`DropdownSubmenu > when the isHoverDevice value is false > matches the snapshot 1`] = `
+"<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+    <phcaretup aria-hidden="true" class="icon" size="24" weight="regular"></phcaretup><span class="clamp text">Test Submenu</span>
+  </button>
+  <div class="inlineSubmenu" style="left: 20px; top: 10px;">
+    <ul class="dropdownList">Default slot content.</ul>
+  </div>
+</li>"
+`;
+
+exports[`DropdownSubmenu > when the isHoverDevice value is false > when the isOpen value is true > matches the snapshot 1`] = `
+"<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+    <phcaretup aria-hidden="true" class="icon" size="24" weight="regular"></phcaretup><span class="clamp text">Test Submenu</span>
+  </button>
+  <div class="inlineSubmenu" style="left: 20px; top: 10px;">
+    <ul class="dropdownList">Default slot content.</ul>
+  </div>
+</li>"
+`;
+
+exports[`DropdownSubmenu > when the isHoverDevice value is true > matches the snapshot 1`] = `
+"<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+    <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Test Submenu</span>
+  </button>
+  <div class="dropdownOverlay slide-in-right-enter-from slide-in-right-enter-active" style="left: 20px; top: 10px;">
+    <ul class="dropdownList dropdownContent">Default slot content.</ul>
+  </div>
+</li>"
+`;
+
+exports[`DropdownSubmenu > when the isOpen value changes to true > matches the snapshot 1`] = `
+"<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+    <phcaretup aria-hidden="true" class="icon" size="24" weight="regular"></phcaretup><span class="clamp text">Test Submenu</span>
+  </button>
+  <div class="inlineSubmenu -enter-from -enter-active">
+    <ul class="dropdownList">Default slot content.</ul>
+  </div>
+</li>"
+`;
+
+exports[`DropdownSubmenu > when the isOpen value changes to true > when the isOpen value changes to false > matches the snapshot 1`] = `
+"<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+    <phcaretdown aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdown><span class="clamp text">Test Submenu</span>
+  </button>
+  <div class="inlineSubmenu -leave-from -leave-active">
+    <ul class="dropdownList">Default slot content.</ul>
+  </div>
+  <!--v-if-->
+</li>"
+`;

@@ -19,6 +19,20 @@ mockNuxtImport('useScrollLock', () => () => ({
   unlockScroll: unlockScrollMock,
 }));
 
+const activeMenuId = useState(STATE_NAMES.dropdownActiveMenuId);
+const setActiveMenuIdMock = vi.fn((id: string) => {
+  activeMenuId.value = id;
+});
+const clearActiveMenuIdMock = vi.fn(() => {
+  activeMenuId.value = null;
+});
+
+mockNuxtImport('useDropdownMenuState', () => () => ({
+  activeMenuId,
+  clearActiveMenuId: clearActiveMenuIdMock,
+  setActiveMenuId: setActiveMenuIdMock,
+}));
+
 const { documentAddEventListenerSpy, documentEvents } =
   documentEventListenerMock();
 const { windowAddEventListenerSpy, windowEvents } = windowEventListenerMock();
@@ -27,8 +41,6 @@ const { abortControllerConstructorMock, abortMock, signalMock } =
 
 const dropdownMenuRef = refElementMock();
 const dropdownListRef = refElementMock();
-
-const activeMenuId = useState(STATE_NAMES.dropdownActiveMenuId);
 
 describe('useDropdownMenu', () => {
   let result: ReturnType<typeof withSetup<ReturnType<typeof useDropdownMenu>>>;
@@ -55,11 +67,15 @@ describe('useDropdownMenu', () => {
       expect(result.composable.isOpen.value).toBe(true);
     });
 
+    it('calls the setActiveMenuId function', () => {
+      expect(setActiveMenuIdMock).toHaveBeenCalled();
+    });
+
     it('calls the lockScroll function', () => {
       expect(lockScrollMock).toHaveBeenCalled();
     });
 
-    it('adds the abort event listener functions', () => {
+    it('creates an AbortController for event listener cleanup', () => {
       expect(abortControllerConstructorMock).toHaveBeenCalled();
     });
 
@@ -93,13 +109,47 @@ describe('useDropdownMenu', () => {
       );
     });
 
-    describe('when no event is not defined', () => {
-      describe('when top + height is less than globalThis.innerHeight and bottom + width is less than globalThis.innerWidth', () => {
+    describe('when the dropdown list element is not available', () => {
+      beforeEach(async () => {
+        result = withSetup(() =>
+          useDropdownMenu({
+            dropdownListRef: ref(null),
+            dropdownMenuRef: dropdownMenuRef.refMock,
+          }),
+        );
+
+        await result.composable.openDropdownMenu();
+      });
+
+      it('does not set the menuStyle value', () => {
+        expect(result.composable.menuStyle.value).toEqual({});
+      });
+    });
+
+    describe('when the dropdown menu element is not available', () => {
+      beforeEach(async () => {
+        result = withSetup(() =>
+          useDropdownMenu({
+            dropdownListRef: dropdownListRef.refMock,
+            dropdownMenuRef: ref(null),
+          }),
+        );
+
+        await result.composable.openDropdownMenu();
+      });
+
+      it('does not set the menuStyle value', () => {
+        expect(result.composable.menuStyle.value).toEqual({});
+      });
+    });
+
+    describe('when the event is not defined', () => {
+      describe('when the menu fits within the viewport', () => {
         beforeEach(async () => {
           await result.composable.openDropdownMenu();
         });
 
-        it('sets the menuStyle values with the correct values', () => {
+        it('positions the menu at the expected coordinates', () => {
           expect(result.composable.menuStyle.value).toEqual({
             left: '35px',
             top: '50px',
@@ -107,8 +157,8 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when top + height is greater than globalThis.innerHeight', () => {
-        describe('when dropdownTop - height is greater than 0', () => {
+      describe('when the menu overflows the bottom edge of the viewport', () => {
+        describe('when there is enough space to open above the trigger', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -123,7 +173,7 @@ describe('useDropdownMenu', () => {
             await result.composable.openDropdownMenu();
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '35px',
               top: '90px',
@@ -131,7 +181,7 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when dropdownTop - height is less than 0', () => {
+        describe('when there is not enough space to open above the trigger', () => {
           beforeEach(async () => {
             dropdownMenuRef.getBoundingClientRectMock.mockReturnValueOnce({
               bottom: 100,
@@ -145,7 +195,7 @@ describe('useDropdownMenu', () => {
             await result.composable.openDropdownMenu();
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '35px',
               top: '0px',
@@ -154,8 +204,8 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when left + width is greater than globalThis.innerWidth', () => {
-        describe('when dropdownRight - width is greater than 0', () => {
+      describe('when the menu overflows the right edge of the viewport', () => {
+        describe('when there is enough space to align to the right edge of the trigger', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -170,7 +220,7 @@ describe('useDropdownMenu', () => {
             await result.composable.openDropdownMenu();
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '135px',
               top: '50px',
@@ -178,7 +228,7 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when dropdownRight - width is less than 0', () => {
+        describe('when there is not enough space to align to the right edge of the trigger', () => {
           beforeEach(async () => {
             dropdownMenuRef.getBoundingClientRectMock.mockReturnValueOnce({
               bottom: 50,
@@ -192,7 +242,7 @@ describe('useDropdownMenu', () => {
             await result.composable.openDropdownMenu();
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '0px',
               top: '50px',
@@ -201,7 +251,7 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when top + height is greater than globalThis.innerHeight and left + width is greater than globalThis.innerWidth', () => {
+      describe('when the menu overflows both the bottom and right edges of the viewport', () => {
         beforeEach(async () => {
           Object.defineProperty(globalThis, 'innerHeight', {
             configurable: true,
@@ -216,7 +266,7 @@ describe('useDropdownMenu', () => {
           await result.composable.openDropdownMenu();
         });
 
-        it('sets the menuStyle values with the correct values', () => {
+        it('positions the menu at the expected coordinates', () => {
           expect(result.composable.menuStyle.value).toEqual({
             left: '135px',
             top: '90px',
@@ -226,8 +276,8 @@ describe('useDropdownMenu', () => {
     });
 
     describe('when event is a touch event', () => {
-      describe('when touches is not an empty array', () => {
-        describe('when top + height is less than globalThis.innerHeight and bottom + width is less than globalThis.innerWidth', () => {
+      describe('when the touch has active touch points', () => {
+        describe('when the menu fits within the viewport', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -249,7 +299,7 @@ describe('useDropdownMenu', () => {
             } as unknown as TouchEvent);
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '50px',
               top: '50px',
@@ -257,8 +307,8 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when top + height is greater than globalThis.innerHeight', () => {
-          describe('when touch.clientY - height is greater than 0', () => {
+        describe('when the menu overflows the bottom edge of the viewport', () => {
+          describe('when there is enough space to open above the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -280,7 +330,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '100px',
                 top: '90px',
@@ -288,7 +338,7 @@ describe('useDropdownMenu', () => {
             });
           });
 
-          describe('when touch.clientY - height is less than 0', () => {
+          describe('when there is not enough space to open above the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -319,7 +369,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '100px',
                 top: '0px',
@@ -328,8 +378,8 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when left + width is greater than globalThis.innerWidth', () => {
-          describe('when touch.clientX - width is greater than 0', () => {
+        describe('when the menu overflows the right edge of the viewport', () => {
+          describe('when there is enough space to open left of the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -351,7 +401,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '396px',
                 top: '100px',
@@ -359,7 +409,7 @@ describe('useDropdownMenu', () => {
             });
           });
 
-          describe('when touch.clientX - width is less than 0', () => {
+          describe('when there is not enough space to open left of the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -390,7 +440,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '0px',
                 top: '100px',
@@ -399,7 +449,7 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when top + height is greater than globalThis.innerHeight and left + width is greater than globalThis.innerWidth', () => {
+        describe('when the menu overflows both the bottom and right edges of the viewport', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -421,7 +471,7 @@ describe('useDropdownMenu', () => {
             } as unknown as TouchEvent);
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '446px',
               top: '490px',
@@ -430,8 +480,8 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when touches is an empty array and changedTouches is not an empty array', () => {
-        describe('when top + height is less than globalThis.innerHeight and bottom + width is less than globalThis.innerWidth', () => {
+      describe('when the touch uses changedTouches as fallback', () => {
+        describe('when the menu fits within the viewport', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -454,7 +504,7 @@ describe('useDropdownMenu', () => {
             } as unknown as TouchEvent);
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '50px',
               top: '50px',
@@ -462,8 +512,8 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when top + height is greater than globalThis.innerHeight', () => {
-          describe('when touch.clientY - height is greater than 0', () => {
+        describe('when the menu overflows the bottom edge of the viewport', () => {
+          describe('when there is enough space to open above the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -486,7 +536,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '100px',
                 top: '90px',
@@ -494,7 +544,7 @@ describe('useDropdownMenu', () => {
             });
           });
 
-          describe('when touch.clientY - height is less than 0', () => {
+          describe('when there is not enough space to open above the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -526,7 +576,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '100px',
                 top: '0px',
@@ -535,8 +585,8 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when left + width is greater than globalThis.innerWidth', () => {
-          describe('when touch.clientX - width is greater than 0', () => {
+        describe('when the menu overflows the right edge of the viewport', () => {
+          describe('when there is enough space to open left of the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -559,7 +609,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '396px',
                 top: '100px',
@@ -567,7 +617,7 @@ describe('useDropdownMenu', () => {
             });
           });
 
-          describe('when touch.clientX - width is less than 0', () => {
+          describe('when there is not enough space to open left of the pointer', () => {
             beforeEach(async () => {
               Object.defineProperty(globalThis, 'innerHeight', {
                 configurable: true,
@@ -599,7 +649,7 @@ describe('useDropdownMenu', () => {
               } as unknown as TouchEvent);
             });
 
-            it('sets the menuStyle values with the correct values', () => {
+            it('positions the menu at the expected coordinates', () => {
               expect(result.composable.menuStyle.value).toEqual({
                 left: '0px',
                 top: '100px',
@@ -608,7 +658,7 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when top + height is greater than globalThis.innerHeight and left + width is greater than globalThis.innerWidth', () => {
+        describe('when the menu overflows both the bottom and right edges of the viewport', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -631,7 +681,7 @@ describe('useDropdownMenu', () => {
             } as unknown as TouchEvent);
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '446px',
               top: '490px',
@@ -640,7 +690,7 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when touches and changedTouches are empty arrays', () => {
+      describe('when the touch event has no coordinates', () => {
         beforeEach(async () => {
           await result.composable.openDropdownMenu({
             changedTouches: [],
@@ -648,7 +698,7 @@ describe('useDropdownMenu', () => {
           } as unknown as TouchEvent);
         });
 
-        it('sets the menuStyle values to an empty object', () => {
+        it('falls back to positioning the menu relative to the trigger', () => {
           expect(result.composable.menuStyle.value).toEqual({
             left: '35px',
             top: '50px',
@@ -658,7 +708,7 @@ describe('useDropdownMenu', () => {
     });
 
     describe('when event is a mouse event', () => {
-      describe('when top + height is less than globalThis.innerHeight and bottom + width is less than globalThis.innerWidth', () => {
+      describe('when the menu fits within the viewport', () => {
         beforeEach(async () => {
           Object.defineProperty(globalThis, 'innerHeight', {
             configurable: true,
@@ -670,13 +720,15 @@ describe('useDropdownMenu', () => {
             value: 500,
           });
 
-          await result.composable.openDropdownMenu({
-            clientX: 50,
-            clientY: 50,
-          } as unknown as MouseEvent);
+          await result.composable.openDropdownMenu(
+            new MouseEvent('click', {
+              clientX: 50,
+              clientY: 50,
+            }),
+          );
         });
 
-        it('sets the menuStyle values with the correct values', () => {
+        it('positions the menu at the expected coordinates', () => {
           expect(result.composable.menuStyle.value).toEqual({
             left: '50px',
             top: '50px',
@@ -684,8 +736,8 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when top + height is greater than globalThis.innerHeight', () => {
-        describe('when touch.clientY - height is greater than 0', () => {
+      describe('when the menu overflows the bottom edge of the viewport', () => {
+        describe('when there is enough space to open above the pointer', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -697,13 +749,15 @@ describe('useDropdownMenu', () => {
               value: 200,
             });
 
-            await result.composable.openDropdownMenu({
-              clientX: 100,
-              clientY: 100,
-            } as unknown as MouseEvent);
+            await result.composable.openDropdownMenu(
+              new MouseEvent('click', {
+                clientX: 100,
+                clientY: 100,
+              }),
+            );
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '100px',
               top: '90px',
@@ -711,7 +765,7 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when touch.clientY - height is less than 0', () => {
+        describe('when there is not enough space to open above the pointer', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -732,13 +786,15 @@ describe('useDropdownMenu', () => {
               width: 54,
             } as unknown as DOMRect);
 
-            await result.composable.openDropdownMenu({
-              clientX: 100,
-              clientY: 100,
-            } as unknown as MouseEvent);
+            await result.composable.openDropdownMenu(
+              new MouseEvent('click', {
+                clientX: 100,
+                clientY: 100,
+              }),
+            );
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '100px',
               top: '0px',
@@ -747,8 +803,8 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when left + width is greater than globalThis.innerWidth', () => {
-        describe('when touch.clientX - width is greater than 0', () => {
+      describe('when the menu overflows the right edge of the viewport', () => {
+        describe('when there is enough space to open left of the pointer', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -760,13 +816,15 @@ describe('useDropdownMenu', () => {
               value: 500,
             });
 
-            await result.composable.openDropdownMenu({
-              clientX: 450,
-              clientY: 100,
-            } as unknown as MouseEvent);
+            await result.composable.openDropdownMenu(
+              new MouseEvent('click', {
+                clientX: 450,
+                clientY: 100,
+              }),
+            );
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '396px',
               top: '100px',
@@ -774,7 +832,7 @@ describe('useDropdownMenu', () => {
           });
         });
 
-        describe('when touch.clientX - width is less than 0', () => {
+        describe('when there is not enough space to open left of the pointer', () => {
           beforeEach(async () => {
             Object.defineProperty(globalThis, 'innerHeight', {
               configurable: true,
@@ -795,13 +853,15 @@ describe('useDropdownMenu', () => {
               width: 54,
             } as unknown as DOMRect);
 
-            await result.composable.openDropdownMenu({
-              clientX: 45,
-              clientY: 100,
-            } as unknown as MouseEvent);
+            await result.composable.openDropdownMenu(
+              new MouseEvent('click', {
+                clientX: 45,
+                clientY: 100,
+              }),
+            );
           });
 
-          it('sets the menuStyle values with the correct values', () => {
+          it('positions the menu at the expected coordinates', () => {
             expect(result.composable.menuStyle.value).toEqual({
               left: '0px',
               top: '100px',
@@ -810,7 +870,7 @@ describe('useDropdownMenu', () => {
         });
       });
 
-      describe('when top + height is greater than globalThis.innerHeight and left + width is greater than globalThis.innerWidth', () => {
+      describe('when the menu overflows both the bottom and right edges of the viewport', () => {
         beforeEach(async () => {
           Object.defineProperty(globalThis, 'innerHeight', {
             configurable: true,
@@ -822,13 +882,15 @@ describe('useDropdownMenu', () => {
             value: 500,
           });
 
-          await result.composable.openDropdownMenu({
-            clientX: 500,
-            clientY: 500,
-          } as unknown as MouseEvent);
+          await result.composable.openDropdownMenu(
+            new MouseEvent('click', {
+              clientX: 500,
+              clientY: 500,
+            }),
+          );
         });
 
-        it('sets the menuStyle values with the correct values', () => {
+        it('positions the menu at the expected coordinates', () => {
           expect(result.composable.menuStyle.value).toEqual({
             left: '446px',
             top: '490px',
@@ -838,9 +900,49 @@ describe('useDropdownMenu', () => {
     });
 
     describe('when the click event is called', () => {
+      describe('when the dropdown menu element is not available', () => {
+        beforeEach(async () => {
+          result = withSetup(() =>
+            useDropdownMenu({
+              dropdownListRef: dropdownListRef.refMock,
+              dropdownMenuRef: ref(null),
+            }),
+          );
+
+          await result.composable.openDropdownMenu();
+          vi.clearAllMocks();
+
+          windowEvents.click(new MouseEvent('click'));
+        });
+
+        it('does not call the closeDropdownMenu function', () => {
+          expect(abortMock).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when the dropdown list element is not available', () => {
+        beforeEach(async () => {
+          result = withSetup(() =>
+            useDropdownMenu({
+              dropdownListRef: ref(null),
+              dropdownMenuRef: dropdownMenuRef.refMock,
+            }),
+          );
+
+          await result.composable.openDropdownMenu();
+          vi.clearAllMocks();
+
+          windowEvents.click(new MouseEvent('click'));
+        });
+
+        it('does not call the closeDropdownMenu function', () => {
+          expect(abortMock).not.toHaveBeenCalled();
+        });
+      });
+
       describe('when the click is outside the dropdown menu and dropdown list', () => {
         beforeEach(() => {
-          windowEvents.click({} as MouseEvent);
+          windowEvents.click(new MouseEvent('click'));
         });
 
         // Full coverage is in "when the closeDropdownMenu function is called" test.
@@ -852,7 +954,7 @@ describe('useDropdownMenu', () => {
       describe('when the click is inside the dropdown list', () => {
         beforeEach(() => {
           dropdownListRef.containsMock.mockReturnValue(true);
-          windowEvents.click({} as MouseEvent);
+          windowEvents.click(new MouseEvent('click'));
         });
 
         // Full coverage is in "when the closeDropdownMenu function is called" test.
@@ -866,7 +968,7 @@ describe('useDropdownMenu', () => {
           dropdownMenuRef.containsMock.mockReturnValue(true);
           dropdownListRef.containsMock.mockReturnValue(false);
 
-          windowEvents.click({} as MouseEvent);
+          windowEvents.click(new MouseEvent('click'));
         });
 
         // Full coverage is in "when the closeDropdownMenu function is called" test.
@@ -889,7 +991,18 @@ describe('useDropdownMenu', () => {
 
     describe('when the contextmenu event is called', () => {
       beforeEach(() => {
-        windowEvents.contextmenu({} as MouseEvent);
+        windowEvents.contextmenu();
+      });
+
+      // Full coverage is in "when the closeDropdownMenu function is called" test.
+      it('calls the closeDropdownMenu function', () => {
+        expect(abortMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when the resize event is called', () => {
+      beforeEach(() => {
+        windowEvents.resize();
       });
 
       // Full coverage is in "when the closeDropdownMenu function is called" test.
@@ -940,6 +1053,10 @@ describe('useDropdownMenu', () => {
       it('does not call the unlockScroll function', () => {
         expect(unlockScrollMock).not.toHaveBeenCalled();
       });
+
+      it('does not call the clearActiveMenuId function', () => {
+        expect(clearActiveMenuIdMock).not.toHaveBeenCalled();
+      });
     });
 
     describe('when activeMenuId equals menuId', () => {
@@ -962,6 +1079,10 @@ describe('useDropdownMenu', () => {
 
       it('calls the unlockScroll function', () => {
         expect(unlockScrollMock).toHaveBeenCalled();
+      });
+
+      it('calls the clearActiveMenuId function', () => {
+        expect(clearActiveMenuIdMock).toHaveBeenCalled();
       });
     });
   });

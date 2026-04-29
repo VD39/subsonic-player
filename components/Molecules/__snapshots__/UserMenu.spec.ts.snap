@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`UserMenu > matches the snapshot 1`] = `
-"<div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View details">
+"<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View details">
     <div class="centerAll preloadImage avatar"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="avatar-url"></div><span class="clamp text visuallyHidden"> More</span>
   </button>
   <teleport-stub to="#teleports">
-    <div class="backdrop dropdown">
-      <ul class="hasPointerEvents">
+    <div class="backdrop dropdownOverlay dropdown">
+      <ul class="hasPointerEvents dropdownContent dropdownContent">
         <li class="centerItems dropdownTitle">
           <p class="strong smallFont">username</p>
         </li>

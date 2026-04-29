@@ -29,13 +29,38 @@
   transform: translateY(100%);
 }
 
+.slide-in-left-enter-active,
+.slide-in-left-leave-active,
+.slide-in-right-enter-active,
+.slide-in-right-leave-active {
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.slide-in-right-enter-from,
+.slide-in-right-leave-to {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.slide-in-left-enter-from,
+.slide-in-left-leave-to {
+  opacity: 0;
+  transform: translateX(8px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fade-enter-active,
   .fade-leave-active,
   .slide-left-right-enter-active,
   .slide-left-right-leave-active,
   .slide-up-down-enter-active,
-  .slide-up-down-leave-active {
+  .slide-up-down-leave-active,
+  .slide-in-left-enter-active,
+  .slide-in-left-leave-active,
+  .slide-in-right-enter-active,
+  .slide-in-right-leave-active {
     transition: none;
   }
 }

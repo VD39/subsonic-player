@@ -37,8 +37,12 @@ mockNuxtImport('useAPI', () => () => ({
 }));
 
 mockNuxtImport('debounce', () => {
-  return <T>(cb: () => T) => {
-    return cb;
+  return <T extends (...args: unknown[]) => unknown>(cb: T) => {
+    const debounced = (...args: Parameters<T>) => cb(...args);
+
+    debounced.cancel = () => {};
+
+    return debounced;
   };
 });
 

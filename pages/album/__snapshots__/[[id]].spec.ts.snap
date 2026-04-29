@@ -42,12 +42,12 @@ exports[`[[id]] > when getAlbum does return data > matches the snapshot 1`] = `
             <phshuffle aria-hidden="true" class="icon" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden"> Shuffle tracks </span>
           </button>
           <favourite-button-stub id="album-0" type="album" favourite="true" showtext="false"></favourite-button-stub>
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
-              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-                <ul class="hasPointerEvents">
+              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Add to queue </span>
                     </button></li>
@@ -99,12 +99,12 @@ exports[`[[id]] > when getAlbum does return data > when album.genres is an empty
             <phshuffle aria-hidden="true" class="icon" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden"> Shuffle tracks </span>
           </button>
           <favourite-button-stub id="album-0" type="album" favourite="true" showtext="false"></favourite-button-stub>
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
-              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-                <ul class="hasPointerEvents">
+              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Add to queue </span>
                     </button></li>
@@ -156,12 +156,12 @@ exports[`[[id]] > when getAlbum does return data > when album.totalDiscNumber is
             <phshuffle aria-hidden="true" class="icon" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden"> Shuffle tracks </span>
           </button>
           <favourite-button-stub id="album-0" type="album" favourite="true" showtext="false"></favourite-button-stub>
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
-              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-                <ul class="hasPointerEvents">
+              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Add to queue </span>
                     </button></li>
@@ -221,12 +221,12 @@ exports[`[[id]] > when getAlbum does return data > when album.trackCount is 1 > 
             <phshuffle aria-hidden="true" class="icon" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden"> Shuffle tracks </span>
           </button>
           <favourite-button-stub id="album-0" type="album" favourite="true" showtext="false"></favourite-button-stub>
-          <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub to="#teleports">
-              <div class="backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
-                <ul class="hasPointerEvents">
+              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+                <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Add to queue </span>
                     </button></li>

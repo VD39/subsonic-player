@@ -67,7 +67,7 @@ describe('TextClamp', () => {
       expect(wrapper.find({ ref: 'readMore' }).exists()).toBe(false);
     });
 
-    it('renders the correct text', () => {
+    it('shows the correct text', () => {
       expect(wrapper.find({ ref: 'textRef' }).text()).toBe(TEXT_TO_CLAMP);
     });
   });
@@ -113,7 +113,7 @@ describe('TextClamp', () => {
       expect(wrapper.find({ ref: 'readMore' }).exists()).toBe(true);
     });
 
-    it('renders the correct text', () => {
+    it('shows the correct text', () => {
       expect(wrapper.find({ ref: 'textRef' }).text()).toBe(
         `This is a long test text that will definitely exceed the max lines...`,
       );
@@ -146,7 +146,7 @@ describe('TextClamp', () => {
         expect(wrapper.find({ ref: 'readMore' }).exists()).toBe(false);
       });
 
-      it('renders the correct text', () => {
+      it('shows the correct text', () => {
         expect(wrapper.find({ ref: 'textRef' }).text()).toBe(TEXT_TO_CLAMP);
       });
     });

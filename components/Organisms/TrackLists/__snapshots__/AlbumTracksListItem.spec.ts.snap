@@ -62,6 +62,12 @@ exports[`AlbumTracksListItem > matches the snapshot 1`] = `
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
+        <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+          </button>
+          <!--v-if-->
+        </li>
+        <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>
           </button></li>
@@ -123,6 +129,8 @@ exports[`AlbumTracksListItem > when track.artists is an empty array > matches th
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Media information </span>

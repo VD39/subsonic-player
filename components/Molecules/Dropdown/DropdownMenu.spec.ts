@@ -90,7 +90,7 @@ describe('DropdownMenu', () => {
       await wrapper.vm.$nextTick();
     });
 
-    it('does not set any style on the dropdown list element', () => {
+    it('does not add any style on the dropdown list element', () => {
       expect(
         wrapper.find({ ref: 'dropdownListRef' }).attributes('style'),
       ).toBeUndefined();

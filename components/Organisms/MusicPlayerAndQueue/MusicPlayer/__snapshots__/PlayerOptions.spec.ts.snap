@@ -52,7 +52,7 @@ exports[`PlayerOptions > when currentTrack value does not have a favourite key >
       <p class="visuallyHidden"> Volume at 100% </p>
     </div>
   </div>
-  <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+  <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
       <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub to="#teleports">
@@ -88,7 +88,7 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
       <p class="visuallyHidden"> Volume at 100% </p>
     </div>
   </div>
-  <div class="centerItems dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+  <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
       <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub to="#teleports">

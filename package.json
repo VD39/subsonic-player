@@ -70,10 +70,10 @@
     "url": "git+https://github.com/VD39/subsonic-player.git"
   },
   "scripts": {
-    "clean": "rm -rf .nuxt dist .output node_modules/.vite node_modules/.cache",
     "build": "nuxt build",
     "build:preview": "yarn build && yarn preview",
     "check-types": "vue-tsc --noEmit",
+    "clean": "rm -rf .nuxt dist .output node_modules/.vite node_modules/.cache",
     "dev": "yarn postinstall && nuxt dev --open",
     "generate": "nuxt generate",
     "generate:preview-videos": "yarn playwright install && yarn build && playwright test docs/generate-preview-videos.spec.ts",
@@ -84,6 +84,7 @@
     "lint:styles": "stylelint --ignore-path .gitignore '**/*.{css,vue}'",
     "lint:styles:fix": "yarn lint:styles --fix",
     "postinstall": "nuxt prepare",
+    "precommit": "yarn lint:fix && yarn check-types && yarn test:once -u",
     "prepare": "husky",
     "preview": "nuxt preview",
     "test": "vitest",

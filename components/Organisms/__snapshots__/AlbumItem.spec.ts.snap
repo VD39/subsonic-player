@@ -35,6 +35,11 @@ exports[`AlbumItem > matches the snapshot 1`] = `
       <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
+      <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+          <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artist</span>
+        </button>
+        <!--v-if-->
+      </li>
       <li aria-hidden="true" class="divider"></li>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
@@ -78,6 +83,7 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
       <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
+      <!--v-if-->
       <li aria-hidden="true" class="divider"></li>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
@@ -121,6 +127,11 @@ exports[`AlbumItem > when album artists is not an empty array > when the hideArt
       <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
+      <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button">
+          <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artist</span>
+        </button>
+        <!--v-if-->
+      </li>
       <li aria-hidden="true" class="divider"></li>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>

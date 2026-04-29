@@ -3,6 +3,8 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
+import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
+import DropdownSubmenu from '@/components/Molecules/Dropdown/DropdownSubmenu.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
@@ -83,6 +85,14 @@ describe('TracksListItem', () => {
   });
 
   describe('when track.artists is not an empty array', () => {
+    beforeEach(async () => {
+      const dropdownSubMenu = wrapper.findComponent(DropdownSubmenu);
+
+      if (dropdownSubMenu.exists()) {
+        await dropdownSubMenu.trigger('mouseenter');
+      }
+    });
+
     it('shows the MarqueeScroll component containing the artists details', () => {
       expect(
         wrapper.findComponent({ ref: 'artistsMarqueeScroll' }).exists(),
@@ -91,6 +101,17 @@ describe('TracksListItem', () => {
 
     it('does not show the artists else element', () => {
       expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(false);
+    });
+
+    it('shows the DropdownSubmenu component', () => {
+      expect(wrapper.findComponent(DropdownSubmenu).exists()).toBe(true);
+    });
+
+    it('shows the correct number of DropdownItem components inside the DropdownSubmenu', () => {
+      expect(
+        wrapper.findComponent(DropdownSubmenu).findAllComponents(DropdownItem)
+          .length,
+      ).toBe(track.artists.length);
     });
   });
 
@@ -113,6 +134,10 @@ describe('TracksListItem', () => {
 
     it('shows the artists else element', () => {
       expect(wrapper.find({ ref: 'artistsElse' }).exists()).toBe(true);
+    });
+
+    it('does not show the DropdownSubmenu component', () => {
+      expect(wrapper.findComponent(DropdownSubmenu).exists()).toBe(false);
     });
   });
 

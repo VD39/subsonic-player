@@ -5,6 +5,8 @@ import { mount } from '@vue/test-utils';
 
 import ArtistsList from '@/components/Atoms/ArtistsList.vue';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
+import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
+import DropdownSubmenu from '@/components/Molecules/Dropdown/DropdownSubmenu.vue';
 import { getFormattedAlbumsMock } from '@/test/helpers';
 
 import AlbumItem from './AlbumItem.vue';
@@ -49,8 +51,27 @@ describe('AlbumItem', () => {
 
   describe('when album artists is not an empty array', () => {
     describe('when the hideArtist prop is false', () => {
+      beforeEach(async () => {
+        const dropdownSubMenu = wrapper.findComponent(DropdownSubmenu);
+
+        if (dropdownSubMenu.exists()) {
+          await dropdownSubMenu.trigger('mouseenter');
+        }
+      });
+
       it('shows the ArtistsList component', () => {
         expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+      });
+
+      it('shows the DropdownSubmenu component', () => {
+        expect(wrapper.findComponent(DropdownSubmenu).exists()).toBe(true);
+      });
+
+      it('shows the correct number of DropdownItem components inside the DropdownSubmenu', () => {
+        expect(
+          wrapper.findComponent(DropdownSubmenu).findAllComponents(DropdownItem)
+            .length,
+        ).toBe(album.artists.length);
       });
     });
 
@@ -86,6 +107,10 @@ describe('AlbumItem', () => {
 
     it('does not show the ArtistsList component', () => {
       expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+    });
+
+    it('does not show the DropdownSubmenu component', () => {
+      expect(wrapper.findComponent(DropdownSubmenu).exists()).toBe(false);
     });
   });
 
