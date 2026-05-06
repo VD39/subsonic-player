@@ -54,20 +54,20 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 <template>
   <InteractionWrapper
     is="article"
-    :class="['layoutItem', $style.albumItem]"
+    class="layoutItem"
     @click="goToAlbum"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
   >
-    <div :class="['layoutImage', $style.albumImageWrapper]">
+    <div class="layoutImage layoutItemImageWrapper">
       <ImageLink
         :image="album.image"
         :title="albumProps.title"
         :to="albumProps.toLink"
       />
 
-      <div :class="['hideOnListLayout', $style.actions, $style.hoverActions]">
-        <div :class="['centerItems', $style.actionsLeft]">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
+        <div class="centerItems actionsLeft">
           <ButtonLink
             ref="playAlbumButtonLink"
             class="themeHoverButton"
@@ -115,7 +115,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       />
     </div>
 
-    <div :class="['layoutDropdownMenu', $style.hoverActions]">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <DropdownMenu ref="dropdownMenuRef">
         <DropdownItem ref="playAlbum" @click="$emit('playAlbum', album)">
           Play album
@@ -164,45 +164,8 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
   </InteractionWrapper>
 </template>
 
-<style module>
-.albumItem {
-  position: relative;
-
-  @media (hover: hover) {
-    &:hover,
-    &:focus,
-    &:focus-within {
-      .hoverActions {
-        --album-hover-actions-opacity: 1;
-        --album-hover-actions-z-index: 10;
-      }
-    }
-  }
-}
-
-.albumImageWrapper {
-  position: relative;
-}
-
-.actions {
-  position: absolute;
-  inset: auto 0 0;
-  display: flex;
-  justify-content: space-between;
-  width: var(--width-height-100);
-  padding: var(--default-space);
-  transition: opacity var(--transition);
-}
-
+<style>
 .actionsLeft {
   gap: var(--default-space);
-}
-
-.hoverActions {
-  --album-hover-actions-opacity: 0;
-  --album-hover-actions-z-index: -2;
-
-  z-index: var(--album-hover-actions-z-index);
-  opacity: var(--album-hover-actions-opacity);
 }
 </style>

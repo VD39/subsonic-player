@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AlbumItem > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem albumItem" draggable="false">
-  <div class="layoutImage albumImageWrapper">
+"<article class="interactionWrapper layoutItem" draggable="false">
+  <div class="layoutImage layoutItemImageWrapper">
     <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <div class="hideOnListLayout actions hoverActions">
+    <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
       <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -23,7 +23,7 @@ exports[`AlbumItem > matches the snapshot 1`] = `
       <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
     </ul>
   </div>
-  <div class="layoutDropdownMenu hoverActions">
+  <div class="layoutDropdownMenu layoutItemHoverActions">
     <div>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play album </span>
@@ -52,12 +52,12 @@ exports[`AlbumItem > matches the snapshot 1`] = `
 `;
 
 exports[`AlbumItem > when album artists is an empty array > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem albumItem" draggable="false">
-  <div class="layoutImage albumImageWrapper">
+"<article class="interactionWrapper layoutItem" draggable="false">
+  <div class="layoutImage layoutItemImageWrapper">
     <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <div class="hideOnListLayout actions hoverActions">
+    <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
       <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -71,7 +71,7 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
     <!--v-if-->
   </div>
-  <div class="layoutDropdownMenu hoverActions">
+  <div class="layoutDropdownMenu layoutItemHoverActions">
     <div>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play album </span>
@@ -96,12 +96,12 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
 `;
 
 exports[`AlbumItem > when album artists is not an empty array > when the hideArtist prop is true > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem albumItem" draggable="false">
-  <div class="layoutImage albumImageWrapper">
+"<article class="interactionWrapper layoutItem" draggable="false">
+  <div class="layoutImage layoutItemImageWrapper">
     <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <div class="hideOnListLayout actions hoverActions">
+    <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
       <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
           <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -115,7 +115,7 @@ exports[`AlbumItem > when album artists is not an empty array > when the hideArt
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to album album-0" class="layoutLink" draggable="false">album-0</a></p>
     <!--v-if-->
   </div>
-  <div class="layoutDropdownMenu hoverActions">
+  <div class="layoutDropdownMenu layoutItemHoverActions">
     <div>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play album </span>

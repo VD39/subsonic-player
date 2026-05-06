@@ -31,7 +31,7 @@ export interface Artist extends BaseArtist {
   image: string;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
-  similarArtist: SimilarArtist[];
+  similarArtist: Artist[];
   similarTracks: Track[];
   topTracks: Track[];
   totalAlbums: number;
@@ -110,10 +110,6 @@ export interface RadioStation {
   streamUrlId: string;
   trackNumber: number | string;
   type: MediaType;
-}
-
-export interface SimilarArtist extends BaseArtist {
-  image: string;
 }
 
 export interface Track {

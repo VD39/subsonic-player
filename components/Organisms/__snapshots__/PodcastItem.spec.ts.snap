@@ -1,19 +1,19 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PodcastItem > matches the snapshot 1`] = `
-"<article class="interactionWrapper layoutItem podcastItem" draggable="false">
-  <div class="layoutImage podcastImageWrapper">
+"<article class="interactionWrapper layoutItem" draggable="false">
+  <div class="layoutImage layoutItemImageWrapper">
     <figure><a class="interactionWrapperLink" draggable="false" title="Go to podcast title">
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" loading="lazy" src="image"></div>
       </a></figure>
-    <div class="hideOnListLayout actions hoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play podcast title">
+    <div class="hideOnListLayout layoutItemActions layoutItemHoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play podcast title">
         <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play podcast title</span>
       </button></div>
   </div>
   <div class="layoutContent">
     <p class="mBXS strong smallFont clamp2"><a aria-label="Go to podcast title" class="layoutLink" draggable="false">title</a></p>
   </div>
-  <div class="layoutDropdownMenu hoverActions">
+  <div class="layoutDropdownMenu layoutItemHoverActions">
     <div>
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Play podcast </span>

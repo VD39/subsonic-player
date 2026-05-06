@@ -1,5 +1,42 @@
 .layoutItem {
   position: relative;
+
+  @media (hover: hover) {
+    &:hover,
+    &:focus,
+    &:focus-within {
+      .layoutItemHoverActions {
+        --item-hover-actions-opacity: 1;
+        --item-hover-actions-z-index: 10;
+      }
+    }
+  }
+}
+
+.layoutItemImageWrapper {
+  position: relative;
+}
+
+.layoutItemActions {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  justify-content: space-between;
+  width: var(--width-height-100);
+  padding: var(--default-space);
+  transition: opacity var(--transition);
+}
+
+.layoutItemActionsEnd {
+  justify-content: flex-end;
+}
+
+.layoutItemHoverActions {
+  --item-hover-actions-opacity: 0;
+  --item-hover-actions-z-index: -2;
+
+  z-index: var(--item-hover-actions-z-index);
+  opacity: var(--item-hover-actions-opacity);
 }
 
 .layoutImage {

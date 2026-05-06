@@ -9,12 +9,12 @@ exports[`AlbumsList > matches the snapshot 1`] = `
 
 exports[`AlbumsList > when the albums prop is not an empty array > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -31,7 +31,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -41,12 +41,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -63,7 +63,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -73,12 +73,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -95,7 +95,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -105,12 +105,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -127,7 +127,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -137,12 +137,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -159,7 +159,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -174,12 +174,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > matches the s
 
 exports[`AlbumsList > when the albums prop is not an empty array > when viewLayout is gridLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 2; --loop-rows-tablet: 3; --loop-rows-desktop: 5; --loop-grid-gap: 24px;">
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -196,7 +196,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -206,12 +206,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -228,7 +228,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -238,12 +238,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -260,7 +260,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -270,12 +270,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -292,7 +292,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -302,12 +302,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -324,7 +324,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -339,12 +339,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
 
 exports[`AlbumsList > when the albums prop is not an empty array > when viewLayout is listLayout > matches the snapshot 1`] = `
 "<section class="mediaListWrapper" style="--loop-rows-mobile: 0; --loop-rows-tablet: 0; --loop-rows-desktop: 0; --loop-grid-gap: 0px;">
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -361,7 +361,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -371,12 +371,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -393,7 +393,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -403,12 +403,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-2">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-2" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-2">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-2</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -425,7 +425,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -435,12 +435,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-3">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-3" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-3">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-3</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -457,7 +457,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
@@ -467,12 +467,12 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
       </div>
     </div>
   </article>
-  <article class="interactionWrapper layoutItem albumItem" draggable="false">
-    <div class="layoutImage albumImageWrapper">
+  <article class="interactionWrapper layoutItem" draggable="false">
+    <div class="layoutImage layoutItemImageWrapper">
       <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-4">
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-4" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
-      <div class="hideOnListLayout actions hoverActions">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-4">
             <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-4</span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
@@ -489,7 +489,7 @@ exports[`AlbumsList > when the albums prop is not an empty array > when viewLayo
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
       </ul>
     </div>
-    <div class="layoutDropdownMenu hoverActions">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>

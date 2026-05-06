@@ -1,12 +1,26 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ArtistItem > matches the snapshot 1`] = `
-"<article class="layoutItem">
-  <figure class="layoutImage"><a class="interactionWrapperLink" draggable="false" title="Go to artist name">
-      <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist name" class="image" draggable="false" loading="lazy" src="image"></div>
-    </a></figure>
+"<article class="interactionWrapper layoutItem" draggable="false">
+  <div class="layoutImage layoutItemImageWrapper">
+    <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
+        <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      </a></figure>
+    <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
+        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+      </button></div>
+  </div>
   <div class="layoutContent">
-    <p class="strong smallFont clamp2"><a aria-label="Go to artist name" class="layoutLink globalLink" draggable="false">name</a></p>
+    <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
+  </div>
+  <div class="layoutDropdownMenu layoutItemHoverActions">
+    <div>
+      <li class="centerItems dropdownItem" to="[object Object]"><a class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false">
+          <!--v-if--><span class="clamp text"> Go to artist </span>
+        </a></li>
+      <li aria-hidden="true" class="divider"></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike artist"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike artist</span></button></span></li>
+    </div>
   </div>
 </article>"
 `;

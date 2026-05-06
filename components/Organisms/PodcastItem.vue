@@ -51,19 +51,19 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 <template>
   <InteractionWrapper
     is="article"
-    :class="['layoutItem', $style.podcastItem]"
+    class="layoutItem"
     @click="goToPodcast"
     @contextMenu="openDropdownMenu"
     @dragStart="onDragStart"
   >
-    <div :class="['layoutImage', $style.podcastImageWrapper]">
+    <div class="layoutImage layoutItemImageWrapper">
       <ImageLink
         :image="podcast.image"
         :title="podcastProps.title"
         :to="podcastProps.toLink"
       />
 
-      <div :class="['hideOnListLayout', $style.actions, $style.hoverActions]">
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
         <ButtonLink
           ref="playPodcastButtonLink"
           class="themeHoverButton"
@@ -89,7 +89,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       </p>
     </div>
 
-    <div :class="['layoutDropdownMenu', $style.hoverActions]">
+    <div class="layoutDropdownMenu layoutItemHoverActions">
       <DropdownMenu ref="dropdownMenuRef">
         <DropdownItem ref="playPodcast" @click="$emit('playPodcast', podcast)">
           Play podcast
@@ -115,42 +115,3 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     </div>
   </InteractionWrapper>
 </template>
-
-<style module>
-.podcastItem {
-  position: relative;
-
-  @media (hover: hover) {
-    &:hover,
-    &:focus,
-    &:focus-within {
-      .hoverActions {
-        --podcast-hover-actions-opacity: 1;
-        --podcast-hover-actions-z-index: 10;
-      }
-    }
-  }
-}
-
-.podcastImageWrapper {
-  position: relative;
-}
-
-.actions {
-  position: absolute;
-  inset: auto 0 0;
-  display: flex;
-  justify-content: space-between;
-  width: var(--width-height-100);
-  padding: var(--default-space);
-  transition: opacity var(--transition);
-}
-
-.hoverActions {
-  --podcast-hover-actions-opacity: 0;
-  --podcast-hover-actions-z-index: -2;
-
-  z-index: var(--podcast-hover-actions-z-index);
-  opacity: var(--podcast-hover-actions-opacity);
-}
-</style>

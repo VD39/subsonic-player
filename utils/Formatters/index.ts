@@ -94,7 +94,7 @@ export function formatArtist(
       ? `https://musicbrainz.org/artist/${musicBrainzId}`
       : undefined,
     name,
-    similarArtist: similarArtist.map(formatSimilarArtist),
+    similarArtist: similarArtist.map(formatArtist),
     similarTracks: similarSongs.map((track, index) =>
       formatTrack(track, index),
     ),
@@ -311,15 +311,5 @@ export function formatTrack(track: Base, index: number): Track {
     trackNumber,
     type: MEDIA_TYPE.track,
     year,
-  };
-}
-
-function formatSimilarArtist(similarArtist: ArtistID3): SimilarArtist {
-  const { coverArt = IMAGE_DEFAULT_BY_TYPE.artist, id, name } = similarArtist;
-
-  return {
-    id,
-    image: coverArt,
-    name,
   };
 }
