@@ -24,7 +24,7 @@ describe('shuffleTrackInQueue', () => {
   describe.each([[undefined], [1], [2]])('when index is %s', (index) => {
     it('sets the correct index as the first array item', () => {
       expect(shuffleTrackInQueue([...tracks], index)[0]).toEqual(
-        tracks[index ?? 0],
+        tracks[index || 0],
       );
     });
   });

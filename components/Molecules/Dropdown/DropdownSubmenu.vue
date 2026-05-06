@@ -22,10 +22,10 @@ const {
 
 const itemIcon = computed(() => {
   if (isHoverDevice.value) {
-    return ICONS.caretRight;
+    return ICONS.dropdownSubmenuRight;
   }
 
-  return isOpen.value ? ICONS.caretUp : ICONS.caretDown;
+  return isOpen.value ? ICONS.dropdownSubmenuUp : ICONS.dropdownSubmenuDown;
 });
 
 const transitionName = computed(() => {

@@ -78,6 +78,100 @@ mockNuxtImport('useDropdownMenuState', () => () => ({
 result = withSetup(() => useDropdownSubmenu({ ... }));
 ```
 
+## Mock data conventions
+
+### No test-only types
+
+Never create a local `type` or `interface` for the purpose of mocking. Always use existing project types (`Album`, `Track`, `Playlist`, etc.) which are globally available in spec files without importing.
+
+### No imports for Nuxt auto-imported values
+
+Never explicitly import types, constants, composables, or utilities that are auto-imported by Nuxt. These are globally available in spec files via the vitest setup. This includes:
+
+- Types from `types/` (e.g. `Album`, `Track`, `Playlist`, `SortOption`)
+- Constants from `constants/` and composable-level constants (e.g. `SORT_NAME_OPTIONS`, `SORT_RANDOM_OPTIONS`, `ICONS`, `ROUTE_NAMES`)
+- Utilities from `utils/` (e.g. `shuffleArray`, `debounce`)
+- Composables from `composables/` (e.g. `useLocalSort`, `useAuth`)
+
+Only import from:
+- `@/test/helpers` and `@/test/withSetup` (test utilities)
+- The file under test itself (e.g. `import { useLocalSort } from './index'`)
+
+```ts
+// ✓ correct — auto-imported, no import statement needed
+const sortOptionsMock: SortOption<Album>[] = [...];
+expect(result.composable.sortProps.value.activeSort).toBe(SORT_NAME_OPTIONS.key);
+
+// ✗ wrong — explicitly importing auto-imported values
+import type { SortOption } from './types';
+import { SORT_NAME_OPTIONS, SORT_RANDOM_OPTIONS } from './constants';
+```
+
+### Use helpers and fixtures for mock data
+
+Always reach for an existing helper from `@/test/helpers` or a fixture from `@/test/fixtures` before defining mock data inline. If neither covers the case, add to the appropriate file and import it.
+
+The `params` argument on all helpers overrides individual fields per call. All helpers support `name` as an overridable param:
+
+```ts
+// ✓ — use the helper, override the fields you need
+const tracksMock = [
+  getFormattedTracksMock(1, {
+    name: 'Track A',
+  })[0],
+  getFormattedTracksMock(1, {
+    name: 'Track B',
+  })[0],
+];
+
+// ✓ — multiple items: call with the count you need
+const tracks = getFormattedTracksMock(3);
+
+// ✓ — single item: call with 1 and index into the result
+const track = getFormattedTracksMock(1)[0];
+
+// ✗ — do not build mock objects from scratch when a helper exists
+const tracksMock = [
+  {
+    id: 'track-0',
+    name: 'Track A',
+  },
+];
+```
+
+### Where mock data lives
+
+| Data                                                  | Where it lives                        |
+| ----------------------------------------------------- | ------------------------------------- |
+| Reusable mock objects (shared across spec files)      | `@/test/fixtures` or `@/test/helpers` |
+| Test-specific config (e.g. options for a single spec) | Inline in the spec file               |
+
+If a mock constant cannot be derived from an existing helper or fixture, add it to `@/test/fixtures` (static value) or `@/test/helpers` (factory function), then import it. Do not define reusable mocks inline in spec files.
+
+### Type annotations on inline mock constants
+
+Use the project type as an explicit annotation — do not use `as const` on individual string literals as a workaround:
+
+```ts
+// ✓ correct — explicit type annotation
+const sortOptionsMock: SortOption<Album>[] = [
+  {
+    defaultDirection: 'asc',
+    key: 'year',
+    label: 'Year',
+  },
+];
+
+// ✗ wrong — as const workaround instead of a proper type annotation
+const sortOptionsMock = [
+  {
+    defaultDirection: 'asc' as const,
+    key: 'year',
+    label: 'Year',
+  },
+];
+```
+
 ## What belongs where
 
 | Concern                                         | Component spec | Composable spec |
@@ -198,6 +292,43 @@ The top-level `describe` name mirrors the exported name of the thing being teste
 | Utility function | export name                  | `'getParams'`, `'shuffleTrackInQueue'`          |
 | Class            | PascalCase — export name     | `'AudioPlayer'`, `'AudioPreloader'`             |
 
+### Composable return values — no standalone describe blocks
+
+Computed values and reactive state returned by a composable only change when something happens. Never give them their own `describe` block. Instead:
+
+- Assert the **initial/default** state with a top-level `it` inside the composable's describe
+- Assert **post-change** state inside the relevant condition describe — which can be any meaningful scenario: a function call, an event emission, a prop change, a lifecycle hook, an empty array, etc.
+
+```ts
+// ✓ correct — initial state at top level, post-change state inside a condition describe
+it('sets the default sortedItems value', () => {
+  expect(result.composable.sortedItems.value).toEqual([...]);
+});
+
+describe('when the toggleSort function is called', () => {
+  beforeEach(() => {
+    result.composable.toggleSort('name');
+  });
+
+  it('sets the correct sortedItems value', () => {
+    expect(result.composable.sortedItems.value).toEqual([...]);
+  });
+});
+
+describe('when items is an empty array', () => {
+  it('sets the correct sortedItems value', () => {
+    expect(result.composable.sortedItems.value).toEqual([]);
+  });
+});
+
+// ✗ wrong — standalone describe block named after a return value
+describe('sortedItems', () => {
+  describe('when items are sorted by string value', () => {
+    it('returns the correct response', () => { ... });
+  });
+});
+```
+
 ### Nested describe conditions
 
 Use `'when the X value is Z'` / `'when the X value changes to Y'` for reactive ref state. Use `'when X'` for non-reactive conditions. Always start with calling the function first `when the X function is called` and then conditions. Full inventory of condition patterns used in the codebase:
@@ -305,6 +436,44 @@ function factory(props = {}, slots = {}) {
 
 Never call `mount` or `shallowMount` directly inside `beforeAll` or `beforeEach` — always go through the factory.
 
+Always reassign the shared `wrapper` variable when remounting with different props — never declare a separate local wrapper variable:
+
+```ts
+// ✓ correct — reassign the shared wrapper
+describe('when the isStatic prop is true', () => {
+  beforeEach(async () => {
+    wrapper = factory({
+      isStatic: true,
+    });
+
+    await wrapper.vm.$nextTick();
+  });
+
+  it('matches the snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});
+
+// ✗ wrong — separate local wrapper variable
+describe('when the isStatic prop is true', () => {
+  let staticWrapper: VueWrapper;
+
+  beforeEach(async () => {
+    staticWrapper = factory({
+      isStatic: true,
+    });
+
+    await staticWrapper.vm.$nextTick();
+  });
+
+  it('matches the snapshot', () => {
+    expect(staticWrapper.html()).toMatchSnapshot();
+  });
+});
+```
+
+The only exception is when two different wrappers must exist **simultaneously** in the same test (e.g. comparing two mounted instances side by side). In that case, name the second one descriptively (`iconWrapper`, `emptyWrapper`) and use `beforeEach` so it is recreated fresh for each test.
+
 All objects must be written multi-line — never on one line. This applies everywhere in a spec file: factory arguments, mock setups, inline object values, `describe.each` data, `toHaveBeenCalledWith` arguments, etc. The only exception is a single-property object used as a DOM query selector:
 
 ```ts
@@ -380,6 +549,7 @@ Every `it()` description uses a specific verb. Use the correct one for the asser
 | Component / element not visible | `'does not show the X component'` / `'does not show the X element'`                             |
 | Default composable state        | `'sets the default X value'`                                                                    |
 | State after a change            | `'sets the correct X value'`                                                                    |
+| Composable `.value` property    | `'sets the correct X value'` — never `'returns the correct response'`                          |
 | Prop on a component             | `'sets the correct X prop on the Y component'`                                                  |
 | Attribute on an element         | `'sets the correct X attribute on the Y element'`                                               |
 | Mock called with args           | `'calls the X function with the correct parameters'`                                            |
@@ -482,16 +652,22 @@ The following are available in every spec file without per-file mocking. Do not 
 
 ## vi.unmock() — testing real implementations
 
-Nuxt's test environment auto-mocks modules in the same project. Call `vi.unmock()` at the top of the file (before imports) when the spec is testing the real implementation of a module that would otherwise be mocked:
+Only call `vi.unmock()` when the module being tested has an explicit mock registered — either via a `__mocks__` file next to it, or via a `vi.mock()` / `mockNuxtImport()` call in `vitest.setup.ts`. Do **not** add `vi.unmock()` speculatively. If no mock is registered for the module, omit `vi.unmock()` entirely.
+
+When a mock is registered, call `vi.unmock()` at the top of the file (before imports):
 
 ```ts
-// ✓ utils/dom.spec.ts — testing the real dom utility
+// ✓ utils/dom.spec.ts — testing the real dom utility (a __mocks__/dom.ts exists)
 vi.unmock('./dom');
 import { findClosestElement } from './dom';
 
-// ✓ composables/useApi/index.spec.ts — testing the real useAPI
+// ✓ composables/useApi/index.spec.ts — testing the real useAPI (mocked in vitest.setup.ts)
 vi.unmock('./index');
 import { useAPI } from './index';
+
+// ✗ wrong — no mock is registered for utils.ts, vi.unmock() is unnecessary
+vi.unmock('./utils');
+import { isNumeric } from './utils';
 ```
 
 ## vi.hoisted() — pre-import mock setup
@@ -555,6 +731,52 @@ describe.each([...])(
 ```
 
 Always use the wording **`'matches the snapshot'`** — no other wording is acceptable.
+
+## Utility function specs
+
+Utility functions take inputs and return outputs with no side effects and no mocks. Follow these rules:
+
+- **Prefer `describe.each`** for parameterized input/output cases over writing one `it` per value
+- **Never add `afterEach(vi.clearAllMocks())`** unless there are actual `vi.fn()` mocks in the file
+- **Never add `vi.unmock()`** unless the module has a registered mock (see section above)
+- Use `'when the value is %o'` as the `describe.each` label and `'returns the correct response'` as the `it` label
+
+```ts
+// ✓ correct — describe.each, no afterEach, no vi.unmock
+import { isNumeric } from './utils';
+
+describe('isNumeric', () => {
+  describe.each([
+    [42, true],
+    [NaN, false],
+    ['42', true],
+    ['hello', false],
+    [null, false],
+  ])('when the value is %o', (value: unknown, expected: boolean) => {
+    it('returns the correct response', () => {
+      expect(isNumeric(value)).toBe(expected);
+    });
+  });
+});
+
+// ✗ wrong — individual its, unnecessary afterEach, unnecessary vi.unmock
+vi.unmock('./utils');
+import { isNumeric } from './utils';
+
+describe('isNumeric', () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('returns true for a number', () => {
+    expect(isNumeric(42)).toBe(true);
+  });
+
+  it('returns false for NaN', () => {
+    expect(isNumeric(NaN)).toBe(false);
+  });
+});
+```
 
 ## Composable spec setup
 

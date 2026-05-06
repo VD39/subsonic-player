@@ -4,8 +4,8 @@ exports[`PlaybackRateButton > matches the snapshot 1`] = `
 "<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
     <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
   </button>
-  <teleport-stub to="#teleports">
-    <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+  <teleport-stub disabled="false" to="#teleports">
+    <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
       <ul class="hasPointerEvents dropdownContent dropdownContent">
         <li class="centerItems dropdownTitle">
           <p class="strong smallFont">Playback speed</p>

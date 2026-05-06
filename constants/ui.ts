@@ -23,3 +23,16 @@ export const TRACK_HEADER_NAMES = {
   radioStations: ['Stations'],
   tracks: ['Track', 'Album', 'Artists', 'Duration'],
 } as const;
+
+export const SORT_BUTTONS = [
+  {
+    icon: ICONS.sortAsc,
+    key: 'asc',
+    label: 'Ascending',
+  },
+  {
+    icon: ICONS.sortDesc,
+    key: 'desc',
+    label: 'Descending',
+  },
+];

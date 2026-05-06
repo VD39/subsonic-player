@@ -95,6 +95,10 @@ describe('DropdownMenu', () => {
         wrapper.find({ ref: 'dropdownListRef' }).attributes('style'),
       ).toBeUndefined();
     });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
   });
 
   describe('when the menuStyle has values', () => {
@@ -106,6 +110,10 @@ describe('DropdownMenu', () => {
       };
 
       await wrapper.vm.$nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('sets the correct style on the dropdown list element', () => {
@@ -179,6 +187,34 @@ describe('DropdownMenu', () => {
     it('shows the icon slot content in the ButtonLink', () => {
       expect(iconWrapper.findComponent(ButtonLink).html()).toContain(
         'Custom icon',
+      );
+    });
+  });
+
+  describe('when the isStatic prop is false', () => {
+    it('adds the dropdown class to the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).classes()).toContain(
+        'dropdown',
+      );
+    });
+  });
+
+  describe('when the isStatic prop is true', () => {
+    beforeEach(async () => {
+      wrapper = factory({
+        isStatic: true,
+      });
+
+      await wrapper.vm.$nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not add the dropdown class to the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).classes()).not.toContain(
+        'dropdown',
       );
     });
   });

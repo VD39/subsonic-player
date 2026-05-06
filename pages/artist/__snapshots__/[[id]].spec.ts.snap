@@ -42,6 +42,15 @@ exports[`[[id]] > when getArtist does returns data > _ > when artistData.similar
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <h2>Similar Tracks</h2>
@@ -83,6 +92,15 @@ exports[`[[id]] > when getArtist does returns data > _ > when artistData.topTrac
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <h2>Top Tracks</h2>
     <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
@@ -128,6 +146,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.biography i
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->
@@ -168,6 +195,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.genres is a
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->
@@ -209,6 +245,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.lastFmUrl i
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->
@@ -250,6 +295,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.musicBrainz
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->
@@ -290,6 +344,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.similarArti
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->
@@ -331,6 +394,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.totalAlbums
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->
@@ -371,6 +443,15 @@ exports[`[[id]] > when getArtist does returns data > when artistData.totalTracks
       </div>
     </section>
     <h2>Albums</h2>
+    <div class="centerItems mBL sortControls">
+      <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+          <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+        </button>
+        <teleport-stub disabled="true" to="#teleports">
+          <!--v-if-->
+        </teleport-stub>
+      </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+    </div>
     <albums-list-stub albums="[object Object]" hideartist="true"></albums-list-stub>
     <!--v-if-->
     <!--v-if-->

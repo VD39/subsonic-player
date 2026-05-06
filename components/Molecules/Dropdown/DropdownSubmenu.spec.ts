@@ -168,9 +168,9 @@ describe('DropdownSubmenu', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('shows the caretUp icon', () => {
+      it('shows the dropdownSubmenuUp icon', () => {
         expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-          ICONS.caretUp,
+          ICONS.dropdownSubmenuUp,
         );
       });
 
@@ -180,9 +180,9 @@ describe('DropdownSubmenu', () => {
           await wrapper.vm.$nextTick();
         });
 
-        it('shows the caretDown icon', () => {
+        it('shows the dropdownSubmenuDown icon', () => {
           expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-            ICONS.caretDown,
+            ICONS.dropdownSubmenuDown,
           );
         });
       });
@@ -200,9 +200,9 @@ describe('DropdownSubmenu', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('shows the caretRight icon', () => {
+    it('shows the dropdownSubmenuRight icon', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-        ICONS.caretRight,
+        ICONS.dropdownSubmenuRight,
       );
     });
 

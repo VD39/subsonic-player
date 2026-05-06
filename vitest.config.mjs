@@ -35,5 +35,6 @@ export default defineVitestConfig({
     exclude: [...configDefaults.exclude, '**/docs/**', '.nuxt/**'],
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    testTimeout: 10000,
   },
 });

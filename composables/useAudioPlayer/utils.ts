@@ -79,12 +79,8 @@ export function removeRemovedTracksFromOriginalQueue(
 export function shuffleTrackInQueue(queue: MixedTrack[], index = 0) {
   [queue[0], queue[index]] = [queue[index], queue[0]];
 
-  const start = 1;
-
-  for (let i = queue.length - 1; i > start; i--) {
-    const j = Math.floor(Math.random() * (i - start + 1) + start);
-    [queue[i], queue[j]] = [queue[j], queue[i]];
-  }
+  const rest = queue.splice(1);
+  queue.push(...shuffleArray(rest));
 
   return queue;
 }

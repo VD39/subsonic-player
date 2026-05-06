@@ -3,6 +3,7 @@ import GenreLink from '@/components/Atoms/GenreLink.vue';
 import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
+import SortControls from '@/components/Molecules/SortControls.vue';
 
 const { getGenres } = useGenre();
 
@@ -25,6 +26,22 @@ const { data: genresData, status } = useAsyncData(
   },
 );
 
+const { sortedItems: sortedGenres, sortProps } = useLocalSort<Genre>({
+  items: computed(() => genresData.value.genres || []),
+  options: [
+    {
+      defaultDirection: 'desc',
+      key: 'albumCount',
+      label: 'Album Count',
+    },
+    {
+      defaultDirection: 'desc',
+      key: 'trackCount',
+      label: 'Track Count',
+    },
+  ],
+});
+
 useHead({
   title: 'Genres',
 });
@@ -34,9 +51,11 @@ useHead({
   <h1>Genres</h1>
 
   <LoadingData :status>
-    <GridWrapper v-if="genresData.genres.length">
+    <SortControls v-bind="sortProps" />
+
+    <GridWrapper v-if="sortedGenres.length">
       <GenreLink
-        v-for="genre in genresData.genres"
+        v-for="genre in sortedGenres"
         :key="genre.name"
         data-test-id="genre-item"
         :name="genre.name"

@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SortControls > matches the snapshot 1`] = `
+"<div class="centerItems mBL sortButtons">
+  <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+    </button>
+    <teleport-stub to="#teleports">
+      <div class="backdrop dropdownOverlay dropdown">
+        <ul class="hasPointerEvents dropdownContent dropdownContent">
+          <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item selected spaceBetween item selected" draggable="false" type="button">
+              <!--v-if--><span class="clamp text">Name</span>
+            </button></li>
+          <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+              <!--v-if--><span class="clamp text">Year</span>
+            </button></li>
+        </ul>
+      </div>
+    </teleport-stub>
+  </div><button class="centerItems buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"></span></button>
+</div>"
+`;

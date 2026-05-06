@@ -42,8 +42,8 @@ exports[`[[id]] > when getPlaylistTracksById does return data > matches the snap
           <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
-            <teleport-stub to="#teleports">
-              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <teleport-stub disabled="false" to="#teleports">
+              <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Edit Playlist </span>
@@ -102,8 +102,8 @@ exports[`[[id]] > when getPlaylistTracksById does return data > when playlist tr
           <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
-            <teleport-stub to="#teleports">
-              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <teleport-stub disabled="false" to="#teleports">
+              <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Edit Playlist </span>
@@ -156,8 +156,8 @@ exports[`[[id]] > when getPlaylistTracksById does return data > when playlist.tr
           <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
-            <teleport-stub to="#teleports">
-              <div class="backdrop dropdownOverlay dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+            <teleport-stub disabled="false" to="#teleports">
+              <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Edit Playlist </span>

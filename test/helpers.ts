@@ -33,7 +33,7 @@ export function getFormattedAlbumsMock(
     ...formattedAlbumMock,
     ...params,
     id: `album-${index}`,
-    name: `album-${index}`,
+    name: params.name || `album-${index}`,
   }));
 }
 

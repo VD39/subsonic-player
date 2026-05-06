@@ -11,6 +11,15 @@ exports[`playlists > matches the snapshot 1`] = `
 </div>
 <div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
 <div class="mainContent">
+  <div class="centerItems mBL sortControls">
+    <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+        <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
+      </button>
+      <teleport-stub disabled="true" to="#teleports">
+        <!--v-if-->
+      </teleport-stub>
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="button" title="Toggle sort direction"><span><pharrowup aria-hidden="true" class="sortIcon sortActive" data-test-id="sort-icon-asc" size="18" weight="bold"></pharrowup><pharrowdown aria-hidden="true" class="sortIcon" data-test-id="sort-icon-desc" size="18" weight="bold"></pharrowdown></span><span class="clamp text visuallyHidden"> Toggle sort direction </span></button>
+  </div>
   <div class="column centerAll noMediaMessage">
     <phplaylist size="50"></phplaylist>
     <p>No playlists found.</p>

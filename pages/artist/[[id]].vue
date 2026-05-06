@@ -5,6 +5,7 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import TextClamp from '@/components/Atoms/TextClamp.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
+import SortControls from '@/components/Molecules/SortControls.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
@@ -29,6 +30,17 @@ const { dragStart } = useDragAndDrop();
 const { data: artistData, status } = getArtist(
   route.params[ROUTE_PARAM_KEYS.artist.id] as string,
 );
+
+const { sortedItems: sortedAlbums, sortProps } = useLocalSort<Album>({
+  items: computed(() => artistData.value?.albums || []),
+  options: [
+    {
+      defaultDirection: 'desc',
+      key: 'year',
+      label: 'Year',
+    },
+  ],
+});
 
 async function addAlbumToQueue(album: Album) {
   const tracks = await getMediaTracks(album);
@@ -124,8 +136,10 @@ useHead({
 
       <h2>Albums</h2>
 
+      <SortControls v-bind="sortProps" />
+
       <AlbumsList
-        :albums="artistData.albums"
+        :albums="sortedAlbums"
         hideArtist
         @addToQueue="addAlbumToQueue"
         @dragStart="dragStart"

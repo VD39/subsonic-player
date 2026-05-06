@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LoadingData from '@/components/Molecules/LoadingData.vue';
+import SortControls from '@/components/Molecules/SortControls.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 
 const { getArtists } = useArtist();
@@ -24,6 +25,17 @@ const { data: artistsData, status } = useAsyncData(
   },
 );
 
+const { sortedItems: sortedArtists, sortProps } = useLocalSort<Artist>({
+  items: computed(() => artistsData.value.artists || []),
+  options: [
+    {
+      defaultDirection: 'desc',
+      key: 'totalAlbums',
+      label: 'Total Albums',
+    },
+  ],
+});
+
 useHead({
   title: 'Artists',
 });
@@ -33,6 +45,8 @@ useHead({
   <h1>Artists</h1>
 
   <LoadingData :class="viewLayout" :status>
-    <ArtistsList :artists="artistsData.artists" />
+    <SortControls v-bind="sortProps" />
+
+    <ArtistsList :artists="sortedArtists" />
   </LoadingData>
 </template>

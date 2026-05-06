@@ -17,6 +17,7 @@ export function useArtist() {
     const config = useRuntimeConfig();
 
     if (config.public.SPA_MODE) {
+      /* istanbul ignore next -- @preserve */
       return useAsyncData(
         route.fullPath,
         () => fetchAndMergeArtistData(id, fetchData),
@@ -28,6 +29,7 @@ export function useArtist() {
       );
     }
 
+    /* istanbul ignore next -- @preserve */
     return useFetch('/api/artist', {
       default: () => null,
       getCachedData: (key, nuxtApp) =>

@@ -4,6 +4,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 withDefaults(
   defineProps<{
     icon?: Icon;
+    isStatic?: boolean;
     showText?: boolean;
     text?: string;
     title?: string;
@@ -54,12 +55,18 @@ defineExpose({
       {{ text }}
     </ButtonLink>
 
-    <Teleport to="#teleports">
+    <Teleport :disabled="isStatic" to="#teleports">
       <transition name="fade">
         <div
           v-if="isOpen"
           ref="dropdownListRef"
-          :class="['backdrop', 'dropdownOverlay', $style.dropdown]"
+          :class="[
+            'dropdownOverlay',
+            'backdrop',
+            {
+              [$style.dropdown]: !isStatic,
+            },
+          ]"
           :style="menuStyle"
         >
           <ul

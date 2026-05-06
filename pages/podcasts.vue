@@ -5,6 +5,7 @@ import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
+import SortControls from '@/components/Molecules/SortControls.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
@@ -50,6 +51,10 @@ const { refresh, status } = useAsyncData(
     },
   },
 );
+
+const { sortedItems: sortedPodcasts, sortProps } = useLocalSort<Podcast>({
+  items: computed(() => podcasts.value || []),
+});
 
 const gridWrapperProps = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
@@ -100,7 +105,9 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status>
-    <div v-if="podcasts.length" ref="podcastsContent" :class="viewLayout">
+    <div v-if="sortedPodcasts.length" ref="podcastsContent" :class="viewLayout">
+      <SortControls v-bind="sortProps" />
+
       <GridWrapper
         class="mBXL"
         :desktop="gridWrapperProps"
@@ -109,7 +116,7 @@ useHead({
         :tablet="gridWrapperProps"
       >
         <PodcastItem
-          v-for="podcast in podcasts"
+          v-for="podcast in sortedPodcasts"
           :key="podcast.id"
           :podcast
           @addPodcastToQueue="onAddPodcastToQueue"

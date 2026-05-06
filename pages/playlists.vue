@@ -3,6 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
+import SortControls from '@/components/Molecules/SortControls.vue';
 import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
 
 const {
@@ -37,6 +38,17 @@ const { refresh, status } = useAsyncData(
   },
 );
 
+const { sortedItems: sortedPlaylist, sortProps } = useLocalSort<Playlist>({
+  items: computed(() => playlists.value || []),
+  options: [
+    {
+      defaultDirection: 'desc',
+      key: 'trackCount',
+      label: 'Track Count',
+    },
+  ],
+});
+
 useHead({
   title: 'Playlists',
 });
@@ -62,8 +74,10 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status>
+    <SortControls v-bind="sortProps" />
+
     <PlaylistsList
-      :playlists
+      :playlists="sortedPlaylist"
       @deletePlaylist="deletePlaylist"
       @editPlaylist="updatePlaylistModal"
     />
