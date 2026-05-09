@@ -27,6 +27,16 @@ mockNuxtImport('useNuxtApp', () => () => ({
   runWithContext: vi.fn(),
 }));
 
+mockNuxtImport('useTheme', () => () => ({
+  width: ref(100),
+}));
+
+mockNuxtImport('useSidebar', () => () => ({
+  isDarkTheme: ref(false),
+}));
+
+mockNuxtImport('useAudioPlayer', () => () => ({}));
+
 const closeModalMock = vi.fn();
 const openModalMock = vi.fn();
 
