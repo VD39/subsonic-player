@@ -38,9 +38,6 @@ watchEffect(async () => {
     >
       Files
     </DropdownItem>
-    <DropdownItem is="a" :href="user!.server" target="_blank">
-      Server
-    </DropdownItem>
     <DropdownItem ref="scanDropdownItem" @click="startScan">
       Scan files
     </DropdownItem>

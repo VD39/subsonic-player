@@ -6,6 +6,13 @@ defineProps<{
 </script>
 
 <template>
+  <div :class="['mBM', $style.aboutApp]">
+    <p>
+      Subsonic player is an open source, responsive, modern web-based client
+      designed and built for Subsonic music servers.
+    </p>
+  </div>
+
   <div :class="['mBXL', $style.aboutApp]">
     <h3 class="mBM">Server</h3>
 
