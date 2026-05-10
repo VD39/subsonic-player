@@ -29,112 +29,120 @@ function setFormFields(
 }
 
 describe('validateInputs', () => {
-  describe('when field input value is a string value', () => {
-    describe('when field input value has no validations rules', () => {
-      it('sets the field input as valid', () => {
-        const field = setFormFields('');
-        expect(field.fields.input.isValid.value).toEqual(true);
-        expect(field.fields.input.error.value).toEqual('');
-        expect(field.isValid.value).toEqual(true);
-      });
-    });
+  let blurSpy: ReturnType<typeof vi.spyOn>;
 
-    describe('when field input value has validations rules', () => {
-      describe('when field input value should be required', () => {
-        describe('when field input value is not defined', () => {
-          it('sets the field input as valid', () => {
-            const field = setFormFields('', {
-              required: true,
-            });
-            expect(field.fields.input.isValid.value).toEqual(false);
-            expect(field.fields.input.error.value).toEqual('input is required');
-            expect(field.isValid.value).toEqual(false);
-          });
-        });
-
-        describe('when field input value is defined', () => {
-          it('sets the field input as valid', () => {
-            const field = setFormFields('value', {
-              required: true,
-            });
-            expect(field.fields.input.isValid.value).toEqual(true);
-            expect(field.fields.input.error.value).toEqual('');
-            expect(field.isValid.value).toEqual(true);
-          });
-        });
-      });
-
-      describe('when field input value should be an email', () => {
-        describe('when field input value is not defined', () => {
-          it('sets the field input as valid', () => {
-            const field = setFormFields('', {
-              isUrl: true,
-            });
-            expect(field.fields.input.isValid.value).toEqual(true);
-            expect(field.fields.input.error.value).toEqual('');
-            expect(field.isValid.value).toEqual(true);
-          });
-        });
-
-        describe('when field input value is not an email', () => {
-          it('sets the field input as valid', () => {
-            const field = setFormFields('value', {
-              isUrl: true,
-            });
-            expect(field.fields.input.isValid.value).toEqual(false);
-            expect(field.fields.input.error.value).toEqual(
-              'input is not a valid URL',
-            );
-            expect(field.isValid.value).toEqual(false);
-          });
-        });
-
-        describe('when field input value is an email', () => {
-          it('sets the field input as valid', () => {
-            const field = setFormFields('https://www.test.com', {
-              isUrl: true,
-            });
-            expect(field.fields.input.isValid.value).toEqual(true);
-            expect(field.fields.input.error.value).toEqual('');
-            expect(field.isValid.value).toEqual(true);
-          });
-        });
-      });
-    });
+  beforeEach(() => {
+    blurSpy = vi.spyOn(HTMLElement.prototype, 'blur');
   });
 
-  describe('when field input value is an array value', () => {
-    describe('when field input value has no validations rules', () => {
-      it('sets the field input as valid', () => {
-        const field = setFormFields([]);
-        expect(field.fields.input.isValid.value).toEqual(true);
-        expect(field.fields.input.error.value).toEqual('');
-        expect(field.isValid.value).toEqual(true);
-      });
-    });
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
 
-    describe('when field input value should be required', () => {
-      describe('when field input value is not defined', () => {
-        it('sets the field input as valid', () => {
-          const field = setFormFields([], {
-            required: true,
-          });
-          expect(field.fields.input.isValid.value).toEqual(false);
-          expect(field.fields.input.error.value).toEqual('input is required');
-          expect(field.isValid.value).toEqual(false);
-        });
-      });
+  describe('when the form is valid', () => {
+    describe.each([
+      ['', {}],
+      [
+        'value',
+        {
+          required: true,
+        },
+      ],
+      [
+        '',
+        {
+          isUrl: true,
+        },
+      ],
+      [
+        'https://www.test.com',
+        {
+          isUrl: true,
+        },
+      ],
+      [[], {}],
+      [
+        ['value'],
+        {
+          required: true,
+        },
+      ],
+    ])(
+      'when the field value is %o with validation rules %o',
+      (fieldValue, validationRules) => {
+        let field: ReturnType<typeof setFormFields>;
 
-      describe('when field input value is defined', () => {
-        it('sets the field input as valid', () => {
-          const field = setFormFields(['value'], {
-            required: true,
-          });
-          expect(field.fields.input.isValid.value).toEqual(true);
-          expect(field.fields.input.error.value).toEqual('');
-          expect(field.isValid.value).toEqual(true);
+        beforeEach(() => {
+          field = setFormFields(fieldValue, validationRules);
         });
-      });
-    });
+
+        it('sets the correct isValid value on the field', () => {
+          expect(field.fields.input.isValid.value).toBe(true);
+        });
+
+        it('sets the correct error value on the field', () => {
+          expect(field.fields.input.error.value).toBe('');
+        });
+
+        it('sets the correct isValid value on the form', () => {
+          expect(field.isValid.value).toBe(true);
+        });
+
+        it('calls the blur function', () => {
+          expect(blurSpy).toHaveBeenCalledOnce();
+        });
+      },
+    );
+  });
+
+  describe('when the form is invalid', () => {
+    describe.each([
+      [
+        '',
+        {
+          required: true,
+        },
+        'input is required',
+      ],
+      [
+        'value',
+        {
+          isUrl: true,
+        },
+        'input is not a valid URL',
+      ],
+      [
+        [],
+        {
+          required: true,
+        },
+        'input is required',
+      ],
+    ])(
+      'when the field value is %o with validation rules %o',
+      (fieldValue, validationRules, expectedError) => {
+        let field: ReturnType<typeof setFormFields>;
+
+        beforeEach(() => {
+          field = setFormFields(fieldValue, validationRules);
+        });
+
+        it('sets the correct isValid value on the field', () => {
+          expect(field.fields.input.isValid.value).toBe(false);
+        });
+
+        it('sets the correct error value on the field', () => {
+          expect(field.fields.input.error.value).toBe(expectedError as string);
+        });
+
+        it('sets the correct isValid value on the form', () => {
+          expect(field.isValid.value).toBe(false);
+        });
+
+        it('does not call the blur function', () => {
+          expect(blurSpy).not.toHaveBeenCalled();
+        });
+      },
+    );
   });
 });

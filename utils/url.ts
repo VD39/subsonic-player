@@ -15,7 +15,7 @@ export function convertToQueryString(params: Record<string, any>) {
 }
 
 export function isUrl(url: string) {
-  return /^https?:\/\/[^ "]+$/.test(url);
+  return /^https?:\/\/[^ "]+$/.test(url.toLowerCase());
 }
 
 /* istanbul ignore next -- @preserve */

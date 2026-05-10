@@ -16,6 +16,10 @@ export function validateInputs<T extends Form<any>>(form: T) {
   }
 
   form.isValid.value = checkFormIsInvalid(form.fields);
+
+  if (form.isValid.value) {
+    (document.activeElement as HTMLElement)?.blur();
+  }
 }
 
 function checkFormIsInvalid<T extends Fields<T>>(formFields: T) {

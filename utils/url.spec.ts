@@ -56,23 +56,31 @@ describe('convertToQueryString', () => {
 });
 
 describe('isUrl', () => {
-  describe.each([
-    ['http://example.com', true],
-    ['https://example.com', true],
-    ['http://www.example.com', true],
-    ['https://www.example.com', true],
-    ['http://example.com/path/to/resource', true],
-    ['https://example.com/path/to/resource', true],
-    ['example.com', false],
-    ['ftp://example.com', false],
-    ['http:/example.com', false],
-    ['https//example.com', false],
-    ['http://', false],
-    ['https://', false],
-    ['just-a-string', false],
-  ])('when input is %s', (url, output) => {
-    it('return correct value', () => {
-      expect(isUrl(url)).toBe(output);
+  describe.each(
+    (
+      [
+        ['http://example.com', true],
+        ['https://example.com', true],
+        ['http://www.example.com', true],
+        ['https://www.example.com', true],
+        ['http://example.com/path/to/resource', true],
+        ['https://example.com/path/to/resource', true],
+        ['example.com', false],
+        ['ftp://example.com', false],
+        ['http:/example.com', false],
+        ['https//example.com', false],
+        ['http://', false],
+        ['https://', false],
+        ['just-a-string', false],
+        ['', false],
+      ] as [string, boolean][]
+    ).flatMap(([url, output]) => [
+      [url, output],
+      [url.toUpperCase(), output],
+    ]),
+  )('when input is %s', (url, output) => {
+    it('returns the correct response', () => {
+      expect(isUrl(url as string)).toBe(output);
     });
   });
 });
