@@ -88,7 +88,7 @@ export function formatArtist(
     favourite: !!starred,
     genres: getUniqueGenres(album),
     id: id!,
-    image: coverArt || artistImageUrl,
+    image: coverArt || artistImageUrl || IMAGE_DEFAULT_BY_TYPE.artist,
     lastFmUrl,
     musicBrainzUrl: musicBrainzId
       ? `https://musicbrainz.org/artist/${musicBrainzId}`

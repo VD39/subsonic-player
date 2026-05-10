@@ -348,6 +348,22 @@ describe('formatArtist', () => {
         );
       });
     });
+
+    describe('when artistImageUrl is an empty string', () => {
+      it('returns the correct values', () => {
+        expect(
+          formatArtist({
+            ...artistMock,
+            artistImageUrl: '',
+            coverArt: undefined,
+          }),
+        ).toEqual(
+          expect.objectContaining({
+            image: IMAGE_DEFAULT_BY_TYPE.artist,
+          }),
+        );
+      });
+    });
   });
 
   describe('when similarArtist is defined', () => {
