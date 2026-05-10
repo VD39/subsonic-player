@@ -83,6 +83,16 @@ export default defineNuxtConfig({
     },
     typeCheck: 'build',
   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+        '@phosphor-icons/vue',
+        'crypto-js/md5',
+      ],
+    },
+  },
   ...createPWAConfig(
     ENVIRONMENT_VARIABLES.MAIN_APP_TITLE,
     ENVIRONMENT_VARIABLES.SPA_MODE,
