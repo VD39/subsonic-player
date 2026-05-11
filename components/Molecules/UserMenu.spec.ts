@@ -3,6 +3,9 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
+import DropdownTitle from '@/components/Molecules/Dropdown/DropdownTitle.vue';
+import PreloadImage from '@/components/Molecules/PreloadImage.vue';
+
 import UserMenu from './UserMenu.vue';
 
 mockNuxtImport('useDropdownMenu', () => () => ({
@@ -10,6 +13,7 @@ mockNuxtImport('useDropdownMenu', () => () => ({
 }));
 
 const getAvatarMock = vi.fn().mockResolvedValue('avatar-url');
+const userName = ref<string | undefined>(undefined);
 
 mockNuxtImport('useUser', () => () => ({
   getAvatar: getAvatarMock,
@@ -17,7 +21,7 @@ mockNuxtImport('useUser', () => () => ({
     salt: 'salt',
     server: 'https://www.server.com',
     token: 'token',
-    username: 'username',
+    username: userName.value,
   }),
 }));
 
@@ -60,8 +64,45 @@ describe('UserMenu', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('calls the getAvatar function with the correct username', () => {
-    expect(getAvatarMock).toHaveBeenCalledWith('username');
+  describe('when the user username value is undefined', () => {
+    it('does not call the getAvatar function', () => {
+      expect(getAvatarMock).not.toHaveBeenCalled();
+    });
+
+    it('sets the correct image prop on the PreloadImage component', () => {
+      expect(wrapper.findComponent(PreloadImage).props('image')).toBe(
+        IMAGE_DEFAULT_BY_TYPE.user,
+      );
+    });
+
+    it('shows the correct username in the DropdownTitle component', () => {
+      expect(wrapper.findComponent(DropdownTitle).text()).toBe('');
+    });
+  });
+
+  describe('when the user username value is defined', () => {
+    beforeEach(() => {
+      userName.value = 'username';
+      wrapper = factory();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('calls the getAvatar function with the correct username', () => {
+      expect(getAvatarMock).toHaveBeenCalledWith('username');
+    });
+
+    it('sets the correct image prop on the PreloadImage component', () => {
+      expect(wrapper.findComponent(PreloadImage).props('image')).toBe(
+        'avatar-url',
+      );
+    });
+
+    it('shows the correct username in the DropdownTitle component', () => {
+      expect(wrapper.findComponent(DropdownTitle).text()).toBe('username');
+    });
   });
 
   describe('when the scan DropdownItem component emits the click event', () => {

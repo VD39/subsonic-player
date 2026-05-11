@@ -1,5 +1,3 @@
-import type { ComponentInternalInstance } from 'vue';
-
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { getFormattedQueueTracksMock } from '@/test/helpers';
@@ -121,21 +119,6 @@ const getLocalStorageMock = vi.hoisted(() =>
 
 mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
 
-const getCurrentInstanceMock = vi.hoisted(() =>
-  vi.fn<() => ComponentInternalInstance | null>(
-    () =>
-      ({
-        appContext: {
-          app: {
-            nuxtApp: {},
-          },
-        },
-      }) as unknown as ComponentInternalInstance,
-  ),
-);
-
-mockNuxtImport('getCurrentInstance', () => getCurrentInstanceMock);
-
 const queueTracks = getFormattedQueueTracksMock(6);
 const queueTracksMore = getFormattedQueueTracksMock(15);
 const queueTrack = getFormattedQueueTracksMock()[0];
@@ -253,6 +236,7 @@ describe('useAudioPlayer', () => {
       });
 
       result = withSetup(useAudioPlayer);
+      result.composable.initAudioPlayer();
     });
 
     it('sets the correct queueList value', () => {
@@ -311,6 +295,7 @@ describe('useAudioPlayer', () => {
         });
 
         result = withSetup(useAudioPlayer);
+        result.composable.initAudioPlayer();
       });
 
       it('does not call the audio load function', () => {
@@ -2213,33 +2198,18 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when the getCurrentInstance function returns true', () => {
+  describe('when initAudioPlayer function is called', () => {
     beforeAll(() => {
-      result = withSetup(useAudioPlayer);
+      vi.clearAllMocks();
+      result.composable.initAudioPlayer();
     });
 
-    it('initialises the audio player on mount', () => {
+    it('initialises the AudioPlayer instance', () => {
       expect(onTimeupdateMock).toHaveBeenCalled();
       expect(onCanPlayMock).toHaveBeenCalled();
       expect(onBufferedMock).toHaveBeenCalled();
       expect(onWaitingMock).toHaveBeenCalled();
       expect(onEndedMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('when the getCurrentInstance function returns null', () => {
-    beforeAll(() => {
-      vi.clearAllMocks();
-      getCurrentInstanceMock.mockReturnValue(null);
-      result = withSetup(useAudioPlayer);
-    });
-
-    it('does not initialises the audio player on mount', () => {
-      expect(onTimeupdateMock).not.toHaveBeenCalled();
-      expect(onCanPlayMock).not.toHaveBeenCalled();
-      expect(onBufferedMock).not.toHaveBeenCalled();
-      expect(onWaitingMock).not.toHaveBeenCalled();
-      expect(onEndedMock).not.toHaveBeenCalled();
     });
   });
 });

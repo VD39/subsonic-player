@@ -12,8 +12,14 @@ const { openAboutAppModal } = useServerInfo();
 
 const userAvatar = ref<Icon | string>(IMAGE_DEFAULT_BY_TYPE.user);
 
+const username = computed(() => user.value?.username);
+
 watchEffect(async () => {
-  userAvatar.value = await getAvatar(user.value!.username!);
+  if (!username.value) {
+    return;
+  }
+
+  userAvatar.value = await getAvatar(username.value);
 });
 </script>
 
@@ -28,8 +34,9 @@ watchEffect(async () => {
     </template>
 
     <DropdownTitle>
-      {{ user!.username }}
+      {{ username }}
     </DropdownTitle>
+
     <DropdownItem
       is="nuxt-link"
       :to="{

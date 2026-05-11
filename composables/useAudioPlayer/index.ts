@@ -729,6 +729,7 @@ export function useAudioPlayer() {
     audioPlayer.value?.unload();
     preloader.value?.clear();
     resetAudioPlayerState();
+    clearSaveInterval();
   }
 
   function setAudioPlayer() {
@@ -798,20 +799,9 @@ export function useAudioPlayer() {
     }
   }
 
-  // Only register lifecycle hooks if we're in a component context.
-  if (getCurrentInstance()) {
-    onMounted(() => {
-      callOnce(() => {
-        setAudioPlayer();
-        loadAudioPlayerState();
-      });
-    });
-
-    onBeforeUnmount(() => {
-      if (!isPlaying.value) {
-        clearSaveInterval();
-      }
-    });
+  function initAudioPlayer() {
+    setAudioPlayer();
+    loadAudioPlayerState();
   }
 
   return {
@@ -825,6 +815,7 @@ export function useAudioPlayer() {
     hasCurrentTrack,
     hasNextTrack,
     hasPreviousTrack,
+    initAudioPlayer,
     isBuffering,
     isCurrentTrack,
     isMuted,

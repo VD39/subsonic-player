@@ -15,6 +15,7 @@ const fastForwardTrackMock = vi.fn();
 const hasCurrentTrackMock = ref(false);
 const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
+const initAudioPlayerMock = vi.fn();
 const isBufferingMock = ref(false);
 const isCurrentTrackMock = vi.fn(() => false);
 const isMutedMock = ref(false);
@@ -61,6 +62,7 @@ export function useAudioPlayerMock() {
     hasCurrentTrack: hasCurrentTrackMock,
     hasNextTrack: hasNextTrackMock,
     hasPreviousTrack: hasPreviousTrackMock,
+    initAudioPlayer: initAudioPlayerMock,
     isBuffering: isBufferingMock,
     isCurrentTrack: isCurrentTrackMock,
     isMuted: isMutedMock,
@@ -107,6 +109,7 @@ export function useAudioPlayerMock() {
     hasCurrentTrackMock,
     hasNextTrackMock,
     hasPreviousTrackMock,
+    initAudioPlayerMock,
     isBufferingMock,
     isCurrentTrackMock,
     isMutedMock,
