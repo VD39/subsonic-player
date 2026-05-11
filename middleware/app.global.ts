@@ -19,7 +19,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
 
   if (isAuthenticated.value && !playlists.value.length) {
-    await getPlaylists();
+    if (import.meta.client) {
+      getPlaylists();
+    } else {
+      await getPlaylists();
+    }
   }
 
   if (to.name === ROUTE_NAMES.login && isAuthenticated.value) {
