@@ -16,6 +16,7 @@ const {
   currentTime,
   currentTrack,
   fastForwardTrack,
+  isPlaying,
   isPodcastEpisode,
   isRadioStation,
   isTrack,
@@ -26,6 +27,23 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 
 <template>
   <div class="queueWrapper column">
+    <div
+      ref="backgroundImage"
+      aria-hidden="true"
+      :class="[
+        $style.backgroundImage,
+        {
+          [$style.backgroundImageActive]: isPlaying,
+        },
+      ]"
+    >
+      <PreloadImage
+        :class="$style.backgroundPreloadImage"
+        :image="currentTrack.image"
+        :lazyLoad="false"
+      />
+    </div>
+
     <ButtonLink
       ref="closeQueueMenu"
       class="queueAction"
@@ -65,6 +83,7 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
                     {{ REWIND_FAST_FORWARD_TITLES.fastForward }}
                   </span>
                 </button>
+
                 <PreloadImage
                   :class="$style.preloadImage"
                   :image="currentTrack.image"
@@ -201,6 +220,7 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: calc(100vh - (var(--space-40) * 2) - (var(--space-16) * 2));
@@ -208,6 +228,8 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -255,6 +277,8 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 }
 
 .trackDetailsWrapper {
+  position: relative;
+  z-index: 1;
   display: contents;
 }
 
@@ -267,5 +291,47 @@ const { toggleQueueList, toggleQueuePlayer } = useQueue();
 .secondaryOptions {
   max-width: 400px;
   margin: 0 auto;
+}
+
+.backgroundImage {
+  --queue-player-animation-play-state: paused;
+
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0.5;
+}
+
+.backgroundImageActive {
+  --queue-player-animation-play-state: running;
+}
+
+.backgroundPreloadImage {
+  width: var(--width-height-100);
+  height: var(--width-height-100);
+  aspect-ratio: unset;
+  filter: blur(16px);
+  transform-origin: center;
+  animation: background-drift 12s ease-in-out infinite;
+  animation-play-state: var(--queue-player-animation-play-state);
+
+  @media (--tablet-up) {
+    filter: blur(60px);
+  }
+}
+
+@keyframes background-drift {
+  0%,
+  100% {
+    transform: scale(1.3) translate(-8%, 0);
+  }
+
+  50% {
+    transform: scale(1.3) translate(8%, 0);
+  }
 }
 </style>

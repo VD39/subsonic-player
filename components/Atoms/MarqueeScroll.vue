@@ -143,7 +143,7 @@ onUnmounted(() => {
 }
 
 .animating {
-  --animation-play-state: running;
+  --marquee-scroll-animation-play-state: running;
 
   mask: linear-gradient(
     90deg,
@@ -155,7 +155,7 @@ onUnmounted(() => {
 
   @media (hover: hover) {
     &:hover {
-      --animation-play-state: paused;
+      --marquee-scroll-animation-play-state: paused;
     }
 
     &:not(:focus):focus-within {
@@ -168,7 +168,7 @@ onUnmounted(() => {
   }
 
   :global(.disableAllPointerEvents) & {
-    --animation-play-state: paused;
+    --marquee-scroll-animation-play-state: paused;
   }
 }
 
@@ -183,7 +183,7 @@ onUnmounted(() => {
 
   .animating & {
     animation: marquee var(--animation-duration) linear infinite forwards;
-    animation-play-state: var(--animation-play-state);
+    animation-play-state: var(--marquee-scroll-animation-play-state);
   }
 }
 

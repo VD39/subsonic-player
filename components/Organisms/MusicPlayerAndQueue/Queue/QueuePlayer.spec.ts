@@ -26,6 +26,7 @@ mockNuxtImport('useQueue', () => () => ({
 const {
   currentTrackMock,
   fastForwardTrackMock,
+  isPlayingMock,
   isPodcastEpisodeMock,
   isRadioStationMock,
   isTrackMock,
@@ -371,6 +372,30 @@ describe('QueuePlayer', () => {
 
     it('does not show the FavouriteButton component', () => {
       expect(wrapper.findComponent(FavouriteButton).exists()).toBe(false);
+    });
+  });
+
+  describe('when the isPlaying value is false', () => {
+    it('does not add the backgroundImageActive class to the backgroundImage element', () => {
+      expect(wrapper.find({ ref: 'backgroundImage' }).classes()).not.toContain(
+        'backgroundImageActive',
+      );
+    });
+  });
+
+  describe('when the isPlaying value is true', () => {
+    beforeEach(() => {
+      isPlayingMock.value = true;
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('adds the backgroundImageActive class to the backgroundImage element', () => {
+      expect(wrapper.find({ ref: 'backgroundImage' }).classes()).toContain(
+        'backgroundImageActive',
+      );
     });
   });
 
