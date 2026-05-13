@@ -161,7 +161,7 @@ describe('useDragAndDrop', () => {
             [
               'drop-id',
               {
-                addToPlaylist: 2,
+                addToPlaylist: 1,
                 addTracksToQueue: 0,
               },
             ],
@@ -267,8 +267,8 @@ describe('useDragAndDrop', () => {
               );
             });
 
-            it('calls the target.classList.add 6 times', () => {
-              expect(addClassMock).toHaveBeenCalledTimes(6);
+            it('calls the target.classList.add 3 times', () => {
+              expect(addClassMock).toHaveBeenCalledTimes(3);
             });
 
             it('calls the target.classList.remove 3 times', () => {

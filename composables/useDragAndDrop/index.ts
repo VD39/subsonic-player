@@ -19,25 +19,22 @@ export function useDragAndDrop() {
       return;
     }
 
-    for (const [index, track] of tracksToAdd.entries()) {
-      target?.classList.add(DRAG_AND_DROP_CLASS_NAMES.droppedInZone);
+    target?.classList.add(DRAG_AND_DROP_CLASS_NAMES.droppedInZone);
 
-      // Update playlist only if on the playlist page.
-      const isMatchingPlaylist =
-        route.params[ROUTE_PARAM_KEYS.playlist.id] === dropId;
-      const isLast = index === tracksToAdd.length - 1;
+    // Update playlist only if on the playlist page.
+    const isMatchingPlaylist =
+      route.params[ROUTE_PARAM_KEYS.playlist.id] === dropId;
 
-      await addToPlaylist(
-        {
-          playlistId: dropId,
-          songIdToAdd: track.id,
-        },
-        isMatchingPlaylist,
-        isLast,
-      );
-    }
+    const songIdsToAdd = tracksToAdd.map((track) => track.id);
 
-    // Remove only when all is complete.
+    await addToPlaylist(
+      {
+        playlistId: dropId,
+        songIdToAdd: songIdsToAdd,
+      },
+      isMatchingPlaylist,
+    );
+
     target?.classList.remove(DRAG_AND_DROP_CLASS_NAMES.droppedInZone);
   }
 

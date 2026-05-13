@@ -174,7 +174,7 @@ export function usePlaylist() {
     });
   }
 
-  function addToPlaylistModal(trackId: string, index?: number) {
+  function addToPlaylistModal(trackId: string | string[], index?: number) {
     const loading = ref(false);
     const newlyCreatedPlaylistId = ref<null | string>(null);
 

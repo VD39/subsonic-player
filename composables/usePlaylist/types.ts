@@ -3,6 +3,6 @@ export interface PlaylistParam {
   name?: string;
   playlistId: string;
   public?: boolean;
-  songIdToAdd?: string;
-  songIndexToRemove?: number | string;
+  songIdToAdd?: string | string[];
+  songIndexToRemove?: number | number[];
 }
