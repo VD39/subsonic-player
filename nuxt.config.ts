@@ -16,6 +16,7 @@ const ENVIRONMENT_VARIABLES = {
   APP_GITHUB_URL: 'https://github.com/VD39/subsonic-player',
   APP_RELEASE_DATE: process.env.APP_RELEASE_DATE || '',
   APP_VERSION: process.env.APP_VERSION || 'dev',
+  ENABLE_QUEUE_SYNC: process.env.ENABLE_QUEUE_SYNC === 'true',
   IMAGE_SIZE: process.env.IMAGE_SIZE || '500',
   LOAD_SIZE: process.env.LOAD_SIZE || '50',
   MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',

@@ -7,7 +7,7 @@ const { $pwa, hook } = useNuxtApp();
 const { closeModal, openModal } = useModal();
 const { isDarkTheme } = useTheme();
 const { width } = useSidebar();
-const { showMediaPlayer } = useAudioPlayer();
+const { hasQueueTracks } = useQueue();
 
 const loading = ref(true);
 
@@ -38,7 +38,7 @@ useHead({
   bodyAttrs: {
     style: {
       '--sidebar-bottom': () =>
-        showMediaPlayer.value ? 'var(--media-player-height)' : '0px',
+        hasQueueTracks.value ? 'var(--media-player-height)' : '0px',
       '--sidebar-width': width,
       '--theme-color': THEME_COLOUR,
     },

@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import InputRange from '@/components/Atoms/InputRange.vue';
 
-const {
-  bufferedDuration,
-  currentTime,
-  currentTrack,
-  fastForwardTrack,
-  rewindTrack,
-  setCurrentTime,
-} = useAudioPlayer();
+const { bufferedDuration, currentTime, fastForwardTrack, rewindTrack, seekTo } =
+  useAudioPlayer();
+const { currentTrack } = useQueue();
 
 const ariaValueText = computed(
   () =>
@@ -28,7 +23,7 @@ const ariaValueText = computed(
     :max="currentTrack.duration"
     :min="0"
     tabindex="0"
-    @change="setCurrentTime"
+    @change="seekTo"
     @keydown.arrow-left.prevent="rewindTrack"
     @keydown.arrow-right.prevent="fastForwardTrack"
   >

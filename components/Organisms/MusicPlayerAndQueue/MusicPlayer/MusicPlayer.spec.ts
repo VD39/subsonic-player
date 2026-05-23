@@ -4,11 +4,11 @@ import { mount } from '@vue/test-utils';
 
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import MusicPlayer from './MusicPlayer.vue';
 
-const { currentTrackMock } = useAudioPlayerMock();
+const { currentTrackMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(MusicPlayer, {

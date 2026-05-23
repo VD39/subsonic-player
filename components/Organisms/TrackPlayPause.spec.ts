@@ -4,11 +4,13 @@ import { mount } from '@vue/test-utils';
 
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import TrackPlayPause from './TrackPlayPause.vue';
 
-const { isBufferingMock, isCurrentTrackMock, isPlayingMock } =
-  useAudioPlayerMock();
+const { isBufferingMock, isPlayingMock } = useAudioPlayerMock();
+
+const { isCurrentTrackMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(TrackPlayPause, {

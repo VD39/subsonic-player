@@ -4,10 +4,12 @@ import { mount } from '@vue/test-utils';
 
 import InputRange from '@/components/Atoms/InputRange.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import TrackSeeker from './TrackSeeker.vue';
 
-const { currentTimeMock, setCurrentTimeMock } = useAudioPlayerMock();
+const { currentTimeMock, seekToMock } = useAudioPlayerMock();
+useQueueMock();
 
 function factory(props = {}) {
   return mount(TrackSeeker, {
@@ -44,8 +46,8 @@ describe('TrackSeeker', () => {
       wrapper.findComponent(InputRange).vm.$emit('change', 10);
     });
 
-    it('calls the setCurrentTime function', () => {
-      expect(setCurrentTimeMock).toHaveBeenCalled();
+    it('calls the seekTo function', () => {
+      expect(seekToMock).toHaveBeenCalled();
     });
   });
 });

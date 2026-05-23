@@ -2,7 +2,8 @@ export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig();
   const { MAIN_APP_TITLE } = config.public;
 
-  const { currentTrack, hasCurrentTrack, isPlaying } = useAudioPlayer();
+  const { currentTrack, hasCurrentTrack } = useQueue();
+  const { isPlaying } = useAudioPlayer();
 
   function getPlayingTitle() {
     if (!isPlaying.value || !hasCurrentTrack.value) {

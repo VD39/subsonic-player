@@ -7,6 +7,7 @@ import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.v
 import { getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import QueuePage from './queue.vue';
 
@@ -43,12 +44,12 @@ mockNuxtImport('useAsyncData', () => () => ({
 
 const { useHeadTitleMock } = useHeadMock();
 const {
-  clearQueueMock,
-  playTrackFromQueueListMock,
-  queueListMock,
-  removeTrackFromQueueListMock,
+  playFromQueueMock,
+  removeFromQueueMock,
   reorderQueueTrackMock,
+  resetPlayerMock,
 } = useAudioPlayerMock();
+const { queueListMock, resetQueueMock } = useQueueMock();
 
 const queueTrack = getFormattedTracksMock()[0];
 
@@ -84,8 +85,12 @@ describe('queue', () => {
       wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
     });
 
-    it('calls the clearQueue function with the correct parameters', () => {
-      expect(clearQueueMock).toHaveBeenCalled();
+    it('calls the resetPlayer function', () => {
+      expect(resetPlayerMock).toHaveBeenCalled();
+    });
+
+    it('calls the resetQueue function', () => {
+      expect(resetQueueMock).toHaveBeenCalled();
     });
   });
 
@@ -164,8 +169,8 @@ describe('queue', () => {
       wrapper.findComponent(MixedTracksList).vm.$emit('playTrack', queueTrack);
     });
 
-    it('calls the playTrackFromQueueList function with the correct parameters', () => {
-      expect(playTrackFromQueueListMock).toHaveBeenCalledWith(queueTrack);
+    it('calls the playFromQueue function with the correct parameters', () => {
+      expect(playFromQueueMock).toHaveBeenCalledWith(queueTrack);
     });
   });
 
@@ -176,8 +181,8 @@ describe('queue', () => {
       });
     });
 
-    it('calls the removeTrackFromQueueList function with the correct parameters', () => {
-      expect(removeTrackFromQueueListMock).toHaveBeenCalledWith(queueTrack.id);
+    it('calls the removeFromQueue function with the correct parameters', () => {
+      expect(removeFromQueueMock).toHaveBeenCalledWith(queueTrack.id);
     });
   });
 

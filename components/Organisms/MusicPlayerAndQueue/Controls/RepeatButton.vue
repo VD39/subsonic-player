@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
-const { repeat, setRepeat } = useAudioPlayer();
+const { cycleRepeat, repeat } = useAudioPlayer();
 
 const buttonProps = computed<ButtonProps>(() => {
   const noRepeat = repeat.value === -1;
@@ -31,7 +31,7 @@ const title = computed(() => {
     :iconColor="buttonProps.iconColor"
     :iconWeight="buttonProps.iconWeight"
     :title
-    @click="setRepeat"
+    @click="cycleRepeat"
   >
     {{ title }}
   </ButtonLink>

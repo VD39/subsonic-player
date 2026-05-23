@@ -6,15 +6,17 @@ export function useStateReset() {
   const { resetPodcasts } = usePodcast();
   const { resetAlbums } = useAlbum();
   const { resetAudioPlayer } = useAudioPlayer();
+  const { resetQueue } = useQueue();
 
   function resetAllUserState() {
+    resetAlbums();
     resetAudioPlayer();
+    resetBookmarks();
     resetFavourites();
     resetPlaylists();
-    resetRadioStations();
-    resetBookmarks();
     resetPodcasts();
-    resetAlbums();
+    resetQueue();
+    resetRadioStations();
   }
 
   return {

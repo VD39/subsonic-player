@@ -12,17 +12,16 @@ import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/Re
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/TrackSeeker.vue';
 
+const { currentTime, fastForwardTrack, isPlaying, rewindTrack } =
+  useAudioPlayer();
 const {
-  currentTime,
   currentTrack,
-  fastForwardTrack,
-  isPlaying,
   isPodcastEpisode,
   isRadioStation,
   isTrack,
-  rewindTrack,
-} = useAudioPlayer();
-const { toggleQueueList, toggleQueuePlayer } = useQueue();
+  toggleQueueList,
+  toggleQueuePlayer,
+} = useQueue();
 </script>
 
 <template>

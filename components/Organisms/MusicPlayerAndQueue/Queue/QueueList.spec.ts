@@ -1,25 +1,20 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import QueueList from './QueueList.vue';
 
-const toggleQueueListMock = vi.fn();
-
-mockNuxtImport('useQueue', () => () => ({
-  toggleQueueList: toggleQueueListMock,
-}));
-
 const {
-  clearQueueMock,
-  playTrackFromQueueListMock,
-  removeTrackFromQueueListMock,
+  playFromQueueMock,
+  removeFromQueueMock,
   reorderQueueTrackMock,
+  resetPlayerMock,
 } = useAudioPlayerMock();
+const { resetQueueMock, toggleQueueListMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(QueueList, {
@@ -49,8 +44,8 @@ describe('QueueList', () => {
       wrapper.findComponent(MixedTracksList).vm.$emit('playTrack');
     });
 
-    it('calls the playTrackFromQueueList function', () => {
-      expect(playTrackFromQueueListMock).toHaveBeenCalled();
+    it('calls the playFromQueue function', () => {
+      expect(playFromQueueMock).toHaveBeenCalled();
     });
   });
 
@@ -61,8 +56,8 @@ describe('QueueList', () => {
       });
     });
 
-    it('calls the removeTrackFromQueueList function with the correct parameters', () => {
-      expect(removeTrackFromQueueListMock).toHaveBeenCalledWith('id');
+    it('calls the removeFromQueue function with the correct parameters', () => {
+      expect(removeFromQueueMock).toHaveBeenCalledWith('id');
     });
   });
 
@@ -81,8 +76,12 @@ describe('QueueList', () => {
       wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
     });
 
-    it('calls the clearQueue function', () => {
-      expect(clearQueueMock).toHaveBeenCalled();
+    it('calls the resetPlayer function', () => {
+      expect(resetPlayerMock).toHaveBeenCalled();
+    });
+
+    it('calls the resetQueue function', () => {
+      expect(resetQueueMock).toHaveBeenCalled();
     });
   });
 

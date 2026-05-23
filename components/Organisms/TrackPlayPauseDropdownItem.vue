@@ -10,7 +10,8 @@ const emit = defineEmits<{
   playTrack: [];
 }>();
 
-const { isCurrentTrack, isPlaying, togglePlay } = useAudioPlayer();
+const { isCurrentTrack } = useQueue();
+const { isPlaying, togglePlay } = useAudioPlayer();
 
 const currentTrackIsPlaying = computed(
   () => isCurrentTrack(props.trackId) && isPlaying.value,

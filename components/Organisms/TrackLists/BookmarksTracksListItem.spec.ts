@@ -6,11 +6,11 @@ import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedBookmarksMock } from '@/test/helpers';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import BookmarksTracksListItem from './BookmarksTracksListItem.vue';
 
-const { isCurrentTrackMock } = useAudioPlayerMock();
+const { isCurrentTrackMock } = useQueueMock();
 
 const bookmark = getFormattedBookmarksMock()[0];
 

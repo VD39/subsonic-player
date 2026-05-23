@@ -3,13 +3,12 @@ import MusicPlayer from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayer/
 import QueueList from '@/components/Organisms/MusicPlayerAndQueue/Queue/QueueList.vue';
 import QueuePlayer from '@/components/Organisms/MusicPlayerAndQueue/Queue/QueuePlayer.vue';
 
-const { showMediaPlayer } = useAudioPlayer();
-const { isQueueListOpened, isQueuePlayerOpened } = useQueue();
+const { hasQueueTracks, isQueueListOpened, isQueuePlayerOpened } = useQueue();
 </script>
 
 <template>
   <transition name="slide-up-down">
-    <MusicPlayer v-if="showMediaPlayer" />
+    <MusicPlayer v-if="hasQueueTracks" />
   </transition>
 
   <transition name="slide-up-down">

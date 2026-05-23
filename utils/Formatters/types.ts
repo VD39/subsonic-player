@@ -49,6 +49,12 @@ export interface Bookmark extends PodcastEpisode {
   position: number;
 }
 
+export interface FormattedPlayQueue {
+  current?: number;
+  position: number;
+  tracks: (PodcastEpisode | Track)[];
+}
+
 export interface Genre {
   albumCount?: number;
   name: string;
@@ -94,6 +100,7 @@ export interface PodcastEpisode {
   name: string;
   podcastId?: string;
   podcastName: string;
+  position?: number;
   publishDate: string;
   streamUrlId?: string;
   trackNumber: number | string;
@@ -107,6 +114,7 @@ export interface RadioStation {
   id: string;
   image: string;
   name: string;
+  position?: number;
   streamUrlId: string;
   trackNumber: number | string;
   type: MediaType;
@@ -126,6 +134,7 @@ export interface Track {
   index: number;
   information: TrackInformation;
   name: string;
+  position?: number;
   size: string;
   streamUrlId: string;
   trackNumber: number | string;

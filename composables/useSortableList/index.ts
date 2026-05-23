@@ -1,7 +1,7 @@
 export function useSortableList(options: SortableListOptions) {
   const { listContainerRef, onReorder } = options;
 
-  const { isDragging } = useSortableListState();
+  const { isDragging, setDraggingState } = useSortableListState();
 
   // DOM references.
   const draggedItem = ref<HTMLElement | null>(null);
@@ -556,19 +556,6 @@ export function useSortableList(options: SortableListOptions) {
     dragAbortController.value?.abort();
     dragAbortController.value = null;
     resetDragState();
-  }
-
-  // Updates the shared dragging flag - uses setTimeout(0) when disabling
-  // so that click handlers on items can still check isDragging before it clears.
-  function setDraggingState(value: boolean) {
-    if (value) {
-      isDragging.value = true;
-      return;
-    }
-
-    setTimeout(() => {
-      isDragging.value = false;
-    }, 0);
   }
 
   // Tears down everything: any active drag, all event listeners, and the mutation observer.

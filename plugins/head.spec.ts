@@ -2,13 +2,9 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { getFormattedRadioStationMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import headPlugin from './head';
-
-const radioStation = getFormattedRadioStationMock()[0];
-
-const { currentTrackMock, hasCurrentTrackMock, isPlayingMock } =
-  useAudioPlayerMock();
 
 let useHeadCallback: (typeof useHead)['arguments'][0];
 
@@ -17,6 +13,11 @@ mockNuxtImport('useHead', () =>
     useHeadCallback = cb;
   }),
 );
+
+const { isPlayingMock } = useAudioPlayerMock();
+const { currentTrackMock, hasCurrentTrackMock } = useQueueMock();
+
+const radioStation = getFormattedRadioStationMock()[0];
 
 describe('head plugin', () => {
   beforeEach(() => {

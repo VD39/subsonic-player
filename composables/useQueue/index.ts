@@ -1,13 +1,257 @@
 export function useQueue() {
+  const config = useRuntimeConfig();
+  const { ENABLE_QUEUE_SYNC } = config.public;
+
+  const { fetchData } = useAPI();
   const { lockScroll, unlockScroll } = useScrollLock('queue');
 
   const isQueueListOpened = useState(STATE_NAMES.queueListOpened, () => false);
+
   const isQueuePlayerOpened = useState(
     STATE_NAMES.queuePlayerOpened,
     () => false,
   );
 
-  function toggleLockScroll() {
+  const queueList = useState<MixedTrack[]>(STATE_NAMES.playerQueueList, () => [
+    ...QUEUE_DEFAULT_STATES.queueList,
+  ]);
+
+  const originalQueueList = useState(
+    STATE_NAMES.playerOriginalQueueList,
+    () => QUEUE_DEFAULT_STATES.originalQueueList,
+  );
+
+  const currentQueueIndex = useState(
+    STATE_NAMES.playerCurrentQueueIndex,
+    () => QUEUE_DEFAULT_STATES.currentQueueIndex,
+  );
+
+  const currentTrack = computed<MixedTrack>(
+    () => queueList.value[currentQueueIndex.value] || ({} as MixedTrack),
+  );
+
+  const hasCurrentTrack = computed(
+    () => !!Object.keys(currentTrack.value).length,
+  );
+
+  const isLastTrack = computed(
+    () => currentQueueIndex.value === queueList.value.length - 1,
+  );
+
+  const hasNextTrack = computed(
+    () => currentQueueIndex.value < queueList.value.length - 1,
+  );
+
+  const hasPreviousTrack = computed(() => currentQueueIndex.value > 0);
+
+  const hasQueueTracks = computed(() => !!queueList.value.length);
+
+  const isPodcastEpisode = computed(
+    () => currentTrack.value.type === MEDIA_TYPE.podcastEpisode,
+  );
+
+  const isRadioStation = computed(
+    () => currentTrack.value.type === MEDIA_TYPE.radioStation,
+  );
+
+  const isTrack = computed(() => currentTrack.value.type === MEDIA_TYPE.track);
+
+  function addTracks(tracks: MixedTrack[], clearExisting = false) {
+    if (clearExisting) {
+      clearQueue();
+    }
+
+    const queueListHasTracks = !!queueList.value.length;
+
+    queueList.value.push(...tracks);
+    saveQueueState();
+
+    return queueListHasTracks;
+  }
+
+  function clearQueue() {
+    queueList.value = [...QUEUE_DEFAULT_STATES.queueList];
+    currentQueueIndex.value = QUEUE_DEFAULT_STATES.currentQueueIndex;
+    originalQueueList.value = QUEUE_DEFAULT_STATES.originalQueueList;
+  }
+
+  function closeQueuePanels() {
+    isQueueListOpened.value = false;
+    isQueuePlayerOpened.value = false;
+
+    unlockScroll();
+  }
+
+  function isCurrentTrack(id: string) {
+    return currentTrack.value.id === id;
+  }
+
+  async function loadFromServer() {
+    if (!ENABLE_QUEUE_SYNC) {
+      loadQueueState();
+
+      return;
+    }
+
+    const { data: playQueueData } = await fetchData('/getPlayQueue', {
+      transform: /* istanbul ignore next -- @preserve */ (response) =>
+        formatPlayQueue(response.playQueue),
+    });
+
+    if (!playQueueData?.tracks.length) {
+      return;
+    }
+
+    queueList.value = playQueueData.tracks;
+
+    currentQueueIndex.value = 0;
+
+    if (playQueueData.current) {
+      const foundIndex = playQueueData.tracks.findIndex(
+        (track) => track.id === String(playQueueData.current),
+      );
+
+      currentQueueIndex.value = foundIndex === -1 ? 0 : foundIndex;
+    }
+
+    if (playQueueData.position) {
+      queueList.value[currentQueueIndex.value].position =
+        playQueueData.position;
+    }
+  }
+
+  function loadQueueState() {
+    const savedState = getLocalStorage(STATE_NAMES.queueState);
+
+    if (!savedState) {
+      clearQueue();
+
+      return;
+    }
+
+    currentQueueIndex.value = savedState.currentQueueIndex;
+    originalQueueList.value = savedState.originalQueueList;
+    queueList.value = savedState.queueList;
+  }
+
+  function navigateQueue(target: 'next' | 'previous' | number) {
+    switch (target) {
+      case 'next':
+        currentQueueIndex.value = isLastTrack.value
+          ? 0
+          : currentQueueIndex.value + 1;
+        break;
+      case 'previous':
+        currentQueueIndex.value =
+          currentQueueIndex.value === 0
+            ? queueList.value.length - 1
+            : currentQueueIndex.value - 1;
+        break;
+      default:
+        currentQueueIndex.value = target;
+        break;
+    }
+
+    saveQueueState();
+
+    return currentTrack.value;
+  }
+
+  function removeTrack(id: string) {
+    const isCurrentTrackRemoved = currentTrack.value.id === id;
+
+    if (queueList.value.length === 1) {
+      resetQueue();
+
+      return 1;
+    }
+
+    const index = getQueueIndexById(id);
+
+    if (index === -1) {
+      return false;
+    }
+
+    if (index < currentQueueIndex.value || isLastTrack.value) {
+      currentQueueIndex.value -= 1;
+    }
+
+    queueList.value.splice(index, 1);
+    saveQueueState();
+
+    return isCurrentTrackRemoved;
+  }
+
+  function reorderTrack(fromIndex: number, toIndex: number) {
+    if (
+      fromIndex < 0 ||
+      fromIndex >= queueList.value.length ||
+      toIndex < 0 ||
+      toIndex >= queueList.value.length ||
+      fromIndex === toIndex
+    ) {
+      return;
+    }
+
+    const [movedTrack] = queueList.value.splice(fromIndex, 1);
+    queueList.value.splice(toIndex, 0, movedTrack);
+
+    if (currentQueueIndex.value === fromIndex) {
+      currentQueueIndex.value = toIndex;
+    } else if (
+      fromIndex < currentQueueIndex.value &&
+      toIndex >= currentQueueIndex.value
+    ) {
+      currentQueueIndex.value -= 1;
+    } else if (
+      fromIndex > currentQueueIndex.value &&
+      toIndex <= currentQueueIndex.value
+    ) {
+      currentQueueIndex.value += 1;
+    }
+
+    saveQueueState();
+  }
+
+  function resetQueue() {
+    clearQueue();
+    deleteLocalStorage(STATE_NAMES.queueState);
+    closeQueuePanels();
+    syncToServer();
+  }
+
+  function restoreQueue() {
+    const tempCurrentTrackId = currentTrack.value.id;
+    queueList.value = removeRemovedTracksFromOriginalQueue(
+      [...queueList.value],
+      [...JSON.parse(originalQueueList.value)],
+    );
+    originalQueueList.value = QUEUE_DEFAULT_STATES.originalQueueList;
+    const index = getQueueIndexById(tempCurrentTrackId);
+    currentQueueIndex.value = index;
+    saveQueueState();
+  }
+
+  function saveQueueState(positionMs?: number) {
+    setLocalStorage(STATE_NAMES.queueState, {
+      currentQueueIndex: currentQueueIndex.value,
+      originalQueueList: originalQueueList.value,
+      queueList: queueList.value,
+    });
+
+    syncToServer(positionMs);
+  }
+
+  function shuffleQueue() {
+    const queueClone = [...queueList.value];
+    originalQueueList.value = JSON.stringify(queueClone);
+    const index = getQueueIndexById(currentTrack.value.id);
+    queueList.value = shuffleTrackInQueue(queueClone, index);
+    currentQueueIndex.value = 0;
+    saveQueueState();
+  }
+
+  function syncScrollLock() {
     if (isQueueListOpened.value || isQueuePlayerOpened.value) {
       lockScroll();
     } else {
@@ -15,28 +259,94 @@ export function useQueue() {
     }
   }
 
-  function toggleQueuePlayer() {
-    isQueuePlayerOpened.value = !isQueuePlayerOpened.value;
-    toggleLockScroll();
+  async function syncToServer(positionMs?: number) {
+    if (!ENABLE_QUEUE_SYNC) {
+      return;
+    }
+
+    if (!queueList.value.length) {
+      await fetchData('/savePlayQueue', {
+        method: 'POST',
+      });
+
+      return;
+    }
+
+    const ids = queueList.value
+      .filter((track) => track.type !== MEDIA_TYPE.radioStation)
+      .map((track) => track.id);
+
+    const current =
+      currentTrack.value.type === MEDIA_TYPE.radioStation
+        ? undefined
+        : currentTrack.value.id;
+
+    await fetchData('/savePlayQueue', {
+      method: 'POST',
+      query: {
+        current,
+        id: ids,
+        position: positionMs,
+      },
+    });
   }
 
   function toggleQueueList() {
     isQueueListOpened.value = !isQueueListOpened.value;
-    toggleLockScroll();
+    syncScrollLock();
   }
 
-  function resetQueue() {
-    isQueueListOpened.value = false;
-    isQueuePlayerOpened.value = false;
+  function toggleQueuePlayer() {
+    isQueuePlayerOpened.value = !isQueuePlayerOpened.value;
+    syncScrollLock();
+  }
 
-    unlockScroll();
+  function updateCurrentTrackPosition(positionMs: number) {
+    queueList.value[currentQueueIndex.value].position = positionMs;
+    saveQueueState(positionMs);
+  }
+
+  function updateTrackFavourite(id: string, isFavourite: boolean) {
+    const track = queueList.value.find((track) => track.id === id) as Track;
+
+    if (track) {
+      track.favourite = isFavourite;
+      saveQueueState();
+    }
+  }
+
+  function getQueueIndexById(id: string) {
+    return queueList.value.findIndex((item) => item.id === id);
   }
 
   return {
+    addTracks,
+    closeQueuePanels,
+    currentQueueIndex,
+    currentTrack,
+    hasCurrentTrack,
+    hasNextTrack,
+    hasPreviousTrack,
+    hasQueueTracks,
+    isCurrentTrack,
+    isLastTrack,
+    isPodcastEpisode,
     isQueueListOpened,
     isQueuePlayerOpened,
+    isRadioStation,
+    isTrack,
+    loadFromServer,
+    navigateQueue,
+    originalQueueList,
+    queueList,
+    removeTrack,
+    reorderTrack,
     resetQueue,
+    restoreQueue,
+    shuffleQueue,
     toggleQueueList,
     toggleQueuePlayer,
+    updateCurrentTrackPosition,
+    updateTrackFavourite,
   };
 }

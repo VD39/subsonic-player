@@ -13,11 +13,11 @@ import {
   getFormattedRadioStationMock,
   getFormattedTracksMock,
 } from '@/test/helpers';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import MixedTracksListItem from './MixedTracksListItem.vue';
 
-const { isCurrentTrackMock } = useAudioPlayerMock();
+const { isCurrentTrackMock } = useQueueMock();
 
 const track = getFormattedTracksMock()[0];
 

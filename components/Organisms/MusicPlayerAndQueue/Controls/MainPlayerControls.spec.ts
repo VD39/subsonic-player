@@ -3,16 +3,17 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import MainPlayerControls from './MainPlayerControls.vue';
 
 const {
   fastForwardTrackMock,
-  isPodcastEpisodeMock,
   playNextTrackMock,
   playPreviousTrackMock,
   rewindTrackMock,
 } = useAudioPlayerMock();
+const { isPodcastEpisodeMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(MainPlayerControls, {

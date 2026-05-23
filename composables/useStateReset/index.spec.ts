@@ -1,6 +1,7 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import { useStateReset } from './index';
 
@@ -41,6 +42,7 @@ mockNuxtImport('useAlbum', () => () => ({
 }));
 
 const { resetAudioPlayerMock } = useAudioPlayerMock();
+const { resetQueueMock } = useQueueMock();
 
 const { resetAllUserState } = useStateReset();
 
@@ -80,6 +82,10 @@ describe('useStateReset', () => {
 
     it('calls the resetAlbums function', () => {
       expect(resetAlbumsMock).toHaveBeenCalledOnce();
+    });
+
+    it('calls the resetQueue function', () => {
+      expect(resetQueueMock).toHaveBeenCalledOnce();
     });
   });
 });

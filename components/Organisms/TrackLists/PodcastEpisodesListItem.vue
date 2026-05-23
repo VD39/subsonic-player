@@ -27,7 +27,7 @@ const emit = defineEmits<{
   playEpisode: [];
 }>();
 
-const { isCurrentTrack } = useAudioPlayer();
+const { isCurrentTrack } = useQueue();
 
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 

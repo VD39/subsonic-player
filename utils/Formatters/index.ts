@@ -106,12 +106,13 @@ export function formatArtist(
 }
 
 export function formatBookmark(bookmark: FormattedBookmark): Bookmark {
-  const position = (bookmark.position || 0) / 1000;
+  const positionMs = bookmark.position || 0;
+  const positionSeconds = positionMs / 1000;
 
   return {
     ...formatPodcastEpisode(bookmark as unknown as ResponsePodcastEpisode),
-    formattedPosition: secondsToHHMMSS(position),
-    position,
+    formattedPosition: secondsToHHMMSS(positionSeconds),
+    position: positionMs,
     trackNumber: 0,
   };
 }
@@ -140,11 +141,7 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
     songCount: trackCount,
   } = playlist;
 
-  const tracks = entry.map((media, index) =>
-    media.type === 'podcastepisode'
-      ? formatPodcastEpisode(media as ResponsePodcastEpisode)
-      : formatTrack(media, index),
-  );
+  const tracks = formatMixedEntries(entry);
 
   return {
     duration,
@@ -162,6 +159,18 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
     trackCount,
     tracks,
     type: MEDIA_TYPE.playlist,
+  };
+}
+
+export function formatPlayQueue(playQueue: PlayQueue): FormattedPlayQueue {
+  const { current, entry = [], position = 0 } = playQueue;
+
+  const tracks = formatMixedEntries(entry);
+
+  return {
+    current,
+    position,
+    tracks,
   };
 }
 
@@ -312,4 +321,12 @@ export function formatTrack(track: Base, index: number): Track {
     type: MEDIA_TYPE.track,
     year,
   };
+}
+
+function formatMixedEntries(entries: Base[]): (PodcastEpisode | Track)[] {
+  return entries.map((entry, index) =>
+    entry.type === 'podcastepisode'
+      ? formatPodcastEpisode(entry as ResponsePodcastEpisode)
+      : formatTrack(entry, index),
+  );
 }

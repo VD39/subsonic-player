@@ -22,7 +22,7 @@ const emit = defineEmits<{
   playRadioStation: [];
 }>();
 
-const { isCurrentTrack } = useAudioPlayer();
+const { isCurrentTrack } = useQueue();
 
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 

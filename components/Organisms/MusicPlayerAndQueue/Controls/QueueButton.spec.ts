@@ -1,17 +1,13 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import QueueButton from './QueueButton.vue';
 
-const toggleQueuePlayerMock = vi.fn();
-
-mockNuxtImport('useQueue', () => () => ({
-  toggleQueuePlayer: toggleQueuePlayerMock,
-}));
+const { toggleQueuePlayerMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(QueueButton, {

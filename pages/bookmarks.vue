@@ -7,7 +7,7 @@ import BookmarksTracksList from '@/components/Organisms/TrackLists/BookmarksTrac
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
-const { playTracks, setCurrentTime } = useAudioPlayer();
+const { playTracks } = useAudioPlayer();
 const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
 /* istanbul ignore next -- @preserve */
@@ -36,7 +36,6 @@ const { refresh, status } = useAsyncData(
 
 async function playEpisodeFromBookmarks(index: number) {
   await playTracks([bookmarks.value[index]], -1);
-  setCurrentTime(bookmarks.value[index].position);
 }
 
 useHead({

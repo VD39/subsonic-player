@@ -6,11 +6,11 @@ const {
   fastForwardTrack,
   hasNextTrack,
   hasPreviousTrack,
-  isPodcastEpisode,
   playNextTrack,
   playPreviousTrack,
   rewindTrack,
 } = useAudioPlayer();
+const { isPodcastEpisode } = useQueue();
 </script>
 
 <template>

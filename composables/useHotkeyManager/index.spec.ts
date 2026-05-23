@@ -6,6 +6,7 @@ import {
   windowEventListenerMock,
 } from '@/test/eventListenersMock';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 import { withSetup } from '@/test/withSetup';
 
 import { useHotkeyManager } from './index';
@@ -20,12 +21,6 @@ const addPlaylistModalMock = vi.fn();
 
 mockNuxtImport('usePlaylist', () => () => ({
   addPlaylistModal: addPlaylistModalMock,
-}));
-
-const toggleQueuePlayerMock = vi.fn();
-
-mockNuxtImport('useQueue', () => () => ({
-  toggleQueuePlayer: toggleQueuePlayerMock,
 }));
 
 const addPodcastModalMock = vi.fn();
@@ -68,21 +63,24 @@ const blurMock = vi.fn();
 const getElementByIdSpy = vi.spyOn(document, 'getElementById');
 
 const {
+  cycleRepeatMock,
   fastForwardTrackMock,
-  hasCurrentTrackMock,
-  isPodcastEpisodeMock,
-  isTrackMock,
   playNextTrackMock,
   playPreviousTrackMock,
   rewindTrackMock,
-  setCurrentTimeMock,
+  seekToMock,
   setPlaybackRateWithIncrementMock,
-  setRepeatMock,
   setVolumeWithIncrementMock,
   toggleMuteMock,
   togglePlayMock,
   toggleShuffleMock,
 } = useAudioPlayerMock();
+const {
+  hasCurrentTrackMock,
+  isPodcastEpisodeMock,
+  isTrackMock,
+  toggleQueuePlayerMock,
+} = useQueueMock();
 const { documentAddEventListenerSpy, documentEvents } =
   documentEventListenerMock();
 const { windowAddEventListenerSpy, windowEvents } = windowEventListenerMock();
@@ -93,13 +91,13 @@ const ALL_MOCKS = {
   addPlaylistModal: addPlaylistModalMock,
   addPodcastModal: addPodcastModalMock,
   addRadioStationModal: addRadioStationModalMock,
+  cycleRepeat: cycleRepeatMock,
   fastForwardTrack: fastForwardTrackMock,
   playNextTrack: playNextTrackMock,
   playPreviousTrack: playPreviousTrackMock,
   rewindTrack: rewindTrackMock,
-  setCurrentTime: setCurrentTimeMock,
+  seekTo: seekToMock,
   setPlaybackRateWithIncrement: setPlaybackRateWithIncrementMock,
-  setRepeat: setRepeatMock,
   setVolumeWithIncrement: setVolumeWithIncrementMock,
   toggleFavourite: toggleFavouriteMock,
   toggleMute: toggleMuteMock,
@@ -545,7 +543,7 @@ describe('useHotkeyManager', () => {
       [['Shift', 'P'], 'toggleQueuePlayer'],
       [[' '], 'togglePlay'],
       [['M'], 'toggleMute'],
-      [['R'], 'setRepeat'],
+      [['R'], 'cycleRepeat'],
       [['S'], 'toggleShuffle'],
     ])('when %s key is pressed', (keys, event, arg = undefined) => {
       describe('when hasCurrentTrack value is false', () => {
@@ -601,7 +599,7 @@ describe('useHotkeyManager', () => {
 
         setEvents(keys);
 
-        expectMockToBeOrNotToBeCalled('setCurrentTime', time);
+        expectMockToBeOrNotToBeCalled('seekTo', time);
         expectGetElementByIdMock();
       });
     });

@@ -3,17 +3,37 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
-const {
-  clearQueue,
-  playTrackFromQueueList,
-  queueList,
-  removeTrackFromQueueList,
-  reorderQueueTrack,
-} = useAudioPlayer();
+const { playFromQueue, removeFromQueue, reorderQueueTrack, resetPlayer } =
+  useAudioPlayer();
+const { loadFromServer, queueList, resetQueue } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
 const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 const { dragStart } = useDragAndDrop();
+
+/* istanbul ignore next -- @preserve */
+useAsyncData(
+  ASYNC_DATA_NAMES.queue,
+  async () => {
+    await loadFromServer();
+
+    return {
+      queueList: queueList.value,
+    };
+  },
+  {
+    default: () => ({
+      queueList: [],
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
+function clearQueue() {
+  resetPlayer();
+  resetQueue();
+}
 
 useHead({
   title: 'Queue',
@@ -42,8 +62,8 @@ useHead({
     @downloadMedia="downloadMedia"
     @dragStart="dragStart"
     @mediaInformation="openTrackInformationModal"
-    @playTrack="playTrackFromQueueList"
-    @remove="({ id }) => removeTrackFromQueueList(id)"
+    @playTrack="playFromQueue"
+    @remove="({ id }) => removeFromQueue(id)"
     @sortList="reorderQueueTrack"
   />
 </template>

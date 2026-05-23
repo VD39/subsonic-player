@@ -1,7 +1,3 @@
-export function getIndex(array: MixedTrack[], id: string) {
-  return array.findIndex(({ id: itemId }) => itemId === id);
-}
-
 export function getPreviousTrack(
   queue: MixedTrack[],
   currentIndex: number,
@@ -26,6 +22,10 @@ export function getTracksToPreload(
   currentIndex: number,
   repeat: number,
 ): MixedTrack[] {
+  if (!queue.length) {
+    return [];
+  }
+
   return [
     ...getUpcomingTracks(queue, currentIndex, repeat),
     ...getPreviousTrack(queue, currentIndex, repeat),

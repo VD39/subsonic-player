@@ -76,7 +76,9 @@ const showPageNavigation = computed(() =>
     </main>
 
     <footer>
-      <MusicPlayerAndQueue />
+      <client-only>
+        <MusicPlayerAndQueue />
+      </client-only>
       <HotkeyMappings />
     </footer>
   </div>

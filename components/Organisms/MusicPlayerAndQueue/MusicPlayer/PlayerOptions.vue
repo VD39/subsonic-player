@@ -5,8 +5,8 @@ import PlaybackRateButton from '@/components/Organisms/MusicPlayerAndQueue/Contr
 import QueueButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/QueueButton.vue';
 import VolumeControl from '@/components/Organisms/MusicPlayerAndQueue/Controls/VolumeControl.vue';
 
-const { currentTime, currentTrack, isPodcastEpisode, isRadioStation } =
-  useAudioPlayer();
+const { currentTime } = useAudioPlayer();
+const { currentTrack, isPodcastEpisode, isRadioStation } = useQueue();
 </script>
 
 <template>

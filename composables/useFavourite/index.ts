@@ -1,6 +1,6 @@
 export function useFavourite() {
   const { fetchData } = useAPI();
-  const { updateQueueTrackFavourite } = useAudioPlayer();
+  const { updateTrackFavourite } = useQueue();
 
   const favourites = useState<AllMedia>(
     STATE_NAMES.favourites,
@@ -59,7 +59,7 @@ export function useFavourite() {
       await addFavourite(track);
     }
 
-    updateQueueTrackFavourite(track.id!, !isFavourite);
+    updateTrackFavourite(track.id!, !isFavourite);
   }
 
   return {

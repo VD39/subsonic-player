@@ -14,9 +14,11 @@ import { useSortableList } from './index';
 vi.useFakeTimers();
 
 const isDraggingMock = ref(false);
+const setDraggingStateMock = vi.fn();
 
 mockNuxtImport('useSortableListState', () => () => ({
   isDragging: isDraggingMock,
+  setDraggingState: setDraggingStateMock,
 }));
 
 const { documentAddEventListenerSpy, documentEvents } =
@@ -404,8 +406,8 @@ describe('useSortableList', () => {
       expect(startEvent.preventDefault).toHaveBeenCalled();
     });
 
-    it('sets isDragging to true', () => {
-      expect(isDraggingMock.value).toBe(true);
+    it('calls the setDraggingState function', () => {
+      expect(setDraggingStateMock).toHaveBeenCalledWith(true);
     });
 
     it('adds the draggable class to the dragged item', () => {
@@ -484,8 +486,8 @@ describe('useSortableList', () => {
           expect(sortableSetup.onReorder).toHaveBeenCalledWith(1, 2);
         });
 
-        it('sets isDragging to false', () => {
-          expect(isDraggingMock.value).toBe(false);
+        it('calls the setDraggingState function', () => {
+          expect(setDraggingStateMock).toHaveBeenCalledWith(false);
         });
 
         it('adds the idle class to the dragged item', () => {
@@ -598,8 +600,8 @@ describe('useSortableList', () => {
         expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       });
 
-      it('does not set isDragging to true', () => {
-        expect(isDraggingMock.value).toBe(false);
+      it('calls the setDraggingState function', () => {
+        expect(setDraggingStateMock).not.toHaveBeenCalled();
       });
     });
 
@@ -659,8 +661,8 @@ describe('useSortableList', () => {
         expect(vibrateMock).toHaveBeenCalledWith(50);
       });
 
-      it('sets isDragging to true', () => {
-        expect(isDraggingMock.value).toBe(true);
+      it('calls the setDraggingState function', () => {
+        expect(setDraggingStateMock).toHaveBeenCalledWith(true);
       });
 
       it('adds the draggable class to the item', () => {
@@ -682,8 +684,8 @@ describe('useSortableList', () => {
           expect(sortableSetup.onReorder).not.toHaveBeenCalled();
         });
 
-        it('sets isDragging to false', () => {
-          expect(isDraggingMock.value).toBe(false);
+        it('calls the setDraggingState function', () => {
+          expect(setDraggingStateMock).toHaveBeenCalledWith(false);
         });
       });
 
@@ -698,8 +700,8 @@ describe('useSortableList', () => {
           expect(sortableSetup.onReorder).not.toHaveBeenCalled();
         });
 
-        it('sets isDragging to false', () => {
-          expect(isDraggingMock.value).toBe(false);
+        it('calls the setDraggingState function', () => {
+          expect(setDraggingStateMock).toHaveBeenCalledWith(false);
         });
       });
     });

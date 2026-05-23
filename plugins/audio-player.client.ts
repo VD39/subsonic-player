@@ -1,9 +1,11 @@
 export default defineNuxtPlugin((nuxtApp) => {
+  const { loadFromServer } = useQueue();
   const { initAudioPlayer } = useAudioPlayer();
 
   nuxtApp.hook('app:suspense:resolve', () => {
-    callOnce(() => {
-      initAudioPlayer();
+    callOnce(async () => {
+      await loadFromServer();
+      await initAudioPlayer();
     });
   });
 });

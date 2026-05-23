@@ -1,7 +1,6 @@
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 
 import {
-  getIndex,
   getPreviousTrack,
   getTracksToPreload,
   getUpcomingTracks,
@@ -26,19 +25,6 @@ describe('shuffleTrackInQueue', () => {
       expect(shuffleTrackInQueue([...tracks], index)[0]).toEqual(
         tracks[index || 0],
       );
-    });
-  });
-});
-
-describe('getIndex', () => {
-  describe.each([
-    [tracks[0].id, 0],
-    [tracks[1].id, 1],
-    [tracks[2].id, 2],
-    ['unknown', -1],
-  ])('when id is %s', (id, output) => {
-    it('returns the correct response', () => {
-      expect(getIndex(tracks, id)).toEqual(output);
     });
   });
 });
@@ -91,6 +77,7 @@ describe('getPreviousTrack', () => {
 
 describe('getTracksToPreload', () => {
   describe.each([
+    [[], 1, -1, []],
     [tracks, 1, -1, [tracks[2], tracks[3], tracks[4], tracks[0]]],
     [tracks, 0, -1, [tracks[1], tracks[2], tracks[3]]],
   ])(

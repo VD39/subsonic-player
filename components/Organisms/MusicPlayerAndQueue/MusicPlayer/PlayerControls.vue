@@ -3,7 +3,7 @@ import MainPlayerControls from '@/components/Organisms/MusicPlayerAndQueue/Contr
 import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 
-const { isRadioStation } = useAudioPlayer();
+const { isRadioStation } = useQueue();
 </script>
 
 <template>

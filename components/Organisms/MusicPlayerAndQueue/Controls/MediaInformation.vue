@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
-const { currentTrack } = useAudioPlayer();
+const { currentTrack } = useQueue();
 const { openTrackInformationModal } = useMediaInformation();
 
 function onClick() {

@@ -4,7 +4,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import MediaInformation from './MediaInformation.vue';
 
@@ -14,7 +14,7 @@ mockNuxtImport('useMediaInformation', () => () => ({
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const { currentTrackMock } = useAudioPlayerMock();
+const { currentTrackMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(MediaInformation, {

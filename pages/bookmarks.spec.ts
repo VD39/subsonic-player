@@ -47,7 +47,7 @@ mockNuxtImport('useAsyncData', () => () => ({
 }));
 
 const { useHeadTitleMock } = useHeadMock();
-const { playTracksMock, setCurrentTimeMock } = useAudioPlayerMock();
+const { playTracksMock } = useAudioPlayerMock();
 
 const bookmark = getFormattedBookmarksMock()[0];
 
@@ -151,12 +151,6 @@ describe('bookmarks', () => {
 
     it('calls the playTracks function with correct bookmark', () => {
       expect(playTracksMock).toHaveBeenCalledWith([bookmarksMock.value[0]], -1);
-    });
-
-    it('calls the setCurrentTime function with bookmark position', () => {
-      expect(setCurrentTimeMock).toHaveBeenCalledWith(
-        bookmarksMock.value[0].position,
-      );
     });
   });
 

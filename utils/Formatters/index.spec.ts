@@ -5,6 +5,7 @@ import {
   playlistMock,
   podcastEpisodeMock,
   podcastMock,
+  queueMock,
   radioStationMock,
   trackMock,
 } from '@/test/fixtures';
@@ -18,6 +19,7 @@ import {
   formatBookmark,
   formatGenre,
   formatPlaylist,
+  formatPlayQueue,
   formatPodcast,
   formatPodcastEpisode,
   formatRadioStation,
@@ -87,6 +89,65 @@ describe('formatAlbum', () => {
       expect(
         formatAlbum({
           ...albumMock,
+          [key]: undefined,
+        }),
+      ).toEqual(expect.objectContaining(outcome));
+    });
+  });
+});
+
+describe('formatPlayQueue', () => {
+  describe(`when entry media type is ${MEDIA_TYPE.podcastEpisode}`, () => {
+    it('returns the correct values', () => {
+      expect(
+        formatPlayQueue({
+          ...queueMock,
+          entry: [podcastEpisodeMock],
+        }),
+      ).toEqual({
+        current: 1,
+        position: 1000,
+        tracks: [
+          expect.objectContaining({
+            id: podcastEpisodeMock.id,
+          }),
+        ],
+      });
+    });
+  });
+
+  describe(`when entry media type is not ${MEDIA_TYPE.podcastEpisode}`, () => {
+    it('returns the correct values', () => {
+      expect(formatPlayQueue(queueMock)).toEqual(
+        expect.objectContaining({
+          tracks: expect.arrayContaining([
+            expect.objectContaining({
+              type: 'track',
+            }),
+          ]),
+        }),
+      );
+    });
+  });
+
+  describe.each([
+    [
+      'entry',
+      {
+        tracks: [],
+      },
+    ],
+    [
+      'position',
+      {
+        position: 0,
+      },
+    ],
+  ])('when %s is undefined', (key, outcome) => {
+    it('returns the correct values', () => {
+      expect(
+        formatPlayQueue({
+          ...queueMock,
           [key]: undefined,
         }),
       ).toEqual(expect.objectContaining(outcome));
@@ -963,7 +1024,7 @@ describe('formatBookmark(', () => {
     ).toEqual(
       expect.objectContaining({
         formattedPosition: '00:05',
-        position: 5.654,
+        position: 5654,
         trackNumber: 0,
       }),
     );

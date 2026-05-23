@@ -1,53 +1,39 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { vi } from 'vitest';
 
-import { getFormattedQueueTracksMock } from './helpers';
-
-const queueTrack = getFormattedQueueTracksMock();
-
 const addTracksToQueueMock = vi.fn();
 const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
-const clearQueueMock = vi.fn();
+const resetPlayerMock = vi.fn();
 const currentTimeMock = ref(0);
-const currentTrackMock = ref<MixedMediaAndTrack>(queueTrack[0]);
 const fastForwardTrackMock = vi.fn();
-const hasCurrentTrackMock = ref(false);
 const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
 const initAudioPlayerMock = vi.fn();
 const isBufferingMock = ref(false);
-const isCurrentTrackMock = vi.fn(() => false);
 const isMutedMock = ref(false);
 const isPlayingMock = ref(false);
-const isPodcastEpisodeMock = ref(false);
-const isRadioStationMock = ref(false);
-const isTrackMock = ref(false);
 const playbackRateMock = ref(2);
-const playCurrentTrackMock = vi.fn();
 const playNextTrackMock = vi.fn();
 const togglePlayMock = vi.fn();
 const playPreviousTrackMock = vi.fn();
-const playTrackFromQueueListMock = vi.fn();
+const playFromQueueMock = vi.fn();
 const playTracksMock = vi.fn();
-const queueListMock = ref(queueTrack);
-const removeTrackFromQueueListMock = vi.fn();
+const removeFromQueueMock = vi.fn();
 const reorderQueueTrackMock = vi.fn();
 const repeatMock = ref(-1);
 const resetAudioPlayerMock = vi.fn();
 const rewindTrackMock = vi.fn();
-const setCurrentTimeMock = vi.fn();
+const seekToMock = vi.fn();
 const setPlaybackRateMock = vi.fn();
 const setPlaybackRateWithIncrementMock = vi.fn();
-const setRepeatMock = vi.fn();
+const cycleRepeatMock = vi.fn();
 const setVolumeMock = vi.fn();
-const showMediaPlayerMock = ref(false);
 const shuffleMock = ref(false);
 const shuffleTracksMock = vi.fn();
 const toggleMuteMock = vi.fn();
 const toggleShuffleMock = vi.fn();
 const setVolumeWithIncrementMock = vi.fn();
-const updateQueueTrackFavouriteMock = vi.fn();
 const volumeMock = ref(1);
 
 export function useAudioPlayerMock() {
@@ -55,46 +41,36 @@ export function useAudioPlayerMock() {
     addTracksToQueue: addTracksToQueueMock,
     addTrackToQueue: addTrackToQueueMock,
     bufferedDuration: bufferedDurationMock,
-    clearQueue: clearQueueMock,
     currentTime: currentTimeMock,
-    currentTrack: currentTrackMock,
+    cycleRepeat: cycleRepeatMock,
     fastForwardTrack: fastForwardTrackMock,
-    hasCurrentTrack: hasCurrentTrackMock,
     hasNextTrack: hasNextTrackMock,
     hasPreviousTrack: hasPreviousTrackMock,
     initAudioPlayer: initAudioPlayerMock,
     isBuffering: isBufferingMock,
-    isCurrentTrack: isCurrentTrackMock,
     isMuted: isMutedMock,
     isPlaying: isPlayingMock,
-    isPodcastEpisode: isPodcastEpisodeMock,
-    isRadioStation: isRadioStationMock,
-    isTrack: isTrackMock,
     playbackRate: playbackRateMock,
-    playCurrentTrack: playCurrentTrackMock,
+    playFromQueue: playFromQueueMock,
     playNextTrack: playNextTrackMock,
     playPreviousTrack: playPreviousTrackMock,
-    playTrackFromQueueList: playTrackFromQueueListMock,
     playTracks: playTracksMock,
-    queueList: queueListMock,
-    removeTrackFromQueueList: removeTrackFromQueueListMock,
+    removeFromQueue: removeFromQueueMock,
     reorderQueueTrack: reorderQueueTrackMock,
     repeat: repeatMock,
     resetAudioPlayer: resetAudioPlayerMock,
+    resetPlayer: resetPlayerMock,
     rewindTrack: rewindTrackMock,
-    setCurrentTime: setCurrentTimeMock,
+    seekTo: seekToMock,
     setPlaybackRate: setPlaybackRateMock,
     setPlaybackRateWithIncrement: setPlaybackRateWithIncrementMock,
-    setRepeat: setRepeatMock,
     setVolume: setVolumeMock,
     setVolumeWithIncrement: setVolumeWithIncrementMock,
-    showMediaPlayer: showMediaPlayerMock,
     shuffle: shuffleMock,
     shuffleTracks: shuffleTracksMock,
     toggleMute: toggleMuteMock,
     togglePlay: togglePlayMock,
     toggleShuffle: toggleShuffleMock,
-    updateQueueTrackFavourite: updateQueueTrackFavouriteMock,
     volume: volumeMock,
   }));
 
@@ -102,46 +78,36 @@ export function useAudioPlayerMock() {
     addTracksToQueueMock,
     addTrackToQueueMock,
     bufferedDurationMock,
-    clearQueueMock,
     currentTimeMock,
-    currentTrackMock,
+    cycleRepeatMock,
     fastForwardTrackMock,
-    hasCurrentTrackMock,
     hasNextTrackMock,
     hasPreviousTrackMock,
     initAudioPlayerMock,
     isBufferingMock,
-    isCurrentTrackMock,
     isMutedMock,
     isPlayingMock,
-    isPodcastEpisodeMock,
-    isRadioStationMock,
-    isTrackMock,
     playbackRateMock,
-    playCurrentTrackMock,
+    playFromQueueMock,
     playNextTrackMock,
     playPreviousTrackMock,
-    playTrackFromQueueListMock,
     playTracksMock,
-    queueListMock,
-    removeTrackFromQueueListMock,
+    removeFromQueueMock,
     reorderQueueTrackMock,
     repeatMock,
     resetAudioPlayerMock,
+    resetPlayerMock,
     rewindTrackMock,
-    setCurrentTimeMock,
+    seekToMock,
     setPlaybackRateMock,
     setPlaybackRateWithIncrementMock,
-    setRepeatMock,
     setVolumeMock,
     setVolumeWithIncrementMock,
-    showMediaPlayerMock,
     shuffleMock,
     shuffleTracksMock,
     toggleMuteMock,
     togglePlayMock,
     toggleShuffleMock,
-    updateQueueTrackFavouriteMock,
     volumeMock,
   };
 }

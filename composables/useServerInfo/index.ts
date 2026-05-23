@@ -1,10 +1,10 @@
 export function useServerInfo() {
+  const config = useRuntimeConfig();
+  const { APP_GITHUB_URL, APP_RELEASE_DATE, APP_VERSION } = config.public;
+
   const { fetchData } = useAPI();
   const { openModal } = useModal();
   const { user } = useUser();
-  const config = useRuntimeConfig();
-
-  const { APP_GITHUB_URL, APP_RELEASE_DATE, APP_VERSION } = config.public;
 
   function getAppInformation(): AppInformation {
     return {

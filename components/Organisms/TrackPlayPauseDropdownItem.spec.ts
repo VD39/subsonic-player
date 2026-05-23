@@ -5,11 +5,12 @@ import { mount } from '@vue/test-utils';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import TrackPlayPauseDropdownItem from './TrackPlayPauseDropdownItem.vue';
 
-const { isCurrentTrackMock, isPlayingMock, togglePlayMock } =
-  useAudioPlayerMock();
+const { isPlayingMock, togglePlayMock } = useAudioPlayerMock();
+const { isCurrentTrackMock } = useQueueMock();
 
 const track = getFormattedTracksMock()[0];
 

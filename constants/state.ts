@@ -39,6 +39,7 @@ export const STATE_NAMES = {
   previousVolume: 'player-previous-volume',
   queueListOpened: 'queue-list-opened',
   queuePlayerOpened: 'queue-player-opened',
+  queueState: 'queue-state',
   radioStations: 'radio-stations',
   recentAlbums: 'recent-albums',
   sideBarCollapsed: 'sidebar-collapsed',
@@ -59,5 +60,6 @@ export const ASYNC_DATA_NAMES = {
   playlists: 'playlists',
   podcast: 'podcast',
   podcasts: 'podcasts',
+  queue: 'queue',
   radioStations: 'radio-stations',
 } as const;

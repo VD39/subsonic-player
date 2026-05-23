@@ -1,10 +1,28 @@
 export function useAudioPlayer() {
-  const { getImageUrl, getStreamUrl } = useAPI();
-  const { resetQueue } = useQueue();
+  const { getStreamUrl } = useAPI();
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
   const { createBookmark, deleteBookmark } = useBookmark();
   const { getDiscoverAlbums } = useAlbum();
+  const {
+    addTracks,
+    currentQueueIndex,
+    currentTrack,
+    hasCurrentTrack,
+    hasNextTrack: queueHasNextTrack,
+    hasPreviousTrack: queueHasPreviousTrack,
+    isLastTrack,
+    isPodcastEpisode,
+    isRadioStation,
+    isTrack,
+    navigateQueue,
+    queueList,
+    removeTrack,
+    reorderTrack,
+    restoreQueue,
+    shuffleQueue,
+    updateCurrentTrackPosition,
+  } = useQueue();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_NAMES.playerAudioPlayer,
@@ -17,7 +35,7 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPreloader,
   );
 
-  // Save interval state for saving podcast current time.
+  // Save interval state for syncing playback position.
   const saveInterval = useState<null | ReturnType<typeof setInterval>>(
     STATE_NAMES.playerSaveInterval,
     () => null,
@@ -65,22 +83,6 @@ export function useAudioPlayer() {
 
   const isMuted = computed(() => !volume.value);
 
-  // Queue state.
-  const queueList = useState<MixedTrack[]>(
-    STATE_NAMES.playerQueueList,
-    () => AUDIO_PLAYER_DEFAULT_STATES.queueList,
-  );
-
-  const originalQueueList = useState(
-    STATE_NAMES.playerOriginalQueueList,
-    () => AUDIO_PLAYER_DEFAULT_STATES.originalQueueList,
-  );
-
-  const currentQueueIndex = useState(
-    STATE_NAMES.playerCurrentQueueIndex,
-    () => AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
-  );
-
   // Repeat/Shuffle state.
   const repeat = useState(
     STATE_NAMES.playerRepeat,
@@ -92,47 +94,30 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.shuffle,
   );
 
-  const showMediaPlayer = computed(() => !!queueList.value.length);
-
   // Scrobble states.
   const trackHasScrobbled = useState(
     STATE_NAMES.playerTrackHasScrobbled,
     () => AUDIO_PLAYER_DEFAULT_STATES.trackHasScrobbled,
   );
 
-  // Track states.
-  const currentTrack = computed<MixedTrack>(
-    () => queueList.value[currentQueueIndex.value] || ({} as MixedTrack),
-  );
+  // Next/previous state.
+  const hasNextTrack = computed(() => {
+    return repeat.value === Number.POSITIVE_INFINITY || queueHasNextTrack.value;
+  });
 
-  const hasCurrentTrack = computed(
-    () => !!Object.keys(currentTrack.value).length,
-  );
-
-  const isLastTrack = computed(
-    () => currentQueueIndex.value === queueList.value.length - 1,
-  );
-
-  const isTrack = computed(() => currentTrack.value.type === MEDIA_TYPE.track);
-
-  const isPodcastEpisode = computed(
-    () => currentTrack.value.type === MEDIA_TYPE.podcastEpisode,
-  );
-
-  const isRadioStation = computed(
-    () => currentTrack.value.type === MEDIA_TYPE.radioStation,
-  );
+  const hasPreviousTrack = computed(() => {
+    return (
+      repeat.value === Number.POSITIVE_INFINITY || queueHasPreviousTrack.value
+    );
+  });
 
   // Save states.
   function resetAudioPlayerState() {
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
-    currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     isBuffering.value = AUDIO_PLAYER_DEFAULT_STATES.isBuffering;
     isPlaying.value = false;
-    originalQueueList.value = AUDIO_PLAYER_DEFAULT_STATES.originalQueueList;
     playbackRate.value = AUDIO_PLAYER_DEFAULT_STATES.playbackRate;
-    queueList.value = AUDIO_PLAYER_DEFAULT_STATES.queueList;
     repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
     shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
     volume.value = AUDIO_PLAYER_DEFAULT_STATES.volume;
@@ -141,37 +126,40 @@ export function useAudioPlayer() {
     deleteLocalStorage(STATE_NAMES.playerState);
   }
 
-  function loadAudioPlayerState() {
+  async function loadAudioPlayerState() {
     const SAVED_STATE = getLocalStorage(STATE_NAMES.playerState);
 
     if (!SAVED_STATE) {
+      resetAudioPlayerState();
+
       return;
     }
 
-    currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
-    queueList.value = SAVED_STATE.queueList;
-    originalQueueList.value = SAVED_STATE.originalQueueList;
     repeat.value = SAVED_STATE.repeat;
     shuffle.value = SAVED_STATE.shuffle;
+    setVolume(SAVED_STATE.volume);
+    setPlaybackRate(SAVED_STATE.playbackRate);
 
     if (hasCurrentTrack.value) {
       loadTrack(currentTrack.value);
-      setMediaMetadata();
-      setCurrentTime(SAVED_STATE.currentTime);
+      setMediaSessionMetadata();
+      setupMediaSessionHandlers();
+
+      const position = currentTrack.value.position;
+      const savedTime = SAVED_STATE.currentTime;
+      const timeToRestore =
+        savedTime || (position ? Math.floor(position / 1000) : 0);
+
+      setCurrentTime(timeToRestore);
     }
 
-    setVolume(SAVED_STATE.volume);
-    setPlaybackRate(SAVED_STATE.playbackRate);
     prefetchUpcomingTracks();
   }
 
-  function saveState() {
+  function saveAudioPlayerState() {
     const STATE_TO_SAVE = {
-      currentQueueIndex: currentQueueIndex.value,
       currentTime: currentTime.value,
-      originalQueueList: originalQueueList.value,
       playbackRate: playbackRate.value,
-      queueList: queueList.value,
       repeat: repeat.value,
       shuffle: shuffle.value,
       volume: volume.value,
@@ -180,167 +168,35 @@ export function useAudioPlayer() {
     setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
   }
 
-  async function saveStateInterval() {
-    saveState();
-
-    if (isPodcastEpisode.value) {
-      await createBookmark(
-        currentTrack.value.id,
-        Math.floor(currentTime.value * 1000),
-      );
-    }
+  function onSaveInterval() {
+    saveAudioPlayerState();
+    syncPlaybackPosition();
 
     if (
       isTrack.value &&
       !trackHasScrobbled.value &&
       currentTime.value / currentTrack.value.duration > 0.8
     ) {
-      await scrobble(currentTrack.value.id);
+      scrobble(currentTrack.value.id);
       trackHasScrobbled.value = true;
     }
   }
 
-  function clearSaveInterval() {
+  function stopSaveInterval() {
     clearInterval(saveInterval.value!);
   }
 
-  function setSaveInterval() {
-    clearSaveInterval();
-    saveInterval.value = setInterval(saveStateInterval, SAVE_INTERVAL);
-  }
-
-  function isCurrentTrack(id: string) {
-    return currentTrack.value.id === id;
-  }
-
-  // Media meta data for browsers.
-  function setMediaSessionPlaybackState(state: MediaSession['playbackState']) {
-    if ('mediaSession' in navigator) {
-      navigator.mediaSession.playbackState = state;
-    }
-  }
-
-  function setMediaSessionPositionState() {
-    if (
-      !(
-        'mediaSession' in navigator &&
-        hasCurrentTrack.value &&
-        !isRadioStation.value
-      )
-    ) {
-      return;
-    }
-
-    navigator.mediaSession.setPositionState({
-      duration: currentTrack.value.duration,
-      playbackRate: PLAYBACK_RATES[playbackRate.value].speed,
-      position: currentTime.value,
-    });
-  }
-
-  function setMediaMetadata() {
-    if (!('mediaSession' in navigator && currentTrack.value)) {
-      return;
-    }
-
-    const { album, artist, title } = getTrackDisplayMetadata(
-      currentTrack.value,
-    );
-
-    navigator.mediaSession.metadata = new MediaMetadata({
-      artwork: MEDIA_SESSION_ARTWORK_SIZES.map((size) => ({
-        sizes: `${size}x${size}`,
-        src: getImageUrl(currentTrack.value.image, size),
-        type: 'image/jpeg',
-      })),
-      title,
-      ...(album && { album }),
-      ...(artist && { artist }),
-    });
-
-    /* istanbul ignore next -- @preserve */
-    async function onMediaSessionAction(
-      details: Parameters<
-        NonNullable<Parameters<MediaSession['setActionHandler']>['1']>
-      >['0'],
-    ) {
-      switch (details.action) {
-        case MEDIA_SESSION_ACTION_DETAILS.nextTrack:
-          await playNextTrack();
-          break;
-        case MEDIA_SESSION_ACTION_DETAILS.pause:
-          pauseTrack();
-          break;
-        case MEDIA_SESSION_ACTION_DETAILS.play:
-          await playTrack();
-          break;
-        case MEDIA_SESSION_ACTION_DETAILS.previousTrack:
-          await playPreviousTrack();
-          break;
-        case MEDIA_SESSION_ACTION_DETAILS.seekBackward:
-          rewindTrack();
-          break;
-        case MEDIA_SESSION_ACTION_DETAILS.seekForward:
-          fastForwardTrack();
-          break;
-        case MEDIA_SESSION_ACTION_DETAILS.seekTo:
-          setCurrentTime(details.seekTime!);
-          break;
-      }
-    }
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.pause,
-      onMediaSessionAction,
-    );
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.play,
-      onMediaSessionAction,
-    );
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.seekTo,
-      onMediaSessionAction,
-    );
-
-    const nextTrackHandler = hasNextTrack.value ? onMediaSessionAction : null;
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.nextTrack,
-      nextTrackHandler,
-    );
-
-    const previousTrackHandler = hasPreviousTrack.value
-      ? onMediaSessionAction
-      : null;
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.previousTrack,
-      previousTrackHandler,
-    );
-
-    const podcastEpisodeHandler = isPodcastEpisode.value
-      ? onMediaSessionAction
-      : null;
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.seekBackward,
-      podcastEpisodeHandler,
-    );
-
-    navigator.mediaSession.setActionHandler(
-      MEDIA_SESSION_ACTION_DETAILS.seekForward,
-      podcastEpisodeHandler,
-    );
+  function startSaveInterval() {
+    stopSaveInterval();
+    saveInterval.value = setInterval(onSaveInterval, SAVE_INTERVAL);
   }
 
   // Play/Pause actions.
-  async function playTrack() {
+  async function resumePlayback() {
     try {
       await audioPlayer.value?.play();
       isPlaying.value = true;
-      setSaveInterval();
+      startSaveInterval();
       setMediaSessionPlaybackState('playing');
     } catch (error) {
       const errorMessage =
@@ -356,23 +212,23 @@ export function useAudioPlayer() {
           `The track ${currentTrack.value.id} was not found on the server and removed from queue.`,
         );
 
-        await removeTrackFromQueueList(currentTrack.value.id);
+        await removeFromQueue(currentTrack.value.id);
       }
     }
   }
 
-  function pauseTrack() {
+  function pausePlayback() {
     isPlaying.value = false;
     audioPlayer.value?.pause();
-    clearSaveInterval();
+    stopSaveInterval();
     setMediaSessionPlaybackState('paused');
   }
 
   async function togglePlay() {
     if (isPlaying.value) {
-      pauseTrack();
+      pausePlayback();
     } else {
-      await playTrack();
+      await resumePlayback();
     }
   }
 
@@ -389,17 +245,15 @@ export function useAudioPlayer() {
   }
 
   function prefetchUpcomingTracks() {
-    if (!queueList.value.length) {
-      return;
-    }
-
     const urlsToKeep = new Set<string>();
 
-    for (const track of getTracksToPreload(
+    const tracks = getTracksToPreload(
       queueList.value,
       currentQueueIndex.value,
       repeat.value,
-    )) {
+    );
+
+    for (const track of tracks) {
       const url = getStreamUrl(track.streamUrlId!);
       urlsToKeep.add(url);
       preloader.value?.preload(url);
@@ -411,61 +265,59 @@ export function useAudioPlayer() {
   async function changeTrack(track: MixedTrack) {
     trackHasScrobbled.value = false;
 
-    clearSaveInterval();
-    setMediaMetadata();
+    stopSaveInterval();
+    setMediaSessionMetadata();
+    setupMediaSessionHandlers();
     loadTrack(track);
+
+    if (track.position) {
+      setCurrentTime(Math.floor(track.position / 1000));
+    }
+
     setMediaSessionPositionState();
-    await playTrack();
+    await resumePlayback();
 
     if (isPodcastEpisode.value) {
       setPlaybackRate(playbackRate.value);
     }
 
-    saveState();
+    saveAudioPlayerState();
     prefetchUpcomingTracks();
   }
 
-  // Next/previous state.
-  const hasNextTrack = computed(() => {
-    return (
-      repeat.value === Number.POSITIVE_INFINITY ||
-      currentQueueIndex.value < queueList.value.length - 1
-    );
-  });
-
-  const hasPreviousTrack = computed(() => {
-    return (
-      repeat.value === Number.POSITIVE_INFINITY || currentQueueIndex.value > 0
-    );
+  const {
+    setMediaSessionMetadata,
+    setMediaSessionPlaybackState,
+    setMediaSessionPositionState,
+    setupMediaSessionHandlers,
+  } = useMediaSession({
+    currentTime: computed(() => currentTime.value),
+    currentTrack,
+    hasCurrentTrack,
+    hasNextTrack,
+    hasPreviousTrack,
+    isPodcastEpisode,
+    isRadioStation,
+    [MEDIA_SESSION_ACTION_DETAILS.nextTrack]: playNextTrack,
+    [MEDIA_SESSION_ACTION_DETAILS.pause]: pausePlayback,
+    [MEDIA_SESSION_ACTION_DETAILS.play]: resumePlayback,
+    [MEDIA_SESSION_ACTION_DETAILS.previousTrack]: playPreviousTrack,
+    [MEDIA_SESSION_ACTION_DETAILS.seekBackward]: rewindTrack,
+    [MEDIA_SESSION_ACTION_DETAILS.seekForward]: fastForwardTrack,
+    [MEDIA_SESSION_ACTION_DETAILS.seekTo]: seekTo,
+    playbackRate: computed(() => playbackRate.value),
   });
 
   // Next/previous actions.
   async function playNextTrack() {
-    resetAudioPlayerTimes();
-
-    currentQueueIndex.value = isLastTrack.value
-      ? 0
-      : currentQueueIndex.value + 1;
-
-    const track = queueList.value[currentQueueIndex.value];
-
+    resetPlaybackTimes();
+    const track = navigateQueue('next');
     await changeTrack(track);
   }
 
   async function playPreviousTrack() {
-    resetAudioPlayerTimes();
-
-    currentQueueIndex.value =
-      currentQueueIndex.value === 0
-        ? queueList.value.length - 1
-        : currentQueueIndex.value - 1;
-
-    const track = queueList.value[currentQueueIndex.value];
-    await changeTrack(track);
-  }
-
-  async function playCurrentTrack(track: MixedTrack) {
-    currentQueueIndex.value = getIndex(queueList.value, track.id);
+    resetPlaybackTimes();
+    const track = navigateQueue('previous');
     await changeTrack(track);
   }
 
@@ -477,12 +329,27 @@ export function useAudioPlayer() {
 
     audioPlayer.value?.setCurrentTime(truncTime);
     currentTime.value = truncTime;
-    saveState();
+    saveAudioPlayerState();
+  }
+
+  function syncPlaybackPosition() {
+    const positionMs = Math.floor(currentTime.value * 1000);
+
+    updateCurrentTrackPosition(positionMs);
+
+    if (isPodcastEpisode.value) {
+      createBookmark(currentTrack.value.id, positionMs);
+    }
+  }
+
+  function seekTo(time: number) {
+    setCurrentTime(time);
+    syncPlaybackPosition();
   }
 
   function rewindTrack() {
     const time = Math.max(0, currentTime.value - REWIND_TRACK_TIME);
-    setCurrentTime(time);
+    seekTo(time);
   }
 
   function fastForwardTrack() {
@@ -493,11 +360,11 @@ export function useAudioPlayer() {
       return;
     }
 
-    setCurrentTime(currentTime.value + FAST_FORWARD_TRACK_TIME);
+    seekTo(currentTime.value + FAST_FORWARD_TRACK_TIME);
   }
 
   // Repeat/Shuffle actions.
-  function setRepeat() {
+  function cycleRepeat() {
     switch (repeat.value) {
       case -1:
         repeat.value = Number.POSITIVE_INFINITY;
@@ -510,12 +377,12 @@ export function useAudioPlayer() {
         break;
     }
 
-    saveState();
+    saveAudioPlayerState();
     prefetchUpcomingTracks();
   }
 
-  async function replayCurrent() {
-    resetAudioPlayerTimes();
+  async function replayCurrentTrack() {
+    resetPlaybackTimes();
     await changeTrack(currentTrack.value);
   }
 
@@ -523,32 +390,13 @@ export function useAudioPlayer() {
     shuffle.value = !shuffle.value;
 
     if (shuffle.value) {
-      shuffleQueueTracks();
+      shuffleQueue();
     } else {
-      resetAudioPlayerQueue();
+      restoreQueue();
     }
 
-    saveState();
+    saveAudioPlayerState();
     prefetchUpcomingTracks();
-  }
-
-  function resetAudioPlayerQueue() {
-    const tempCurrentTrackId = currentTrack.value.id;
-    queueList.value = removeRemovedTracksFromOriginalQueue(
-      [...queueList.value],
-      [...JSON.parse(originalQueueList.value)],
-    );
-    originalQueueList.value = AUDIO_PLAYER_DEFAULT_STATES.originalQueueList;
-    const index = getIndex(queueList.value, tempCurrentTrackId);
-    currentQueueIndex.value = index;
-  }
-
-  function shuffleQueueTracks() {
-    const queueClone = [...queueList.value];
-    originalQueueList.value = JSON.stringify(queueClone);
-    const index = getIndex(queueList.value, currentTrack.value.id);
-    queueList.value = shuffleTrackInQueue(queueClone, index);
-    currentQueueIndex.value = 0;
   }
 
   async function shuffleTracks(tracks: MixedTrack[]) {
@@ -562,7 +410,7 @@ export function useAudioPlayer() {
     previousVolume.value = volume.value;
     audioPlayer.value?.setVolume(newVolume);
     volume.value = newVolume;
-    saveState();
+    saveAudioPlayerState();
   }
 
   function setVolumeWithIncrement(change: number) {
@@ -595,113 +443,62 @@ export function useAudioPlayer() {
   function setPlaybackRate(index: number) {
     playbackRate.value = index;
     audioPlayer.value?.changePlaybackRate(PLAYBACK_RATES[index].speed);
-    saveState();
+    saveAudioPlayerState();
+  }
+
+  function resetPlayer() {
+    audioPlayer.value?.unload();
+    preloader.value?.clear();
+    resetPlaybackTimes();
+    shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
+    repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
+    saveAudioPlayerState();
   }
 
   // Queue actions.
-  function clearQueue() {
-    audioPlayer.value?.unload();
-    preloader.value?.clear();
-    resetAudioPlayerTimes();
-    queueList.value = [];
-    currentQueueIndex.value = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
-    shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
-    repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
-    resetQueue();
-    saveState();
+  async function playFromQueue(index: number) {
+    resetPlaybackTimes();
+    const track = navigateQueue(index);
+    await changeTrack(track);
   }
 
-  async function playTrackFromQueueList(index: number) {
-    currentQueueIndex.value = index - 1;
-    await playNextTrack();
-  }
-
-  async function removeTrackFromQueueList(id: string) {
-    const tempCurrentTrackId = currentTrack.value.id;
+  async function removeFromQueue(id: string) {
     const removedTrackWasPlaying = isPlaying.value;
 
-    if (queueList.value.length === 1) {
-      clearQueue();
+    const removedTrackLastOrSingle = removeTrack(id);
+
+    if (removedTrackLastOrSingle === 1) {
+      resetPlayer();
       return;
     }
 
-    const index = getIndex(queueList.value, id);
-
-    // If index not found.
-    if (index === -1) {
-      return;
-    }
-
-    if (index < currentQueueIndex.value || isLastTrack.value) {
-      currentQueueIndex.value -= 1;
-    }
-
-    queueList.value.splice(index, 1);
-
-    // Check if the selected track was the current playing track.
-    if (tempCurrentTrackId === id) {
+    if (removedTrackLastOrSingle) {
       audioPlayer.value?.unload();
-      currentQueueIndex.value -= 1;
-      await playNextTrack();
+      await changeTrack(currentTrack.value);
 
-      // Pause the track if the track removed was not playing.
-      // Keep state as before.
       if (!removedTrackWasPlaying) {
-        pauseTrack();
+        pausePlayback();
       }
     }
 
-    saveState();
+    saveAudioPlayerState();
     prefetchUpcomingTracks();
   }
 
   function reorderQueueTrack(fromIndex: number, toIndex: number) {
-    if (
-      fromIndex < 0 ||
-      fromIndex >= queueList.value.length ||
-      toIndex < 0 ||
-      toIndex >= queueList.value.length ||
-      fromIndex === toIndex
-    ) {
-      return;
-    }
-
-    const [movedTrack] = queueList.value.splice(fromIndex, 1);
-    queueList.value.splice(toIndex, 0, movedTrack);
-
-    if (currentQueueIndex.value === fromIndex) {
-      currentQueueIndex.value = toIndex;
-    } else if (
-      fromIndex < currentQueueIndex.value &&
-      toIndex >= currentQueueIndex.value
-    ) {
-      currentQueueIndex.value -= 1;
-    } else if (
-      fromIndex > currentQueueIndex.value &&
-      toIndex <= currentQueueIndex.value
-    ) {
-      currentQueueIndex.value += 1;
-    }
-
-    saveState();
+    reorderTrack(fromIndex, toIndex);
     prefetchUpcomingTracks();
   }
 
-  function addTracksToQueueList(tracks: MixedTrack[]) {
-    queueList.value.push(...tracks);
-  }
-
   async function addTracksToQueue(tracks: MixedTrack[]) {
-    const tempQueueLength = queueList.value.length;
+    const queueListHasTrack = addTracks(tracks);
 
-    addTracksToQueueList(tracks);
-
-    if (!tempQueueLength) {
+    if (!queueListHasTrack) {
       await playNextTrack();
-      pauseTrack();
+      pausePlayback();
     }
 
-    saveState();
+    saveAudioPlayerState();
     prefetchUpcomingTracks();
   }
 
@@ -711,28 +508,27 @@ export function useAudioPlayer() {
 
   async function playTracks(
     tracks: MixedTrack[],
-    queueIndex = AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex,
+    queueIndex = QUEUE_DEFAULT_STATES.currentQueueIndex,
   ) {
-    clearQueue();
-    addTracksToQueueList(tracks);
-    currentQueueIndex.value = queueIndex;
-    await playNextTrack();
+    resetPlayer();
+    addTracks(tracks, true);
+    const track = navigateQueue(queueIndex + 1);
+    await changeTrack(track);
   }
 
-  function resetAudioPlayerTimes() {
+  function resetPlaybackTimes() {
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
   }
 
-  /* istanbul ignore next -- @preserve */
   function resetAudioPlayer() {
     audioPlayer.value?.unload();
     preloader.value?.clear();
     resetAudioPlayerState();
-    clearSaveInterval();
+    stopSaveInterval();
   }
 
-  function setAudioPlayer() {
+  function setupAudioPlayer() {
     audioPlayer.value = new AudioPlayer();
     preloader.value = new AudioPreloader();
 
@@ -763,23 +559,17 @@ export function useAudioPlayer() {
 
       switch (repeat.value) {
         case 1:
-          await replayCurrent();
+          await replayCurrentTrack();
           break;
         case Number.POSITIVE_INFINITY:
-          if (isLastTrack.value) {
-            // set to -1 as playNextTrack will + 1 to currentQueueIndex.
-            currentQueueIndex.value =
-              AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
-          }
-
           await playNextTrack();
           break;
         default:
           if (isLastTrack.value) {
-            currentQueueIndex.value =
-              AUDIO_PLAYER_DEFAULT_STATES.currentQueueIndex;
-            await playNextTrack();
-            pauseTrack();
+            resetPlaybackTimes();
+            const track = navigateQueue(0);
+            await changeTrack(track);
+            pausePlayback();
 
             return;
           }
@@ -790,64 +580,45 @@ export function useAudioPlayer() {
     });
   }
 
-  function updateQueueTrackFavourite(id: string, isFavourite: boolean) {
-    const track = queueList.value.find((track) => track.id === id) as Track;
-
-    if (track) {
-      track.favourite = isFavourite;
-      saveState();
-    }
-  }
-
-  function initAudioPlayer() {
-    setAudioPlayer();
-    loadAudioPlayerState();
+  async function initAudioPlayer() {
+    setupAudioPlayer();
+    await loadAudioPlayerState();
   }
 
   return {
     addTracksToQueue,
     addTrackToQueue,
     bufferedDuration,
-    clearQueue,
     currentTime,
-    currentTrack,
+    cycleRepeat,
     fastForwardTrack,
-    hasCurrentTrack,
     hasNextTrack,
     hasPreviousTrack,
     initAudioPlayer,
     isBuffering,
-    isCurrentTrack,
     isMuted,
     isPlaying,
-    isPodcastEpisode,
-    isRadioStation,
-    isTrack,
     playbackRate,
-    playCurrentTrack,
+    playFromQueue,
     playNextTrack,
     playPreviousTrack,
-    playTrackFromQueueList,
     playTracks,
-    queueList,
-    removeTrackFromQueueList,
+    removeFromQueue,
     reorderQueueTrack,
     repeat,
     resetAudioPlayer,
+    resetPlayer,
     rewindTrack,
-    setCurrentTime,
+    seekTo,
     setPlaybackRate,
     setPlaybackRateWithIncrement,
-    setRepeat,
     setVolume,
     setVolumeWithIncrement,
-    showMediaPlayer,
     shuffle,
     shuffleTracks,
     toggleMute,
     togglePlay,
     toggleShuffle,
-    updateQueueTrackFavourite,
     volume,
   };
 }

@@ -96,6 +96,15 @@ export const trackMock: Base = {
   year: 2024,
 };
 
+export const queueMock: PlayQueue = {
+  changed: apiDateMock,
+  changedBy: 'changedBy',
+  current: 1,
+  entry: [trackMock],
+  position: 1000,
+  username: 'username',
+};
+
 export const albumMock: AlbumWithSongsID3 = {
   artist: 'artist',
   artistId: 'id2',

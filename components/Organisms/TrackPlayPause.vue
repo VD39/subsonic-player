@@ -16,8 +16,8 @@ defineEmits<{
   playTrack: [];
 }>();
 
-const { currentTrack, isBuffering, isCurrentTrack, isPlaying } =
-  useAudioPlayer();
+const { currentTrack, isCurrentTrack } = useQueue();
+const { isBuffering, isPlaying } = useAudioPlayer();
 </script>
 
 <template>

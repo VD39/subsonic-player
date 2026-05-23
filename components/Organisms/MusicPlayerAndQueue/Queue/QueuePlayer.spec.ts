@@ -1,6 +1,5 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
@@ -10,28 +9,22 @@ import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/Re
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import QueuePlayer from './QueuePlayer.vue';
 
 vi.useFakeTimers();
 
-const toggleQueueListMock = vi.fn();
-const toggleQueuePlayerMock = vi.fn();
-
-mockNuxtImport('useQueue', () => () => ({
-  toggleQueueList: toggleQueueListMock,
-  toggleQueuePlayer: toggleQueuePlayerMock,
-}));
-
+const { fastForwardTrackMock, isPlayingMock, rewindTrackMock } =
+  useAudioPlayerMock();
 const {
   currentTrackMock,
-  fastForwardTrackMock,
-  isPlayingMock,
   isPodcastEpisodeMock,
   isRadioStationMock,
   isTrackMock,
-  rewindTrackMock,
-} = useAudioPlayerMock();
+  toggleQueueListMock,
+  toggleQueuePlayerMock,
+} = useQueueMock();
 
 function factory(props = {}) {
   return mount(QueuePlayer, {
@@ -78,8 +71,6 @@ describe('QueuePlayer', () => {
 
     describe('when the track does not have an album key', () => {
       beforeEach(() => {
-        currentTrackMock.value = getFormattedQueueTracksMock()[0];
-
         delete (currentTrackMock.value as Partial<Track>).album;
       });
 

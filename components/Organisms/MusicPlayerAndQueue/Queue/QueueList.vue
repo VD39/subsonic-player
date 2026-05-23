@@ -2,17 +2,17 @@
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
-const {
-  clearQueue,
-  playTrackFromQueueList,
-  queueList,
-  removeTrackFromQueueList,
-  reorderQueueTrack,
-} = useAudioPlayer();
-const { toggleQueueList } = useQueue();
+const { playFromQueue, removeFromQueue, reorderQueueTrack, resetPlayer } =
+  useAudioPlayer();
+const { queueList, resetQueue, toggleQueueList } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
 const { downloadMedia } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
+
+function clearQueue() {
+  resetPlayer();
+  resetQueue();
+}
 </script>
 
 <template>
@@ -52,8 +52,8 @@ const { openTrackInformationModal } = useMediaInformation();
       @addToPlaylist="addToPlaylistModal"
       @downloadMedia="downloadMedia"
       @mediaInformation="openTrackInformationModal"
-      @playTrack="playTrackFromQueueList"
-      @remove="({ id }) => removeTrackFromQueueList(id)"
+      @playTrack="playFromQueue"
+      @remove="({ id }) => removeFromQueue(id)"
       @sortList="reorderQueueTrack"
     />
   </div>

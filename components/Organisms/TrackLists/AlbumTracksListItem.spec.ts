@@ -8,11 +8,11 @@ import DropdownSubmenu from '@/components/Molecules/Dropdown/DropdownSubmenu.vue
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import AlbumTracksListItem from './AlbumTracksListItem.vue';
 
-const { isCurrentTrackMock } = useAudioPlayerMock();
+const { isCurrentTrackMock } = useQueueMock();
 
 const track = getFormattedTracksMock()[0];
 

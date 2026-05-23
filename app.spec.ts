@@ -35,16 +35,16 @@ mockNuxtImport('useSidebar', () => () => ({
   isDarkTheme: ref(false),
 }));
 
-mockNuxtImport('useAudioPlayer', () => () => ({
-  showMediaPlayer: ref(false),
-}));
-
 const closeModalMock = vi.fn();
 const openModalMock = vi.fn();
 
 mockNuxtImport('useModal', () => () => ({
   closeModal: closeModalMock,
   openModal: openModalMock,
+}));
+
+mockNuxtImport('useQueue', () => () => ({
+  hasQueueTracks: ref(false),
 }));
 
 mockNuxtImport('useHead', () => () => vi.fn());

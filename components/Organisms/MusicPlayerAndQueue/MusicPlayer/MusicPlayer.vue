@@ -10,7 +10,7 @@ import TrackSeeker from '@/components/Organisms/MusicPlayerAndQueue/Controls/Tra
 import PlayerControls from './PlayerControls.vue';
 import PlayerOptions from './PlayerOptions.vue';
 
-const { currentTrack } = useAudioPlayer();
+const { currentTrack } = useQueue();
 </script>
 
 <template>

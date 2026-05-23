@@ -7,7 +7,7 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import RepeatButton from './RepeatButton.vue';
 
-const { repeatMock, setRepeatMock } = useAudioPlayerMock();
+const { cycleRepeatMock, repeatMock } = useAudioPlayerMock();
 
 function factory(props = {}) {
   return mount(RepeatButton, {
@@ -94,8 +94,8 @@ describe('RepeatButton', () => {
       wrapper.findComponent(ButtonLink).vm.$emit('click');
     });
 
-    it('calls the setRepeat function', () => {
-      expect(setRepeatMock).toHaveBeenCalled();
+    it('calls the cycleRepeat function', () => {
+      expect(cycleRepeatMock).toHaveBeenCalled();
     });
   });
 });

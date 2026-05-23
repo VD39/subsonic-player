@@ -1,23 +1,25 @@
 export function useHotkeyManager() {
   const {
-    currentTrack,
+    cycleRepeat,
     fastForwardTrack,
-    hasCurrentTrack,
-    isPodcastEpisode,
-    isTrack,
     playNextTrack,
     playPreviousTrack,
     rewindTrack,
-    setCurrentTime,
+    seekTo,
     setPlaybackRateWithIncrement,
-    setRepeat,
     setVolumeWithIncrement,
     toggleMute,
     togglePlay,
     toggleShuffle,
   } = useAudioPlayer();
   const { modal } = useModal();
-  const { toggleQueuePlayer } = useQueue();
+  const {
+    currentTrack,
+    hasCurrentTrack,
+    isPodcastEpisode,
+    isTrack,
+    toggleQueuePlayer,
+  } = useQueue();
   const { addPodcastModal } = usePodcast();
   const { addPlaylistModal } = usePlaylist();
   const { toggleFavourite } = useFavourite();
@@ -146,9 +148,9 @@ export function useHotkeyManager() {
     }
   }
 
-  function setCurrentTimeForKey(key: string) {
+  function seekToKeyPosition(key: string) {
     const time = (currentTrack.value.duration * (Number(key) * 10)) / 100;
-    setCurrentTime(time);
+    seekTo(time);
   }
 
   function toggleHotkeyList() {
@@ -271,7 +273,7 @@ export function useHotkeyManager() {
       {
         action: (event: KeyboardEvent) => {
           callOnlyWithCurrentTrack(() => {
-            setCurrentTimeForKey(event.key);
+            seekToKeyPosition(event.key);
           });
         },
         description: 'Seek to a specific position within the track.',
@@ -303,7 +305,7 @@ export function useHotkeyManager() {
       {
         action: () => {
           callOnlyWithCurrentTrack(() => {
-            setRepeat();
+            cycleRepeat();
           });
         },
         description: 'Enable or disable repeat playback mode.',

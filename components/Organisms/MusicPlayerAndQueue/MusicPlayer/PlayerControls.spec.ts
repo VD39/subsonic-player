@@ -4,11 +4,11 @@ import { mount } from '@vue/test-utils';
 
 import RepeatButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/RepeatButton.vue';
 import ShuffleButton from '@/components/Organisms/MusicPlayerAndQueue/Controls/ShuffleButton.vue';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import PlayerControls from './PlayerControls.vue';
 
-const { isRadioStationMock } = useAudioPlayerMock();
+const { isRadioStationMock } = useQueueMock();
 
 function factory(props = {}) {
   return mount(PlayerControls, {

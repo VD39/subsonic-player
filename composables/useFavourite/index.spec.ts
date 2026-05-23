@@ -2,7 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useQueueMock } from '@/test/useQueueMock';
 
 import { useFavourite } from './index';
 
@@ -14,7 +14,8 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { updateQueueTrackFavouriteMock } = useAudioPlayerMock();
+const { updateTrackFavouriteMock: updateQueueTrackFavouriteMock } =
+  useQueueMock();
 
 const {
   addToFavouriteIds,
