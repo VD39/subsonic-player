@@ -12,7 +12,7 @@ const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  ASYNC_DATA_NAMES.bookmarks,
+  ASYNC_DATA_KEYS.bookmarks,
   async () => {
     await getBookmarks();
 

@@ -1,13 +1,13 @@
 export function useDropdownMenuState() {
   const activeMenuId = useState<null | string>(
-    STATE_NAMES.dropdownActiveMenuId,
+    STATE_KEYS.dropdownActiveMenuId,
     () => null,
   );
 
   // Increments on every open, even when the same menu reopens, to ensure
   // watchers fire regardless of whether activeMenuId changed.
   const openEventCount = useState<number>(
-    STATE_NAMES.dropdownOpenEventCount,
+    STATE_KEYS.dropdownOpenEventCount,
     () => 0,
   );
 

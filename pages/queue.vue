@@ -13,7 +13,7 @@ const { dragStart } = useDragAndDrop();
 
 /* istanbul ignore next -- @preserve */
 useAsyncData(
-  ASYNC_DATA_NAMES.queue,
+  ASYNC_DATA_KEYS.queue,
   async () => {
     await loadFromServer();
 

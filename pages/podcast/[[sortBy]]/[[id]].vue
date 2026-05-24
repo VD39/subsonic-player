@@ -32,7 +32,7 @@ const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  `${ASYNC_DATA_NAMES.podcast}-${route.params[ROUTE_PARAM_KEYS.podcast.id]}`,
+  `${ASYNC_DATA_KEYS.podcast}-${route.params[ROUTE_PARAM_KEYS.podcast.id]}`,
   async () => {
     const podcastId = route.params[ROUTE_PARAM_KEYS.podcast.id] as string;
     await getPodcast(podcastId);

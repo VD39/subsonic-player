@@ -36,7 +36,10 @@ describe('useTheme', () => {
     });
 
     it('calls the localStorage.setItem with correct parameters', () => {
-      expect(setLocalStorageMock).toHaveBeenCalledWith(STATE_NAMES.theme, true);
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.theme,
+        true,
+      );
     });
 
     it('updates the isDarkTheme value with true', () => {
@@ -50,7 +53,7 @@ describe('useTheme', () => {
 
       it('calls the localStorage.setItem with correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.theme,
+          LOCAL_STORAGE_KEYS.theme,
           false,
         );
       });

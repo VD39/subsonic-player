@@ -1,9 +1,9 @@
 export function useViewLayout() {
-  const viewLayout = useState<Layout>(STATE_NAMES.layout, () => 'gridLayout');
+  const viewLayout = useState<Layout>(STATE_KEYS.layout, () => 'gridLayout');
 
   function setViewLayout(selectedLayout: Layout = 'gridLayout') {
     viewLayout.value = selectedLayout;
-    setLocalStorage(STATE_NAMES.layout, viewLayout.value);
+    setLocalStorage(LOCAL_STORAGE_KEYS.layout, viewLayout.value);
   }
 
   return {

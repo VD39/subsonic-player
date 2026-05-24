@@ -1,6 +1,6 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
-import { STATE_NAMES } from '@/constants/state';
+import { STATE_KEYS } from '@/constants/keys';
 import { abortControllerMock } from '@/test/abortControllerMock';
 import {
   documentEventListenerMock,
@@ -19,7 +19,7 @@ mockNuxtImport('useScrollLock', () => () => ({
   unlockScroll: unlockScrollMock,
 }));
 
-const activeMenuId = useState(STATE_NAMES.dropdownActiveMenuId);
+const activeMenuId = useState(STATE_KEYS.dropdownActiveMenuId);
 const setActiveMenuIdMock = vi.fn((id: string) => {
   activeMenuId.value = id;
 });

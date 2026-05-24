@@ -2,7 +2,7 @@ export function useBookmark() {
   const { fetchData } = useAPI();
   const { addSuccessSnack } = useSnack();
 
-  const bookmarks = useState<Bookmark[]>(STATE_NAMES.bookmarks, () => []);
+  const bookmarks = useState<Bookmark[]>(STATE_KEYS.bookmarks, () => []);
 
   function resetBookmarks() {
     bookmarks.value = [];

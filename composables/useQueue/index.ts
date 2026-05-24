@@ -5,24 +5,24 @@ export function useQueue() {
   const { fetchData } = useAPI();
   const { lockScroll, unlockScroll } = useScrollLock('queue');
 
-  const isQueueListOpened = useState(STATE_NAMES.queueListOpened, () => false);
+  const isQueueListOpened = useState(STATE_KEYS.queueListOpened, () => false);
 
   const isQueuePlayerOpened = useState(
-    STATE_NAMES.queuePlayerOpened,
+    STATE_KEYS.queuePlayerOpened,
     () => false,
   );
 
-  const queueList = useState<MixedTrack[]>(STATE_NAMES.playerQueueList, () => [
+  const queueList = useState<MixedTrack[]>(STATE_KEYS.playerQueueList, () => [
     ...QUEUE_DEFAULT_STATES.queueList,
   ]);
 
   const originalQueueList = useState(
-    STATE_NAMES.playerOriginalQueueList,
+    STATE_KEYS.playerOriginalQueueList,
     () => QUEUE_DEFAULT_STATES.originalQueueList,
   );
 
   const currentQueueIndex = useState(
-    STATE_NAMES.playerCurrentQueueIndex,
+    STATE_KEYS.playerCurrentQueueIndex,
     () => QUEUE_DEFAULT_STATES.currentQueueIndex,
   );
 
@@ -121,7 +121,7 @@ export function useQueue() {
   }
 
   function loadQueueState() {
-    const savedState = getLocalStorage(STATE_NAMES.queueState);
+    const savedState = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
 
     if (!savedState) {
       clearQueue();
@@ -215,7 +215,7 @@ export function useQueue() {
 
   function resetQueue() {
     clearQueue();
-    deleteLocalStorage(STATE_NAMES.queueState);
+    deleteLocalStorage(LOCAL_STORAGE_KEYS.queue);
     closeQueuePanels();
     syncToServer();
   }
@@ -233,7 +233,7 @@ export function useQueue() {
   }
 
   function saveQueueState(positionMs?: number) {
-    setLocalStorage(STATE_NAMES.queueState, {
+    setLocalStorage(LOCAL_STORAGE_KEYS.queue, {
       currentQueueIndex: currentQueueIndex.value,
       originalQueueList: originalQueueList.value,
       queueList: queueList.value,

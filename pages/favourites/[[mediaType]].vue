@@ -24,7 +24,7 @@ const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  ASYNC_DATA_NAMES.favourites,
+  ASYNC_DATA_KEYS.favourites,
   async () => {
     await getFavourites();
 

@@ -19,7 +19,7 @@ const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
 const { data: libraryData, status } = useAsyncData(
-  ASYNC_DATA_NAMES.library,
+  ASYNC_DATA_KEYS.library,
   async () => {
     const [randomAlbums, artists, genres] = await Promise.all([
       getRandomAlbums(),

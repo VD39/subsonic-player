@@ -1,5 +1,5 @@
 export function useSnack() {
-  const snacks = useState<Snack[]>(STATE_NAMES.snacks, () => []);
+  const snacks = useState<Snack[]>(STATE_KEYS.snacks, () => []);
 
   function addSnack(snackData: Omit<Snack, 'id'>) {
     if (import.meta.server) {

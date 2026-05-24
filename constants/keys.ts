@@ -1,4 +1,4 @@
-export const STATE_NAMES = {
+export const STATE_KEYS = {
   bookmarks: 'bookmarks',
   currentUser: 'current-user',
   dropdownActiveMenuId: 'dropdown-active-menu-id',
@@ -29,7 +29,6 @@ export const STATE_NAMES = {
   playerRepeat: 'player-repeat',
   playerSaveInterval: 'player-save-interval',
   playerShuffle: 'player-shuffle',
-  playerState: 'player-state',
   playerTrackHasScrobbled: 'player-track-has-scrobbled',
   playerVolume: 'player-volume',
   playlist: 'playlist',
@@ -39,7 +38,6 @@ export const STATE_NAMES = {
   previousVolume: 'player-previous-volume',
   queueListOpened: 'queue-list-opened',
   queuePlayerOpened: 'queue-player-opened',
-  queueState: 'queue-state',
   radioStations: 'radio-stations',
   recentAlbums: 'recent-albums',
   sideBarCollapsed: 'sidebar-collapsed',
@@ -50,7 +48,14 @@ export const STATE_NAMES = {
   userAuthenticated: 'user-authenticated',
 } as const;
 
-export const ASYNC_DATA_NAMES = {
+export const LOCAL_STORAGE_KEYS = {
+  layout: 'layout',
+  player: 'player',
+  queue: 'queue',
+  theme: 'theme',
+} as const;
+
+export const ASYNC_DATA_KEYS = {
   artists: 'artists',
   bookmarks: 'bookmarks',
   favourites: 'favourites',

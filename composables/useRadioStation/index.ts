@@ -4,7 +4,7 @@ export function useRadioStation() {
   const { closeModal, openModal } = useModal();
 
   const radioStations = useState<RadioStation[]>(
-    STATE_NAMES.radioStations,
+    STATE_KEYS.radioStations,
     () => [],
   );
 

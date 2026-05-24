@@ -284,7 +284,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the deleteLocalStorage function', () => {
         expect(deleteLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
         );
       });
     });
@@ -331,7 +331,7 @@ describe('useAudioPlayer', () => {
 
         it('calls the setLocalStorage function with the correct parameters', () => {
           expect(setLocalStorageMock).toHaveBeenCalledWith(
-            STATE_NAMES.playerState,
+            LOCAL_STORAGE_KEYS.player,
             {
               currentTime: 0,
               playbackRate: 0,
@@ -1113,7 +1113,7 @@ describe('useAudioPlayer', () => {
 
     it('calls the setLocalStorage function with the correct parameters', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.playerState,
+        LOCAL_STORAGE_KEYS.player,
         expect.objectContaining({
           playbackRate: 0,
         }),
@@ -1143,7 +1143,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             playbackRate: expectedPlaybackRate,
           }),
@@ -1168,7 +1168,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             playbackRate: 0,
           }),
@@ -1193,7 +1193,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             playbackRate: 1,
           }),
@@ -1230,7 +1230,7 @@ describe('useAudioPlayer', () => {
 
     it('calls the setLocalStorage function with the correct parameters', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.playerState,
+        LOCAL_STORAGE_KEYS.player,
         expect.objectContaining({
           repeat: outcome,
         }),
@@ -1253,7 +1253,7 @@ describe('useAudioPlayer', () => {
 
     it('calls the setLocalStorage function with the correct parameters', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.playerState,
+        LOCAL_STORAGE_KEYS.player,
         expect.objectContaining({
           shuffle: true,
         }),
@@ -1276,7 +1276,7 @@ describe('useAudioPlayer', () => {
 
     it('calls the setLocalStorage function with the correct parameters', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.playerState,
+        LOCAL_STORAGE_KEYS.player,
         expect.objectContaining({
           shuffle: false,
         }),
@@ -1298,7 +1298,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             shuffle: true,
           }),
@@ -1327,7 +1327,7 @@ describe('useAudioPlayer', () => {
 
     it('calls the setLocalStorage function with the correct parameters', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.playerState,
+        LOCAL_STORAGE_KEYS.player,
         expect.objectContaining({
           volume: 0,
         }),
@@ -1354,7 +1354,7 @@ describe('useAudioPlayer', () => {
 
         it('calls the setLocalStorage function with the correct parameters', () => {
           expect(setLocalStorageMock).toHaveBeenCalledWith(
-            STATE_NAMES.playerState,
+            LOCAL_STORAGE_KEYS.player,
             expect.objectContaining({
               volume: 0.23,
             }),
@@ -1382,7 +1382,7 @@ describe('useAudioPlayer', () => {
 
         it('calls the setLocalStorage function with the correct parameters', () => {
           expect(setLocalStorageMock).toHaveBeenCalledWith(
-            STATE_NAMES.playerState,
+            LOCAL_STORAGE_KEYS.player,
             expect.objectContaining({
               volume: 0.1,
             }),
@@ -1412,7 +1412,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             volume: 1,
           }),
@@ -1439,7 +1439,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             volume: 0,
           }),
@@ -1466,7 +1466,7 @@ describe('useAudioPlayer', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.playerState,
+          LOCAL_STORAGE_KEYS.player,
           expect.objectContaining({
             volume: 0.5,
           }),

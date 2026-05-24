@@ -25,59 +25,59 @@ export function useAudioPlayer() {
   } = useQueue();
 
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
-    STATE_NAMES.playerAudioPlayer,
+    STATE_KEYS.playerAudioPlayer,
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPlayer,
   );
 
   // Audio preloader for buffering upcoming tracks.
   const preloader = useState<AudioPreloader | null>(
-    STATE_NAMES.playerAudioPreloader,
+    STATE_KEYS.playerAudioPreloader,
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPreloader,
   );
 
   // Save interval state for syncing playback position.
   const saveInterval = useState<null | ReturnType<typeof setInterval>>(
-    STATE_NAMES.playerSaveInterval,
+    STATE_KEYS.playerSaveInterval,
     () => null,
   );
 
   // Ready state.
   const isBuffering = useState(
-    STATE_NAMES.playerPlayLoading,
+    STATE_KEYS.playerPlayLoading,
     () => AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
   );
 
   // Audio time state.
   const currentTime = useState(
-    STATE_NAMES.playerCurrentTime,
+    STATE_KEYS.playerCurrentTime,
     () => AUDIO_PLAYER_DEFAULT_STATES.currentTime,
   );
 
   const bufferedDuration = useState(
-    STATE_NAMES.playerBufferedLength,
+    STATE_KEYS.playerBufferedLength,
     () => AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
   );
 
   // Play/Pause state.
   const isPlaying = useState(
-    STATE_NAMES.playerIsPlaying,
+    STATE_KEYS.playerIsPlaying,
     () => AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
   );
 
   // Playback rate state.
   const playbackRate = useState(
-    STATE_NAMES.playerPlaybackRate,
+    STATE_KEYS.playerPlaybackRate,
     () => AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
   );
 
   // Volume state.
   const volume = useState(
-    STATE_NAMES.playerVolume,
+    STATE_KEYS.playerVolume,
     () => AUDIO_PLAYER_DEFAULT_STATES.volume,
   );
 
   const previousVolume = useState(
-    STATE_NAMES.previousVolume,
+    STATE_KEYS.previousVolume,
     () => AUDIO_PLAYER_DEFAULT_STATES.volume,
   );
 
@@ -85,18 +85,18 @@ export function useAudioPlayer() {
 
   // Repeat/Shuffle state.
   const repeat = useState(
-    STATE_NAMES.playerRepeat,
+    STATE_KEYS.playerRepeat,
     () => AUDIO_PLAYER_DEFAULT_STATES.repeat,
   );
 
   const shuffle = useState(
-    STATE_NAMES.playerShuffle,
+    STATE_KEYS.playerShuffle,
     () => AUDIO_PLAYER_DEFAULT_STATES.shuffle,
   );
 
   // Scrobble states.
   const trackHasScrobbled = useState(
-    STATE_NAMES.playerTrackHasScrobbled,
+    STATE_KEYS.playerTrackHasScrobbled,
     () => AUDIO_PLAYER_DEFAULT_STATES.trackHasScrobbled,
   );
 
@@ -123,11 +123,11 @@ export function useAudioPlayer() {
     volume.value = AUDIO_PLAYER_DEFAULT_STATES.volume;
     previousVolume.value = AUDIO_PLAYER_DEFAULT_STATES.volume;
 
-    deleteLocalStorage(STATE_NAMES.playerState);
+    deleteLocalStorage(LOCAL_STORAGE_KEYS.player);
   }
 
   async function loadAudioPlayerState() {
-    const SAVED_STATE = getLocalStorage(STATE_NAMES.playerState);
+    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.player);
 
     if (!SAVED_STATE) {
       resetAudioPlayerState();
@@ -165,7 +165,7 @@ export function useAudioPlayer() {
       volume: volume.value,
     };
 
-    setLocalStorage(STATE_NAMES.playerState, STATE_TO_SAVE);
+    setLocalStorage(LOCAL_STORAGE_KEYS.player, STATE_TO_SAVE);
   }
 
   function onSaveInterval() {

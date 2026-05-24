@@ -12,7 +12,7 @@ export function useAuth() {
 
   const loading = ref(false);
   const error = ref<null | string>(null);
-  const isAuthenticated = useState(STATE_NAMES.userAuthenticated, () => false);
+  const isAuthenticated = useState(STATE_KEYS.userAuthenticated, () => false);
   setUser(authCookie.value!);
 
   async function autoLogin() {

@@ -1,13 +1,13 @@
 export function useTheme() {
-  const isDarkTheme = useState(STATE_NAMES.theme, () => false);
+  const isDarkTheme = useState(STATE_KEYS.theme, () => false);
 
   function toggleTheme() {
     isDarkTheme.value = !isDarkTheme.value;
-    setLocalStorage(STATE_NAMES.theme, isDarkTheme.value);
+    setLocalStorage(LOCAL_STORAGE_KEYS.theme, isDarkTheme.value);
   }
 
   function setDefaultTheme() {
-    const localTheme = getLocalStorage(STATE_NAMES.theme);
+    const localTheme = getLocalStorage(LOCAL_STORAGE_KEYS.theme);
 
     if (typeof localTheme === 'boolean') {
       isDarkTheme.value = localTheme;

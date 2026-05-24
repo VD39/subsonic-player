@@ -13,7 +13,7 @@ import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationFor
 export function useModal() {
   const { lockScroll, unlockScroll } = useScrollLock('modal');
 
-  const modal = useState<ModalProps>(STATE_NAMES.modal, () => DEFAULT_STATE);
+  const modal = useState<ModalProps>(STATE_KEYS.modal, () => DEFAULT_STATE);
 
   function onKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {

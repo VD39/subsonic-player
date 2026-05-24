@@ -22,7 +22,7 @@ const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  ASYNC_DATA_NAMES.index,
+  ASYNC_DATA_KEYS.index,
   async () => {
     const [, favourites] = await Promise.all([
       getDiscoverAlbums(),

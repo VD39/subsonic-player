@@ -1,6 +1,6 @@
 export function useSidebar() {
-  const collapsed = useState(STATE_NAMES.sideBarCollapsed, () => false);
-  const width = useState(STATE_NAMES.sideBarWidth, () => SIDEBAR_FULL_WIDTH);
+  const collapsed = useState(STATE_KEYS.sideBarCollapsed, () => false);
+  const width = useState(STATE_KEYS.sideBarWidth, () => SIDEBAR_FULL_WIDTH);
 
   function toggle() {
     collapsed.value = !collapsed.value;

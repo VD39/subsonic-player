@@ -28,7 +28,7 @@ const {
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  ASYNC_DATA_NAMES.podcasts,
+  ASYNC_DATA_KEYS.podcasts,
   async () => {
     await getPodcastsAndNewestPodcastEpisodes();
 

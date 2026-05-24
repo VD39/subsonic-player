@@ -9,7 +9,7 @@ const { getGenres } = useGenre();
 
 /* istanbul ignore next -- @preserve */
 const { data: genresData, status } = useAsyncData(
-  ASYNC_DATA_NAMES.genres,
+  ASYNC_DATA_KEYS.genres,
   async () => {
     const genres = await getGenres();
 

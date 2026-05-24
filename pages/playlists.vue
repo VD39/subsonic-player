@@ -16,7 +16,7 @@ const {
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  ASYNC_DATA_NAMES.playlists,
+  ASYNC_DATA_KEYS.playlists,
   async () => {
     await getPlaylists();
 

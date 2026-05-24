@@ -16,7 +16,7 @@ const { addTrackToQueue, playTracks } = useAudioPlayer();
 
 /* istanbul ignore next -- @preserve */
 const { refresh, status } = useAsyncData(
-  ASYNC_DATA_NAMES.radioStations,
+  ASYNC_DATA_KEYS.radioStations,
   async () => {
     await getRadioStations();
 

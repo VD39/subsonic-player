@@ -29,10 +29,7 @@ export function useHotkeyManager() {
   const pressedKeys = ref(new Set<string>());
   const abortController = ref<AbortController | null>(null);
 
-  const isHotkeyListOpened = useState(
-    STATE_NAMES.hotKeyListOpened,
-    () => false,
-  );
+  const isHotkeyListOpened = useState(STATE_KEYS.hotKeyListOpened, () => false);
 
   function clickElementById(id: string) {
     const previousActiveElement = document.activeElement;

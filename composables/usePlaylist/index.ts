@@ -3,8 +3,8 @@ export function usePlaylist() {
   const { addSuccessSnack } = useSnack();
   const { closeModal, openModal } = useModal();
 
-  const playlist = useState<null | Playlist>(STATE_NAMES.playlist, () => null);
-  const playlists = useState<Playlist[]>(STATE_NAMES.playlists, () => []);
+  const playlist = useState<null | Playlist>(STATE_KEYS.playlist, () => null);
+  const playlists = useState<Playlist[]>(STATE_KEYS.playlists, () => []);
 
   function resetPlaylists() {
     playlist.value = null;

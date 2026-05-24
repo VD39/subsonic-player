@@ -1,7 +1,7 @@
 export function useUser() {
   const { getAvatarUrl } = useAPI();
 
-  const user = useState<null | User>(STATE_NAMES.currentUser, () => null);
+  const user = useState<null | User>(STATE_KEYS.currentUser, () => null);
 
   async function getAvatar(username: string) {
     const url = getAvatarUrl(username);

@@ -2,9 +2,9 @@ export function useInfinityLoading<T>(id: string) {
   const config = useRuntimeConfig();
   const { LOAD_SIZE } = config.public;
 
-  const items = useState<T[]>(`${STATE_NAMES.infinityItems}-${id}`, () => []);
-  const offset = useState(`${STATE_NAMES.infinityOffset}-${id}`, () => 0);
-  const hasMore = useState(`${STATE_NAMES.infinityHasMore}-${id}`, () => true);
+  const items = useState<T[]>(`${STATE_KEYS.infinityItems}-${id}`, () => []);
+  const offset = useState(`${STATE_KEYS.infinityOffset}-${id}`, () => 0);
+  const hasMore = useState(`${STATE_KEYS.infinityHasMore}-${id}`, () => true);
 
   async function fetchMoreData<T>(
     dataToFetch: (offset: number) => Promise<T> | T,

@@ -272,7 +272,7 @@ describe('useQueue', () => {
     describe('when ENABLE_QUEUE_SYNC is true', () => {
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.queueState,
+          LOCAL_STORAGE_KEYS.queue,
           {
             currentQueueIndex: QUEUE_DEFAULT_STATES.currentQueueIndex,
             originalQueueList: QUEUE_DEFAULT_STATES.originalQueueList,
@@ -304,7 +304,7 @@ describe('useQueue', () => {
 
       it('calls the setLocalStorage function with the correct parameters', () => {
         expect(setLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.queueState,
+          LOCAL_STORAGE_KEYS.queue,
           {
             currentQueueIndex: QUEUE_DEFAULT_STATES.currentQueueIndex,
             originalQueueList: QUEUE_DEFAULT_STATES.originalQueueList,
@@ -617,7 +617,7 @@ describe('useQueue', () => {
 
     it('calls the setLocalStorage function', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.queueState,
+        LOCAL_STORAGE_KEYS.queue,
         expect.objectContaining({
           queueList: expect.arrayContaining([
             expect.objectContaining({
@@ -789,7 +789,7 @@ describe('useQueue', () => {
 
       it('calls the deleteLocalStorage function with the correct parameters', () => {
         expect(deleteLocalStorageMock).toHaveBeenCalledWith(
-          STATE_NAMES.queueState,
+          LOCAL_STORAGE_KEYS.queue,
         );
       });
 
@@ -1018,7 +1018,7 @@ describe('useQueue', () => {
 
     it('calls the deleteLocalStorage function with the correct parameters', () => {
       expect(deleteLocalStorageMock).toHaveBeenCalledWith(
-        STATE_NAMES.queueState,
+        LOCAL_STORAGE_KEYS.queue,
       );
     });
 

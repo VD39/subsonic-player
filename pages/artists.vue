@@ -8,7 +8,7 @@ const { viewLayout } = useViewLayout();
 
 /* istanbul ignore next -- @preserve */
 const { data: artistsData, status } = useAsyncData(
-  ASYNC_DATA_NAMES.artists,
+  ASYNC_DATA_KEYS.artists,
   async () => {
     const artists = await getArtists();
 

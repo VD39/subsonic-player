@@ -3,10 +3,10 @@ export function usePodcast() {
   const { addSuccessSnack } = useSnack();
   const { closeModal, openModal } = useModal();
 
-  const podcast = useState<PodcastState>(STATE_NAMES.podcast, () => ({}));
-  const podcasts = useState<Podcast[]>(STATE_NAMES.podcasts, () => []);
+  const podcast = useState<PodcastState>(STATE_KEYS.podcast, () => ({}));
+  const podcasts = useState<Podcast[]>(STATE_KEYS.podcasts, () => []);
   const newestPodcastEpisodes = useState<PodcastEpisode[]>(
-    STATE_NAMES.newestPodcastEpisodes,
+    STATE_KEYS.newestPodcastEpisodes,
     () => [],
   );
 

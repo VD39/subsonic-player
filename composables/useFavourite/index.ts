@@ -3,11 +3,11 @@ export function useFavourite() {
   const { updateTrackFavourite } = useQueue();
 
   const favourites = useState<AllMedia>(
-    STATE_NAMES.favourites,
+    STATE_KEYS.favourites,
     () => DEFAULT_ALL_MEDIA,
   );
   const favouriteIds = useState<Record<string, boolean>>(
-    STATE_NAMES.favouriteIds,
+    STATE_KEYS.favouriteIds,
     () => ({}),
   );
 

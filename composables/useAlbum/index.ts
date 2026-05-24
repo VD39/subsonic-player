@@ -4,12 +4,9 @@ export function useAlbum() {
 
   const { fetchData } = useAPI();
 
-  const newestAlbums = useState<Album[]>(STATE_NAMES.newestAlbums, () => []);
-  const recentAlbums = useState<Album[]>(STATE_NAMES.recentAlbums, () => []);
-  const frequentAlbums = useState<Album[]>(
-    STATE_NAMES.frequentAlbums,
-    () => [],
-  );
+  const newestAlbums = useState<Album[]>(STATE_KEYS.newestAlbums, () => []);
+  const recentAlbums = useState<Album[]>(STATE_KEYS.recentAlbums, () => []);
+  const frequentAlbums = useState<Album[]>(STATE_KEYS.frequentAlbums, () => []);
 
   function resetAlbums() {
     newestAlbums.value = [];
