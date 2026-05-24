@@ -1,5 +1,5 @@
 function getNavigation(key: string, params: Record<string, string>) {
-  return Object.entries(params).reduce<PageNavigation>(
+  return Object.entries(params).reduce<NavigationTabMap>(
     (previousValue, [paramKey, value]) => {
       previousValue[paramKey] = {
         params: {
@@ -41,7 +41,7 @@ export const SEARCH_NAVIGATION = getNavigation(
   ROUTE_MEDIA_TYPE_PARAMS,
 );
 
-export const MOBILE_PAGE_NAVIGATION: PageNavigation = {
+export const MOBILE_PAGE_NAVIGATION: NavigationTabMap = {
   Discover: {
     name: ROUTE_NAMES.index,
   },

@@ -35,7 +35,7 @@ describe('getTrackDisplayMetadata', () => {
         getTrackDisplayMetadata({
           ...track,
           type: 'unknown',
-        } as MixedTrack),
+        } as PlayableTrack),
       ).toEqual({
         album: '',
         artist: '',

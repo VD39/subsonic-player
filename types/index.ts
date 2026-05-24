@@ -9,30 +9,30 @@ export interface ButtonProps {
   text?: string;
 }
 
+export type FallbackIcon =
+  TypeofImageDefaultByType[keyof TypeofImageDefaultByType];
+
 export type Icon = TypeofIcons[keyof TypeofIcons];
 
 export type IconSize = keyof typeof ICON_SIZE;
 
 export type IconWeight = 'bold' | 'duotone' | 'fill' | 'regular';
 
-export type ImageDefault =
-  TypeofImageDefaultByType[keyof TypeofImageDefaultByType];
-
 export type LinkIs = 'a' | 'nuxt-link';
 
 export type MediaTypeParam =
   TypeofRouteMediaTypeParams[keyof TypeofRouteMediaTypeParams];
 
-export type MixedMediaAndTrack =
+export type NavigationTabMap = Record<string, ToProp>;
+
+export type PlayableTrack = PodcastEpisode | RadioStation | Track;
+
+export type QueueableMedia =
   | Album
-  | MixedTrack
+  | PlayableTrack
   | Playlist
   | Podcast
   | PodcastEpisode;
-
-export type MixedTrack = PodcastEpisode | RadioStation | Track;
-
-export type PageNavigation = Record<string, ToProp>;
 
 export type RouteName = TypeofRouteNames[keyof TypeofRouteNames];
 

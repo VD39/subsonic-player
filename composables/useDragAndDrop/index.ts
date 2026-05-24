@@ -10,7 +10,7 @@ export function useDragAndDrop() {
   const animationFrameId = ref<null | number>(null);
 
   async function addTracks(
-    tracksToAdd: MixedTrack[],
+    tracksToAdd: PlayableTrack[],
     target: HTMLElement | undefined,
     dropId: string,
   ) {
@@ -57,7 +57,7 @@ export function useDragAndDrop() {
     return clonedEl;
   }
 
-  function isValidMedia(media: MixedMediaAndTrack) {
+  function isValidMedia(media: QueueableMedia) {
     return media && 'type' in media;
   }
 
@@ -149,7 +149,7 @@ export function useDragAndDrop() {
     });
   }
 
-  function dragStart(media: MixedMediaAndTrack, event: DragEvent) {
+  function dragStart(media: QueueableMedia, event: DragEvent) {
     if (!event.dataTransfer || draggedElement.value || !isValidMedia(media)) {
       return;
     }
@@ -193,7 +193,7 @@ export function useDragAndDrop() {
       return;
     }
 
-    const media: MixedMediaAndTrack = JSON.parse(mediaData);
+    const media: QueueableMedia = JSON.parse(mediaData);
 
     if (!isValidMedia(media)) {
       return;

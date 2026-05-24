@@ -1,4 +1,4 @@
-export function getTrackDisplayMetadata(track: MixedTrack) {
+export function getTrackDisplayMetadata(track: PlayableTrack) {
   switch (track.type) {
     case MEDIA_TYPE.podcastEpisode:
       return {

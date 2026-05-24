@@ -75,7 +75,7 @@ export function useMediaLibrary() {
   }
 
   function getFiles(filesParams: FilesParams = {}) {
-    const { id, slug = [] } = filesParams;
+    const { id, slug: slug = [] } = filesParams;
 
     if (slug.length) {
       return getMusicDirectory(slug.at(-1) as string);

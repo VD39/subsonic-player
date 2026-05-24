@@ -7,7 +7,7 @@ export interface Album {
   genres: Genre[];
   id: string;
   image: string;
-  information: AlbumTrack;
+  information: AlbumStats;
   name: string;
   size: string;
   totalDiscNumber: number;
@@ -146,7 +146,7 @@ export interface TracksByDiscNumber {
   [key: string]: Track[];
 }
 
-interface AlbumTrack {
+interface AlbumStats {
   playCount: number;
 }
 

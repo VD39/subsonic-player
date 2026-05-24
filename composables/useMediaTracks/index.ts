@@ -2,7 +2,7 @@ export function useMediaTracks() {
   const { getAlbum } = useAlbum();
   const { getPodcast } = usePodcast();
 
-  async function getMediaTracks(media: MixedMediaAndTrack) {
+  async function getMediaTracks(media: QueueableMedia) {
     switch (media.type) {
       case MEDIA_TYPE.album: {
         const album = media as Album;
@@ -32,7 +32,7 @@ export function useMediaTracks() {
       }
       case MEDIA_TYPE.podcastEpisode:
       case MEDIA_TYPE.track:
-        return [media as MixedTrack];
+        return [media as PlayableTrack];
       default:
         return null;
     }

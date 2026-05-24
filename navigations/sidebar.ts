@@ -1,4 +1,4 @@
-export const SIDEBAR_DESKTOP_NAVIGATION: SidebarNavigation[] = [
+export const SIDEBAR_DESKTOP_NAVIGATION: NavigationGroup[] = [
   {
     items: [
       {

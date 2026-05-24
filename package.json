@@ -72,7 +72,7 @@
   "scripts": {
     "build": "nuxt build",
     "build:preview": "yarn build && yarn preview",
-    "check-types": "vue-tsc --noEmit",
+    "check-types": "yarn postinstall && vue-tsc --noEmit",
     "clean": "rm -rf .nuxt dist .output node_modules/.vite node_modules/.cache",
     "dev": "yarn postinstall && nuxt dev --open",
     "generate": "nuxt generate",

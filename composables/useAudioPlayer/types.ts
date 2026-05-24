@@ -7,7 +7,7 @@ export interface MediaSessionActions {
   [MEDIA_SESSION_ACTION_DETAILS.seekForward]: () => void;
   [MEDIA_SESSION_ACTION_DETAILS.seekTo]: (time: number) => void;
   currentTime: ComputedRef<number>;
-  currentTrack: ComputedRef<MixedTrack>;
+  currentTrack: ComputedRef<PlayableTrack>;
   hasCurrentTrack: ComputedRef<boolean>;
   hasNextTrack: ComputedRef<boolean>;
   hasPreviousTrack: ComputedRef<boolean>;

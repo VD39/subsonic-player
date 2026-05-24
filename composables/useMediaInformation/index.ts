@@ -36,7 +36,7 @@ export function useMediaInformation() {
     });
   }
 
-  function openTrackInformationModal(track: MixedTrack) {
+  function openTrackInformationModal(track: PlayableTrack) {
     switch (track.type) {
       case MEDIA_TYPE.podcastEpisode:
         openModal(MODAL_TYPE.podcastEpisodeInformationModal, {

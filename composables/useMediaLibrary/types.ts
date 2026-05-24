@@ -1,4 +1,4 @@
-export type DownloadTrack = MixedTrack | PodcastEpisode | Track;
+export type DownloadTrack = PlayableTrack | PodcastEpisode | Track;
 
 export interface FilesParams {
   id?: string;

@@ -231,7 +231,7 @@ export function useAudioPlayer() {
     }
   }
 
-  function loadTrack(track: MixedTrack) {
+  function loadTrack(track: PlayableTrack) {
     const url = getStreamUrl(track.streamUrlId!);
     const preloadedElement = preloader.value?.consume(url);
 
@@ -261,7 +261,7 @@ export function useAudioPlayer() {
     preloader.value?.prune(urlsToKeep);
   }
 
-  async function changeTrack(track: MixedTrack) {
+  async function changeTrack(track: PlayableTrack) {
     trackHasScrobbled.value = false;
 
     stopSaveInterval();
@@ -396,7 +396,7 @@ export function useAudioPlayer() {
     prefetchUpcomingTracks();
   }
 
-  async function shuffleTracks(tracks: MixedTrack[]) {
+  async function shuffleTracks(tracks: PlayableTrack[]) {
     const queueIndex = Math.floor(Math.random() * tracks.length) - 1;
     await playTracks(tracks, queueIndex);
     toggleShuffle();
@@ -487,7 +487,7 @@ export function useAudioPlayer() {
     prefetchUpcomingTracks();
   }
 
-  async function addTracksToQueue(tracks: MixedTrack[]) {
+  async function addTracksToQueue(tracks: PlayableTrack[]) {
     const queueListHasTrack = addTracks(tracks);
 
     if (!queueListHasTrack) {
@@ -499,12 +499,12 @@ export function useAudioPlayer() {
     prefetchUpcomingTracks();
   }
 
-  async function addTrackToQueue(track: MixedTrack) {
+  async function addTrackToQueue(track: PlayableTrack) {
     await addTracksToQueue([track]);
   }
 
   async function playTracks(
-    tracks: MixedTrack[],
+    tracks: PlayableTrack[],
     queueIndex = QUEUE_DEFAULT_STATES.currentQueueIndex,
   ) {
     resetPlayer();

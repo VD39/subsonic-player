@@ -4,15 +4,15 @@ import MixedTracksListItem from '@/components/Organisms/TrackLists/MixedTracksLi
 
 defineProps<{
   hideRemoveOption?: boolean;
-  tracks: MixedTrack[];
+  tracks: PlayableTrack[];
 }>();
 
 const emit = defineEmits<{
   addToPlaylist: [trackId: string, index: number];
-  addToQueue: [track: MixedTrack];
-  downloadMedia: [track: MixedTrack];
-  dragStart: [track: MixedTrack, event: DragEvent];
-  mediaInformation: [track: MixedTrack];
+  addToQueue: [track: PlayableTrack];
+  downloadMedia: [track: PlayableTrack];
+  dragStart: [track: PlayableTrack, event: DragEvent];
+  mediaInformation: [track: PlayableTrack];
   playTrack: [index: number];
   remove: [
     removeArgs: {

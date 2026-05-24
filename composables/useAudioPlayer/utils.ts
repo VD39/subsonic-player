@@ -1,8 +1,8 @@
 export function getPreviousTrack(
-  queue: MixedTrack[],
+  queue: PlayableTrack[],
   currentIndex: number,
   repeat: number,
-): MixedTrack[] {
+): PlayableTrack[] {
   if (
     !queue.length ||
     (currentIndex <= 0 && repeat !== Number.POSITIVE_INFINITY)
@@ -18,10 +18,10 @@ export function getPreviousTrack(
 }
 
 export function getTracksToPreload(
-  queue: MixedTrack[],
+  queue: PlayableTrack[],
   currentIndex: number,
   repeat: number,
-): MixedTrack[] {
+): PlayableTrack[] {
   if (!queue.length) {
     return [];
   }
@@ -33,15 +33,15 @@ export function getTracksToPreload(
 }
 
 export function getUpcomingTracks(
-  queue: MixedTrack[],
+  queue: PlayableTrack[],
   currentIndex: number,
   repeat: number,
-): MixedTrack[] {
+): PlayableTrack[] {
   if (!queue.length || PREFETCH_TRACK_COUNT <= 0) {
     return [];
   }
 
-  const upcoming: MixedTrack[] = [];
+  const upcoming: PlayableTrack[] = [];
   const totalTracks = queue.length;
 
   for (
@@ -69,14 +69,14 @@ export function getUpcomingTracks(
 }
 
 export function removeRemovedTracksFromOriginalQueue(
-  shuffledQueue: MixedTrack[],
-  originalQueue: MixedTrack[],
+  shuffledQueue: PlayableTrack[],
+  originalQueue: PlayableTrack[],
 ) {
   const tracksAIds = new Set(shuffledQueue.map((track) => track.id));
   return originalQueue.filter((track) => tracksAIds.has(track.id));
 }
 
-export function shuffleTrackInQueue(queue: MixedTrack[], index = 0) {
+export function shuffleTrackInQueue(queue: PlayableTrack[], index = 0) {
   [queue[0], queue[index]] = [queue[index], queue[0]];
 
   const rest = queue.splice(1);
@@ -85,6 +85,6 @@ export function shuffleTrackInQueue(queue: MixedTrack[], index = 0) {
   return queue;
 }
 
-function isPreloadable(track: MixedTrack) {
+function isPreloadable(track: PlayableTrack) {
   return track.type !== MEDIA_TYPE.radioStation && !!track.streamUrlId;
 }

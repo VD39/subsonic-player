@@ -110,8 +110,8 @@ describe('removeRemovedTracksFromOriginalQueue', () => {
       it('returns filtered items from b whose ids exist in a', () => {
         expect(
           removeRemovedTracksFromOriginalQueue(
-            shuffledQueue as MixedTrack[],
-            originalQueue as MixedTrack[],
+            shuffledQueue as PlayableTrack[],
+            originalQueue as PlayableTrack[],
           ),
         ).toEqual(expected);
       });

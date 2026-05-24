@@ -20,7 +20,7 @@ const props = defineProps<{
   hasSortListEvent?: boolean;
   hideRemoveOption?: boolean;
   index: number;
-  track: MixedTrack;
+  track: PlayableTrack;
 }>();
 
 const emit = defineEmits<{

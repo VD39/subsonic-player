@@ -79,7 +79,7 @@ async function onPlayAlbum(album: Album) {
 
 function onPlayTrack(index: number) {
   playTracks(
-    [(searchResultsData.value.searchResults as MixedTrack[])[index]],
+    [(searchResultsData.value.searchResults as PlayableTrack[])[index]],
     -1,
   );
 }

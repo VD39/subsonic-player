@@ -4,7 +4,7 @@ import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 
 defineProps<{
-  track: Bookmark | MixedTrack;
+  track: Bookmark | PlayableTrack;
 }>();
 </script>
 

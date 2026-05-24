@@ -1,11 +1,11 @@
-export interface SidebarItem {
+export interface NavigationGroup {
+  items: NavigationItem[];
+  title: string;
+}
+
+export interface NavigationItem {
   icon: Icon;
   isDroppable?: boolean;
   title: string;
   to: ToProp;
-}
-
-export interface SidebarNavigation {
-  items: SidebarItem[];
-  title: string;
 }

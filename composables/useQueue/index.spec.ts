@@ -81,7 +81,7 @@ const tracks = getFormattedQueueTracksMock(4);
 const podcastEpisode = getFormattedPodcastEpisodesMock(1)[0];
 const radioStation = getFormattedRadioStationMock(1)[0];
 
-let preShuffleQueue: MixedTrack[];
+let preShuffleQueue: PlayableTrack[];
 
 describe('useQueue', () => {
   it('sets the default isQueueListOpened value', () => {

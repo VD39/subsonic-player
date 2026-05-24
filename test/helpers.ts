@@ -106,8 +106,8 @@ export function getFormattedPodcastsMock(
 
 export function getFormattedQueueTracksMock(
   length = 1,
-  params: Partial<MixedTrack> = {},
-): MixedTrack[] {
+  params: Partial<PlayableTrack> = {},
+): PlayableTrack[] {
   return Array.from({ length }, (_, index) => ({
     ...formattedTrackMock,
     ...params,

@@ -12,9 +12,10 @@ export function useQueue() {
     () => false,
   );
 
-  const queueList = useState<MixedTrack[]>(STATE_KEYS.playerQueueList, () => [
-    ...QUEUE_DEFAULT_STATES.queueList,
-  ]);
+  const queueList = useState<PlayableTrack[]>(
+    STATE_KEYS.playerQueueList,
+    () => [...QUEUE_DEFAULT_STATES.queueList],
+  );
 
   const originalQueueList = useState(
     STATE_KEYS.playerOriginalQueueList,
@@ -26,8 +27,8 @@ export function useQueue() {
     () => QUEUE_DEFAULT_STATES.currentQueueIndex,
   );
 
-  const currentTrack = computed<MixedTrack>(
-    () => queueList.value[currentQueueIndex.value] || ({} as MixedTrack),
+  const currentTrack = computed<PlayableTrack>(
+    () => queueList.value[currentQueueIndex.value] || ({} as PlayableTrack),
   );
 
   const hasCurrentTrack = computed(
@@ -56,7 +57,7 @@ export function useQueue() {
 
   const isTrack = computed(() => currentTrack.value.type === MEDIA_TYPE.track);
 
-  function addTracks(tracks: MixedTrack[], clearExisting = false) {
+  function addTracks(tracks: PlayableTrack[], clearExisting = false) {
     if (clearExisting) {
       clearQueue();
     }
