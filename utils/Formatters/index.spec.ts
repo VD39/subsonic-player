@@ -1024,7 +1024,7 @@ describe('formatBookmark(', () => {
     ).toEqual(
       expect.objectContaining({
         formattedPosition: '00:05',
-        position: 5654,
+        position: 5,
         trackNumber: 0,
       }),
     );

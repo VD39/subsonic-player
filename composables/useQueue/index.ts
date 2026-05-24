@@ -115,8 +115,9 @@ export function useQueue() {
     }
 
     if (playQueueData.position) {
-      queueList.value[currentQueueIndex.value].position =
-        playQueueData.position;
+      queueList.value[currentQueueIndex.value].position = Math.floor(
+        playQueueData.position / 1000,
+      );
     }
   }
 
@@ -232,14 +233,14 @@ export function useQueue() {
     saveQueueState();
   }
 
-  function saveQueueState(positionMs?: number) {
+  function saveQueueState(position?: number) {
     setLocalStorage(LOCAL_STORAGE_KEYS.queue, {
       currentQueueIndex: currentQueueIndex.value,
       originalQueueList: originalQueueList.value,
       queueList: queueList.value,
     });
 
-    syncToServer(positionMs);
+    syncToServer(position);
   }
 
   function shuffleQueue() {
@@ -259,7 +260,7 @@ export function useQueue() {
     }
   }
 
-  async function syncToServer(positionMs?: number) {
+  async function syncToServer(position?: number) {
     if (!ENABLE_QUEUE_SYNC) {
       return;
     }
@@ -286,7 +287,7 @@ export function useQueue() {
       query: {
         current,
         id: ids,
-        position: positionMs,
+        position: Math.floor((position || 0) * 1000),
       },
     });
   }
@@ -301,9 +302,9 @@ export function useQueue() {
     syncScrollLock();
   }
 
-  function updateCurrentTrackPosition(positionMs: number) {
-    queueList.value[currentQueueIndex.value].position = positionMs;
-    saveQueueState(positionMs);
+  function updateCurrentTrackPosition(position: number) {
+    queueList.value[currentQueueIndex.value].position = position;
+    saveQueueState(position);
   }
 
   function updateTrackFavourite(id: string, isFavourite: boolean) {

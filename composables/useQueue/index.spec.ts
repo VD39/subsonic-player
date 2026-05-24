@@ -287,7 +287,7 @@ describe('useQueue', () => {
           query: {
             current: undefined,
             id: [tracks[0].id, tracks[1].id, tracks[2].id, tracks[3].id],
-            position: undefined,
+            position: 0,
           },
         });
       });
@@ -608,11 +608,11 @@ describe('useQueue', () => {
   describe('when the updateCurrentTrackPosition function is called', () => {
     beforeAll(() => {
       vi.clearAllMocks();
-      updateCurrentTrackPosition(5000);
+      updateCurrentTrackPosition(5);
     });
 
     it('sets the position on the current track', () => {
-      expect(queueList.value[currentQueueIndex.value].position).toBe(5000);
+      expect(queueList.value[currentQueueIndex.value].position).toBe(5);
     });
 
     it('calls the setLocalStorage function', () => {
@@ -621,7 +621,7 @@ describe('useQueue', () => {
         expect.objectContaining({
           queueList: expect.arrayContaining([
             expect.objectContaining({
-              position: 5000,
+              position: 5,
             }),
           ]),
         }),
@@ -1063,7 +1063,7 @@ describe('useQueue', () => {
         });
 
         it('sets the correct position on the current track', () => {
-          expect(queueList.value[3].position).toBe(1000);
+          expect(queueList.value[3].position).toBe(1);
         });
 
         it('sets the correct queueList value', () => {
@@ -1089,7 +1089,7 @@ describe('useQueue', () => {
         });
 
         it('sets the correct position on the first track', () => {
-          expect(queueList.value[0].position).toBe(1000);
+          expect(queueList.value[0].position).toBe(1);
         });
 
         it('sets the correct queueList value', () => {
@@ -1118,7 +1118,7 @@ describe('useQueue', () => {
         });
 
         it('sets the correct position on the first track', () => {
-          expect(queueList.value[0].position).toBe(1000);
+          expect(queueList.value[0].position).toBe(1);
         });
 
         it('sets the correct queueList value', () => {

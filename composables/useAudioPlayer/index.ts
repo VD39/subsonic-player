@@ -147,8 +147,7 @@ export function useAudioPlayer() {
 
       const position = currentTrack.value.position;
       const savedTime = SAVED_STATE.currentTime;
-      const timeToRestore =
-        savedTime || (position ? Math.floor(position / 1000) : 0);
+      const timeToRestore = savedTime || (position ? position : 0);
 
       setCurrentTime(timeToRestore);
     }
@@ -271,7 +270,7 @@ export function useAudioPlayer() {
     loadTrack(track);
 
     if (track.position) {
-      setCurrentTime(Math.floor(track.position / 1000));
+      setCurrentTime(track.position);
     }
 
     setMediaSessionPositionState();
@@ -333,12 +332,10 @@ export function useAudioPlayer() {
   }
 
   function syncPlaybackPosition() {
-    const positionMs = Math.floor(currentTime.value * 1000);
-
-    updateCurrentTrackPosition(positionMs);
+    updateCurrentTrackPosition(currentTime.value);
 
     if (isPodcastEpisode.value) {
-      createBookmark(currentTrack.value.id, positionMs);
+      createBookmark(currentTrack.value.id, currentTime.value);
     }
   }
 

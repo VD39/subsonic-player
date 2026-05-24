@@ -31,7 +31,7 @@ export function useBookmark() {
       method: 'POST',
       query: {
         id,
-        position,
+        position: Math.floor(position * 1000),
       },
     });
 

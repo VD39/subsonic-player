@@ -106,13 +106,12 @@ export function formatArtist(
 }
 
 export function formatBookmark(bookmark: FormattedBookmark): Bookmark {
-  const positionMs = bookmark.position || 0;
-  const positionSeconds = positionMs / 1000;
+  const positionSeconds = Math.floor((bookmark.position || 0) / 1000);
 
   return {
     ...formatPodcastEpisode(bookmark as unknown as ResponsePodcastEpisode),
     formattedPosition: secondsToHHMMSS(positionSeconds),
-    position: positionMs,
+    position: positionSeconds,
     trackNumber: 0,
   };
 }

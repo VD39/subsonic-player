@@ -378,7 +378,7 @@ describe('useAudioPlayer', () => {
               shuffle: false,
               volume: 0.5,
             });
-            currentTrackMock.value.position = 7656;
+            currentTrackMock.value.position = 7;
 
             result = withSetup(useAudioPlayer);
             result.composable.initAudioPlayer();
@@ -390,7 +390,7 @@ describe('useAudioPlayer', () => {
 
           describe('when the currentTrack value has a position', () => {
             beforeAll(() => {
-              currentTrackMock.value.position = 7656;
+              currentTrackMock.value.position = 7;
               result.composable.initAudioPlayer();
             });
 
@@ -749,7 +749,7 @@ describe('useAudioPlayer', () => {
       beforeAll(() => {
         navigateQueueMock.mockReturnValueOnce(
           getFormattedQueueTracksMock(1, {
-            position: 4567,
+            position: 4,
           })[0],
         );
 
@@ -1062,12 +1062,12 @@ describe('useAudioPlayer', () => {
       it('calls the createBookmark function with the correct parameters', () => {
         expect(createBookmarkMock).toHaveBeenCalledWith(
           currentTrackMock.value.id,
-          42000,
+          42,
         );
       });
 
       it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(42000);
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(42);
       });
     });
 
@@ -1091,7 +1091,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(50000);
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(50);
       });
     });
   });
@@ -1566,12 +1566,12 @@ describe('useAudioPlayer', () => {
       it('calls the createBookmark function with the correct parameters', () => {
         expect(createBookmarkMock).toHaveBeenCalledWith(
           currentTrackMock.value.id,
-          Math.floor(1 * 1000),
+          1,
         );
       });
 
       it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(1000);
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(1);
       });
     });
 
@@ -1588,7 +1588,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(1000);
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(1);
       });
     });
   });
@@ -1648,12 +1648,12 @@ describe('useAudioPlayer', () => {
       it('calls the createBookmark function with the correct parameters', () => {
         expect(createBookmarkMock).toHaveBeenCalledWith(
           currentTrackMock.value.id,
-          30000,
+          30,
         );
       });
 
       it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(30000);
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(30);
       });
     });
 
@@ -1670,7 +1670,7 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(30000);
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(30);
       });
     });
   });
