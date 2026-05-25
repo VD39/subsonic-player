@@ -21,28 +21,10 @@ export function getArtists(media: AlbumWithSongsID3 | Base): BaseArtist[] {
   return artist;
 }
 
-export function getDownloadedEpisodesLength(
+export function getDownloadedEpisodesCount(
   episodes: ResponsePodcastEpisode[] = [],
 ) {
   return episodes.filter((episode) => episode.status === 'completed').length;
-}
-
-export function getEarliestDate(episodes: ResponsePodcastEpisode[] = []) {
-  const dates = episodes
-    .map((episode) => {
-      if (!episode.publishDate) {
-        return 0;
-      }
-
-      return new Date(episode.publishDate).getTime();
-    })
-    .filter(Boolean);
-
-  if (!dates.length) {
-    return;
-  }
-
-  return new Date(Math.max(...dates));
 }
 
 export function getGenres(media: Base): Genre[] {
@@ -63,8 +45,22 @@ export function getGenres(media: Base): Genre[] {
   return genre;
 }
 
-export function getRandomTracksDuration(tracks: Base[] = []) {
-  return tracks.reduce((sum, track) => sum + (track.duration || 0), 0);
+export function getLatestDate(episodes: ResponsePodcastEpisode[] = []) {
+  const dates = episodes
+    .map((episode) => {
+      if (!episode.publishDate) {
+        return 0;
+      }
+
+      return new Date(episode.publishDate).getTime();
+    })
+    .filter(Boolean);
+
+  if (!dates.length) {
+    return;
+  }
+
+  return new Date(Math.max(...dates));
 }
 
 export function getSortedPodcastEpisodes(
@@ -81,6 +77,10 @@ export function getSortedPodcastEpisodes(
       ROUTE_PODCAST_FILTER_PARAMS['Not downloaded'],
     ),
   };
+}
+
+export function getTotalTracksDuration(tracks: Base[] = []) {
+  return tracks.reduce((sum, track) => sum + (track.duration || 0), 0);
 }
 
 export function getTracksTotal(albums: AlbumWithSongsID3[] = []) {

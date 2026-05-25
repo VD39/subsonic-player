@@ -24,7 +24,7 @@ const { fetchMoreData, hasMore } = useInfinityLoading<SearchResultByType>(
   `search-${route.params[ROUTE_PARAM_KEYS.search.mediaType]}-${route.params[ROUTE_PARAM_KEYS.search.query]}`,
 );
 
-const query = replaceCharactersWithSpace(
+const query = replaceCharacterWithSpace(
   sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
 );
 

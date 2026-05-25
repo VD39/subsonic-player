@@ -35,7 +35,7 @@ export function usePlaylist() {
         const playlistRes = {
           ...response.randomSongs,
           ...RANDOM_PLAYLIST,
-          duration: getRandomTracksDuration(song),
+          duration: getTotalTracksDuration(song),
           entry: song,
           songCount: song.length || 0,
         };

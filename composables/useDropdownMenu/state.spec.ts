@@ -4,14 +4,14 @@ const {
   activeMenuId,
   clearActiveMenuId,
   isAnyOpen,
-  openEventCount,
+  menuOpenRevision,
   setActiveMenuId,
 } = useDropdownMenuState();
 
 describe('useDropdownMenuState', () => {
   beforeEach(() => {
     // Reset state before each test as the state is shared across tests.
-    openEventCount.value = 0;
+    menuOpenRevision.value = 0;
   });
 
   describe('when the setActiveMenuId function is called', () => {
@@ -27,8 +27,8 @@ describe('useDropdownMenuState', () => {
       expect(isAnyOpen.value).toBe(true);
     });
 
-    it('sets the openEventCount value with 1', () => {
-      expect(openEventCount.value).toBe(1);
+    it('sets the menuOpenRevision value with 1', () => {
+      expect(menuOpenRevision.value).toBe(1);
     });
 
     describe('when the setActiveMenuId function is called again with the same menu id', () => {
@@ -36,8 +36,8 @@ describe('useDropdownMenuState', () => {
         setActiveMenuId('some-menu-id');
       });
 
-      it('sets the openEventCount value with 2', () => {
-        expect(openEventCount.value).toBe(2);
+      it('sets the menuOpenRevision value with 2', () => {
+        expect(menuOpenRevision.value).toBe(2);
       });
     });
   });
@@ -56,8 +56,8 @@ describe('useDropdownMenuState', () => {
       expect(isAnyOpen.value).toBe(false);
     });
 
-    it('sets the openEventCount value with 0', () => {
-      expect(openEventCount.value).toBe(0);
+    it('sets the menuOpenRevision value with 0', () => {
+      expect(menuOpenRevision.value).toBe(0);
     });
   });
 });

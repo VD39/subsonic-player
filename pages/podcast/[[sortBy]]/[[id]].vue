@@ -90,11 +90,11 @@ function openPodcastDescriptionModal() {
   });
 }
 
-function playAllEpisodes() {
+function playDownloadedEpisodes() {
   playTracks(podcast.value!.episodes.downloaded, -1);
 }
 
-function playLatestsEpisodes() {
+function playLatestEpisode() {
   onPlayEpisode(podcast.value!.episodes.downloaded[0]);
 }
 
@@ -161,7 +161,7 @@ useHead({
             :disabled="!hasDownloadedEpisodes"
             :icon="ICONS.play"
             title="Play podcast episodes"
-            @click="playAllEpisodes"
+            @click="playDownloadedEpisodes"
           >
             Play podcast episodes
           </ButtonLink>
@@ -169,14 +169,14 @@ useHead({
           <DropdownMenu>
             <template v-if="hasDownloadedEpisodes">
               <DropdownItem
-                ref="playLatestsEpisodeDropdownItem"
-                @click="playLatestsEpisodes"
+                ref="playLatestEpisodeDropdownItem"
+                @click="playLatestEpisode"
               >
-                Play latests episode
+                Play latest episode
               </DropdownItem>
               <DropdownItem
                 ref="playAllEpisodesDropdownItem"
-                @click="playAllEpisodes"
+                @click="playDownloadedEpisodes"
               >
                 Play all episodes
               </DropdownItem>

@@ -15,10 +15,10 @@ Object.defineProperty(globalThis, 'matchMedia', {
   writable: true,
 });
 
-const openEventCount = ref(0);
+const menuOpenRevision = ref(0);
 
 mockNuxtImport('useDropdownMenuState', () => () => ({
-  openEventCount,
+  menuOpenRevision,
 }));
 
 const { abortControllerConstructorMock, abortMock, signalMock } =
@@ -37,7 +37,7 @@ describe('useDropdownSubmenu', () => {
   });
 
   beforeEach(() => {
-    openEventCount.value = 0;
+    menuOpenRevision.value = 0;
     matchesMock.value = true;
 
     result = withSetup(() =>
@@ -543,10 +543,10 @@ describe('useDropdownSubmenu', () => {
     });
   });
 
-  describe('when the openEventCount value changes', () => {
+  describe('when the menuOpenRevision value changes', () => {
     beforeEach(async () => {
       await result.composable.openSubmenu();
-      openEventCount.value++;
+      menuOpenRevision.value++;
       await nextTick();
     });
 
@@ -580,7 +580,7 @@ describe('useDropdownSubmenu', () => {
         );
 
         await result.composable.openSubmenu();
-        openEventCount.value++;
+        menuOpenRevision.value++;
         await nextTick();
       });
 

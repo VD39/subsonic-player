@@ -2,8 +2,8 @@ import {
   convertToTitleCase,
   formatListToString,
   generateRandomString,
-  replaceCharactersWithSpace,
-  replaceSpacesWithCharacter,
+  replaceCharacterWithSpace,
+  replaceSpaceWithCharacter,
   sanitiseString,
   splitCamelCase,
 } from './strings';
@@ -22,7 +22,7 @@ describe('generateRandomString', () => {
   });
 });
 
-describe('replaceCharactersWithSpace', () => {
+describe('replaceCharacterWithSpace', () => {
   describe.each([
     ['ab-cd', undefined, 'ab cd'],
     ['abcd', 'c', 'ab d'],
@@ -33,13 +33,13 @@ describe('replaceCharactersWithSpace', () => {
     'when is string %s and replace characters is %s',
     (input, characters, output) => {
       it('returns the correct response', () => {
-        expect(replaceCharactersWithSpace(input, characters)).toBe(output);
+        expect(replaceCharacterWithSpace(input, characters)).toBe(output);
       });
     },
   );
 });
 
-describe('replaceSpacesWithCharacter', () => {
+describe('replaceSpaceWithCharacter', () => {
   describe.each([
     ['ab cd', undefined, 'ab-cd'],
     ['ab d', 'c', 'abcd'],
@@ -50,7 +50,7 @@ describe('replaceSpacesWithCharacter', () => {
     'when is string %s and replace characters is %s',
     (input, characters, output) => {
       it('returns the correct response', () => {
-        expect(replaceSpacesWithCharacter(input, characters)).toBe(output);
+        expect(replaceSpaceWithCharacter(input, characters)).toBe(output);
       });
     },
   );

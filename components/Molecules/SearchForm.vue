@@ -23,7 +23,7 @@ function onFormSubmit() {
     return;
   }
 
-  const query = replaceSpacesWithCharacter(
+  const query = replaceSpaceWithCharacter(
     form.fields.query.value.value as string,
   ).toLowerCase();
 

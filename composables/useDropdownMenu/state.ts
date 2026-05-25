@@ -6,7 +6,7 @@ export function useDropdownMenuState() {
 
   // Increments on every open, even when the same menu reopens, to ensure
   // watchers fire regardless of whether activeMenuId changed.
-  const openEventCount = useState<number>(
+  const menuOpenRevision = useState<number>(
     STATE_KEYS.dropdownOpenEventCount,
     () => 0,
   );
@@ -15,19 +15,19 @@ export function useDropdownMenuState() {
 
   function clearActiveMenuId() {
     activeMenuId.value = null;
-    openEventCount.value = 0;
+    menuOpenRevision.value = 0;
   }
 
   function setActiveMenuId(id: string) {
     activeMenuId.value = id;
-    openEventCount.value++;
+    menuOpenRevision.value++;
   }
 
   return {
     activeMenuId,
     clearActiveMenuId,
     isAnyOpen,
-    openEventCount,
+    menuOpenRevision,
     setActiveMenuId,
   };
 }

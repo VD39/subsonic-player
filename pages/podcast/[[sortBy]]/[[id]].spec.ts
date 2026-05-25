@@ -292,10 +292,10 @@ describe('[[id]]', () => {
           ).toBe(false);
         });
 
-        it('does not show the play latests episode DropdownItem component', () => {
+        it('does not show the play latest episode DropdownItem component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playLatestsEpisodeDropdownItem' })
+              .findComponent({ ref: 'playLatestEpisodeDropdownItem' })
               .exists(),
           ).toBe(false);
         });
@@ -328,10 +328,10 @@ describe('[[id]]', () => {
           ).toBe(true);
         });
 
-        it('shows the play latests episode DropdownItem component', () => {
+        it('shows the play latest episode DropdownItem component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playLatestsEpisodeDropdownItem' })
+              .findComponent({ ref: 'playLatestEpisodeDropdownItem' })
               .exists(),
           ).toBe(true);
         });
@@ -375,10 +375,10 @@ describe('[[id]]', () => {
           });
         });
 
-        describe('when the play latests episode DropdownItem component emits a click event', () => {
+        describe('when the play latest episode DropdownItem component emits a click event', () => {
           beforeEach(() => {
             wrapper
-              .findComponent({ ref: 'playLatestsEpisodeDropdownItem' })
+              .findComponent({ ref: 'playLatestEpisodeDropdownItem' })
               .vm.$emit('click');
           });
 

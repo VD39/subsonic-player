@@ -9,11 +9,11 @@ import {
 import {
   getAlbumSize,
   getArtists,
-  getDownloadedEpisodesLength,
-  getEarliestDate,
+  getDownloadedEpisodesCount,
   getGenres,
-  getRandomTracksDuration,
+  getLatestDate,
   getSortedPodcastEpisodes,
+  getTotalTracksDuration,
   getTracksTotal,
   getUniqueGenres,
   getUniqueImages,
@@ -281,17 +281,17 @@ describe('getTracksTotal', () => {
   });
 });
 
-describe('getEarliestDate', () => {
+describe('getLatestDate', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct values', () => {
-      expect(getEarliestDate()).toEqual(undefined);
+      expect(getLatestDate()).toEqual(undefined);
     });
   });
 
   describe('when podcast episodes is defined', () => {
     describe('when podcast episodes is an empty array', () => {
       it('returns the correct values', () => {
-        expect(getEarliestDate([])).toEqual(undefined);
+        expect(getLatestDate([])).toEqual(undefined);
       });
     });
 
@@ -299,7 +299,7 @@ describe('getEarliestDate', () => {
       describe('when podcast episodes does not contain published dates', () => {
         it('returns the correct values', () => {
           expect(
-            getEarliestDate([
+            getLatestDate([
               ...getPodcastEpisodesMock(1, {
                 publishDate: undefined,
               }),
@@ -311,7 +311,7 @@ describe('getEarliestDate', () => {
       describe('when podcast episodes contains published dates', () => {
         it('returns the correct values', () => {
           expect(
-            getEarliestDate([
+            getLatestDate([
               ...getPodcastEpisodesMock(1, {
                 publishDate: new Date(2024, 0, 1),
               }),
@@ -332,17 +332,17 @@ describe('getEarliestDate', () => {
   });
 });
 
-describe('getDownloadedEpisodesLength', () => {
+describe('getDownloadedEpisodesCount', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct values', () => {
-      expect(getDownloadedEpisodesLength()).toEqual(0);
+      expect(getDownloadedEpisodesCount()).toEqual(0);
     });
   });
 
   describe('when podcast episodes is defined', () => {
     describe('when podcast episodes is an empty array', () => {
       it('returns the correct values', () => {
-        expect(getDownloadedEpisodesLength([])).toEqual(0);
+        expect(getDownloadedEpisodesCount([])).toEqual(0);
       });
     });
 
@@ -350,7 +350,7 @@ describe('getDownloadedEpisodesLength', () => {
       describe('when podcast episodes does not contain downloaded episodes', () => {
         it('returns the correct values', () => {
           expect(
-            getDownloadedEpisodesLength([
+            getDownloadedEpisodesCount([
               ...getPodcastEpisodesMock(2, {
                 status: 'downloading',
               }),
@@ -362,7 +362,7 @@ describe('getDownloadedEpisodesLength', () => {
       describe('when podcast episodes contains downloaded episodes', () => {
         it('returns the correct values', () => {
           expect(
-            getDownloadedEpisodesLength([...getPodcastEpisodesMock(5)]),
+            getDownloadedEpisodesCount([...getPodcastEpisodesMock(5)]),
           ).toEqual(5);
         });
       });
@@ -370,10 +370,10 @@ describe('getDownloadedEpisodesLength', () => {
   });
 });
 
-describe('getRandomTracksDuration', () => {
+describe('getTotalTracksDuration', () => {
   describe('when tracks is undefined', () => {
     it('returns the correct values', () => {
-      expect(getRandomTracksDuration()).toEqual(0);
+      expect(getTotalTracksDuration()).toEqual(0);
     });
   });
 
@@ -381,7 +381,7 @@ describe('getRandomTracksDuration', () => {
     describe('when duration is undefined', () => {
       it('returns the correct values', () => {
         expect(
-          getRandomTracksDuration(
+          getTotalTracksDuration(
             getTracksMock(5, {
               duration: undefined,
             }),
@@ -392,7 +392,7 @@ describe('getRandomTracksDuration', () => {
 
     describe('when duration is defined', () => {
       it('returns the correct values', () => {
-        expect(getRandomTracksDuration(getTracksMock(10))).toEqual(190);
+        expect(getTotalTracksDuration(getTracksMock(10))).toEqual(190);
       });
     });
   });

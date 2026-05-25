@@ -39,17 +39,11 @@ export function generateRandomString(length = 15) {
   ).join('');
 }
 
-export function replaceCharactersWithSpace(
-  str: string,
-  replaceCharacter = '-',
-) {
+export function replaceCharacterWithSpace(str: string, replaceCharacter = '-') {
   return str.replaceAll(replaceCharacter, ' ');
 }
 
-export function replaceSpacesWithCharacter(
-  str: string,
-  replaceCharacter = '-',
-) {
+export function replaceSpaceWithCharacter(str: string, replaceCharacter = '-') {
   return str.replaceAll(/ +/g, replaceCharacter);
 }
 

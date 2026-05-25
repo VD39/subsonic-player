@@ -15,14 +15,14 @@ export function validateInputs<T extends Form<any>>(form: T) {
     field.error.value = '';
   }
 
-  form.isValid.value = checkFormIsInvalid(form.fields);
+  form.isValid.value = checkFormIsValid(form.fields);
 
   if (form.isValid.value) {
     (document.activeElement as HTMLElement)?.blur();
   }
 }
 
-function checkFormIsInvalid<T extends Fields<T>>(formFields: T) {
+function checkFormIsValid<T extends Fields<T>>(formFields: T) {
   return Object.values<FormField>(formFields).every(
     (field) => field.isValid.value,
   );

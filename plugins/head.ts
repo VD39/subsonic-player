@@ -79,7 +79,7 @@ export default defineNuxtPlugin(() => {
         return `${titleChunk
           .split(/ - /)
           .map((substring) =>
-            convertToTitleCase(replaceCharactersWithSpace(substring)),
+            convertToTitleCase(replaceCharacterWithSpace(substring)),
           )
           .join(' - ')} - ${MAIN_APP_TITLE}`;
       },

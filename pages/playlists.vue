@@ -38,7 +38,7 @@ const { refresh, status } = useAsyncData(
   },
 );
 
-const { sortedItems: sortedPlaylist, sortProps } = useLocalSort<Playlist>({
+const { sortedItems: sortedPlaylists, sortProps } = useLocalSort<Playlist>({
   items: computed(() => playlists.value || []),
   options: [
     {
@@ -77,7 +77,7 @@ useHead({
     <SortControls v-bind="sortProps" />
 
     <PlaylistsList
-      :playlists="sortedPlaylist"
+      :playlists="sortedPlaylists"
       @deletePlaylist="deletePlaylist"
       @editPlaylist="updatePlaylistModal"
     />

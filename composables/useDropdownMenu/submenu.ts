@@ -1,7 +1,7 @@
 export function useDropdownSubmenu(options: DropdownSubmenuOptions) {
   const { dropdownSubListRef, dropdownSubmenuRef } = options;
 
-  const { openEventCount } = useDropdownMenuState();
+  const { menuOpenRevision } = useDropdownMenuState();
 
   const isOpen = ref(false);
   const openedLeft = ref(false);
@@ -92,7 +92,7 @@ export function useDropdownSubmenu(options: DropdownSubmenuOptions) {
     isOpen.value = !isOpen.value;
   }
 
-  watch(openEventCount, () => {
+  watch(menuOpenRevision, () => {
     closeSubmenu();
   });
 

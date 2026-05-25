@@ -65,11 +65,11 @@ function openArtistBiographyModal() {
   });
 }
 
-function playSimilarTracksTrack(index: number) {
+function playFromSimilarTracks(index: number) {
   playTracks(artistData.value!.similarTracks, index - 1);
 }
 
-function playTopTracksTrack(index: number) {
+function playTopTrack(index: number) {
   playTracks(artistData.value!.topTracks, index - 1);
 }
 
@@ -158,7 +158,7 @@ useHead({
           @downloadMedia="downloadMedia"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
-          @playTrack="playTopTracksTrack"
+          @playTrack="playTopTrack"
         />
       </template>
 
@@ -173,7 +173,7 @@ useHead({
           @downloadMedia="downloadMedia"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
-          @playTrack="playSimilarTracksTrack"
+          @playTrack="playFromSimilarTracks"
         />
       </template>
 
