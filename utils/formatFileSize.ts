@@ -1,4 +1,4 @@
-export function bytesToMB(bytes: number | string = '') {
+export function formatFileSize(bytes: number | string = '') {
   const sizeInBytes = Number(bytes);
 
   if (!bytes || Number.isNaN(sizeInBytes)) {

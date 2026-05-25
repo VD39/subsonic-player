@@ -79,8 +79,8 @@ describe('SortControls', () => {
       await wrapper.vm.$nextTick();
     });
 
-    it('emits the toggleSort event', () => {
-      expect(wrapper.emitted('toggleSort')).toEqual([['name']]);
+    it('emits the toggleDirection event', () => {
+      expect(wrapper.emitted('toggleDirection')).toEqual([[]]);
     });
   });
 
@@ -152,8 +152,8 @@ describe('SortControls', () => {
       await wrapper.vm.$nextTick();
     });
 
-    it('emits the toggleSort event', () => {
-      expect(wrapper.emitted('toggleSort')).toEqual([['name']]);
+    it('emits the selectSort event', () => {
+      expect(wrapper.emitted('selectSort')).toEqual([['name']]);
     });
   });
 });

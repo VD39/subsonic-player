@@ -11,7 +11,7 @@ export function useLocalSort<T>(
   const randomSeed = ref(0);
   const randomShuffledItems = ref<T[]>([]) as Ref<T[]>;
 
-  function toggleSort(key: string) {
+  function selectSort(key: string) {
     if (key === 'random') {
       activeSort.value = key;
       sortDirection.value = 'random';
@@ -25,14 +25,19 @@ export function useLocalSort<T>(
       return;
     }
 
-    if (activeSort.value === key) {
-      sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
-    } else {
-      const sortOption = options.find((option) => option.key === key);
+    const sortOption = options.find((option) => option.key === key);
 
-      activeSort.value = key;
-      sortDirection.value = sortOption?.defaultDirection || 'asc';
+    activeSort.value = key;
+    sortDirection.value = sortOption?.defaultDirection || 'asc';
+  }
+
+  function toggleDirection() {
+    if (activeSort.value === 'random') {
+      selectSort('random');
+      return;
     }
+
+    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
   }
 
   const sortedItems = computed(() => {
@@ -80,7 +85,8 @@ export function useLocalSort<T>(
 
   const sortProps = computed<SortButtonsProps>(() => ({
     activeSort: activeSort.value,
-    onToggleSort: toggleSort,
+    onSelectSort: selectSort,
+    onToggleDirection: toggleDirection,
     options,
     sortDirection: sortDirection.value,
   }));

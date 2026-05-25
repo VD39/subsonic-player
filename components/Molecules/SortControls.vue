@@ -10,7 +10,8 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  toggleSort: [key: string];
+  selectSort: [key: string];
+  toggleDirection: [];
 }>();
 </script>
 
@@ -26,7 +27,7 @@ const emit = defineEmits<{
         v-for="option in options"
         :key="option.key"
         :selected="activeSort === option.key"
-        @click="emit('toggleSort', option.key)"
+        @click="emit('selectSort', option.key)"
       >
         {{ option.label }}
       </DropdownItem>
@@ -36,7 +37,7 @@ const emit = defineEmits<{
       ref="sortDirectionButtonLink"
       :class="$style.buttonLink"
       title="Toggle sort direction"
-      @click="emit('toggleSort', activeSort)"
+      @click="emit('toggleDirection')"
     >
       Toggle sort direction
 

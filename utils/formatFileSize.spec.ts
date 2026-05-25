@@ -1,4 +1,4 @@
-describe('bytesToMB', () => {
+describe('formatFileSize', () => {
   describe.each([
     [1048576, '1.00 MB'],
     [2097152, '2.00 MB'],
@@ -14,7 +14,7 @@ describe('bytesToMB', () => {
     ['', DEFAULT_VALUE],
   ])('when bytes is %s', (input, expected) => {
     it('returns the correct response', () => {
-      expect(bytesToMB(input)).toBe(expected);
+      expect(formatFileSize(input)).toBe(expected);
     });
   });
 });

@@ -94,10 +94,10 @@ describe('useLocalSort', () => {
     });
   });
 
-  describe('when the toggleSort function is called', () => {
-    describe('when the key matches the activeSort value', () => {
+  describe('when sortProps functions are called', () => {
+    describe('when onToggleDirection is called', () => {
       beforeEach(() => {
-        result.composable.sortProps.value.onToggleSort('name');
+        result.composable.sortProps.value.onToggleDirection();
       });
 
       it('sets the correct sortDirection value', () => {
@@ -112,9 +112,9 @@ describe('useLocalSort', () => {
         ]);
       });
 
-      describe('when the toggleSort function is called again', () => {
+      describe('when onToggleDirection is called again', () => {
         beforeEach(() => {
-          result.composable.sortProps.value.onToggleSort('name');
+          result.composable.sortProps.value.onToggleDirection();
         });
 
         it('sets the correct sortDirection value', () => {
@@ -123,9 +123,9 @@ describe('useLocalSort', () => {
       });
     });
 
-    describe('when the key is year', () => {
+    describe('when the key param is year', () => {
       beforeEach(() => {
-        result.composable.sortProps.value.onToggleSort('year');
+        result.composable.sortProps.value.onSelectSort('year');
       });
 
       it('sets the correct sortedItems value', () => {
@@ -136,9 +136,9 @@ describe('useLocalSort', () => {
         ]);
       });
 
-      describe('when the toggleSort function is called again', () => {
+      describe('when onToggleDirection is called', () => {
         beforeEach(() => {
-          result.composable.sortProps.value.onToggleSort('year');
+          result.composable.sortProps.value.onToggleDirection();
         });
 
         it('sets the correct sortedItems value', () => {
@@ -148,12 +148,22 @@ describe('useLocalSort', () => {
             albumsMock[0],
           ]);
         });
+
+        describe('when onToggleDirection is called again', () => {
+          beforeEach(() => {
+            result.composable.sortProps.value.onToggleDirection();
+          });
+
+          it('sets the correct sortDirection value', () => {
+            expect(result.composable.sortProps.value.sortDirection).toBe('asc');
+          });
+        });
       });
     });
 
-    describe('when the key does not match the activeSort value', () => {
+    describe('when the key param is created', () => {
       beforeEach(() => {
-        result.composable.sortProps.value.onToggleSort('created');
+        result.composable.sortProps.value.onSelectSort('created');
       });
 
       it('sets the correct activeSort value', () => {
@@ -172,9 +182,9 @@ describe('useLocalSort', () => {
         ]);
       });
 
-      describe('when the toggleSort function is called again', () => {
+      describe('when onToggleDirection is called after selecting created', () => {
         beforeEach(() => {
-          result.composable.sortProps.value.onToggleSort('created');
+          result.composable.sortProps.value.onToggleDirection();
         });
 
         it('sets the correct sortedItems value', () => {
@@ -187,9 +197,9 @@ describe('useLocalSort', () => {
       });
     });
 
-    describe('when the key does not match any option', () => {
+    describe('when the key param is unknown', () => {
       beforeEach(() => {
-        result.composable.sortProps.value.onToggleSort('unknown');
+        result.composable.sortProps.value.onSelectSort('unknown');
       });
 
       it('sets the correct activeSort value', () => {
@@ -205,9 +215,9 @@ describe('useLocalSort', () => {
       });
     });
 
-    describe('when the key is random', () => {
+    describe('when the key param is random', () => {
       beforeEach(() => {
-        result.composable.sortProps.value.onToggleSort('random');
+        result.composable.sortProps.value.onSelectSort('random');
       });
 
       it('sets the correct activeSort value', () => {
@@ -232,12 +242,34 @@ describe('useLocalSort', () => {
         expect(isSame).toBe(false);
       });
 
-      describe('when the toggleSort function is called again', () => {
+      describe('when the key param is random again', () => {
         let previousSortedItems: Album[];
 
         beforeEach(() => {
           previousSortedItems = [...result.composable.sortedItems.value];
-          result.composable.sortProps.value.onToggleSort('random');
+          result.composable.sortProps.value.onSelectSort('random');
+        });
+
+        it('sets the sortedItems value to a different order than the previous sort', () => {
+          const isSame = result.composable.sortedItems.value.every(
+            (item, index) => item === previousSortedItems[index],
+          );
+          expect(isSame).toBe(false);
+        });
+      });
+
+      describe('when onToggleDirection is called', () => {
+        let previousSortedItems: Album[];
+
+        beforeEach(() => {
+          previousSortedItems = [...result.composable.sortedItems.value];
+          result.composable.sortProps.value.onToggleDirection();
+        });
+
+        it('sets the correct sortDirection value', () => {
+          expect(result.composable.sortProps.value.sortDirection).toBe(
+            'random',
+          );
         });
 
         it('sets the sortedItems value to a different order than the previous sort', () => {

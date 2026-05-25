@@ -6,7 +6,8 @@ export interface BaseSortOption {
 
 export interface SortButtonsProps {
   activeSort: string;
-  onToggleSort: (key: string) => void;
+  onSelectSort: (key: string) => void;
+  onToggleDirection: () => void;
   options: BaseSortOption[];
   sortDirection: SortDirection;
 }
