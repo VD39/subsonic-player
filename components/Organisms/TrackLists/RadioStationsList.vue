@@ -38,7 +38,7 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.radioStations;
 
   <NoMediaMessage
     v-else
-    :icon="IMAGE_DEFAULT_BY_TYPE.radioStation"
+    :icon="FALLBACK_ICON_BY_TYPE.radioStation"
     message="No radio stations found."
   />
 </template>

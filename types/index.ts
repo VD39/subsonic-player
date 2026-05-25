@@ -42,7 +42,7 @@ export type ToProp = NuxtLinkProps['to'];
 
 type TypeofIcons = typeof ICONS;
 
-type TypeofImageDefaultByType = typeof IMAGE_DEFAULT_BY_TYPE;
+type TypeofImageDefaultByType = typeof FALLBACK_ICON_BY_TYPE;
 
 type TypeofRouteMediaTypeParams = typeof ROUTE_MEDIA_TYPE_PARAMS;
 

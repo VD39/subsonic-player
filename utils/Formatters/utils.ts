@@ -102,7 +102,7 @@ export function getUniqueImages(tracks: (PodcastEpisode | Track)[] = []) {
   const images = [...new Set(coverArtIds)].slice(0, 4);
 
   if (!images.length) {
-    return [IMAGE_DEFAULT_BY_TYPE.playlist];
+    return [FALLBACK_ICON_BY_TYPE.playlist];
   }
 
   return images;

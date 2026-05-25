@@ -71,7 +71,7 @@ describe('UserMenu', () => {
 
     it('sets the correct image prop on the PreloadImage component', () => {
       expect(wrapper.findComponent(PreloadImage).props('image')).toBe(
-        IMAGE_DEFAULT_BY_TYPE.user,
+        FALLBACK_ICON_BY_TYPE.user,
       );
     });
 

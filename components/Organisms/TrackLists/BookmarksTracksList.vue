@@ -48,7 +48,7 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.bookmarkTracks;
 
   <NoMediaMessage
     v-else
-    :icon="IMAGE_DEFAULT_BY_TYPE.podcastEpisode"
+    :icon="FALLBACK_ICON_BY_TYPE.podcastEpisode"
     message="No bookmarks found."
   />
 </template>

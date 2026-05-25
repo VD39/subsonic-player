@@ -144,7 +144,7 @@ useHead({
 
     <NoMediaMessage
       v-else
-      :icon="IMAGE_DEFAULT_BY_TYPE.podcast"
+      :icon="FALLBACK_ICON_BY_TYPE.podcast"
       message="No podcasts found."
     />
   </LoadingData>

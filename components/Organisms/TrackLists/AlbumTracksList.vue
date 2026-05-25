@@ -43,7 +43,7 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.albumTracks;
 
   <NoMediaMessage
     v-else
-    :icon="IMAGE_DEFAULT_BY_TYPE.track"
+    :icon="FALLBACK_ICON_BY_TYPE.track"
     message="No tracks found."
   />
 </template>

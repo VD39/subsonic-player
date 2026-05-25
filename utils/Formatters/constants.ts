@@ -8,7 +8,7 @@ export const MEDIA_TYPE = {
   track: 'track',
 };
 
-export const IMAGE_DEFAULT_BY_TYPE: Record<string, Icon> = {
+export const FALLBACK_ICON_BY_TYPE: Record<string, Icon> = {
   album: ICONS.album,
   artist: ICONS.artist,
   folder: ICONS.folder,

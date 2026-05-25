@@ -11,7 +11,7 @@ function factory(props = {}) {
   return mount(PreloadImage, {
     attachTo: document.body,
     props: {
-      image: IMAGE_DEFAULT_BY_TYPE.album,
+      image: FALLBACK_ICON_BY_TYPE.album,
       ...props,
     },
   });
@@ -25,8 +25,8 @@ describe('PreloadImage', () => {
     iOMock = intersectionObserverMock();
   });
 
-  describe('when the image prop is set to an IMAGE_DEFAULT_BY_TYPE icon', () => {
-    describe.each(Object.values(IMAGE_DEFAULT_BY_TYPE))(
+  describe('when the image prop is set to a FALLBACK_ICON_BY_TYPE icon', () => {
+    describe.each(Object.values(FALLBACK_ICON_BY_TYPE))(
       'when the image prop is set to %s',
       (image) => {
         beforeEach(() => {
@@ -64,7 +64,7 @@ describe('PreloadImage', () => {
     );
   });
 
-  describe('when the image prop is set to a none IMAGE_DEFAULT_BY_TYPE icon', () => {
+  describe('when the image prop is set to a none FALLBACK_ICON_BY_TYPE icon', () => {
     describe('when the lazyLoad prop is not set', () => {
       beforeEach(() => {
         wrapper = factory({

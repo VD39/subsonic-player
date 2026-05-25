@@ -47,7 +47,7 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.podcastEpisodes;
 
   <NoMediaMessage
     v-else
-    :icon="IMAGE_DEFAULT_BY_TYPE.podcast"
+    :icon="FALLBACK_ICON_BY_TYPE.podcast"
     message="No episodes found."
   />
 </template>

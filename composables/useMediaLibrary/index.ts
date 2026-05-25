@@ -25,7 +25,7 @@ export function useMediaLibrary() {
           response.musicFolders.musicFolder || []
         ).map<FormattedMusicFolder>((folder) => ({
           ...folder,
-          image: IMAGE_DEFAULT_BY_TYPE.folder,
+          image: FALLBACK_ICON_BY_TYPE.folder,
         })),
         tracks: [],
       }),

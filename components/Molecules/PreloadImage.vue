@@ -26,7 +26,7 @@ function onImageLoad() {
 }
 
 const imageSrc = computed(() => {
-  if (Object.values(IMAGE_DEFAULT_BY_TYPE).includes(props.image as Icon)) {
+  if (Object.values(FALLBACK_ICON_BY_TYPE).includes(props.image as Icon)) {
     return null;
   }
 

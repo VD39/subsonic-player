@@ -64,7 +64,7 @@ useHead({
 
     <NoMediaMessage
       v-else
-      :icon="IMAGE_DEFAULT_BY_TYPE.genre"
+      :icon="FALLBACK_ICON_BY_TYPE.genre"
       message="No genres found."
     />
   </LoadingData>

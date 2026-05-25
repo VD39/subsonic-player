@@ -52,7 +52,7 @@ describe('useUser', () => {
       });
 
       it('returns the default user image', async () => {
-        expect(await getAvatar('username')).toBe(IMAGE_DEFAULT_BY_TYPE.user);
+        expect(await getAvatar('username')).toBe(FALLBACK_ICON_BY_TYPE.user);
       });
     });
 
@@ -67,7 +67,7 @@ describe('useUser', () => {
       });
 
       it('returns the default user image', async () => {
-        expect(await getAvatar('username')).toBe(IMAGE_DEFAULT_BY_TYPE.user);
+        expect(await getAvatar('username')).toBe(FALLBACK_ICON_BY_TYPE.user);
       });
     });
 
@@ -82,7 +82,7 @@ describe('useUser', () => {
       });
 
       it('returns the default user image', async () => {
-        expect(await getAvatar('username')).toBe(IMAGE_DEFAULT_BY_TYPE.user);
+        expect(await getAvatar('username')).toBe(FALLBACK_ICON_BY_TYPE.user);
       });
     });
 

@@ -10,7 +10,7 @@ const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
 const { openAboutAppModal } = useServerInfo();
 
-const userAvatar = ref<Icon | string>(IMAGE_DEFAULT_BY_TYPE.user);
+const userAvatar = ref<Icon | string>(FALLBACK_ICON_BY_TYPE.user);
 
 const username = computed(() => user.value?.username);
 

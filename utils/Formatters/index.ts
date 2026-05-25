@@ -1,6 +1,6 @@
 export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
   const {
-    coverArt: image = IMAGE_DEFAULT_BY_TYPE.album,
+    coverArt: image = FALLBACK_ICON_BY_TYPE.album,
     created,
     duration,
     id,
@@ -69,7 +69,7 @@ export function formatArtist(
   const {
     album = [],
     albumCount: totalAlbums = 0,
-    artistImageUrl = IMAGE_DEFAULT_BY_TYPE.artist,
+    artistImageUrl = FALLBACK_ICON_BY_TYPE.artist,
     biography,
     coverArt,
     id,
@@ -88,7 +88,7 @@ export function formatArtist(
     favourite: !!starred,
     genres: getUniqueGenres(album),
     id: id!,
-    image: coverArt || artistImageUrl || IMAGE_DEFAULT_BY_TYPE.artist,
+    image: coverArt || artistImageUrl || FALLBACK_ICON_BY_TYPE.artist,
     lastFmUrl,
     musicBrainzUrl: musicBrainzId
       ? `https://musicbrainz.org/artist/${musicBrainzId}`
@@ -175,7 +175,7 @@ export function formatPlayQueue(playQueue: PlayQueue): FormattedPlayQueue {
 
 export function formatPodcast(podcast: PodcastChannel): Podcast {
   const {
-    coverArt = IMAGE_DEFAULT_BY_TYPE.podcast,
+    coverArt = FALLBACK_ICON_BY_TYPE.podcast,
     description,
     episode = [],
     id,
@@ -208,7 +208,7 @@ export function formatPodcastEpisode(
     album = EMPTY_DISPLAY_VALUE,
     artist: author = EMPTY_DISPLAY_VALUE,
     channelId: podcastId,
-    coverArt: image = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
+    coverArt: image = FALLBACK_ICON_BY_TYPE.podcastEpisode,
     description,
     duration,
     id,
@@ -252,7 +252,7 @@ export function formatRadioStation(
   const homePageUrl = radioStationHomePageUrl || radioStationHomepageUrl;
   const image = homePageUrl
     ? `https://s2.googleusercontent.com/s2/favicons?domain=${encodeURIComponent(homePageUrl)}&sz=50`
-    : IMAGE_DEFAULT_BY_TYPE.radioStation;
+    : FALLBACK_ICON_BY_TYPE.radioStation;
 
   return {
     duration: 0,
@@ -273,7 +273,7 @@ export function formatTrack(track: Base, index: number): Track {
     albumId,
     bitRate = 0,
     contentType = EMPTY_DISPLAY_VALUE,
-    coverArt: image = IMAGE_DEFAULT_BY_TYPE.track,
+    coverArt: image = FALLBACK_ICON_BY_TYPE.track,
     created,
     discNumber = EMPTY_DISPLAY_VALUE,
     duration,

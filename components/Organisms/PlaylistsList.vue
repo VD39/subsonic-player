@@ -26,7 +26,7 @@ defineEmits<{
 
   <NoMediaMessage
     v-else
-    :icon="IMAGE_DEFAULT_BY_TYPE.playlist"
+    :icon="FALLBACK_ICON_BY_TYPE.playlist"
     message="No playlists found."
   />
 </template>

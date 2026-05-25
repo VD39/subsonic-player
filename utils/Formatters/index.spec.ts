@@ -55,7 +55,7 @@ describe('formatAlbum', () => {
     [
       'coverArt',
       {
-        image: IMAGE_DEFAULT_BY_TYPE.album,
+        image: FALLBACK_ICON_BY_TYPE.album,
       },
     ],
     [
@@ -404,7 +404,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            image: IMAGE_DEFAULT_BY_TYPE.artist,
+            image: FALLBACK_ICON_BY_TYPE.artist,
           }),
         );
       });
@@ -420,7 +420,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            image: IMAGE_DEFAULT_BY_TYPE.artist,
+            image: FALLBACK_ICON_BY_TYPE.artist,
           }),
         );
       });
@@ -469,7 +469,7 @@ describe('formatArtist', () => {
           expect.objectContaining({
             similarArtist: expect.arrayContaining([
               expect.objectContaining({
-                image: IMAGE_DEFAULT_BY_TYPE.artist,
+                image: FALLBACK_ICON_BY_TYPE.artist,
               }),
             ]),
           }),
@@ -541,7 +541,7 @@ describe('formatPodcastEpisode', () => {
     [
       'coverArt',
       {
-        image: IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
+        image: FALLBACK_ICON_BY_TYPE.podcastEpisode,
       },
     ],
     [
@@ -688,7 +688,7 @@ describe('formatPodcast', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            image: IMAGE_DEFAULT_BY_TYPE.podcast,
+            image: FALLBACK_ICON_BY_TYPE.podcast,
           }),
         );
       });
@@ -739,7 +739,7 @@ describe('formatRadioStation', () => {
       ).toEqual(
         expect.objectContaining({
           homePageUrl: undefined,
-          image: IMAGE_DEFAULT_BY_TYPE.radioStation,
+          image: FALLBACK_ICON_BY_TYPE.radioStation,
         }),
       );
     });
@@ -805,7 +805,7 @@ describe('formatTrack', () => {
     [
       'coverArt',
       {
-        image: IMAGE_DEFAULT_BY_TYPE.track,
+        image: FALLBACK_ICON_BY_TYPE.track,
       },
     ],
     [

@@ -164,7 +164,7 @@ useHead({
 
     <NoMediaMessage
       v-else
-      :icon="IMAGE_DEFAULT_BY_TYPE.noMedia"
+      :icon="FALLBACK_ICON_BY_TYPE.noMedia"
       message="No media found."
     />
   </LoadingData>

@@ -186,7 +186,7 @@ useHead({
 
     <NoMediaMessage
       v-else
-      :icon="IMAGE_DEFAULT_BY_TYPE.artist"
+      :icon="FALLBACK_ICON_BY_TYPE.artist"
       message="No artist found."
     />
   </LoadingData>

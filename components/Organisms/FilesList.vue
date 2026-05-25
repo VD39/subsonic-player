@@ -33,7 +33,7 @@ defineEmits<{
           <PreloadImage
             alt="Go back"
             :class="$style.trackImage"
-            :image="IMAGE_DEFAULT_BY_TYPE.folderBack"
+            :image="FALLBACK_ICON_BY_TYPE.folderBack"
           />
           ...
           <p class="visuallyHidden">Go back</p>
@@ -85,7 +85,7 @@ defineEmits<{
           <PreloadImage
             alt="Go back"
             :class="$style.trackImage"
-            :image="IMAGE_DEFAULT_BY_TYPE.noFolder"
+            :image="FALLBACK_ICON_BY_TYPE.noFolder"
           />
 
           <p>No folders/files found.</p>

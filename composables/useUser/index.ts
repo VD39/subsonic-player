@@ -14,7 +14,7 @@ export function useUser() {
 
     return response.ok && contentType?.startsWith('image/')
       ? url
-      : IMAGE_DEFAULT_BY_TYPE.user;
+      : FALLBACK_ICON_BY_TYPE.user;
   }
 
   function setUser(cookie: string) {

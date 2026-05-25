@@ -169,7 +169,7 @@ useHead({
 
     <NoMediaMessage
       v-else
-      :icon="IMAGE_DEFAULT_BY_TYPE.album"
+      :icon="FALLBACK_ICON_BY_TYPE.album"
       message="No album found."
     />
   </LoadingData>

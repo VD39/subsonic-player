@@ -48,7 +48,7 @@ const gridWrapperProps = computed(() =>
 
   <NoMediaMessage
     v-else
-    :icon="IMAGE_DEFAULT_BY_TYPE.album"
+    :icon="FALLBACK_ICON_BY_TYPE.album"
     message="No albums found."
   />
 </template>
