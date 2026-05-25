@@ -83,7 +83,7 @@ export function useMediaSession(actions: MediaSessionActions) {
       onMediaSessionAction,
     );
 
-    const nextTrackHandler = actions.hasNextTrack.value
+    const nextTrackHandler = actions.canPlayNext.value
       ? onMediaSessionAction
       : null;
 
@@ -92,7 +92,7 @@ export function useMediaSession(actions: MediaSessionActions) {
       nextTrackHandler,
     );
 
-    const previousTrackHandler = actions.hasPreviousTrack.value
+    const previousTrackHandler = actions.canPlayPrevious.value
       ? onMediaSessionAction
       : null;
 

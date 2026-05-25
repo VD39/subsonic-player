@@ -3,9 +3,9 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import PlayPauseButton from '@/components/Molecules/PlayPauseButton.vue';
 
 const {
+  canPlayNext,
+  canPlayPrevious,
   fastForwardTrack,
-  hasNextTrack,
-  hasPreviousTrack,
   playNextTrack,
   playPreviousTrack,
   rewindTrack,
@@ -17,7 +17,7 @@ const { isPodcastEpisode } = useQueue();
   <div class="centerItems spaceBetween">
     <ButtonLink
       ref="previousTrack"
-      :disabled="!hasPreviousTrack"
+      :disabled="!canPlayPrevious"
       :icon="ICONS.skipBack"
       iconWeight="fill"
       title="Previous track"
@@ -50,7 +50,7 @@ const { isPodcastEpisode } = useQueue();
 
     <ButtonLink
       ref="nextTrack"
-      :disabled="!hasNextTrack"
+      :disabled="!canPlayNext"
       :icon="ICONS.skipForward"
       iconWeight="fill"
       title="Next track"

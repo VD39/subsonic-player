@@ -101,14 +101,12 @@ export function useAudioPlayer() {
   );
 
   // Next/previous state.
-  const hasNextTrack = computed(() => {
-    return repeat.value === Number.POSITIVE_INFINITY || queueHasNextTrack.value;
+  const canPlayNext = computed(() => {
+    return repeat.value === REPEAT_MODE.all || queueHasNextTrack.value;
   });
 
-  const hasPreviousTrack = computed(() => {
-    return (
-      repeat.value === Number.POSITIVE_INFINITY || queueHasPreviousTrack.value
-    );
+  const canPlayPrevious = computed(() => {
+    return repeat.value === REPEAT_MODE.all || queueHasPreviousTrack.value;
   });
 
   // Save states.
@@ -126,7 +124,7 @@ export function useAudioPlayer() {
     deleteLocalStorage(LOCAL_STORAGE_KEYS.player);
   }
 
-  async function loadAudioPlayerState() {
+  async function restoreAudioPlayerState() {
     const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.player);
 
     if (!SAVED_STATE) {
@@ -281,6 +279,7 @@ export function useAudioPlayer() {
     }
 
     saveAudioPlayerState();
+    syncPlaybackPosition();
     prefetchUpcomingTracks();
   }
 
@@ -290,11 +289,11 @@ export function useAudioPlayer() {
     setMediaSessionPositionState,
     setupMediaSessionHandlers,
   } = useMediaSession({
+    canPlayNext,
+    canPlayPrevious,
     currentTime: computed(() => currentTime.value),
     currentTrack,
     hasCurrentTrack,
-    hasNextTrack,
-    hasPreviousTrack,
     isPodcastEpisode,
     isRadioStation,
     [MEDIA_SESSION_ACTION_DETAILS.nextTrack]: playNextTrack,
@@ -363,14 +362,14 @@ export function useAudioPlayer() {
   // Repeat/Shuffle actions.
   function cycleRepeat() {
     switch (repeat.value) {
-      case -1:
-        repeat.value = Number.POSITIVE_INFINITY;
+      case REPEAT_MODE.all:
+        repeat.value = REPEAT_MODE.one;
         break;
-      case Number.POSITIVE_INFINITY:
-        repeat.value = 1;
+      case REPEAT_MODE.off:
+        repeat.value = REPEAT_MODE.all;
         break;
       default:
-        repeat.value = -1;
+        repeat.value = REPEAT_MODE.off;
         break;
     }
 
@@ -396,7 +395,7 @@ export function useAudioPlayer() {
     prefetchUpcomingTracks();
   }
 
-  async function shuffleTracks(tracks: PlayableTrack[]) {
+  async function playTracksShuffled(tracks: PlayableTrack[]) {
     const queueIndex = Math.floor(Math.random() * tracks.length) - 1;
     await playTracks(tracks, queueIndex);
     toggleShuffle();
@@ -428,10 +427,10 @@ export function useAudioPlayer() {
     }
   }
 
-  function setPlaybackRateWithIncrement(change: number) {
+  function setPlaybackRateWithIncrement(rateIndexDelta: number) {
     const newPlaybackRateIndex = Math.max(
       0,
-      Math.min(PLAYBACK_RATES.length - 1, playbackRate.value + change),
+      Math.min(PLAYBACK_RATES.length - 1, playbackRate.value + rateIndexDelta),
     );
 
     setPlaybackRate(newPlaybackRateIndex);
@@ -505,17 +504,19 @@ export function useAudioPlayer() {
 
   async function playTracks(
     tracks: PlayableTrack[],
-    queueIndex = QUEUE_DEFAULT_STATES.currentQueueIndex,
+    queueOffset = QUEUE_DEFAULT_STATES.currentQueueIndex,
   ) {
     resetPlayer();
     addTracks(tracks, true);
-    const track = navigateQueue(queueIndex + 1);
+    const track = navigateQueue(queueOffset + 1);
     await changeTrack(track);
   }
 
   function resetPlaybackTimes() {
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
+    saveAudioPlayerState();
+    syncPlaybackPosition();
   }
 
   function resetAudioPlayer() {
@@ -548,18 +549,18 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onEnded(async () => {
-      await getDiscoverAlbums();
+      getDiscoverAlbums();
 
       if (isPodcastEpisode.value) {
-        await deleteBookmark(currentTrack.value.id, false);
+        deleteBookmark(currentTrack.value.id, false);
       }
 
       switch (repeat.value) {
-        case 1:
-          await replayCurrentTrack();
-          break;
-        case Number.POSITIVE_INFINITY:
+        case REPEAT_MODE.all:
           await playNextTrack();
+          break;
+        case REPEAT_MODE.one:
+          await replayCurrentTrack();
           break;
         default:
           if (isLastTrack.value) {
@@ -579,18 +580,18 @@ export function useAudioPlayer() {
 
   async function initAudioPlayer() {
     setupAudioPlayer();
-    await loadAudioPlayerState();
+    await restoreAudioPlayerState();
   }
 
   return {
     addTracksToQueue,
     addTrackToQueue,
     bufferedDuration,
+    canPlayNext,
+    canPlayPrevious,
     currentTime,
     cycleRepeat,
     fastForwardTrack,
-    hasNextTrack,
-    hasPreviousTrack,
     initAudioPlayer,
     isBuffering,
     isMuted,
@@ -600,6 +601,7 @@ export function useAudioPlayer() {
     playNextTrack,
     playPreviousTrack,
     playTracks,
+    playTracksShuffled,
     removeFromQueue,
     reorderQueueTrack,
     repeat,
@@ -612,7 +614,6 @@ export function useAudioPlayer() {
     setVolume,
     setVolumeWithIncrement,
     shuffle,
-    shuffleTracks,
     toggleMute,
     togglePlay,
     toggleShuffle,

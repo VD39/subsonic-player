@@ -199,12 +199,12 @@ describe('useAudioPlayer', () => {
     );
   });
 
-  it('sets the correct hasNextTrack value', () => {
-    expect(result.composable.hasNextTrack.value).toBe(false);
+  it('sets the correct canPlayNext value', () => {
+    expect(result.composable.canPlayNext.value).toBe(false);
   });
 
-  it('sets the correct hasPreviousTrack value', () => {
-    expect(result.composable.hasPreviousTrack.value).toBe(false);
+  it('sets the correct canPlayPrevious value', () => {
+    expect(result.composable.canPlayPrevious.value).toBe(false);
   });
 
   describe('when the initAudioPlayer function is called', () => {
@@ -571,7 +571,7 @@ describe('useAudioPlayer', () => {
 
       describe('when repeat value is infinity', () => {
         beforeAll(() => {
-          result.composable.repeat.value = Number.POSITIVE_INFINITY;
+          result.composable.repeat.value = REPEAT_MODE.all;
           onEndedCb();
         });
 
@@ -836,7 +836,7 @@ describe('useAudioPlayer', () => {
     describe.each([
       [MEDIA_TYPE.track, 0],
       [MEDIA_TYPE.radioStation, 0],
-      [MEDIA_TYPE.podcastEpisode, 2],
+      [MEDIA_TYPE.podcastEpisode, 4], // Includes calls from the changeTrack and syncPlaybackPosition functions.
     ])('when the track type is %s', (type, createBookmarkCalledLength) => {
       beforeAll(async () => {
         const tracksWithType = getFormattedQueueTracksMock(1, {
@@ -1203,13 +1203,13 @@ describe('useAudioPlayer', () => {
   });
 
   describe.each([
-    [Number.POSITIVE_INFINITY, true],
-    [1, false],
-    [-1, false],
+    [REPEAT_MODE.all, true],
+    [REPEAT_MODE.one, false],
+    [REPEAT_MODE.off, false],
   ])('when cycleRepeat function is called', (outcome, hasNextPreviousTrack) => {
     beforeAll(() => {
-      // Set queueList value to empty array to ensure that the hasNextTrack and
-      // hasPreviousTrack values are determined solely by the repeat value.
+      // Set queueList value to empty array to ensure that the canPlayNext and
+      // canPlayPrevious values are determined solely by the repeat value.
       queueListMock.value = [];
       result.composable.cycleRepeat();
     });
@@ -1218,12 +1218,12 @@ describe('useAudioPlayer', () => {
       expect(result.composable.repeat.value).toBe(outcome);
     });
 
-    it('sets the correct hasNextTrack value', () => {
-      expect(result.composable.hasNextTrack.value).toBe(hasNextPreviousTrack);
+    it('sets the correct canPlayNext value', () => {
+      expect(result.composable.canPlayNext.value).toBe(hasNextPreviousTrack);
     });
 
-    it('sets the correct hasPreviousTrack value', () => {
-      expect(result.composable.hasPreviousTrack.value).toBe(
+    it('sets the correct canPlayPrevious value', () => {
+      expect(result.composable.canPlayPrevious.value).toBe(
         hasNextPreviousTrack,
       );
     });
@@ -1238,9 +1238,9 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when shuffleTracks function is called', () => {
+  describe('when playTracksShuffled function is called', () => {
     beforeAll(() => {
-      result.composable.shuffleTracks(queueTracks);
+      result.composable.playTracksShuffled(queueTracks);
     });
 
     it('calls the shuffleQueue function', () => {
@@ -1759,12 +1759,12 @@ describe('useAudioPlayer', () => {
       );
     });
 
-    it('sets the correct hasNextTrack value', () => {
-      expect(result.composable.hasNextTrack.value).toBe(false);
+    it('sets the correct canPlayNext value', () => {
+      expect(result.composable.canPlayNext.value).toBe(false);
     });
 
-    it('sets the correct hasPreviousTrack value', () => {
-      expect(result.composable.hasPreviousTrack.value).toBe(false);
+    it('sets the correct canPlayPrevious value', () => {
+      expect(result.composable.canPlayPrevious.value).toBe(false);
     });
   });
 

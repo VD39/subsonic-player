@@ -25,7 +25,7 @@ const {
   updatePlaylistModal,
 } = usePlaylist();
 const { dragStart } = useDragAndDrop();
-const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
+const { addTracksToQueue, addTrackToQueue, playTracks, playTracksShuffled } =
   useAudioPlayer();
 
 /* istanbul ignore next -- @preserve */
@@ -120,7 +120,7 @@ useHead({
             :disabled="!hasTracks"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
-            @click="shuffleTracks(playlist.tracks)"
+            @click="playTracksShuffled(playlist.tracks)"
           >
             Shuffle tracks
           </ButtonLink>

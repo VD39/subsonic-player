@@ -46,9 +46,9 @@ describe('RepeatButton', () => {
   });
 
   describe.each([
-    [-1, buttonProps.off],
-    [1, buttonProps.one],
-    [Number.POSITIVE_INFINITY, buttonProps.all],
+    [REPEAT_MODE.off, buttonProps.off],
+    [REPEAT_MODE.one, buttonProps.one],
+    [REPEAT_MODE.all, buttonProps.all],
   ])('when shuffle is set to %s', (repeat, buttonProps) => {
     beforeEach(() => {
       repeatMock.value = repeat;

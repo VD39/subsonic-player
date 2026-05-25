@@ -284,7 +284,7 @@ describe('[[id]]', () => {
         wrapper.findComponent({ ref: 'shuffleTracksButton' }).vm.$emit('click');
       });
 
-      it('calls the shuffleTracks function with correct parameters', () => {
+      it('calls the playTracksShuffled function with correct parameters', () => {
         expect(shuffleTracksMock).toHaveBeenCalledWith(album.tracks);
       });
     });

@@ -6,11 +6,11 @@ export interface MediaSessionActions {
   [MEDIA_SESSION_ACTION_DETAILS.seekBackward]: () => void;
   [MEDIA_SESSION_ACTION_DETAILS.seekForward]: () => void;
   [MEDIA_SESSION_ACTION_DETAILS.seekTo]: (time: number) => void;
+  canPlayNext: ComputedRef<boolean>;
+  canPlayPrevious: ComputedRef<boolean>;
   currentTime: ComputedRef<number>;
   currentTrack: ComputedRef<PlayableTrack>;
   hasCurrentTrack: ComputedRef<boolean>;
-  hasNextTrack: ComputedRef<boolean>;
-  hasPreviousTrack: ComputedRef<boolean>;
   isPodcastEpisode: ComputedRef<boolean>;
   isRadioStation: ComputedRef<boolean>;
   playbackRate: ComputedRef<number>;

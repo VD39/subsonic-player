@@ -26,11 +26,11 @@ const isRadioStationMock = ref(false);
 const playbackRateMock = ref(0);
 
 const mediaSessionActionsMock: MediaSessionActions = {
+  canPlayNext: computed(() => hasNextTrackMock.value),
+  canPlayPrevious: computed(() => hasPreviousTrackMock.value),
   currentTime: computed(() => currentTimeMock.value),
   currentTrack: computed(() => currentTrackMock.value),
   hasCurrentTrack: computed(() => hasCurrentTrackMock.value),
-  hasNextTrack: computed(() => hasNextTrackMock.value),
-  hasPreviousTrack: computed(() => hasPreviousTrackMock.value),
   isPodcastEpisode: computed(() => isPodcastEpisodeMock.value),
   isRadioStation: computed(() => isRadioStationMock.value),
   [MEDIA_SESSION_ACTION_DETAILS.nextTrack]: vi.fn(),
@@ -280,7 +280,7 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when hasNextTrack value is true', () => {
+    describe('when canPlayNext value is true', () => {
       beforeEach(() => {
         hasNextTrackMock.value = true;
         setupMediaSessionHandlers();
@@ -294,7 +294,7 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when hasNextTrack value is false', () => {
+    describe('when canPlayNext value is false', () => {
       beforeEach(() => {
         hasNextTrackMock.value = false;
         setupMediaSessionHandlers();
@@ -308,7 +308,7 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when hasPreviousTrack value is true', () => {
+    describe('when canPlayPrevious value is true', () => {
       beforeEach(() => {
         hasPreviousTrackMock.value = true;
         setupMediaSessionHandlers();
@@ -322,7 +322,7 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when hasPreviousTrack value is false', () => {
+    describe('when canPlayPrevious value is false', () => {
       beforeEach(() => {
         hasPreviousTrackMock.value = false;
         setupMediaSessionHandlers();

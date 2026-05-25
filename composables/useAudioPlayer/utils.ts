@@ -1,12 +1,9 @@
-export function getPreviousTrack(
+export function getPreviousTracks(
   queue: PlayableTrack[],
   currentIndex: number,
   repeat: number,
 ): PlayableTrack[] {
-  if (
-    !queue.length ||
-    (currentIndex <= 0 && repeat !== Number.POSITIVE_INFINITY)
-  ) {
+  if (!queue.length || (currentIndex <= 0 && repeat !== REPEAT_MODE.all)) {
     return [];
   }
 
@@ -28,7 +25,7 @@ export function getTracksToPreload(
 
   return [
     ...getUpcomingTracks(queue, currentIndex, repeat),
-    ...getPreviousTrack(queue, currentIndex, repeat),
+    ...getPreviousTracks(queue, currentIndex, repeat),
   ];
 }
 
@@ -52,7 +49,7 @@ export function getUpcomingTracks(
     const index = currentIndex + i;
 
     // Without repeat-all, stop at queue end.
-    if (index >= totalTracks && repeat !== Number.POSITIVE_INFINITY) {
+    if (index >= totalTracks && repeat !== REPEAT_MODE.all) {
       break;
     }
 

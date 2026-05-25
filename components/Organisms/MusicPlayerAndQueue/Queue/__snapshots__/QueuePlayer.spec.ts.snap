@@ -12,7 +12,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -86,7 +86,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -145,8 +145,8 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -184,7 +184,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -237,8 +237,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -277,7 +277,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -330,8 +330,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -370,7 +370,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -427,8 +427,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -467,7 +467,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -520,8 +520,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -560,7 +560,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -617,8 +617,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -657,7 +657,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -710,8 +710,8 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
@@ -750,7 +750,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -835,7 +835,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -919,7 +919,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -998,7 +998,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -1082,7 +1082,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -1161,7 +1161,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
       <div class="mBXL inner">
         <div class="imageWrapper">
           <div class="imageInner">
-            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward back 30 seconds</span></button>
+            <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
               <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             </div>
           </div>
@@ -1220,8 +1220,8 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
             </button><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Pause current track">
               <phpause aria-hidden="true" class="icon" size="24" weight="regular"></phpause><span class="clamp text visuallyHidden">Pause current track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward back 30 seconds">
-              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward back 30 seconds</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
+              <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
             </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>

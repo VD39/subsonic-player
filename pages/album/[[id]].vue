@@ -19,7 +19,7 @@ const { getAlbum } = useAlbum();
 const { downloadMedia } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
-const { addTracksToQueue, addTrackToQueue, playTracks, shuffleTracks } =
+const { addTracksToQueue, addTrackToQueue, playTracks, playTracksShuffled } =
   useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 
@@ -116,7 +116,7 @@ useHead({
             ref="shuffleTracksButton"
             :icon="ICONS.shuffle"
             title="Shuffle tracks"
-            @click="shuffleTracks(albumData.album.tracks)"
+            @click="playTracksShuffled(albumData.album.tracks)"
           >
             Shuffle tracks
           </ButtonLink>

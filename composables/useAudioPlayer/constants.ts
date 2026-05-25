@@ -31,6 +31,12 @@ export const PLAYBACK_RATES = [
   },
 ] as const;
 
+export const REPEAT_MODE = {
+  all: Number.POSITIVE_INFINITY,
+  off: -1,
+  one: 1,
+};
+
 export const AUDIO_PLAYER_DEFAULT_STATES = {
   audioPlayer: null,
   audioPreloader: null,
@@ -39,7 +45,7 @@ export const AUDIO_PLAYER_DEFAULT_STATES = {
   isBuffering: false,
   isPlaying: false,
   playbackRate: PLAYBACK_RATES.findIndex((rate) => rate.title === 'Normal'),
-  repeat: -1,
+  repeat: REPEAT_MODE.off,
   shuffle: false,
   trackHasScrobbled: false,
   volume: 1,
@@ -56,7 +62,7 @@ export const MEDIA_SESSION_ACTION_DETAILS = {
 } as const;
 
 export const REWIND_FAST_FORWARD_TITLES = {
-  fastForward: `Fast forward back ${FAST_FORWARD_TRACK_TIME} seconds`,
+  fastForward: `Fast forward ${FAST_FORWARD_TRACK_TIME} seconds`,
   rewind: `Rewind back ${REWIND_TRACK_TIME} seconds`,
 } as const;
 

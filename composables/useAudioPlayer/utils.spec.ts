@@ -1,7 +1,7 @@
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 
 import {
-  getPreviousTrack,
+  getPreviousTracks,
   getTracksToPreload,
   getUpcomingTracks,
   removeRemovedTracksFromOriginalQueue,
@@ -31,20 +31,15 @@ describe('shuffleTrackInQueue', () => {
 
 describe('getUpcomingTracks', () => {
   describe.each([
-    [tracks, 0, -1, [tracks[1], tracks[2], tracks[3]]],
-    [tracks, 3, -1, [tracks[4]]],
-    [tracks, 4, -1, []],
-    [tracks, 3, Number.POSITIVE_INFINITY, [tracks[4], tracks[0], tracks[1]]],
-    [[], 0, -1, []],
-    [radioTracks, 0, -1, []],
-    [noStreamUrlTracks, 0, -1, [noStreamUrlTracks[2]]],
-    [shortTracks, 0, -1, [shortTracks[1]]],
-    [
-      shortTracks,
-      0,
-      Number.POSITIVE_INFINITY,
-      [shortTracks[1], shortTracks[0]],
-    ],
+    [tracks, 0, REPEAT_MODE.off, [tracks[1], tracks[2], tracks[3]]],
+    [tracks, 3, REPEAT_MODE.off, [tracks[4]]],
+    [tracks, 4, REPEAT_MODE.off, []],
+    [tracks, 3, REPEAT_MODE.all, [tracks[4], tracks[0], tracks[1]]],
+    [[], 0, REPEAT_MODE.off, []],
+    [radioTracks, 0, REPEAT_MODE.off, []],
+    [noStreamUrlTracks, 0, REPEAT_MODE.off, [noStreamUrlTracks[2]]],
+    [shortTracks, 0, REPEAT_MODE.off, [shortTracks[1]]],
+    [shortTracks, 0, REPEAT_MODE.all, [shortTracks[1], shortTracks[0]]],
   ])(
     'when currentIndex is %i and repeat is %s',
     (queue, currentIndex, repeat, expected) => {
@@ -57,19 +52,21 @@ describe('getUpcomingTracks', () => {
   );
 });
 
-describe('getPreviousTrack', () => {
+describe('getPreviousTracks', () => {
   describe.each([
-    [tracks, 1, -1, [tracks[0]]],
-    [tracks, 0, -1, []],
-    [tracks, 0, Number.POSITIVE_INFINITY, [tracks[4]]],
-    [[], 0, -1, []],
-    [radioTracks, 1, -1, []],
-    [noStreamUrlTracks, 2, -1, []],
+    [tracks, 1, REPEAT_MODE.off, [tracks[0]]],
+    [tracks, 0, REPEAT_MODE.off, []],
+    [tracks, 0, REPEAT_MODE.all, [tracks[4]]],
+    [[], 0, REPEAT_MODE.off, []],
+    [radioTracks, 1, REPEAT_MODE.off, []],
+    [noStreamUrlTracks, 2, REPEAT_MODE.off, []],
   ])(
     'when currentIndex is %i and repeat is %s',
     (queue, currentIndex, repeat, expected) => {
       it('returns the correct response', () => {
-        expect(getPreviousTrack(queue, currentIndex, repeat)).toEqual(expected);
+        expect(getPreviousTracks(queue, currentIndex, repeat)).toEqual(
+          expected,
+        );
       });
     },
   );
@@ -77,9 +74,9 @@ describe('getPreviousTrack', () => {
 
 describe('getTracksToPreload', () => {
   describe.each([
-    [[], 1, -1, []],
-    [tracks, 1, -1, [tracks[2], tracks[3], tracks[4], tracks[0]]],
-    [tracks, 0, -1, [tracks[1], tracks[2], tracks[3]]],
+    [[], 1, REPEAT_MODE.off, []],
+    [tracks, 1, REPEAT_MODE.off, [tracks[2], tracks[3], tracks[4], tracks[0]]],
+    [tracks, 0, REPEAT_MODE.off, [tracks[1], tracks[2], tracks[3]]],
   ])(
     'when currentIndex is %i and repeat is %s',
     (queue, currentIndex, repeat, expected) => {

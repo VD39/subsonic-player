@@ -302,7 +302,7 @@ describe('[[id]]', () => {
             .vm.$emit('click');
         });
 
-        it('calls the shuffleTracks function with correct parameters', () => {
+        it('calls the playTracksShuffled function with correct parameters', () => {
           expect(shuffleTracksMock).toHaveBeenCalledWith(
             playlistMock.value!.tracks,
           );
