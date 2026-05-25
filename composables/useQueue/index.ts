@@ -76,11 +76,21 @@ export function useQueue() {
     originalQueueList.value = QUEUE_DEFAULT_STATES.originalQueueList;
   }
 
+  async function clearServerQueue() {
+    await fetchData('/savePlayQueue', {
+      method: 'POST',
+    });
+  }
+
   function closeQueuePanels() {
     isQueueListOpened.value = false;
     isQueuePlayerOpened.value = false;
 
     unlockScroll();
+  }
+
+  function getQueueIndexById(id: string) {
+    return queueList.value.findIndex((item) => item.id === id);
   }
 
   function isCurrentTrack(id: string) {
@@ -160,7 +170,7 @@ export function useQueue() {
   }
 
   function removeTrack(id: string) {
-    const isCurrentTrackRemoved = currentTrack.value.id === id;
+    const isCurrentTrackRemoved = isCurrentTrack(id);
 
     if (queueList.value.length === 1) {
       resetQueue();
@@ -267,9 +277,7 @@ export function useQueue() {
     }
 
     if (!queueList.value.length) {
-      await fetchData('/savePlayQueue', {
-        method: 'POST',
-      });
+      clearServerQueue();
 
       return;
     }
@@ -277,6 +285,12 @@ export function useQueue() {
     const ids = queueList.value
       .filter((track) => track.type !== MEDIA_TYPE.radioStation)
       .map((track) => track.id);
+
+    if (!ids.length) {
+      clearServerQueue();
+
+      return;
+    }
 
     const current =
       currentTrack.value.type === MEDIA_TYPE.radioStation
@@ -315,10 +329,6 @@ export function useQueue() {
       track.favourite = isFavourite;
       saveQueueState();
     }
-  }
-
-  function getQueueIndexById(id: string) {
-    return queueList.value.findIndex((item) => item.id === id);
   }
 
   return {

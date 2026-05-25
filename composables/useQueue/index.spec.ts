@@ -281,7 +281,7 @@ describe('useQueue', () => {
         );
       });
 
-      it('calls the fetchData function', () => {
+      it('calls the fetchData function with correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
           method: 'POST',
           query: {
@@ -289,6 +289,19 @@ describe('useQueue', () => {
             id: [tracks[0].id, tracks[1].id, tracks[2].id, tracks[3].id],
             position: 0,
           },
+        });
+      });
+    });
+
+    describe('when the queue contains only radio stations', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        addTracks([radioStation], true);
+      });
+
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
+          method: 'POST',
         });
       });
     });
@@ -628,7 +641,7 @@ describe('useQueue', () => {
       );
     });
 
-    it('calls the fetchData function with correct parameters', () => {
+    it('calls the fetchData function with the correct parameters', () => {
       expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
         method: 'POST',
         query: expect.objectContaining({
@@ -988,7 +1001,7 @@ describe('useQueue', () => {
       expect(setLocalStorageMock).toHaveBeenCalled();
     });
 
-    it('calls the fetchData function', () => {
+    it('calls the fetchData function with the correct parameters', () => {
       expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
         method: 'POST',
       });
@@ -1026,7 +1039,7 @@ describe('useQueue', () => {
       expect(unlockScrollMock).toHaveBeenCalled();
     });
 
-    it('calls the fetchData function', () => {
+    it('calls the fetchData function with correct parameters', () => {
       expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
         method: 'POST',
       });
