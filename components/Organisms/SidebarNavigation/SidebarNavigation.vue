@@ -9,7 +9,7 @@ const { collapsed, toggle } = useSidebar();
 const { addPlaylistModal, playlists } = usePlaylist();
 
 const buttonProps = computed(() => ({
-  icon: collapsed.value ? ICONS.sidebarCollapsed : ICONS.sidebarNotCollapsed,
+  icon: collapsed.value ? ICONS.sidebarCollapsed : ICONS.sidebarExpanded,
   text: collapsed.value ? 'Open Navigation' : 'Close Navigation',
 }));
 </script>

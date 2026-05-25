@@ -14,7 +14,7 @@ defineEmits<{
   remove: [bookmarkId: string];
 }>();
 
-const trackHeaderNames = TRACK_HEADER_NAMES.bookmarkTracks;
+const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.bookmarkTracks;
 </script>
 
 <template>

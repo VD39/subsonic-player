@@ -70,30 +70,27 @@ describe('DefaultLayout', () => {
     });
   });
 
-  describe('when route name is not in PAGE_NAVIGATION_ROUTES', () => {
+  describe('when route name is not in MOBILE_TAB_ROUTES', () => {
     it('does not show the PageNavigation component', () => {
       expect(wrapper.findComponent(PageNavigation).exists()).toBe(false);
     });
   });
 
-  describe.each([...PAGE_NAVIGATION_ROUTES])(
-    'when route name is %s',
-    (name) => {
-      beforeEach(() => {
-        routeMock.mockReturnValue({
-          name,
-        });
-
-        wrapper = factory();
+  describe.each([...MOBILE_TAB_ROUTES])('when route name is %s', (name) => {
+    beforeEach(() => {
+      routeMock.mockReturnValue({
+        name,
       });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
+      wrapper = factory();
+    });
 
-      it('shows the PageNavigation component', () => {
-        expect(wrapper.findComponent(PageNavigation).exists()).toBe(true);
-      });
-    },
-  );
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the PageNavigation component', () => {
+      expect(wrapper.findComponent(PageNavigation).exists()).toBe(true);
+    });
+  });
 });

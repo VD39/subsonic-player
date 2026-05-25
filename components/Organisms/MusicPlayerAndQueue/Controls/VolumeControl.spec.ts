@@ -83,7 +83,7 @@ describe('VolumeControl', () => {
   });
 
   describe.each([
-    [0, ICONS.volumeDefault],
+    [0, ICONS.volumeMuted],
     [0.1, ICONS.volume0],
     [0.3, ICONS.volume02],
     [0.6, ICONS.volume05],

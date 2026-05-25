@@ -1,4 +1,4 @@
-export const DEFAULT_VALUE = '--';
+export const EMPTY_DISPLAY_VALUE = '--';
 
 export const DEFAULT_ERROR_MESSAGE =
   'Sorry, something went wrong. Please try again.';
@@ -15,7 +15,7 @@ export const DEFAULT_ALL_MEDIA = {
   tracks: [],
 };
 
-export const TRACK_HEADER_NAMES = {
+export const MEDIA_LIST_COLUMN_HEADERS = {
   albumTracks: ['Track', 'Artists', 'Duration'],
   bookmarkTracks: ['Episode', 'Podcast', 'Author', 'Current/Duration'],
   mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],

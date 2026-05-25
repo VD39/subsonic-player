@@ -23,7 +23,7 @@ async function onSubmit(term: string) {
 }
 
 const showPageNavigation = computed(() =>
-  PAGE_NAVIGATION_ROUTES.includes(route.name as RouteName),
+  MOBILE_TAB_ROUTES.includes(route.name as RouteName),
 );
 </script>
 

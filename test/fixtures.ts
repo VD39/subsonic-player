@@ -309,9 +309,9 @@ export const formattedBookmarkMock: Bookmark = {
 export const formattedPodcastMock: Podcast = {
   description: 'description',
   episodes: {
-    [ROUTE_PODCAST_SORT_BY_PARAMS.All]: [formattedPodcastEpisodeMock],
-    [ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded]: [formattedPodcastEpisodeMock],
-    [ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']]: [
+    [ROUTE_PODCAST_FILTER_PARAMS.All]: [formattedPodcastEpisodeMock],
+    [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: [formattedPodcastEpisodeMock],
+    [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]: [
       formattedPodcastEpisodeMock,
     ],
   },

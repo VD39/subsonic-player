@@ -71,14 +71,14 @@ export function getSortedPodcastEpisodes(
   podcastEpisodes: PodcastEpisode[] = [],
 ) {
   return {
-    [ROUTE_PODCAST_SORT_BY_PARAMS.All]: podcastEpisodes,
-    [ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded]: sortPodcastEpisodes(
+    [ROUTE_PODCAST_FILTER_PARAMS.All]: podcastEpisodes,
+    [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: sortPodcastEpisodes(
       podcastEpisodes,
-      ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded,
+      ROUTE_PODCAST_FILTER_PARAMS.Downloaded,
     ),
-    [ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']]: sortPodcastEpisodes(
+    [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]: sortPodcastEpisodes(
       podcastEpisodes,
-      ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded'],
+      ROUTE_PODCAST_FILTER_PARAMS['Not downloaded'],
     ),
   };
 }
@@ -132,10 +132,10 @@ export function sortPodcastEpisodes(
   let downloaded = undefined;
 
   switch (sortBy) {
-    case ROUTE_PODCAST_SORT_BY_PARAMS.Downloaded:
+    case ROUTE_PODCAST_FILTER_PARAMS.Downloaded:
       downloaded = true;
       break;
-    case ROUTE_PODCAST_SORT_BY_PARAMS['Not downloaded']:
+    case ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']:
       downloaded = false;
       break;
     default:

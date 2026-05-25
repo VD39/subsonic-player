@@ -2,7 +2,7 @@ export function formatFileSize(bytes: number | string = '') {
   const sizeInBytes = Number(bytes);
 
   if (!bytes || Number.isNaN(sizeInBytes)) {
-    return DEFAULT_VALUE;
+    return EMPTY_DISPLAY_VALUE;
   }
 
   const KB = sizeInBytes / 1024;

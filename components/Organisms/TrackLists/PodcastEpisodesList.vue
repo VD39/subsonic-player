@@ -18,7 +18,7 @@ defineEmits<{
   playEpisode: [episode: PodcastEpisode];
 }>();
 
-const trackHeaderNames = TRACK_HEADER_NAMES.podcastEpisodes;
+const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.podcastEpisodes;
 </script>
 
 <template>

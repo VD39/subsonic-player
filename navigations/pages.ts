@@ -33,7 +33,7 @@ export const GENRE_NAVIGATION = getNavigation(
 
 export const PODCAST_NAVIGATION = getNavigation(
   ROUTE_PARAM_KEYS.podcast.sortBy,
-  ROUTE_PODCAST_SORT_BY_PARAMS,
+  ROUTE_PODCAST_FILTER_PARAMS,
 );
 
 export const SEARCH_NAVIGATION = getNavigation(

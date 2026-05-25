@@ -9,7 +9,7 @@ export function formatDate(
   options: Intl.DateTimeFormatOptions = DEFAULT_FORMAT_OPTIONS,
 ) {
   if (!inputDate) {
-    return DEFAULT_VALUE;
+    return EMPTY_DISPLAY_VALUE;
   }
 
   const date = new Date(inputDate);

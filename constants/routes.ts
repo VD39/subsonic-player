@@ -55,7 +55,7 @@ export const ROUTE_PARAM_KEYS = {
   },
 } as const;
 
-export const PAGE_NAVIGATION_ROUTES: RouteName[] = [
+export const MOBILE_TAB_ROUTES: RouteName[] = [
   ROUTE_NAMES.index,
   ROUTE_NAMES.podcast,
   ROUTE_NAMES.podcasts,
@@ -68,7 +68,7 @@ export const ROUTE_MEDIA_TYPE_PARAMS = {
   Tracks: 'tracks',
 } as const;
 
-export const ROUTE_PODCAST_SORT_BY_PARAMS = {
+export const ROUTE_PODCAST_FILTER_PARAMS = {
   All: 'all',
   Downloaded: 'downloaded',
   'Not downloaded': 'not-downloaded',

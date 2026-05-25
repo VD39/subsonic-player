@@ -11,11 +11,11 @@ describe('formatDate', () => {
     [new Date('2023-10-25T00:00:00Z'), undefined, '25 October 2023'],
     ['2023-10-25', undefined, '25 October 2023'],
     ['2023-10-25T15:30:00Z', undefined, '25 October 2023'],
-    [undefined, undefined, DEFAULT_VALUE],
+    [undefined, undefined, EMPTY_DISPLAY_VALUE],
     [new Date('2023-10-25T00:00:00Z'), DATE_OPTIONS, '25 Oct 23'],
     ['2023-10-25', DATE_OPTIONS, '25 Oct 23'],
     ['2023-10-25T15:30:00Z', DATE_OPTIONS, '25 Oct 23'],
-    [undefined, DATE_OPTIONS, DEFAULT_VALUE],
+    [undefined, DATE_OPTIONS, EMPTY_DISPLAY_VALUE],
   ])('when input is %s and options is %s', (input, options, output) => {
     it('returns the correct date format', () => {
       expect(formatDate(input, options)).toBe(output);

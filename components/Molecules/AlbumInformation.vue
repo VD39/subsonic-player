@@ -37,7 +37,7 @@ defineProps<{
           :class="$style.list"
         />
 
-        <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>
+        <p v-else ref="artistsElse">{{ EMPTY_DISPLAY_VALUE }}</p>
       </div>
     </div>
 
@@ -59,7 +59,7 @@ defineProps<{
           :genres="album.genres"
         />
 
-        <p v-else ref="genresElse">{{ DEFAULT_VALUE }}</p>
+        <p v-else ref="genresElse">{{ EMPTY_DISPLAY_VALUE }}</p>
       </div>
     </div>
 

@@ -8,4 +8,4 @@ export interface PodcastsParams {
 
 export type PodcastState = Record<string, null | Podcast>;
 
-export type TypeofPodcastRouteSortBy = typeof ROUTE_PODCAST_SORT_BY_PARAMS;
+export type TypeofPodcastRouteSortBy = typeof ROUTE_PODCAST_FILTER_PARAMS;

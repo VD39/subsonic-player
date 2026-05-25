@@ -85,7 +85,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           />
         </MarqueeScroll>
 
-        <p v-else ref="albumElse">{{ DEFAULT_VALUE }}</p>
+        <p v-else ref="albumElse">{{ EMPTY_DISPLAY_VALUE }}</p>
       </div>
 
       <div class="trackCell trackSecondary">
@@ -93,7 +93,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           <ArtistsList :artists="track.artists" />
         </MarqueeScroll>
 
-        <p v-else ref="artistsElse">{{ DEFAULT_VALUE }}</p>
+        <p v-else ref="artistsElse">{{ EMPTY_DISPLAY_VALUE }}</p>
       </div>
 
       <div class="trackCell trackTime">

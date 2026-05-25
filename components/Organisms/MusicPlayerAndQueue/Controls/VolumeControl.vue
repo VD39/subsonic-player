@@ -16,7 +16,7 @@ const volumeIcon = computed(() => {
     case volume.value > 0:
       return ICONS.volume0;
     default:
-      return ICONS.volumeDefault;
+      return ICONS.volumeMuted;
   }
 });
 

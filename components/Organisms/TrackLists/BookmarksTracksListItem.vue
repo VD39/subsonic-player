@@ -68,14 +68,14 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               name: ROUTE_NAMES.podcast,
               params: {
                 [ROUTE_PARAM_KEYS.podcast.sortBy]:
-                  ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                  ROUTE_PODCAST_FILTER_PARAMS.All,
                 [ROUTE_PARAM_KEYS.podcast.id]: bookmark.podcastId,
               },
             }"
           />
         </MarqueeScroll>
 
-        <p v-else ref="podcastNameElse">{{ DEFAULT_VALUE }}</p>
+        <p v-else ref="podcastNameElse">{{ EMPTY_DISPLAY_VALUE }}</p>
       </div>
 
       <div class="trackCell trackSecondary">
@@ -83,7 +83,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           <p>{{ bookmark.author }}</p>
         </MarqueeScroll>
 
-        <p v-else ref="authorsElse">{{ DEFAULT_VALUE }}</p>
+        <p v-else ref="authorsElse">{{ EMPTY_DISPLAY_VALUE }}</p>
       </div>
 
       <div class="trackCell trackTime withPosition">
@@ -113,7 +113,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               name: ROUTE_NAMES.podcast,
               params: {
                 [ROUTE_PARAM_KEYS.podcast.sortBy]:
-                  ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                  ROUTE_PODCAST_FILTER_PARAMS.All,
                 [ROUTE_PARAM_KEYS.podcast.id]: bookmark.podcastId,
               },
             }"

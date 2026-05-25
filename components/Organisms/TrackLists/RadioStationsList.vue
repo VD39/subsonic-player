@@ -13,7 +13,7 @@ defineEmits<{
   playRadioStation: [radioStation: RadioStation];
 }>();
 
-const trackHeaderNames = TRACK_HEADER_NAMES.radioStations;
+const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.radioStations;
 </script>
 
 <template>

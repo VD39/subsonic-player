@@ -140,7 +140,7 @@ const {
                       name: ROUTE_NAMES.podcast,
                       params: {
                         [ROUTE_PARAM_KEYS.podcast.sortBy]:
-                          ROUTE_PODCAST_SORT_BY_PARAMS.All,
+                          ROUTE_PODCAST_FILTER_PARAMS.All,
                         [ROUTE_PARAM_KEYS.podcast.id]: currentTrack.podcastId,
                       },
                     }"

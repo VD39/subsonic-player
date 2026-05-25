@@ -26,7 +26,7 @@ describe('podcast-middleware', () => {
   });
 
   describe(`when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} and to.params.${ROUTE_PARAM_KEYS.podcast.id} are defined`, () => {
-    describe(`when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} is not a value of ROUTE_PODCAST_SORT_BY_PARAMS`, () => {
+    describe(`when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} is not a value of ROUTE_PODCAST_FILTER_PARAMS`, () => {
       beforeEach(() => {
         podcastMiddleware(
           {
@@ -47,7 +47,7 @@ describe('podcast-middleware', () => {
       });
     });
 
-    describe.each(Object.values(ROUTE_PODCAST_SORT_BY_PARAMS))(
+    describe.each(Object.values(ROUTE_PODCAST_FILTER_PARAMS))(
       `when to.params.${ROUTE_PARAM_KEYS.podcast.sortBy} is %s`,
       (sortBy) => {
         beforeEach(() => {

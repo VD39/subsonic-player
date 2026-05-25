@@ -25,7 +25,7 @@ const emit = defineEmits<{
 
 const sortableListContainerRef = useTemplateRef('sortableListContainerRef');
 
-const trackHeaderNames = TRACK_HEADER_NAMES.mix;
+const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.mix;
 
 const hasAddToQueueEvent = computed(
   () => !!getCurrentInstance()?.vnode.props?.onAddToQueue,

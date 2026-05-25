@@ -81,7 +81,7 @@ describe('formatAlbum', () => {
     [
       'year',
       {
-        year: DEFAULT_VALUE,
+        year: EMPTY_DISPLAY_VALUE,
       },
     ],
   ])('when %s is undefined', (key, outcome) => {
@@ -292,7 +292,7 @@ describe('formatArtist', () => {
     [
       'name',
       {
-        name: DEFAULT_VALUE,
+        name: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
@@ -529,7 +529,7 @@ describe('formatPodcastEpisode', () => {
     [
       'artist',
       {
-        author: DEFAULT_VALUE,
+        author: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
@@ -547,13 +547,13 @@ describe('formatPodcastEpisode', () => {
     [
       'artist',
       {
-        author: DEFAULT_VALUE,
+        author: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
       'album',
       {
-        podcastName: DEFAULT_VALUE,
+        podcastName: EMPTY_DISPLAY_VALUE,
       },
     ],
   ])('when %s is undefined', (key, outcome) => {
@@ -783,7 +783,7 @@ describe('formatTrack', () => {
     [
       'album',
       {
-        album: DEFAULT_VALUE,
+        album: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
@@ -798,7 +798,7 @@ describe('formatTrack', () => {
       'contentType',
       {
         information: expect.objectContaining({
-          contentType: DEFAULT_VALUE,
+          contentType: EMPTY_DISPLAY_VALUE,
         }),
       },
     ],
@@ -811,14 +811,14 @@ describe('formatTrack', () => {
     [
       'discNumber',
       {
-        discNumber: DEFAULT_VALUE,
+        discNumber: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
       'path',
       {
         information: expect.objectContaining({
-          path: DEFAULT_VALUE,
+          path: EMPTY_DISPLAY_VALUE,
         }),
       },
     ],
@@ -833,28 +833,28 @@ describe('formatTrack', () => {
     [
       'size',
       {
-        size: DEFAULT_VALUE,
+        size: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
       'suffix',
       {
         information: expect.objectContaining({
-          suffix: DEFAULT_VALUE,
+          suffix: EMPTY_DISPLAY_VALUE,
         }),
       },
     ],
     [
       'track',
       {
-        trackNumber: DEFAULT_VALUE,
+        trackNumber: EMPTY_DISPLAY_VALUE,
       },
     ],
     [
       'transcodedContentType',
       {
         information: expect.objectContaining({
-          transcodedContentType: DEFAULT_VALUE,
+          transcodedContentType: EMPTY_DISPLAY_VALUE,
         }),
       },
     ],
@@ -862,14 +862,14 @@ describe('formatTrack', () => {
       'transcodedSuffix',
       {
         information: expect.objectContaining({
-          transcodedSuffix: DEFAULT_VALUE,
+          transcodedSuffix: EMPTY_DISPLAY_VALUE,
         }),
       },
     ],
     [
       'year',
       {
-        year: DEFAULT_VALUE,
+        year: EMPTY_DISPLAY_VALUE,
       },
     ],
   ])('when %s is undefined', (key, outcome) => {
@@ -990,7 +990,7 @@ describe('formatPlaylist', () => {
       'owner',
       {
         information: expect.objectContaining({
-          owner: DEFAULT_VALUE,
+          owner: EMPTY_DISPLAY_VALUE,
         }),
       },
     ],

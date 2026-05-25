@@ -27,7 +27,7 @@ describe('ThemeSwitcher', () => {
 
   it('sets the correct icon prop on the ButtonLink component', () => {
     expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-      ICONS.lightTheme,
+      ICONS.switchToDarkTheme,
     );
   });
 
@@ -53,7 +53,7 @@ describe('ThemeSwitcher', () => {
 
     it('sets the correct icon prop on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
-        ICONS.darkTheme,
+        ICONS.switchToLightTheme,
       );
     });
 

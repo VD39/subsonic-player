@@ -15,7 +15,7 @@ defineEmits<{
   playTrack: [index: number];
 }>();
 
-const trackHeaderNames = TRACK_HEADER_NAMES.albumTracks;
+const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.albumTracks;
 </script>
 
 <template>

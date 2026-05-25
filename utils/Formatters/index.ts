@@ -9,7 +9,7 @@ export function formatAlbum(album: AlbumID3 & AlbumWithSongsID3): Album {
     song = [],
     songCount: trackCount,
     starred,
-    year = DEFAULT_VALUE,
+    year = EMPTY_DISPLAY_VALUE,
   } = album;
 
   const tracks = song.map((track, index) => formatTrack(track, index));
@@ -75,7 +75,7 @@ export function formatArtist(
     id,
     lastFmUrl,
     musicBrainzId,
-    name = DEFAULT_VALUE,
+    name = EMPTY_DISPLAY_VALUE,
     similarArtist = [],
     similarSongs = [],
     starred,
@@ -135,7 +135,7 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
     entry = [],
     id,
     name = '(Unnamed)',
-    owner = DEFAULT_VALUE,
+    owner = EMPTY_DISPLAY_VALUE,
     public: playlistPublic = false,
     songCount: trackCount,
   } = playlist;
@@ -205,8 +205,8 @@ export function formatPodcastEpisode(
   episode: ResponsePodcastEpisode,
 ): PodcastEpisode {
   const {
-    album = DEFAULT_VALUE,
-    artist: author = DEFAULT_VALUE,
+    album = EMPTY_DISPLAY_VALUE,
+    artist: author = EMPTY_DISPLAY_VALUE,
     channelId: podcastId,
     coverArt: image = IMAGE_DEFAULT_BY_TYPE.podcastEpisode,
     description,
@@ -269,26 +269,26 @@ export function formatRadioStation(
 
 export function formatTrack(track: Base, index: number): Track {
   const {
-    album = DEFAULT_VALUE,
+    album = EMPTY_DISPLAY_VALUE,
     albumId,
     bitRate = 0,
-    contentType = DEFAULT_VALUE,
+    contentType = EMPTY_DISPLAY_VALUE,
     coverArt: image = IMAGE_DEFAULT_BY_TYPE.track,
     created,
-    discNumber = DEFAULT_VALUE,
+    discNumber = EMPTY_DISPLAY_VALUE,
     duration,
     id,
     parent,
-    path = DEFAULT_VALUE,
+    path = EMPTY_DISPLAY_VALUE,
     playCount = 0,
     size = 0,
     starred,
-    suffix = DEFAULT_VALUE,
+    suffix = EMPTY_DISPLAY_VALUE,
     title: name,
-    track: trackNumber = DEFAULT_VALUE,
-    transcodedContentType = DEFAULT_VALUE,
-    transcodedSuffix = DEFAULT_VALUE,
-    year = DEFAULT_VALUE,
+    track: trackNumber = EMPTY_DISPLAY_VALUE,
+    transcodedContentType = EMPTY_DISPLAY_VALUE,
+    transcodedSuffix = EMPTY_DISPLAY_VALUE,
+    year = EMPTY_DISPLAY_VALUE,
   } = track;
 
   return {
