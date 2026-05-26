@@ -158,7 +158,7 @@ describe('[...slug]', () => {
     it('calls the playTracks function with the correct parameters', () => {
       expect(playTracksMock).toHaveBeenCalledWith(
         musicDirectoryDataMock.value.musicDirectory.tracks,
-        0,
+        1,
       );
     });
   });

@@ -302,10 +302,9 @@ describe('[[genre]]', () => {
       });
 
       it('calls the playTracks function with the correct parameters', () => {
-        expect(playTracksMock).toHaveBeenCalledWith(
-          [genreDataMock.value.genreMedia[1]],
-          -1,
-        );
+        expect(playTracksMock).toHaveBeenCalledWith([
+          genreDataMock.value.genreMedia[1],
+        ]);
       });
     });
   });

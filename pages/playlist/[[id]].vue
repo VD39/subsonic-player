@@ -62,7 +62,7 @@ function onDragStart(event: DragEvent) {
 }
 
 function onPlayTrack(index: number) {
-  playTracks(playlist.value!.tracks, index - 1);
+  playTracks(playlist.value!.tracks, index);
 }
 
 async function removeTrackFromPlaylist(songIndexToRemove: number) {

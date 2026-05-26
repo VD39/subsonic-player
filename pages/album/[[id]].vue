@@ -49,7 +49,7 @@ function onDragStart(event: DragEvent) {
 }
 
 function onPlayTrack(index: number) {
-  playTracks(albumData.value.album!.tracks, index - 1);
+  playTracks(albumData.value.album!.tracks, index);
 }
 
 useHead({

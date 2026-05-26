@@ -91,7 +91,7 @@ function openPodcastDescriptionModal() {
 }
 
 function playDownloadedEpisodes() {
-  playTracks(podcast.value!.episodes.downloaded, -1);
+  playTracks(podcast.value!.episodes.downloaded);
 }
 
 function playLatestEpisode() {

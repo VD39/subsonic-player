@@ -396,7 +396,7 @@ export function useAudioPlayer() {
   }
 
   async function playTracksShuffled(tracks: PlayableTrack[]) {
-    const queueIndex = Math.floor(Math.random() * tracks.length) - 1;
+    const queueIndex = Math.floor(Math.random() * tracks.length);
     await playTracks(tracks, queueIndex);
     toggleShuffle();
   }
@@ -502,13 +502,10 @@ export function useAudioPlayer() {
     await addTracksToQueue([track]);
   }
 
-  async function playTracks(
-    tracks: PlayableTrack[],
-    queueOffset = QUEUE_DEFAULT_STATES.currentQueueIndex,
-  ) {
+  async function playTracks(tracks: PlayableTrack[], queueOffset = 0) {
     resetPlayer();
     addTracks(tracks, true);
-    const track = navigateQueue(queueOffset + 1);
+    const track = navigateQueue(queueOffset);
     await changeTrack(track);
   }
 

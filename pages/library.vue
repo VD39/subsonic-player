@@ -65,7 +65,7 @@ async function onPlayAlbum(album: Album) {
   const tracks = await getMediaTracks(album);
 
   if (tracks) {
-    await playTracks(tracks);
+    playTracks(tracks);
   }
 }
 

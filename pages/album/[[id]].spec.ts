@@ -375,7 +375,7 @@ describe('[[id]]', () => {
       });
 
       it('calls the playTracks function with correct parameters', () => {
-        expect(playTracksMock).toHaveBeenCalledWith(album.tracks, 0);
+        expect(playTracksMock).toHaveBeenCalledWith(album.tracks, 1);
       });
     });
   });

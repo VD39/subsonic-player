@@ -40,7 +40,7 @@ const {
 );
 
 function onPlayTrack(index: number) {
-  playTracks(musicDirectoryData.value.musicDirectory.tracks, index - 1);
+  playTracks(musicDirectoryData.value.musicDirectory.tracks, index);
 }
 
 useHead({

@@ -446,7 +446,7 @@ describe('[[id]]', () => {
       it('calls the playTracks function with the correct parameters', () => {
         expect(playTracksMock).toHaveBeenCalledWith(
           playlistMock.value!.tracks,
-          0,
+          1,
         );
       });
     });

@@ -354,7 +354,6 @@ describe('[[id]]', () => {
           it('calls the playTracks function with correct parameters', () => {
             expect(playTracksMock).toHaveBeenCalledWith(
               podcastMock.value.id!.episodes.downloaded,
-              -1,
             );
           });
         });
@@ -399,7 +398,6 @@ describe('[[id]]', () => {
           it('calls the playTracks function with correct parameters', () => {
             expect(playTracksMock).toHaveBeenCalledWith(
               podcastMock.value.id!.episodes.downloaded,
-              -1,
             );
           });
         });

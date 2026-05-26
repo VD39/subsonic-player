@@ -380,7 +380,7 @@ describe('[[id]]', () => {
           it('calls the playTracks function with the correct parameters', () => {
             expect(playTracksMock).toHaveBeenCalledWith(
               artistDataMock.value![key as keyof Artist],
-              1,
+              2,
             );
           });
         });

@@ -34,8 +34,8 @@ const { refresh, status } = useAsyncData(
   },
 );
 
-async function playEpisodeFromBookmarks(index: number) {
-  await playTracks([bookmarks.value[index]], -1);
+function playEpisodeFromBookmarks(index: number) {
+  playTracks([bookmarks.value[index]]);
 }
 
 useHead({

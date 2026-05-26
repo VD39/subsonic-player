@@ -54,7 +54,7 @@ async function onPlayAlbum(album: Album) {
   const tracks = await getMediaTracks(album);
 
   if (tracks) {
-    await playTracks(tracks);
+    playTracks(tracks);
   }
 }
 
@@ -66,11 +66,11 @@ function openArtistBiographyModal() {
 }
 
 function playFromSimilarTracks(index: number) {
-  playTracks(artistData.value!.similarTracks, index - 1);
+  playTracks(artistData.value!.similarTracks, index);
 }
 
 function playTopTrack(index: number) {
-  playTracks(artistData.value!.topTracks, index - 1);
+  playTracks(artistData.value!.topTracks, index);
 }
 
 useHead({

@@ -615,7 +615,7 @@ describe('index', () => {
         it('calls the playTracks function with the correct parameters', () => {
           expect(playTracksMock).toHaveBeenCalledWith(
             favouritesMock.value.tracks,
-            0,
+            1,
           );
         });
       });

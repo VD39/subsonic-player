@@ -386,10 +386,9 @@ describe('[[query]]', () => {
       });
 
       it('calls the playTracks function with the correct parameters', () => {
-        expect(playTracksMock).toHaveBeenCalledWith(
-          [searchResultsDataMock.value.searchResults[1]],
-          -1,
-        );
+        expect(playTracksMock).toHaveBeenCalledWith([
+          searchResultsDataMock.value.searchResults[1],
+        ]);
       });
     });
   });

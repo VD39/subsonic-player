@@ -73,15 +73,14 @@ async function onPlayAlbum(album: Album) {
   const tracks = await getMediaTracks(album);
 
   if (tracks) {
-    await playTracks(tracks);
+    playTracks(tracks);
   }
 }
 
 function onPlayTrack(index: number) {
-  playTracks(
-    [(searchResultsData.value.searchResults as PlayableTrack[])[index]],
-    -1,
-  );
+  playTracks([
+    (searchResultsData.value.searchResults as PlayableTrack[])[index],
+  ]);
 }
 
 const loadingStatus = computed(() =>

@@ -77,12 +77,12 @@ async function onPlayAlbum(album: Album) {
   const tracks = await getMediaTracks(album);
 
   if (tracks) {
-    await playTracks(tracks);
+    playTracks(tracks);
   }
 }
 
 function onPlayTrack(index: number) {
-  playTracks([genreData.value.genreMedia[index]], -1);
+  playTracks([genreData.value.genreMedia[index]]);
 }
 
 useHead({

@@ -150,7 +150,7 @@ describe('bookmarks', () => {
     });
 
     it('calls the playTracks function with correct bookmark', () => {
-      expect(playTracksMock).toHaveBeenCalledWith([bookmarksMock.value[0]], -1);
+      expect(playTracksMock).toHaveBeenCalledWith([bookmarksMock.value[0]]);
     });
   });
 
