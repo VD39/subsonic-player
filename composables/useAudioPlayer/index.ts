@@ -330,11 +330,11 @@ export function useAudioPlayer() {
     saveAudioPlayerState();
   }
 
-  function syncPlaybackPosition() {
+  function syncPlaybackPosition(bookmarkTimeToSync = currentTime.value) {
     updateCurrentTrackPosition(currentTime.value);
 
     if (isPodcastEpisode.value) {
-      createBookmark(currentTrack.value.id, currentTime.value);
+      createBookmark(currentTrack.value.id, bookmarkTimeToSync);
     }
   }
 
@@ -510,10 +510,13 @@ export function useAudioPlayer() {
   }
 
   function resetPlaybackTimes() {
+    // Store actual position for podcasts to sync with bookmark before resetting.
+    const bookmarkTimeToSync = currentTime.value;
+
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
     saveAudioPlayerState();
-    syncPlaybackPosition();
+    syncPlaybackPosition(bookmarkTimeToSync);
   }
 
   function resetAudioPlayer() {

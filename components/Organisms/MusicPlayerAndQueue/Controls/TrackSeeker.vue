@@ -19,7 +19,7 @@ const ariaValueText = computed(
     aria-label="Seek"
     :aria-valuetext="ariaValueText"
     :buffer="bufferedDuration"
-    delay
+    commitOnRelease
     :max="currentTrack.duration"
     :min="0"
     tabindex="0"

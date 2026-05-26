@@ -956,6 +956,35 @@ describe('useAudioPlayer', () => {
     it('calls the audio load function', () => {
       expect(loadMock).toHaveBeenCalled();
     });
+
+    describe('when the current track is a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = true;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 120;
+        result.composable.playFromQueue(4);
+      });
+
+      it('calls the createBookmark function with the correct parameters', () => {
+        expect(createBookmarkMock).toHaveBeenCalledWith(
+          currentTrackMock.value.id,
+          120,
+        );
+      });
+    });
+
+    describe('when the current track is not a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = false;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 130;
+        result.composable.playFromQueue(4);
+      });
+
+      it('does not call the createBookmark function', () => {
+        expect(createBookmarkMock).not.toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when removeFromQueue function is called', () => {
@@ -1500,6 +1529,37 @@ describe('useAudioPlayer', () => {
     it('calls the audio play function', () => {
       expect(playMock).toHaveBeenCalled();
     });
+
+    describe('when the current track is a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = true;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 75;
+        navigateQueueMock.mockReturnValueOnce(queueTrack);
+        result.composable.playNextTrack();
+      });
+
+      it('calls the createBookmark function with the correct parameters', () => {
+        expect(createBookmarkMock).toHaveBeenCalledWith(
+          currentTrackMock.value.id,
+          75,
+        );
+      });
+    });
+
+    describe('when the current track is not a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = false;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 85;
+        navigateQueueMock.mockReturnValueOnce(queueTrack);
+        result.composable.playNextTrack();
+      });
+
+      it('does not call the createBookmark function', () => {
+        expect(createBookmarkMock).not.toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when playPreviousTrack function is called', () => {
@@ -1513,6 +1573,35 @@ describe('useAudioPlayer', () => {
 
     it('calls the audio play function', () => {
       expect(playMock).toHaveBeenCalled();
+    });
+
+    describe('when the current track is a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = true;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 90;
+        result.composable.playPreviousTrack();
+      });
+
+      it('calls the createBookmark function with the correct parameters', () => {
+        expect(createBookmarkMock).toHaveBeenCalledWith(
+          currentTrackMock.value.id,
+          90,
+        );
+      });
+    });
+
+    describe('when the current track is not a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = false;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 95;
+        result.composable.playPreviousTrack();
+      });
+
+      it('does not call the createBookmark function', () => {
+        expect(createBookmarkMock).not.toHaveBeenCalled();
+      });
     });
   });
 
@@ -1799,6 +1888,35 @@ describe('useAudioPlayer', () => {
 
     it('calls the audio preloader clear function', () => {
       expect(clearPreloaderMock).toHaveBeenCalled();
+    });
+
+    describe('when the current track is a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = true;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 150;
+        result.composable.resetPlayer();
+      });
+
+      it('calls the createBookmark function with the correct parameters', () => {
+        expect(createBookmarkMock).toHaveBeenCalledWith(
+          currentTrackMock.value.id,
+          150,
+        );
+      });
+    });
+
+    describe('when the current track is not a podcast episode', () => {
+      beforeAll(() => {
+        isPodcastEpisodeMock.value = false;
+        vi.clearAllMocks();
+        result.composable.currentTime.value = 160;
+        result.composable.resetPlayer();
+      });
+
+      it('does not call the createBookmark function', () => {
+        expect(createBookmarkMock).not.toHaveBeenCalled();
+      });
     });
   });
 });
