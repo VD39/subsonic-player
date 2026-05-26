@@ -21,7 +21,7 @@ function onDragStart(album: Album, event: DragEvent) {
   emit('dragStart', album, event);
 }
 
-const gridWrapperProps = computed(() =>
+const layoutColumnOverride = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
 );
 </script>
@@ -29,10 +29,10 @@ const gridWrapperProps = computed(() =>
 <template>
   <GridWrapper
     v-if="albums.length"
-    :desktop="gridWrapperProps"
-    :mobile="gridWrapperProps"
-    :spacing="gridWrapperProps"
-    :tablet="gridWrapperProps"
+    :desktopColumns="layoutColumnOverride"
+    :mobileColumns="layoutColumnOverride"
+    :spacing="layoutColumnOverride"
+    :tabletColumns="layoutColumnOverride"
   >
     <AlbumItem
       v-for="album in albums"

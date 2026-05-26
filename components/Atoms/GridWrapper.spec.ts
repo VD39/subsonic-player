@@ -16,10 +16,10 @@ describe('GridWrapper', () => {
   let wrapper: VueWrapper;
 
   describe.each([
-    ['mobile', '2'],
-    ['tablet', '3'],
-    ['desktop', '5'],
-  ])('when %s prop is not set', (prop, defaultValue) => {
+    ['mobileColumns', 'mobile', '2'],
+    ['tabletColumns', 'tablet', '3'],
+    ['desktopColumns', 'desktop', '5'],
+  ])('when %s prop is not set', (propName, cssVarSuffix, defaultValue) => {
     beforeEach(() => {
       wrapper = factory();
     });
@@ -30,19 +30,19 @@ describe('GridWrapper', () => {
 
     it('sets the correct style attribute on the wrapper element', () => {
       expect(wrapper.attributes('style')).toContain(
-        `--loop-rows-${prop}: ${defaultValue};`,
+        `--loop-rows-${cssVarSuffix}: ${defaultValue};`,
       );
     });
   });
 
   describe.each([
-    ['mobile', '5'],
-    ['tablet', '7'],
-    ['desktop', '9'],
-  ])('when %s prop is set', (prop, value) => {
+    ['mobileColumns', 'mobile', '5'],
+    ['tabletColumns', 'tablet', '7'],
+    ['desktopColumns', 'desktop', '9'],
+  ])('when %s prop is set', (propName, cssVarSuffix, value) => {
     beforeEach(() => {
       wrapper = factory({
-        [prop]: value,
+        [propName]: value,
       });
     });
 
@@ -52,7 +52,7 @@ describe('GridWrapper', () => {
 
     it('sets the correct style attribute on the wrapper element', () => {
       expect(wrapper.attributes('style')).toContain(
-        `--loop-rows-${prop}: ${value};`,
+        `--loop-rows-${cssVarSuffix}: ${value};`,
       );
     });
   });

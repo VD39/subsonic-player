@@ -13,15 +13,15 @@ const emit = defineEmits<{
 const { isCurrentTrack } = useQueue();
 const { isPlaying, togglePlay } = useAudioPlayer();
 
-const currentTrackIsPlaying = computed(
+const isCurrentAndPlaying = computed(
   () => isCurrentTrack(props.trackId) && isPlaying.value,
 );
 
 const playPauseText = computed(() =>
-  currentTrackIsPlaying.value ? 'Pause' : 'Play',
+  isCurrentAndPlaying.value ? 'Pause' : 'Play',
 );
 
-const trackType = computed(() => {
+const trackTypeLabel = computed(() => {
   switch (props.type) {
     case MEDIA_TYPE.podcastEpisode:
       return 'Episode';
@@ -33,7 +33,7 @@ const trackType = computed(() => {
 });
 
 async function onClick() {
-  if (currentTrackIsPlaying.value) {
+  if (isCurrentAndPlaying.value) {
     await togglePlay();
     return;
   }
@@ -44,6 +44,6 @@ async function onClick() {
 
 <template>
   <DropdownItem @click="onClick">
-    {{ playPauseText }} {{ trackType }}
+    {{ playPauseText }} {{ trackTypeLabel }}
   </DropdownItem>
 </template>

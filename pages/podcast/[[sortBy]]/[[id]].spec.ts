@@ -174,7 +174,7 @@ describe('[[id]]', () => {
 
         describe('when the TextClamp component emits the more event', () => {
           beforeEach(() => {
-            wrapper.findComponent(TextClamp).vm.$emit('more');
+            wrapper.findComponent(TextClamp).vm.$emit('expand');
           });
 
           it('calls the openModal function with the correct parameters', () => {

@@ -86,7 +86,7 @@ useHead({
           v-if="artistData.biography"
           :maxLines="2"
           :text="artistData.biography"
-          @more="openArtistBiographyModal"
+          @expand="openArtistBiographyModal"
         />
 
         <GenreList

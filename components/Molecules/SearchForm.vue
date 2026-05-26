@@ -47,7 +47,7 @@ function onFormSubmit() {
       />
 
       <ButtonLink :class="$style.buttonLink" :icon="ICONS.search" type="submit">
-        Login
+        Search
       </ButtonLink>
     </div>
   </form>

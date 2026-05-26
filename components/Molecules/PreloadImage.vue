@@ -18,7 +18,7 @@ const { getImageUrl } = useAPI();
 const preloadImageRef = useTemplateRef('preloadImageRef');
 
 const loading = ref(true);
-const loadImage = ref(false);
+const shouldLoad = ref(false);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 function onImageLoad() {
@@ -35,7 +35,7 @@ const imageSrc = computed(() => {
 
 onMounted(() => {
   if (!props.lazyLoad) {
-    loadImage.value = true;
+    shouldLoad.value = true;
     return;
   }
 
@@ -46,7 +46,7 @@ onMounted(() => {
   intersectionObserver.value = new IntersectionObserver(
     ([entry], observer) => {
       if (entry && entry.isIntersecting) {
-        loadImage.value = true;
+        shouldLoad.value = true;
         observer?.disconnect();
       }
     },
@@ -68,7 +68,7 @@ onUnmounted(() => {
   <div ref="preloadImageRef" :class="['centerAll', $style.preloadImage]">
     <template v-if="imageSrc">
       <span
-        v-show="loading || !loadImage"
+        v-show="loading || !shouldLoad"
         ref="imageLoader"
         class="skeletonLoader"
       >
@@ -77,7 +77,7 @@ onUnmounted(() => {
 
       <ClientOnly>
         <img
-          v-show="!loading || loadImage"
+          v-show="!loading || shouldLoad"
           ref="img"
           :alt
           :class="$style.image"

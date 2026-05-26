@@ -1,16 +1,16 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    desktop?: string;
-    mobile?: string;
+    desktopColumns?: string;
+    mobileColumns?: string;
     spacing?: string;
-    tablet?: string;
+    tabletColumns?: string;
   }>(),
   {
-    desktop: '5',
-    mobile: '2',
+    desktopColumns: '5',
+    mobileColumns: '2',
     spacing: '24',
-    tablet: '3',
+    tabletColumns: '3',
   },
 );
 </script>
@@ -19,9 +19,9 @@ withDefaults(
   <section
     :class="$style.mediaListWrapper"
     :style="{
-      '--loop-rows-mobile': mobile,
-      '--loop-rows-tablet': tablet,
-      '--loop-rows-desktop': desktop,
+      '--loop-rows-mobile': mobileColumns,
+      '--loop-rows-tablet': tabletColumns,
+      '--loop-rows-desktop': desktopColumns,
       '--loop-grid-gap': `${spacing}px`,
     }"
   >

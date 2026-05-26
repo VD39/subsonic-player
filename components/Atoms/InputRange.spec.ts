@@ -405,7 +405,7 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when the delay prop is not set', () => {
+    describe('when the commitOnRelease prop is not set', () => {
       it('emits the update:modelValue value', () => {
         expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
       });
@@ -415,10 +415,10 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when the delay prop is set to true', () => {
+    describe('when the commitOnRelease prop is set to true', () => {
       beforeEach(() => {
         wrapper = factory({
-          delay: true,
+          commitOnRelease: true,
         });
 
         wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
@@ -540,7 +540,7 @@ describe('InputRange', () => {
         });
       });
 
-      describe('when the delay prop is not set', () => {
+      describe('when the commitOnRelease prop is not set', () => {
         it('emits the update:modelValue value', () => {
           expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
         });
@@ -550,10 +550,10 @@ describe('InputRange', () => {
         });
       });
 
-      describe('when the delay prop is set to true', () => {
+      describe('when the commitOnRelease prop is set to true', () => {
         beforeEach(() => {
           wrapper = factory({
-            delay: true,
+            commitOnRelease: true,
           });
 
           wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
@@ -675,7 +675,7 @@ describe('InputRange', () => {
         });
       });
 
-      describe('when the delay prop is not set', () => {
+      describe('when the commitOnRelease prop is not set', () => {
         it('emits the update:modelValue value', () => {
           expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
         });
@@ -685,10 +685,10 @@ describe('InputRange', () => {
         });
       });
 
-      describe('when the delay prop is set to true', () => {
+      describe('when the commitOnRelease prop is set to true', () => {
         beforeEach(() => {
           wrapper = factory({
-            delay: true,
+            commitOnRelease: true,
           });
 
           wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {

@@ -9,7 +9,7 @@ defineProps<{
 
 const { viewLayout } = useViewLayout();
 
-const gridWrapperProps = computed(() =>
+const layoutColumnOverride = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
 );
 </script>
@@ -17,10 +17,10 @@ const gridWrapperProps = computed(() =>
 <template>
   <GridWrapper
     v-if="artists.length"
-    :desktop="gridWrapperProps"
-    :mobile="gridWrapperProps"
-    :spacing="gridWrapperProps"
-    :tablet="gridWrapperProps"
+    :desktopColumns="layoutColumnOverride"
+    :mobileColumns="layoutColumnOverride"
+    :spacing="layoutColumnOverride"
+    :tabletColumns="layoutColumnOverride"
   >
     <ArtistItem v-for="artist in artists" :key="artist.id" :artist />
   </GridWrapper>

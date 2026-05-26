@@ -110,10 +110,10 @@ useHead({
 
       <GridWrapper
         class="mBXL"
-        :desktop="gridWrapperProps"
-        :mobile="gridWrapperProps"
+        :desktopColumns="gridWrapperProps"
+        :mobileColumns="gridWrapperProps"
         :spacing="gridWrapperProps"
-        :tablet="gridWrapperProps"
+        :tabletColumns="gridWrapperProps"
       >
         <PodcastItem
           v-for="podcast in sortedPodcasts"

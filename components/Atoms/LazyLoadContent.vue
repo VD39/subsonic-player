@@ -3,7 +3,7 @@ const { isHydrating } = useNuxtApp();
 
 const rootRef = useTemplateRef('rootRef');
 
-const loadSlot = ref(!!import.meta.server || !!isHydrating);
+const isLoaded = ref(!!import.meta.server || !!isHydrating);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 onMounted(() => {
@@ -14,7 +14,7 @@ onMounted(() => {
   intersectionObserver.value = new IntersectionObserver(
     ([entry], observer) => {
       if (entry && entry.isIntersecting) {
-        loadSlot.value = true;
+        isLoaded.value = true;
         observer.disconnect();
       }
     },
@@ -35,7 +35,7 @@ onUnmounted(() => {
 <template>
   <div ref="rootRef" :class="$style.lazyLoadContent">
     <div
-      v-if="!loadSlot"
+      v-if="!isLoaded"
       ref="loading"
       :class="['skeletonLoader', $style.skeletonLoader]"
     >

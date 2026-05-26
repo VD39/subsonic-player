@@ -665,16 +665,16 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when the hasSortListEvent prop is false', () => {
+  describe('when the isSortable prop is false', () => {
     it('does not show the track sort row element', () => {
       expect(wrapper.find({ ref: 'trackSortRow' }).exists()).toBe(false);
     });
   });
 
-  describe('when the hasSortListEvent prop is true', () => {
+  describe('when the isSortable prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
-        hasSortListEvent: true,
+        isSortable: true,
       });
     });
 
@@ -687,7 +687,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when the hasAddToQueueEvent prop is false', () => {
+  describe('when the showAddToQueue prop is false', () => {
     it('does not show the add to queue DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(false);
     });
@@ -699,10 +699,10 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when the hasAddToQueueEvent prop is true', () => {
+  describe('when the showAddToQueue prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
-        hasAddToQueueEvent: true,
+        showAddToQueue: true,
       });
     });
 

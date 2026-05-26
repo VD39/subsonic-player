@@ -14,11 +14,11 @@ const buttonProps = computed(() => ({
   text: loading.value ? 'Reloading...' : 'Update',
 }));
 
-function dismiss() {
+function onDismiss() {
   emit('dismiss');
 }
 
-function update() {
+function onUpdate() {
   loading.value = true;
   emit('update');
 }
@@ -39,7 +39,7 @@ function update() {
         class="actionButton"
         :icon="buttonProps.icon"
         showText
-        @click="update"
+        @click="onUpdate"
       >
         {{ buttonProps.text }}
       </ButtonLink>
@@ -48,7 +48,7 @@ function update() {
         ref="dismissButtonLink"
         class="actionButton"
         showText
-        @click="dismiss"
+        @click="onDismiss"
       >
         Dismiss
       </ButtonLink>

@@ -6,7 +6,7 @@ const { shuffle, toggleShuffle } = useAudioPlayer();
 const buttonProps = computed<ButtonProps>(() => ({
   iconColor: shuffle.value ? 'var(--theme-color)' : 'currentColor',
   iconWeight: shuffle.value ? 'fill' : 'regular',
-  text: `Switch shuffle ${shuffle.value ? 'on' : 'off'}`,
+  text: `Switch shuffle ${shuffle.value ? 'off' : 'on'}`,
 }));
 </script>
 

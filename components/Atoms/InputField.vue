@@ -16,7 +16,7 @@ withDefaults(
   },
 );
 
-const internalModal = defineModel<string | string[]>();
+const internalValue = defineModel<string | string[]>();
 </script>
 
 <template>
@@ -49,7 +49,7 @@ const internalModal = defineModel<string | string[]>();
     <input
       :id
       ref="input"
-      v-model="internalModal"
+      v-model="internalValue"
       autocomplete="off"
       :class="$style.input"
       :placeholder

@@ -150,7 +150,7 @@ useHead({
           v-if="podcast.description"
           :maxLines="3"
           :text="podcast.description"
-          @more="openPodcastDescriptionModal"
+          @expand="openPodcastDescriptionModal"
         />
 
         <div class="list">

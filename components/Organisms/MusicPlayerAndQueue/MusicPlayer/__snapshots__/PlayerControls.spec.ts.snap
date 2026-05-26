@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PlayerControls > matches the snapshot 1`] = `
-"<div class="centerItems playerControls"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-    <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+"<div class="centerItems playerControls"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+    <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
   </button>
   <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
       <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>

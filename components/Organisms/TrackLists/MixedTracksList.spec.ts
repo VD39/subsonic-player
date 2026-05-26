@@ -135,11 +135,9 @@ describe('MixedTracksList', () => {
     );
 
     describe('when the onAddToQueue event is not attached', () => {
-      it('passes false for hasAddToQueueEvent prop', () => {
+      it('passes false for showAddToQueue prop', () => {
         expect(
-          wrapper
-            .findComponent(MixedTracksListItem)
-            .props('hasAddToQueueEvent'),
+          wrapper.findComponent(MixedTracksListItem).props('showAddToQueue'),
         ).toBe(false);
       });
 
@@ -156,11 +154,9 @@ describe('MixedTracksList', () => {
         wrapper = factory();
       });
 
-      it('passes true for hasAddToQueueEvent prop', () => {
+      it('passes true for showAddToQueue prop', () => {
         expect(
-          wrapper
-            .findComponent(MixedTracksListItem)
-            .props('hasAddToQueueEvent'),
+          wrapper.findComponent(MixedTracksListItem).props('showAddToQueue'),
         ).toBe(true);
       });
 
@@ -182,9 +178,9 @@ describe('MixedTracksList', () => {
     });
 
     describe('when the onDragStart event is not attached', () => {
-      it('passes false for hasDragStartEvent prop', () => {
+      it('passes false for isDraggable prop', () => {
         expect(
-          wrapper.findComponent(MixedTracksListItem).props('hasDragStartEvent'),
+          wrapper.findComponent(MixedTracksListItem).props('isDraggable'),
         ).toBe(false);
       });
     });
@@ -199,9 +195,9 @@ describe('MixedTracksList', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('passes true for hasDragStartEvent prop', () => {
+      it('passes true for isDraggable prop', () => {
         expect(
-          wrapper.findComponent(MixedTracksListItem).props('hasDragStartEvent'),
+          wrapper.findComponent(MixedTracksListItem).props('isDraggable'),
         ).toBe(true);
       });
 
@@ -219,9 +215,9 @@ describe('MixedTracksList', () => {
     });
 
     describe('when the onSortList event is not attached', () => {
-      it('passes false for hasSortListEvent prop', () => {
+      it('passes false for isSortable prop', () => {
         expect(
-          wrapper.findComponent(MixedTracksListItem).props('hasSortListEvent'),
+          wrapper.findComponent(MixedTracksListItem).props('isSortable'),
         ).toBe(false);
       });
 
@@ -252,9 +248,9 @@ describe('MixedTracksList', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('passes true for hasSortListEvent prop', () => {
+      it('passes true for isSortable prop', () => {
         expect(
-          wrapper.findComponent(MixedTracksListItem).props('hasSortListEvent'),
+          wrapper.findComponent(MixedTracksListItem).props('isSortable'),
         ).toBe(true);
       });
 

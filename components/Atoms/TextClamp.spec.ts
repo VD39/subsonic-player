@@ -124,8 +124,8 @@ describe('TextClamp', () => {
         await wrapper.find({ ref: 'readMore' }).trigger('click');
       });
 
-      it('emits the more event', () => {
-        expect(wrapper.emitted('more')).toEqual([[]]);
+      it('emits the expand event', () => {
+        expect(wrapper.emitted('expand')).toEqual([[]]);
       });
     });
   });

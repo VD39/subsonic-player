@@ -2,7 +2,7 @@
 const props = withDefaults(
   defineProps<{
     buffer?: number;
-    delay?: boolean;
+    commitOnRelease?: boolean;
     height?: number;
     hideThumb?: boolean;
     max: number;
@@ -18,22 +18,22 @@ const emit = defineEmits<{
   change: [value: number];
 }>();
 
-const internalModal = defineModel<number>();
+const internalValue = defineModel<number>();
 
 const sliderRef = useTemplateRef('sliderRef');
 
 const isSeeking = ref(false);
 const isHovering = ref(false);
-const hoverValue = ref(internalModal.value);
-const pendingValue = ref(internalModal.value);
+const hoverValue = ref(internalValue.value);
+const pendingValue = ref(internalValue.value);
 const abortController = ref<AbortController | null>(null);
 
-const progress = ref(getProgress(internalModal.value));
+const progress = ref(getProgress(internalValue.value));
 const bufferProgress = ref(getProgress(props.buffer));
 
 const hoverProgress = computed(() => getProgress(hoverValue.value));
-const isStandard = computed(() => !props.max);
-const showThumb = computed(() => !props.hideThumb && !isStandard.value);
+const isUnbounded = computed(() => !props.max);
+const showThumb = computed(() => !props.hideThumb && !isUnbounded.value);
 
 function getProgress(newValue = 0) {
   if (!sliderRef.value) {
@@ -43,7 +43,7 @@ function getProgress(newValue = 0) {
   const { width: sliderWidth } = sliderRef.value.getBoundingClientRect();
 
   // If max is not set, set progress to be width of the slider.
-  if (isStandard.value) {
+  if (isUnbounded.value) {
     return sliderWidth;
   }
 
@@ -73,47 +73,24 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
     progress.value = getProgress(pendingValue.value);
 
     // Don't update value when scrolling.
-    if (!props.delay) {
+    if (!props.commitOnRelease) {
       updateValue();
     }
   }
 }
 
-function onMouseMove(event: MouseEvent | TouchEvent) {
+function onDragMove(event: MouseEvent | TouchEvent) {
   isHovering.value = false;
   modifyProgress(event);
 }
 
-function onMouseUp() {
+function onPointerUp() {
   updateValue();
 
   abortController.value?.abort();
   abortController.value = null;
 
   isSeeking.value = false;
-}
-
-function onSliderMouseDown(event: MouseEvent | TouchEvent) {
-  isSeeking.value = true;
-  modifyProgress(event);
-
-  abortController.value = new AbortController();
-  const { signal } = abortController.value;
-
-  document.addEventListener('mouseup', onMouseUp, {
-    signal,
-  });
-  document.addEventListener('mousemove', onMouseMove, {
-    signal,
-  });
-  document.addEventListener('touchend', onMouseUp, {
-    passive: true,
-    signal,
-  });
-  document.addEventListener('touchmove', onMouseMove, {
-    passive: true,
-    signal,
-  });
 }
 
 function onSliderMouseMove(event: MouseEvent) {
@@ -126,10 +103,33 @@ function onSliderMouseOver() {
   isHovering.value = true;
 }
 
+function onSliderPointerDown(event: MouseEvent | TouchEvent) {
+  isSeeking.value = true;
+  modifyProgress(event);
+
+  abortController.value = new AbortController();
+  const { signal } = abortController.value;
+
+  document.addEventListener('mouseup', onPointerUp, {
+    signal,
+  });
+  document.addEventListener('mousemove', onDragMove, {
+    signal,
+  });
+  document.addEventListener('touchend', onPointerUp, {
+    passive: true,
+    signal,
+  });
+  document.addEventListener('touchmove', onDragMove, {
+    passive: true,
+    signal,
+  });
+}
+
 function updateProgress() {
   // Only update when user is not seeking.
   if (!isSeeking.value) {
-    progress.value = getProgress(internalModal.value);
+    progress.value = getProgress(internalValue.value);
   }
 
   if (props.buffer) {
@@ -138,11 +138,11 @@ function updateProgress() {
 }
 
 function updateValue() {
-  internalModal.value = pendingValue.value;
+  internalValue.value = pendingValue.value;
   emit('change', pendingValue.value!);
 }
 
-watch(() => [props.buffer, internalModal.value], updateProgress, {
+watch(() => [props.buffer, internalValue.value], updateProgress, {
   immediate: true,
 });
 
@@ -165,7 +165,7 @@ onUnmounted(() => {
       $style.inputRange,
       {
         [$style.seeking]: isSeeking,
-        [$style.standard]: isStandard,
+        [$style.standard]: isUnbounded,
       },
     ]"
     :style="{
@@ -175,10 +175,10 @@ onUnmounted(() => {
     <div
       ref="sliderRef"
       :class="['centerItems', $style.slider]"
-      @mousedown.stop.prevent="onSliderMouseDown"
+      @mousedown.stop.prevent="onSliderPointerDown"
       @mousemove="onSliderMouseMove"
       @mouseover="onSliderMouseOver"
-      @touchstart.stop.passive="onSliderMouseDown"
+      @touchstart.stop.passive="onSliderPointerDown"
     >
       <div :class="$style.progressWrapper">
         <div
@@ -200,8 +200,8 @@ onUnmounted(() => {
         ref="thumb"
         :class="$style.thumb"
         :style="{ left: `${progress - 6}px` }"
-        @mousedown.stop.prevent="onSliderMouseDown"
-        @touchstart.stop.passive="onSliderMouseDown"
+        @mousedown.stop.prevent="onSliderPointerDown"
+        @touchstart.stop.passive="onSliderPointerDown"
       />
 
       <div

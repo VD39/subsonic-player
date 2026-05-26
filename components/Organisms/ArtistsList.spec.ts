@@ -83,13 +83,13 @@ describe('ArtistsList', () => {
       });
 
       it('sets the correct desktop prop on the GridWrapper component', () => {
-        expect(wrapper.findComponent(GridWrapper).props('desktop')).toBe(
+        expect(wrapper.findComponent(GridWrapper).props('desktopColumns')).toBe(
           expectedProps.desktop,
         );
       });
 
       it('sets the correct mobile prop on the GridWrapper component', () => {
-        expect(wrapper.findComponent(GridWrapper).props('mobile')).toBe(
+        expect(wrapper.findComponent(GridWrapper).props('mobileColumns')).toBe(
           expectedProps.mobile,
         );
       });
@@ -101,7 +101,7 @@ describe('ArtistsList', () => {
       });
 
       it('sets the correct tablet prop on the GridWrapper component', () => {
-        expect(wrapper.findComponent(GridWrapper).props('tablet')).toBe(
+        expect(wrapper.findComponent(GridWrapper).props('tabletColumns')).toBe(
           expectedProps.tablet,
         );
       });

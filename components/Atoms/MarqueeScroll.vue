@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const MULTIPLICATION_TIME = 30;
 
-const cloneLength = ref(0);
+const cloneCount = ref(0);
 // Disable cloned content links so tabbing works as expected.
-const disableClonedContent = ref(true);
+const isClonedContentDisabled = ref(true);
 
 const marqueeScrollRef = useTemplateRef('marqueeScrollRef');
 const marqueeContentRef = useTemplateRef('marqueeContentRef');
@@ -17,7 +17,7 @@ function getCloneData() {
     !marqueeScrollRef.value ||
     !marqueeScrollRef.value.clientWidth
   ) {
-    cloneLength.value = 0;
+    cloneCount.value = 0;
     return;
   }
 
@@ -28,18 +28,18 @@ function getCloneData() {
     marqueeContentRef.value.clientWidth / marqueeScrollRef.value.clientWidth,
   );
 
-  cloneLength.value = isOverflowing ? clonedLength : 0;
+  cloneCount.value = isOverflowing ? clonedLength : 0;
 
   setAnimationDuration(isOverflowing);
 }
 
 function onMouseOut() {
-  disableClonedContent.value = true;
+  isClonedContentDisabled.value = true;
 }
 
 function onMouseOver() {
   // Enabled cloned content links so links can be clicked.
-  disableClonedContent.value = false;
+  isClonedContentDisabled.value = false;
 }
 
 function setAnimationDuration(isOverflowing: boolean) {
@@ -75,7 +75,7 @@ onMounted(() => {
         globalThis.addEventListener('resize', onResize);
       } else {
         globalThis.removeEventListener('resize', onResize);
-        cloneLength.value = 0;
+        cloneCount.value = 0;
       }
     },
     {
@@ -107,7 +107,7 @@ onUnmounted(() => {
     :class="[
       $style.marqueeScroll,
       {
-        [$style.animating]: cloneLength,
+        [$style.animating]: cloneCount,
       },
     ]"
     @mousedown.prevent
@@ -122,12 +122,12 @@ onUnmounted(() => {
       </div>
 
       <div
-        v-for="length in cloneLength"
+        v-for="length in cloneCount"
         :key="length"
         aria-hidden="true"
         :class="[$style.content, $style.clonedContent]"
         data-test-id="cloned-item"
-        :inert="disableClonedContent"
+        :inert="isClonedContentDisabled"
       >
         <slot />
       </div>

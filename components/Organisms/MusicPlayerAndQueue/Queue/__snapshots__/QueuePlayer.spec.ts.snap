@@ -32,7 +32,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -56,8 +56,8 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
               <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
@@ -127,7 +127,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             </div>
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -219,7 +219,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -312,7 +312,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -409,7 +409,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -502,7 +502,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -599,7 +599,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -692,7 +692,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -784,7 +784,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -865,7 +865,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -889,8 +889,8 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
               <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
@@ -944,7 +944,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -968,8 +968,8 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
               <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
@@ -1028,7 +1028,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -1052,8 +1052,8 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
               <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
@@ -1107,7 +1107,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>
@@ -1131,8 +1131,8 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
           </div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
               <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
-            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+              <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
               <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
             </button>
@@ -1202,7 +1202,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
             </div>
           </div>
           <div class="fullWidth">
-            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" delay="" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="process" style="width: 0px;"></div>

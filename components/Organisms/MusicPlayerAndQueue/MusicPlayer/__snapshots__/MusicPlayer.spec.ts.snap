@@ -7,8 +7,8 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
+      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album album">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -33,8 +33,8 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -89,8 +89,8 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
+      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album album">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -106,8 +106,8 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -162,8 +162,8 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
+      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album album">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -188,8 +188,8 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -268,8 +268,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -350,8 +350,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -430,8 +430,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -510,8 +510,8 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -590,8 +590,8 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -663,8 +663,8 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
@@ -719,8 +719,8 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
     <div class="centerItems trackDetailsWrapper"><button class="centerItems buttonLink mobileOnly queueControl mobileOnly queueControl" draggable="false" type="button" title="Open queue">
         <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
       </button>
-      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album queue-track-0-name">
-          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album queue-track-0-name" class="image" draggable="false" loading="lazy" src="image"></div>
+      <figure class="image"><a class="interactionWrapperLink" draggable="false" title="Go to album album">
+          <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album" class="image" draggable="false" loading="lazy" src="image"></div>
         </a></figure>
       <div class="trackDetails">
         <div class="marqueeScroll">
@@ -745,8 +745,8 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
     </div><button class="centerItems buttonLink mobileOnly playPauseButton mobileOnly playPauseButton" draggable="false" type="button" title="Play current track">
       <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
-    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+    <div class="centerItems playerControls centerAll desktopOnly"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
+        <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
       </button>
       <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
           <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>

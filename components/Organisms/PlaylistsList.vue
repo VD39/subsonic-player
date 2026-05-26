@@ -8,13 +8,18 @@ defineProps<{
 }>();
 
 defineEmits<{
-  deletePlaylist: [trackId: string];
+  deletePlaylist: [playlistId: string];
   editPlaylist: [playlist: Playlist];
 }>();
 </script>
 
 <template>
-  <GridWrapper v-if="playlists.length" desktop="2" mobile="1" tablet="2">
+  <GridWrapper
+    v-if="playlists.length"
+    desktopColumns="2"
+    mobileColumns="1"
+    tabletColumns="2"
+  >
     <PlaylistsListItem
       v-for="playlist in playlists"
       :key="playlist.id"

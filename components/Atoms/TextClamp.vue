@@ -5,12 +5,12 @@ const props = defineProps<{
 }>();
 
 defineEmits<{
-  more: [];
+  expand: [];
 }>();
 
 const textRef = useTemplateRef('textRef');
 
-const tempText = ref('');
+const clampedText = ref('');
 const showButton = ref(false);
 
 async function updateClamp() {
@@ -23,14 +23,14 @@ async function updateClamp() {
   showButton.value = false;
 
   if (textRef.value.getClientRects().length <= props.maxLines) {
-    tempText.value = props.text;
-    textRef.value.innerHTML = tempText.value;
+    clampedText.value = props.text;
+    textRef.value.innerHTML = clampedText.value;
   }
 
   if (textRef.value.getClientRects().length > props.maxLines) {
     while (textRef.value.getClientRects().length > props.maxLines) {
-      tempText.value = props.text.substring(0, tempText.value.length - 1);
-      textRef.value.innerHTML = tempText.value;
+      clampedText.value = props.text.substring(0, clampedText.value.length - 1);
+      textRef.value.innerHTML = clampedText.value;
     }
 
     textRef.value.innerHTML = `${textRef.value.innerText
@@ -49,7 +49,7 @@ onMounted(() => {
   }
 
   textRef.value.innerHTML = props.text;
-  tempText.value = textRef.value.innerText;
+  clampedText.value = textRef.value.innerText;
 
   requestAnimationFrame(() => updateClamp());
 
@@ -76,7 +76,7 @@ onUnmounted(() => {
         v-if="showButton"
         ref="readMore"
         :class="$style.button"
-        @click="$emit('more')"
+        @click="$emit('expand')"
       >
         More
       </button>

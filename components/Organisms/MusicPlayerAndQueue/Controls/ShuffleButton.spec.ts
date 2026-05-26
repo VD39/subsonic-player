@@ -20,12 +20,12 @@ function factory(props = {}) {
 const buttonProps = {
   false: {
     color: 'currentColor',
-    text: 'Switch shuffle off',
+    text: 'Switch shuffle on',
     weight: 'regular',
   },
   true: {
     color: 'var(--theme-color)',
-    text: 'Switch shuffle on',
+    text: 'Switch shuffle off',
     weight: 'fill',
   },
 };

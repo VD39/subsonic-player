@@ -86,11 +86,11 @@ useSortableList({
           SORTABLE_LIST_CLASS_NAMES.item,
           SORTABLE_LIST_CLASS_NAMES.idle,
         ]"
-        :hasAddToQueueEvent
-        :hasDragStartEvent
-        :hasSortListEvent
         :hideRemoveOption
         :index
+        :isDraggable="hasDragStartEvent"
+        :isSortable="hasSortListEvent"
+        :showAddToQueue="hasAddToQueueEvent"
         :track
         @addToPlaylist="$emit('addToPlaylist', track.id, index)"
         @addToQueue="$emit('addToQueue', track)"

@@ -12,7 +12,7 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
             </button>
           </div>
         </form>
@@ -130,7 +130,7 @@ exports[`DefaultLayout > when route name is index > matches the snapshot 1`] = `
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
             </button>
           </div>
         </form>
@@ -264,7 +264,7 @@ exports[`DefaultLayout > when route name is podcast-sortBy-id > matches the snap
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
             </button>
           </div>
         </form>
@@ -398,7 +398,7 @@ exports[`DefaultLayout > when route name is podcasts > matches the snapshot 1`] 
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
             </button>
           </div>
         </form>
@@ -532,7 +532,7 @@ exports[`DefaultLayout > when route name is radio-stations > matches the snapsho
             <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Login </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
             </button>
           </div>
         </form>

@@ -26,7 +26,7 @@ const { currentTrack } = useQueue();
           ref="albumImageLink"
           :class="$style.image"
           :image="currentTrack.image"
-          :title="`Go to album ${currentTrack.name}`"
+          :title="`Go to album ${currentTrack.album}`"
           :to="{
             name: ROUTE_NAMES.album,
             params: {

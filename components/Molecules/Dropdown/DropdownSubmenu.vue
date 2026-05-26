@@ -20,7 +20,7 @@ const {
   dropdownSubmenuRef,
 });
 
-const itemIcon = computed(() => {
+const submenuToggleIcon = computed(() => {
   if (isHoverDevice.value) {
     return ICONS.dropdownSubmenuRight;
   }
@@ -46,7 +46,7 @@ const transitionName = computed(() => {
     <ButtonLink
       class="spaceBetween"
       fullWidth
-      :icon="itemIcon"
+      :icon="submenuToggleIcon"
       iconPosition="right"
       showText
       @click="toggleInline"

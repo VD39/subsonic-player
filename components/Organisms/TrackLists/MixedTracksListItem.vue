@@ -15,11 +15,11 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
-  hasAddToQueueEvent?: boolean;
-  hasDragStartEvent?: boolean;
-  hasSortListEvent?: boolean;
   hideRemoveOption?: boolean;
   index: number;
+  isDraggable?: boolean;
+  isSortable?: boolean;
+  showAddToQueue?: boolean;
   track: PlayableTrack;
 }>();
 
@@ -53,7 +53,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 <template>
   <LazyLoadContent class="trackRow">
     <InteractionWrapper
-      :draggable="hasDragStartEvent"
+      :draggable="isDraggable"
       @click="onClick"
       @contextMenu="openDropdownMenu"
       @dragStart="$emit('dragStart', $event)"
@@ -139,7 +139,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         {{ track.formattedDuration }}
       </time>
 
-      <div v-if="hasAddToQueueEvent" class="trackCell trackOptions">
+      <div v-if="showAddToQueue" class="trackCell trackOptions">
         <ButtonLink
           ref="addToQueueButton"
           :icon="ICONS.add"
@@ -157,7 +157,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             @playTrack="$emit('playTrack')"
           />
           <DropdownItem
-            v-if="hasAddToQueueEvent"
+            v-if="showAddToQueue"
             ref="addToQueue"
             @click="$emit('addToQueue')"
           >
@@ -276,11 +276,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         </ButtonLink>
       </div>
 
-      <div
-        v-if="hasSortListEvent"
-        ref="trackSortRow"
-        class="trackCell trackOptions"
-      >
+      <div v-if="isSortable" ref="trackSortRow" class="trackCell trackOptions">
         <ButtonLink
           :class="SORTABLE_LIST_CLASS_NAMES.dragHandle"
           :icon="ICONS.reorder"
