@@ -145,7 +145,7 @@ export function useAudioPlayer() {
 
       const position = currentTrack.value.position;
       const savedTime = SAVED_STATE.currentTime;
-      const timeToRestore = savedTime || (position ? position : 0);
+      const timeToRestore = savedTime || position || 0;
 
       setCurrentTime(timeToRestore);
     }

@@ -621,6 +621,7 @@ describe('useQueue', () => {
   describe('when the updateCurrentTrackPosition function is called', () => {
     beforeAll(() => {
       vi.clearAllMocks();
+      // Radio station.
       updateCurrentTrackPosition(5);
     });
 
@@ -641,13 +642,8 @@ describe('useQueue', () => {
       );
     });
 
-    it('calls the fetchData function with the correct parameters', () => {
-      expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
-        method: 'POST',
-        query: expect.objectContaining({
-          position: 5000,
-        }),
-      });
+    it('does not call the fetchData function', () => {
+      expect(fetchDataMock).not.toHaveBeenCalled();
     });
   });
 

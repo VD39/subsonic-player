@@ -3,7 +3,7 @@
 exports[`PodcastEpisodesList > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
-    <div class="trackCell">Episodes</div>
+    <div class="trackCell">Episodes (5) </div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">
@@ -322,7 +322,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
 exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
-    <div class="trackCell">Episodes</div>
+    <div class="trackCell">Episodes (5) </div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween">

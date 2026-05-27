@@ -272,7 +272,7 @@ export function useQueue() {
   }
 
   async function syncToServer(position?: number) {
-    if (!ENABLE_QUEUE_SYNC) {
+    if (!ENABLE_QUEUE_SYNC || isRadioStation.value) {
       return;
     }
 

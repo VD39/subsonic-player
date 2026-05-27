@@ -24,7 +24,9 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.podcastEpisodes;
 <template>
   <div v-if="podcastEpisodes.length" ref="tracksWrapper" class="trackTable">
     <div class="trackHeader">
-      <div class="trackCell">{{ trackHeaderNames[0] }}</div>
+      <div class="trackCell">
+        {{ trackHeaderNames[0] }} ({{ podcastEpisodes.length }})
+      </div>
       <div class="trackCell trackOptions" />
     </div>
 

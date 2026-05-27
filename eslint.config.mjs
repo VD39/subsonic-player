@@ -30,6 +30,7 @@ export default withNuxt(
       'dot-notation': 'error',
       'no-undef': 'error',
       'no-unused-vars': 'off',
+      'no-useless-rename': 'error',
       'object-shorthand': ['error', 'always'],
       'prefer-const': 'error',
       'vue/attribute-hyphenation': ['error', 'never'],
