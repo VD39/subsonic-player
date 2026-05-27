@@ -1,4 +1,4 @@
-export function getParams(params: FavouriteParams) {
+export function getFavouriteApiParams(params: FavouriteParams) {
   const { id, type } = params;
 
   return {

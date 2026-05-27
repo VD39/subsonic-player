@@ -12,7 +12,7 @@ const {
   addErrorSnack,
   addInfoSnack,
   addSuccessSnack,
-  clearAllSnack,
+  clearAllSnacks,
   removeSnack,
   snacks,
 } = useSnack();
@@ -131,9 +131,9 @@ describe('useSnack', () => {
     });
   });
 
-  describe('when clearAllSnack function is called', () => {
+  describe('when clearAllSnacks function is called', () => {
     beforeEach(() => {
-      clearAllSnack();
+      clearAllSnacks();
     });
 
     it('clears the snacks value', () => {

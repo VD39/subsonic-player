@@ -20,7 +20,7 @@ const { viewLayout } = useViewLayout();
 const { getMediaTracks } = useMediaTracks();
 const { getArtist } = useArtist();
 const { openModal } = useModal();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openAlbumInformationModal, openTrackInformationModal } =
   useMediaInformation();
@@ -155,7 +155,7 @@ useHead({
           :tracks="artistData.topTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
-          @downloadMedia="downloadMedia"
+          @downloadMedia="downloadTrack"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="playTopTrack"
@@ -170,7 +170,7 @@ useHead({
           :tracks="artistData.similarTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
-          @downloadMedia="downloadMedia"
+          @downloadMedia="downloadTrack"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="playFromSimilarTracks"

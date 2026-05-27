@@ -6,39 +6,39 @@ export function useAPI() {
 
   const { addErrorSnack } = useSnack();
 
-  function getUrl(path: string, param: Record<string, number | string>) {
+  function getUrl(path: string, queryParams: Record<string, number | string>) {
     const authCookie = useCookie(COOKIE_NAMES.auth);
     const { baseParams, baseURL } = getBaseOptions(authCookie.value!);
 
     const url = new URL(`${baseURL}/${path}`);
     url.search = convertToQueryString({
       ...baseParams,
-      ...param,
+      ...queryParams,
     });
 
     return url.toString();
   }
 
-  function getImageUrl(image: string, size = IMAGE_SIZE) {
+  function getImageUrl(imageSource: string, size = IMAGE_SIZE) {
     // If radio station.
-    if (isUrl(image)) {
-      return image;
+    if (isUrl(imageSource)) {
+      return imageSource;
     }
 
     return getUrl('getCoverArt', {
-      id: image,
+      id: imageSource,
       size,
     });
   }
 
-  function getStreamUrl(streamUrlId: string) {
+  function getStreamUrl(streamSource: string) {
     // If radio station.
-    if (isUrl(streamUrlId)) {
-      return streamUrlId;
+    if (isUrl(streamSource)) {
+      return streamSource;
     }
 
     return getUrl('stream', {
-      id: streamUrlId,
+      id: streamSource,
     });
   }
 

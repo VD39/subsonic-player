@@ -1,6 +1,6 @@
 import { useSidebar } from './index';
 
-const { collapsed, toggle, width } = useSidebar();
+const { collapsed, toggleCollapsed, width } = useSidebar();
 
 describe('useSidebar', () => {
   it('sets the default collapsed value', () => {
@@ -11,9 +11,9 @@ describe('useSidebar', () => {
     expect(width.value).toBe('16rem');
   });
 
-  describe('when the toggle function is called', () => {
+  describe('when the toggleCollapsed function is called', () => {
     beforeAll(() => {
-      toggle();
+      toggleCollapsed();
     });
 
     it('sets the correct collapsed value', () => {
@@ -24,9 +24,9 @@ describe('useSidebar', () => {
       expect(width.value).toBe('5rem');
     });
 
-    describe('when the toggle function is called again', () => {
+    describe('when the toggleCollapsed function is called again', () => {
       beforeAll(() => {
-        toggle();
+        toggleCollapsed();
       });
 
       it('sets the correct collapsed value', () => {

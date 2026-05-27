@@ -1,6 +1,6 @@
-import { getParams } from './utils';
+import { getFavouriteApiParams } from './utils';
 
-describe('getParams', () => {
+describe('getFavouriteApiParams', () => {
   describe.each([
     [
       {
@@ -48,7 +48,7 @@ describe('getParams', () => {
     ],
   ])('when params is %o', (params, output) => {
     it('returns the correct response', () => {
-      expect(getParams(params)).toEqual(output);
+      expect(getFavouriteApiParams(params)).toEqual(output);
     });
   });
 });

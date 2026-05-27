@@ -30,10 +30,10 @@ export function useFavourite() {
   async function addFavourite(params: FavouriteParams) {
     await fetchData('/star', {
       method: 'POST',
-      query: getParams(params),
+      query: getFavouriteApiParams(params),
     });
 
-    addToFavouriteIds(params.id!);
+    setFavouriteId(params.id!);
     await getFavourites();
   }
 
@@ -41,35 +41,38 @@ export function useFavourite() {
   async function removeFavourite(params: FavouriteParams) {
     await fetchData('/unstar', {
       method: 'POST',
-      query: getParams(params),
+      query: getFavouriteApiParams(params),
     });
 
-    addToFavouriteIds(params.id!, false);
+    setFavouriteId(params.id!, false);
     await getFavourites();
   }
 
-  function addToFavouriteIds(id: string, isFavourite = true) {
+  function setFavouriteId(id: string, isFavourite = true) {
     favouriteIds.value[id] = isFavourite;
   }
 
-  async function toggleFavourite(track: FavouriteParams, isFavourite: boolean) {
-    if (isFavourite) {
+  async function toggleFavourite(
+    track: FavouriteParams,
+    isCurrentlyFavourite: boolean,
+  ) {
+    if (isCurrentlyFavourite) {
       await removeFavourite(track);
     } else {
       await addFavourite(track);
     }
 
-    updateTrackFavourite(track.id!, !isFavourite);
+    updateTrackFavourite(track.id!, !isCurrentlyFavourite);
   }
 
   return {
     addFavourite,
-    addToFavouriteIds,
     favouriteIds,
     favourites,
     getFavourites,
     removeFavourite,
     resetFavourites,
+    setFavouriteId,
     toggleFavourite,
   };
 }

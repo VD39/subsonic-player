@@ -4,7 +4,7 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import BookmarksTracksList from '@/components/Organisms/TrackLists/BookmarksTracksList.vue';
 
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { playTracks } = useAudioPlayer();
@@ -62,7 +62,7 @@ useHead({
     <BookmarksTracksList
       :bookmarks
       @addToPlaylist="addToPlaylistModal"
-      @downloadMedia="downloadMedia"
+      @downloadMedia="downloadTrack"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playEpisodeFromBookmarks"
       @remove="deleteBookmark"

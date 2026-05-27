@@ -8,7 +8,7 @@ const props = defineProps<{
   type: MediaType;
 }>();
 
-const { addToFavouriteIds, favouriteIds, toggleFavourite } = useFavourite();
+const { favouriteIds, setFavouriteId, toggleFavourite } = useFavourite();
 
 const isFavourite = computed(() => !!favouriteIds.value[props.id]);
 
@@ -32,7 +32,7 @@ watch(
     }
 
     if (props.favourite) {
-      addToFavouriteIds(props.id);
+      setFavouriteId(props.id);
     }
   },
   {

@@ -10,7 +10,7 @@ export function useMediaLibrary() {
     }
   }
 
-  function downloadMedia(track: DownloadTrack) {
+  function downloadTrack(track: DownloadTrack) {
     if (!track.streamUrlId) {
       return null;
     }
@@ -74,8 +74,8 @@ export function useMediaLibrary() {
     return musicDirectoryData || DEFAULT_MEDIA_LIBRARY;
   }
 
-  function getFiles(filesParams: FilesParams = {}) {
-    const { id, slug: slug = [] } = filesParams;
+  function getMediaLibraryContent(filesParams: FilesParams = {}) {
+    const { id, slug = [] } = filesParams;
 
     if (slug.length) {
       return getMusicDirectory(slug.at(-1) as string);
@@ -98,9 +98,9 @@ export function useMediaLibrary() {
   }
 
   return {
-    downloadMedia,
-    getFiles,
+    downloadTrack,
     getIndexes,
+    getMediaLibraryContent,
     getMusicDirectory,
     getMusicFolders,
     scrobble,

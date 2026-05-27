@@ -5,7 +5,7 @@ import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import DropdownTitle from '@/components/Molecules/Dropdown/DropdownTitle.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
-const { getAvatar, user } = useUser();
+const { resolveAvatarUrl, user } = useUser();
 const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
 const { openAboutAppModal } = useServerInfo();
@@ -19,7 +19,7 @@ watchEffect(async () => {
     return;
   }
 
-  userAvatar.value = await getAvatar(username.value);
+  userAvatar.value = await resolveAvatarUrl(username.value);
 });
 </script>
 

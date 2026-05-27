@@ -8,12 +8,12 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import FavouriteButton from './FavouriteButton.vue';
 
 const toggleFavouriteMock = vi.fn();
-const addToFavouriteIdsMock = vi.fn();
+const setFavouriteIdMock = vi.fn();
 const favouriteIdsMock = ref<Record<string, boolean>>({});
 
 mockNuxtImport('useFavourite', () => () => ({
-  addToFavouriteIds: addToFavouriteIdsMock,
   favouriteIds: favouriteIdsMock,
+  setFavouriteId: setFavouriteIdMock,
   toggleFavourite: toggleFavouriteMock,
 }));
 
@@ -60,8 +60,8 @@ describe('FavouriteButton', () => {
       factory();
     });
 
-    it('does not call the addToFavouriteIds function', () => {
-      expect(addToFavouriteIdsMock).not.toHaveBeenCalled();
+    it('does not call the setFavouriteId function', () => {
+      expect(setFavouriteIdMock).not.toHaveBeenCalled();
     });
   });
 
@@ -77,8 +77,8 @@ describe('FavouriteButton', () => {
         });
       });
 
-      it('does not call the addToFavouriteIds function', () => {
-        expect(addToFavouriteIdsMock).not.toHaveBeenCalled();
+      it('does not call the setFavouriteId function', () => {
+        expect(setFavouriteIdMock).not.toHaveBeenCalled();
       });
     });
 
@@ -87,8 +87,8 @@ describe('FavouriteButton', () => {
         factory();
       });
 
-      it('calls the addToFavouriteIds function', () => {
-        expect(addToFavouriteIdsMock).toHaveBeenCalled();
+      it('calls the setFavouriteId function', () => {
+        expect(setFavouriteIdMock).toHaveBeenCalled();
       });
     });
   });

@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(async (to) => {
-  const { setDefaultTheme } = useTheme();
+  const { loadThemePreference } = useTheme();
   const { autoLogin, isAuthenticated } = useAuth();
   const { closeModal } = useModal();
   const { closeQueuePanels } = useQueue();
@@ -14,7 +14,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
   if (import.meta.client) {
     await callOnce(() => {
-      setDefaultTheme();
+      loadThemePreference();
     });
   }
 

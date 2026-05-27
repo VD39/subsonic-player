@@ -12,7 +12,7 @@ definePageMeta({
 const route = useRoute();
 const { viewLayout } = useViewLayout();
 const { getMediaByGenre } = useGenre();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openAlbumInformationModal, openTrackInformationModal } =
   useMediaInformation();
@@ -119,7 +119,7 @@ useHead({
       :tracks="genreData.genreMedia"
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
-      @downloadMedia="downloadMedia"
+      @downloadMedia="downloadTrack"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="onPlayTrack"

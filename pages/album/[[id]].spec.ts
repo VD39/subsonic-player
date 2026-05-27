@@ -16,10 +16,10 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import AlbumPage from './[[id]].vue';
 
-const downloadMediaMock = vi.fn();
+const downloadTrackMock = vi.fn();
 
 mockNuxtImport('useMediaLibrary', () => () => ({
-  downloadMedia: downloadMediaMock,
+  downloadTrack: downloadTrackMock,
 }));
 
 const addToPlaylistModalMock = vi.fn();
@@ -340,8 +340,8 @@ describe('[[id]]', () => {
         wrapper.findComponent(AlbumTracksList).vm.$emit('downloadMedia', track);
       });
 
-      it('calls the downloadMedia function with correct parameters', () => {
-        expect(downloadMediaMock).toHaveBeenCalledWith(track);
+      it('calls the downloadTrack function with correct parameters', () => {
+        expect(downloadTrackMock).toHaveBeenCalledWith(track);
       });
     });
 

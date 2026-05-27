@@ -23,7 +23,7 @@ describe('useScrollLock', () => {
   });
 
   describe('when the lockScroll function is called', () => {
-    describe('when no globalClasses parameter is provided', () => {
+    describe('when no bodyClasses parameter is provided', () => {
       beforeAll(() => {
         lockScrollWithoutGlobalClass();
       });
@@ -34,12 +34,12 @@ describe('useScrollLock', () => {
       });
     });
 
-    describe('when a globalClasses parameter is provided', () => {
+    describe('when a bodyClasses parameter is provided', () => {
       beforeAll(() => {
         lockScrollWithGlobalClass();
       });
 
-      it('adds the globalClasses parameter to the document.body', () => {
+      it('adds the bodyClasses parameter to the document.body', () => {
         expect(addClassMock).toHaveBeenCalledWith(
           'global-class',
           'another-global-class',
@@ -49,7 +49,7 @@ describe('useScrollLock', () => {
   });
 
   describe('when the unlockScroll function is called', () => {
-    describe('when no globalClasses parameter is provided', () => {
+    describe('when no bodyClasses parameter is provided', () => {
       beforeAll(() => {
         // Call both unlock functions to ensure that the lockScroll
         // class is removed when all locks are released.
@@ -64,7 +64,7 @@ describe('useScrollLock', () => {
       });
     });
 
-    describe('when a globalClasses parameter is provided', () => {
+    describe('when a bodyClasses parameter is provided', () => {
       beforeAll(() => {
         // Call both unlock functions to ensure that the lockScroll
         // class and globalClasses are removed when all locks are released.
@@ -72,7 +72,7 @@ describe('useScrollLock', () => {
         unlockScrollWithGlobalClass();
       });
 
-      it('removes the globalClasses parameter from the document.body', () => {
+      it('removes the bodyClasses parameter from the document.body', () => {
         expect(removeClassMock).toHaveBeenCalledWith(
           'global-class',
           'another-global-class',

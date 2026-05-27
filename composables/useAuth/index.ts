@@ -17,18 +17,18 @@ export function useAuth() {
 
   async function autoLogin() {
     if (!user.value?.server) {
-      basicReset();
+      resetAllState();
       return;
     }
 
-    const { data: loggedIn, error: loginError } = await fetchData('/ping');
+    const { data: pingResponse, error: loginError } = await fetchData('/ping');
 
     if (loginError?.message) {
-      basicReset();
+      resetAllState();
       return;
     }
 
-    if (loggedIn) {
+    if (pingResponse) {
       isAuthenticated.value = true;
     }
   }
@@ -49,7 +49,7 @@ export function useAuth() {
       username,
     };
 
-    const { data: loggedIn, error: loginError } = await fetchData(
+    const { data: pingResponse, error: loginError } = await fetchData(
       '/rest/ping',
       {
         baseURL: server,
@@ -69,7 +69,7 @@ export function useAuth() {
       return;
     }
 
-    if (loggedIn) {
+    if (pingResponse) {
       authCookie.value = convertToQueryString(params);
       setUser(authCookie.value);
       isAuthenticated.value = true;
@@ -79,7 +79,7 @@ export function useAuth() {
   }
 
   // Reset all user-related states.
-  function basicReset() {
+  function resetAllState() {
     resetAuth();
     resetAllUserState();
   }
@@ -87,7 +87,7 @@ export function useAuth() {
   async function logoutAndRedirect() {
     clearNuxtData();
 
-    basicReset();
+    resetAllState();
 
     await navigateTo({
       name: ROUTE_NAMES.login,

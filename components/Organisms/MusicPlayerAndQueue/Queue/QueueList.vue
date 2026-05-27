@@ -6,7 +6,7 @@ const { playFromQueue, removeFromQueue, reorderQueueTrack, resetPlayer } =
   useAudioPlayer();
 const { queueList, resetQueue, toggleQueueList } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 
 function clearQueue() {
@@ -50,7 +50,7 @@ function clearQueue() {
       class="mBXL"
       :tracks="queueList"
       @addToPlaylist="addToPlaylistModal"
-      @downloadMedia="downloadMedia"
+      @downloadMedia="downloadTrack"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playFromQueue"
       @remove="({ id }) => removeFromQueue(id)"

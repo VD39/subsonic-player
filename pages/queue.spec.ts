@@ -17,10 +17,10 @@ mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadMediaMock = vi.fn();
+const downloadTrackMock = vi.fn();
 
 mockNuxtImport('useMediaLibrary', () => () => ({
-  downloadMedia: downloadMediaMock,
+  downloadTrack: downloadTrackMock,
 }));
 
 const openTrackInformationModalMock = vi.fn();
@@ -137,8 +137,8 @@ describe('queue', () => {
         .vm.$emit('downloadMedia', queueTrack);
     });
 
-    it('calls the downloadMedia function with the correct parameters', () => {
-      expect(downloadMediaMock).toHaveBeenCalledWith(queueTrack);
+    it('calls the downloadTrack function with the correct parameters', () => {
+      expect(downloadTrackMock).toHaveBeenCalledWith(queueTrack);
     });
   });
 

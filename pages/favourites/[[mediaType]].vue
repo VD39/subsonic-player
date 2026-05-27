@@ -13,7 +13,7 @@ definePageMeta({
 
 const route = useRoute();
 const { viewLayout } = useViewLayout();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
 const { openAlbumInformationModal, openTrackInformationModal } =
@@ -114,7 +114,7 @@ useHead({
       :tracks="favourites.tracks"
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
-      @downloadMedia="downloadMedia"
+      @downloadMedia="downloadTrack"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="onPlayTrack"

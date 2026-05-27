@@ -3,7 +3,7 @@ export function useUser() {
 
   const user = useState<null | User>(STATE_KEYS.currentUser, () => null);
 
-  async function getAvatar(username: string) {
+  async function resolveAvatarUrl(username: string) {
     const url = getAvatarUrl(username);
 
     const response = await fetch(url, {
@@ -27,7 +27,7 @@ export function useUser() {
 
   return {
     clearUser,
-    getAvatar,
+    resolveAvatarUrl,
     setUser,
     user,
   };

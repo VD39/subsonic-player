@@ -19,7 +19,7 @@ const getLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
 
-const { isDarkTheme, setDefaultTheme, toggleTheme } = useTheme();
+const { isDarkTheme, loadThemePreference, toggleTheme } = useTheme();
 
 describe('useTheme', () => {
   afterEach(() => {
@@ -64,11 +64,11 @@ describe('useTheme', () => {
     });
   });
 
-  describe('when the setDefaultTheme function is called', () => {
+  describe('when the loadThemePreference function is called', () => {
     describe('when theme in local storage and system preference are not set', () => {
       beforeEach(() => {
         getLocalStorageMock.mockReturnValue(null);
-        setDefaultTheme();
+        loadThemePreference();
       });
 
       it('does not update the isDarkTheme value', () => {
@@ -79,7 +79,7 @@ describe('useTheme', () => {
     describe('when the theme in local storage is not set and system preference is set', () => {
       beforeEach(() => {
         matchesMock.value = true;
-        setDefaultTheme();
+        loadThemePreference();
       });
 
       it('sets the correct isDarkTheme value', () => {
@@ -93,7 +93,7 @@ describe('useTheme', () => {
         (localStorage) => {
           beforeAll(() => {
             getLocalStorageMock.mockReturnValue(localStorage);
-            setDefaultTheme();
+            loadThemePreference();
           });
 
           it('sets the correct isDarkTheme value', () => {

@@ -14,7 +14,7 @@ const fetchMock = vi.fn();
 
 globalThis.fetch = fetchMock;
 
-const { clearUser, getAvatar, setUser, user } = useUser();
+const { clearUser, resolveAvatarUrl, setUser, user } = useUser();
 
 describe('useUser', () => {
   afterEach(() => {
@@ -25,7 +25,7 @@ describe('useUser', () => {
     expect(user.value).toBe(null);
   });
 
-  describe('when the getAvatar function is called', () => {
+  describe('when the resolveAvatarUrl function is called', () => {
     describe('when the response is ok and the content type is an image', () => {
       beforeEach(() => {
         fetchMock.mockResolvedValue({
@@ -37,7 +37,7 @@ describe('useUser', () => {
       });
 
       it('returns the avatar url', async () => {
-        expect(await getAvatar('username')).toBe('http://server/avatar');
+        expect(await resolveAvatarUrl('username')).toBe('http://server/avatar');
       });
     });
 
@@ -52,7 +52,9 @@ describe('useUser', () => {
       });
 
       it('returns the default user image', async () => {
-        expect(await getAvatar('username')).toBe(FALLBACK_ICON_BY_TYPE.user);
+        expect(await resolveAvatarUrl('username')).toBe(
+          FALLBACK_ICON_BY_TYPE.user,
+        );
       });
     });
 
@@ -67,7 +69,9 @@ describe('useUser', () => {
       });
 
       it('returns the default user image', async () => {
-        expect(await getAvatar('username')).toBe(FALLBACK_ICON_BY_TYPE.user);
+        expect(await resolveAvatarUrl('username')).toBe(
+          FALLBACK_ICON_BY_TYPE.user,
+        );
       });
     });
 
@@ -82,7 +86,9 @@ describe('useUser', () => {
       });
 
       it('returns the default user image', async () => {
-        expect(await getAvatar('username')).toBe(FALLBACK_ICON_BY_TYPE.user);
+        expect(await resolveAvatarUrl('username')).toBe(
+          FALLBACK_ICON_BY_TYPE.user,
+        );
       });
     });
 
@@ -95,7 +101,7 @@ describe('useUser', () => {
       });
 
       it('calls fetch with a HEAD request to the avatar url', async () => {
-        await getAvatar('username');
+        await resolveAvatarUrl('username');
 
         expect(fetchMock).toHaveBeenCalledWith('http://server/avatar', {
           method: 'HEAD',
@@ -103,7 +109,7 @@ describe('useUser', () => {
       });
 
       it('calls getAvatarUrl with the username', async () => {
-        await getAvatar('username');
+        await resolveAvatarUrl('username');
 
         expect(getAvatarUrlMock).toHaveBeenCalledWith('username');
       });

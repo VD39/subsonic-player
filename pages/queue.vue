@@ -7,7 +7,7 @@ const { playFromQueue, removeFromQueue, reorderQueueTrack, resetPlayer } =
   useAudioPlayer();
 const { loadFromServer, queueList, resetQueue } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 const { dragStart } = useDragAndDrop();
 
@@ -59,7 +59,7 @@ useHead({
   <MixedTracksList
     :tracks="queueList"
     @addToPlaylist="addToPlaylistModal"
-    @downloadMedia="downloadMedia"
+    @downloadMedia="downloadTrack"
     @dragStart="dragStart"
     @mediaInformation="openTrackInformationModal"
     @playTrack="playFromQueue"

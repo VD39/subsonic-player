@@ -12,11 +12,11 @@ mockNuxtImport('useDropdownMenu', () => () => ({
   isOpen: ref(true),
 }));
 
-const getAvatarMock = vi.fn().mockResolvedValue('avatar-url');
+const resolveAvatarUrlMock = vi.fn().mockResolvedValue('avatar-url');
 const userName = ref<string | undefined>(undefined);
 
 mockNuxtImport('useUser', () => () => ({
-  getAvatar: getAvatarMock,
+  resolveAvatarUrl: resolveAvatarUrlMock,
   user: ref({
     salt: 'salt',
     server: 'https://www.server.com',
@@ -65,8 +65,8 @@ describe('UserMenu', () => {
   });
 
   describe('when the user username value is undefined', () => {
-    it('does not call the getAvatar function', () => {
-      expect(getAvatarMock).not.toHaveBeenCalled();
+    it('does not call the resolveAvatarUrl function', () => {
+      expect(resolveAvatarUrlMock).not.toHaveBeenCalled();
     });
 
     it('sets the correct image prop on the PreloadImage component', () => {
@@ -90,8 +90,8 @@ describe('UserMenu', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('calls the getAvatar function with the correct username', () => {
-      expect(getAvatarMock).toHaveBeenCalledWith('username');
+    it('calls the resolveAvatarUrl function with the correct username', () => {
+      expect(resolveAvatarUrlMock).toHaveBeenCalledWith('username');
     });
 
     it('sets the correct image prop on the PreloadImage component', () => {

@@ -24,9 +24,9 @@ mockNuxtImport('useSnack', () => () => ({
 }));
 
 const {
-  downloadMedia,
-  getFiles,
+  downloadTrack,
   getIndexes,
+  getMediaLibraryContent,
   getMusicDirectory,
   getMusicFolders,
   startScan,
@@ -35,10 +35,10 @@ const {
 const track = getFormattedTracksMock()[0];
 
 describe('useMediaLibrary', () => {
-  describe('when the downloadMedia function is called', () => {
+  describe('when the downloadTrack function is called', () => {
     describe('when the track does not have a streamUrlId property', () => {
       beforeEach(() => {
-        downloadMedia({
+        downloadTrack({
           ...track,
           streamUrlId: '',
         });
@@ -51,7 +51,7 @@ describe('useMediaLibrary', () => {
 
     describe('when the track has a streamUrlId property', () => {
       beforeEach(() => {
-        downloadMedia(track);
+        downloadTrack(track);
       });
 
       it('calls the window.location.assign with the correct value', () => {
@@ -126,10 +126,10 @@ describe('useMediaLibrary', () => {
     });
   });
 
-  describe('when the getFiles function is called', () => {
+  describe('when the getMediaLibraryContent function is called', () => {
     describe('without and id or slug parameter', () => {
       beforeEach(() => {
-        getFiles();
+        getMediaLibraryContent();
       });
 
       it('calls the getMusicFolders function with the correct parameters', () => {
@@ -141,7 +141,7 @@ describe('useMediaLibrary', () => {
 
     describe('with an id parameter', () => {
       beforeEach(() => {
-        getFiles({
+        getMediaLibraryContent({
           id: 'id',
         });
       });
@@ -158,7 +158,7 @@ describe('useMediaLibrary', () => {
 
     describe('with a slug parameter', () => {
       beforeEach(() => {
-        getFiles({
+        getMediaLibraryContent({
           slug: ['slug1', 'slug2', 'slug3'],
         });
       });
@@ -175,7 +175,7 @@ describe('useMediaLibrary', () => {
 
     describe('with an id and slug parameter', () => {
       beforeEach(() => {
-        getFiles({
+        getMediaLibraryContent({
           id: 'id1',
           slug: ['slug1', 'slug2'],
         });

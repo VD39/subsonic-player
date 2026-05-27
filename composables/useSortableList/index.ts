@@ -10,7 +10,7 @@ export function useSortableList(options: SortableListOptions) {
   const items = ref<HTMLElement[]>([]);
 
   // Event management.
-  const abortController = ref<AbortController | null>(null);
+  const listenerAbortController = ref<AbortController | null>(null);
   const dragAbortController = ref<AbortController | null>(null);
   const animationFrameId = ref<null | number>(null);
 
@@ -80,32 +80,32 @@ export function useSortableList(options: SortableListOptions) {
     }
 
     // Tear down any previous listeners before re-attaching.
-    abortController.value?.abort();
+    listenerAbortController.value?.abort();
     listMutationObserver?.disconnect();
 
     refreshSortableItems();
 
-    abortController.value = new AbortController();
-    const { signal } = abortController.value;
+    listenerAbortController.value = new AbortController();
+    const { signal } = listenerAbortController.value;
 
-    listContainerElement.addEventListener('mousedown', handlePointerDown, {
+    listContainerElement.addEventListener('mousedown', onPointerDown, {
       signal,
     });
-    listContainerElement.addEventListener('touchstart', handlePointerDown, {
+    listContainerElement.addEventListener('touchstart', onPointerDown, {
       passive: true,
       signal,
     });
-    document.addEventListener('touchmove', handleTouchMoveBeforeDrag, {
+    document.addEventListener('touchmove', onTouchMoveBeforeDrag, {
       passive: true,
       signal,
     });
-    document.addEventListener('mouseup', handlePointerUp, {
+    document.addEventListener('mouseup', onPointerUp, {
       signal,
     });
-    document.addEventListener('touchend', handlePointerUp, {
+    document.addEventListener('touchend', onPointerUp, {
       signal,
     });
-    document.addEventListener('touchcancel', handlePointerUp, {
+    document.addEventListener('touchcancel', onPointerUp, {
       signal,
     });
 
@@ -132,7 +132,7 @@ export function useSortableList(options: SortableListOptions) {
 
   // Handles mousedown/touchstart - finds the drag handle and sortable item,
   // then either starts a drag immediately (mouse) or begins a long-press timer (touch).
-  function handlePointerDown(event: MouseEvent | TouchEvent) {
+  function onPointerDown(event: MouseEvent | TouchEvent) {
     // Ignore if a drag is already in progress.
     if (draggedItem.value) {
       return;
@@ -189,7 +189,7 @@ export function useSortableList(options: SortableListOptions) {
   }
 
   // Cancels the long-press if the finger moves too far before the timer fires.
-  function handleTouchMoveBeforeDrag(event: TouchEvent) {
+  function onTouchMoveBeforeDrag(event: TouchEvent) {
     if (longPressTimer.value === null) {
       return;
     }
@@ -233,7 +233,7 @@ export function useSortableList(options: SortableListOptions) {
 
     setDocumentDraggingStyles(true);
     initializeDraggedItem();
-    initializeIdleItemPositions();
+    markItemsAboveDraggedItem();
 
     stopAutoScroll();
     animationFrameId.value = requestAnimationFrame(performAutoScroll);
@@ -242,10 +242,10 @@ export function useSortableList(options: SortableListOptions) {
     dragAbortController.value = new AbortController();
     const { signal: dragSignal } = dragAbortController.value;
 
-    document.addEventListener('mousemove', handlePointerMove, {
+    document.addEventListener('mousemove', onPointerMove, {
       signal: dragSignal,
     });
-    document.addEventListener('touchmove', handlePointerMove, {
+    document.addEventListener('touchmove', onPointerMove, {
       passive: false,
       signal: dragSignal,
     });
@@ -288,7 +288,7 @@ export function useSortableList(options: SortableListOptions) {
 
   // Marks items that are initially above the dragged item so we know
   // which direction to shift them when the dragged item passes over them.
-  function initializeIdleItemPositions() {
+  function markItemsAboveDraggedItem() {
     if (!draggedItem.value) {
       return;
     }
@@ -304,7 +304,7 @@ export function useSortableList(options: SortableListOptions) {
 
   // Moves the dragged item to follow the pointer, clamped within the container bounds,
   // and recalculates which idle items should shift to make room.
-  function handlePointerMove(event: MouseEvent | TouchEvent) {
+  function onPointerMove(event: MouseEvent | TouchEvent) {
     if (!draggedItem.value) {
       return;
     }
@@ -485,7 +485,7 @@ export function useSortableList(options: SortableListOptions) {
 
   // Ends the drag: calculates the new order, cleans up all drag state,
   // and fires the onReorder callback if the item actually moved.
-  function handlePointerUp() {
+  function onPointerUp() {
     cancelLongPress();
 
     if (!draggedItem.value) {
@@ -561,8 +561,8 @@ export function useSortableList(options: SortableListOptions) {
   // Tears down everything: any active drag, all event listeners, and the mutation observer.
   function cleanupSortableInteractions() {
     cleanupDragSession();
-    abortController.value?.abort();
-    abortController.value = null;
+    listenerAbortController.value?.abort();
+    listenerAbortController.value = null;
     listMutationObserver?.disconnect();
     listMutationObserver = null;
   }

@@ -5,7 +5,7 @@ import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PlaylistNavigation from './PlaylistNavigation.vue';
 import PrimaryNavigation from './PrimaryNavigation.vue';
 
-const { collapsed, toggle } = useSidebar();
+const { collapsed, toggleCollapsed } = useSidebar();
 const { addPlaylistModal, playlists } = usePlaylist();
 
 const buttonProps = computed(() => ({
@@ -32,7 +32,7 @@ const buttonProps = computed(() => ({
         ref="toggleButton"
         :icon="buttonProps.icon"
         :title="buttonProps.text"
-        @click="toggle"
+        @click="toggleCollapsed"
       >
         {{ buttonProps.text }}
       </ButtonLink>

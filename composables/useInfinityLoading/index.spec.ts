@@ -35,7 +35,7 @@ describe('useInfinityLoading', () => {
   });
 
   describe('when fetchMoreData function is called', () => {
-    describe('when dataToFetch function returns no value', () => {
+    describe('when fetchFn function returns no value', () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(null));
       });
@@ -49,7 +49,7 @@ describe('useInfinityLoading', () => {
       });
     });
 
-    describe(`when dataToFetch function returns more than the ${LOAD_SIZE}`, () => {
+    describe(`when fetchFn function returns more than the ${LOAD_SIZE}`, () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(mockData.playlist55));
       });
@@ -63,7 +63,7 @@ describe('useInfinityLoading', () => {
       });
     });
 
-    describe(`when dataToFetch function returns the same as the ${LOAD_SIZE}`, () => {
+    describe(`when fetchFn function returns the same as the ${LOAD_SIZE}`, () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(mockData.playlist50));
       });
@@ -80,7 +80,7 @@ describe('useInfinityLoading', () => {
       });
     });
 
-    describe(`when dataToFetch function returns the less than the ${LOAD_SIZE}`, () => {
+    describe(`when fetchFn function returns the less than the ${LOAD_SIZE}`, () => {
       beforeAll(() => {
         fetchMoreData(() => Promise.resolve(mockData.playlist25));
       });

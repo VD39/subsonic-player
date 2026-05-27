@@ -6,7 +6,7 @@ export function useTheme() {
     setLocalStorage(LOCAL_STORAGE_KEYS.theme, isDarkTheme.value);
   }
 
-  function setDefaultTheme() {
+  function loadThemePreference() {
     const localTheme = getLocalStorage(LOCAL_STORAGE_KEYS.theme);
 
     if (typeof localTheme === 'boolean') {
@@ -25,7 +25,7 @@ export function useTheme() {
 
   return {
     isDarkTheme,
-    setDefaultTheme,
+    loadThemePreference,
     toggleTheme,
   };
 }

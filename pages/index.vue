@@ -9,14 +9,14 @@ import AlbumItem from '@/components/Organisms/AlbumItem.vue';
 import ArtistItem from '@/components/Organisms/ArtistItem.vue';
 import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
 const { openAlbumInformationModal, openTrackInformationModal } =
   useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
-const { frequentAlbums, getDiscoverAlbums, newestAlbums, recentAlbums } =
+const { frequentAlbums, loadDashboardAlbums, newestAlbums, recentAlbums } =
   useAlbum();
 const { getMediaTracks } = useMediaTracks();
 
@@ -25,7 +25,7 @@ const { refresh, status } = useAsyncData(
   ASYNC_DATA_KEYS.index,
   async () => {
     const [, favourites] = await Promise.all([
-      getDiscoverAlbums(),
+      loadDashboardAlbums(),
       getFavourites(),
     ]);
 
@@ -206,7 +206,7 @@ useHead({
           :tracks="favourites.tracks.slice(0, PREVIEW_TRACK_COUNT)"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
-          @downloadMedia="downloadMedia"
+          @downloadMedia="downloadTrack"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="onPlayTrack"

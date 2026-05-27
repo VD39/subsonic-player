@@ -1,5 +1,5 @@
 export const QUEUE_DEFAULT_STATES = {
   currentQueueIndex: -1,
-  originalQueueList: '',
+  originalQueueSnapshot: '',
   queueList: Object.freeze([] as PlayableTrack[]),
 };

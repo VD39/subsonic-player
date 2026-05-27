@@ -24,7 +24,7 @@ export function usePlaylist() {
     }
   }
 
-  async function getRandomTracks() {
+  async function fetchRandomPlaylist() {
     const { data: playlistData } = await fetchData('/getRandomSongs', {
       query: {
         size: RANDOM_SIZE,
@@ -47,7 +47,7 @@ export function usePlaylist() {
     return playlistData;
   }
 
-  async function getPlaylistTracks(id: string) {
+  async function fetchPlaylist(id: string) {
     const { data: playlistData } = await fetchData('/getPlaylist', {
       query: {
         id,
@@ -59,7 +59,7 @@ export function usePlaylist() {
     return playlistData;
   }
 
-  async function getPlaylistTracksById(
+  async function loadPlaylistTracksById(
     id = RANDOM_PLAYLIST.id,
     resetPlaylist = true,
   ) {
@@ -68,9 +68,9 @@ export function usePlaylist() {
     }
 
     if (id === RANDOM_PLAYLIST.id) {
-      playlist.value = await getRandomTracks();
+      playlist.value = await fetchRandomPlaylist();
     } else {
-      playlist.value = await getPlaylistTracks(id);
+      playlist.value = await fetchPlaylist(id);
     }
   }
 
@@ -131,7 +131,7 @@ export function usePlaylist() {
     await updatePlaylist(query, 'Successfully added to playlist.', showMessage);
 
     if (fetchPlaylistTracks) {
-      await getPlaylistTracksById(query.playlistId, false);
+      await loadPlaylistTracksById(query.playlistId, false);
     }
   }
 
@@ -142,7 +142,7 @@ export function usePlaylist() {
     await updatePlaylist(query, 'Successfully removed from playlist.');
 
     if (fetchPlaylistTracks) {
-      await getPlaylistTracksById(query.playlistId, false);
+      await loadPlaylistTracksById(query.playlistId, false);
     }
   }
 
@@ -167,7 +167,7 @@ export function usePlaylist() {
           name: newPlaylistName,
           playlistId: currentPlaylist.id,
         });
-        await getPlaylistTracksById(currentPlaylist.id, false);
+        await loadPlaylistTracksById(currentPlaylist.id, false);
         closeModal();
       },
       playlist: currentPlaylist,
@@ -255,7 +255,7 @@ export function usePlaylist() {
     addToPlaylistModal,
     deletePlaylist,
     getPlaylists,
-    getPlaylistTracksById,
+    loadPlaylistTracksById,
     playlist,
     playlists,
     removeFromPlaylist,

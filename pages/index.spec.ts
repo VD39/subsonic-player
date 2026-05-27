@@ -24,10 +24,10 @@ mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadMediaMock = vi.fn();
+const downloadTrackMock = vi.fn();
 
 mockNuxtImport('useMediaLibrary', () => () => ({
-  downloadMedia: downloadMediaMock,
+  downloadTrack: downloadTrackMock,
 }));
 
 const openAlbumInformationModalMock = vi.fn();
@@ -56,26 +56,26 @@ const favouritesMock = ref<AllMedia>({
   tracks: [],
 });
 const getFavouritesMock = vi.fn();
-const addToFavouriteIdsMock = vi.fn();
+const setFavouriteIdMock = vi.fn();
 const toggleFavouriteMock = vi.fn();
 const favouriteIdsMock = ref<Record<string, boolean>>({});
 
 mockNuxtImport('useFavourite', () => () => ({
-  addToFavouriteIds: addToFavouriteIdsMock,
   favouriteIds: favouriteIdsMock,
   favourites: favouritesMock,
   getFavourites: getFavouritesMock,
+  setFavouriteId: setFavouriteIdMock,
   toggleFavourite: toggleFavouriteMock,
 }));
 
-const getDiscoverAlbumsMock = vi.fn();
+const loadDashboardAlbumsMock = vi.fn();
 const frequentAlbumsMock = ref<Album[]>([]);
 const newestAlbumsMock = ref<Album[]>([]);
 const recentAlbumsMock = ref<Album[]>([]);
 
 mockNuxtImport('useAlbum', () => () => ({
   frequentAlbums: frequentAlbumsMock,
-  getDiscoverAlbums: getDiscoverAlbumsMock,
+  loadDashboardAlbums: loadDashboardAlbumsMock,
   newestAlbums: newestAlbumsMock,
   recentAlbums: recentAlbumsMock,
 }));
@@ -582,8 +582,8 @@ describe('index', () => {
           wrapper.findComponent(TracksList).vm.$emit('downloadMedia', track);
         });
 
-        it('calls the downloadMedia function with the correct parameters', () => {
-          expect(downloadMediaMock).toHaveBeenCalledWith(track);
+        it('calls the downloadTrack function with the correct parameters', () => {
+          expect(downloadTrackMock).toHaveBeenCalledWith(track);
         });
       });
 

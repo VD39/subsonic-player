@@ -94,10 +94,10 @@ mockNuxtImport('useBookmark', () => () => ({
   deleteBookmark: deleteBookmarkMock,
 }));
 
-const getDiscoverAlbumsMock = vi.fn();
+const loadDashboardAlbumsMock = vi.fn();
 
 mockNuxtImport('useAlbum', () => () => ({
-  getDiscoverAlbums: getDiscoverAlbumsMock,
+  loadDashboardAlbums: loadDashboardAlbumsMock,
 }));
 
 const addErrorSnackMock = vi.fn();
@@ -498,8 +498,8 @@ describe('useAudioPlayer', () => {
         onEndedCb();
       });
 
-      it('calls the getDiscoverAlbums function', () => {
-        expect(getDiscoverAlbumsMock).toHaveBeenCalled();
+      it('calls the loadDashboardAlbums function', () => {
+        expect(loadDashboardAlbumsMock).toHaveBeenCalled();
       });
 
       describe(`when track type is not ${MEDIA_TYPE.podcastEpisode}`, () => {

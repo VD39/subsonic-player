@@ -21,7 +21,7 @@ export function useModal() {
     }
   }
 
-  function addEventListener() {
+  function addEscapeKeyListener() {
     document.addEventListener('keydown', onKeydown);
   }
 
@@ -163,7 +163,7 @@ export function useModal() {
     }
 
     if (modal.value.component && import.meta.client) {
-      addEventListener();
+      addEscapeKeyListener();
     }
 
     lockScroll();

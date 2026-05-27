@@ -18,7 +18,7 @@ const {
   frequentAlbums,
   getAlbum,
   getAlbums,
-  getDiscoverAlbums,
+  loadDashboardAlbums,
   newestAlbums,
   recentAlbums,
   resetAlbums,
@@ -218,7 +218,7 @@ describe('useAlbum', () => {
     });
   });
 
-  describe('when the getDiscoverAlbums function is called', () => {
+  describe('when the loadDashboardAlbums function is called', () => {
     beforeEach(async () => {
       fetchDataMock
         .mockResolvedValueOnce({
@@ -246,7 +246,7 @@ describe('useAlbum', () => {
           ],
         });
 
-      await getDiscoverAlbums();
+      await loadDashboardAlbums();
     });
 
     it('calls fetchData for frequent albums with correct parameters', () => {

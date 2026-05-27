@@ -9,7 +9,7 @@ export function useDragAndDrop() {
   const originalPosition = ref<DOMRect>({} as DOMRect);
   const animationFrameId = ref<null | number>(null);
 
-  async function addTracks(
+  async function dispatchDropAction(
     tracksToAdd: PlayableTrack[],
     target: HTMLElement | undefined,
     dropId: string,
@@ -57,7 +57,7 @@ export function useDragAndDrop() {
     return clonedEl;
   }
 
-  function isValidMedia(media: QueueableMedia) {
+  function hasMediaType(media: QueueableMedia) {
     return media && 'type' in media;
   }
 
@@ -150,7 +150,7 @@ export function useDragAndDrop() {
   }
 
   function dragStart(media: QueueableMedia, event: DragEvent) {
-    if (!event.dataTransfer || draggedElement.value || !isValidMedia(media)) {
+    if (!event.dataTransfer || draggedElement.value || !hasMediaType(media)) {
       return;
     }
 
@@ -166,8 +166,8 @@ export function useDragAndDrop() {
 
     clonedElement.value = createElementClone(imgElement);
 
-    const ghost = document.createElement('div');
-    event.dataTransfer.setDragImage(ghost, 0, 0);
+    const invisibleDragImage = document.createElement('div');
+    event.dataTransfer.setDragImage(invisibleDragImage, 0, 0);
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.setData(DATA_TRANSFER_MEDIA_ID, JSON.stringify(media));
 
@@ -195,7 +195,7 @@ export function useDragAndDrop() {
 
     const media: QueueableMedia = JSON.parse(mediaData);
 
-    if (!isValidMedia(media)) {
+    if (!hasMediaType(media)) {
       return;
     }
 
@@ -205,7 +205,7 @@ export function useDragAndDrop() {
       return;
     }
 
-    await addTracks(tracksToAdd, target, dropId);
+    await dispatchDropAction(tracksToAdd, target, dropId);
   }
 
   return {

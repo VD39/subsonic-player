@@ -34,7 +34,7 @@ export function useSnack() {
     snacks.value.splice(index, 1);
   }
 
-  function clearAllSnack() {
+  function clearAllSnacks() {
     snacks.value = [];
   }
 
@@ -66,7 +66,7 @@ export function useSnack() {
     addErrorSnack,
     addInfoSnack,
     addSuccessSnack,
-    clearAllSnack,
+    clearAllSnacks,
     removeSnack,
     snacks,
   };

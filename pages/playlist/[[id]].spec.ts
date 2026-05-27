@@ -15,10 +15,10 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import PlaylistPage from './[[id]].vue';
 
-const downloadMediaMock = vi.fn();
+const downloadTrackMock = vi.fn();
 
 mockNuxtImport('useMediaLibrary', () => () => ({
-  downloadMedia: downloadMediaMock,
+  downloadTrack: downloadTrackMock,
 }));
 
 const openTrackInformationModalMock = vi.fn();
@@ -29,7 +29,7 @@ mockNuxtImport('useMediaInformation', () => () => ({
 
 const addToPlaylistModalMock = vi.fn();
 const deletePlaylistMock = vi.fn();
-const getPlaylistTracksByIdMock = vi.fn();
+const loadPlaylistTracksByIdMock = vi.fn();
 const playlistMock = ref<null | Playlist>(null);
 const removeFromPlaylistMock = vi.fn();
 const updatePlaylistModalMock = vi.fn();
@@ -37,7 +37,7 @@ const updatePlaylistModalMock = vi.fn();
 mockNuxtImport('usePlaylist', () => () => ({
   addToPlaylistModal: addToPlaylistModalMock,
   deletePlaylist: deletePlaylistMock,
-  getPlaylistTracksById: getPlaylistTracksByIdMock,
+  loadPlaylistTracksById: loadPlaylistTracksByIdMock,
   playlist: playlistMock,
   removeFromPlaylist: removeFromPlaylistMock,
   updatePlaylistModal: updatePlaylistModalMock,
@@ -119,7 +119,7 @@ describe('[[id]]', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when getPlaylistTracksById does not return any data', () => {
+  describe('when loadPlaylistTracksById does not return any data', () => {
     beforeEach(async () => {
       playlistMock.value = null;
       wrapper = await factory();
@@ -138,7 +138,7 @@ describe('[[id]]', () => {
     });
   });
 
-  describe('when getPlaylistTracksById does return data', () => {
+  describe('when loadPlaylistTracksById does return data', () => {
     beforeEach(async () => {
       playlistMock.value = getFormattedPlaylistsMock()[0];
       wrapper = await factory();
@@ -411,8 +411,8 @@ describe('[[id]]', () => {
         wrapper.findComponent(MixedTracksList).vm.$emit('downloadMedia', track);
       });
 
-      it('calls the downloadMedia function with the correct parameters', () => {
-        expect(downloadMediaMock).toHaveBeenCalledWith(track);
+      it('calls the downloadTrack function with the correct parameters', () => {
+        expect(downloadTrackMock).toHaveBeenCalledWith(track);
       });
     });
 

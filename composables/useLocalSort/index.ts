@@ -50,7 +50,7 @@ export function useLocalSort<T>(
     }
 
     // Added to force re-computation for random sort when toggled.
-    const _forceUpdate = randomSeed.value;
+    const _randomSeedTrigger = randomSeed.value;
 
     if (activeSort.value === 'random') {
       return randomShuffledItems.value;

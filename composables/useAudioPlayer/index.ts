@@ -3,7 +3,7 @@ export function useAudioPlayer() {
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
   const { createBookmark, deleteBookmark } = useBookmark();
-  const { getDiscoverAlbums } = useAlbum();
+  const { loadDashboardAlbums } = useAlbum();
   const {
     addTracks,
     currentQueueIndex,
@@ -549,7 +549,7 @@ export function useAudioPlayer() {
     });
 
     audioPlayer.value.onEnded(async () => {
-      getDiscoverAlbums();
+      loadDashboardAlbums();
 
       if (isPodcastEpisode.value) {
         deleteBookmark(currentTrack.value.id, false);

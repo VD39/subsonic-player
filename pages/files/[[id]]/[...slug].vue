@@ -7,7 +7,7 @@ import FilesList from '@/components/Organisms/FilesList.vue';
 const route = useRoute();
 
 const { addToPlaylistModal } = usePlaylist();
-const { downloadMedia, getFiles } = useMediaLibrary();
+const { downloadTrack, getMediaLibraryContent } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
@@ -19,7 +19,9 @@ const {
 } = useAsyncData(
   route.fullPath,
   async () => {
-    const musicDirectory = await getFiles(route.params as FilesParams);
+    const musicDirectory = await getMediaLibraryContent(
+      route.params as FilesParams,
+    );
 
     return {
       musicDirectory,
@@ -63,7 +65,7 @@ useHead({
       :tracks="musicDirectoryData.musicDirectory.tracks"
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
-      @downloadMedia="downloadMedia"
+      @downloadMedia="downloadTrack"
       @mediaInformation="openTrackInformationModal"
       @playTrack="onPlayTrack"
     />

@@ -64,7 +64,7 @@ const {
   isTrack,
   loadFromServer,
   navigateQueue,
-  originalQueueList,
+  originalQueueSnapshot,
   queueList,
   removeTrack,
   reorderTrack,
@@ -102,9 +102,9 @@ describe('useQueue', () => {
     );
   });
 
-  it('sets the default originalQueueList value', () => {
-    expect(originalQueueList.value).toBe(
-      QUEUE_DEFAULT_STATES.originalQueueList,
+  it('sets the default originalQueueSnapshot value', () => {
+    expect(originalQueueSnapshot.value).toBe(
+      QUEUE_DEFAULT_STATES.originalQueueSnapshot,
     );
   });
 
@@ -275,7 +275,7 @@ describe('useQueue', () => {
           LOCAL_STORAGE_KEYS.queue,
           {
             currentQueueIndex: QUEUE_DEFAULT_STATES.currentQueueIndex,
-            originalQueueList: QUEUE_DEFAULT_STATES.originalQueueList,
+            originalQueueSnapshot: QUEUE_DEFAULT_STATES.originalQueueSnapshot,
             queueList: tracks,
           },
         );
@@ -320,7 +320,7 @@ describe('useQueue', () => {
           LOCAL_STORAGE_KEYS.queue,
           {
             currentQueueIndex: QUEUE_DEFAULT_STATES.currentQueueIndex,
-            originalQueueList: QUEUE_DEFAULT_STATES.originalQueueList,
+            originalQueueSnapshot: QUEUE_DEFAULT_STATES.originalQueueSnapshot,
             queueList: tracks,
           },
         );
@@ -365,9 +365,9 @@ describe('useQueue', () => {
           );
         });
 
-        it('resets the originalQueueList value', () => {
-          expect(originalQueueList.value).toBe(
-            QUEUE_DEFAULT_STATES.originalQueueList,
+        it('resets the originalQueueSnapshot value', () => {
+          expect(originalQueueSnapshot.value).toBe(
+            QUEUE_DEFAULT_STATES.originalQueueSnapshot,
           );
         });
       });
@@ -794,9 +794,9 @@ describe('useQueue', () => {
         );
       });
 
-      it('clears the originalQueueList value', () => {
-        expect(originalQueueList.value).toBe(
-          QUEUE_DEFAULT_STATES.originalQueueList,
+      it('clears the originalQueueSnapshot value', () => {
+        expect(originalQueueSnapshot.value).toBe(
+          QUEUE_DEFAULT_STATES.originalQueueSnapshot,
         );
       });
 
@@ -969,8 +969,8 @@ describe('useQueue', () => {
       expect(queueList.value[0]).toEqual(tracks[2]);
     });
 
-    it('sets the correct originalQueueList value', () => {
-      expect(originalQueueList.value).toBe(JSON.stringify(preShuffleQueue));
+    it('sets the correct originalQueueSnapshot value', () => {
+      expect(originalQueueSnapshot.value).toBe(JSON.stringify(preShuffleQueue));
     });
 
     it('calls the setLocalStorage function', () => {
@@ -991,9 +991,9 @@ describe('useQueue', () => {
       expect(currentQueueIndex.value).toBe(2);
     });
 
-    it('clears the originalQueueList value', () => {
-      expect(originalQueueList.value).toBe(
-        QUEUE_DEFAULT_STATES.originalQueueList,
+    it('clears the originalQueueSnapshot value', () => {
+      expect(originalQueueSnapshot.value).toBe(
+        QUEUE_DEFAULT_STATES.originalQueueSnapshot,
       );
     });
 
@@ -1023,9 +1023,9 @@ describe('useQueue', () => {
       );
     });
 
-    it('clears the originalQueueList value', () => {
-      expect(originalQueueList.value).toBe(
-        QUEUE_DEFAULT_STATES.originalQueueList,
+    it('clears the originalQueueSnapshot value', () => {
+      expect(originalQueueSnapshot.value).toBe(
+        QUEUE_DEFAULT_STATES.originalQueueSnapshot,
       );
     });
 
@@ -1182,7 +1182,7 @@ describe('useQueue', () => {
         beforeAll(() => {
           getLocalStorageMock.mockReturnValue({
             currentQueueIndex: 3,
-            originalQueueList: JSON.stringify(tracks),
+            originalQueueSnapshot: JSON.stringify(tracks),
             queueList: tracks,
           });
 
@@ -1194,8 +1194,8 @@ describe('useQueue', () => {
           expect(currentQueueIndex.value).toBe(3);
         });
 
-        it('sets the correct originalQueueList value', () => {
-          expect(originalQueueList.value).toEqual(JSON.stringify(tracks));
+        it('sets the correct originalQueueSnapshot value', () => {
+          expect(originalQueueSnapshot.value).toEqual(JSON.stringify(tracks));
         });
 
         it('sets the correct queueList value', () => {

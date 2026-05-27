@@ -11,7 +11,7 @@ const collapsedMock = ref(false);
 
 mockNuxtImport('useSidebar', () => () => ({
   collapsed: collapsedMock,
-  toggle: toggleMock,
+  toggleCollapsed: toggleMock,
 }));
 
 const addPlaylistModalMock = vi.fn();
@@ -102,7 +102,7 @@ describe('SidebarNavigation', () => {
       wrapper.findComponent({ ref: 'toggleButton' }).vm.$emit('click');
     });
 
-    it('calls the toggle function', () => {
+    it('calls the toggleCollapsed function', () => {
       expect(toggleMock).toHaveBeenCalled();
     });
   });

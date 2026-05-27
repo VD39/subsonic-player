@@ -32,7 +32,7 @@ const {
   addToPlaylistModal,
   deletePlaylist,
   getPlaylists,
-  getPlaylistTracksById,
+  loadPlaylistTracksById,
   playlist,
   playlists,
   removeFromPlaylist,
@@ -110,13 +110,13 @@ describe('usePlaylist', () => {
     });
   });
 
-  describe('when the getPlaylistTracksById function is called', () => {
+  describe('when the loadPlaylistTracksById function is called', () => {
     describe('when id is not set', () => {
       beforeEach(() => {
-        getPlaylistTracksById();
+        loadPlaylistTracksById();
       });
 
-      it('calls the getRandomTracks function with the correct parameters', () => {
+      it('calls the fetchRandomPlaylist function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getRandomSongs',
           expect.any(Object),
@@ -129,7 +129,7 @@ describe('usePlaylist', () => {
             data: null,
           });
 
-          getPlaylistTracksById();
+          loadPlaylistTracksById();
         });
 
         it('sets the correct playlist value', () => {
@@ -145,7 +145,7 @@ describe('usePlaylist', () => {
             },
           });
 
-          getPlaylistTracksById();
+          loadPlaylistTracksById();
         });
 
         it('sets the correct playlist value', () => {
@@ -158,10 +158,10 @@ describe('usePlaylist', () => {
 
     describe('when id is set', () => {
       beforeEach(() => {
-        getPlaylistTracksById('playlistId');
+        loadPlaylistTracksById('playlistId');
       });
 
-      it('calls the getPlaylistTracks function with the correct parameters', () => {
+      it('calls the fetchPlaylist function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.objectContaining({
@@ -178,7 +178,7 @@ describe('usePlaylist', () => {
             data: null,
           });
 
-          getPlaylistTracksById('playlistId', false);
+          loadPlaylistTracksById('playlistId', false);
         });
 
         it('sets the correct playlist value', () => {
@@ -194,7 +194,7 @@ describe('usePlaylist', () => {
             },
           });
 
-          getPlaylistTracksById('playlistId');
+          loadPlaylistTracksById('playlistId');
         });
 
         it('sets the correct playlist value', () => {
@@ -390,7 +390,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('calls the getPlaylistTracksById function with the correct parameters', () => {
+      it('calls the loadPlaylistTracksById function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -415,7 +415,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('does not call the getPlaylistTracksById function', () => {
+      it('does not call the loadPlaylistTracksById function', () => {
         expect(fetchDataMock).not.toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -439,7 +439,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('calls the getPlaylistTracksById function with the correct parameters', () => {
+      it('calls the loadPlaylistTracksById function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -464,7 +464,7 @@ describe('usePlaylist', () => {
         );
       });
 
-      it('does not call the getPlaylistTracksById function', () => {
+      it('does not call the loadPlaylistTracksById function', () => {
         expect(fetchDataMock).not.toHaveBeenCalledWith(
           '/getPlaylist',
           expect.any(Object),
@@ -512,7 +512,7 @@ describe('usePlaylist', () => {
           );
         });
 
-        it('calls the getPlaylistTracksById function with the correct parameters', () => {
+        it('calls the loadPlaylistTracksById function with the correct parameters', () => {
           expect(fetchDataMock).toHaveBeenCalledWith(
             '/getPlaylist',
             expect.any(Object),
@@ -532,7 +532,7 @@ describe('usePlaylist', () => {
           );
         });
 
-        it('does not call the getPlaylistTracksById function', () => {
+        it('does not call the loadPlaylistTracksById function', () => {
           expect(fetchDataMock).not.toHaveBeenCalledWith(
             '/getPlaylist',
             expect.any(Object),
@@ -577,7 +577,7 @@ describe('usePlaylist', () => {
             );
           });
 
-          it('calls the getPlaylistTracksById function with the correct parameters', () => {
+          it('calls the loadPlaylistTracksById function with the correct parameters', () => {
             expect(fetchDataMock).toHaveBeenCalledWith(
               '/getPlaylist',
               expect.any(Object),
@@ -601,7 +601,7 @@ describe('usePlaylist', () => {
             );
           });
 
-          it('does not call the getPlaylistTracksById function', () => {
+          it('does not call the loadPlaylistTracksById function', () => {
             expect(fetchDataMock).not.toHaveBeenCalledWith(
               '/getPlaylist',
               expect.any(Object),

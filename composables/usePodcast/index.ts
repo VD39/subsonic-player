@@ -67,7 +67,7 @@ export function usePodcast() {
         'Successfully deleted podcast episode from server. Podcast will update automatically.',
       );
 
-      updatePodcast(episode.podcastId!);
+      refreshPodcastAfterDelay(episode.podcastId!);
     }
   }
 
@@ -83,7 +83,7 @@ export function usePodcast() {
         'Download has begun on the server. Podcast will update automatically.',
       );
 
-      updatePodcast(episode.podcastId!);
+      refreshPodcastAfterDelay(episode.podcastId!);
     }
   }
 
@@ -150,7 +150,7 @@ export function usePodcast() {
     await fetchData('/refreshPodcasts');
   }
 
-  function updatePodcast(podcastId: string) {
+  function refreshPodcastAfterDelay(podcastId: string) {
     setTimeout(async () => {
       await Promise.all([getPodcast(podcastId), getNewestPodcastEpisodes()]);
     }, 15000);

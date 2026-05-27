@@ -18,11 +18,11 @@ const { updateTrackFavouriteMock: updateQueueTrackFavouriteMock } =
   useQueueMock();
 
 const {
-  addToFavouriteIds,
   favouriteIds,
   favourites,
   getFavourites,
   resetFavourites,
+  setFavouriteId,
   toggleFavourite,
 } = useFavourite();
 
@@ -101,9 +101,9 @@ describe('useFavourite', () => {
     });
   });
 
-  describe('when the addToFavouriteIds function is called', () => {
+  describe('when the setFavouriteId function is called', () => {
     beforeEach(() => {
-      addToFavouriteIds('id', false);
+      setFavouriteId('id', false);
     });
 
     it('updates the favouriteIds value', () => {
@@ -114,7 +114,7 @@ describe('useFavourite', () => {
 
     describe('when called without a isFavourite parameter', () => {
       beforeEach(() => {
-        addToFavouriteIds('id');
+        setFavouriteId('id');
       });
 
       it('updates the favouriteIds value', () => {

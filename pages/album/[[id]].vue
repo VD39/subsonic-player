@@ -16,7 +16,7 @@ definePageMeta({
 
 const route = useRoute();
 const { getAlbum } = useAlbum();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks, playTracksShuffled } =
@@ -159,7 +159,7 @@ useHead({
           :tracks
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
-          @downloadMedia="downloadMedia"
+          @downloadMedia="downloadTrack"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
           @playTrack="onPlayTrack"

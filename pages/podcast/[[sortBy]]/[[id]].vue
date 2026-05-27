@@ -17,7 +17,7 @@ definePageMeta({
 
 const route = useRoute();
 const { openModal } = useModal();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
 const { dragStart } = useDragAndDrop();
@@ -206,7 +206,7 @@ useHead({
         @addToQueue="addTrackToQueue"
         @deleteEpisode="deletePodcastEpisode"
         @downloadEpisode="downloadPodcastEpisode"
-        @downloadMedia="downloadMedia"
+        @downloadMedia="downloadTrack"
         @dragStart="dragStart"
         @episodeInformation="openTrackInformationModal"
         @playEpisode="onPlayEpisode"

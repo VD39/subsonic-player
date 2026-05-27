@@ -17,7 +17,7 @@ const { search } = useSearch();
 const { openAlbumInformationModal, openTrackInformationModal } =
   useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { dragStart } = useDragAndDrop();
 const { getMediaTracks } = useMediaTracks();
 const { fetchMoreData, hasMore } = useInfinityLoading<SearchResultByType>(
@@ -137,7 +137,7 @@ useHead({
       :tracks
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
-      @downloadMedia="downloadMedia"
+      @downloadMedia="downloadTrack"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="onPlayTrack"

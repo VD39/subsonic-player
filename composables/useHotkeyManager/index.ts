@@ -145,7 +145,7 @@ export function useHotkeyManager() {
     }
   }
 
-  function seekToKeyPosition(key: string) {
+  function seekByPercentKey(key: string) {
     const time = (currentTrack.value.duration * (Number(key) * 10)) / 100;
     seekTo(time);
   }
@@ -270,7 +270,7 @@ export function useHotkeyManager() {
       {
         action: (event: KeyboardEvent) => {
           callOnlyWithCurrentTrack(() => {
-            seekToKeyPosition(event.key);
+            seekByPercentKey(event.key);
           });
         },
         description: 'Seek to a specific position within the track.',

@@ -2,7 +2,7 @@ export function useSidebar() {
   const collapsed = useState(STATE_KEYS.sidebarCollapsed, () => false);
   const width = useState(STATE_KEYS.sidebarWidth, () => SIDEBAR_FULL_WIDTH);
 
-  function toggle() {
+  function toggleCollapsed() {
     collapsed.value = !collapsed.value;
     width.value = collapsed.value
       ? SIDEBAR_COLLAPSED_WIDTH
@@ -11,7 +11,7 @@ export function useSidebar() {
 
   return {
     collapsed,
-    toggle,
+    toggleCollapsed,
     width,
   };
 }

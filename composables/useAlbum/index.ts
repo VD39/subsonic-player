@@ -73,7 +73,7 @@ export function useAlbum() {
     });
   }
 
-  async function getDiscoverAlbums() {
+  async function loadDashboardAlbums() {
     const [frequentAlbumsData, newestAlbumsData, recentAlbumsData] =
       await Promise.all([
         getFrequentAlbums(),
@@ -90,11 +90,11 @@ export function useAlbum() {
     frequentAlbums,
     getAlbum,
     getAlbums,
-    getDiscoverAlbums,
     getFrequentAlbums,
     getNewestAlbums,
     getRandomAlbums,
     getRecentAlbums,
+    loadDashboardAlbums,
     newestAlbums,
     recentAlbums,
     resetAlbums,

@@ -1,6 +1,6 @@
 const activeLocks = new Set<string>();
 
-export function useScrollLock(key: string, globalClasses?: string[]) {
+export function useScrollLock(key: string, bodyClasses?: string[]) {
   function lockScroll() {
     if (!import.meta.client) {
       return;
@@ -10,8 +10,8 @@ export function useScrollLock(key: string, globalClasses?: string[]) {
 
     document.body.classList.add('lockScroll');
 
-    if (globalClasses) {
-      document.body.classList.add(...globalClasses);
+    if (bodyClasses) {
+      document.body.classList.add(...bodyClasses);
     }
   }
 
@@ -26,8 +26,8 @@ export function useScrollLock(key: string, globalClasses?: string[]) {
       document.body.classList.remove('lockScroll');
     }
 
-    if (globalClasses) {
-      document.body.classList.remove(...globalClasses);
+    if (bodyClasses) {
+      document.body.classList.remove(...bodyClasses);
     }
   }
 

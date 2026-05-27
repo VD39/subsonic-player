@@ -14,12 +14,12 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
 const {
   addToPlaylistModal,
   deletePlaylist,
-  getPlaylistTracksById,
+  loadPlaylistTracksById,
   playlist,
   removeFromPlaylist,
   updatePlaylistModal,
@@ -32,7 +32,7 @@ const { addTracksToQueue, addTrackToQueue, playTracks, playTracksShuffled } =
 const { refresh, status } = useAsyncData(
   route.fullPath,
   async () => {
-    await getPlaylistTracksById(
+    await loadPlaylistTracksById(
       route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
     );
 
@@ -163,7 +163,7 @@ useHead({
         :tracks="playlist.tracks"
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
-        @downloadMedia="downloadMedia"
+        @downloadMedia="downloadTrack"
         @dragStart="dragStart"
         @mediaInformation="openTrackInformationModal"
         @playTrack="onPlayTrack"

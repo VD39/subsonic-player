@@ -79,7 +79,7 @@ export function useDropdownMenu(options: DropdownOptions) {
     }
   }
 
-  function onClick(event: MouseEvent) {
+  function onGlobalClick(event: MouseEvent) {
     if (!hasRequiredRefs()) {
       return;
     }
@@ -135,7 +135,7 @@ export function useDropdownMenu(options: DropdownOptions) {
     abortController.value = new AbortController();
     const { signal } = abortController.value;
 
-    globalThis.addEventListener('click', onClick, {
+    globalThis.addEventListener('click', onGlobalClick, {
       signal,
     });
     globalThis.addEventListener('contextmenu', onContextMenu, {

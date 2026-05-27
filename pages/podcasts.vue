@@ -10,7 +10,7 @@ import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
 const { viewLayout } = useViewLayout();
-const { downloadMedia } = useMediaLibrary();
+const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openPodcastInformationModal, openTrackInformationModal } =
   useMediaInformation();
@@ -135,7 +135,7 @@ useHead({
         @addToQueue="addTrackToQueue"
         @deleteEpisode="deletePodcastEpisode"
         @downloadEpisode="downloadPodcastEpisode"
-        @downloadMedia="downloadMedia"
+        @downloadMedia="downloadTrack"
         @dragStart="dragStart"
         @episodeInformation="openTrackInformationModal"
         @playEpisode="onPlayEpisode"

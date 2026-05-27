@@ -17,9 +17,9 @@ export function useQueue() {
     () => [...QUEUE_DEFAULT_STATES.queueList],
   );
 
-  const originalQueueList = useState(
+  const originalQueueSnapshot = useState(
     STATE_KEYS.playerOriginalQueueList,
-    () => QUEUE_DEFAULT_STATES.originalQueueList,
+    () => QUEUE_DEFAULT_STATES.originalQueueSnapshot,
   );
 
   const currentQueueIndex = useState(
@@ -62,18 +62,18 @@ export function useQueue() {
       clearQueue();
     }
 
-    const queueListHasTracks = !!queueList.value.length;
+    const hadTracksBeforeAdd = !!queueList.value.length;
 
     queueList.value.push(...tracks);
     saveQueueState();
 
-    return queueListHasTracks;
+    return hadTracksBeforeAdd;
   }
 
   function clearQueue() {
     queueList.value = [...QUEUE_DEFAULT_STATES.queueList];
     currentQueueIndex.value = QUEUE_DEFAULT_STATES.currentQueueIndex;
-    originalQueueList.value = QUEUE_DEFAULT_STATES.originalQueueList;
+    originalQueueSnapshot.value = QUEUE_DEFAULT_STATES.originalQueueSnapshot;
   }
 
   async function clearServerQueue() {
@@ -142,7 +142,7 @@ export function useQueue() {
     }
 
     currentQueueIndex.value = savedState.currentQueueIndex;
-    originalQueueList.value = savedState.originalQueueList;
+    originalQueueSnapshot.value = savedState.originalQueueSnapshot;
     queueList.value = savedState.queueList;
   }
 
@@ -233,13 +233,13 @@ export function useQueue() {
   }
 
   function restoreQueue() {
-    const tempCurrentTrackId = currentTrack.value.id;
+    const currentTrackIdBeforeRestore = currentTrack.value.id;
     queueList.value = removeRemovedTracksFromOriginalQueue(
       [...queueList.value],
-      [...JSON.parse(originalQueueList.value)],
+      [...JSON.parse(originalQueueSnapshot.value)],
     );
-    originalQueueList.value = QUEUE_DEFAULT_STATES.originalQueueList;
-    const index = getQueueIndexById(tempCurrentTrackId);
+    originalQueueSnapshot.value = QUEUE_DEFAULT_STATES.originalQueueSnapshot;
+    const index = getQueueIndexById(currentTrackIdBeforeRestore);
     currentQueueIndex.value = index;
     saveQueueState();
   }
@@ -247,7 +247,7 @@ export function useQueue() {
   function saveQueueState(position?: number) {
     setLocalStorage(LOCAL_STORAGE_KEYS.queue, {
       currentQueueIndex: currentQueueIndex.value,
-      originalQueueList: originalQueueList.value,
+      originalQueueSnapshot: originalQueueSnapshot.value,
       queueList: queueList.value,
     });
 
@@ -256,7 +256,7 @@ export function useQueue() {
 
   function shuffleQueue() {
     const queueClone = [...queueList.value];
-    originalQueueList.value = JSON.stringify(queueClone);
+    originalQueueSnapshot.value = JSON.stringify(queueClone);
     const index = getQueueIndexById(currentTrack.value.id);
     queueList.value = shuffleTrackInQueue(queueClone, index);
     currentQueueIndex.value = 0;
@@ -349,7 +349,7 @@ export function useQueue() {
     isTrack,
     loadFromServer,
     navigateQueue,
-    originalQueueList,
+    originalQueueSnapshot,
     queueList,
     removeTrack,
     reorderTrack,

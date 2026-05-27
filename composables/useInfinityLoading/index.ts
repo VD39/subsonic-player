@@ -6,10 +6,8 @@ export function useInfinityLoading<T>(id: string) {
   const offset = useState(`${STATE_KEYS.infinityOffset}-${id}`, () => 0);
   const hasMore = useState(`${STATE_KEYS.infinityHasMore}-${id}`, () => true);
 
-  async function fetchMoreData<T>(
-    dataToFetch: (offset: number) => Promise<T> | T,
-  ) {
-    const values = await dataToFetch(offset.value);
+  async function fetchMoreData<T>(fetchFn: (offset: number) => Promise<T> | T) {
+    const values = await fetchFn(offset.value);
 
     if (!values || (Array.isArray(values) && !values.length)) {
       hasMore.value = false;
