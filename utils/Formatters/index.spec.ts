@@ -2,6 +2,7 @@ import {
   albumMock,
   artistMock,
   genreMock,
+  musicFolderMock,
   playlistMock,
   podcastEpisodeMock,
   podcastMock,
@@ -18,6 +19,7 @@ import {
   formatArtist,
   formatBookmark,
   formatGenre,
+  formatMusicFolder,
   formatPlaylist,
   formatPlayQueue,
   formatPodcast,
@@ -475,6 +477,32 @@ describe('formatArtist', () => {
           }),
         );
       });
+    });
+  });
+});
+
+describe('formatMusicFolder', () => {
+  it('returns the correct values', () => {
+    expect(formatMusicFolder(musicFolderMock)).toEqual({
+      id: 1,
+      image: FALLBACK_ICON_BY_TYPE.folder,
+      name: 'music-folder',
+    });
+  });
+
+  describe('when name is undefined', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatMusicFolder({
+          ...musicFolderMock,
+          name: undefined,
+        }),
+      ).toEqual(
+        expect.objectContaining({
+          image: FALLBACK_ICON_BY_TYPE.folder,
+          name: undefined,
+        }),
+      );
     });
   });
 });

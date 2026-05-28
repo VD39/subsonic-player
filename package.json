@@ -84,7 +84,7 @@
     "lint:styles": "stylelint --ignore-path .gitignore '**/*.{css,vue}'",
     "lint:styles:fix": "yarn lint:styles --fix",
     "postinstall": "nuxt prepare",
-    "precommit": "yarn lint:fix && yarn check-types && yarn test:changed -u",
+    "precommit": "yarn lint:fix && yarn check-types && yarn test:once -u",
     "prepare": "husky",
     "preview": "nuxt preview",
     "test": "vitest",

@@ -126,6 +126,15 @@ export function formatGenre(genre: ResponseGenre): Genre {
   };
 }
 
+export function formatMusicFolder(
+  folder: ResponseMusicFolder,
+): FormattedMusicFolder {
+  return {
+    ...folder,
+    image: FALLBACK_ICON_BY_TYPE.folder,
+  };
+}
+
 export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
   const {
     changed,

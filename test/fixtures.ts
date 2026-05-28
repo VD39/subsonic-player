@@ -61,6 +61,11 @@ export const formattedGenreMock = {
   trackCount: 100,
 };
 
+export const musicFolderMock: ResponseMusicFolder = {
+  id: 1,
+  name: 'music-folder',
+};
+
 export const radioStationMock: InternetRadioStation = {
   homepageUrl: 'homepageUrl',
   id: 'id',

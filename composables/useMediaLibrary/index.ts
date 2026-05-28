@@ -21,12 +21,9 @@ export function useMediaLibrary() {
   async function getMusicFolders() {
     const { data: musicFoldersData } = await fetchData('/getMusicFolders', {
       transform: /* istanbul ignore next -- @preserve */ (response) => ({
-        folders: (
-          response.musicFolders.musicFolder || []
-        ).map<FormattedMusicFolder>((folder) => ({
-          ...folder,
-          image: FALLBACK_ICON_BY_TYPE.folder,
-        })),
+        folders: (response.musicFolders.musicFolder || []).map(
+          formatMusicFolder,
+        ),
         tracks: [],
       }),
     });
