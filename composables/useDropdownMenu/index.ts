@@ -16,7 +16,7 @@ export function useDropdownMenu(options: DropdownOptions) {
   const isOpen = computed(() => activeMenuId.value === menuId);
 
   function positionDropdownMenu(
-    dropdownPosition: ReturnType<typeof getPointerPosition>,
+    dropdownPosition: ReturnType<typeof getPointerEventPosition>,
   ) {
     if (!hasRequiredRefs()) {
       return;
@@ -112,7 +112,7 @@ export function useDropdownMenu(options: DropdownOptions) {
   }
 
   async function openDropdownMenu(event?: MouseEvent | TouchEvent) {
-    const currentDropdownMenuPosition = getPointerPosition(event);
+    const currentDropdownMenuPosition = getPointerEventPosition(event);
     openMenuInternal();
     setupListeners();
 

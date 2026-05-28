@@ -69,7 +69,7 @@ function playFromSimilarTracks(index: number) {
   playTracks(artistData.value!.similarTracks, index);
 }
 
-function playTopTrack(index: number) {
+function playTopTracks(index: number) {
   playTracks(artistData.value!.topTracks, index);
 }
 
@@ -158,7 +158,7 @@ useHead({
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
           @mediaInformation="openTrackInformationModal"
-          @playTrack="playTopTrack"
+          @playTrack="playTopTracks"
         />
       </template>
 
@@ -177,10 +177,10 @@ useHead({
         />
       </template>
 
-      <template v-if="artistData.similarArtist.length">
+      <template v-if="artistData.similarArtists.length">
         <h2>Similar Artists</h2>
 
-        <ArtistsList :artists="artistData.similarArtist" />
+        <ArtistsList :artists="artistData.similarArtists" />
       </template>
     </div>
 

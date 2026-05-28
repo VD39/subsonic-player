@@ -4,7 +4,7 @@ exports[`InputRange > matches the snapshot 1`] = `
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -17,7 +17,7 @@ exports[`InputRange > when model value updates > matches the snapshot 1`] = `
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 50px;"></div>
+      <div class="progress" style="width: 50px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 44px;"></div>
@@ -30,7 +30,7 @@ exports[`InputRange > when the bufferLength prop is set to true > matches the sn
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <div class="buffer" style="width: 50px;"></div>
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -43,7 +43,7 @@ exports[`InputRange > when the bufferLength prop is set to true > when buffer du
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <div class="buffer" style="width: 75px;"></div>
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -56,7 +56,7 @@ exports[`InputRange > when the default slot is set > when the hideThumb prop is 
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -69,7 +69,7 @@ exports[`InputRange > when the default slot is set > when the max prop greater t
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -84,7 +84,7 @@ exports[`InputRange > when the default slot is set > when the max prop greater t
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -99,7 +99,7 @@ exports[`InputRange > when the default slot is set > when the max prop greater t
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -114,7 +114,7 @@ exports[`InputRange > when the height prop is set > matches the snapshot 1`] = `
 "<div class="inputRange" style="--input-slider-height: 10px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 19px;"></div>
@@ -127,7 +127,7 @@ exports[`InputRange > when the hideThumb prop is set to true > matches the snaps
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 25px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -140,7 +140,7 @@ exports[`InputRange > when the max prop equal to 0 > matches the snapshot 1`] = 
 "<div class="inputRange standard" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 100px;"></div>
+      <div class="progress" style="width: 100px;"></div>
       <!--v-if-->
     </div>
     <!--v-if-->
@@ -153,7 +153,7 @@ exports[`InputRange > when the mousedown on slider is called > matches the snaps
 "<div class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 60px;"></div>
+      <div class="progress" style="width: 60px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 54px;"></div>
@@ -166,7 +166,7 @@ exports[`InputRange > when the mousedown on slider is called > when slider mouse
 "<div class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 30px;"></div>
+      <div class="progress" style="width: 30px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 24px;"></div>
@@ -179,7 +179,7 @@ exports[`InputRange > when the mousedown on slider is called > when the mouseup 
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 60px;"></div>
+      <div class="progress" style="width: 60px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 54px;"></div>
@@ -192,7 +192,7 @@ exports[`InputRange > when the touchstart on slider is called > when touches is 
 "<div class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 60px;"></div>
+      <div class="progress" style="width: 60px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 54px;"></div>
@@ -205,7 +205,7 @@ exports[`InputRange > when the touchstart on slider is called > when touches is 
 "<div class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 30px;"></div>
+      <div class="progress" style="width: 30px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 24px;"></div>
@@ -218,7 +218,7 @@ exports[`InputRange > when the touchstart on slider is called > when touches is 
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 60px;"></div>
+      <div class="progress" style="width: 60px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 54px;"></div>
@@ -231,7 +231,7 @@ exports[`InputRange > when the touchstart on slider is called > when touches is 
 "<div class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 60px;"></div>
+      <div class="progress" style="width: 60px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 54px;"></div>
@@ -244,7 +244,7 @@ exports[`InputRange > when the touchstart on slider is called > when touches is 
 "<div class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 30px;"></div>
+      <div class="progress" style="width: 30px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 24px;"></div>
@@ -257,7 +257,7 @@ exports[`InputRange > when the touchstart on slider is called > when touches is 
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 60px;"></div>
+      <div class="progress" style="width: 60px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 54px;"></div>
@@ -270,7 +270,7 @@ exports[`InputRange > when the window change size is called > matches the snapsh
 "<div class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 50px;"></div>
+      <div class="progress" style="width: 50px;"></div>
       <!--v-if-->
     </div>
     <div class="thumb" style="left: 44px;"></div>

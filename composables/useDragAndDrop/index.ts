@@ -57,7 +57,7 @@ export function useDragAndDrop() {
     return clonedEl;
   }
 
-  function hasMediaType(media: QueueableMedia) {
+  function hasTypeProperty(media: QueueableMedia) {
     return media && 'type' in media;
   }
 
@@ -150,7 +150,11 @@ export function useDragAndDrop() {
   }
 
   function dragStart(media: QueueableMedia, event: DragEvent) {
-    if (!event.dataTransfer || draggedElement.value || !hasMediaType(media)) {
+    if (
+      !event.dataTransfer ||
+      draggedElement.value ||
+      !hasTypeProperty(media)
+    ) {
       return;
     }
 
@@ -195,7 +199,7 @@ export function useDragAndDrop() {
 
     const media: QueueableMedia = JSON.parse(mediaData);
 
-    if (!hasMediaType(media)) {
+    if (!hasTypeProperty(media)) {
       return;
     }
 

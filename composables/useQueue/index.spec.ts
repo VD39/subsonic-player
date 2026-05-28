@@ -62,7 +62,6 @@ const {
   isQueuePlayerOpened,
   isRadioStation,
   isTrack,
-  loadFromServer,
   navigateQueue,
   originalQueueSnapshot,
   queueList,
@@ -70,6 +69,7 @@ const {
   reorderTrack,
   resetQueue,
   restoreQueue,
+  restoreQueueState,
   shuffleQueue,
   toggleQueueList,
   toggleQueuePlayer,
@@ -1042,7 +1042,7 @@ describe('useQueue', () => {
     });
   });
 
-  describe('when the loadFromServer function is called', () => {
+  describe('when the restoreQueueState function is called', () => {
     describe('when ENABLE_QUEUE_SYNC is true', () => {
       describe('when the server returns no tracks', () => {
         beforeAll(async () => {
@@ -1050,7 +1050,7 @@ describe('useQueue', () => {
             data: null,
           });
 
-          await loadFromServer();
+          await restoreQueueState();
         });
 
         it('does not update the queueList value', () => {
@@ -1068,7 +1068,7 @@ describe('useQueue', () => {
             },
           });
 
-          await loadFromServer();
+          await restoreQueueState();
         });
 
         it('sets the correct position on the current track', () => {
@@ -1094,7 +1094,7 @@ describe('useQueue', () => {
             },
           });
 
-          await loadFromServer();
+          await restoreQueueState();
         });
 
         it('sets the correct position on the first track', () => {
@@ -1123,7 +1123,7 @@ describe('useQueue', () => {
             },
           });
 
-          await loadFromServer();
+          await restoreQueueState();
         });
 
         it('sets the correct position on the first track', () => {
@@ -1149,8 +1149,8 @@ describe('useQueue', () => {
         config.public.ENABLE_QUEUE_SYNC = false;
         vi.clearAllMocks();
 
-        const { loadFromServer } = useQueue();
-        await loadFromServer();
+        const { restoreQueueState } = useQueue();
+        await restoreQueueState();
       });
 
       it('does not call the fetchData function', () => {
@@ -1161,8 +1161,8 @@ describe('useQueue', () => {
         beforeAll(() => {
           getLocalStorageMock.mockReturnValue(null);
 
-          const { loadFromServer } = useQueue();
-          loadFromServer();
+          const { restoreQueueState } = useQueue();
+          restoreQueueState();
         });
 
         it('does not update the currentQueueIndex value', () => {
@@ -1182,8 +1182,8 @@ describe('useQueue', () => {
             queueList: tracks,
           });
 
-          const { loadFromServer } = useQueue();
-          loadFromServer();
+          const { restoreQueueState } = useQueue();
+          restoreQueueState();
         });
 
         it('sets the correct currentQueueIndex value', () => {

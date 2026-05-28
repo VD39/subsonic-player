@@ -4,7 +4,7 @@ import { vi } from 'vitest';
 const addTracksToQueueMock = vi.fn();
 const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
-const resetPlayerMock = vi.fn();
+const resetPlayerSessionMock = vi.fn();
 const currentTimeMock = ref(0);
 const fastForwardTrackMock = vi.fn();
 const hasNextTrackMock = ref(false);
@@ -60,7 +60,7 @@ export function useAudioPlayerMock() {
     reorderQueueTrack: reorderQueueTrackMock,
     repeat: repeatMock,
     resetAudioPlayer: resetAudioPlayerMock,
-    resetPlayer: resetPlayerMock,
+    resetPlayerSession: resetPlayerSessionMock,
     rewindTrack: rewindTrackMock,
     seekTo: seekToMock,
     setPlaybackRate: setPlaybackRateMock,
@@ -96,7 +96,7 @@ export function useAudioPlayerMock() {
     reorderQueueTrackMock,
     repeatMock,
     resetAudioPlayerMock,
-    resetPlayerMock,
+    resetPlayerSessionMock,
     rewindTrackMock,
     seekToMock,
     setPlaybackRateMock,

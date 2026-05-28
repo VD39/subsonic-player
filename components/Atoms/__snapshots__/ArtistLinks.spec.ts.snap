@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ArtistsList > matches the snapshot 1`] = `
+exports[`ArtistLinks > matches the snapshot 1`] = `
 "<ul class="commaList">
   <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
   <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>

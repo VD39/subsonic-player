@@ -43,7 +43,7 @@ const formInputs = {
 const form = createForm(formInputs);
 
 function onFormSubmit() {
-  validateInputs(form);
+  validateFormFields(form);
 
   if (!form.isValid.value) {
     return;

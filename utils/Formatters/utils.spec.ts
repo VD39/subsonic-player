@@ -7,18 +7,18 @@ import {
 } from '@/test/helpers';
 
 import {
+  filterPodcastEpisodesByStatus,
   getAlbumSize,
   getArtists,
   getDownloadedEpisodesCount,
   getGenres,
   getLatestDate,
-  getSortedPodcastEpisodes,
+  getPodcastEpisodesByDownloadStatus,
+  getTotalTracks,
   getTotalTracksDuration,
-  getTracksTotal,
   getUniqueGenres,
   getUniqueImages,
   groupTracksByDiscNumber,
-  sortPodcastEpisodes,
 } from './utils';
 
 const downloadedPodcastEpisodes = getFormattedPodcastEpisodesMock(2, {
@@ -267,16 +267,16 @@ describe('getAlbumSize', () => {
   });
 });
 
-describe('getTracksTotal', () => {
+describe('getTotalTracks', () => {
   describe('when albums is undefined', () => {
     it('returns the correct values', () => {
-      expect(getTracksTotal()).toEqual(0);
+      expect(getTotalTracks()).toEqual(0);
     });
   });
 
   describe('when albums is defined', () => {
     it('returns the correct values', () => {
-      expect(getTracksTotal(getAlbumsMock(5))).toEqual(20);
+      expect(getTotalTracks(getAlbumsMock(5))).toEqual(20);
     });
   });
 });
@@ -441,7 +441,7 @@ describe('groupTracksByDiscNumber', () => {
   });
 });
 
-describe('sortPodcastEpisodes', () => {
+describe('filterPodcastEpisodesByStatus', () => {
   describe.each([
     [ROUTE_PODCAST_FILTER_PARAMS.Downloaded, [], []],
     [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded'], [], []],
@@ -459,15 +459,17 @@ describe('sortPodcastEpisodes', () => {
     [ROUTE_PODCAST_FILTER_PARAMS.All, podcastEpisodes, podcastEpisodes],
   ])('when status is %s', (status, podcastEpisodes, output) => {
     it('returns the correct sorted values', () => {
-      expect(sortPodcastEpisodes(podcastEpisodes, status)).toEqual(output);
+      expect(filterPodcastEpisodesByStatus(podcastEpisodes, status)).toEqual(
+        output,
+      );
     });
   });
 });
 
-describe('getSortedPodcastEpisodes', () => {
+describe('getPodcastEpisodesByDownloadStatus', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct response', () => {
-      expect(getSortedPodcastEpisodes()).toEqual({
+      expect(getPodcastEpisodesByDownloadStatus()).toEqual({
         [ROUTE_PODCAST_FILTER_PARAMS.All]: [],
         [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: [],
         [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]: [],
@@ -477,7 +479,7 @@ describe('getSortedPodcastEpisodes', () => {
 
   describe('when podcast episodes is an empty array', () => {
     it('returns the correct response', () => {
-      expect(getSortedPodcastEpisodes([])).toEqual({
+      expect(getPodcastEpisodesByDownloadStatus([])).toEqual({
         [ROUTE_PODCAST_FILTER_PARAMS.All]: [],
         [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: [],
         [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]: [],
@@ -487,7 +489,7 @@ describe('getSortedPodcastEpisodes', () => {
 
   describe('when podcast episodes is not an empty array', () => {
     it('returns the correct response', () => {
-      expect(getSortedPodcastEpisodes(podcastEpisodes)).toEqual({
+      expect(getPodcastEpisodesByDownloadStatus(podcastEpisodes)).toEqual({
         [ROUTE_PODCAST_FILTER_PARAMS.All]: podcastEpisodes,
         [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: downloadedPodcastEpisodes,
         [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]:

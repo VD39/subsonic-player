@@ -36,7 +36,7 @@ export function secondsToHHMMSS(seconds: number | string | undefined) {
   return date.slice(11, 19);
 }
 
-export function secondsToTimeFormat(seconds: number | string | undefined) {
+export function secondsToHumanReadable(seconds: number | string | undefined) {
   const totalSeconds = Number(seconds);
 
   if (!seconds || Number.isNaN(totalSeconds)) {

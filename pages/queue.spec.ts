@@ -47,7 +47,7 @@ const {
   playFromQueueMock,
   removeFromQueueMock,
   reorderQueueTrackMock,
-  resetPlayerMock,
+  resetPlayerSessionMock,
 } = useAudioPlayerMock();
 const { queueListMock, resetQueueMock } = useQueueMock();
 
@@ -85,8 +85,8 @@ describe('queue', () => {
       wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
     });
 
-    it('calls the resetPlayer function', () => {
-      expect(resetPlayerMock).toHaveBeenCalled();
+    it('calls the resetPlayerSession function', () => {
+      expect(resetPlayerSessionMock).toHaveBeenCalled();
     });
 
     it('calls the resetQueue function', () => {

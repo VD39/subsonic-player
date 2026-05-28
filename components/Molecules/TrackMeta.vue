@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 
@@ -52,7 +52,7 @@ defineProps<{
         <li v-if="'artists' in track && track.artists.length" ref="artists">
           <span class="visuallyHidden">Track artists</span>
 
-          <ArtistsList :artists="track.artists" />
+          <ArtistLinks :artists="track.artists" />
         </li>
         <li v-if="'author' in track && track.author" ref="author">
           <span class="visuallyHidden">Podcast author</span>

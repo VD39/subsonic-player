@@ -4,7 +4,7 @@ import { useQueueMock } from '@/test/useQueueMock';
 import audioPlayerPlugin from './audio-player.client';
 
 const { initAudioPlayerMock } = useAudioPlayerMock();
-const { loadFromServerMock } = useQueueMock();
+const { restoreQueueStateMock } = useQueueMock();
 
 let hookCallback: () => void;
 
@@ -23,8 +23,8 @@ describe('audio-player.client plugin', () => {
     vi.clearAllMocks();
   });
 
-  it('does not call the loadFromServer function on plugin initialisation', () => {
-    expect(loadFromServerMock).not.toHaveBeenCalled();
+  it('does not call the restoreQueueState function on plugin initialisation', () => {
+    expect(restoreQueueStateMock).not.toHaveBeenCalled();
   });
 
   it('does not call the initAudioPlayer function on plugin initialisation', () => {
@@ -36,8 +36,8 @@ describe('audio-player.client plugin', () => {
       hookCallback();
     });
 
-    it('calls the loadFromServer function', () => {
-      expect(loadFromServerMock).toHaveBeenCalled();
+    it('calls the restoreQueueState function', () => {
+      expect(restoreQueueStateMock).toHaveBeenCalled();
     });
 
     it('calls the initAudioPlayer function', () => {

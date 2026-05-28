@@ -27,7 +27,7 @@ exports[`[[id]] > when getAlbum does return data > matches the snapshot 1`] = `
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artists-list-stub artists="[object Object],[object Object]"></artists-list-stub>
+        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
         <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -84,7 +84,7 @@ exports[`[[id]] > when getAlbum does return data > when album.genres is an empty
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artists-list-stub artists="[object Object],[object Object]"></artists-list-stub>
+        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
         <!--v-if-->
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -141,7 +141,7 @@ exports[`[[id]] > when getAlbum does return data > when album.totalDiscNumber is
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artists-list-stub artists="[object Object],[object Object]"></artists-list-stub>
+        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
         <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -206,7 +206,7 @@ exports[`[[id]] > when getAlbum does return data > when album.trackCount is 1 > 
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artists-list-stub artists="[object Object],[object Object]"></artists-list-stub>
+        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
         <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>

@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function validateInputs<T extends Form<any>>(form: T) {
+export function validateFormFields<T extends Form<any>>(form: T) {
   for (const field of Object.values(form.fields)) {
     const value = field.value.value;
 

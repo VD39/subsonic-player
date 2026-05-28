@@ -11,16 +11,6 @@ const route = useRoute();
 
 const { error, isAuthenticated, loading, login } = useAuth();
 
-async function checkLogin() {
-  if (isAuthenticated.value) {
-    const destination = route.query.redirect?.toString() || {
-      name: ROUTE_NAMES.index,
-    };
-
-    return navigateTo(destination);
-  }
-}
-
 async function onFormSubmit(fields: AuthData) {
   const { password, server, username } = fields;
 
@@ -30,7 +20,17 @@ async function onFormSubmit(fields: AuthData) {
     username,
   });
 
-  await checkLogin();
+  await redirectIfAuthenticated();
+}
+
+async function redirectIfAuthenticated() {
+  if (isAuthenticated.value) {
+    const destination = route.query.redirect?.toString() || {
+      name: ROUTE_NAMES.index,
+    };
+
+    return navigateTo(destination);
+  }
 }
 
 useHead({

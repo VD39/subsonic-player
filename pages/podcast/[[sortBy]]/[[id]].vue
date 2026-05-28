@@ -94,7 +94,7 @@ function playDownloadedEpisodes() {
   playTracks(podcast.value!.episodes.downloaded);
 }
 
-function playLatestEpisode() {
+function playFirstDownloadedEpisode() {
   onPlayEpisode(podcast.value!.episodes.downloaded[0]);
 }
 
@@ -170,7 +170,7 @@ useHead({
             <template v-if="hasDownloadedEpisodes">
               <DropdownItem
                 ref="playLatestEpisodeDropdownItem"
-                @click="playLatestEpisode"
+                @click="playFirstDownloadedEpisode"
               >
                 Play latest episode
               </DropdownItem>

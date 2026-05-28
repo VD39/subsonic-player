@@ -2,10 +2,10 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import ArtistsList from './ArtistsList.vue';
+import ArtistLinks from './ArtistLinks.vue';
 
 function factory(props = {}) {
-  return mount(ArtistsList, {
+  return mount(ArtistLinks, {
     props: {
       artists: [
         {
@@ -22,7 +22,7 @@ function factory(props = {}) {
   });
 }
 
-describe('ArtistsList', () => {
+describe('ArtistLinks', () => {
   let wrapper: VueWrapper;
 
   beforeEach(() => {

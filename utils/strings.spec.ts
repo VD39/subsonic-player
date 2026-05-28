@@ -2,9 +2,9 @@ import {
   convertToTitleCase,
   formatListToString,
   generateRandomString,
+  normaliseStringToWords,
   replaceCharacterWithSpace,
   replaceSpaceWithCharacter,
-  sanitiseString,
   splitCamelCase,
 } from './strings';
 
@@ -56,7 +56,7 @@ describe('replaceSpaceWithCharacter', () => {
   );
 });
 
-describe('sanitiseString', () => {
+describe('normaliseStringToWords', () => {
   describe.each([
     ['abcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz'],
     ['ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'],
@@ -64,7 +64,7 @@ describe('sanitiseString', () => {
     ['      abcdefghijklmnopqrstuvwxyz      ', 'abcdefghijklmnopqrstuvwxyz'],
   ])('when is string %s and replace characters is %s', (input, output) => {
     it('returns the correct response', () => {
-      expect(sanitiseString(input)).toBe(output);
+      expect(normaliseStringToWords(input)).toBe(output);
     });
   });
 });

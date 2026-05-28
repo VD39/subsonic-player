@@ -3,7 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 import DropdownSubmenu from '@/components/Molecules/Dropdown/DropdownSubmenu.vue';
@@ -59,8 +59,8 @@ describe('AlbumItem', () => {
         }
       });
 
-      it('shows the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+      it('shows the ArtistLinks component', () => {
+        expect(wrapper.findComponent(ArtistLinks).exists()).toBe(true);
       });
 
       it('shows the DropdownSubmenu component', () => {
@@ -86,8 +86,8 @@ describe('AlbumItem', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+      it('does not show the ArtistLinks component', () => {
+        expect(wrapper.findComponent(ArtistLinks).exists()).toBe(false);
       });
     });
   });
@@ -105,8 +105,8 @@ describe('AlbumItem', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not show the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+    it('does not show the ArtistLinks component', () => {
+      expect(wrapper.findComponent(ArtistLinks).exists()).toBe(false);
     });
 
     it('does not show the DropdownSubmenu component', () => {

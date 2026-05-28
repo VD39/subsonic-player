@@ -94,13 +94,13 @@ export function formatArtist(
       ? `https://musicbrainz.org/artist/${musicBrainzId}`
       : undefined,
     name,
-    similarArtist: similarArtist.map(formatArtist),
+    similarArtists: similarArtist.map(formatArtist),
     similarTracks: similarSongs.map((track, index) =>
       formatTrack(track, index),
     ),
     topTracks: topSongs.map((track, index) => formatTrack(track, index)),
     totalAlbums,
-    totalTracks: getTracksTotal(album),
+    totalTracks: getTotalTracks(album),
     type: MEDIA_TYPE.artist,
   };
 }
@@ -144,7 +144,7 @@ export function formatPlaylist(playlist: PlaylistWithSongs): Playlist {
 
   return {
     duration,
-    formattedDuration: secondsToTimeFormat(duration),
+    formattedDuration: secondsToHumanReadable(duration),
     id,
     images: getUniqueImages(tracks),
     information: {
@@ -185,7 +185,7 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
   } = podcast;
 
   const podcastEpisodes = episode.map(formatPodcastEpisode);
-  const episodes = getSortedPodcastEpisodes(podcastEpisodes);
+  const episodes = getPodcastEpisodesByDownloadStatus(podcastEpisodes);
 
   return {
     description,

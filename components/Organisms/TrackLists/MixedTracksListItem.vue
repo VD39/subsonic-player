@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import LazyLoadContent from '@/components/Atoms/LazyLoadContent.vue';
@@ -122,7 +122,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           v-if="'artists' in track && track.artists.length"
           ref="artistsMarqueeScroll"
         >
-          <ArtistsList :artists="track.artists" />
+          <ArtistLinks :artists="track.artists" />
         </MarqueeScroll>
 
         <MarqueeScroll

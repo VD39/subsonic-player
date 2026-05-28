@@ -397,16 +397,16 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.similarArtist is an empty array', () => {
+    describe('when artistData.similarArtists is an empty array', () => {
       it('does not show the ArtistsList component', () => {
         expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
       });
     });
 
-    describe('when artistData.similarArtist is not an empty array', () => {
+    describe('when artistData.similarArtists is not an empty array', () => {
       beforeEach(() => {
         artistDataMock.value = getFormattedArtistsMock(1, {
-          similarArtist: [artist],
+          similarArtists: [artist],
         })[0];
 
         wrapper = factory();

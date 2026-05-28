@@ -55,7 +55,7 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
     return;
   }
 
-  const pointer = getPointerPosition(event);
+  const pointer = getPointerEventPosition(event);
 
   if (!pointer) {
     return;
@@ -183,7 +183,7 @@ onUnmounted(() => {
       <div :class="$style.progressWrapper">
         <div
           ref="progressBar"
-          :class="$style.process"
+          :class="$style.progress"
           :style="{ width: `${progress}px` }"
         />
 
@@ -254,7 +254,7 @@ onUnmounted(() => {
 }
 
 .buffer,
-.process {
+.progress {
   position: absolute;
   inset: 0 auto auto 0;
   z-index: 1;
@@ -262,7 +262,7 @@ onUnmounted(() => {
   background-color: var(--theme-color);
 
   .standard & {
-    --process-background-color: color-mix(
+    --progress-background-color: color-mix(
       in oklab,
       var(--body-font-color) 25%,
       transparent
@@ -270,11 +270,11 @@ onUnmounted(() => {
 
     background-image: linear-gradient(
       -45deg,
-      var(--process-background-color) 25%,
+      var(--progress-background-color) 25%,
       transparent 25%,
       transparent 50%,
-      var(--process-background-color) 50%,
-      var(--process-background-color) 75%,
+      var(--progress-background-color) 50%,
+      var(--progress-background-color) 75%,
       transparent 75%,
       transparent
     );

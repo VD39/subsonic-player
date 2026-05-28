@@ -1,4 +1,4 @@
-export function getPointerPosition(event?: MouseEvent | TouchEvent) {
+export function getPointerEventPosition(event?: MouseEvent | TouchEvent) {
   if (!event) {
     return undefined;
   }

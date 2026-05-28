@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
 import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
@@ -108,7 +108,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         </NuxtLink>
       </p>
 
-      <ArtistsList
+      <ArtistLinks
         v-if="!hideArtist && album.artists.length"
         :artists="album.artists"
         class="smallFont clamp2"

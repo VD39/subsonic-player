@@ -1857,9 +1857,9 @@ describe('useAudioPlayer', () => {
     });
   });
 
-  describe('when resetPlayer function is called', () => {
+  describe('when resetPlayerSession function is called', () => {
     beforeAll(() => {
-      result.composable.resetPlayer();
+      result.composable.resetPlayerSession();
     });
 
     it('resets the repeat value to the default value', () => {
@@ -1895,7 +1895,7 @@ describe('useAudioPlayer', () => {
         isPodcastEpisodeMock.value = true;
         vi.clearAllMocks();
         result.composable.currentTime.value = 150;
-        result.composable.resetPlayer();
+        result.composable.resetPlayerSession();
       });
 
       it('calls the createBookmark function with the correct parameters', () => {
@@ -1911,7 +1911,7 @@ describe('useAudioPlayer', () => {
         isPodcastEpisodeMock.value = false;
         vi.clearAllMocks();
         result.composable.currentTime.value = 160;
-        result.composable.resetPlayer();
+        result.composable.resetPlayerSession();
       });
 
       it('does not call the createBookmark function', () => {

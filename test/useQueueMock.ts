@@ -23,7 +23,6 @@ const isQueueListOpenedMock = ref(false);
 const isQueuePlayerOpenedMock = ref(false);
 const isRadioStationMock = ref(false);
 const isTrackMock = ref(false);
-const loadFromServerMock = vi.fn();
 const loadQueueStateMock = vi.fn();
 const navigateQueueMock = vi.fn();
 const originalQueueListMock = ref([]);
@@ -36,6 +35,7 @@ const resetQueueMock = vi.fn().mockImplementation(() => {
   originalQueueListMock.value = [];
 });
 const restoreQueueMock = vi.fn();
+const restoreQueueStateMock = vi.fn();
 const shuffleQueueMock = vi.fn();
 const toggleQueueListMock = vi.fn();
 const toggleQueuePlayerMock = vi.fn();
@@ -59,7 +59,6 @@ export function useQueueMock() {
     isQueuePlayerOpened: isQueuePlayerOpenedMock,
     isRadioStation: isRadioStationMock,
     isTrack: isTrackMock,
-    loadFromServer: loadFromServerMock,
     loadQueueState: loadQueueStateMock,
     navigateQueue: navigateQueueMock,
     originalQueueList: originalQueueListMock,
@@ -68,6 +67,7 @@ export function useQueueMock() {
     reorderTrack: reorderTrackMock,
     resetQueue: resetQueueMock,
     restoreQueue: restoreQueueMock,
+    restoreQueueState: restoreQueueStateMock,
     shuffleQueue: shuffleQueueMock,
     toggleQueueList: toggleQueueListMock,
     toggleQueuePlayer: toggleQueuePlayerMock,
@@ -91,7 +91,6 @@ export function useQueueMock() {
     isQueuePlayerOpenedMock,
     isRadioStationMock,
     isTrackMock,
-    loadFromServerMock,
     loadQueueStateMock,
     navigateQueueMock,
     originalQueueListMock,
@@ -100,6 +99,7 @@ export function useQueueMock() {
     reorderTrackMock,
     resetQueueMock,
     restoreQueueMock,
+    restoreQueueStateMock,
     shuffleQueueMock,
     toggleQueueListMock,
     toggleQueuePlayerMock,

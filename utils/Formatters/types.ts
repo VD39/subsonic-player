@@ -31,7 +31,7 @@ export interface Artist extends BaseArtist {
   image: string;
   lastFmUrl?: string;
   musicBrainzUrl?: string;
-  similarArtist: Artist[];
+  similarArtists: Artist[];
   similarTracks: Track[];
   topTracks: Track[];
   totalAlbums: number;

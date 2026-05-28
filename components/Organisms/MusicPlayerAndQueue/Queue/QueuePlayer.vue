@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
@@ -124,7 +124,7 @@ const {
                   "
                   ref="artistsMarqueeScroll"
                 >
-                  <ArtistsList :artists="currentTrack.artists" />
+                  <ArtistLinks :artists="currentTrack.artists" />
                 </MarqueeScroll>
               </template>
 

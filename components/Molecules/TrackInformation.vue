@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import GenreList from '@/components/Atoms/GenreList.vue';
 import LinkOrText from '@/components/Atoms/LinkOrText.vue';
 
@@ -39,7 +39,7 @@ defineProps<{
       <div :class="['trackCell', 'trackMeta', $style.title]">Artists</div>
 
       <div class="trackCell">
-        <ArtistsList
+        <ArtistLinks
           v-if="track.artists.length"
           :artists="track.artists"
           :class="$style.list"

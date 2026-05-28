@@ -58,7 +58,7 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -131,7 +131,7 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -213,7 +213,7 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -293,7 +293,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -375,7 +375,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -455,7 +455,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -535,7 +535,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -615,7 +615,7 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -688,7 +688,7 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>
@@ -770,7 +770,7 @@ exports[`MusicPlayer > when currentTrack value does not have an author key > mat
           <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
             <div class="centerItems slider">
               <div class="progressWrapper">
-                <div class="process" style="width: 0px;"></div>
+                <div class="progress" style="width: 0px;"></div>
                 <!--v-if-->
               </div>
               <div class="thumb" style="left: -6px;"></div>

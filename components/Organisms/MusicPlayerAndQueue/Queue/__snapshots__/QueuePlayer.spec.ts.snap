@@ -35,7 +35,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -130,7 +130,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -222,7 +222,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -315,7 +315,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -412,7 +412,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -505,7 +505,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -602,7 +602,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -695,7 +695,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -787,7 +787,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -868,7 +868,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -947,7 +947,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -1031,7 +1031,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -1110,7 +1110,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>
@@ -1205,7 +1205,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
             <div class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
               <div class="centerItems slider">
                 <div class="progressWrapper">
-                  <div class="process" style="width: 0px;"></div>
+                  <div class="progress" style="width: 0px;"></div>
                   <div class="buffer" style="width: 0px;"></div>
                 </div>
                 <div class="thumb" style="left: -6px;"></div>

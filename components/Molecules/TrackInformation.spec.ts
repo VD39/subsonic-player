@@ -2,7 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import GenreList from '@/components/Atoms/GenreList.vue';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 
@@ -29,8 +29,8 @@ describe('TrackInformation', () => {
   });
 
   describe('when artists is not an empty array', () => {
-    it('shows the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+    it('shows the ArtistLinks component', () => {
+      expect(wrapper.findComponent(ArtistLinks).exists()).toBe(true);
     });
 
     it('does not show the artists else element', () => {
@@ -51,8 +51,8 @@ describe('TrackInformation', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('does not show the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+    it('does not show the ArtistLinks component', () => {
+      expect(wrapper.findComponent(ArtistLinks).exists()).toBe(false);
     });
 
     it('shows the artists else element', () => {

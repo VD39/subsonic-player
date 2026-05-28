@@ -3,9 +3,13 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
-const { playFromQueue, removeFromQueue, reorderQueueTrack, resetPlayer } =
-  useAudioPlayer();
-const { loadFromServer, queueList, resetQueue } = useQueue();
+const {
+  playFromQueue,
+  removeFromQueue,
+  reorderQueueTrack,
+  resetPlayerSession,
+} = useAudioPlayer();
+const { queueList, resetQueue, restoreQueueState } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
 const { downloadTrack } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
@@ -15,7 +19,7 @@ const { dragStart } = useDragAndDrop();
 useAsyncData(
   ASYNC_DATA_KEYS.queue,
   async () => {
-    await loadFromServer();
+    await restoreQueueState();
 
     return {
       queueList: queueList.value,
@@ -30,8 +34,8 @@ useAsyncData(
   },
 );
 
-function clearQueue() {
-  resetPlayer();
+function clearQueueAndResetPlayer() {
+  resetPlayerSession();
   resetQueue();
 }
 
@@ -49,7 +53,7 @@ useHead({
         ref="clearQueueButton"
         :icon="ICONS.clear"
         title="Clear queue"
-        @click="clearQueue"
+        @click="clearQueueAndResetPlayer"
       >
         Clear queue
       </ButtonLink>

@@ -1,5 +1,5 @@
-export function createForm<T extends Inputs>(formInputs: T) {
-  const fields = Object.entries(formInputs).reduce(
+export function createForm<T extends FieldConfig>(fieldsConfig: T) {
+  const fields = Object.entries(fieldsConfig).reduce(
     (previousValue, [name, { options, validationRules, value = '' }]) => {
       previousValue[name as keyof T] = {
         error: ref(''),

@@ -25,7 +25,7 @@ const { fetchMoreData, hasMore } = useInfinityLoading<SearchResultByType>(
 );
 
 const query = replaceCharacterWithSpace(
-  sanitiseString(route.params[ROUTE_PARAM_KEYS.search.query] as string),
+  normaliseStringToWords(route.params[ROUTE_PARAM_KEYS.search.query] as string),
 );
 
 /* istanbul ignore next -- @preserve */

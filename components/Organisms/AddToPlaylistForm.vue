@@ -52,7 +52,7 @@ function getButtonProps(playlistId: string) {
 }
 
 function onFormSubmit() {
-  validateInputs(form);
+  validateFormFields(form);
 
   if (!form.isValid.value) {
     return;

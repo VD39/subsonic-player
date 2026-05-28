@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 defineProps<{
   icon?: Icon;
-  is?: 'span' | ButtonLinkIs;
+  is?: 'span' | ButtonOrLinkType;
   selected?: boolean;
 }>();
 

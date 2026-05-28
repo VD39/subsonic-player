@@ -267,7 +267,7 @@ describe('formatArtist', () => {
       lastFmUrl: undefined,
       musicBrainzUrl: undefined,
       name: 'name',
-      similarArtist: [],
+      similarArtists: [],
       similarTracks: [],
       topTracks: [],
       totalAlbums: 0,
@@ -304,7 +304,7 @@ describe('formatArtist', () => {
     [
       'similarArtist',
       {
-        similarArtist: [],
+        similarArtists: [],
       },
     ],
     [
@@ -427,7 +427,7 @@ describe('formatArtist', () => {
     });
   });
 
-  describe('when similarArtist is defined', () => {
+  describe('when similarArtists is defined', () => {
     describe('when coverArt is defined', () => {
       it('returns the correct values', () => {
         expect(
@@ -442,7 +442,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            similarArtist: expect.arrayContaining([
+            similarArtists: expect.arrayContaining([
               expect.objectContaining({
                 image: 'coverArt',
               }),
@@ -467,7 +467,7 @@ describe('formatArtist', () => {
           }),
         ).toEqual(
           expect.objectContaining({
-            similarArtist: expect.arrayContaining([
+            similarArtists: expect.arrayContaining([
               expect.objectContaining({
                 image: FALLBACK_ICON_BY_TYPE.artist,
               }),

@@ -4,7 +4,7 @@ import {
   getPreviousTracks,
   getTracksToPreload,
   getUpcomingTracks,
-  removeRemovedTracksFromOriginalQueue,
+  pruneOriginalQueue,
   shuffleTrackInQueue,
 } from './utils';
 
@@ -89,7 +89,7 @@ describe('getTracksToPreload', () => {
   );
 });
 
-describe('removeRemovedTracksFromOriginalQueue', () => {
+describe('pruneOriginalQueue', () => {
   describe.each([
     [
       tracks,
@@ -106,7 +106,7 @@ describe('removeRemovedTracksFromOriginalQueue', () => {
     (shuffledQueue, originalQueue, expected) => {
       it('returns filtered items from b whose ids exist in a', () => {
         expect(
-          removeRemovedTracksFromOriginalQueue(
+          pruneOriginalQueue(
             shuffledQueue as PlayableTrack[],
             originalQueue as PlayableTrack[],
           ),

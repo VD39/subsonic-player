@@ -3,7 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import GenreList from '@/components/Atoms/GenreList.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -67,7 +67,7 @@ async function factory(props = {}) {
     global: {
       stubs: {
         AlbumTracksList: true,
-        ArtistsList: true,
+        ArtistLinks: true,
         FavouriteButton: true,
         GenreList: true,
       },
@@ -153,14 +153,14 @@ describe('[[id]]', () => {
         wrapper = await factory();
       });
 
-      it('does not show the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+      it('does not show the ArtistLinks component', () => {
+        expect(wrapper.findComponent(ArtistLinks).exists()).toBe(false);
       });
     });
 
     describe('when album.artists is not an empty array', () => {
-      it('shows the ArtistsList component', () => {
-        expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+      it('shows the ArtistLinks component', () => {
+        expect(wrapper.findComponent(ArtistLinks).exists()).toBe(true);
       });
     });
 

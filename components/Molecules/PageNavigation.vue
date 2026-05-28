@@ -3,7 +3,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import OverflowShadow from '@/components/Atoms/OverflowShadow.vue';
 
 defineProps<{
-  navigation: NavigationTabMap;
+  navigation: PageNavigationMap;
 }>();
 </script>
 

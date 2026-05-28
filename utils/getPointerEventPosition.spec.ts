@@ -1,11 +1,11 @@
-import { getPointerPosition } from './pointerEvent';
+import { getPointerEventPosition } from './getPointerEventPosition';
 
-vi.unmock('./pointerEvent');
+vi.unmock('./getPointerEventPosition');
 
-describe('getPointerPosition', () => {
+describe('getPointerEventPosition', () => {
   describe('when event is not defined', () => {
     it('returns the correct response', () => {
-      expect(getPointerPosition()).toBe(undefined);
+      expect(getPointerEventPosition()).toBe(undefined);
     });
   });
 
@@ -13,7 +13,7 @@ describe('getPointerPosition', () => {
     describe('when touches is not an empty array', () => {
       it('returns the correct response', () => {
         expect(
-          getPointerPosition({
+          getPointerEventPosition({
             touches: [
               {
                 clientX: 50,
@@ -33,7 +33,7 @@ describe('getPointerPosition', () => {
     describe('when touches is an empty array and changedTouches is not an empty array', () => {
       it('returns the correct response', () => {
         expect(
-          getPointerPosition({
+          getPointerEventPosition({
             changedTouches: [
               {
                 clientX: 75,
@@ -54,7 +54,7 @@ describe('getPointerPosition', () => {
     describe('when touches and changedTouches are empty arrays', () => {
       it('returns the correct response', () => {
         expect(
-          getPointerPosition({
+          getPointerEventPosition({
             changedTouches: [],
             touches: [],
           } as unknown as TouchEvent),
@@ -66,7 +66,7 @@ describe('getPointerPosition', () => {
   describe('when event is a mouse event', () => {
     it('returns the correct response', () => {
       expect(
-        getPointerPosition(
+        getPointerEventPosition(
           new MouseEvent('click', {
             clientX: 200,
             clientY: 300,

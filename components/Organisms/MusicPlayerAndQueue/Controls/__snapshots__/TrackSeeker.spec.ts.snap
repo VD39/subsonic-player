@@ -4,7 +4,7 @@ exports[`TrackSeeker > matches the snapshot 1`] = `
 "<div class="inputRange" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:02 of 02:00" tabindex="0">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="process" style="width: 0px;"></div>
+      <div class="progress" style="width: 0px;"></div>
       <div class="buffer" style="width: 0px;"></div>
     </div>
     <div class="thumb" style="left: -6px;"></div>

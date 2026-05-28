@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import GenreList from '@/components/Atoms/GenreList.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -66,7 +66,7 @@ useHead({
         :title="albumData.album.name"
         @dragStart="onDragStart"
       >
-        <ArtistsList
+        <ArtistLinks
           v-if="albumData.album.artists.length"
           :artists="albumData.album.artists"
         />

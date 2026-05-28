@@ -3,7 +3,7 @@ import type { UseFetchOptions } from 'nuxt/app';
 export default defineEventHandler(async (event) => {
   const { id } = getQuery(event);
 
-  async function fetchData<DataT = SubsonicResponse>(
+  async function fetchSubsonicData<DataT = SubsonicResponse>(
     url: string,
     options: UseFetchOptions<SubsonicResponse, DataT>,
   ) {
@@ -48,7 +48,7 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  const result = await fetchAndMergeArtistData(id as string, fetchData);
+  const result = await fetchAndMergeArtistData(id as string, fetchSubsonicData);
 
   return {
     data: result,

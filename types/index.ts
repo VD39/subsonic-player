@@ -1,6 +1,6 @@
 import type { NuxtLinkProps } from 'nuxt/app';
 
-export type ButtonLinkIs = 'button' | LinkIs;
+export type ButtonOrLinkType = 'button' | LinkIs;
 
 export interface ButtonProps {
   icon?: Component | Icon;
@@ -23,7 +23,7 @@ export type LinkIs = 'a' | 'nuxt-link';
 export type MediaTypeParam =
   TypeofRouteMediaTypeParams[keyof TypeofRouteMediaTypeParams];
 
-export type NavigationTabMap = Record<string, ToProp>;
+export type PageNavigationMap = Record<string, ToProp>;
 
 export type PlayableTrack = PodcastEpisode | RadioStation | Track;
 

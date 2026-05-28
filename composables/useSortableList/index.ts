@@ -166,13 +166,13 @@ export function useSortableList(options: SortableListOptions) {
     setDraggingState(true);
     initializeDragSession(
       sortableItemElement,
-      getPointerPosition(event)?.clientY || 0,
+      getPointerEventPosition(event)?.clientY || 0,
     );
   }
 
   // Starts a long-press timer for touch drag initiation.
   function startLongPressTimer(event: TouchEvent, element: HTMLElement) {
-    const position = getPointerPosition(event);
+    const position = getPointerEventPosition(event);
     const startX = position?.clientX || 0;
     const startY = position?.clientY || 0;
 
@@ -194,7 +194,7 @@ export function useSortableList(options: SortableListOptions) {
       return;
     }
 
-    const position = getPointerPosition(event);
+    const position = getPointerEventPosition(event);
     const touchMovedX = Math.abs(
       (position?.clientX || 0) - pendingTouchStartX.value,
     );
@@ -312,7 +312,7 @@ export function useSortableList(options: SortableListOptions) {
     event.preventDefault();
 
     const clientY =
-      getPointerPosition(event)?.clientY || dragState.pointerStartY;
+      getPointerEventPosition(event)?.clientY || dragState.pointerStartY;
 
     dragState.lastPointerY = clientY;
     draggedItem.value.style.top = `${limitDragTop(calculateItemTopInContainer(clientY), dragState.containerHeight, dragState.itemHeight)}px`;

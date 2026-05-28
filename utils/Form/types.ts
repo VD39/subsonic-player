@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+export interface FieldConfig {
+  [key: string]: {
+    options?: any[];
+    validationRules?: ValidationRules;
+    value?: string | string[];
+  };
+}
+
 export type Fields<T> = {
   [K in keyof T]: FormField;
 };
@@ -19,14 +27,6 @@ export interface FormField {
   required: boolean;
   validationRules?: ValidationRules;
   value: Ref<string | string[]>;
-}
-
-export interface Inputs {
-  [key: string]: {
-    options?: any[];
-    validationRules?: ValidationRules;
-    value?: string | string[];
-  };
 }
 
 export interface ValidationRules {

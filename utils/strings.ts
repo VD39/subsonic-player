@@ -39,16 +39,16 @@ export function generateRandomString(length = 15) {
   ).join('');
 }
 
+export function normaliseStringToWords(str: string) {
+  return str.replaceAll(/\W|_/g, ' ').replaceAll(/ +/g, ' ').trim();
+}
+
 export function replaceCharacterWithSpace(str: string, replaceCharacter = '-') {
   return str.replaceAll(replaceCharacter, ' ');
 }
 
 export function replaceSpaceWithCharacter(str: string, replaceCharacter = '-') {
   return str.replaceAll(/ +/g, replaceCharacter);
-}
-
-export function sanitiseString(str: string) {
-  return str.replaceAll(/\W|_/g, ' ').replaceAll(/ +/g, ' ').trim();
 }
 
 export function splitCamelCase(str: string) {

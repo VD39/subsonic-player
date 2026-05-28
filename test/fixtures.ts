@@ -274,7 +274,7 @@ export const formattedArtistMock: Artist = {
   lastFmUrl: undefined,
   musicBrainzUrl: undefined,
   name: 'name',
-  similarArtist: [],
+  similarArtists: [],
   similarTracks: [],
   topTracks: [],
   totalAlbums: 1,

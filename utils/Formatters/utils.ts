@@ -1,3 +1,23 @@
+export function filterPodcastEpisodesByStatus(
+  episodes: PodcastEpisode[],
+  sortBy: PodcastSortByParam,
+) {
+  let downloaded = undefined;
+
+  switch (sortBy) {
+    case ROUTE_PODCAST_FILTER_PARAMS.Downloaded:
+      downloaded = true;
+      break;
+    case ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']:
+      downloaded = false;
+      break;
+    default:
+      return episodes;
+  }
+
+  return episodes.filter((episode) => episode.downloaded === downloaded);
+}
+
 export function getAlbumSize(tracks: Base[] = []) {
   return tracks.reduce((sum, track) => sum + (track.size || 0), 0);
 }
@@ -63,28 +83,29 @@ export function getLatestDate(episodes: ResponsePodcastEpisode[] = []) {
   return new Date(Math.max(...dates));
 }
 
-export function getSortedPodcastEpisodes(
+export function getPodcastEpisodesByDownloadStatus(
   podcastEpisodes: PodcastEpisode[] = [],
 ) {
   return {
     [ROUTE_PODCAST_FILTER_PARAMS.All]: podcastEpisodes,
-    [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: sortPodcastEpisodes(
+    [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: filterPodcastEpisodesByStatus(
       podcastEpisodes,
       ROUTE_PODCAST_FILTER_PARAMS.Downloaded,
     ),
-    [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]: sortPodcastEpisodes(
-      podcastEpisodes,
-      ROUTE_PODCAST_FILTER_PARAMS['Not downloaded'],
-    ),
+    [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]:
+      filterPodcastEpisodesByStatus(
+        podcastEpisodes,
+        ROUTE_PODCAST_FILTER_PARAMS['Not downloaded'],
+      ),
   };
+}
+
+export function getTotalTracks(albums: AlbumWithSongsID3[] = []) {
+  return albums.reduce((sum, album) => sum + album.songCount, 0);
 }
 
 export function getTotalTracksDuration(tracks: Base[] = []) {
   return tracks.reduce((sum, track) => sum + (track.duration || 0), 0);
-}
-
-export function getTracksTotal(albums: AlbumWithSongsID3[] = []) {
-  return albums.reduce((sum, album) => sum + album.songCount, 0);
 }
 
 export function getUniqueGenres(albums: AlbumWithSongsID3[] = []): Genre[] {
@@ -123,24 +144,4 @@ export function groupTracksByDiscNumber(tracks: Track[] = []) {
 
     return previousValue;
   }, {});
-}
-
-export function sortPodcastEpisodes(
-  episodes: PodcastEpisode[],
-  sortBy: PodcastSortByParam,
-) {
-  let downloaded = undefined;
-
-  switch (sortBy) {
-    case ROUTE_PODCAST_FILTER_PARAMS.Downloaded:
-      downloaded = true;
-      break;
-    case ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']:
-      downloaded = false;
-      break;
-    default:
-      return episodes;
-  }
-
-  return episodes.filter((episode) => episode.downloaded === downloaded);
 }

@@ -1,6 +1,6 @@
 import type { ValidationRules } from './types';
 
-import { validateInputs } from './validateInputs';
+import { validateFormFields } from './validateFormFields';
 
 function setFormFields(
   fieldValue: string | string[],
@@ -23,12 +23,12 @@ function setFormFields(
     isValid: ref(false),
   };
 
-  validateInputs(form);
+  validateFormFields(form);
 
   return form;
 }
 
-describe('validateInputs', () => {
+describe('validateFormFields', () => {
   let blurSpy: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {

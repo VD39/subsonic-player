@@ -97,7 +97,7 @@ export function useQueue() {
     return currentTrack.value.id === id;
   }
 
-  async function loadFromServer() {
+  async function restoreQueueState() {
     if (!ENABLE_QUEUE_SYNC) {
       loadQueueState();
 
@@ -234,7 +234,7 @@ export function useQueue() {
 
   function restoreQueue() {
     const currentTrackIdBeforeRestore = currentTrack.value.id;
-    queueList.value = removeRemovedTracksFromOriginalQueue(
+    queueList.value = pruneOriginalQueue(
       [...queueList.value],
       [...JSON.parse(originalQueueSnapshot.value)],
     );
@@ -347,7 +347,6 @@ export function useQueue() {
     isQueuePlayerOpened,
     isRadioStation,
     isTrack,
-    loadFromServer,
     navigateQueue,
     originalQueueSnapshot,
     queueList,
@@ -355,6 +354,7 @@ export function useQueue() {
     reorderTrack,
     resetQueue,
     restoreQueue,
+    restoreQueueState,
     shuffleQueue,
     toggleQueueList,
     toggleQueuePlayer,

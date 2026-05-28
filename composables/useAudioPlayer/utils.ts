@@ -65,7 +65,7 @@ export function getUpcomingTracks(
   return upcoming;
 }
 
-export function removeRemovedTracksFromOriginalQueue(
+export function pruneOriginalQueue(
   shuffledQueue: PlayableTrack[],
   originalQueue: PlayableTrack[],
 ) {

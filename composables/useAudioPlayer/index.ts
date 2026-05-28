@@ -442,7 +442,7 @@ export function useAudioPlayer() {
     saveAudioPlayerState();
   }
 
-  function resetPlayer() {
+  function resetPlayerSession() {
     audioPlayer.value?.unload();
     preloader.value?.clear();
     resetPlaybackTimes();
@@ -464,7 +464,7 @@ export function useAudioPlayer() {
     const removedTrackLastOrSingle = removeTrack(id);
 
     if (removedTrackLastOrSingle === 1) {
-      resetPlayer();
+      resetPlayerSession();
       return;
     }
 
@@ -503,7 +503,7 @@ export function useAudioPlayer() {
   }
 
   async function playTracks(tracks: PlayableTrack[], queueOffset = 0) {
-    resetPlayer();
+    resetPlayerSession();
     addTracks(tracks, true);
     const track = navigateQueue(queueOffset);
     await changeTrack(track);
@@ -606,7 +606,7 @@ export function useAudioPlayer() {
     reorderQueueTrack,
     repeat,
     resetAudioPlayer,
-    resetPlayer,
+    resetPlayerSession,
     rewindTrack,
     seekTo,
     setPlaybackRate,

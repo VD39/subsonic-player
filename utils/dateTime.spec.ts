@@ -1,4 +1,8 @@
-import { formatDate, secondsToHHMMSS, secondsToTimeFormat } from './dateTime';
+import {
+  formatDate,
+  secondsToHHMMSS,
+  secondsToHumanReadable,
+} from './dateTime';
 
 const DATE_OPTIONS: Intl.DateTimeFormatOptions = {
   day: 'numeric',
@@ -43,7 +47,7 @@ describe('convertSecondsToHHMMSS', () => {
   });
 });
 
-describe('secondsToTimeFormat', () => {
+describe('secondsToHumanReadable', () => {
   describe.each([
     [0, '0s'],
     [59, '59s'],
@@ -59,7 +63,7 @@ describe('secondsToTimeFormat', () => {
     [undefined, '0s'],
   ])('when input is %i seconds', (input, output) => {
     it('returns the correct format', () => {
-      expect(secondsToTimeFormat(input)).toBe(output);
+      expect(secondsToHumanReadable(input)).toBe(output);
     });
   });
 });

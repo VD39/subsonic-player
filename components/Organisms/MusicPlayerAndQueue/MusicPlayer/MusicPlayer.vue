@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArtistsList from '@/components/Atoms/ArtistsList.vue';
+import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import MarqueeScroll from '@/components/Atoms/MarqueeScroll.vue';
 import PlayPauseButton from '@/components/Molecules/PlayPauseButton.vue';
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
@@ -68,7 +68,7 @@ const { currentTrack } = useQueue();
             v-if="'artists' in currentTrack && currentTrack.artists.length"
             ref="artistsMarqueeScroll"
           >
-            <ArtistsList :artists="currentTrack.artists" class="smallFont" />
+            <ArtistLinks :artists="currentTrack.artists" class="smallFont" />
           </MarqueeScroll>
 
           <MarqueeScroll
