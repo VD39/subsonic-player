@@ -53,7 +53,7 @@ export function usePlaylist() {
         id,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
-        response?.playlist && formatPlaylist(response.playlist),
+        formatPlaylist(response.playlist),
     });
 
     return playlistData;
@@ -74,19 +74,17 @@ export function usePlaylist() {
     }
   }
 
-  async function addPlaylist(name: string) {
+  async function addPlaylist(query: CreatePlaylistParam) {
     const { data: playlistData } = await fetchData('/createPlaylist', {
       method: 'POST',
-      query: {
-        name,
-      },
+      query,
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         formatPlaylist(response.playlist),
     });
 
     if (playlistData) {
       await getPlaylists();
-      addSuccessSnack(`Successfully added playlist ${name}.`);
+      addSuccessSnack(`Successfully added playlist ${query.name}.`);
       return playlistData;
     }
   }
@@ -151,7 +149,7 @@ export function usePlaylist() {
     openModal(MODAL_TYPE.addPlaylistModal, {
       /* istanbul ignore next -- @preserve */
       async onSubmit(playlistName: string) {
-        await addPlaylist(playlistName);
+        await addPlaylist({ name: playlistName });
         closeModal();
       },
     });
@@ -163,7 +161,6 @@ export function usePlaylist() {
       /* istanbul ignore next -- @preserve */
       async onSubmit(newPlaylistName: string) {
         await updatePlaylist({
-          ...currentPlaylist,
           name: newPlaylistName,
           playlistId: currentPlaylist.id,
         });
@@ -228,17 +225,12 @@ export function usePlaylist() {
       async onSubmit(playlistName: string) {
         loading.value = true;
 
-        const playlistResponse = await addPlaylist(playlistName);
+        const playlistResponse = await addPlaylist({
+          name: playlistName,
+          songId: trackId,
+        });
 
         if (playlistResponse?.id) {
-          await addToPlaylist(
-            {
-              playlistId: playlistResponse.id,
-              songIdToAdd: trackId,
-            },
-            false,
-          );
-
           newlyCreatedPlaylistId.value = playlistResponse.id;
         }
 

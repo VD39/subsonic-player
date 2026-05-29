@@ -213,7 +213,9 @@ describe('usePlaylist', () => {
           data: null,
         });
 
-        addPlaylist('name');
+        addPlaylist({
+          name: 'name',
+        });
       });
 
       it('does not call the getPlaylists function', () => {
@@ -236,7 +238,9 @@ describe('usePlaylist', () => {
           },
         });
 
-        addPlaylist('name');
+        addPlaylist({
+          name: 'name',
+        });
       });
 
       it('calls the getPlaylists function with the correct parameters', () => {
@@ -668,11 +672,15 @@ describe('usePlaylist', () => {
             await handlers.onSubmit('playlistName');
           });
 
-          it('calls the updatePlaylist function with the correct parameters', () => {
-            expect(fetchDataMock).toHaveBeenCalledWith(
-              '/updatePlaylist',
-              expect.any(Object),
-            );
+          it('calls the createPlaylist function with the correct parameters', () => {
+            expect(fetchDataMock).toHaveBeenCalledWith('/createPlaylist', {
+              method: 'POST',
+              query: {
+                name: 'playlistName',
+                songId: 'trackId',
+              },
+              transform: expect.any(Function),
+            });
           });
 
           it('sets the correct newlyCreatedPlaylistId value', () => {

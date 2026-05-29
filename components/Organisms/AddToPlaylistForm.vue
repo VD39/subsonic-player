@@ -5,7 +5,7 @@ import SubmitButton from '@/components/Molecules/SubmitButton.vue';
 
 const props = defineProps<{
   loading: boolean;
-  newlyCreatedPlaylistId: string;
+  newlyCreatedPlaylistId: null | string;
   playlists: Playlist[];
 }>();
 
