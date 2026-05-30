@@ -32,7 +32,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 .mobileNavigation {
   position: fixed;
   inset: auto 0 0;
-  z-index: 9;
+  z-index: 15;
   width: var(--width-height-100);
   height: var(--header-height);
   padding: var(--default-space);

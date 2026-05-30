@@ -149,7 +149,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         </ButtonLink>
       </div>
 
-      <div class="trackCell trackOptions">
+      <div class="trackCell trackOptions desktopOnly">
         <DropdownMenu ref="dropdownMenuRef">
           <TrackPlayPauseDropdownItem
             :trackId="track.id"

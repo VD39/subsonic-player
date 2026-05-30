@@ -57,7 +57,7 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -152,7 +152,7 @@ exports[`MixedTracksListItem > when the isAddToQueueVisible prop is true > match
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
         <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -247,7 +247,7 @@ exports[`MixedTracksListItem > when the isRemovable prop is true > matches the s
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -345,7 +345,7 @@ exports[`MixedTracksListItem > when the isSortable prop is true > matches the sn
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -421,7 +421,7 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
       <p>--</p>
     </div><time class="trackCell trackTime">00:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -494,7 +494,7 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
       </div>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -576,7 +576,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -660,7 +660,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       </div>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -735,7 +735,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       </div>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -810,7 +810,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
       </div>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -902,7 +902,7 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -979,7 +979,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <p>--</p>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1059,7 +1059,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       </div>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1132,7 +1132,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <p>--</p>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1205,7 +1205,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
       <p>--</p>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1292,7 +1292,7 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1365,7 +1365,7 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
       <p>--</p>
     </div><time class="trackCell trackTime">00:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1438,7 +1438,7 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
       </div>
     </div><time class="trackCell trackTime">00:19</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1520,7 +1520,7 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1617,7 +1617,7 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1694,7 +1694,7 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
       <p>--</p>
     </div><time class="trackCell trackTime">02:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="track"></track-play-pause-dropdown-item-stub>
         <!--v-if-->
@@ -1764,7 +1764,7 @@ exports[`MixedTracksListItem > when track.type is radioStation > matches the sna
       <p>--</p>
     </div><time class="trackCell trackTime">00:00</time>
     <!--v-if-->
-    <div class="trackCell trackOptions">
+    <div class="trackCell trackOptions desktopOnly">
       <div>
         <track-play-pause-dropdown-item-stub trackid="radio-station-0" type="radioStation"></track-play-pause-dropdown-item-stub>
         <!--v-if-->

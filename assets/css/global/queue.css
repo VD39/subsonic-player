@@ -1,7 +1,7 @@
 .queueWrapper {
   position: fixed;
   inset: 0;
-  z-index: 10;
+  z-index: 15;
   width: var(--width-height-100);
   height: var(--width-height-100);
   overflow: auto;

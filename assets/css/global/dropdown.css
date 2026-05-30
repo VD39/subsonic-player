@@ -4,7 +4,7 @@
 
 .dropdownOverlay {
   position: fixed;
-  z-index: 12;
+  z-index: 20;
 }
 
 .dropdownContent {

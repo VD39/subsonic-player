@@ -92,7 +92,7 @@ const showPageNavigation = computed(() =>
 .header {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 10;
+  z-index: 15;
   min-height: var(--header-height);
   background-color: var(--background-color);
   border-bottom: 1px solid var(--border-color);
