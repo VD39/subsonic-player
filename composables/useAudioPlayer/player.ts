@@ -50,6 +50,14 @@ export class AudioPlayer {
     this.loadedMetadataCallback = callback;
   }
 
+  onPause(callback: () => void) {
+    this.pauseCallback = callback;
+  }
+
+  onPlay(callback: () => void) {
+    this.playCallback = callback;
+  }
+
   onTimeupdate(callback: (currentTime: number) => void) {
     this.timeupdateCallback = callback;
   }
@@ -88,6 +96,8 @@ export class AudioPlayer {
     this.audio.addEventListener('canplaythrough', this.handleCanPlayThrough);
     this.audio.addEventListener('waiting', this.handleWaiting);
     this.audio.addEventListener('ended', this.handleEnded);
+    this.audio.addEventListener('pause', this.handlePause);
+    this.audio.addEventListener('play', this.handlePlay);
   }
 
   private bufferedCallback: (bufferedTime: number) => void = () => ({});
@@ -112,6 +122,14 @@ export class AudioPlayer {
     this.loadedMetadataCallback(this.audio.duration);
   };
 
+  private readonly handlePause = () => {
+    this.pauseCallback();
+  };
+
+  private readonly handlePlay = () => {
+    this.playCallback();
+  };
+
   private readonly handleProgress = () => {
     this.setBufferProgress();
   };
@@ -133,6 +151,10 @@ export class AudioPlayer {
 
   private loadedMetadataCallback: (duration: number) => void = () => ({});
 
+  private pauseCallback: () => void = () => ({});
+
+  private playCallback: () => void = () => ({});
+
   private removeEventListeners() {
     this.audio.removeEventListener('loadedmetadata', this.handleLoadedMetadata);
     this.audio.removeEventListener('progress', this.handleProgress);
@@ -141,6 +163,8 @@ export class AudioPlayer {
     this.audio.removeEventListener('canplaythrough', this.handleCanPlayThrough);
     this.audio.removeEventListener('waiting', this.handleWaiting);
     this.audio.removeEventListener('ended', this.handleEnded);
+    this.audio.removeEventListener('pause', this.handlePause);
+    this.audio.removeEventListener('play', this.handlePlay);
   }
 
   private readonly setBufferProgress = () => {

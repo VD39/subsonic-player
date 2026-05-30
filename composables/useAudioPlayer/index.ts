@@ -64,6 +64,11 @@ export function useAudioPlayer() {
     () => AUDIO_PLAYER_DEFAULT_STATES.isPlaying,
   );
 
+  const pausedExternally = useState(
+    STATE_KEYS.playerPausedExternally,
+    () => false,
+  );
+
   // Playback rate state.
   const playbackRate = useState(
     STATE_KEYS.playerPlaybackRate,
@@ -574,6 +579,21 @@ export function useAudioPlayer() {
 
           await playNextTrack();
           break;
+      }
+    });
+
+    audioPlayer.value.onPause(() => {
+      if (isPlaying.value) {
+        pausedExternally.value = true;
+        pausePlayback();
+      }
+    });
+
+    audioPlayer.value.onPlay(async () => {
+      if (pausedExternally.value) {
+        pausedExternally.value = false;
+        audioPlayer.value?.pause();
+        await resumePlayback();
       }
     });
   }

@@ -13,6 +13,8 @@ type CB = (...args: unknown[]) => void;
 let onBufferedCb: CB;
 let onCanPlayCb: CB;
 let onEndedCb: CB;
+let onPauseCb: CB;
+let onPlayCb: CB;
 let onTimeupdateCb: CB;
 let onWaitingCb: CB;
 
@@ -23,6 +25,8 @@ const loadMock = vi.fn();
 const onBufferedMock = vi.fn((cb) => (onBufferedCb = cb));
 const onCanPlayMock = vi.fn((cb) => (onCanPlayCb = cb));
 const onEndedMock = vi.fn((cb) => (onEndedCb = cb));
+const onPauseMock = vi.fn((cb) => (onPauseCb = cb));
+const onPlayMock = vi.fn((cb) => (onPlayCb = cb));
 const onTimeupdateMock = vi.fn((cb) => (onTimeupdateCb = cb));
 const onWaitingMock = vi.fn((cb) => (onWaitingCb = cb));
 const pauseMock = vi.fn();
@@ -39,6 +43,8 @@ mockNuxtImport('AudioPlayer', () =>
       onBuffered: onBufferedMock,
       onCanPlay: onCanPlayMock,
       onEnded: onEndedMock,
+      onPause: onPauseMock,
+      onPlay: onPlayMock,
       onTimeupdate: onTimeupdateMock,
       onWaiting: onWaitingMock,
       pause: pauseMock,
@@ -233,6 +239,14 @@ describe('useAudioPlayer', () => {
 
     it('calls the onEnded function', () => {
       expect(onEndedMock).toHaveBeenCalled();
+    });
+
+    it('calls the onPause function', () => {
+      expect(onPauseMock).toHaveBeenCalled();
+    });
+
+    it('calls the onPlay function', () => {
+      expect(onPlayMock).toHaveBeenCalled();
     });
 
     describe('when the getLocalStorage function returns null', () => {
@@ -490,6 +504,66 @@ describe('useAudioPlayer', () => {
 
       it('calls the setMediaSessionPositionState function', () => {
         expect(setMediaSessionPositionStateMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when the audio element is externally paused', () => {
+      describe('when the isPlaying value is true', () => {
+        beforeAll(async () => {
+          result.composable.isPlaying.value = true;
+          onPauseCb();
+        });
+
+        it('sets the correct isPlaying value', () => {
+          expect(result.composable.isPlaying.value).toBe(false);
+        });
+
+        it('calls the setMediaSessionPlaybackState function with the correct parameters', () => {
+          expect(setMediaSessionPlaybackStateMock).toHaveBeenCalledWith(
+            'paused',
+          );
+        });
+
+        describe('when the onPlay event is called', () => {
+          beforeAll(() => {
+            onPlayCb();
+          });
+
+          it('calls the pause function', () => {
+            expect(pauseMock).toHaveBeenCalled();
+          });
+
+          it('calls the play function', () => {
+            expect(playMock).toHaveBeenCalled();
+          });
+
+          it('sets the correct isPlaying value', () => {
+            expect(result.composable.isPlaying.value).toBe(true);
+          });
+
+          it('calls the setMediaSessionPlaybackState function with the correct parameters', () => {
+            expect(setMediaSessionPlaybackStateMock).toHaveBeenCalledWith(
+              'playing',
+            );
+          });
+        });
+      });
+    });
+
+    describe('when the onPlay event is called', () => {
+      describe('when the pausedExternally value is false', () => {
+        beforeAll(() => {
+          vi.clearAllMocks();
+          onPlayCb();
+        });
+
+        it('does not call the pause function', () => {
+          expect(pauseMock).not.toHaveBeenCalled();
+        });
+
+        it('does not call the play function', () => {
+          expect(playMock).not.toHaveBeenCalled();
+        });
       });
     });
 

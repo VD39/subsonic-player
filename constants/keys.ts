@@ -23,6 +23,7 @@ export const STATE_KEYS = {
   playerDuration: 'player-duration',
   playerIsPlaying: 'player-is-playing',
   playerOriginalQueueList: 'player-original-queue-list',
+  playerPausedExternally: 'player-paused-externally',
   playerPlaybackRate: 'player-playback-rate',
   playerPlayLoading: 'player-play-loading',
   playerQueueList: 'player-queue-list',

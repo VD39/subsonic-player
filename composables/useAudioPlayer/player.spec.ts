@@ -136,10 +136,10 @@ describe('AudioPlayer', () => {
   });
 
   describe('when the onCanPlay function is called', () => {
-    const callbackMock = vi.fn();
+    const onCanPlayCallbackMock = vi.fn();
 
     beforeAll(() => {
-      player.onCanPlay(callbackMock);
+      player.onCanPlay(onCanPlayCallbackMock);
     });
 
     describe('when the canplay event is fired', () => {
@@ -148,7 +148,7 @@ describe('AudioPlayer', () => {
       });
 
       it('calls the callback', () => {
-        expect(callbackMock).toHaveBeenCalled();
+        expect(onCanPlayCallbackMock).toHaveBeenCalled();
       });
     });
 
@@ -158,56 +158,82 @@ describe('AudioPlayer', () => {
       });
 
       it('calls the callback', () => {
-        expect(callbackMock).toHaveBeenCalled();
+        expect(onCanPlayCallbackMock).toHaveBeenCalled();
       });
     });
   });
 
-  describe('when the onEnded function is called', () => {
-    const callbackMock = vi.fn();
+  describe('when the onPause function is called', () => {
+    const onPauseCallbackMock = vi.fn();
 
     beforeAll(() => {
-      player.onEnded(callbackMock);
+      player.onPause(onPauseCallbackMock);
+      audioEvents.pause();
+    });
+
+    it('calls the callback', () => {
+      expect(onPauseCallbackMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the onPlay function is called', () => {
+    const onPlayCallbackMock = vi.fn();
+
+    beforeAll(() => {
+      player.onPlay(onPlayCallbackMock);
+      audioEvents.play();
+    });
+
+    it('calls the callback', () => {
+      expect(onPlayCallbackMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the onEnded function is called', () => {
+    const onEndedCallbackMock = vi.fn();
+
+    beforeAll(() => {
+      player.onEnded(onEndedCallbackMock);
       audioEvents.ended();
     });
 
     it('calls the callback', () => {
-      expect(callbackMock).toHaveBeenCalled();
+      expect(onEndedCallbackMock).toHaveBeenCalled();
     });
   });
 
   describe('when the onLoadedMetadata function is called', () => {
-    const callbackMock = vi.fn();
+    const onLoadedMetadataCallbackMock = vi.fn();
 
     beforeAll(() => {
       audioMock.duration = 180;
-      player.onLoadedMetadata(callbackMock);
+      player.onLoadedMetadata(onLoadedMetadataCallbackMock);
       audioEvents.loadedmetadata();
     });
 
     it('calls the callback with the correct parameters', () => {
-      expect(callbackMock).toHaveBeenCalledWith(180);
+      expect(onLoadedMetadataCallbackMock).toHaveBeenCalledWith(180);
     });
   });
 
   describe('when the onWaiting function is called', () => {
-    const callbackMock = vi.fn();
+    const onWaitingCallbackMock = vi.fn();
 
     beforeAll(() => {
-      player.onWaiting(callbackMock);
+      player.onWaiting(onWaitingCallbackMock);
       audioEvents.waiting();
     });
 
     it('calls the callback', () => {
-      expect(callbackMock).toHaveBeenCalled();
+      expect(onWaitingCallbackMock).toHaveBeenCalled();
     });
   });
 
   describe('when the onTimeupdate function is called', () => {
-    const callbackMock = vi.fn();
+    const onTimeupdateCallbackMock = vi.fn();
 
     beforeAll(() => {
-      player.onTimeupdate(callbackMock);
+      player.onTimeupdate(onTimeupdateCallbackMock);
     });
 
     describe('when currentTime is 0', () => {
@@ -217,7 +243,7 @@ describe('AudioPlayer', () => {
       });
 
       it('does not call the callback', () => {
-        expect(callbackMock).not.toHaveBeenCalled();
+        expect(onTimeupdateCallbackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -228,16 +254,16 @@ describe('AudioPlayer', () => {
       });
 
       it('calls the callback with the correct parameters', () => {
-        expect(callbackMock).toHaveBeenCalledWith(10);
+        expect(onTimeupdateCallbackMock).toHaveBeenCalledWith(10);
       });
     });
   });
 
   describe('when the onBuffered function is called', () => {
-    const callbackMock = vi.fn();
+    const onBufferedCallbackMock = vi.fn();
 
     beforeAll(() => {
-      player.onBuffered(callbackMock);
+      player.onBuffered(onBufferedCallbackMock);
     });
 
     describe('when the audio duration is 0', () => {
@@ -247,7 +273,7 @@ describe('AudioPlayer', () => {
       });
 
       it('does not call the callback', () => {
-        expect(callbackMock).not.toHaveBeenCalled();
+        expect(onBufferedCallbackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -265,7 +291,7 @@ describe('AudioPlayer', () => {
         });
 
         it('does not call the callback', () => {
-          expect(callbackMock).not.toHaveBeenCalled();
+          expect(onBufferedCallbackMock).not.toHaveBeenCalled();
         });
       });
 
@@ -282,7 +308,7 @@ describe('AudioPlayer', () => {
         });
 
         it('calls the callback with the correct parameters', () => {
-          expect(callbackMock).toHaveBeenCalledWith(30);
+          expect(onBufferedCallbackMock).toHaveBeenCalledWith(30);
         });
       });
     });
