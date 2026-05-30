@@ -28,7 +28,7 @@ const navigateQueueMock = vi.fn();
 const originalQueueListMock = ref([]);
 const queueListMock = ref(getFormattedQueueTracksMock(5));
 const removeTrackMock = vi.fn();
-const reorderTrackMock = vi.fn();
+const reorderQueueTracksMock = vi.fn();
 const resetQueueMock = vi.fn().mockImplementation(() => {
   queueListMock.value = [];
   currentQueueIndexMock.value = 0;
@@ -64,7 +64,7 @@ export function useQueueMock() {
     originalQueueList: originalQueueListMock,
     queueList: queueListMock,
     removeTrack: removeTrackMock,
-    reorderTrack: reorderTrackMock,
+    reorderQueueTracks: reorderQueueTracksMock,
     resetQueue: resetQueueMock,
     restoreQueue: restoreQueueMock,
     restoreQueueState: restoreQueueStateMock,
@@ -96,7 +96,7 @@ export function useQueueMock() {
     originalQueueListMock,
     queueListMock,
     removeTrackMock,
-    reorderTrackMock,
+    reorderQueueTracksMock,
     resetQueueMock,
     restoreQueueMock,
     restoreQueueStateMock,

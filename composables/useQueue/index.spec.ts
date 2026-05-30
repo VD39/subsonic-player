@@ -66,7 +66,7 @@ const {
   originalQueueSnapshot,
   queueList,
   removeTrack,
-  reorderTrack,
+  reorderQueueTracks,
   resetQueue,
   restoreQueue,
   restoreQueueState,
@@ -808,12 +808,12 @@ describe('useQueue', () => {
     });
   });
 
-  describe('when the reorderTrack function is called', () => {
+  describe('when the reorderQueueTracks function is called', () => {
     describe('when moving the selected active track forward', () => {
       beforeAll(() => {
         addTracks(tracks);
         navigateQueue(0);
-        reorderTrack(0, 2);
+        reorderQueueTracks(0, 2);
       });
 
       it('sets the correct queueList value', () => {
@@ -836,7 +836,7 @@ describe('useQueue', () => {
 
     describe('when moving the selected track backward', () => {
       beforeAll(() => {
-        reorderTrack(3, 1);
+        reorderQueueTracks(3, 1);
       });
 
       it('sets the correct queueList value', () => {
@@ -855,7 +855,7 @@ describe('useQueue', () => {
 
     describe('when moving the selected track from before to after active track', () => {
       beforeAll(() => {
-        reorderTrack(0, 2);
+        reorderQueueTracks(0, 2);
       });
 
       it('sets the correct queueList value', () => {
@@ -874,7 +874,7 @@ describe('useQueue', () => {
 
     describe('when moving the selected track from after to before active track', () => {
       beforeAll(() => {
-        reorderTrack(3, 0);
+        reorderQueueTracks(3, 0);
       });
 
       it('sets the correct queueList value', () => {
@@ -893,7 +893,7 @@ describe('useQueue', () => {
 
     describe('when the provided indices are equal', () => {
       beforeAll(() => {
-        reorderTrack(1, 1);
+        reorderQueueTracks(1, 1);
       });
 
       it('does not update the queueList value', () => {
@@ -912,7 +912,7 @@ describe('useQueue', () => {
 
     describe('when an invalid fromIndex is provided', () => {
       beforeAll(() => {
-        reorderTrack(-1, 0);
+        reorderQueueTracks(-1, 0);
       });
 
       it('does not update the queueList value', () => {
@@ -931,7 +931,7 @@ describe('useQueue', () => {
 
     describe('when an invalid toIndex is provided', () => {
       beforeAll(() => {
-        reorderTrack(0, 5);
+        reorderQueueTracks(0, 5);
       });
 
       it('does not update the queueList value', () => {

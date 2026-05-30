@@ -194,7 +194,7 @@ export function useQueue() {
     return isCurrentTrackRemoved;
   }
 
-  function reorderTrack(fromIndex: number, toIndex: number) {
+  function reorderQueueTracks(fromIndex: number, toIndex: number) {
     if (
       fromIndex < 0 ||
       fromIndex >= queueList.value.length ||
@@ -351,7 +351,7 @@ export function useQueue() {
     originalQueueSnapshot,
     queueList,
     removeTrack,
-    reorderTrack,
+    reorderQueueTracks,
     resetQueue,
     restoreQueue,
     restoreQueueState,

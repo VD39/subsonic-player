@@ -130,7 +130,7 @@ const {
   navigateQueueMock,
   queueListMock,
   removeTrackMock,
-  reorderTrackMock,
+  reorderQueueTracksMock,
   restoreQueueMock,
   shuffleQueueMock,
   updateCurrentTrackPositionMock,
@@ -1769,8 +1769,8 @@ describe('useAudioPlayer', () => {
       result.composable.reorderQueueTrack(2, 3);
     });
 
-    it('calls the reorderTrack function with the correct parameters', () => {
-      expect(reorderTrackMock).toHaveBeenCalledWith(2, 3);
+    it('calls the reorderQueueTracks function with the correct parameters', () => {
+      expect(reorderQueueTracksMock).toHaveBeenCalledWith(2, 3);
     });
 
     it('calls the audio preloader prune function', () => {

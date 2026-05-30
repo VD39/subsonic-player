@@ -8,7 +8,6 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 import { getFormattedPlaylistsMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -32,6 +31,7 @@ const deletePlaylistMock = vi.fn();
 const loadPlaylistTracksByIdMock = vi.fn();
 const playlistMock = ref<null | Playlist>(null);
 const removeFromPlaylistMock = vi.fn();
+const reorderPlaylistTracksMock = vi.fn();
 const updatePlaylistModalMock = vi.fn();
 
 mockNuxtImport('usePlaylist', () => () => ({
@@ -40,6 +40,7 @@ mockNuxtImport('usePlaylist', () => () => ({
   loadPlaylistTracksById: loadPlaylistTracksByIdMock,
   playlist: playlistMock,
   removeFromPlaylist: removeFromPlaylistMock,
+  reorderPlaylistTracks: reorderPlaylistTracksMock,
   updatePlaylistModal: updatePlaylistModalMock,
 }));
 
@@ -339,10 +340,120 @@ describe('[[id]]', () => {
     });
 
     describe(`when playlist.id is not equal to ${RANDOM_PLAYLIST.id}`, () => {
-      it('sets the correct hideRemoveOption prop on the MixedTracksList component', () => {
+      it('shows the none random MixedTracksList component', () => {
+        expect(wrapper.findComponent({ ref: 'mixedTracksList' }).exists()).toBe(
+          true,
+        );
+      });
+
+      it('does not show the random MixedTracksList component', () => {
         expect(
-          wrapper.findComponent(MixedTracksList).props('hideRemoveOption'),
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .exists(),
         ).toBe(false);
+      });
+
+      describe('when the none random MixedTracksList component emits the addToPlaylist event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('addToPlaylist', track);
+        });
+
+        it('calls the addToPlaylistModal function with the correct parameters', () => {
+          expect(addToPlaylistModalMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the addToQueue event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('addToQueue', track);
+        });
+
+        it('calls the addTrackToQueue function with the correct parameters', () => {
+          expect(addTrackToQueueMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the downloadMedia event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('downloadMedia', track);
+        });
+
+        it('calls the downloadTrack function with the correct parameters', () => {
+          expect(downloadTrackMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the dragStart event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('dragStart', track);
+        });
+
+        it('calls the dragStart function with the correct parameters', () => {
+          expect(dragStartMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the mediaInformation event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('mediaInformation', track);
+        });
+
+        it('calls the openTrackInformationModal function with the correct parameters', () => {
+          expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the playTrack event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('playTrack', 1);
+        });
+
+        it('calls the playTracks function with the correct parameters', () => {
+          expect(playTracksMock).toHaveBeenCalledWith(
+            playlistMock.value!.tracks,
+            1,
+          );
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the remove event', () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref: 'mixedTracksList' }).vm.$emit('remove', {
+            index: 1,
+          });
+        });
+
+        it('calls the removeFromPlaylist function with correct parameters', () => {
+          expect(removeFromPlaylistMock).toHaveBeenCalledWith({
+            playlistId: 0,
+            songIndexToRemove: 1,
+          });
+        });
+      });
+
+      describe('when the none random MixedTracksList component emits the sortList event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksList' })
+            .vm.$emit('sortList', 1, 2);
+        });
+
+        it('calls the reorderPlaylistTracks function with correct parameters', () => {
+          expect(reorderPlaylistTracksMock).toHaveBeenCalledWith(0, 1, 2);
+        });
       });
     });
 
@@ -356,10 +467,93 @@ describe('[[id]]', () => {
         wrapper = await factory();
       });
 
-      it('sets the correct hideRemoveOption prop on the MixedTracksList component', () => {
+      it('shows the random MixedTracksList component', () => {
         expect(
-          wrapper.findComponent(MixedTracksList).props('hideRemoveOption'),
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .exists(),
         ).toBe(true);
+      });
+
+      it('does not show the none random MixedTracksList component', () => {
+        expect(wrapper.findComponent({ ref: 'mixedTracksList' }).exists()).toBe(
+          false,
+        );
+      });
+
+      describe('when the random MixedTracksList component emits the addToPlaylist event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .vm.$emit('addToPlaylist', track);
+        });
+
+        it('calls the addToPlaylistModal function with the correct parameters', () => {
+          expect(addToPlaylistModalMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the random MixedTracksList component emits the addToQueue event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .vm.$emit('addToQueue', track);
+        });
+
+        it('calls the addTrackToQueue function with the correct parameters', () => {
+          expect(addTrackToQueueMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the random MixedTracksList component emits the downloadMedia event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .vm.$emit('downloadMedia', track);
+        });
+
+        it('calls the downloadTrack function with the correct parameters', () => {
+          expect(downloadTrackMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the random MixedTracksList component emits the dragStart event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .vm.$emit('dragStart', track);
+        });
+
+        it('calls the dragStart function with the correct parameters', () => {
+          expect(dragStartMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the random MixedTracksList component emits the mediaInformation event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .vm.$emit('mediaInformation', track);
+        });
+
+        it('calls the openTrackInformationModal function with the correct parameters', () => {
+          expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe('when the random MixedTracksList component emits the playTrack event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'mixedTracksListRandomPlaylist' })
+            .vm.$emit('playTrack', 1);
+        });
+
+        it('calls the playTracks function with the correct parameters', () => {
+          expect(playTracksMock).toHaveBeenCalledWith(
+            playlistMock.value!.tracks,
+            1,
+          );
+        });
       });
     });
 
@@ -383,86 +577,6 @@ describe('[[id]]', () => {
 
       it('calls the refresh function', () => {
         expect(refreshMock).toHaveBeenCalled();
-      });
-    });
-
-    describe('when the MixedTracksList component emits the addToPlaylist event', () => {
-      beforeEach(() => {
-        wrapper.findComponent(MixedTracksList).vm.$emit('addToPlaylist', track);
-      });
-
-      it('calls the addToPlaylistModal function with the correct parameters', () => {
-        expect(addToPlaylistModalMock).toHaveBeenCalledWith(track);
-      });
-    });
-
-    describe('when the MixedTracksList component emits the addToQueue event', () => {
-      beforeEach(() => {
-        wrapper.findComponent(MixedTracksList).vm.$emit('addToQueue', track);
-      });
-
-      it('calls the addTrackToQueue function with the correct parameters', () => {
-        expect(addTrackToQueueMock).toHaveBeenCalledWith(track);
-      });
-    });
-
-    describe('when the MixedTracksList component emits the downloadMedia event', () => {
-      beforeEach(() => {
-        wrapper.findComponent(MixedTracksList).vm.$emit('downloadMedia', track);
-      });
-
-      it('calls the downloadTrack function with the correct parameters', () => {
-        expect(downloadTrackMock).toHaveBeenCalledWith(track);
-      });
-    });
-
-    describe('when the MixedTracksList component emits the dragStart event', () => {
-      beforeEach(() => {
-        wrapper.findComponent(MixedTracksList).vm.$emit('dragStart', track);
-      });
-
-      it('calls the dragStart function with the correct parameters', () => {
-        expect(dragStartMock).toHaveBeenCalledWith(track);
-      });
-    });
-
-    describe('when the MixedTracksList component emits the mediaInformation event', () => {
-      beforeEach(() => {
-        wrapper
-          .findComponent(MixedTracksList)
-          .vm.$emit('mediaInformation', track);
-      });
-
-      it('calls the openTrackInformationModal function with the correct parameters', () => {
-        expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
-      });
-    });
-
-    describe('when the MixedTracksList component emits the playTrack event', () => {
-      beforeEach(() => {
-        wrapper.findComponent(MixedTracksList).vm.$emit('playTrack', 1);
-      });
-
-      it('calls the playTracks function with the correct parameters', () => {
-        expect(playTracksMock).toHaveBeenCalledWith(
-          playlistMock.value!.tracks,
-          1,
-        );
-      });
-    });
-
-    describe('when the MixedTracksList component emits the remove event', () => {
-      beforeEach(() => {
-        wrapper.findComponent(MixedTracksList).vm.$emit('remove', {
-          index: 1,
-        });
-      });
-
-      it('calls the removeFromPlaylist function with correct parameters', () => {
-        expect(removeFromPlaylistMock).toHaveBeenCalledWith({
-          playlistId: 0,
-          songIndexToRemove: 1,
-        });
       });
     });
   });

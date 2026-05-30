@@ -18,7 +18,7 @@ export function useAudioPlayer() {
     navigateQueue,
     queueList,
     removeTrack,
-    reorderTrack,
+    reorderQueueTracks,
     restoreQueue,
     shuffleQueue,
     updateCurrentTrackPosition,
@@ -482,7 +482,7 @@ export function useAudioPlayer() {
   }
 
   function reorderQueueTrack(fromIndex: number, toIndex: number) {
-    reorderTrack(fromIndex, toIndex);
+    reorderQueueTracks(fromIndex, toIndex);
     prefetchUpcomingTracks();
   }
 

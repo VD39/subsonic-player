@@ -419,29 +419,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when the hideRemoveOption prop is false', () => {
-    it('shows the remove DropdownItem component', () => {
-      expect(
-        wrapper.findComponent({ ref: 'dropdownItemRemove' }).exists(),
-      ).toBe(true);
-    });
-
-    it('shows the track remove row element', () => {
-      expect(wrapper.find({ ref: 'trackRemoveRow' }).exists()).toBe(true);
-    });
-  });
-
-  describe('when the hideRemoveOption prop is true', () => {
-    beforeEach(() => {
-      wrapper = factory({
-        hideRemoveOption: true,
-      });
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
+  describe('when the isRemovable prop is false', () => {
     it('does not show the remove DropdownItem component', () => {
       expect(
         wrapper.findComponent({ ref: 'dropdownItemRemove' }).exists(),
@@ -451,6 +429,44 @@ describe('MixedTracksListItem', () => {
     it('does not show the track remove row element', () => {
       expect(wrapper.find({ ref: 'trackRemoveRow' }).exists()).toBe(false);
     });
+  });
+
+  describe('when the isRemovable prop is true', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        isRemovable: true,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the remove DropdownItem component', () => {
+      expect(
+        wrapper.findComponent({ ref: 'dropdownItemRemove' }).exists(),
+      ).toBe(true);
+    });
+
+    it('shows the track remove row element', () => {
+      expect(wrapper.find({ ref: 'trackRemoveRow' }).exists()).toBe(true);
+    });
+
+    describe.each([
+      ['remove DropdownItem', 'dropdownItemRemove', 'remove'],
+      ['remove ButtonLink', 'removeButton', 'remove'],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName) => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('click');
+        });
+
+        it(`emits the ${emitEventName} event`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([[]]);
+        });
+      },
+    );
   });
 
   describe(`when track.type is not ${MEDIA_TYPE.radioStation}`, () => {
@@ -687,7 +703,7 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when the showAddToQueue prop is false', () => {
+  describe('when the isAddToQueueVisible prop is false', () => {
     it('does not show the add to queue DropdownItem component', () => {
       expect(wrapper.findComponent({ ref: 'addToQueue' }).exists()).toBe(false);
     });
@@ -699,10 +715,10 @@ describe('MixedTracksListItem', () => {
     });
   });
 
-  describe('when the showAddToQueue prop is true', () => {
+  describe('when the isAddToQueueVisible prop is true', () => {
     beforeEach(() => {
       wrapper = factory({
-        showAddToQueue: true,
+        isAddToQueueVisible: true,
       });
     });
 
@@ -745,8 +761,6 @@ describe('MixedTracksListItem', () => {
     ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],
     ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
-    ['remove DropdownItem', 'dropdownItemRemove', 'remove'],
-    ['remove ButtonLink', 'removeButton', 'remove'],
   ])(
     'when the %s component emits the click event',
     (_text, ref, emitEventName) => {

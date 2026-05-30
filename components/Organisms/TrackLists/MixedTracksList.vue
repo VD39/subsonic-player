@@ -3,7 +3,6 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import MixedTracksListItem from '@/components/Organisms/TrackLists/MixedTracksListItem.vue';
 
 defineProps<{
-  hideRemoveOption?: boolean;
   tracks: PlayableTrack[];
 }>();
 
@@ -33,6 +32,10 @@ const hasAddToQueueEvent = computed(
 
 const hasDragStartEvent = computed(
   () => !!getCurrentInstance()?.vnode.props?.onDragStart,
+);
+
+const hasRemoveEvent = computed(
+  () => !!getCurrentInstance()?.vnode.props?.onRemove,
 );
 
 const hasSortListEvent = computed(
@@ -67,7 +70,7 @@ useSortableList({
         class="trackCell trackOptions"
       />
       <div
-        v-if="!hideRemoveOption"
+        v-if="hasRemoveEvent"
         ref="trackRemoveHeader"
         class="trackCell trackOptions"
       />
@@ -86,11 +89,11 @@ useSortableList({
           SORTABLE_LIST_CLASS_NAMES.item,
           SORTABLE_LIST_CLASS_NAMES.idle,
         ]"
-        :hideRemoveOption
         :index
+        :isAddToQueueVisible="hasAddToQueueEvent"
         :isDraggable="hasDragStartEvent"
+        :isRemovable="hasRemoveEvent"
         :isSortable="hasSortListEvent"
-        :showAddToQueue="hasAddToQueueEvent"
         :track
         @addToPlaylist="$emit('addToPlaylist', track.id, index)"
         @addToQueue="$emit('addToQueue', track)"

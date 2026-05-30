@@ -15,11 +15,11 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
-  hideRemoveOption?: boolean;
   index: number;
+  isAddToQueueVisible?: boolean;
   isDraggable?: boolean;
+  isRemovable?: boolean;
   isSortable?: boolean;
-  showAddToQueue?: boolean;
   track: PlayableTrack;
 }>();
 
@@ -139,7 +139,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         {{ track.formattedDuration }}
       </time>
 
-      <div v-if="showAddToQueue" class="trackCell trackOptions">
+      <div v-if="isAddToQueueVisible" class="trackCell trackOptions">
         <ButtonLink
           ref="addToQueueButton"
           :icon="ICONS.add"
@@ -157,7 +157,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             @playTrack="$emit('playTrack')"
           />
           <DropdownItem
-            v-if="showAddToQueue"
+            v-if="isAddToQueueVisible"
             ref="addToQueue"
             @click="$emit('addToQueue')"
           >
@@ -250,7 +250,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               />
             </DropdownItem>
           </template>
-          <template v-if="!hideRemoveOption">
+          <template v-if="isRemovable">
             <DropdownDivider />
             <DropdownItem ref="dropdownItemRemove" @click="$emit('remove')">
               Remove track
@@ -260,7 +260,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       </div>
 
       <div
-        v-if="!hideRemoveOption"
+        v-if="isRemovable"
         ref="trackRemoveRow"
         class="trackCell trackOptions"
       >

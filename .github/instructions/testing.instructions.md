@@ -115,7 +115,7 @@ The `params` argument on all helpers overrides individual fields per call. All h
 
 ```ts
 // ✓ — use the helper, override the fields you need
-const tracksMock = [
+const tracks = [
   getFormattedTracksMock(1, {
     name: 'Track A',
   })[0],
@@ -131,7 +131,7 @@ const tracks = getFormattedTracksMock(3);
 const track = getFormattedTracksMock(1)[0];
 
 // ✗ — do not build mock objects from scratch when a helper exists
-const tracksMock = [
+const tracks = [
   {
     id: 'track-0',
     name: 'Track A',

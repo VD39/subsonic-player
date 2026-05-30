@@ -22,6 +22,7 @@ const {
   loadPlaylistTracksById,
   playlist,
   removeFromPlaylist,
+  reorderPlaylistTracks,
   updatePlaylistModal,
 } = usePlaylist();
 const { dragStart } = useDragAndDrop();
@@ -63,6 +64,14 @@ function onDragStart(event: DragEvent) {
 
 function onPlayTrack(index: number) {
   playTracks(playlist.value!.tracks, index);
+}
+
+async function onSortList(fromIndex: number, toIndex: number) {
+  await reorderPlaylistTracks(
+    route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
+    fromIndex,
+    toIndex,
+  );
 }
 
 async function removeTrackFromPlaylist(songIndexToRemove: number) {
@@ -158,17 +167,32 @@ useHead({
         </div>
       </EntryHeader>
 
-      <MixedTracksList
-        :hideRemoveOption="playlist.id === RANDOM_PLAYLIST.id"
-        :tracks="playlist.tracks"
-        @addToPlaylist="addToPlaylistModal"
-        @addToQueue="addTrackToQueue"
-        @downloadMedia="downloadTrack"
-        @dragStart="dragStart"
-        @mediaInformation="openTrackInformationModal"
-        @playTrack="onPlayTrack"
-        @remove="({ index }) => removeTrackFromPlaylist(index)"
-      />
+      <template v-if="playlist.id === RANDOM_PLAYLIST.id">
+        <MixedTracksList
+          ref="mixedTracksListRandomPlaylist"
+          :tracks="playlist.tracks"
+          @addToPlaylist="addToPlaylistModal"
+          @addToQueue="addTrackToQueue"
+          @downloadMedia="downloadTrack"
+          @dragStart="dragStart"
+          @mediaInformation="openTrackInformationModal"
+          @playTrack="onPlayTrack"
+        />
+      </template>
+      <template v-else>
+        <MixedTracksList
+          ref="mixedTracksList"
+          :tracks="playlist.tracks"
+          @addToPlaylist="addToPlaylistModal"
+          @addToQueue="addTrackToQueue"
+          @downloadMedia="downloadTrack"
+          @dragStart="dragStart"
+          @mediaInformation="openTrackInformationModal"
+          @playTrack="onPlayTrack"
+          @remove="({ index }) => removeTrackFromPlaylist(index)"
+          @sortList="onSortList"
+        />
+      </template>
     </div>
 
     <NoMediaMessage

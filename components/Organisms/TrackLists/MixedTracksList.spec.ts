@@ -17,6 +17,7 @@ mockNuxtImport('useSortableList', () => (options: SortableListOptions) => {
 
 let onAddToQueueMock: typeof vi.fn | undefined = undefined;
 let onDragStartMock: typeof vi.fn | undefined = undefined;
+let onRemoveMock: typeof vi.fn | undefined = undefined;
 let onSortListMock: typeof vi.fn | undefined = undefined;
 
 vi.mock('vue', async () => {
@@ -30,6 +31,7 @@ vi.mock('vue', async () => {
         props: {
           onAddToQueue: onAddToQueueMock,
           onDragStart: onDragStartMock,
+          onRemove: onRemoveMock,
           onSortList: onSortListMock,
         },
       },
@@ -93,28 +95,6 @@ describe('MixedTracksList', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
 
-    describe('when the hideRemoveOption prop is false', () => {
-      it('shows the track options element in track header', () => {
-        expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(true);
-      });
-    });
-
-    describe('when the hideRemoveOption prop is true', () => {
-      beforeEach(() => {
-        wrapper = factory({
-          hideRemoveOption: true,
-        });
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the track options element in track header', () => {
-        expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(false);
-      });
-    });
-
     describe.each([
       ['addToPlaylist', [track.id, 0]],
       ['mediaInformation', [track]],
@@ -135,9 +115,11 @@ describe('MixedTracksList', () => {
     );
 
     describe('when the onAddToQueue event is not attached', () => {
-      it('passes false for showAddToQueue prop', () => {
+      it('passes false for isAddToQueueVisible prop', () => {
         expect(
-          wrapper.findComponent(MixedTracksListItem).props('showAddToQueue'),
+          wrapper
+            .findComponent(MixedTracksListItem)
+            .props('isAddToQueueVisible'),
         ).toBe(false);
       });
 
@@ -154,9 +136,11 @@ describe('MixedTracksList', () => {
         wrapper = factory();
       });
 
-      it('passes true for showAddToQueue prop', () => {
+      it('passes true for isAddToQueueVisible prop', () => {
         expect(
-          wrapper.findComponent(MixedTracksListItem).props('showAddToQueue'),
+          wrapper
+            .findComponent(MixedTracksListItem)
+            .props('isAddToQueueVisible'),
         ).toBe(true);
       });
 
@@ -164,16 +148,6 @@ describe('MixedTracksList', () => {
         expect(wrapper.find({ ref: 'trackAddToQueueHeader' }).exists()).toBe(
           true,
         );
-      });
-
-      describe('when the MixedTracksListItem component emits the addToQueue event', () => {
-        beforeEach(async () => {
-          wrapper.findComponent(MixedTracksListItem).vm.$emit('addToQueue');
-        });
-
-        it('emits the addToQueue event with the correct value', () => {
-          expect(wrapper.emitted('addToQueue')).toEqual([[track]]);
-        });
       });
     });
 
@@ -200,17 +174,38 @@ describe('MixedTracksList', () => {
           wrapper.findComponent(MixedTracksListItem).props('isDraggable'),
         ).toBe(true);
       });
+    });
 
-      describe('when the MixedTracksListItem component emits the dragStart event', () => {
-        beforeEach(async () => {
-          wrapper
-            .findComponent(MixedTracksListItem)
-            .vm.$emit('dragStart', DragEvent);
-        });
+    describe('when the onRemove event is not attached', () => {
+      it('passes false for isRemovable prop', () => {
+        expect(
+          wrapper.findComponent(MixedTracksListItem).props('isRemovable'),
+        ).toBe(false);
+      });
 
-        it('emits the dragStart event with the correct value', () => {
-          expect(wrapper.emitted('dragStart')).toEqual([[track, DragEvent]]);
-        });
+      it('does not show the remove header element', () => {
+        expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(false);
+      });
+    });
+
+    describe('when the onRemove event is attached', () => {
+      beforeEach(() => {
+        onRemoveMock = vi.fn();
+        wrapper = factory();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('passes true for isRemovable prop', () => {
+        expect(
+          wrapper.findComponent(MixedTracksListItem).props('isRemovable'),
+        ).toBe(true);
+      });
+
+      it('shows the remove header element', () => {
+        expect(wrapper.find({ ref: 'trackRemoveHeader' }).exists()).toBe(true);
       });
     });
 

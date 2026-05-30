@@ -144,6 +144,36 @@ export function usePlaylist() {
     }
   }
 
+  async function reorderPlaylistTracks(
+    playlistId: string,
+    fromIndex: number,
+    toIndex: number,
+  ) {
+    if (
+      !playlist.value?.tracks ||
+      fromIndex < 0 ||
+      fromIndex >= playlist.value.tracks.length ||
+      toIndex < 0 ||
+      toIndex >= playlist.value.tracks.length ||
+      fromIndex === toIndex
+    ) {
+      return;
+    }
+
+    const [movedTrack] = playlist.value.tracks.splice(fromIndex, 1);
+    playlist.value.tracks.splice(toIndex, 0, movedTrack);
+
+    const songIds = playlist.value.tracks.map((track) => track.id);
+
+    await fetchData('/createPlaylist', {
+      method: 'POST',
+      query: {
+        playlistId,
+        songId: songIds,
+      },
+    });
+  }
+
   /* istanbul ignore next -- @preserve */
   function addPlaylistModal() {
     openModal(MODAL_TYPE.addPlaylistModal, {
@@ -251,6 +281,7 @@ export function usePlaylist() {
     playlist,
     playlists,
     removeFromPlaylist,
+    reorderPlaylistTracks,
     resetPlaylists,
     updatePlaylist,
     updatePlaylistModal,
