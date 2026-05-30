@@ -104,7 +104,7 @@ const isDraggable = computed(
     @dragstart="onDragStart"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
-    @touchstart="onTouchStart"
+    @touchstart.passive="onTouchStart"
   >
     <slot />
   </component>

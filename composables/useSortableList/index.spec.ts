@@ -275,6 +275,7 @@ describe('useSortableList', () => {
         'touchend',
         expect.any(Function),
         {
+          passive: true,
           signal: signalMock,
         },
       );
@@ -285,6 +286,7 @@ describe('useSortableList', () => {
         'touchcancel',
         expect.any(Function),
         {
+          passive: true,
           signal: signalMock,
         },
       );

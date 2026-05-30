@@ -103,9 +103,11 @@ export function useSortableList(options: SortableListOptions) {
       signal,
     });
     document.addEventListener('touchend', onPointerUp, {
+      passive: true,
       signal,
     });
     document.addEventListener('touchcancel', onPointerUp, {
+      passive: true,
       signal,
     });
 
