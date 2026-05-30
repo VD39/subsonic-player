@@ -26,7 +26,7 @@ export function getConfigParams() {
   return {
     c: 'web',
     f: 'json',
-    v: '1.15.0',
+    v: '1.16.1',
   };
 }
 
