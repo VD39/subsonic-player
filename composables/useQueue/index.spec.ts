@@ -308,8 +308,9 @@ describe('useQueue', () => {
 
     describe('when ENABLE_QUEUE_SYNC is false', () => {
       beforeAll(() => {
-        config.public.ENABLE_QUEUE_SYNC = false;
         vi.clearAllMocks();
+
+        config.public.ENABLE_QUEUE_SYNC = false;
 
         const { addTracks } = useQueue();
         addTracks(tracks, true);
@@ -975,228 +976,320 @@ describe('useQueue', () => {
   });
 
   describe('when the restoreQueue function is called', () => {
-    beforeAll(() => {
-      restoreQueue();
+    describe('when the originalQueueSnapshot value has a set value', () => {
+      beforeAll(() => {
+        restoreQueue();
+      });
+
+      it('sets the correct queueList value', () => {
+        expect(queueList.value).toEqual(preShuffleQueue);
+      });
+
+      it('sets the correct currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(2);
+      });
+
+      it('clears the originalQueueSnapshot value', () => {
+        expect(originalQueueSnapshot.value).toBe(
+          QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+        );
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalled();
+      });
+
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
+          method: 'POST',
+        });
+      });
     });
 
-    it('sets the correct queueList value', () => {
-      expect(queueList.value).toEqual(preShuffleQueue);
-    });
+    describe('when the originalQueueSnapshot value is an empty string', () => {
+      describe('when localStorage has a saved originalQueueSnapshot', () => {
+        beforeAll(() => {
+          // originalQueueSnapshot cleared in previous test.
+          vi.clearAllMocks();
 
-    it('sets the correct currentQueueIndex value', () => {
-      expect(currentQueueIndex.value).toBe(2);
-    });
+          getLocalStorageMock.mockReturnValue({
+            currentQueueIndex: 1,
+            originalQueueSnapshot: JSON.stringify(tracks),
+            queueList: tracks,
+          });
 
-    it('clears the originalQueueSnapshot value', () => {
-      expect(originalQueueSnapshot.value).toBe(
-        QUEUE_DEFAULT_STATES.originalQueueSnapshot,
-      );
-    });
+          restoreQueue();
+        });
 
-    it('calls the setLocalStorage function', () => {
-      expect(setLocalStorageMock).toHaveBeenCalled();
-    });
+        it('restores the queueList from the localStorage snapshot', () => {
+          expect(queueList.value).toEqual(tracks);
+        });
 
-    it('calls the fetchData function with the correct parameters', () => {
-      expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
-        method: 'POST',
+        it('sets the correct currentQueueIndex value', () => {
+          expect(currentQueueIndex.value).toBe(2);
+        });
+
+        it('clears the originalQueueSnapshot value', () => {
+          expect(originalQueueSnapshot.value).toBe(
+            QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+          );
+        });
+      });
+
+      describe('when localStorage does not have a saved originalQueueSnapshot', () => {
+        beforeAll(() => {
+          getLocalStorageMock.mockReturnValue(null);
+
+          restoreQueue();
+        });
+
+        it('does not update the queueList value', () => {
+          expect(queueList.value).toEqual(tracks);
+        });
       });
     });
   });
 
   describe('when the resetQueue function is called', () => {
-    beforeAll(() => {
-      resetQueue();
+    describe('when the syncServer parameter is true', () => {
+      beforeAll(() => {
+        resetQueue();
+      });
+
+      it('clears the queueList value', () => {
+        expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+      });
+
+      it('clears the currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(
+          QUEUE_DEFAULT_STATES.currentQueueIndex,
+        );
+      });
+
+      it('clears the originalQueueSnapshot value', () => {
+        expect(originalQueueSnapshot.value).toBe(
+          QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+        );
+      });
+
+      it('calls the deleteLocalStorage function with the correct parameters', () => {
+        expect(deleteLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+        );
+      });
+
+      it('calls the unlockScroll function', () => {
+        expect(unlockScrollMock).toHaveBeenCalled();
+      });
+
+      it('calls the fetchData function with correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
+          method: 'POST',
+        });
+      });
     });
 
-    it('clears the queueList value', () => {
-      expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
-    });
+    describe('when the syncServer parameter is false', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        addTracks(tracks, true);
+        resetQueue(false);
+      });
 
-    it('clears the currentQueueIndex value', () => {
-      expect(currentQueueIndex.value).toBe(
-        QUEUE_DEFAULT_STATES.currentQueueIndex,
-      );
-    });
+      it('clears the queueList value', () => {
+        expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+      });
 
-    it('clears the originalQueueSnapshot value', () => {
-      expect(originalQueueSnapshot.value).toBe(
-        QUEUE_DEFAULT_STATES.originalQueueSnapshot,
-      );
-    });
+      it('calls the deleteLocalStorage function with the correct parameters', () => {
+        expect(deleteLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+        );
+      });
 
-    it('calls the deleteLocalStorage function with the correct parameters', () => {
-      expect(deleteLocalStorageMock).toHaveBeenCalledWith(
-        LOCAL_STORAGE_KEYS.queue,
-      );
-    });
-
-    it('calls the unlockScroll function', () => {
-      expect(unlockScrollMock).toHaveBeenCalled();
-    });
-
-    it('calls the fetchData function with correct parameters', () => {
-      expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
-        method: 'POST',
+      it('does not call the fetchData function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith('/savePlayQueue', {
+          method: 'POST',
+        });
       });
     });
   });
 
   describe('when the restoreQueueState function is called', () => {
-    describe('when ENABLE_QUEUE_SYNC is true', () => {
-      describe('when the server returns no tracks', () => {
-        beforeAll(async () => {
-          fetchDataMock.mockReturnValue({
-            data: null,
+    describe('when the queueStateRestored value is false', () => {
+      beforeEach(() => {
+        useState(STATE_KEYS.queueStateRestored).value = false;
+      });
+
+      describe('when ENABLE_QUEUE_SYNC is true', () => {
+        describe('when the server returns no tracks', () => {
+          beforeAll(async () => {
+            fetchDataMock.mockReturnValue({
+              data: null,
+            });
+
+            await restoreQueueState();
           });
 
-          await restoreQueueState();
+          it('does not update the queueList value', () => {
+            expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+          });
         });
 
-        it('does not update the queueList value', () => {
-          expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+        describe('when the server returns tracks with a matching current track', () => {
+          beforeAll(async () => {
+            fetchDataMock.mockReturnValueOnce({
+              data: {
+                current: tracks[3].id,
+                position: 1000,
+                tracks,
+              },
+            });
+
+            await restoreQueueState();
+          });
+
+          it('sets the correct position on the current track', () => {
+            expect(queueList.value[3].position).toBe(1);
+          });
+
+          it('sets the correct queueList value', () => {
+            expect(queueList.value).toEqual(tracks);
+          });
+
+          it('sets the correct currentQueueIndex value', () => {
+            expect(currentQueueIndex.value).toBe(3);
+          });
+        });
+
+        describe('when the server returns tracks without a matching current track', () => {
+          beforeAll(async () => {
+            fetchDataMock.mockReturnValueOnce({
+              data: {
+                current: 'non-existent-id',
+                position: 1000,
+                tracks,
+              },
+            });
+
+            await restoreQueueState();
+          });
+
+          it('sets the correct position on the first track', () => {
+            expect(queueList.value[0].position).toBe(1);
+          });
+
+          it('sets the correct queueList value', () => {
+            expect(queueList.value).toEqual(tracks);
+          });
+
+          it('sets the correct currentQueueIndex value', () => {
+            expect(currentQueueIndex.value).toBe(0);
+          });
+
+          it('sets the correct currentTrack value', () => {
+            expect(currentTrack.value).toEqual(tracks[0]);
+          });
+        });
+
+        describe('when the server returns tracks without a current track', () => {
+          beforeAll(async () => {
+            fetchDataMock.mockReturnValueOnce({
+              data: {
+                position: 1000,
+                tracks,
+              },
+            });
+
+            await restoreQueueState();
+          });
+
+          it('sets the correct position on the first track', () => {
+            expect(queueList.value[0].position).toBe(1);
+          });
+
+          it('sets the correct queueList value', () => {
+            expect(queueList.value).toEqual(tracks);
+          });
+
+          it('sets the correct currentQueueIndex value', () => {
+            expect(currentQueueIndex.value).toBe(0);
+          });
+
+          it('sets the correct currentTrack value', () => {
+            expect(currentTrack.value).toEqual(tracks[0]);
+          });
         });
       });
 
-      describe('when the server returns tracks with a matching current track', () => {
+      describe('when ENABLE_QUEUE_SYNC is false', () => {
         beforeAll(async () => {
-          fetchDataMock.mockReturnValueOnce({
-            data: {
-              current: tracks[3].id,
-              position: 1000,
-              tracks,
-            },
-          });
+          config.public.ENABLE_QUEUE_SYNC = false;
 
+          vi.clearAllMocks();
+
+          const { restoreQueueState } = useQueue();
           await restoreQueueState();
         });
 
-        it('sets the correct position on the current track', () => {
-          expect(queueList.value[3].position).toBe(1);
+        it('does not call the fetchData function', () => {
+          expect(fetchDataMock).not.toHaveBeenCalled();
         });
 
-        it('sets the correct queueList value', () => {
-          expect(queueList.value).toEqual(tracks);
-        });
+        describe('when the getLocalStorage function returns null', () => {
+          beforeAll(() => {
+            getLocalStorageMock.mockReturnValue(null);
 
-        it('sets the correct currentQueueIndex value', () => {
-          expect(currentQueueIndex.value).toBe(3);
-        });
-      });
-
-      describe('when the server returns tracks without a matching current track', () => {
-        beforeAll(async () => {
-          fetchDataMock.mockReturnValueOnce({
-            data: {
-              current: 'non-existent-id',
-              position: 1000,
-              tracks,
-            },
+            const { restoreQueueState } = useQueue();
+            restoreQueueState();
           });
 
-          await restoreQueueState();
-        });
-
-        it('sets the correct position on the first track', () => {
-          expect(queueList.value[0].position).toBe(1);
-        });
-
-        it('sets the correct queueList value', () => {
-          expect(queueList.value).toEqual(tracks);
-        });
-
-        it('sets the correct currentQueueIndex value', () => {
-          expect(currentQueueIndex.value).toBe(0);
-        });
-
-        it('sets the correct currentTrack value', () => {
-          expect(currentTrack.value).toEqual(tracks[0]);
-        });
-      });
-
-      describe('when the server returns tracks without a current track', () => {
-        beforeAll(async () => {
-          fetchDataMock.mockReturnValueOnce({
-            data: {
-              position: 1000,
-              tracks,
-            },
+          it('does not update the currentQueueIndex value', () => {
+            expect(currentQueueIndex.value).toBe(-1);
           });
 
-          await restoreQueueState();
+          it('does not update the queueList value', () => {
+            expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+          });
         });
 
-        it('sets the correct position on the first track', () => {
-          expect(queueList.value[0].position).toBe(1);
-        });
+        describe('when the getLocalStorage function returns saved state', () => {
+          beforeAll(() => {
+            getLocalStorageMock.mockReturnValue({
+              currentQueueIndex: 3,
+              originalQueueSnapshot: JSON.stringify(tracks),
+              queueList: tracks,
+            });
 
-        it('sets the correct queueList value', () => {
-          expect(queueList.value).toEqual(tracks);
-        });
+            const { restoreQueueState } = useQueue();
+            restoreQueueState();
+          });
 
-        it('sets the correct currentQueueIndex value', () => {
-          expect(currentQueueIndex.value).toBe(0);
-        });
+          it('sets the correct currentQueueIndex value', () => {
+            expect(currentQueueIndex.value).toBe(3);
+          });
 
-        it('sets the correct currentTrack value', () => {
-          expect(currentTrack.value).toEqual(tracks[0]);
+          it('sets the correct originalQueueSnapshot value', () => {
+            expect(originalQueueSnapshot.value).toEqual(JSON.stringify(tracks));
+          });
+
+          it('sets the correct queueList value', () => {
+            expect(queueList.value).toEqual(tracks);
+          });
         });
       });
     });
 
-    describe('when ENABLE_QUEUE_SYNC is false', () => {
+    describe('when the queueStateRestored value is true', () => {
       beforeAll(async () => {
-        config.public.ENABLE_QUEUE_SYNC = false;
         vi.clearAllMocks();
 
-        const { restoreQueueState } = useQueue();
+        useState(STATE_KEYS.queueStateRestored).value = true;
+
         await restoreQueueState();
       });
 
       it('does not call the fetchData function', () => {
         expect(fetchDataMock).not.toHaveBeenCalled();
-      });
-
-      describe('when the getLocalStorage function returns null', () => {
-        beforeAll(() => {
-          getLocalStorageMock.mockReturnValue(null);
-
-          const { restoreQueueState } = useQueue();
-          restoreQueueState();
-        });
-
-        it('does not update the currentQueueIndex value', () => {
-          expect(currentQueueIndex.value).toBe(-1);
-        });
-
-        it('does not update the queueList value', () => {
-          expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
-        });
-      });
-
-      describe('when the getLocalStorage function returns saved state', () => {
-        beforeAll(() => {
-          getLocalStorageMock.mockReturnValue({
-            currentQueueIndex: 3,
-            originalQueueSnapshot: JSON.stringify(tracks),
-            queueList: tracks,
-          });
-
-          const { restoreQueueState } = useQueue();
-          restoreQueueState();
-        });
-
-        it('sets the correct currentQueueIndex value', () => {
-          expect(currentQueueIndex.value).toBe(3);
-        });
-
-        it('sets the correct originalQueueSnapshot value', () => {
-          expect(originalQueueSnapshot.value).toEqual(JSON.stringify(tracks));
-        });
-
-        it('sets the correct queueList value', () => {
-          expect(queueList.value).toEqual(tracks);
-        });
       });
     });
   });

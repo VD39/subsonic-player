@@ -15,7 +15,7 @@ export function useStateReset() {
     resetFavourites();
     resetPlaylists();
     resetPodcasts();
-    resetQueue();
+    resetQueue(false);
     resetRadioStations();
   }
 

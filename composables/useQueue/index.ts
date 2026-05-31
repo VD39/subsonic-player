@@ -12,6 +12,11 @@ export function useQueue() {
     () => false,
   );
 
+  const queueStateRestored = useState(
+    STATE_KEYS.queueStateRestored,
+    () => false,
+  );
+
   const queueList = useState<PlayableTrack[]>(
     STATE_KEYS.playerQueueList,
     () => [...QUEUE_DEFAULT_STATES.queueList],
@@ -98,6 +103,12 @@ export function useQueue() {
   }
 
   async function restoreQueueState() {
+    if (queueStateRestored.value) {
+      return;
+    }
+
+    queueStateRestored.value = true;
+
     if (!ENABLE_QUEUE_SYNC) {
       loadQueueState();
 
@@ -133,17 +144,17 @@ export function useQueue() {
   }
 
   function loadQueueState() {
-    const savedState = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
+    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
 
-    if (!savedState) {
+    if (!SAVED_STATE) {
       clearQueue();
 
       return;
     }
 
-    currentQueueIndex.value = savedState.currentQueueIndex;
-    originalQueueSnapshot.value = savedState.originalQueueSnapshot;
-    queueList.value = savedState.queueList;
+    currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
+    originalQueueSnapshot.value = SAVED_STATE.originalQueueSnapshot;
+    queueList.value = SAVED_STATE.queueList;
   }
 
   function navigateQueue(target: 'next' | 'previous' | number) {
@@ -225,18 +236,30 @@ export function useQueue() {
     saveQueueState();
   }
 
-  function resetQueue() {
+  function resetQueue(syncServer = true) {
     clearQueue();
     deleteLocalStorage(LOCAL_STORAGE_KEYS.queue);
     closeQueuePanels();
-    syncToServer();
+    queueStateRestored.value = false;
+
+    if (syncServer) {
+      syncToServer();
+    }
   }
 
   function restoreQueue() {
+    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
+    const snapshot =
+      originalQueueSnapshot.value || SAVED_STATE?.originalQueueSnapshot;
+
+    if (!snapshot) {
+      return;
+    }
+
     const currentTrackIdBeforeRestore = currentTrack.value.id;
     queueList.value = pruneOriginalQueue(
       [...queueList.value],
-      [...JSON.parse(originalQueueSnapshot.value)],
+      [...JSON.parse(snapshot)],
     );
     originalQueueSnapshot.value = QUEUE_DEFAULT_STATES.originalQueueSnapshot;
     const index = getQueueIndexById(currentTrackIdBeforeRestore);
@@ -244,14 +267,15 @@ export function useQueue() {
     saveQueueState();
   }
 
-  function saveQueueState(position?: number) {
-    setLocalStorage(LOCAL_STORAGE_KEYS.queue, {
+  function saveQueueState() {
+    const STATE_TO_SAVE = {
       currentQueueIndex: currentQueueIndex.value,
       originalQueueSnapshot: originalQueueSnapshot.value,
       queueList: queueList.value,
-    });
+    };
 
-    syncToServer(position);
+    setLocalStorage(LOCAL_STORAGE_KEYS.queue, STATE_TO_SAVE);
+    syncToServer();
   }
 
   function shuffleQueue() {
@@ -271,7 +295,7 @@ export function useQueue() {
     }
   }
 
-  async function syncToServer(position?: number) {
+  async function syncToServer() {
     if (!ENABLE_QUEUE_SYNC || isRadioStation.value) {
       return;
     }
@@ -302,7 +326,7 @@ export function useQueue() {
       query: {
         current,
         id: ids,
-        position: Math.floor((position || 0) * 1000),
+        position: Math.floor((currentTrack.value.position || 0) * 1000),
       },
     });
   }
@@ -319,7 +343,7 @@ export function useQueue() {
 
   function updateCurrentTrackPosition(position: number) {
     queueList.value[currentQueueIndex.value].position = position;
-    saveQueueState(position);
+    saveQueueState();
   }
 
   function updateTrackFavourite(id: string, isFavourite: boolean) {

@@ -2,7 +2,8 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const { loadThemePreference } = useTheme();
   const { autoLogin, isAuthenticated } = useAuth();
   const { closeModal } = useModal();
-  const { closeQueuePanels } = useQueue();
+  const { closeQueuePanels, restoreQueueState } = useQueue();
+  const { restoreAudioPlayerState } = useAudioPlayer();
   const { getPlaylists, playlists } = usePlaylist();
 
   closeModal();
@@ -24,6 +25,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
     } else {
       await getPlaylists();
     }
+  }
+
+  if (isAuthenticated.value && import.meta.client) {
+    await restoreQueueState();
+    await restoreAudioPlayerState();
   }
 
   if (to.name === ROUTE_NAMES.login && isAuthenticated.value) {

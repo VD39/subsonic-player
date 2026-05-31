@@ -24,6 +24,11 @@ export function useAudioPlayer() {
     updateCurrentTrackPosition,
   } = useQueue();
 
+  const playerStateRestored = useState(
+    STATE_KEYS.playerStateRestored,
+    () => false,
+  );
+
   const audioPlayer = useState<InstanceType<typeof AudioPlayer> | null>(
     STATE_KEYS.playerAudioPlayer,
     () => AUDIO_PLAYER_DEFAULT_STATES.audioPlayer,
@@ -130,18 +135,22 @@ export function useAudioPlayer() {
   }
 
   async function restoreAudioPlayerState() {
-    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.player);
-
-    if (!SAVED_STATE) {
-      resetAudioPlayerState();
-
+    console.log(`playerStateRestored.value: `, playerStateRestored.value);
+    if (playerStateRestored.value) {
       return;
     }
 
-    repeat.value = SAVED_STATE.repeat;
-    shuffle.value = SAVED_STATE.shuffle;
-    setVolume(SAVED_STATE.volume);
-    setPlaybackRate(SAVED_STATE.playbackRate);
+    playerStateRestored.value = true;
+    setupAudioPlayer();
+
+    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.player);
+
+    if (SAVED_STATE) {
+      repeat.value = SAVED_STATE.repeat;
+      shuffle.value = SAVED_STATE.shuffle;
+      setVolume(SAVED_STATE.volume);
+      setPlaybackRate(SAVED_STATE.playbackRate);
+    }
 
     if (hasCurrentTrack.value) {
       loadTrack(currentTrack.value);
@@ -149,7 +158,7 @@ export function useAudioPlayer() {
       setupMediaSessionHandlers();
 
       const position = currentTrack.value.position;
-      const savedTime = SAVED_STATE.currentTime;
+      const savedTime = SAVED_STATE?.currentTime;
       const timeToRestore = savedTime || position || 0;
 
       setCurrentTime(timeToRestore);
@@ -529,6 +538,7 @@ export function useAudioPlayer() {
     preloader.value?.clear();
     resetAudioPlayerState();
     stopSaveInterval();
+    playerStateRestored.value = false;
   }
 
   function setupAudioPlayer() {
@@ -598,11 +608,6 @@ export function useAudioPlayer() {
     });
   }
 
-  async function initAudioPlayer() {
-    setupAudioPlayer();
-    await restoreAudioPlayerState();
-  }
-
   return {
     addTracksToQueue,
     addTrackToQueue,
@@ -612,7 +617,6 @@ export function useAudioPlayer() {
     currentTime,
     cycleRepeat,
     fastForwardTrack,
-    initAudioPlayer,
     isBuffering,
     isMuted,
     isPlaying,
@@ -627,6 +631,7 @@ export function useAudioPlayer() {
     repeat,
     resetAudioPlayer,
     resetPlayerSession,
+    restoreAudioPlayerState,
     rewindTrack,
     seekTo,
     setPlaybackRate,

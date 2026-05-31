@@ -213,253 +213,251 @@ describe('useAudioPlayer', () => {
     expect(result.composable.canPlayPrevious.value).toBe(false);
   });
 
-  describe('when the initAudioPlayer function is called', () => {
-    beforeAll(() => {
-      getLocalStorageMock.mockReturnValue(null);
-
-      result = withSetup(useAudioPlayer);
-      result.composable.initAudioPlayer();
-    });
-
-    it('calls the onTimeupdate function', () => {
-      expect(onTimeupdateMock).toHaveBeenCalled();
-    });
-
-    it('calls the onCanPlay function', () => {
-      expect(onCanPlayMock).toHaveBeenCalled();
-    });
-
-    it('calls the onBuffered function', () => {
-      expect(onBufferedMock).toHaveBeenCalled();
-    });
-
-    it('calls the onWaiting function', () => {
-      expect(onWaitingMock).toHaveBeenCalled();
-    });
-
-    it('calls the onEnded function', () => {
-      expect(onEndedMock).toHaveBeenCalled();
-    });
-
-    it('calls the onPause function', () => {
-      expect(onPauseMock).toHaveBeenCalled();
-    });
-
-    it('calls the onPlay function', () => {
-      expect(onPlayMock).toHaveBeenCalled();
-    });
-
-    describe('when the getLocalStorage function returns null', () => {
-      it('resets the correct bufferedDuration value', () => {
-        expect(result.composable.bufferedDuration.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
-        );
+  describe('when the restoreAudioPlayerState function is called', () => {
+    describe('when the playerStateRestored value is false', () => {
+      beforeEach(() => {
+        useState(STATE_KEYS.playerStateRestored).value = false;
       });
 
-      it('resets the correct currentTime value', () => {
-        expect(result.composable.currentTime.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.currentTime,
-        );
-      });
-
-      it('resets the correct isBuffering value', () => {
-        expect(result.composable.isBuffering.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
-        );
-      });
-
-      it('resets the correct isPlaying value', () => {
-        expect(result.composable.isPlaying.value).toBe(false);
-      });
-
-      it('resets the correct playbackRate value', () => {
-        expect(result.composable.playbackRate.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
-        );
-      });
-
-      it('resets the correct repeat value', () => {
-        expect(result.composable.repeat.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.repeat,
-        );
-      });
-
-      it('resets the correct shuffle value', () => {
-        expect(result.composable.shuffle.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.shuffle,
-        );
-      });
-
-      it('resets the correct volume value', () => {
-        expect(result.composable.volume.value).toBe(
-          AUDIO_PLAYER_DEFAULT_STATES.volume,
-        );
-      });
-
-      it('calls the deleteLocalStorage function', () => {
-        expect(deleteLocalStorageMock).toHaveBeenCalledWith(
-          LOCAL_STORAGE_KEYS.player,
-        );
-      });
-    });
-
-    describe('when the getLocalStorage function returns data', () => {
-      beforeAll(() => {
-        getLocalStorageMock.mockReturnValue({
-          ...AUDIO_PLAYER_DEFAULT_STATES,
-          currentTime: 55,
-          playbackRate: 0,
-          repeat: -1,
-          shuffle: false,
-          volume: 0.5,
-        });
+      beforeAll(async () => {
+        getLocalStorageMock.mockReturnValue(null);
 
         result = withSetup(useAudioPlayer);
-        result.composable.initAudioPlayer();
+        await result.composable.restoreAudioPlayerState();
       });
 
-      it('sets the correct repeat value', () => {
-        expect(result.composable.repeat.value).toBe(-1);
+      it('calls the onTimeupdate function', () => {
+        expect(onTimeupdateMock).toHaveBeenCalled();
       });
 
-      it('sets the correct shuffle value', () => {
-        expect(result.composable.shuffle.value).toBe(false);
+      it('calls the onCanPlay function', () => {
+        expect(onCanPlayMock).toHaveBeenCalled();
       });
 
-      it('sets the correct volume value', () => {
-        expect(result.composable.volume.value).toBe(0.5);
+      it('calls the onBuffered function', () => {
+        expect(onBufferedMock).toHaveBeenCalled();
       });
 
-      it('calls the audio setVolume function with the correct parameters', () => {
-        expect(setVolumeMock).toHaveBeenCalledWith(0.5);
+      it('calls the onWaiting function', () => {
+        expect(onWaitingMock).toHaveBeenCalled();
       });
 
-      it('calls the audio changePlaybackRate function with the correct parameters', () => {
-        expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
+      it('calls the onEnded function', () => {
+        expect(onEndedMock).toHaveBeenCalled();
       });
 
-      describe('when the hasCurrentTrack value is false', () => {
-        it('does not call the audio load function', () => {
-          expect(loadMock).not.toHaveBeenCalled();
+      it('calls the onPause function', () => {
+        expect(onPauseMock).toHaveBeenCalled();
+      });
+
+      it('calls the onPlay function', () => {
+        expect(onPlayMock).toHaveBeenCalled();
+      });
+
+      describe('when the getLocalStorage function returns null', () => {
+        it('resets the correct bufferedDuration value', () => {
+          expect(result.composable.bufferedDuration.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
+          );
         });
 
-        it('calls the setLocalStorage function with the correct parameters', () => {
-          expect(setLocalStorageMock).toHaveBeenCalledWith(
-            LOCAL_STORAGE_KEYS.player,
-            {
-              currentTime: 0,
-              playbackRate: 0,
-              repeat: -1,
-              shuffle: false,
-              volume: 0.5,
-            },
+        it('resets the correct currentTime value', () => {
+          expect(result.composable.currentTime.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.currentTime,
+          );
+        });
+
+        it('resets the correct isBuffering value', () => {
+          expect(result.composable.isBuffering.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
+          );
+        });
+
+        it('resets the correct isPlaying value', () => {
+          expect(result.composable.isPlaying.value).toBe(false);
+        });
+
+        it('resets the correct playbackRate value', () => {
+          expect(result.composable.playbackRate.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
+          );
+        });
+
+        it('resets the correct repeat value', () => {
+          expect(result.composable.repeat.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.repeat,
+          );
+        });
+
+        it('resets the correct shuffle value', () => {
+          expect(result.composable.shuffle.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.shuffle,
+          );
+        });
+
+        it('resets the correct volume value', () => {
+          expect(result.composable.volume.value).toBe(
+            AUDIO_PLAYER_DEFAULT_STATES.volume,
           );
         });
       });
 
-      describe('when the hasCurrentTrack value is true', () => {
-        beforeAll(() => {
-          hasCurrentTrackMock.value = true;
+      describe('when the getLocalStorage function returns data', () => {
+        beforeAll(async () => {
+          getLocalStorageMock.mockReturnValue({
+            ...AUDIO_PLAYER_DEFAULT_STATES,
+            currentTime: 55,
+            playbackRate: 0,
+            repeat: -1,
+            shuffle: false,
+            volume: 0.5,
+          });
 
           result = withSetup(useAudioPlayer);
-          result.composable.initAudioPlayer();
+          await result.composable.restoreAudioPlayerState();
         });
 
-        it('calls the audio load function with the correct parameters', () => {
-          expect(loadMock).toHaveBeenCalledWith(
-            currentTrackMock.value.streamUrlId,
-          );
+        it('sets the correct repeat value', () => {
+          expect(result.composable.repeat.value).toBe(-1);
         });
 
-        it('calls the setMediaSessionMetadata function', () => {
-          expect(setMediaSessionMetadataMock).toHaveBeenCalled();
+        it('sets the correct shuffle value', () => {
+          expect(result.composable.shuffle.value).toBe(false);
         });
 
-        it('calls the setupMediaSessionHandlers function', () => {
-          expect(setupMediaSessionHandlersMock).toHaveBeenCalled();
+        it('sets the correct volume value', () => {
+          expect(result.composable.volume.value).toBe(0.5);
         });
 
-        it('calls the setLocalStorage function', () => {
-          expect(setLocalStorageMock).toHaveBeenCalled();
+        it('calls the audio setVolume function with the correct parameters', () => {
+          expect(setVolumeMock).toHaveBeenCalledWith(0.5);
         });
 
-        describe('when saved state has no currentTime', () => {
-          beforeAll(() => {
-            getLocalStorageMock.mockReturnValue({
-              ...AUDIO_PLAYER_DEFAULT_STATES,
-              playbackRate: 0,
-              repeat: -1,
-              shuffle: false,
-              volume: 0.5,
-            });
-            currentTrackMock.value.position = 7;
+        it('calls the audio changePlaybackRate function with the correct parameters', () => {
+          expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
+        });
+
+        describe('when the hasCurrentTrack value is false', () => {
+          it('does not call the audio load function', () => {
+            expect(loadMock).not.toHaveBeenCalled();
+          });
+        });
+
+        describe('when the hasCurrentTrack value is true', () => {
+          beforeAll(async () => {
+            hasCurrentTrackMock.value = true;
 
             result = withSetup(useAudioPlayer);
-            result.composable.initAudioPlayer();
+            await result.composable.restoreAudioPlayerState();
           });
 
-          it('calls the setCurrentTime function with the correct parameters', () => {
-            expect(setCurrentTimeMock).toHaveBeenCalledWith(7);
+          it('calls the audio load function with the correct parameters', () => {
+            expect(loadMock).toHaveBeenCalledWith(
+              currentTrackMock.value.streamUrlId,
+            );
           });
 
-          describe('when the currentTrack value has a position', () => {
-            beforeAll(() => {
+          it('calls the setMediaSessionMetadata function', () => {
+            expect(setMediaSessionMetadataMock).toHaveBeenCalled();
+          });
+
+          it('calls the setupMediaSessionHandlers function', () => {
+            expect(setupMediaSessionHandlersMock).toHaveBeenCalled();
+          });
+
+          describe('when saved state has no currentTime', () => {
+            beforeAll(async () => {
+              getLocalStorageMock.mockReturnValue({
+                ...AUDIO_PLAYER_DEFAULT_STATES,
+                playbackRate: 0,
+                repeat: -1,
+                shuffle: false,
+                volume: 0.5,
+              });
               currentTrackMock.value.position = 7;
-              result.composable.initAudioPlayer();
+
+              result = withSetup(useAudioPlayer);
+              await result.composable.restoreAudioPlayerState();
             });
 
             it('calls the setCurrentTime function with the correct parameters', () => {
               expect(setCurrentTimeMock).toHaveBeenCalledWith(7);
             });
-          });
 
-          describe('when the currentTrack value does not have a position', () => {
-            beforeAll(() => {
-              currentTrackMock.value.position = undefined;
-              result.composable.initAudioPlayer();
+            describe('when the currentTrack value has a position', () => {
+              beforeAll(async () => {
+                currentTrackMock.value.position = 7;
+                result = withSetup(useAudioPlayer);
+                await result.composable.restoreAudioPlayerState();
+              });
+
+              it('calls the setCurrentTime function with the correct parameters', () => {
+                expect(setCurrentTimeMock).toHaveBeenCalledWith(7);
+              });
             });
 
-            it('calls the setCurrentTime function with the correct parameters', () => {
-              expect(setCurrentTimeMock).toHaveBeenCalledWith(0);
+            describe('when the currentTrack value does not have a position', () => {
+              beforeAll(async () => {
+                currentTrackMock.value.position = undefined;
+                result = withSetup(useAudioPlayer);
+                await result.composable.restoreAudioPlayerState();
+              });
+
+              it('calls the setCurrentTime function with the correct parameters', () => {
+                expect(setCurrentTimeMock).toHaveBeenCalledWith(0);
+              });
             });
           });
-        });
 
-        describe('when the queueList value is not an empty array', () => {
-          it('calls the audio preloader preload function with the correct parameters', () => {
-            expect(preloadMock).toHaveBeenCalledWith(
-              queueListMock.value[1].streamUrlId,
-            );
-            expect(preloadMock).toHaveBeenCalledWith(
-              queueListMock.value[2].streamUrlId,
-            );
-            expect(preloadMock).toHaveBeenCalledWith(
-              queueListMock.value[3].streamUrlId,
-            );
-          });
-
-          it('calls the audio preloader prune function with correct parameters', () => {
-            expect(pruneMock).toHaveBeenCalledWith(
-              new Set([
+          describe('when the queueList value is not an empty array', () => {
+            it('calls the audio preloader preload function with the correct parameters', () => {
+              expect(preloadMock).toHaveBeenCalledWith(
                 queueListMock.value[1].streamUrlId,
+              );
+              expect(preloadMock).toHaveBeenCalledWith(
                 queueListMock.value[2].streamUrlId,
+              );
+              expect(preloadMock).toHaveBeenCalledWith(
                 queueListMock.value[3].streamUrlId,
-              ]),
-            );
+              );
+            });
+
+            it('calls the audio preloader prune function with correct parameters', () => {
+              expect(pruneMock).toHaveBeenCalledWith(
+                new Set([
+                  queueListMock.value[1].streamUrlId,
+                  queueListMock.value[2].streamUrlId,
+                  queueListMock.value[3].streamUrlId,
+                ]),
+              );
+            });
+          });
+
+          describe('when the queueList value is an empty array', () => {
+            beforeAll(async () => {
+              vi.clearAllMocks();
+              queueListMock.value = [];
+              result = withSetup(useAudioPlayer);
+              await result.composable.restoreAudioPlayerState();
+            });
+
+            it('does not call the audio preloader preload function', () => {
+              expect(preloadMock).not.toHaveBeenCalled();
+            });
           });
         });
+      });
+    });
 
-        describe('when the queueList value is an empty array', () => {
-          beforeAll(() => {
-            vi.clearAllMocks();
-            queueListMock.value = [];
-            result.composable.initAudioPlayer();
-          });
+    describe('when the playerStateRestored value is true', () => {
+      beforeAll(async () => {
+        vi.clearAllMocks();
+        useState(STATE_KEYS.playerStateRestored).value = true;
+        await result.composable.restoreAudioPlayerState();
+      });
 
-          it('does not call the audio preloader preload function', () => {
-            expect(preloadMock).not.toHaveBeenCalled();
-          });
-        });
+      it('does not call the onTimeupdate function', () => {
+        expect(onTimeupdateMock).not.toHaveBeenCalled();
       });
     });
 

@@ -1,7 +1,7 @@
 export const REWIND_TRACK_TIME = 10;
 export const FAST_FORWARD_TRACK_TIME = 30;
 export const VOLUME_INCREASE = 0.02;
-export const SAVE_INTERVAL = 2000;
+export const SAVE_INTERVAL = 10000;
 export const PREFETCH_TRACK_COUNT = 3;
 
 export const PLAYBACK_RATES = [

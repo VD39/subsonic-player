@@ -4,12 +4,10 @@ import { vi } from 'vitest';
 const addTracksToQueueMock = vi.fn();
 const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
-const resetPlayerSessionMock = vi.fn();
 const currentTimeMock = ref(0);
 const fastForwardTrackMock = vi.fn();
 const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
-const initAudioPlayerMock = vi.fn();
 const isBufferingMock = ref(false);
 const isMutedMock = ref(false);
 const isPlayingMock = ref(false);
@@ -23,6 +21,8 @@ const removeFromQueueMock = vi.fn();
 const reorderQueueTrackMock = vi.fn();
 const repeatMock = ref(-1);
 const resetAudioPlayerMock = vi.fn();
+const resetPlayerSessionMock = vi.fn();
+const restoreAudioPlayerStateMock = vi.fn();
 const rewindTrackMock = vi.fn();
 const seekToMock = vi.fn();
 const setPlaybackRateMock = vi.fn();
@@ -46,7 +46,6 @@ export function useAudioPlayerMock() {
     currentTime: currentTimeMock,
     cycleRepeat: cycleRepeatMock,
     fastForwardTrack: fastForwardTrackMock,
-    initAudioPlayer: initAudioPlayerMock,
     isBuffering: isBufferingMock,
     isMuted: isMutedMock,
     isPlaying: isPlayingMock,
@@ -61,6 +60,7 @@ export function useAudioPlayerMock() {
     repeat: repeatMock,
     resetAudioPlayer: resetAudioPlayerMock,
     resetPlayerSession: resetPlayerSessionMock,
+    restoreAudioPlayerState: restoreAudioPlayerStateMock,
     rewindTrack: rewindTrackMock,
     seekTo: seekToMock,
     setPlaybackRate: setPlaybackRateMock,
@@ -83,7 +83,6 @@ export function useAudioPlayerMock() {
     fastForwardTrackMock,
     hasNextTrackMock,
     hasPreviousTrackMock,
-    initAudioPlayerMock,
     isBufferingMock,
     isMutedMock,
     isPlayingMock,
@@ -97,6 +96,7 @@ export function useAudioPlayerMock() {
     repeatMock,
     resetAudioPlayerMock,
     resetPlayerSessionMock,
+    restoreAudioPlayerStateMock,
     rewindTrackMock,
     seekToMock,
     setPlaybackRateMock,
