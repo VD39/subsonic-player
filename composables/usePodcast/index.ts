@@ -27,9 +27,10 @@ export function usePodcast() {
     });
 
     if (podcastData) {
-      await getPodcastsAndNewestPodcastEpisodes();
       addSuccessSnack('Successfully added podcast.');
     }
+
+    getPodcastsAndNewestPodcastEpisodes();
   }
 
   /* istanbul ignore next -- @preserve */
@@ -50,9 +51,10 @@ export function usePodcast() {
     });
 
     if (podcastData) {
-      await getPodcastsAndNewestPodcastEpisodes();
       addSuccessSnack('Successfully deleted podcast.');
     }
+
+    getPodcastsAndNewestPodcastEpisodes();
   }
 
   async function deletePodcastEpisode(episode: PodcastEpisode) {
@@ -66,9 +68,9 @@ export function usePodcast() {
       addSuccessSnack(
         'Successfully deleted podcast episode from server. Podcast will update automatically.',
       );
-
-      refreshPodcastAfterDelay(episode.podcastId!);
     }
+
+    refreshPodcastAfterDelay(episode.podcastId!);
   }
 
   async function downloadPodcastEpisode(episode: PodcastEpisode) {
@@ -82,9 +84,9 @@ export function usePodcast() {
       addSuccessSnack(
         'Download has begun on the server. Podcast will update automatically.',
       );
-
-      refreshPodcastAfterDelay(episode.podcastId!);
     }
+
+    refreshPodcastAfterDelay(episode.podcastId!);
   }
 
   async function getNewestPodcastEpisodes() {

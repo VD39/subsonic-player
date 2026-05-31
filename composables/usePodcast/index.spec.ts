@@ -178,31 +178,31 @@ describe('usePodcast', () => {
   });
 
   describe('when the addPodcast function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(async () => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        await addPodcast('url');
+    beforeEach(async () => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      await addPodcast('url');
+    });
+
+    it('calls the getPodcasts function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getPodcasts',
+        expect.any(Object),
+      );
+    });
+
+    it('calls the getNewestPodcasts function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getNewestPodcasts',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getPodcasts function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('does not call the getNewestPodcasts function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
       });
     });
 
@@ -222,49 +222,35 @@ describe('usePodcast', () => {
           'Successfully added podcast.',
         );
       });
-
-      it('calls the getPodcasts function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('calls the getNewestPodcasts function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
-      });
     });
   });
 
   describe('when the deletePodcast function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(async () => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        await deletePodcast('id');
+    beforeEach(async () => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      await deletePodcast('id');
+    });
+
+    it('calls the getPodcasts function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getPodcasts',
+        expect.any(Object),
+      );
+    });
+
+    it('calls the getNewestPodcasts function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getNewestPodcasts',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getPodcasts function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('does not call the getNewestPodcasts function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
       });
     });
 
@@ -284,54 +270,26 @@ describe('usePodcast', () => {
           'Successfully deleted podcast.',
         );
       });
-
-      it('calls the getPodcasts function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('calls the getNewestPodcasts function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
-      });
     });
   });
 
   describe('when the deletePodcastEpisode function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(async () => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        await deletePodcastEpisode({
-          id: 'id',
-          podcastId: 'podcastId',
-        } as PodcastEpisode);
-
-        vi.runAllTimers();
+    beforeEach(async () => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      await deletePodcastEpisode({
+        id: 'id',
+        podcastId: 'podcastId',
+      } as PodcastEpisode);
+
+      vi.runAllTimers();
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getPodcast function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('does not call the getNewestPodcastEpisodes function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
       });
     });
 
@@ -356,56 +314,42 @@ describe('usePodcast', () => {
           'Successfully deleted podcast episode from server. Podcast will update automatically.',
         );
       });
-
-      describe('when 15 seconds passes', () => {
-        it('calls the getPodcast function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith(
-            '/getPodcasts',
-            expect.any(Object),
-          );
-        });
-
-        it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith(
-            '/getNewestPodcasts',
-            expect.any(Object),
-          );
-        });
-      });
     });
-  });
 
-  describe('when the downloadPodcastEpisode function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        downloadPodcastEpisode({
-          id: 'id',
-          podcastId: 'podcastId',
-        } as PodcastEpisode);
-
-        vi.runAllTimers();
-      });
-
-      it('does not call the addSuccessSnack function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getPodcast function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
+    describe('when 15 seconds passes', () => {
+      it('calls the getPodcast function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
           '/getPodcasts',
           expect.any(Object),
         );
       });
 
-      it('does not call the getNewestPodcastEpisodes function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
+      it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
           '/getNewestPodcasts',
           expect.any(Object),
         );
+      });
+    });
+  });
+
+  describe('when the downloadPodcastEpisode function is called', () => {
+    beforeEach(() => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
+      });
+
+      downloadPodcastEpisode({
+        id: 'id',
+        podcastId: 'podcastId',
+      } as PodcastEpisode);
+
+      vi.runAllTimers();
+    });
+
+    describe('when fetchData response returns null', () => {
+      it('does not call the addSuccessSnack function', () => {
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
     });
 
@@ -430,21 +374,21 @@ describe('usePodcast', () => {
           'Download has begun on the server. Podcast will update automatically.',
         );
       });
+    });
 
-      describe('when 15 seconds passes', () => {
-        it('calls the getPodcast function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith(
-            '/getPodcasts',
-            expect.any(Object),
-          );
-        });
+    describe('when 15 seconds passes', () => {
+      it('calls the getPodcast function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
+      });
 
-        it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
-          expect(fetchDataMock).toHaveBeenCalledWith(
-            '/getNewestPodcasts',
-            expect.any(Object),
-          );
-        });
+      it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
       });
     });
   });

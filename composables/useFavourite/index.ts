@@ -34,7 +34,7 @@ export function useFavourite() {
     });
 
     setFavouriteId(params.id!);
-    await getFavourites();
+    getFavourites();
   }
 
   /* istanbul ignore next -- @preserve */
@@ -45,7 +45,7 @@ export function useFavourite() {
     });
 
     setFavouriteId(params.id!, false);
-    await getFavourites();
+    getFavourites();
   }
 
   function setFavouriteId(id: string, isFavourite = true) {

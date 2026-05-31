@@ -75,33 +75,14 @@ describe('useBookmark', () => {
   });
 
   describe('when the createBookmark function is called', () => {
+    beforeEach(() => {
+      createBookmark('id', 12345);
+    });
+
     describe('when fetchData response returns null', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
           data: null,
-        });
-
-        createBookmark('id', 12345);
-      });
-
-      it('does not call the addSuccessSnack function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getBookmarks function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getBookmarks',
-          expect.any(Object),
-        );
-      });
-    });
-
-    describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: {
-            name: 'name',
-          },
         });
 
         createBookmark('id', 12345);
@@ -117,24 +98,24 @@ describe('useBookmark', () => {
   });
 
   describe('when the deleteBookmark function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        deleteBookmark('id');
+    beforeEach(() => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      deleteBookmark('id');
+    });
+
+    it('calls the getBookmarks function', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getBookmarks',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getBookmarks function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getBookmarks',
-          expect.any(Object),
-        );
       });
     });
 
@@ -147,13 +128,6 @@ describe('useBookmark', () => {
         });
 
         deleteBookmark('id', false);
-      });
-
-      it('calls the getBookmarks function', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getBookmarks',
-          expect.any(Object),
-        );
       });
 
       describe('when showMessage is false', () => {

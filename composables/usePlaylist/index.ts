@@ -82,8 +82,9 @@ export function usePlaylist() {
         formatPlaylist(response.playlist),
     });
 
+    getPlaylists();
+
     if (playlistData) {
-      await getPlaylists();
       addSuccessSnack(`Successfully added playlist ${query.name}.`);
       return playlistData;
     }
@@ -99,13 +100,11 @@ export function usePlaylist() {
       query,
     });
 
-    if (playlistData) {
-      await getPlaylists();
-
-      if (showMessage) {
-        addSuccessSnack(successMessage);
-      }
+    if (playlistData && showMessage) {
+      addSuccessSnack(successMessage);
     }
+
+    getPlaylists();
   }
 
   async function deletePlaylist(id: string) {
@@ -116,9 +115,10 @@ export function usePlaylist() {
     });
 
     if (playlistData) {
-      await getPlaylists();
       addSuccessSnack('Successfully deleted playlist.');
     }
+
+    getPlaylists();
   }
 
   async function addToPlaylist(

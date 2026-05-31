@@ -211,26 +211,26 @@ describe('usePlaylist', () => {
   });
 
   describe('when the addPlaylist function is called', () => {
+    beforeAll(() => {
+      vi.clearAllMocks();
+
+      fetchDataMock.mockResolvedValue({
+        data: null,
+      });
+
+      addPlaylist({
+        name: 'name',
+      });
+    });
+
+    it('calls the getPlaylists function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getPlaylists',
+        expect.any(Object),
+      );
+    });
+
     describe('when fetchData response returns null', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        addPlaylist({
-          name: 'name',
-        });
-      });
-
-      it('does not call the getPlaylists function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPlaylists',
-          expect.any(Object),
-        );
-      });
-
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
@@ -247,13 +247,6 @@ describe('usePlaylist', () => {
         addPlaylist({
           name: 'name',
         });
-      });
-
-      it('calls the getPlaylists function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPlaylists',
-          expect.any(Object),
-        );
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -265,26 +258,26 @@ describe('usePlaylist', () => {
   });
 
   describe('when the updatePlaylist function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
+    beforeAll(() => {
+      vi.clearAllMocks();
 
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        updatePlaylist({} as PlaylistParam);
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      updatePlaylist({} as PlaylistParam);
+    });
+
+    it('calls the getPlaylists function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getPlaylists',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getPlaylists function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPlaylists',
-          expect.any(Object),
-        );
       });
     });
 
@@ -297,13 +290,6 @@ describe('usePlaylist', () => {
         });
 
         updatePlaylist({} as PlaylistParam);
-      });
-
-      it('calls the getPlaylists function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPlaylists',
-          expect.any(Object),
-        );
       });
 
       describe('when showMessage parameter is true', () => {
@@ -340,26 +326,26 @@ describe('usePlaylist', () => {
   });
 
   describe('when the deletePlaylist function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
+    beforeAll(() => {
+      vi.clearAllMocks();
 
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        deletePlaylist('id');
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      deletePlaylist('id');
+    });
+
+    it('calls the getPlaylists function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getPlaylists',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getPlaylists function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPlaylists',
-          expect.any(Object),
-        );
       });
     });
 
@@ -377,13 +363,6 @@ describe('usePlaylist', () => {
       it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted playlist.',
-        );
-      });
-
-      it('calls the getPlaylists function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPlaylists',
-          expect.any(Object),
         );
       });
     });

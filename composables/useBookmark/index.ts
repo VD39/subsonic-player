@@ -27,7 +27,7 @@ export function useBookmark() {
   }
 
   async function createBookmark(id: string, position: number) {
-    const { data: bookmarkData } = await fetchData('/createBookmark', {
+    await fetchData('/createBookmark', {
       method: 'POST',
       query: {
         id,
@@ -35,9 +35,7 @@ export function useBookmark() {
       },
     });
 
-    if (bookmarkData) {
-      await getBookmarks();
-    }
+    getBookmarks();
   }
 
   async function deleteBookmark(id: string, showMessage = true) {
@@ -47,13 +45,11 @@ export function useBookmark() {
       },
     });
 
-    if (bookmarkData) {
-      await getBookmarks();
-
-      if (showMessage) {
-        addSuccessSnack('Successfully deleted bookmark.');
-      }
+    if (bookmarkData && showMessage) {
+      addSuccessSnack('Successfully deleted bookmark.');
     }
+
+    getBookmarks();
   }
 
   return {
