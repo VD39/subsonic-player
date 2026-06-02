@@ -135,12 +135,10 @@ export function useAudioPlayer() {
   }
 
   async function restoreAudioPlayerState() {
-    console.log(`playerStateRestored.value: `, playerStateRestored.value);
     if (playerStateRestored.value) {
       return;
     }
 
-    playerStateRestored.value = true;
     setupAudioPlayer();
 
     const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.player);
@@ -165,6 +163,8 @@ export function useAudioPlayer() {
     }
 
     prefetchUpcomingTracks();
+
+    playerStateRestored.value = true;
   }
 
   function saveAudioPlayerState() {

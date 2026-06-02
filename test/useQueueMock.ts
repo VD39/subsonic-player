@@ -35,7 +35,8 @@ const resetQueueMock = vi.fn().mockImplementation(() => {
   originalQueueListMock.value = [];
 });
 const restoreQueueMock = vi.fn();
-const restoreQueueStateMock = vi.fn();
+const restoreQueueStateFromLocalMock = vi.fn();
+const restoreQueueStateFromServerMock = vi.fn();
 const shuffleQueueMock = vi.fn();
 const toggleQueueListMock = vi.fn();
 const toggleQueuePlayerMock = vi.fn();
@@ -67,7 +68,8 @@ export function useQueueMock() {
     reorderQueueTracks: reorderQueueTracksMock,
     resetQueue: resetQueueMock,
     restoreQueue: restoreQueueMock,
-    restoreQueueState: restoreQueueStateMock,
+    restoreQueueStateFromLocal: restoreQueueStateFromLocalMock,
+    restoreQueueStateFromServer: restoreQueueStateFromServerMock,
     shuffleQueue: shuffleQueueMock,
     toggleQueueList: toggleQueueListMock,
     toggleQueuePlayer: toggleQueuePlayerMock,
@@ -99,7 +101,8 @@ export function useQueueMock() {
     reorderQueueTracksMock,
     resetQueueMock,
     restoreQueueMock,
-    restoreQueueStateMock,
+    restoreQueueStateFromLocalMock,
+    restoreQueueStateFromServerMock,
     shuffleQueueMock,
     toggleQueueListMock,
     toggleQueuePlayerMock,

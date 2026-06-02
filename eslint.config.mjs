@@ -28,6 +28,12 @@ export default withNuxt(
       ],
       '@typescript-eslint/no-unused-vars': 'error',
       'dot-notation': 'error',
+      'no-console': [
+        'error',
+        {
+          allow: ['warn', 'error'],
+        },
+      ],
       'no-undef': 'error',
       'no-unused-vars': 'off',
       'no-useless-rename': 'error',

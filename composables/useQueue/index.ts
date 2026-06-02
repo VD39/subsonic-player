@@ -102,61 +102,6 @@ export function useQueue() {
     return currentTrack.value.id === id;
   }
 
-  async function restoreQueueState() {
-    if (queueStateRestored.value) {
-      return;
-    }
-
-    queueStateRestored.value = true;
-
-    if (!ENABLE_QUEUE_SYNC) {
-      loadQueueState();
-
-      return;
-    }
-
-    const { data: playQueueData } = await fetchData('/getPlayQueue', {
-      transform: /* istanbul ignore next -- @preserve */ (response) =>
-        formatPlayQueue(response.playQueue),
-    });
-
-    if (!playQueueData?.tracks.length) {
-      return;
-    }
-
-    queueList.value = playQueueData.tracks;
-
-    currentQueueIndex.value = 0;
-
-    if (playQueueData.current) {
-      const foundIndex = playQueueData.tracks.findIndex(
-        (track) => track.id === String(playQueueData.current),
-      );
-
-      currentQueueIndex.value = foundIndex === -1 ? 0 : foundIndex;
-    }
-
-    if (playQueueData.position) {
-      queueList.value[currentQueueIndex.value].position = Math.floor(
-        playQueueData.position / 1000,
-      );
-    }
-  }
-
-  function loadQueueState() {
-    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
-
-    if (!SAVED_STATE) {
-      clearQueue();
-
-      return;
-    }
-
-    currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
-    originalQueueSnapshot.value = SAVED_STATE.originalQueueSnapshot;
-    queueList.value = SAVED_STATE.queueList;
-  }
-
   function navigateQueue(target: 'next' | 'previous' | number) {
     switch (target) {
       case 'next':
@@ -267,6 +212,61 @@ export function useQueue() {
     saveQueueState();
   }
 
+  function restoreQueueStateFromLocal() {
+    if (ENABLE_QUEUE_SYNC || queueStateRestored.value) {
+      return;
+    }
+
+    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
+
+    if (!SAVED_STATE) {
+      clearQueue();
+
+      return;
+    }
+
+    currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
+    originalQueueSnapshot.value = SAVED_STATE.originalQueueSnapshot;
+    queueList.value = SAVED_STATE.queueList;
+
+    queueStateRestored.value = true;
+  }
+
+  async function restoreQueueStateFromServer() {
+    if (!ENABLE_QUEUE_SYNC || queueStateRestored.value) {
+      return;
+    }
+
+    queueStateRestored.value = true;
+
+    const { data: playQueueData } = await fetchData('/getPlayQueue', {
+      transform: /* istanbul ignore next -- @preserve */ (response) =>
+        formatPlayQueue(response.playQueue),
+    });
+
+    if (!playQueueData?.tracks.length) {
+      return;
+    }
+
+    queueList.value = playQueueData.tracks;
+
+    currentQueueIndex.value = 0;
+
+    if (playQueueData.current) {
+      const foundIndex = playQueueData.tracks.findIndex(
+        (track) => track.id === String(playQueueData.current),
+      );
+
+      currentQueueIndex.value = foundIndex === -1 ? 0 : foundIndex;
+    }
+
+    if (playQueueData.position) {
+      queueList.value[currentQueueIndex.value].position = Math.floor(
+        playQueueData.position / 1000,
+      );
+    }
+  }
+
   function saveQueueState() {
     const STATE_TO_SAVE = {
       currentQueueIndex: currentQueueIndex.value,
@@ -342,7 +342,13 @@ export function useQueue() {
   }
 
   function updateCurrentTrackPosition(position: number) {
-    queueList.value[currentQueueIndex.value].position = position;
+    const track = queueList.value[currentQueueIndex.value];
+
+    if (!track) {
+      return;
+    }
+
+    track.position = position;
     saveQueueState();
   }
 
@@ -378,7 +384,8 @@ export function useQueue() {
     reorderQueueTracks,
     resetQueue,
     restoreQueue,
-    restoreQueueState,
+    restoreQueueStateFromLocal,
+    restoreQueueStateFromServer,
     shuffleQueue,
     toggleQueueList,
     toggleQueuePlayer,

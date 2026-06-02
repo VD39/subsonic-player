@@ -60,11 +60,11 @@ describe('useGenre', () => {
   });
 
   describe('when the getMediaByGenre function is called', () => {
-    let results: Awaited<ReturnType<typeof getMediaByGenre>>;
+    let result: Awaited<ReturnType<typeof getMediaByGenre>>;
 
     describe(`when route media type is ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
       beforeEach(async () => {
-        results = await getMediaByGenre({
+        result = await getMediaByGenre({
           genre: 'soundtrack',
           mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
         });
@@ -75,7 +75,7 @@ describe('useGenre', () => {
       });
 
       it('returns the correct response', () => {
-        expect(results).toEqual(['albums']);
+        expect(result).toEqual(['albums']);
       });
     });
 
@@ -85,14 +85,14 @@ describe('useGenre', () => {
           data: ['tracks'],
         });
 
-        results = await getMediaByGenre({
+        result = await getMediaByGenre({
           genre: 'soundtrack',
           mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
         });
       });
 
       it('returns the correct response', () => {
-        expect(results).toEqual(['tracks']);
+        expect(result).toEqual(['tracks']);
       });
 
       describe('when offset is not set', () => {

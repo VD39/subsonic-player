@@ -35,13 +35,6 @@ mockNuxtImport('useDragAndDrop', () => () => ({
   dragStart: dragStartMock,
 }));
 
-const refreshMock = vi.fn();
-
-mockNuxtImport('useAsyncData', () => () => ({
-  refresh: refreshMock,
-  status: ref('success'),
-}));
-
 const { useHeadTitleMock } = useHeadMock();
 const {
   playFromQueueMock,

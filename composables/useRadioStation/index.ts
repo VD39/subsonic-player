@@ -36,9 +36,10 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      await getRadioStations();
       addSuccessSnack(`Successfully added radio station ${params.name}.`);
     }
+
+    getRadioStations();
   }
 
   async function updateRadioStation(params: RadioStationParams) {
@@ -55,9 +56,10 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      await getRadioStations();
       addSuccessSnack(`Successfully updated radio station ${params.name}.`);
     }
+
+    getRadioStations();
   }
 
   async function deleteRadioStation(id: string) {
@@ -71,9 +73,10 @@ export function useRadioStation() {
     );
 
     if (radioStationData) {
-      await getRadioStations();
       addSuccessSnack('Successfully deleted radio station.');
     }
+
+    getRadioStations();
   }
 
   /* istanbul ignore next -- @preserve */

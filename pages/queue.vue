@@ -3,13 +3,16 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
 
+const config = useRuntimeConfig();
+const { ENABLE_QUEUE_SYNC } = config.public;
+
 const {
   playFromQueue,
   removeFromQueue,
   reorderQueueTrack,
   resetPlayerSession,
 } = useAudioPlayer();
-const { queueList, resetQueue, restoreQueueState } = useQueue();
+const { queueList, resetQueue, restoreQueueStateFromServer } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
 const { downloadTrack } = useMediaLibrary();
 const { openTrackInformationModal } = useMediaInformation();
@@ -19,7 +22,7 @@ const { dragStart } = useDragAndDrop();
 useAsyncData(
   ASYNC_DATA_KEYS.queue,
   async () => {
-    await restoreQueueState();
+    await restoreQueueStateFromServer();
 
     return {
       queueList: queueList.value,
@@ -31,6 +34,7 @@ useAsyncData(
     }),
     getCachedData: (key, nuxtApp) =>
       nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    server: ENABLE_QUEUE_SYNC,
   },
 );
 

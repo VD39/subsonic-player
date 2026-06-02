@@ -2,8 +2,6 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { flushPromises } from '@vue/test-utils';
 
 import { routeMock } from '@/test/fixtures';
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
-import { useQueueMock } from '@/test/useQueueMock';
 
 import appGlobalMiddleware from './app.global';
 
@@ -25,9 +23,6 @@ mockNuxtImport('usePlaylist', () => () => ({
   getPlaylists: getPlaylistsMock,
   playlists: playlistsMock,
 }));
-
-const { restoreQueueStateMock } = useQueueMock();
-const { restoreAudioPlayerStateMock } = useAudioPlayerMock();
 
 describe('app-global-middleware', () => {
   afterEach(() => {
@@ -83,14 +78,6 @@ describe('app-global-middleware', () => {
       it('does not call the getPlaylists function', () => {
         expect(getPlaylistsMock).not.toHaveBeenCalled();
       });
-    });
-
-    it('does not call the restoreQueueState function', () => {
-      expect(restoreQueueStateMock).not.toHaveBeenCalled();
-    });
-
-    it('does not call the restoreAudioPlayerState function', () => {
-      expect(restoreAudioPlayerStateMock).not.toHaveBeenCalled();
     });
   });
 
@@ -158,14 +145,6 @@ describe('app-global-middleware', () => {
 
       it('does not call the navigateTo function', () => {
         expect(navigateToMock).not.toHaveBeenCalled();
-      });
-
-      it('calls the restoreQueueState function', () => {
-        expect(restoreQueueStateMock).toHaveBeenCalled();
-      });
-
-      it('calls the restoreAudioPlayerState function', () => {
-        expect(restoreAudioPlayerStateMock).toHaveBeenCalled();
       });
     });
 

@@ -69,7 +69,6 @@ const {
   reorderQueueTracks,
   resetQueue,
   restoreQueue,
-  restoreQueueState,
   shuffleQueue,
   toggleQueueList,
   toggleQueuePlayer,
@@ -1039,7 +1038,6 @@ describe('useQueue', () => {
       describe('when localStorage does not have a saved originalQueueSnapshot', () => {
         beforeAll(() => {
           getLocalStorageMock.mockReturnValue(null);
-
           restoreQueue();
         });
 
@@ -1114,178 +1112,208 @@ describe('useQueue', () => {
     });
   });
 
-  describe('when the restoreQueueState function is called', () => {
-    describe('when the queueStateRestored value is false', () => {
-      beforeEach(() => {
-        useState(STATE_KEYS.queueStateRestored).value = false;
+  describe('when the restoreQueueStateFromLocal function is called', () => {
+    let restoreQueueStateFromLocalResult: ReturnType<
+      typeof useQueue
+    >['restoreQueueStateFromLocal'];
+
+    beforeAll(() => {
+      config.public.ENABLE_QUEUE_SYNC = false;
+      const queue = useQueue();
+      restoreQueueStateFromLocalResult = queue.restoreQueueStateFromLocal;
+    });
+
+    describe('when getLocalStorage returns null', () => {
+      beforeAll(() => {
+        resetQueue(false); // reset queueStateRestored
+        getLocalStorageMock.mockReturnValue(null);
+        restoreQueueStateFromLocalResult();
       });
 
-      describe('when ENABLE_QUEUE_SYNC is true', () => {
-        describe('when the server returns no tracks', () => {
-          beforeAll(async () => {
-            fetchDataMock.mockReturnValue({
-              data: null,
-            });
+      it('calls the getLocalStorage function with the correct parameters', () => {
+        expect(getLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+        );
+      });
 
-            await restoreQueueState();
-          });
+      it('does not update the queueList value', () => {
+        expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+      });
 
-          it('does not update the queueList value', () => {
-            expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
-          });
+      it('does not update the currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(
+          QUEUE_DEFAULT_STATES.currentQueueIndex,
+        );
+      });
+    });
+
+    describe('when getLocalStorage returns a value', () => {
+      beforeAll(() => {
+        resetQueue(false); // reset queueStateRestored so restore runs
+        getLocalStorageMock.mockReturnValue({
+          currentQueueIndex: 1,
+          originalQueueSnapshot: QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+          queueList: tracks,
+        });
+        restoreQueueStateFromLocalResult();
+      });
+
+      it('calls the getLocalStorage function with the correct parameters', () => {
+        expect(getLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+        );
+      });
+
+      it('sets the correct queueList value', () => {
+        expect(queueList.value).toEqual(tracks);
+      });
+
+      it('sets the correct currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(1);
+      });
+    });
+
+    describe('when ENABLE_QUEUE_SYNC is true', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        config.public.ENABLE_QUEUE_SYNC = true;
+        const { restoreQueueStateFromLocal } = useQueue();
+        restoreQueueStateFromLocal();
+      });
+
+      afterAll(() => {
+        config.public.ENABLE_QUEUE_SYNC = false; // restore for "called again" test
+      });
+
+      it('does not call the getLocalStorage function', () => {
+        expect(getLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the restoreQueueStateFromLocal function is called again', () => {
+      // ENABLE_QUEUE_SYNC = false here (restored by afterAll above)
+      // queueStateRestored = true from the "returns a value" block — tests the idempotency guard
+      beforeAll(() => {
+        vi.clearAllMocks();
+        restoreQueueStateFromLocalResult();
+      });
+
+      it('does not call the getLocalStorage function', () => {
+        expect(getLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when the restoreQueueStateFromServer function is called', () => {
+    let restoreQueueStateFromServerResult: ReturnType<
+      typeof useQueue
+    >['restoreQueueStateFromServer'];
+
+    beforeAll(() => {
+      config.public.ENABLE_QUEUE_SYNC = true;
+      const queue = useQueue();
+      restoreQueueStateFromServerResult = queue.restoreQueueStateFromServer;
+    });
+
+    describe('when fetchData response returns null', () => {
+      beforeAll(async () => {
+        resetQueue(false); // avoid polluting fetchDataMock with syncToServer call
+        fetchDataMock.mockResolvedValue({
+          data: null,
         });
 
-        describe('when the server returns tracks with a matching current track', () => {
-          beforeAll(async () => {
-            fetchDataMock.mockReturnValueOnce({
-              data: {
-                current: tracks[3].id,
-                position: 1000,
-                tracks,
-              },
-            });
+        await restoreQueueStateFromServerResult();
+      });
 
-            await restoreQueueState();
-          });
-
-          it('sets the correct position on the current track', () => {
-            expect(queueList.value[3].position).toBe(1);
-          });
-
-          it('sets the correct queueList value', () => {
-            expect(queueList.value).toEqual(tracks);
-          });
-
-          it('sets the correct currentQueueIndex value', () => {
-            expect(currentQueueIndex.value).toBe(3);
-          });
-        });
-
-        describe('when the server returns tracks without a matching current track', () => {
-          beforeAll(async () => {
-            fetchDataMock.mockReturnValueOnce({
-              data: {
-                current: 'non-existent-id',
-                position: 1000,
-                tracks,
-              },
-            });
-
-            await restoreQueueState();
-          });
-
-          it('sets the correct position on the first track', () => {
-            expect(queueList.value[0].position).toBe(1);
-          });
-
-          it('sets the correct queueList value', () => {
-            expect(queueList.value).toEqual(tracks);
-          });
-
-          it('sets the correct currentQueueIndex value', () => {
-            expect(currentQueueIndex.value).toBe(0);
-          });
-
-          it('sets the correct currentTrack value', () => {
-            expect(currentTrack.value).toEqual(tracks[0]);
-          });
-        });
-
-        describe('when the server returns tracks without a current track', () => {
-          beforeAll(async () => {
-            fetchDataMock.mockReturnValueOnce({
-              data: {
-                position: 1000,
-                tracks,
-              },
-            });
-
-            await restoreQueueState();
-          });
-
-          it('sets the correct position on the first track', () => {
-            expect(queueList.value[0].position).toBe(1);
-          });
-
-          it('sets the correct queueList value', () => {
-            expect(queueList.value).toEqual(tracks);
-          });
-
-          it('sets the correct currentQueueIndex value', () => {
-            expect(currentQueueIndex.value).toBe(0);
-          });
-
-          it('sets the correct currentTrack value', () => {
-            expect(currentTrack.value).toEqual(tracks[0]);
-          });
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/getPlayQueue', {
+          transform: expect.any(Function),
         });
       });
 
-      describe('when ENABLE_QUEUE_SYNC is false', () => {
+      it('does not update the queueList value', () => {
+        expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+      });
+
+      it('does not update the currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(
+          QUEUE_DEFAULT_STATES.currentQueueIndex,
+        );
+      });
+    });
+
+    describe('when fetchData response returns a value', () => {
+      beforeAll(async () => {
+        resetQueue(false);
+        fetchDataMock.mockResolvedValue({
+          data: {
+            current: tracks[2].id,
+            position: 5000,
+            tracks,
+          },
+        });
+
+        await restoreQueueStateFromServerResult();
+      });
+
+      it('sets the correct queueList value', () => {
+        expect(queueList.value).toEqual(tracks);
+      });
+
+      it('sets the correct currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(2);
+      });
+
+      it('sets the correct position on the current track', () => {
+        expect(queueList.value[2].position).toBe(5);
+      });
+
+      describe('when the current value is not found', () => {
         beforeAll(async () => {
-          config.public.ENABLE_QUEUE_SYNC = false;
-
           vi.clearAllMocks();
 
-          const { restoreQueueState } = useQueue();
-          await restoreQueueState();
+          resetQueue(false);
+          fetchDataMock.mockResolvedValue({
+            data: {
+              current: 'non-existent-id',
+              position: 5000,
+              tracks,
+            },
+          });
+
+          await restoreQueueStateFromServerResult();
         });
 
-        it('does not call the fetchData function', () => {
-          expect(fetchDataMock).not.toHaveBeenCalled();
-        });
-
-        describe('when the getLocalStorage function returns null', () => {
-          beforeAll(() => {
-            getLocalStorageMock.mockReturnValue(null);
-
-            const { restoreQueueState } = useQueue();
-            restoreQueueState();
-          });
-
-          it('does not update the currentQueueIndex value', () => {
-            expect(currentQueueIndex.value).toBe(-1);
-          });
-
-          it('does not update the queueList value', () => {
-            expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
-          });
-        });
-
-        describe('when the getLocalStorage function returns saved state', () => {
-          beforeAll(() => {
-            getLocalStorageMock.mockReturnValue({
-              currentQueueIndex: 3,
-              originalQueueSnapshot: JSON.stringify(tracks),
-              queueList: tracks,
-            });
-
-            const { restoreQueueState } = useQueue();
-            restoreQueueState();
-          });
-
-          it('sets the correct currentQueueIndex value', () => {
-            expect(currentQueueIndex.value).toBe(3);
-          });
-
-          it('sets the correct originalQueueSnapshot value', () => {
-            expect(originalQueueSnapshot.value).toEqual(JSON.stringify(tracks));
-          });
-
-          it('sets the correct queueList value', () => {
-            expect(queueList.value).toEqual(tracks);
-          });
+        it('sets the currentQueueIndex value to the default value', () => {
+          expect(currentQueueIndex.value).toBe(0);
         });
       });
     });
 
-    describe('when the queueStateRestored value is true', () => {
+    describe('when ENABLE_QUEUE_SYNC is false', () => {
       beforeAll(async () => {
         vi.clearAllMocks();
+        config.public.ENABLE_QUEUE_SYNC = false;
 
-        useState(STATE_KEYS.queueStateRestored).value = true;
+        const { restoreQueueStateFromServer } = useQueue();
+        await restoreQueueStateFromServer();
+      });
 
-        await restoreQueueState();
+      afterAll(() => {
+        config.public.ENABLE_QUEUE_SYNC = true; // restore for "called again" test
+      });
+
+      it('does not call the fetchData function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the restoreQueueStateFromServer function is called again', () => {
+      // ENABLE_QUEUE_SYNC = true here (restored by afterAll above)
+      // queueStateRestored = true from last successful call — tests the idempotency guard
+      beforeAll(async () => {
+        vi.clearAllMocks();
+        await restoreQueueStateFromServerResult();
       });
 
       it('does not call the fetchData function', () => {

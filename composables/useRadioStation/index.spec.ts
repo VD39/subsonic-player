@@ -75,24 +75,24 @@ describe('useRadioStation', () => {
   });
 
   describe('when the addRadioStation function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        addRadioStation({} as RadioStationParams);
+    beforeEach(() => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      addRadioStation({} as RadioStationParams);
+    });
+
+    it('calls the getRadioStations function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getInternetRadioStations',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getRadioStations function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
       });
     });
 
@@ -114,22 +114,22 @@ describe('useRadioStation', () => {
           'Successfully added radio station radio-station-name.',
         );
       });
-
-      it('calls the getRadioStations function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
-      });
     });
   });
 
   describe('when the updateRadioStation function is called', () => {
-    describe('when the homepageUrl param is falsy', () => {
-      beforeEach(() => {
-        updateRadioStation({ homepageUrl: '' } as RadioStationParams);
-      });
+    beforeEach(() => {
+      updateRadioStation({ homepageUrl: '' } as RadioStationParams);
+    });
 
+    it('calls the getRadioStations function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getInternetRadioStations',
+        expect.any(Object),
+      );
+    });
+
+    describe('when the homepageUrl param is falsy', () => {
       it('calls the fetch function without homepageUrl key in query', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
           '/updateInternetRadioStation',
@@ -171,13 +171,6 @@ describe('useRadioStation', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
       });
-
-      it('does not call the getRadioStations function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
-      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -198,35 +191,28 @@ describe('useRadioStation', () => {
           'Successfully updated radio station radio-station-update-name.',
         );
       });
-
-      it('calls the getRadioStations function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
-      });
     });
   });
 
   describe('when the deleteRadioStation function is called', () => {
-    describe('when fetchData response returns null', () => {
-      beforeEach(() => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-        });
-
-        deleteRadioStation('id');
+    beforeEach(() => {
+      fetchDataMock.mockResolvedValue({
+        data: null,
       });
 
+      deleteRadioStation('id');
+    });
+
+    it('calls the getRadioStations function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith(
+        '/getInternetRadioStations',
+        expect.any(Object),
+      );
+    });
+
+    describe('when fetchData response returns null', () => {
       it('does not call the addSuccessSnack function', () => {
         expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
-
-      it('does not call the getRadioStations function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
-        );
       });
     });
 
@@ -244,13 +230,6 @@ describe('useRadioStation', () => {
       it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
           'Successfully deleted radio station.',
-        );
-      });
-
-      it('calls the getRadioStations function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getInternetRadioStations',
-          expect.any(Object),
         );
       });
     });

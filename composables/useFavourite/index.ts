@@ -57,9 +57,9 @@ export function useFavourite() {
     isCurrentlyFavourite: boolean,
   ) {
     if (isCurrentlyFavourite) {
-      await removeFavourite(track);
+      removeFavourite(track);
     } else {
-      await addFavourite(track);
+      addFavourite(track);
     }
 
     updateTrackFavourite(track.id!, !isCurrentlyFavourite);
