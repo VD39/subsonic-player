@@ -19,7 +19,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
@@ -53,7 +53,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
@@ -99,7 +99,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="1 / 3" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
@@ -123,7 +123,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="2 / 3" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
@@ -147,7 +147,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="3 / 3">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
@@ -183,8 +183,8 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button">
@@ -208,7 +208,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
@@ -242,7 +242,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
@@ -289,8 +289,8 @@ exports[`library > when data returns a value > when artists is an empty array > 
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button">
@@ -314,7 +314,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
@@ -348,7 +348,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
@@ -394,7 +394,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="1 / 3" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
@@ -418,7 +418,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="2 / 3" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
@@ -442,7 +442,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="3 / 3">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
@@ -490,7 +490,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
@@ -524,7 +524,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
@@ -570,7 +570,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="1 / 3" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
@@ -594,7 +594,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="2 / 3" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
@@ -618,7 +618,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="3 / 3">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
@@ -654,8 +654,8 @@ exports[`library > when data returns a value > when playlists is an empty array 
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button">
@@ -675,7 +675,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
@@ -709,7 +709,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-album-item">
+      <swiper-slide data-test-id="random-album-item" style="margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
@@ -755,7 +755,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="1 / 3" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
@@ -779,7 +779,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="2 / 3" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
@@ -803,7 +803,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="3 / 3">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
@@ -839,8 +839,8 @@ exports[`library > when data returns a value > when playlists is not an empty ar
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button">
@@ -865,7 +865,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="1 / 3" class="swiper-slide-active">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
@@ -889,7 +889,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="2 / 3" class="swiper-slide-next">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
@@ -913,7 +913,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
           </div>
         </article>
       </swiper-slide>
-      <swiper-slide data-test-id="random-artist-item">
+      <swiper-slide data-test-id="random-artist-item" style="margin-right: 15px;" role="group" aria-label="3 / 3">
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
@@ -949,8 +949,8 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
   </div>
   <div class="mBL carouselSwiper">
     <swiper-container>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-      <swiper-slide data-test-id="random-genre-item"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
+      <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button">
