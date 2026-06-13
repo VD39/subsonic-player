@@ -145,6 +145,8 @@ describe('BookmarksTracksListItem', () => {
   });
 
   describe.each([
+    ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
+    ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
     ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],
     ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
@@ -215,6 +217,18 @@ describe('BookmarksTracksListItem', () => {
 
     it('calls the openDropdownMenu function', () => {
       expect(openDropdownMenuMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the InteractionWrapper component emits the dragStart event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(InteractionWrapper)
+        .vm.$emit('dragStart', DragEvent);
+    });
+
+    it('emits the dragStart event', () => {
+      expect(wrapper.emitted('dragStart')).toEqual([[DragEvent]]);
     });
   });
 });

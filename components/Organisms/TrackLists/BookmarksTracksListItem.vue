@@ -17,7 +17,9 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   addToPlaylist: [];
+  addToQueue: [];
   downloadMedia: [];
+  dragStart: [event: DragEvent];
   mediaInformation: [];
   playTrack: [];
   remove: [];
@@ -42,7 +44,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
 <template>
   <LazyLoadContent class="trackRow">
-    <InteractionWrapper @click="onClick" @contextMenu="openDropdownMenu">
+    <InteractionWrapper
+      @click="onClick"
+      @contextMenu="openDropdownMenu"
+      @dragStart="$emit('dragStart', $event)"
+    >
       <div class="trackCell">
         <div>
           <TrackPlayPause
@@ -95,12 +101,25 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       </div>
 
       <div class="trackCell trackOptions">
+        <ButtonLink
+          ref="addToQueueButton"
+          :icon="ICONS.add"
+          @click="$emit('addToQueue')"
+        >
+          Add to queue
+        </ButtonLink>
+      </div>
+
+      <div class="trackCell trackOptions">
         <DropdownMenu ref="dropdownMenuRef">
           <TrackPlayPauseDropdownItem
             :trackId="bookmark.id"
             :type="bookmark.type"
             @playTrack="$emit('playTrack')"
           />
+          <DropdownItem ref="addToQueue" @click="$emit('addToQueue')">
+            Add to queue
+          </DropdownItem>
           <DropdownItem ref="addToPlaylist" @click="$emit('addToPlaylist')">
             Add to playlist
           </DropdownItem>

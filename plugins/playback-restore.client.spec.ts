@@ -6,8 +6,12 @@ import { useQueueMock } from '@/test/useQueueMock';
 import playbackRestorePlugin from './playback-restore.client';
 
 const { restoreAudioPlayerStateMock } = useAudioPlayerMock();
-const { restoreQueueStateFromLocalMock, restoreQueueStateFromServerMock } =
-  useQueueMock();
+const {
+  mergeBookmarksToCurrentQueueMock,
+  restoreLocalStateMock,
+  restoreQueueStateFromLocalMock,
+  restoreQueueStateFromServerMock,
+} = useQueueMock();
 
 const isAuthenticatedMock = ref(false);
 
@@ -56,12 +60,20 @@ describe('playback-restore.client plugin', () => {
         expect(restoreQueueStateFromServerMock).not.toHaveBeenCalled();
       });
 
+      it('does not call the mergeBookmarksToCurrentQueue function', () => {
+        expect(mergeBookmarksToCurrentQueueMock).not.toHaveBeenCalled();
+      });
+
       it('does not call the restoreQueueState function', () => {
         expect(restoreQueueStateFromLocalMock).not.toHaveBeenCalled();
       });
 
       it('does not call the restoreAudioPlayerState function', () => {
         expect(restoreAudioPlayerStateMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the restoreLocalState function', () => {
+        expect(restoreLocalStateMock).not.toHaveBeenCalled();
       });
     });
 
@@ -75,12 +87,20 @@ describe('playback-restore.client plugin', () => {
         expect(restoreQueueStateFromServerMock).toHaveBeenCalled();
       });
 
+      it('calls the mergeBookmarksToCurrentQueue function', () => {
+        expect(mergeBookmarksToCurrentQueueMock).toHaveBeenCalled();
+      });
+
       it('calls the restoreQueueState function', () => {
         expect(restoreQueueStateFromLocalMock).toHaveBeenCalled();
       });
 
       it('calls the restoreAudioPlayerState function', () => {
         expect(restoreAudioPlayerStateMock).toHaveBeenCalled();
+      });
+
+      it('calls the restoreLocalState function', () => {
+        expect(restoreLocalStateMock).toHaveBeenCalled();
       });
     });
   });

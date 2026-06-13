@@ -3,12 +3,23 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import type { DataMock } from '@/test/types';
 
 import {
+  getFormattedBookmarksMock,
   getFormattedPodcastEpisodesMock,
   getFormattedQueueTracksMock,
   getFormattedRadioStationMock,
 } from '@/test/helpers';
 
 import { useQueue } from './index';
+
+const bookmarksMock = ref<Bookmark[]>([]);
+const getBookmarksMock = vi.hoisted(() => vi.fn());
+const getBookmarkPositionMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useBookmark', () => () => ({
+  bookmarks: bookmarksMock,
+  getBookmarkPosition: getBookmarkPositionMock,
+  getBookmarks: getBookmarksMock,
+}));
 
 const lockScrollMock = vi.fn();
 const unlockScrollMock = vi.fn();
@@ -51,6 +62,7 @@ const {
   closeQueuePanels,
   currentQueueIndex,
   currentTrack,
+  enrichTracksWithPositions,
   hasCurrentTrack,
   hasNextTrack,
   hasPreviousTrack,
@@ -62,16 +74,18 @@ const {
   isQueuePlayerOpened,
   isRadioStation,
   isTrack,
+  mergeBookmarksToCurrentQueue,
   navigateQueue,
   originalQueueSnapshot,
   queueList,
   removeTrack,
   reorderQueueTracks,
   resetQueue,
-  restoreQueue,
+  restoreLocalState,
   shuffleQueue,
   toggleQueueList,
   toggleQueuePlayer,
+  unshuffleQueue,
   updateCurrentTrackPosition,
   updateTrackFavourite,
 } = useQueue();
@@ -79,6 +93,8 @@ const {
 const tracks = getFormattedQueueTracksMock(4);
 const podcastEpisode = getFormattedPodcastEpisodesMock(1)[0];
 const radioStation = getFormattedRadioStationMock(1)[0];
+const bookmarks = getFormattedBookmarksMock(4);
+const enrichedTracks = getFormattedPodcastEpisodesMock(4);
 
 let preShuffleQueue: PlayableTrack[];
 
@@ -286,7 +302,7 @@ describe('useQueue', () => {
           query: {
             current: undefined,
             id: [tracks[0].id, tracks[1].id, tracks[2].id, tracks[3].id],
-            position: 0,
+            position: 100,
           },
         });
       });
@@ -618,35 +634,6 @@ describe('useQueue', () => {
     });
   });
 
-  describe('when the updateCurrentTrackPosition function is called', () => {
-    beforeAll(() => {
-      vi.clearAllMocks();
-      // Radio station.
-      updateCurrentTrackPosition(5);
-    });
-
-    it('sets the position on the current track', () => {
-      expect(queueList.value[currentQueueIndex.value].position).toBe(5);
-    });
-
-    it('calls the setLocalStorage function', () => {
-      expect(setLocalStorageMock).toHaveBeenCalledWith(
-        LOCAL_STORAGE_KEYS.queue,
-        expect.objectContaining({
-          queueList: expect.arrayContaining([
-            expect.objectContaining({
-              position: 5,
-            }),
-          ]),
-        }),
-      );
-    });
-
-    it('does not call the fetchData function', () => {
-      expect(fetchDataMock).not.toHaveBeenCalled();
-    });
-  });
-
   describe('when the updateTrackFavourite function is called', () => {
     describe('when the track is found', () => {
       beforeAll(() => {
@@ -804,6 +791,57 @@ describe('useQueue', () => {
 
       it('calls the unlockScroll function', () => {
         expect(unlockScrollMock).toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when the updateCurrentTrackPosition function is called', () => {
+    describe('when there is no current track', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        updateCurrentTrackPosition(5);
+      });
+
+      it('does not update the queueList value', () => {
+        expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when there is a current track', () => {
+      beforeAll(() => {
+        addTracks([radioStation]);
+        navigateQueue('next');
+        vi.clearAllMocks();
+        updateCurrentTrackPosition(5);
+      });
+
+      afterAll(() => {
+        removeTrack(radioStation.id);
+      });
+
+      it('sets the position on the current track', () => {
+        expect(queueList.value[currentQueueIndex.value].position).toBe(5);
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+          expect.objectContaining({
+            queueList: expect.arrayContaining([
+              expect.objectContaining({
+                position: 5,
+              }),
+            ]),
+          }),
+        );
+      });
+
+      it('does not call the fetchData function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalled();
       });
     });
   });
@@ -974,10 +1012,10 @@ describe('useQueue', () => {
     });
   });
 
-  describe('when the restoreQueue function is called', () => {
+  describe('when the unshuffleQueue function is called', () => {
     describe('when the originalQueueSnapshot value has a set value', () => {
       beforeAll(() => {
-        restoreQueue();
+        unshuffleQueue();
       });
 
       it('sets the correct queueList value', () => {
@@ -1017,7 +1055,7 @@ describe('useQueue', () => {
             queueList: tracks,
           });
 
-          restoreQueue();
+          unshuffleQueue();
         });
 
         it('restores the queueList from the localStorage snapshot', () => {
@@ -1038,7 +1076,7 @@ describe('useQueue', () => {
       describe('when localStorage does not have a saved originalQueueSnapshot', () => {
         beforeAll(() => {
           getLocalStorageMock.mockReturnValue(null);
-          restoreQueue();
+          unshuffleQueue();
         });
 
         it('does not update the queueList value', () => {
@@ -1288,6 +1326,23 @@ describe('useQueue', () => {
           expect(currentQueueIndex.value).toBe(0);
         });
       });
+
+      describe('when the tracks array is empty', () => {
+        beforeAll(async () => {
+          vi.clearAllMocks();
+          resetQueue(false);
+          fetchDataMock.mockResolvedValue({
+            data: {
+              tracks: [],
+            },
+          });
+          await restoreQueueStateFromServerResult();
+        });
+
+        it('does not update the queueList value', () => {
+          expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+        });
+      });
     });
 
     describe('when ENABLE_QUEUE_SYNC is false', () => {
@@ -1319,6 +1374,199 @@ describe('useQueue', () => {
       it('does not call the fetchData function', () => {
         expect(fetchDataMock).not.toHaveBeenCalled();
       });
+    });
+  });
+
+  describe('when the restoreLocalState function is called', () => {
+    describe('when getLocalStorage returns null', () => {
+      beforeAll(() => {
+        addTracks(tracks);
+        vi.clearAllMocks();
+        getLocalStorageMock.mockReturnValue(null);
+        restoreLocalState();
+      });
+
+      it('does not update the originalQueueSnapshot value', () => {
+        expect(originalQueueSnapshot.value).toBe(
+          QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+        );
+      });
+
+      it('does not update the queueList value track positions', () => {
+        expect(queueList.value[0].position).toBe(5);
+        expect(queueList.value[2].position).toBe(5);
+      });
+    });
+
+    describe('when getLocalStorage returns a value', () => {
+      const jsonStringfiedTracks = JSON.stringify(tracks);
+
+      describe('when the queueList contains matching tracks', () => {
+        beforeAll(() => {
+          vi.clearAllMocks();
+
+          getLocalStorageMock.mockReturnValue({
+            originalQueueSnapshot: jsonStringfiedTracks,
+            queueList: [
+              {
+                id: tracks[0].id,
+                position: 45,
+              },
+              {
+                id: tracks[1].id,
+                position: 20,
+              },
+              {
+                id: tracks[2].id,
+                position: 120,
+              },
+              {
+                id: tracks[3].id,
+                position: 430,
+              },
+            ],
+          });
+
+          restoreLocalState();
+        });
+
+        it('updates the positions of the matching tracks in the queueList value', () => {
+          expect(queueList.value[0].position).toBe(45);
+          expect(queueList.value[1].position).toBe(20);
+          expect(queueList.value[2].position).toBe(120);
+          expect(queueList.value[3].position).toBe(430);
+        });
+
+        it('sets the correct originalQueueSnapshot value', () => {
+          expect(originalQueueSnapshot.value).toBe(jsonStringfiedTracks);
+        });
+      });
+
+      describe('when the queueList contains tracks that do not match the current queue', () => {
+        beforeAll(() => {
+          getLocalStorageMock.mockReturnValue({
+            originalQueueSnapshot: [],
+            queueList: [
+              {
+                id: 'unknown-track',
+                position: 99,
+              },
+            ],
+          });
+
+          restoreLocalState();
+        });
+
+        it('does not update the positions of the matching tracks in the queueList value', () => {
+          expect(queueList.value[0].position).toBe(45);
+          expect(queueList.value[1].position).toBe(20);
+          expect(queueList.value[2].position).toBe(120);
+          expect(queueList.value[3].position).toBe(430);
+        });
+      });
+    });
+  });
+
+  describe('when the enrichTracksWithPositions function is called', () => {
+    describe(`when the tracks are not ${MEDIA_TYPE.podcastEpisode}`, () => {
+      beforeAll(async () => {
+        await enrichTracksWithPositions(tracks);
+      });
+
+      it('does not call the getBookmarks function', () => {
+        expect(getBookmarksMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe(`when the tracks are ${MEDIA_TYPE.podcastEpisode}`, () => {
+      describe('when the bookmarks list is empty', () => {
+        beforeAll(async () => {
+          await enrichTracksWithPositions(enrichedTracks);
+        });
+
+        it('calls the getBookmarks function', () => {
+          expect(getBookmarksMock).toHaveBeenCalledTimes(1);
+        });
+      });
+
+      describe('when the bookmarks list is not empty', () => {
+        beforeAll(async () => {
+          vi.clearAllMocks();
+          bookmarksMock.value = bookmarks;
+          await enrichTracksWithPositions(enrichedTracks);
+        });
+
+        it('does not call the getBookmarks function', () => {
+          expect(getBookmarksMock).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when a track has a valid position in the queue list', () => {
+        beforeAll(async () => {
+          queueList.value = [
+            {
+              ...enrichedTracks[0],
+              position: 12,
+            },
+            {
+              ...enrichedTracks[0],
+              position: 42,
+            },
+            {
+              ...enrichedTracks[0],
+              position: 5,
+            },
+          ];
+
+          await enrichTracksWithPositions(enrichedTracks);
+        });
+
+        it('sets the track position to the maximum value found in the queue', () => {
+          expect(enrichedTracks[0].position).toBe(42);
+        });
+      });
+
+      describe('when a track position in the queueList value is 0 or missing', () => {
+        describe('when the track has a saved bookmark position', () => {
+          beforeAll(async () => {
+            getBookmarkPositionMock.mockReturnValue(45);
+            await enrichTracksWithPositions([enrichedTracks[1]]);
+          });
+
+          it('sets the track position to the bookmark position', () => {
+            expect(enrichedTracks[1].position).toBe(45);
+          });
+        });
+
+        describe('when the track does not have a saved bookmark position', () => {
+          beforeAll(async () => {
+            getBookmarkPositionMock.mockReturnValue(0);
+            await enrichTracksWithPositions([enrichedTracks[2]]);
+          });
+
+          it('does not update the track position', () => {
+            expect(enrichedTracks[2].position).toBe(undefined);
+          });
+        });
+      });
+    });
+  });
+
+  describe('when the mergeBookmarksToCurrentQueue function is called', () => {
+    beforeAll(async () => {
+      resetQueue();
+      mergeBookmarksToCurrentQueue();
+    });
+
+    it('calls the setLocalStorage function with the correct parameters', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.queue,
+        {
+          currentQueueIndex: QUEUE_DEFAULT_STATES.currentQueueIndex,
+          originalQueueSnapshot: QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+          queueList: [],
+        },
+      );
     });
   });
 

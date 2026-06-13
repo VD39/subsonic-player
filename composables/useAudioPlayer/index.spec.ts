@@ -94,10 +94,12 @@ mockNuxtImport('useMediaSession', () => () => ({
 
 const createBookmarkMock = vi.fn();
 const deleteBookmarkMock = vi.fn();
+const getBookmarkPositionMock = vi.fn();
 
 mockNuxtImport('useBookmark', () => () => ({
   createBookmark: createBookmarkMock,
   deleteBookmark: deleteBookmarkMock,
+  getBookmarkPosition: getBookmarkPositionMock,
 }));
 
 const loadDashboardAlbumsMock = vi.fn();
@@ -129,6 +131,7 @@ mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
 const {
   addTracksMock,
   currentTrackMock,
+  enrichTracksWithPositionsMock,
   hasCurrentTrackMock,
   isLastTrackMock,
   isPodcastEpisodeMock,
@@ -137,8 +140,8 @@ const {
   queueListMock,
   removeTrackMock,
   reorderQueueTracksMock,
-  restoreQueueMock,
   shuffleQueueMock,
+  unshuffleQueueMock,
   updateCurrentTrackPositionMock,
 } = useQueueMock();
 
@@ -574,6 +577,22 @@ describe('useAudioPlayer', () => {
         expect(loadDashboardAlbumsMock).toHaveBeenCalled();
       });
 
+      it('resets the currentTime value to the default value', () => {
+        expect(result.composable.currentTime.value).toBe(
+          AUDIO_PLAYER_DEFAULT_STATES.currentTime,
+        );
+      });
+
+      it('resets the bufferedDuration value to the default value', () => {
+        expect(result.composable.bufferedDuration.value).toBe(
+          AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
+        );
+      });
+
+      it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
+        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(0);
+      });
+
       describe(`when track type is not ${MEDIA_TYPE.podcastEpisode}`, () => {
         it('does not call the deleteBookmark function', () => {
           expect(deleteBookmarkMock).not.toHaveBeenCalled();
@@ -586,8 +605,11 @@ describe('useAudioPlayer', () => {
           onEndedCb();
         });
 
-        it('calls the deleteBookmark function', () => {
-          expect(deleteBookmarkMock).toHaveBeenCalled();
+        it('calls the deleteBookmark function with the correct parameters', () => {
+          expect(deleteBookmarkMock).toHaveBeenCalledWith(
+            currentTrackMock.value.id,
+            false,
+          );
         });
       });
 
@@ -667,6 +689,10 @@ describe('useAudioPlayer', () => {
       result.composable.addTracksToQueue(queueTracks);
     });
 
+    it('calls the enrichTracksWithPositions function with the correct parameters', () => {
+      expect(enrichTracksWithPositionsMock).toHaveBeenCalledWith(queueTracks);
+    });
+
     it('calls the addTracks function with the correct parameters', () => {
       expect(addTracksMock).toHaveBeenCalledWith(queueTracks);
     });
@@ -740,6 +766,10 @@ describe('useAudioPlayer', () => {
       result.composable.playTracks(queueTracks);
     });
 
+    it('calls the enrichTracksWithPositions function with the correct parameters', () => {
+      expect(enrichTracksWithPositionsMock).toHaveBeenCalledWith(queueTracks);
+    });
+
     it('resets the shuffle value', () => {
       expect(result.composable.shuffle.value).toEqual(
         AUDIO_PLAYER_DEFAULT_STATES.shuffle,
@@ -806,30 +836,52 @@ describe('useAudioPlayer', () => {
       expect(setLocalStorageMock).toHaveBeenCalled();
     });
 
-    describe('when the track value does not have a position', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        result.composable.playTracks(queueTracks);
+    describe(`when the track is a ${MEDIA_TYPE.podcastEpisode}`, () => {
+      describe('when the track value does not have a position', () => {
+        beforeAll(() => {
+          vi.clearAllMocks();
+          result.composable.playTracks(queueTracks);
+        });
+
+        it('does not call the setCurrentTime function', () => {
+          expect(setCurrentTimeMock).not.toHaveBeenCalled();
+        });
       });
 
-      it('does not call the setCurrentTime function', () => {
-        expect(setCurrentTimeMock).not.toHaveBeenCalled();
+      describe('when the track value has a position', () => {
+        beforeAll(() => {
+          navigateQueueMock.mockReturnValueOnce(
+            getFormattedQueueTracksMock(1, {
+              position: 4,
+            })[0],
+          );
+
+          result.composable.playTracks(queueTracks);
+        });
+
+        it('calls the setCurrentTime function with the correct parameters', () => {
+          expect(setCurrentTimeMock).toHaveBeenCalledWith(4);
+        });
       });
     });
 
-    describe('when the track value has a position', () => {
-      beforeAll(() => {
-        navigateQueueMock.mockReturnValueOnce(
-          getFormattedQueueTracksMock(1, {
-            position: 4,
-          })[0],
-        );
+    describe(`when the track is not ${MEDIA_TYPE.podcastEpisode}`, () => {
+      describe('when the track value does have a position', () => {
+        beforeAll(() => {
+          vi.clearAllMocks();
+          isPodcastEpisodeMock.value = false;
+          navigateQueueMock.mockReturnValueOnce(
+            getFormattedQueueTracksMock(1, {
+              position: 10,
+            })[0],
+          );
 
-        result.composable.playTracks(queueTracks);
-      });
+          result.composable.playTracks(queueTracks);
+        });
 
-      it('calls the setCurrentTime function with the correct parameters', () => {
-        expect(setCurrentTimeMock).toHaveBeenCalledWith(4);
+        it('does not call the setCurrentTime function', () => {
+          expect(setCurrentTimeMock).not.toHaveBeenCalled();
+        });
       });
     });
 
@@ -908,9 +960,11 @@ describe('useAudioPlayer', () => {
     describe.each([
       [MEDIA_TYPE.track, 0],
       [MEDIA_TYPE.radioStation, 0],
-      [MEDIA_TYPE.podcastEpisode, 4], // Includes calls from the changeTrack and syncPlaybackPosition functions.
+      [MEDIA_TYPE.podcastEpisode, 1],
     ])('when the track type is %s', (type, createBookmarkCalledLength) => {
       beforeAll(async () => {
+        result.composable.currentTime.value = 80;
+
         const tracksWithType = getFormattedQueueTracksMock(1, {
           type,
         });
@@ -925,9 +979,17 @@ describe('useAudioPlayer', () => {
       });
 
       it(`${createBookmarkCalledLength ? 'calls' : 'does not call'} the createBookmark function`, () => {
-        expect(createBookmarkMock).toHaveBeenCalledTimes(
-          createBookmarkCalledLength,
-        );
+        if (createBookmarkCalledLength) {
+          expect(createBookmarkMock).toHaveBeenCalledTimes(
+            createBookmarkCalledLength,
+          );
+          expect(createBookmarkMock).toHaveBeenCalledWith(
+            currentTrackMock.value.id,
+            80,
+          );
+        } else {
+          expect(createBookmarkMock).not.toHaveBeenCalled();
+        }
       });
 
       it('calls the updateCurrentTrackPosition function', () => {
@@ -1367,8 +1429,8 @@ describe('useAudioPlayer', () => {
       result.composable.toggleShuffle();
     });
 
-    it('calls the restoreQueue function', () => {
-      expect(restoreQueueMock).toHaveBeenCalled();
+    it('calls the unshuffleQueue function', () => {
+      expect(unshuffleQueueMock).toHaveBeenCalled();
     });
 
     it('sets the correct shuffle value', () => {
@@ -1616,6 +1678,24 @@ describe('useAudioPlayer', () => {
           currentTrackMock.value.id,
           75,
         );
+      });
+
+      describe('when the currentTime value is the default value', () => {
+        beforeAll(() => {
+          isPodcastEpisodeMock.value = true;
+          result.composable.currentTime.value = 0;
+          vi.clearAllMocks();
+          navigateQueueMock.mockReturnValueOnce(queueTrack);
+          result.composable.playNextTrack();
+        });
+
+        it('does not call the createBookmark function', () => {
+          expect(createBookmarkMock).not.toHaveBeenCalled();
+        });
+
+        it('calls the updateCurrentTrackPosition function', () => {
+          expect(updateCurrentTrackPositionMock).toHaveBeenCalled();
+        });
       });
     });
 
@@ -1960,6 +2040,10 @@ describe('useAudioPlayer', () => {
 
     it('calls the audio preloader clear function', () => {
       expect(clearPreloaderMock).toHaveBeenCalled();
+    });
+
+    it('calls the updateCurrentTrackPosition function', () => {
+      expect(updateCurrentTrackPositionMock).toHaveBeenCalled();
     });
 
     describe('when the current track is a podcast episode', () => {

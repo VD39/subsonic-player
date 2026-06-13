@@ -9,6 +9,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell trackTime withPosition">Current/Duration</div>
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow">
     <div class="interactionWrapper" draggable="false">
@@ -62,6 +63,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -128,6 +132,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -194,6 +201,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -260,6 +270,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -326,6 +339,9 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -352,6 +368,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
     <div class="trackCell trackTime withPosition">Current/Duration</div>
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
+    <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow">
     <div class="interactionWrapper" draggable="false">
@@ -405,6 +422,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -471,6 +491,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -537,6 +560,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -603,6 +629,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
@@ -669,6 +698,9 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
             <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>

@@ -8,7 +8,9 @@ defineProps<{
 
 defineEmits<{
   addToPlaylist: [bookmarkId: string];
+  addToQueue: [bookmark: Bookmark];
   downloadMedia: [bookmark: Bookmark];
+  dragStart: [bookmark: Bookmark, event: DragEvent];
   mediaInformation: [bookmark: Bookmark];
   playTrack: [index: number];
   remove: [bookmarkId: string];
@@ -32,6 +34,7 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.bookmarkTracks;
       </div>
       <div class="trackCell trackOptions" />
       <div class="trackCell trackOptions" />
+      <div class="trackCell trackOptions" />
     </div>
 
     <BookmarksTracksListItem
@@ -39,7 +42,9 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.bookmarkTracks;
       :key="bookmark.id"
       :bookmark
       @addToPlaylist="$emit('addToPlaylist', bookmark.id)"
+      @addToQueue="$emit('addToQueue', bookmark)"
       @downloadMedia="$emit('downloadMedia', bookmark)"
+      @dragStart="(event) => $emit('dragStart', bookmark, event)"
       @mediaInformation="$emit('mediaInformation', bookmark)"
       @playTrack="$emit('playTrack', index)"
       @remove="$emit('remove', bookmark.id)"

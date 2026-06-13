@@ -4,6 +4,7 @@ export function useQueue() {
 
   const { fetchData } = useAPI();
   const { lockScroll, unlockScroll } = useScrollLock('queue');
+  const { bookmarks, getBookmarkPosition, getBookmarks } = useBookmark();
 
   const isQueueListOpened = useState(STATE_KEYS.queueListOpened, () => false);
 
@@ -192,7 +193,7 @@ export function useQueue() {
     }
   }
 
-  function restoreQueue() {
+  function unshuffleQueue() {
     const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
     const snapshot =
       originalQueueSnapshot.value || SAVED_STATE?.originalQueueSnapshot;
@@ -206,6 +207,7 @@ export function useQueue() {
       [...queueList.value],
       [...JSON.parse(snapshot)],
     );
+
     originalQueueSnapshot.value = QUEUE_DEFAULT_STATES.originalQueueSnapshot;
     const index = getQueueIndexById(currentTrackIdBeforeRestore);
     currentQueueIndex.value = index;
@@ -267,6 +269,68 @@ export function useQueue() {
     }
   }
 
+  function restoreLocalState() {
+    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
+
+    if (!SAVED_STATE) {
+      return;
+    }
+
+    if (SAVED_STATE.queueList) {
+      for (const track of queueList.value) {
+        const savedTrack = SAVED_STATE.queueList.find(
+          (saved: PlayableTrack) => saved.id === track.id,
+        );
+
+        if (savedTrack?.position) {
+          track.position = savedTrack.position;
+        }
+      }
+    }
+
+    originalQueueSnapshot.value = SAVED_STATE.originalQueueSnapshot;
+  }
+
+  async function enrichTracksWithPositions(tracks: PlayableTrack[]) {
+    const podcastTracks = tracks.filter(
+      (track) => track.type === MEDIA_TYPE.podcastEpisode,
+    );
+
+    if (!podcastTracks.length) {
+      return;
+    }
+
+    if (!bookmarks.value.length) {
+      await getBookmarks();
+    }
+
+    for (const track of podcastTracks) {
+      const queuePosition = queueList.value
+        .filter((playableTrack) => playableTrack.id === track.id)
+        .reduce(
+          (max, playableTrack) => Math.max(max, playableTrack.position || 0),
+          0,
+        );
+
+      if (queuePosition > 0) {
+        // Use queue position as it is more recent.
+        track.position = queuePosition;
+      } else {
+        // Fall back to server bookmark.
+        const bookmarkPosition = getBookmarkPosition(track.id);
+
+        if (bookmarkPosition) {
+          track.position = bookmarkPosition;
+        }
+      }
+    }
+  }
+
+  async function mergeBookmarksToCurrentQueue() {
+    await enrichTracksWithPositions(queueList.value);
+    saveQueueState();
+  }
+
   function saveQueueState() {
     const STATE_TO_SAVE = {
       currentQueueIndex: currentQueueIndex.value,
@@ -326,7 +390,7 @@ export function useQueue() {
       query: {
         current,
         id: ids,
-        position: Math.floor((currentTrack.value.position || 0) * 1000),
+        position: Math.floor((currentTrack.value.position || 0.1) * 1000), // Save at least 0.1 millisecond.
       },
     });
   }
@@ -342,13 +406,18 @@ export function useQueue() {
   }
 
   function updateCurrentTrackPosition(position: number) {
-    const track = queueList.value[currentQueueIndex.value];
+    const trackId = queueList.value[currentQueueIndex.value]?.id;
 
-    if (!track) {
+    if (!trackId) {
       return;
     }
 
-    track.position = position;
+    for (const track of queueList.value) {
+      if (track.id === trackId) {
+        track.position = position;
+      }
+    }
+
     saveQueueState();
   }
 
@@ -366,6 +435,7 @@ export function useQueue() {
     closeQueuePanels,
     currentQueueIndex,
     currentTrack,
+    enrichTracksWithPositions,
     hasCurrentTrack,
     hasNextTrack,
     hasPreviousTrack,
@@ -377,18 +447,20 @@ export function useQueue() {
     isQueuePlayerOpened,
     isRadioStation,
     isTrack,
+    mergeBookmarksToCurrentQueue,
     navigateQueue,
     originalQueueSnapshot,
     queueList,
     removeTrack,
     reorderQueueTracks,
     resetQueue,
-    restoreQueue,
+    restoreLocalState,
     restoreQueueStateFromLocal,
     restoreQueueStateFromServer,
     shuffleQueue,
     toggleQueueList,
     toggleQueuePlayer,
+    unshuffleQueue,
     updateCurrentTrackPosition,
     updateTrackFavourite,
   };

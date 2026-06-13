@@ -115,8 +115,8 @@ const isDraggable = computed(
   position: relative;
   display: inherit;
   align-content: flex-start;
-  width: 100%;
-  height: 100%;
+  width: var(--width-height-100);
+  height: var(--width-height-100);
   pointer-events: auto;
   user-select: none;
 }

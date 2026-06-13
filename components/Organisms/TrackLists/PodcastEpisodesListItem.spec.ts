@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import InteractionWrapper from '@/components/Atoms/InteractionWrapper.vue';
@@ -7,11 +8,19 @@ import DownloadPodcastEpisode from '@/components/Organisms/DownloadPodcastEpisod
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock.js';
 import { useQueueMock } from '@/test/useQueueMock';
 
 import PodcastEpisodesListItem from './PodcastEpisodesListItem.vue';
 
+const getBookmarkPositionMock = vi.fn();
+
+mockNuxtImport('useBookmark', () => () => ({
+  getBookmarkPosition: getBookmarkPositionMock,
+}));
+
 const { isCurrentTrackMock } = useQueueMock();
+const { currentTimeMock } = useAudioPlayerMock();
 
 const downloadedEpisode = getFormattedPodcastEpisodesMock()[0];
 const noneDownloadedEpisode = getFormattedPodcastEpisodesMock(1, {
@@ -312,6 +321,122 @@ describe('PodcastEpisodesListItem', () => {
 
       it('emits the downloadEpisode event', () => {
         expect(wrapper.emitted('downloadEpisode')).toEqual([[]]);
+      });
+    });
+  });
+
+  describe('when the podcast episode is not the current track', () => {
+    beforeEach(() => {
+      isCurrentTrackMock.mockReturnValue(false);
+    });
+
+    it('does not show the position time element', () => {
+      expect(wrapper.find({ ref: 'positionTime' }).exists()).toBe(false);
+    });
+
+    it('does not show the progress bar element', () => {
+      expect(wrapper.find({ ref: 'progressBar' }).exists()).toBe(false);
+    });
+
+    describe('when getBookmarkPosition returns a position', () => {
+      beforeEach(() => {
+        getBookmarkPositionMock.mockReturnValue(10);
+        wrapper = factory();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('shows the position time element', () => {
+        expect(wrapper.find({ ref: 'positionTime' }).exists()).toBe(true);
+      });
+
+      it('shows the progress bar element', () => {
+        expect(wrapper.find({ ref: 'progressBar' }).exists()).toBe(true);
+      });
+
+      it('shows the position time with the formatted bookmark position', () => {
+        expect(wrapper.find({ ref: 'positionTime' }).text()).toBe('00:10');
+      });
+
+      it('shows the progress bar with the correct width', () => {
+        expect(wrapper.find({ ref: 'progress' }).attributes('style')).toContain(
+          `--podcast-episodes-progress-width: ${(10 / 19) * 100}%`,
+        );
+      });
+    });
+  });
+
+  describe('when the podcast episode is current track', () => {
+    beforeEach(() => {
+      isCurrentTrackMock.mockReturnValue(true);
+    });
+
+    describe('when getBookmarkPosition return false', () => {
+      beforeEach(() => {
+        getBookmarkPositionMock.mockReturnValue(undefined);
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('shows the position time element', () => {
+        expect(wrapper.find({ ref: 'positionTime' }).exists()).toBe(true);
+      });
+
+      it('shows the progress bar element', () => {
+        expect(wrapper.find({ ref: 'progressBar' }).exists()).toBe(true);
+      });
+    });
+
+    describe('when getBookmarkPosition returns a position', () => {
+      beforeEach(() => {
+        getBookmarkPositionMock.mockReturnValue(30000);
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('shows the position time element', () => {
+        expect(wrapper.find({ ref: 'positionTime' }).exists()).toBe(true);
+      });
+
+      it('shows the progress bar element', () => {
+        expect(wrapper.find({ ref: 'progressBar' }).exists()).toBe(true);
+      });
+
+      it('shows the position time with the formatted currentTime', () => {
+        expect(wrapper.find({ ref: 'positionTime' }).text()).toBe('00:00');
+      });
+
+      it('shows the progress bar with the correct width', () => {
+        expect(wrapper.find({ ref: 'progress' }).attributes('style')).toContain(
+          '--podcast-episodes-progress-width: 0%',
+        );
+      });
+
+      describe('when the currentTime value changes', () => {
+        beforeEach(async () => {
+          currentTimeMock.value = 10;
+          await wrapper.vm.$nextTick();
+        });
+
+        it('matches the snapshot', () => {
+          expect(wrapper.html()).toMatchSnapshot();
+        });
+
+        it('shows the updated position time', () => {
+          expect(wrapper.find({ ref: 'positionTime' }).text()).toBe('00:10');
+        });
+
+        it('shows the progress bar with the updated width', () => {
+          expect(
+            wrapper.find({ ref: 'progress' }).attributes('style'),
+          ).toContain(`--podcast-episodes-progress-width: ${(10 / 19) * 100}%`);
+        });
       });
     });
   });

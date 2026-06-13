@@ -28,8 +28,36 @@ const emit = defineEmits<{
 }>();
 
 const { isCurrentTrack } = useQueue();
+const { getBookmarkPosition } = useBookmark();
+const { currentTime } = useAudioPlayer();
 
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
+
+const isCurrentEpisode = computed(() => isCurrentTrack(props.episode.id));
+
+const bookmarkPosition = computed(() => getBookmarkPosition(props.episode.id));
+
+const showProgress = computed(
+  () => isCurrentEpisode.value || !!bookmarkPosition.value,
+);
+
+const progressPercent = computed(() => {
+  const duration = props.episode.duration;
+
+  if (isCurrentEpisode.value) {
+    return (currentTime.value / duration) * 100;
+  }
+
+  return bookmarkPosition.value ? (bookmarkPosition.value / duration) * 100 : 0;
+});
+
+const displayPosition = computed(() => {
+  if (isCurrentEpisode.value) {
+    return secondsToHHMMSS(currentTime.value);
+  }
+
+  return bookmarkPosition.value ? secondsToHHMMSS(bookmarkPosition.value) : '';
+});
 
 function onClick() {
   if (isCurrentTrack(props.episode.id) || !props.episode.downloaded) {
@@ -145,10 +173,25 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               </li>
               <li>
                 <span class="visually-hidden">Duration: </span>
+                <template v-if="showProgress">
+                  <time ref="positionTime">{{ displayPosition }}</time>
+                  <span>/</span>
+                </template>
+
                 <time>{{ episode.formattedDuration }}</time>
               </li>
             </ul>
           </MarqueeScroll>
+        </div>
+
+        <div v-if="showProgress" ref="progressBar" :class="$style.progressBar">
+          <div
+            ref="progress"
+            :class="$style.progress"
+            :style="{
+              '--podcast-episodes-progress-width': `${progressPercent}%`,
+            }"
+          />
         </div>
       </div>
 
@@ -240,5 +283,21 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 .downloaded {
   flex-shrink: 0;
   padding: var(--default-space);
+}
+
+.progressBar {
+  position: absolute;
+  inset: auto 0 0;
+  width: var(--width-height-100);
+  height: 4px;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+
+.progress {
+  width: var(--podcast-episodes-progress-width);
+  height: var(--width-height-100);
+  background-color: var(--theme-color);
+  transition: width var(--transition);
 }
 </style>

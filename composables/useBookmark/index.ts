@@ -4,6 +4,11 @@ export function useBookmark() {
 
   const bookmarks = useState<Bookmark[]>(STATE_KEYS.bookmarks, () => []);
 
+  function getBookmarkPosition(trackId: string) {
+    return bookmarks.value.find((bookmark) => bookmark.id === trackId)
+      ?.position;
+  }
+
   function resetBookmarks() {
     bookmarks.value = [];
   }
@@ -56,6 +61,7 @@ export function useBookmark() {
     bookmarks,
     createBookmark,
     deleteBookmark,
+    getBookmarkPosition,
     getBookmarks,
     resetBookmarks,
   };

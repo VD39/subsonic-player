@@ -87,13 +87,11 @@ describe('AlbumTracksList', () => {
       beforeEach(async () => {
         wrapper
           .findComponent(AlbumTracksListItem)
-          .vm.$emit('dragStart', new DragEvent('dragstart'));
+          .vm.$emit('dragStart', DragEvent);
       });
 
       it('emits the dragStart event with the correct value', () => {
-        expect(wrapper.emitted('dragStart')).toEqual([
-          [track, expect.any(DragEvent)],
-        ]);
+        expect(wrapper.emitted('dragStart')).toEqual([[track, DragEvent]]);
       });
     });
   });

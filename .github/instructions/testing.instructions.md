@@ -1008,9 +1008,7 @@ describe('when the AlbumTracksListItem component emits the dragStart event', () 
   beforeEach(async () => {
     wrapper
       .findComponent(AlbumTracksListItem)
-      .vm.$emit('dragStart', new DragEvent('dragstart'));
-
-    await wrapper.vm.$nextTick();
+      .vm.$emit('dragStart', DragEvent);
   });
 
   it('emits the dragStart event with the correct value', () => {

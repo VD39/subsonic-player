@@ -50,12 +50,15 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -112,12 +115,15 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -174,12 +180,15 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -236,12 +245,15 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -298,12 +310,15 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -369,12 +384,15 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -431,12 +449,15 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -493,12 +514,15 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -555,12 +579,15 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
@@ -617,12 +644,15 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
               <div class="content">
                 <ul class="bulletList">
                   <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                  <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                  <li><span class="visually-hidden">Duration: </span>
+                    <!--v-if--><time>00:19</time>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!--v-if-->
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">

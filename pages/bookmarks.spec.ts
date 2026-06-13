@@ -46,8 +46,14 @@ mockNuxtImport('useAsyncData', () => () => ({
   status: ref('success'),
 }));
 
+const dragStartMock = vi.fn();
+
+mockNuxtImport('useDragAndDrop', () => () => ({
+  dragStart: dragStartMock,
+}));
+
 const { useHeadTitleMock } = useHeadMock();
-const { playTracksMock } = useAudioPlayerMock();
+const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
 
 const bookmark = getFormattedBookmarksMock()[0];
 
@@ -117,6 +123,30 @@ describe('bookmarks', () => {
 
     it('calls the addToPlaylistModal function with the correct parameters', () => {
       expect(addToPlaylistModalMock).toHaveBeenCalledWith(bookmark.id, 1);
+    });
+  });
+
+  describe('when the BookmarksTracksList component emits the addToQueue event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(BookmarksTracksList)
+        .vm.$emit('addToQueue', bookmark);
+    });
+
+    it('calls the addTrackToQueue function with the correct parameters', () => {
+      expect(addTrackToQueueMock).toHaveBeenCalledWith(bookmark);
+    });
+  });
+
+  describe('when the BookmarksTracksList component emits the dragStart event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(BookmarksTracksList)
+        .vm.$emit('dragStart', DragEvent);
+    });
+
+    it('calls the dragStart function with the correct parameters', () => {
+      expect(dragStartMock).toHaveBeenCalledWith(DragEvent);
     });
   });
 

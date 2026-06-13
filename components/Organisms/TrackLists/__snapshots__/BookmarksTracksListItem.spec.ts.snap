@@ -47,9 +47,15 @@ exports[`BookmarksTracksListItem > matches the snapshot 1`] = `
       </div>
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
@@ -118,9 +124,15 @@ exports[`BookmarksTracksListItem > when bookmark.author is undefined > matches t
       <p>--</p>
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
@@ -199,9 +211,15 @@ exports[`BookmarksTracksListItem > when bookmark.podcastId is undefined > matche
       </div>
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>
@@ -270,9 +288,15 @@ exports[`BookmarksTracksListItem > when bookmark.podcastName is undefined > matc
       </div>
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+      </button></div>
     <div class="trackCell trackOptions">
       <div>
         <track-play-pause-dropdown-item-stub trackid="track-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Add to playlist </span>
           </button></li>

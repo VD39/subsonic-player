@@ -4,10 +4,11 @@ import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import BookmarksTracksList from '@/components/Organisms/TrackLists/BookmarksTracksList.vue';
 
+const { dragStart } = useDragAndDrop();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
-const { playTracks } = useAudioPlayer();
+const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
 /* istanbul ignore next -- @preserve */
@@ -62,7 +63,9 @@ useHead({
     <BookmarksTracksList
       :bookmarks
       @addToPlaylist="addToPlaylistModal"
+      @addToQueue="addTrackToQueue"
       @downloadMedia="downloadTrack"
+      @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playEpisodeFromBookmarks"
       @remove="deleteBookmark"

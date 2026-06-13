@@ -66,6 +66,8 @@ describe('BookmarksTracksList', () => {
 
     describe.each([
       ['addToPlaylist', [bookmark.id]],
+      ['addToQueue', [bookmark]],
+      ['dragStart', [bookmark, undefined]],
       ['mediaInformation', [bookmark]],
       ['downloadMedia', [bookmark]],
       ['playTrack', [0]],

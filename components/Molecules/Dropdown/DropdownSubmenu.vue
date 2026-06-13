@@ -84,7 +84,7 @@ const transitionName = computed(() => {
 
 <style module>
 .inlineSubmenu {
-  width: 100%;
+  width: var(--width-height-100);
   padding-left: var(--space-8);
 }
 

@@ -39,12 +39,15 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span>
+                  <!--v-if--><time>00:19</time>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      <!--v-if-->
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
@@ -114,11 +117,14 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span><time>00:10</time><span>/</span><time>00:19</time></li>
               </ul>
             </div>
           </div>
         </div>
+      </div>
+      <div class="progressBar">
+        <div class="progress" style="--podcast-episodes-progress-width: 52.63157894736842%;"></div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -174,11 +180,14 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span><time>00:10</time><span>/</span><time>00:19</time></li>
               </ul>
             </div>
           </div>
         </div>
+      </div>
+      <div class="progressBar">
+        <div class="progress" style="--podcast-episodes-progress-width: 52.63157894736842%;"></div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -245,12 +254,15 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span>
+                  <!--v-if--><time>00:19</time>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      <!--v-if-->
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
@@ -319,11 +331,242 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span>
+                  <!--v-if--><time>00:19</time>
+                </li>
               </ul>
             </div>
           </div>
         </div>
+      </div>
+      <!--v-if-->
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Episode information </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download episode </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete episode </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`PodcastEpisodesListItem > when the podcast episode is current track > when getBookmarkPosition return false > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:10</time><span>/</span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="progressBar">
+        <div class="progress" style="--podcast-episodes-progress-width: 52.63157894736842%;"></div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Episode information </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download episode </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete episode </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`PodcastEpisodesListItem > when the podcast episode is current track > when getBookmarkPosition returns a position > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:00</time><span>/</span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="progressBar">
+        <div class="progress" style="--podcast-episodes-progress-width: 0%;"></div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Episode information </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download episode </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete episode </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`PodcastEpisodesListItem > when the podcast episode is current track > when getBookmarkPosition returns a position > when the currentTime value changes > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:10</time><span>/</span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="progressBar">
+        <div class="progress" style="--podcast-episodes-progress-width: 52.63157894736842%;"></div>
       </div>
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
@@ -392,12 +635,15 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span>
+                  <!--v-if--><time>00:19</time>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      <!--v-if-->
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
@@ -467,12 +713,15 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
             <div class="content">
               <ul class="bulletList">
                 <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
-                <li><span class="visually-hidden">Duration: </span><time>00:19</time></li>
+                <li><span class="visually-hidden">Duration: </span>
+                  <!--v-if--><time>00:19</time>
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+      <!--v-if-->
     </div>
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
@@ -481,6 +730,82 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Download episode </span>
+          </button></li>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`PodcastEpisodesListItem > when the podcast episode is not the current track > when getBookmarkPosition returns a position > matches the snapshot 1`] = `
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="interactionWrapper" draggable="false">
+    <div class="trackCell trackPodcastEpisode column">
+      <div>
+        <track-play-pause-stub image="image" trackid="podcast-episode-0" tracknumber="1" hideimage="false" large="true"></track-play-pause-stub>
+        <div class="column">
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4 class="strong mBM">title</h4>
+              </div>
+            </div>
+          </div>
+          <div class="marqueeScroll" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <p class="strong mBM">author</p>
+              </div>
+            </div>
+          </div><!-- eslint-disable vue/no-v-html -->
+          <div class="clamp2">description</div><!-- eslint-enable vue/no-v-html -->
+        </div>
+      </div>
+      <div class="centerItems podcastOptions">
+        <div class="centerItems">
+          <div class="centerItems downloaded" title="Downloaded">
+            <phcheckcircle size="24"></phcheckcircle>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button">
+            <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          </button>
+        </div>
+        <div class="marqueeScroll">
+          <div class="bulletList inner">
+            <div class="content">
+              <ul class="bulletList">
+                <li><span class="visually-hidden">Published: </span> 01/01/2000</li>
+                <li><span class="visually-hidden">Duration: </span><time>00:10</time><span>/</span><time>00:19</time></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="progressBar">
+        <div class="progress" style="--podcast-episodes-progress-width: 52.63157894736842%;"></div>
+      </div>
+    </div>
+    <div class="trackCell trackOptions trackPodcastEpisode">
+      <div>
+        <track-play-pause-dropdown-item-stub trackid="podcast-episode-0" type="podcastEpisode"></track-play-pause-dropdown-item-stub>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to queue </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Add to playlist </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <!--v-if-->
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Episode information </span>
+          </button></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Download episode </span>
+          </button></li>
+        <li aria-hidden="true" class="divider"></li>
+        <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Delete episode </span>
           </button></li>
       </div>
     </div>

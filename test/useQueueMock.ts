@@ -12,6 +12,7 @@ const addTracksMock = vi.fn().mockImplementation((tracks) => {
 const closeQueuePanelsMock = vi.fn();
 const currentQueueIndexMock = ref(0);
 const currentTrackMock = ref(getFormattedQueueTracksMock()[0]);
+const enrichTracksWithPositionsMock = vi.fn();
 const hasCurrentTrackMock = ref(false);
 const hasNextTrackMock = ref(false);
 const hasPreviousTrackMock = ref(false);
@@ -24,6 +25,7 @@ const isQueuePlayerOpenedMock = ref(false);
 const isRadioStationMock = ref(false);
 const isTrackMock = ref(false);
 const loadQueueStateMock = vi.fn();
+const mergeBookmarksToCurrentQueueMock = vi.fn();
 const navigateQueueMock = vi.fn();
 const originalQueueListMock = ref([]);
 const queueListMock = ref(getFormattedQueueTracksMock(5));
@@ -34,7 +36,8 @@ const resetQueueMock = vi.fn().mockImplementation(() => {
   currentQueueIndexMock.value = 0;
   originalQueueListMock.value = [];
 });
-const restoreQueueMock = vi.fn();
+const unshuffleQueueMock = vi.fn();
+const restoreLocalStateMock = vi.fn();
 const restoreQueueStateFromLocalMock = vi.fn();
 const restoreQueueStateFromServerMock = vi.fn();
 const shuffleQueueMock = vi.fn();
@@ -49,6 +52,7 @@ export function useQueueMock() {
     closeQueuePanels: closeQueuePanelsMock,
     currentQueueIndex: currentQueueIndexMock,
     currentTrack: currentTrackMock,
+    enrichTracksWithPositions: enrichTracksWithPositionsMock,
     hasCurrentTrack: hasCurrentTrackMock,
     hasNextTrack: hasNextTrackMock,
     hasPreviousTrack: hasPreviousTrackMock,
@@ -61,18 +65,20 @@ export function useQueueMock() {
     isRadioStation: isRadioStationMock,
     isTrack: isTrackMock,
     loadQueueState: loadQueueStateMock,
+    mergeBookmarksToCurrentQueue: mergeBookmarksToCurrentQueueMock,
     navigateQueue: navigateQueueMock,
     originalQueueList: originalQueueListMock,
     queueList: queueListMock,
     removeTrack: removeTrackMock,
     reorderQueueTracks: reorderQueueTracksMock,
     resetQueue: resetQueueMock,
-    restoreQueue: restoreQueueMock,
+    restoreLocalState: restoreLocalStateMock,
     restoreQueueStateFromLocal: restoreQueueStateFromLocalMock,
     restoreQueueStateFromServer: restoreQueueStateFromServerMock,
     shuffleQueue: shuffleQueueMock,
     toggleQueueList: toggleQueueListMock,
     toggleQueuePlayer: toggleQueuePlayerMock,
+    unshuffleQueue: unshuffleQueueMock,
     updateCurrentTrackPosition: updateCurrentTrackPositionMock,
     updateTrackFavourite: updateTrackFavouriteMock,
   }));
@@ -82,6 +88,7 @@ export function useQueueMock() {
     closeQueuePanelsMock,
     currentQueueIndexMock,
     currentTrackMock,
+    enrichTracksWithPositionsMock,
     hasCurrentTrackMock,
     hasNextTrackMock,
     hasPreviousTrackMock,
@@ -94,18 +101,20 @@ export function useQueueMock() {
     isRadioStationMock,
     isTrackMock,
     loadQueueStateMock,
+    mergeBookmarksToCurrentQueueMock,
     navigateQueueMock,
     originalQueueListMock,
     queueListMock,
     removeTrackMock,
     reorderQueueTracksMock,
     resetQueueMock,
-    restoreQueueMock,
+    restoreLocalStateMock,
     restoreQueueStateFromLocalMock,
     restoreQueueStateFromServerMock,
     shuffleQueueMock,
     toggleQueueListMock,
     toggleQueuePlayerMock,
+    unshuffleQueueMock,
     updateCurrentTrackPositionMock,
     updateTrackFavouriteMock,
   };

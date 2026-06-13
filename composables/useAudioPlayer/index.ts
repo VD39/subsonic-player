@@ -8,6 +8,7 @@ export function useAudioPlayer() {
     addTracks,
     currentQueueIndex,
     currentTrack,
+    enrichTracksWithPositions,
     hasCurrentTrack,
     hasNextTrack: queueHasNextTrack,
     hasPreviousTrack: queueHasPreviousTrack,
@@ -19,8 +20,8 @@ export function useAudioPlayer() {
     queueList,
     removeTrack,
     reorderQueueTracks,
-    restoreQueue,
     shuffleQueue,
+    unshuffleQueue,
     updateCurrentTrackPosition,
   } = useQueue();
 
@@ -281,7 +282,7 @@ export function useAudioPlayer() {
     setupMediaSessionHandlers();
     loadTrack(track);
 
-    if (track.position) {
+    if (isPodcastEpisode.value && track.position) {
       setCurrentTime(track.position);
     }
 
@@ -293,8 +294,8 @@ export function useAudioPlayer() {
     }
 
     saveAudioPlayerState();
-    syncPlaybackPosition();
     prefetchUpcomingTracks();
+    syncPlaybackPosition();
   }
 
   const {
@@ -344,11 +345,11 @@ export function useAudioPlayer() {
     saveAudioPlayerState();
   }
 
-  function syncPlaybackPosition(bookmarkTimeToSync = currentTime.value) {
-    updateCurrentTrackPosition(currentTime.value);
+  function syncPlaybackPosition(currentSyncTime = currentTime.value) {
+    updateCurrentTrackPosition(currentSyncTime);
 
-    if (isPodcastEpisode.value) {
-      createBookmark(currentTrack.value.id, bookmarkTimeToSync);
+    if (isPodcastEpisode.value && currentSyncTime > 0) {
+      createBookmark(currentTrack.value.id, currentSyncTime);
     }
   }
 
@@ -391,18 +392,13 @@ export function useAudioPlayer() {
     prefetchUpcomingTracks();
   }
 
-  async function replayCurrentTrack() {
-    resetPlaybackTimes();
-    await changeTrack(currentTrack.value);
-  }
-
   function toggleShuffle() {
     shuffle.value = !shuffle.value;
 
     if (shuffle.value) {
       shuffleQueue();
     } else {
-      restoreQueue();
+      unshuffleQueue();
     }
 
     saveAudioPlayerState();
@@ -459,10 +455,9 @@ export function useAudioPlayer() {
   function resetPlayerSession() {
     audioPlayer.value?.unload();
     preloader.value?.clear();
-    resetPlaybackTimes();
     shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
     repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
-    saveAudioPlayerState();
+    resetPlaybackTimes();
   }
 
   // Queue actions.
@@ -501,6 +496,7 @@ export function useAudioPlayer() {
   }
 
   async function addTracksToQueue(tracks: PlayableTrack[]) {
+    await enrichTracksWithPositions(tracks);
     const queueListHasTrack = addTracks(tracks);
 
     if (!queueListHasTrack) {
@@ -517,19 +513,24 @@ export function useAudioPlayer() {
   }
 
   async function playTracks(tracks: PlayableTrack[], queueOffset = 0) {
+    await enrichTracksWithPositions(tracks);
     resetPlayerSession();
     addTracks(tracks, true);
     const track = navigateQueue(queueOffset);
     await changeTrack(track);
   }
 
+  function resetPlaybackState() {
+    currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
+    bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
+    saveAudioPlayerState();
+  }
+
   function resetPlaybackTimes() {
     // Store actual position for podcasts to sync with bookmark before resetting.
     const bookmarkTimeToSync = currentTime.value;
 
-    currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
-    bufferedDuration.value = AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration;
-    saveAudioPlayerState();
+    resetPlaybackState();
     syncPlaybackPosition(bookmarkTimeToSync);
   }
 
@@ -570,16 +571,20 @@ export function useAudioPlayer() {
         deleteBookmark(currentTrack.value.id, false);
       }
 
+      resetPlaybackState();
+      updateCurrentTrackPosition(0);
+
       switch (repeat.value) {
-        case REPEAT_MODE.all:
-          await playNextTrack();
+        case REPEAT_MODE.all: {
+          const track = navigateQueue('next');
+          await changeTrack(track);
           break;
+        }
         case REPEAT_MODE.one:
-          await replayCurrentTrack();
+          await changeTrack(currentTrack.value);
           break;
-        default:
+        default: {
           if (isLastTrack.value) {
-            resetPlaybackTimes();
             const track = navigateQueue(0);
             await changeTrack(track);
             pausePlayback();
@@ -587,8 +592,9 @@ export function useAudioPlayer() {
             return;
           }
 
-          await playNextTrack();
-          break;
+          const track = navigateQueue('next');
+          await changeTrack(track);
+        }
       }
     });
 

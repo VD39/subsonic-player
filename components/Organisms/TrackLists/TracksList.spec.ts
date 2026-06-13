@@ -85,15 +85,11 @@ describe('TracksList', () => {
 
     describe('when the TracksListItem component emits the dragStart event', () => {
       beforeEach(async () => {
-        wrapper
-          .findComponent(TracksListItem)
-          .vm.$emit('dragStart', new DragEvent('dragstart'));
+        wrapper.findComponent(TracksListItem).vm.$emit('dragStart', DragEvent);
       });
 
       it('emits the dragStart event with the correct value', () => {
-        expect(wrapper.emitted('dragStart')).toEqual([
-          [track, expect.any(DragEvent)],
-        ]);
+        expect(wrapper.emitted('dragStart')).toEqual([[track, DragEvent]]);
       });
     });
   });

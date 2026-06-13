@@ -2,6 +2,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
+import { getFormattedBookmarksMock } from '@/test/helpers';
+
 import { useBookmark } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -23,9 +25,15 @@ const {
   bookmarks,
   createBookmark,
   deleteBookmark,
+  getBookmarkPosition,
   getBookmarks,
   resetBookmarks,
 } = useBookmark();
+
+const bookmarksMock = getFormattedBookmarksMock(3, {
+  position: 123,
+});
+const bookmark = bookmarksMock[0];
 
 describe('useBookmark', () => {
   afterEach(() => {
@@ -54,29 +62,21 @@ describe('useBookmark', () => {
     describe('when fetchData response returns an array', () => {
       beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
-          data: [
-            {
-              name: 'name',
-            },
-          ],
+          data: bookmarksMock,
         });
 
         await getBookmarks();
       });
 
       it('sets the correct bookmarks value', () => {
-        expect(bookmarks.value).toEqual([
-          {
-            name: 'name',
-          },
-        ]);
+        expect(bookmarks.value).toEqual(bookmarksMock);
       });
     });
   });
 
   describe('when the createBookmark function is called', () => {
     beforeEach(() => {
-      createBookmark('id', 12345);
+      createBookmark(bookmark.id, 12345);
     });
 
     describe('when fetchData response returns null', () => {
@@ -85,7 +85,7 @@ describe('useBookmark', () => {
           data: null,
         });
 
-        createBookmark('id', 12345);
+        createBookmark(bookmark.id, 12345);
       });
 
       it('calls the getBookmarks function', () => {
@@ -103,7 +103,7 @@ describe('useBookmark', () => {
         data: null,
       });
 
-      deleteBookmark('id');
+      deleteBookmark(bookmark.id);
     });
 
     it('calls the getBookmarks function', () => {
@@ -122,12 +122,10 @@ describe('useBookmark', () => {
     describe('when fetchData response returns a value', () => {
       beforeEach(() => {
         fetchDataMock.mockResolvedValue({
-          data: {
-            name: 'name',
-          },
+          data: bookmark,
         });
 
-        deleteBookmark('id', false);
+        deleteBookmark(bookmark.id, false);
       });
 
       describe('when showMessage is false', () => {
@@ -138,7 +136,7 @@ describe('useBookmark', () => {
 
       describe('when showMessage is true', () => {
         beforeEach(() => {
-          deleteBookmark('id');
+          deleteBookmark(bookmark.id);
         });
 
         it('calls the addSuccessSnack function', () => {
@@ -157,6 +155,28 @@ describe('useBookmark', () => {
 
     it('sets the bookmarks value to the default value', () => {
       expect(bookmarks.value).toEqual([]);
+    });
+  });
+
+  describe('when the getBookmarkPosition function is called', () => {
+    describe('when a bookmark with the given id exists', () => {
+      beforeEach(() => {
+        bookmarks.value = bookmarksMock;
+      });
+
+      it('returns the correct response', () => {
+        expect(getBookmarkPosition(bookmark.id)).toBe(123);
+      });
+    });
+
+    describe('when no bookmark with the given id exists', () => {
+      beforeEach(() => {
+        bookmarks.value = [];
+      });
+
+      it('returns the correct response', () => {
+        expect(getBookmarkPosition('non-existent-id')).toBeUndefined();
+      });
     });
   });
 });
