@@ -2,7 +2,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   const { isAuthenticated } = useAuth();
   const {
     mergeBookmarksToCurrentQueue,
-    restoreLocalState,
     restoreQueueStateFromLocal,
     restoreQueueStateFromServer,
   } = useQueue();
@@ -18,6 +17,5 @@ export default defineNuxtPlugin((nuxtApp) => {
     await mergeBookmarksToCurrentQueue();
     await nextTick();
     await restoreAudioPlayerState();
-    restoreLocalState();
   });
 });

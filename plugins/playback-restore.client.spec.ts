@@ -5,14 +5,6 @@ import { useQueueMock } from '@/test/useQueueMock';
 
 import playbackRestorePlugin from './playback-restore.client';
 
-const { restoreAudioPlayerStateMock } = useAudioPlayerMock();
-const {
-  mergeBookmarksToCurrentQueueMock,
-  restoreLocalStateMock,
-  restoreQueueStateFromLocalMock,
-  restoreQueueStateFromServerMock,
-} = useQueueMock();
-
 const isAuthenticatedMock = ref(false);
 
 mockNuxtImport('useAuth', () => () => ({
@@ -26,6 +18,13 @@ const nuxtApp = {
     hookCallback = cb;
   }),
 } as never;
+
+const { restoreAudioPlayerStateMock } = useAudioPlayerMock();
+const {
+  mergeBookmarksToCurrentQueueMock,
+  restoreQueueStateFromLocalMock,
+  restoreQueueStateFromServerMock,
+} = useQueueMock();
 
 describe('playback-restore.client plugin', () => {
   beforeEach(() => {
@@ -71,10 +70,6 @@ describe('playback-restore.client plugin', () => {
       it('does not call the restoreAudioPlayerState function', () => {
         expect(restoreAudioPlayerStateMock).not.toHaveBeenCalled();
       });
-
-      it('does not call the restoreLocalState function', () => {
-        expect(restoreLocalStateMock).not.toHaveBeenCalled();
-      });
     });
 
     describe('when the isAuthenticated value is true', () => {
@@ -97,10 +92,6 @@ describe('playback-restore.client plugin', () => {
 
       it('calls the restoreAudioPlayerState function', () => {
         expect(restoreAudioPlayerStateMock).toHaveBeenCalled();
-      });
-
-      it('calls the restoreLocalState function', () => {
-        expect(restoreLocalStateMock).toHaveBeenCalled();
       });
     });
   });

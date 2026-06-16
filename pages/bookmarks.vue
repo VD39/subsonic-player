@@ -15,7 +15,9 @@ const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 const { refresh, status } = useAsyncData(
   ASYNC_DATA_KEYS.bookmarks,
   async () => {
-    await getBookmarks();
+    if (!bookmarks.value.length) {
+      await getBookmarks();
+    }
 
     return {
       bookmarks: bookmarks.value,

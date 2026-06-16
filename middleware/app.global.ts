@@ -4,9 +4,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const { closeModal } = useModal();
   const { closeQueuePanels } = useQueue();
   const { getPlaylists, playlists } = usePlaylist();
-
-  closeModal();
-  closeQueuePanels();
+  const { bookmarks, getBookmarks } = useBookmark();
 
   await callOnce(async () => {
     await autoLogin();
@@ -16,14 +14,6 @@ export default defineNuxtRouteMiddleware(async (to) => {
     await callOnce(() => {
       loadThemePreference();
     });
-  }
-
-  if (isAuthenticated.value && !playlists.value.length) {
-    if (import.meta.client) {
-      getPlaylists();
-    } else {
-      await getPlaylists();
-    }
   }
 
   if (to.name === ROUTE_NAMES.login && isAuthenticated.value) {
@@ -41,5 +31,15 @@ export default defineNuxtRouteMiddleware(async (to) => {
         redirect: to.fullPath,
       },
     });
+  }
+
+  closeModal();
+  closeQueuePanels();
+
+  if (isAuthenticated.value) {
+    await Promise.all([
+      !playlists.value.length && getPlaylists(),
+      !bookmarks.value.length && getBookmarks(),
+    ]);
   }
 });
