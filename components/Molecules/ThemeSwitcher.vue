@@ -10,7 +10,7 @@ const buttonProps = computed(() => ({
 </script>
 
 <template>
-  <client-only>
+  <ClientOnly>
     <ButtonLink
       :icon="buttonProps.icon"
       :title="buttonProps.text"
@@ -18,5 +18,5 @@ const buttonProps = computed(() => ({
     >
       {{ buttonProps.text }}
     </ButtonLink>
-  </client-only>
+  </ClientOnly>
 </template>

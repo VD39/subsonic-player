@@ -990,7 +990,7 @@ describe('when the modelValue prop updates', () => {
 ```ts
 import { mount, RouterLinkStub } from '@vue/test-utils';
 
-it('sets the correct to prop on the RouterLinkStub component', () => {
+it('sets the correct to prop on the RouterLink component', () => {
   expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual({
     params: {
       id: 'album-0',
@@ -1015,6 +1015,16 @@ describe('when the AlbumTracksListItem component emits the dragStart event', () 
     expect(wrapper.emitted('dragStart')).toEqual([
       [track, expect.any(DragEvent)],
     ]);
+  });
+});
+
+describe('when the ButtonLink component is clicked', () => {
+  beforeEach(async () => {
+    await wrapper.findComponent(ButtonLink).trigger('click');
+  });
+
+  it('emits the addToQueue event with the correct value', () => {
+    expect(wrapper.emitted('addToQueue')).toEqual([[track]]);
   });
 });
 ```

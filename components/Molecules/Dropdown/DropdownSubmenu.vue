@@ -54,7 +54,7 @@ const transitionName = computed(() => {
       {{ text }}
     </ButtonLink>
 
-    <transition :name="transitionName">
+    <Transition :name="transitionName">
       <div
         v-if="isOpen"
         ref="dropdownSubListRef"
@@ -78,7 +78,7 @@ const transitionName = computed(() => {
           <slot />
         </ul>
       </div>
-    </transition>
+    </Transition>
   </li>
 </template>
 

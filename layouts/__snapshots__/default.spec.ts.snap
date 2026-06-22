@@ -7,14 +7,15 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
-        <form novalidate="">
+        <form class="searchForm" novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
             </button>
           </div>
+          <!--v-if-->
         </form>
       </div>
       <div class="centerItems secondary"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
@@ -125,14 +126,15 @@ exports[`DefaultLayout > when route name is index > matches the snapshot 1`] = `
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
-        <form novalidate="">
+        <form class="searchForm" novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
             </button>
           </div>
+          <!--v-if-->
         </form>
       </div>
       <div class="centerItems secondary"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
@@ -259,14 +261,15 @@ exports[`DefaultLayout > when route name is podcast-sortBy-id > matches the snap
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
-        <form novalidate="">
+        <form class="searchForm" novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
             </button>
           </div>
+          <!--v-if-->
         </form>
       </div>
       <div class="centerItems secondary"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
@@ -393,14 +396,15 @@ exports[`DefaultLayout > when route name is podcasts > matches the snapshot 1`] 
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
-        <form novalidate="">
+        <form class="searchForm" novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
             </button>
           </div>
+          <!--v-if-->
         </form>
       </div>
       <div class="centerItems secondary"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">
@@ -527,14 +531,15 @@ exports[`DefaultLayout > when route name is radio-stations > matches the snapsho
         <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
       </a>
       <div class="search">
-        <form novalidate="">
+        <form class="searchForm" novalidate="">
           <div class="centerItems">
-            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input" placeholder="Enter query" required="" type="text">
+            <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
               <!--v-if-->
             </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
-              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden"> Search </span>
+              <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
             </button>
           </div>
+          <!--v-if-->
         </form>
       </div>
       <div class="centerItems secondary"><button class="centerItems buttonLink" draggable="false" type="button" id="view-layout-button" title="Switch to list layout">

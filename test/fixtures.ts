@@ -369,3 +369,59 @@ export const serverInformationMock: ServerInformation = {
   url: 'https://www.server.com',
   version: '1.16.1',
 };
+
+export const searchSuggestionsMock: SuggestionGroup[] = [
+  {
+    items: [
+      {
+        artists,
+        icon: ICONS.album,
+        id: 'album-suggestion-0',
+        name: 'album-suggestion-0',
+        route: {
+          name: ROUTE_NAMES.album,
+          params: {
+            [ROUTE_PARAM_KEYS.album.id]: 'album-0',
+          },
+        },
+        type: MEDIA_TYPE.album,
+      },
+      {
+        artists,
+        icon: ICONS.album,
+        id: 'album-suggestion-1',
+        name: 'album-suggestion-1',
+        route: {
+          name: ROUTE_NAMES.album,
+          params: {
+            [ROUTE_PARAM_KEYS.album.id]: 'album-1',
+          },
+        },
+        type: MEDIA_TYPE.album,
+      },
+    ],
+    searchType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+    title: 'Albums',
+  },
+  {
+    items: [
+      {
+        artists,
+        icon: ICONS.track,
+        id: 'track-suggestion-0',
+        name: 'track-suggestion-0',
+        route: {
+          name: ROUTE_NAMES.search,
+          params: {
+            [ROUTE_PARAM_KEYS.search.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+            [ROUTE_PARAM_KEYS.search.query]: 'query',
+          },
+        },
+        track: formattedTrackMock,
+        type: MEDIA_TYPE.track,
+      },
+    ],
+    searchType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+    title: 'Tracks',
+  },
+];

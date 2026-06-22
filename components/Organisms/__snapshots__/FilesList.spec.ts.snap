@@ -121,7 +121,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       </a></div>
   </div>
   <!--v-if-->
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -155,7 +155,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -189,7 +189,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -223,7 +223,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -257,7 +257,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>

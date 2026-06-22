@@ -24,7 +24,7 @@ describe('GenreLink', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('sets the correct to prop on the RouterLinkStub component', () => {
+  it('sets the correct to prop on the RouterLink component', () => {
     expect(wrapper.findComponent(RouterLinkStub).props('to')).toEqual({
       name: ROUTE_NAMES.genre,
       params: {

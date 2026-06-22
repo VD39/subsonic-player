@@ -51,7 +51,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 </script>
 
 <template>
-  <LazyLoadContent class="trackRow">
+  <LazyLoadContent class="trackRow trackPlayPauseHover">
     <InteractionWrapper
       :draggable="isDraggable"
       @click="onClick"

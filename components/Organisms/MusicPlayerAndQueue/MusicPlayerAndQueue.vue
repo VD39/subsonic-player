@@ -7,15 +7,15 @@ const { hasQueueTracks, isQueueListOpened, isQueuePlayerOpened } = useQueue();
 </script>
 
 <template>
-  <transition name="slide-up-down">
+  <Transition name="slide-up-down">
     <MusicPlayer v-if="hasQueueTracks" />
-  </transition>
+  </Transition>
 
-  <transition name="slide-up-down">
+  <Transition name="slide-up-down">
     <QueuePlayer v-if="isQueuePlayerOpened" />
-  </transition>
+  </Transition>
 
-  <transition name="slide-up-down">
+  <Transition name="slide-up-down">
     <QueueList v-show="isQueueListOpened" />
-  </transition>
+  </Transition>
 </template>

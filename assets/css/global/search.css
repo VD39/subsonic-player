@@ -1,0 +1,25 @@
+.searchItem {
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+  transition: background-color var(--transition);
+
+  &:hover {
+    background-color: var(--track-hover-background-color);
+  }
+}
+
+.searchName {
+  flex: 1;
+}
+
+.searchArtistLinks {
+  flex-shrink: 0;
+  max-width: 35%;
+  color: var(--secondary-font-color);
+}
+
+.searchIcon  {
+  flex-shrink: 0;
+  width: 20px;
+  color: var(--secondary-font-color);
+}

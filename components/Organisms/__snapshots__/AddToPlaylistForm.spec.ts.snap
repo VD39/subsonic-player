@@ -59,7 +59,7 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -74,7 +74,7 @@ exports[`AddToPlaylistForm > when the playlists prop is an empty array > matches
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -142,7 +142,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > mat
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -210,7 +210,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -278,7 +278,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -306,7 +306,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -374,7 +374,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>
@@ -442,7 +442,7 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="spaceBetween">
     <div class="column inputField formField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="name">name
         <!--v-if-->
-      </label><input id="name" autocomplete="off" class="input" placeholder="Add Playlist" type="text">
+      </label><input id="name" autocomplete="off" class="input formField" placeholder="Add Playlist" type="text">
       <!--v-if-->
     </div><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="submit">
       <!--v-if--><span class="clamp text">Add</span>

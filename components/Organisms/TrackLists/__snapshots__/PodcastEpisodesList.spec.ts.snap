@@ -6,7 +6,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
     <div class="trackCell">Episodes (5) </div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -71,7 +71,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -136,7 +136,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -201,7 +201,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -266,7 +266,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -340,7 +340,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
     <div class="trackCell">Episodes (5) </div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -405,7 +405,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -470,7 +470,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -535,7 +535,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>
@@ -600,7 +600,7 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow trackBorder spaceBetween">
+  <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell trackPodcastEpisode column">
         <div>

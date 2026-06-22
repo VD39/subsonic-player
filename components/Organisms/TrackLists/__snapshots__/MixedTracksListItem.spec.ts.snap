@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MixedTracksListItem > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -94,7 +94,7 @@ exports[`MixedTracksListItem > matches the snapshot 1`] = `
 `;
 
 exports[`MixedTracksListItem > when the isAddToQueueVisible prop is true > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -191,7 +191,7 @@ exports[`MixedTracksListItem > when the isAddToQueueVisible prop is true > match
 `;
 
 exports[`MixedTracksListItem > when the isRemovable prop is true > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -289,7 +289,7 @@ exports[`MixedTracksListItem > when the isRemovable prop is true > matches the s
 `;
 
 exports[`MixedTracksListItem > when the isSortable prop is true > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -384,7 +384,7 @@ exports[`MixedTracksListItem > when the isSortable prop is true > matches the sn
 `;
 
 exports[`MixedTracksListItem > when the track does have a homePageUrl key > when track.homePageUrl is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -443,7 +443,7 @@ exports[`MixedTracksListItem > when the track does have a homePageUrl key > when
 `;
 
 exports[`MixedTracksListItem > when the track does have a podcastId key > when track.podcastId is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -524,7 +524,7 @@ exports[`MixedTracksListItem > when the track does have a podcastId key > when t
 `;
 
 exports[`MixedTracksListItem > when the track does have an album key > when track.album is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -613,7 +613,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
 `;
 
 exports[`MixedTracksListItem > when the track does have an album key > when track.album is undefined > when the track does have a podcastName key > when track.podcastName is defined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -692,7 +692,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
 `;
 
 exports[`MixedTracksListItem > when the track does have an album key > when track.album is undefined > when the track does have a podcastName key > when track.podcastName is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -767,7 +767,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
 `;
 
 exports[`MixedTracksListItem > when the track does have an album key > when track.album is undefined > when the track does not have a podcastName key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -842,7 +842,7 @@ exports[`MixedTracksListItem > when the track does have an album key > when trac
 `;
 
 exports[`MixedTracksListItem > when the track does have an albumId key > when track.albumId is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -937,7 +937,7 @@ exports[`MixedTracksListItem > when the track does have an albumId key > when tr
 `;
 
 exports[`MixedTracksListItem > when the track does have an artists key > when track.artists is an empty array > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1012,7 +1012,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
 `;
 
 exports[`MixedTracksListItem > when the track does have an artists key > when track.artists is an empty array > when the track does have an author key > when track.author is defined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1091,7 +1091,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
 `;
 
 exports[`MixedTracksListItem > when the track does have an artists key > when track.artists is an empty array > when the track does have an author key > when track.author is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1164,7 +1164,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
 `;
 
 exports[`MixedTracksListItem > when the track does have an artists key > when track.artists is an empty array > when the track does not have an author key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1237,7 +1237,7 @@ exports[`MixedTracksListItem > when the track does have an artists key > when tr
 `;
 
 exports[`MixedTracksListItem > when the track does not have a favourite key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1328,7 +1328,7 @@ exports[`MixedTracksListItem > when the track does not have a favourite key > ma
 `;
 
 exports[`MixedTracksListItem > when the track does not have a homePageUrl key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1387,7 +1387,7 @@ exports[`MixedTracksListItem > when the track does not have a homePageUrl key > 
 `;
 
 exports[`MixedTracksListItem > when the track does not have a podcastId key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1468,7 +1468,7 @@ exports[`MixedTracksListItem > when the track does not have a podcastId key > ma
 `;
 
 exports[`MixedTracksListItem > when the track does not have an album key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1557,7 +1557,7 @@ exports[`MixedTracksListItem > when the track does not have an album key > match
 `;
 
 exports[`MixedTracksListItem > when the track does not have an albumId key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1652,7 +1652,7 @@ exports[`MixedTracksListItem > when the track does not have an albumId key > mat
 `;
 
 exports[`MixedTracksListItem > when the track does not have an artists key > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -1727,7 +1727,7 @@ exports[`MixedTracksListItem > when the track does not have an artists key > mat
 `;
 
 exports[`MixedTracksListItem > when track.type is radioStation > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>

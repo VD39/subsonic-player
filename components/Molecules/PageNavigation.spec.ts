@@ -41,7 +41,7 @@ describe('PageNavigation', () => {
     expect(wrapper.findAllComponents(ButtonLink).length).toBe(2);
   });
 
-  it('sets the correct to prop on the RouterLinkStub component', () => {
+  it('sets the correct to prop on the RouterLink component', () => {
     const router = wrapper.findAllComponents(RouterLinkStub);
 
     expect(router[0].props('to')).toEqual({

@@ -191,7 +191,7 @@ const { isBuffering, isPlaying } = useAudioPlayer();
 }
 
 @media (hover: hover) {
-  :global(body:not(.disableAllPointerEvents)) :global(.trackRow) {
+  :global(body:not(.disableAllPointerEvents)) :global(.trackPlayPauseHover) {
     &:hover {
       .playPauseWrapper {
         --play-pause-visibility: visible;

@@ -7,7 +7,7 @@ const { closeModal, modal } = useModal();
 
 <template>
   <Teleport to="#teleports">
-    <transition name="fade">
+    <Transition name="fade">
       <dialog
         v-if="modal.component"
         ref="modalContainer"
@@ -50,7 +50,7 @@ const { closeModal, modal } = useModal();
           </div>
         </div>
       </dialog>
-    </transition>
+    </Transition>
   </Teleport>
 </template>
 

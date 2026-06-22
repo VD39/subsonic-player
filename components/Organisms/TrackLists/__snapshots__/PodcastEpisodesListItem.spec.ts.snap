@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -77,7 +77,7 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
 `;
 
 exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits the click event > when the podcast episode is not downloaded > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -142,7 +142,7 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
 `;
 
 exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the podcast episode is downloaded > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -221,7 +221,7 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode has no author > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -292,7 +292,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode has no description > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -369,7 +369,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode is current track > when getBookmarkPosition return false > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -445,7 +445,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode is current track > when getBookmarkPosition returns a position > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -521,7 +521,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode is current track > when getBookmarkPosition returns a position > when the currentTime value changes > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -597,7 +597,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -673,7 +673,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>
@@ -738,7 +738,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
 `;
 
 exports[`PodcastEpisodesListItem > when the podcast episode is not the current track > when getBookmarkPosition returns a position > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow trackBorder spaceBetween">
+"<div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell trackPodcastEpisode column">
       <div>

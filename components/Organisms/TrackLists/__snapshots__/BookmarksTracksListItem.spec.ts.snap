@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`BookmarksTracksListItem > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -84,7 +84,7 @@ exports[`BookmarksTracksListItem > matches the snapshot 1`] = `
 `;
 
 exports[`BookmarksTracksListItem > when bookmark.author is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -161,7 +161,7 @@ exports[`BookmarksTracksListItem > when bookmark.author is undefined > matches t
 `;
 
 exports[`BookmarksTracksListItem > when bookmark.podcastId is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -246,7 +246,7 @@ exports[`BookmarksTracksListItem > when bookmark.podcastId is undefined > matche
 `;
 
 exports[`BookmarksTracksListItem > when bookmark.podcastName is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>

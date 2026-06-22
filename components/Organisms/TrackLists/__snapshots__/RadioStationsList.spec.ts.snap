@@ -7,7 +7,7 @@ exports[`RadioStationsList > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -39,7 +39,7 @@ exports[`RadioStationsList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -71,7 +71,7 @@ exports[`RadioStationsList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -103,7 +103,7 @@ exports[`RadioStationsList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -135,7 +135,7 @@ exports[`RadioStationsList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -177,7 +177,7 @@ exports[`RadioStationsList > when the radioStations prop is not an empty array >
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -209,7 +209,7 @@ exports[`RadioStationsList > when the radioStations prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -241,7 +241,7 @@ exports[`RadioStationsList > when the radioStations prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -273,7 +273,7 @@ exports[`RadioStationsList > when the radioStations prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -305,7 +305,7 @@ exports[`RadioStationsList > when the radioStations prop is not an empty array >
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>

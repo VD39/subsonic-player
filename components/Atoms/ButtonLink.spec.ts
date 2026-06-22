@@ -122,7 +122,7 @@ describe('ButtonLink', () => {
       wrapper = mount(ButtonLink, {
         slots: {
           default: 'Default slot content.',
-          icon: '<span data-test="custom-icon">Custom icon</span>',
+          icon: '<span>Custom icon</span>',
         },
       });
     });
@@ -149,7 +149,7 @@ describe('ButtonLink', () => {
           },
           slots: {
             default: 'Default slot content.',
-            icon: '<span data-test="custom-icon">Custom icon</span>',
+            icon: '<span>Custom icon</span>',
           },
         });
       });

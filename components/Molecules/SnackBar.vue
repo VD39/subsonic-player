@@ -7,9 +7,9 @@ const { removeSnack, snacks } = useSnack();
 
 <template>
   <Teleport to="#teleports">
-    <transition name="slide-left-right">
+    <Transition name="slide-left-right">
       <div v-if="snacks.length" ref="snackbarWrapper" :class="$style.wrapper">
-        <transition-group name="slide-left-right">
+        <TransitionGroup name="slide-left-right">
           <div
             v-for="snack in snacks"
             :key="snack.id"
@@ -26,9 +26,9 @@ const { removeSnack, snacks } = useSnack();
               </ButtonLink>
             </MessageBar>
           </div>
-        </transition-group>
+        </TransitionGroup>
       </div>
-    </transition>
+    </Transition>
   </Teleport>
 </template>
 

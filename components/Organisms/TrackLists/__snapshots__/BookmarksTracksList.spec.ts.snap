@@ -11,7 +11,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -80,7 +80,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -149,7 +149,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -218,7 +218,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -287,7 +287,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -370,7 +370,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -439,7 +439,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -508,7 +508,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -577,7 +577,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -646,7 +646,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </button></div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>

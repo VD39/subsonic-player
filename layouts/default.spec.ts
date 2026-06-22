@@ -4,7 +4,6 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import SearchForm from '@/components/Molecules/SearchForm.vue';
 
 import DefaultLayout from './default.vue';
 
@@ -51,23 +50,6 @@ describe('DefaultLayout', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
-  });
-
-  describe('when the SearchForm component emits a search event', () => {
-    beforeEach(async () => {
-      wrapper.findComponent(SearchForm).vm.$emit('submit', 'query');
-      await wrapper.vm.$nextTick();
-    });
-
-    it('calls the navigateTo function with the correct parameters', () => {
-      expect(navigateToMock).toHaveBeenCalledWith({
-        name: ROUTE_NAMES.search,
-        params: {
-          [ROUTE_PARAM_KEYS.search.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
-          [ROUTE_PARAM_KEYS.search.query]: 'query',
-        },
-      });
-    });
   });
 
   describe('when route name is not in MOBILE_TAB_ROUTES', () => {

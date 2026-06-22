@@ -73,7 +73,9 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 </script>
 
 <template>
-  <LazyLoadContent class="trackRow trackBorder spaceBetween">
+  <LazyLoadContent
+    class="trackRow trackBorder spaceBetween trackPlayPauseHover"
+  >
     <InteractionWrapper
       :draggable="episode.downloaded"
       @click="onClick"

@@ -12,17 +12,17 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { search } = useSearch();
+const { fetchSearchResult } = useSearch();
 
 describe('useSearch', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  describe('when the search function is called', () => {
+  describe('when the fetchSearchResult function is called', () => {
     describe('when offset is not set', () => {
-      beforeEach(() => {
-        search({
+      beforeEach(async () => {
+        await fetchSearchResult({
           mediaType: 'albums',
           query: 'query',
         } as SearchParams);
@@ -46,8 +46,8 @@ describe('useSearch', () => {
 
     describe('when offset is set', () => {
       describe('when offset is 1', () => {
-        beforeEach(() => {
-          search({
+        beforeEach(async () => {
+          await fetchSearchResult({
             mediaType: 'albums',
             offset: 1,
             query: 'query',
@@ -100,7 +100,7 @@ describe('useSearch', () => {
 
         it('returns the correct response', async () => {
           expect(
-            await search({
+            await fetchSearchResult({
               mediaType,
               query: 'query',
             } as SearchParams),
@@ -133,7 +133,7 @@ describe('useSearch', () => {
 
         it('returns the correct response', async () => {
           expect(
-            await search({
+            await fetchSearchResult({
               mediaType,
               query: 'query',
             } as SearchParams),

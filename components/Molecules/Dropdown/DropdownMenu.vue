@@ -56,7 +56,7 @@ defineExpose({
     </ButtonLink>
 
     <Teleport :disabled="isStatic" to="#teleports">
-      <transition name="fade">
+      <Transition name="fade">
         <div
           v-if="isOpen"
           ref="dropdownListRef"
@@ -79,7 +79,7 @@ defineExpose({
             <slot />
           </ul>
         </div>
-      </transition>
+      </Transition>
     </Teleport>
   </div>
 </template>

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`AlbumTracksListItem > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -83,7 +83,7 @@ exports[`AlbumTracksListItem > matches the snapshot 1`] = `
 `;
 
 exports[`AlbumTracksListItem > when track.artists is an empty array > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>

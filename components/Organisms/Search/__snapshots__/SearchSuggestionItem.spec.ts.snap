@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchSuggestionItem > matches the snapshot 1`] = `
+"<a class="centerItems searchItem"><span class="centerItems searchIcon"><phvinylrecord size="18"></phvinylrecord></span><span class="clamp searchName">album-suggestion-0</span>
+  <ul class="commaList clamp smallFont searchArtistLinks">
+    <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+    <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+  </ul>
+</a>"
+`;
+
+exports[`SearchSuggestionItem > when artists is an empty array > matches the snapshot 1`] = `
+"<a class="centerItems searchItem"><span class="centerItems searchIcon"><phvinylrecord size="18"></phvinylrecord></span><span class="clamp searchName">album-suggestion-0</span>
+  <!--v-if-->
+</a>"
+`;

@@ -55,6 +55,7 @@ const internalValue = defineModel<string | string[]>();
       :placeholder
       :required
       :type
+      v-bind="$attrs"
     />
 
     <p v-if="error" ref="error" class="smallFont sentenceCase">
@@ -87,6 +88,7 @@ const internalValue = defineModel<string | string[]>();
   position: relative;
   width: var(--input-width);
   padding: calc(var(--space-12) - 2px) var(--space-12);
+  margin-bottom: var(--space-2);
   color: var(--body-font-color);
   background-color: var(--secondary-background-color);
   border: 1px solid var(--input-border-color);

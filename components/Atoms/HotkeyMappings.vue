@@ -3,7 +3,7 @@ const { HOTKEY_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
 </script>
 
 <template>
-  <transition name="slide-up-down">
+  <Transition name="slide-up-down">
     <div
       v-if="isHotkeyListOpened"
       ref="hotkeyMappings"
@@ -39,7 +39,7 @@ const { HOTKEY_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
         </div>
       </div>
     </div>
-  </transition>
+  </Transition>
 
   <span v-if="isHotkeyListOpened" ref="fullscreen" class="fullscreen" />
 </template>

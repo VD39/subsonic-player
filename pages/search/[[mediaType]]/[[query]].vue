@@ -13,7 +13,7 @@ definePageMeta({
 const route = useRoute();
 const { viewLayout } = useViewLayout();
 const { addToPlaylistModal } = usePlaylist();
-const { search } = useSearch();
+const { fetchSearchResult } = useSearch();
 const { openAlbumInformationModal, openTrackInformationModal } =
   useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
@@ -31,7 +31,7 @@ const query = replaceCharacterWithSpace(
 /* istanbul ignore next -- @preserve */
 function fetchData(mediaType: MediaTypeParam) {
   return fetchMoreData((offset: number) =>
-    search({
+    fetchSearchResult({
       mediaType,
       offset,
       query,

@@ -13,7 +13,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
     <!--v-if-->
   </div>
   <div class="sortableListContainer">
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -88,7 +88,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -163,7 +163,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -238,7 +238,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -313,7 +313,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -405,7 +405,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
     <!--v-if-->
   </div>
   <div class="sortableListContainer">
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -480,7 +480,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -555,7 +555,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -630,7 +630,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -705,7 +705,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -797,7 +797,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     <!--v-if-->
   </div>
   <div class="sortableListContainer">
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -874,7 +874,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -951,7 +951,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1028,7 +1028,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1105,7 +1105,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1199,7 +1199,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     <!--v-if-->
   </div>
   <div class="sortableListContainer">
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1278,7 +1278,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1357,7 +1357,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1436,7 +1436,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1515,7 +1515,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
         <!--v-if-->
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1611,7 +1611,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="sortableListContainer">
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1692,7 +1692,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1773,7 +1773,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1854,7 +1854,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>
@@ -1935,7 +1935,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
           </button></div>
       </div>
     </div>
-    <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+    <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
       <div class="interactionWrapper" draggable="false">
         <div class="trackCell">
           <div>

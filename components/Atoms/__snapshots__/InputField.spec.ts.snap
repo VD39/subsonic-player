@@ -1,5 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`InputField > when an attribute is passed to the component > matches the snapshot 1`] = `
+"<div class="column inputField"><label class="mBXS sentenceCase smallFont label" for="id">label
+    <!--v-if-->
+  </label><input id="id" autocomplete="off" class="input" placeholder="Placeholder" type="text">
+  <!--v-if-->
+</div>"
+`;
+
 exports[`InputField > when the error prop is set > matches the snapshot 1`] = `
 "<div class="column inputField error"><label class="mBXS sentenceCase smallFont label" for="id">label
     <!--v-if-->

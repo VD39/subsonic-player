@@ -5,26 +5,76 @@ export function useSearch() {
   const { fetchData } = useAPI();
 
   async function search(params: SearchParams) {
-    const { mediaType, offset, query } = params;
+    const { loadSize = LOAD_SIZE, offset = 0, query } = params;
 
     const { data: searchData } = await fetchData('/search3', {
       query: {
-        albumCount: LOAD_SIZE,
-        albumOffset: offset || 0,
-        artistCount: LOAD_SIZE,
-        artistOffset: offset || 0,
+        albumCount: loadSize,
+        albumOffset: offset,
+        artistCount: loadSize,
+        artistOffset: offset,
         query,
-        songCount: LOAD_SIZE,
-        songOffset: offset || 0,
+        songCount: loadSize,
+        songOffset: offset,
       },
       transform: /* istanbul ignore next -- @preserve */ (response) =>
         formatAllMedia(response.searchResult3),
     });
 
-    return searchData?.[mediaType] || DEFAULT_ALL_MEDIA[mediaType];
+    return searchData;
+  }
+
+  async function fetchSearchResult(params: SearchParams) {
+    const searchData = await search(params);
+
+    return (
+      searchData?.[params.mediaType!] || DEFAULT_ALL_MEDIA[params.mediaType!]
+    );
+  }
+
+  async function fetchSearchSuggestions(query: string) {
+    const searchData = await search({
+      loadSize: MAX_SEARCH_SUGGESTION,
+      query,
+    });
+
+    if (!searchData) {
+      return [];
+    }
+
+    const groups: SuggestionGroup[] = [];
+
+    if (searchData.artists.length) {
+      groups.push({
+        items: searchData.artists.map(toArtistSuggestion),
+        searchType: ROUTE_MEDIA_TYPE_PARAMS.Artists,
+        title: 'Artists',
+      });
+    }
+
+    if (searchData.albums.length) {
+      groups.push({
+        items: searchData.albums.map(toAlbumSuggestion),
+        searchType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+        title: 'Albums',
+      });
+    }
+
+    if (searchData.tracks.length) {
+      groups.push({
+        items: searchData.tracks.map((track) =>
+          toTrackSuggestion(track, query),
+        ),
+        searchType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+        title: 'Tracks',
+      });
+    }
+
+    return groups;
   }
 
   return {
-    search,
+    fetchSearchResult,
+    fetchSearchSuggestions,
   };
 }

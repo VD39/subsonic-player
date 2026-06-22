@@ -23,7 +23,7 @@ exports[`QueueList > matches the snapshot 1`] = `
       <div class="trackCell trackOptions"></div>
     </div>
     <div class="sortableListContainer">
-      <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+      <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
         <div class="interactionWrapper" draggable="false">
           <div class="trackCell">
             <div>
@@ -102,7 +102,7 @@ exports[`QueueList > matches the snapshot 1`] = `
             </button></div>
         </div>
       </div>
-      <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+      <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
         <div class="interactionWrapper" draggable="false">
           <div class="trackCell">
             <div>
@@ -181,7 +181,7 @@ exports[`QueueList > matches the snapshot 1`] = `
             </button></div>
         </div>
       </div>
-      <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+      <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
         <div class="interactionWrapper" draggable="false">
           <div class="trackCell">
             <div>
@@ -260,7 +260,7 @@ exports[`QueueList > matches the snapshot 1`] = `
             </button></div>
         </div>
       </div>
-      <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+      <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
         <div class="interactionWrapper" draggable="false">
           <div class="trackCell">
             <div>
@@ -339,7 +339,7 @@ exports[`QueueList > matches the snapshot 1`] = `
             </button></div>
         </div>
       </div>
-      <div class="lazyLoadContent trackRow sortableItem sortableItemIdle">
+      <div class="lazyLoadContent trackRow trackPlayPauseHover sortableItem sortableItemIdle">
         <div class="interactionWrapper" draggable="false">
           <div class="trackCell">
             <div>

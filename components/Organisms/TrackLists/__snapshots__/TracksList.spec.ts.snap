@@ -10,7 +10,7 @@ exports[`TracksList > matches the snapshot 1`] = `
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -86,7 +86,7 @@ exports[`TracksList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -162,7 +162,7 @@ exports[`TracksList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -238,7 +238,7 @@ exports[`TracksList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -314,7 +314,7 @@ exports[`TracksList > matches the snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -403,7 +403,7 @@ exports[`TracksList > when the tracks prop is not an empty array > matches the s
     <div class="trackCell trackOptions"></div>
     <div class="trackCell trackOptions"></div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -479,7 +479,7 @@ exports[`TracksList > when the tracks prop is not an empty array > matches the s
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -555,7 +555,7 @@ exports[`TracksList > when the tracks prop is not an empty array > matches the s
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -631,7 +631,7 @@ exports[`TracksList > when the tracks prop is not an empty array > matches the s
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>
@@ -707,7 +707,7 @@ exports[`TracksList > when the tracks prop is not an empty array > matches the s
       </div>
     </div>
   </div>
-  <div class="lazyLoadContent trackRow">
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
     <div class="interactionWrapper" draggable="false">
       <div class="trackCell">
         <div>

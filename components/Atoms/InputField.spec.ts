@@ -100,6 +100,24 @@ describe('InputField', () => {
     });
   });
 
+  describe('when an attribute is passed to the component', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        placeholder: 'Placeholder',
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct placeholder attribute on the input element', () => {
+      expect(wrapper.find({ ref: 'input' }).attributes('placeholder')).toBe(
+        'Placeholder',
+      );
+    });
+  });
+
   describe('when input is triggered', () => {
     beforeEach(async () => {
       const input = wrapper.find({ ref: 'input' });

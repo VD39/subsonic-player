@@ -1,0 +1,93 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchForm > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
+    </button>
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`SearchForm > when form is valid > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
+    </button>
+  </div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`SearchForm > when the InputField component emits the focusout event > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Searching...</span></button>
+  </div>
+  <div class="searchSuggestions slide-down-enter-from slide-down-leave-from slide-down-leave-active"><span class="centerItems spinningLoader centerAll loader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`SearchForm > when the InputField component emits the keydown event with Escape > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit"><span class="centerItems spinningLoader icon" aria-hidden="true" weight="regular"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span><span class="clamp text visuallyHidden">Searching...</span></button>
+  </div>
+  <div class="searchSuggestions slide-down-enter-from slide-down-leave-from slide-down-leave-active"><span class="centerItems spinningLoader centerAll loader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`SearchForm > when the SearchSuggestions component emits the close event > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
+    </button>
+  </div>
+  <div class="searchSuggestions slide-down-enter-from slide-down-leave-from slide-down-leave-active"><span class="centerItems spinningLoader centerAll loader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>
+  <!--v-if-->
+</form>"
+`;
+
+exports[`SearchForm > when the query value changes to a value with at least 2 characters > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
+    </button>
+  </div>
+  <div class="searchSuggestions slide-down-enter-from slide-down-enter-active">
+    <div class="centerAll noResultsFound"> No results found </div>
+  </div>
+</form>"
+`;
+
+exports[`SearchForm > when the query value changes to a value with less than 2 characters > matches the snapshot 1`] = `
+"<form class="searchForm" novalidate="">
+  <div class="centerItems">
+    <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+      <!--v-if-->
+    </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit">
+      <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
+    </button>
+  </div>
+  <!--v-if-->
+</form>"
+`;

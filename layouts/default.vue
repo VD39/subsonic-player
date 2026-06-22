@@ -4,23 +4,13 @@ import LayoutButton from '@/components/Molecules/LayoutButton.vue';
 import MobileNavigation from '@/components/Molecules/MobileNavigation.vue';
 import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import SearchForm from '@/components/Molecules/SearchForm.vue';
 import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
 import UserMenu from '@/components/Molecules/UserMenu.vue';
 import MusicPlayerAndQueue from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
+import SearchForm from '@/components/Organisms/Search/SearchForm.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
 
 const route = useRoute();
-
-async function onSubmit(term: string) {
-  await navigateTo({
-    name: ROUTE_NAMES.search,
-    params: {
-      [ROUTE_PARAM_KEYS.search.mediaType]: ROUTE_MEDIA_TYPE_PARAMS.Albums,
-      [ROUTE_PARAM_KEYS.search.query]: term,
-    },
-  });
-}
 
 const showPageNavigation = computed(() =>
   MOBILE_TAB_ROUTES.includes(route.name as RouteName),
@@ -34,7 +24,7 @@ const showPageNavigation = computed(() =>
         <MusicLogo class="mobileOnly" />
 
         <div :class="$style.search">
-          <SearchForm @submit="onSubmit" />
+          <SearchForm />
         </div>
 
         <div :class="['centerItems', $style.secondary]">
@@ -76,9 +66,9 @@ const showPageNavigation = computed(() =>
     </main>
 
     <footer>
-      <client-only>
+      <ClientOnly>
         <MusicPlayerAndQueue />
-      </client-only>
+      </ClientOnly>
       <HotkeyMappings />
     </footer>
   </div>

@@ -68,7 +68,7 @@ describe('FilesList', () => {
       expect(wrapper.find({ ref: 'goBack' }).exists()).toBe(true);
     });
 
-    it('sets the correct to prop on the RouterLinkStub component', () => {
+    it('sets the correct to prop on the RouterLink component', () => {
       expect(
         wrapper
           .find({ ref: 'goBack' })

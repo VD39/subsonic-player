@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`RadioStationsListItem > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
@@ -40,7 +40,7 @@ exports[`RadioStationsListItem > matches the snapshot 1`] = `
 `;
 
 exports[`RadioStationsListItem > when radioStation.homePageUrl is undefined > matches the snapshot 1`] = `
-"<div class="lazyLoadContent trackRow">
+"<div class="lazyLoadContent trackRow trackPlayPauseHover">
   <div class="interactionWrapper" draggable="false">
     <div class="trackCell">
       <div>
