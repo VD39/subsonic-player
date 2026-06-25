@@ -2,6 +2,12 @@
 
 exports[`SearchSuggestions > matches the snapshot 1`] = `
 "<div>
+  <div class="centerItems spaceBetween">
+    <div></div>
+    <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close search suggestions">
+        <phx aria-hidden="true" class="icon" size="24" weight="bold"></phx><span class="clamp text visuallyHidden"> Close </span>
+      </button></div>
+  </div>
   <div class="centerAll noResultsFound"> No results found </div>
 </div>"
 `;
@@ -10,8 +16,14 @@ exports[`SearchSuggestions > when the showSuggestions prop is false > matches th
 
 exports[`SearchSuggestions > when the showSuggestions prop is true > when the loading prop is false > when the suggestions prop is not an empty array > matches the snapshot 1`] = `
 "<div>
+  <div class="centerItems spaceBetween">
+    <div></div>
+    <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close search suggestions">
+        <phx aria-hidden="true" class="icon" size="24" weight="bold"></phx><span class="clamp text visuallyHidden"> Close </span>
+      </button></div>
+  </div>
   <div class="section" data-test-id="search-suggestion-group">
-    <div class="centerItems spaceBetween titleWrapper">
+    <div class="centerItems spaceBetween searchSpacing">
       <div class="smallFont title">Albums</div><a class="smallFont link" data-test-id="viewAllLink"> View all </a>
     </div><a class="centerItems searchItem"><span class="centerItems searchIcon"><phvinylrecord size="18"></phvinylrecord></span><span class="clamp searchName">album-suggestion-0</span>
       <ul class="commaList clamp smallFont searchArtistLinks">
@@ -26,7 +38,7 @@ exports[`SearchSuggestions > when the showSuggestions prop is true > when the lo
     </a>
   </div>
   <div class="section" data-test-id="search-suggestion-group">
-    <div class="centerItems spaceBetween titleWrapper">
+    <div class="centerItems spaceBetween searchSpacing">
       <div class="smallFont title">Tracks</div><a class="smallFont link" data-test-id="viewAllLink"> View all </a>
     </div>
     <div class="trackPlayPauseHover centerItems searchItem">
@@ -38,10 +50,12 @@ exports[`SearchSuggestions > when the showSuggestions prop is true > when the lo
           </button></div>
       </div>
       <div class="searchName"><span class="clamp">name</span>
-        <ul class="commaList clamp smallFont">
-          <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-          <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-        </ul>
+        <div class="clampWrapper">
+          <ul class="commaList clamp smallFont noTouchEventsMobile">
+            <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+            <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+          </ul>
+        </div>
       </div><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
         <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
       </button>
@@ -50,4 +64,13 @@ exports[`SearchSuggestions > when the showSuggestions prop is true > when the lo
 </div>"
 `;
 
-exports[`SearchSuggestions > when the showSuggestions prop is true > when the loading prop is true > matches the snapshot 1`] = `"<div><span class="centerItems spinningLoader centerAll loader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span></div>"`;
+exports[`SearchSuggestions > when the showSuggestions prop is true > when the loading prop is true > matches the snapshot 1`] = `
+"<div>
+  <div class="centerItems spaceBetween">
+    <div></div>
+    <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close search suggestions">
+        <phx aria-hidden="true" class="icon" size="24" weight="bold"></phx><span class="clamp text visuallyHidden"> Close </span>
+      </button></div>
+  </div><span class="centerItems spinningLoader centerAll loader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>
+</div>"
+`;

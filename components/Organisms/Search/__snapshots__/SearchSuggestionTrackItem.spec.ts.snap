@@ -10,10 +10,12 @@ exports[`SearchSuggestionTrackItem > matches the snapshot 1`] = `
       </button></div>
   </div>
   <div class="searchName"><span class="clamp">track-0</span>
-    <ul class="commaList clamp smallFont">
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
-      <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
-    </ul>
+    <div class="clampWrapper">
+      <ul class="commaList clamp smallFont noTouchEventsMobile">
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
+        <li data-test-id="artist-list-item"><a aria-label="Go to artist name1" class="link">name1</a></li>
+      </ul>
+    </div>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
     <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
   </button>
@@ -30,7 +32,9 @@ exports[`SearchSuggestionTrackItem > when artists is an empty array > matches th
       </button></div>
   </div>
   <div class="searchName"><span class="clamp">track-0</span>
-    <!--v-if-->
+    <div class="clampWrapper">
+      <!--v-if-->
+    </div>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
     <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
   </button>

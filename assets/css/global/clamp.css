@@ -1,3 +1,8 @@
+.clampWrapper {
+  display: inline-flex;
+  max-width: 100%;
+}
+
 .clamp {
   display: -webkit-box !important;
   overflow: hidden;

@@ -1,6 +1,11 @@
-.searchItem {
-  gap: var(--space-8);
+.searchSpacing {
   padding: var(--space-8) var(--space-12);
+}
+
+.searchItem {
+  @extend .searchSpacing;
+
+  gap: var(--space-8);
   transition: background-color var(--transition);
 
   &:hover {
@@ -18,7 +23,7 @@
   color: var(--secondary-font-color);
 }
 
-.searchIcon  {
+.searchIcon {
   flex-shrink: 0;
   width: 20px;
   color: var(--secondary-font-color);

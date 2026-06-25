@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
 
 import SearchSuggestionItem from './SearchSuggestionItem.vue';
@@ -20,7 +22,22 @@ defineEmits<{
 
 <template>
   <Transition name="slide-down">
-    <div v-if="showSuggestions" ref="suggestionsWrapper" @mousedown.prevent>
+    <div v-if="showSuggestions" ref="suggestionsWrapper" @click.stop>
+      <HeaderWithAction>
+        <div />
+        <template #actions>
+          <ButtonLink
+            ref="closeButton"
+            :icon="ICONS.close"
+            iconWeight="bold"
+            title="Close search suggestions"
+            @click="$emit('close')"
+          >
+            Close
+          </ButtonLink>
+        </template>
+      </HeaderWithAction>
+
       <SpinningLoader v-if="loading" :class="['centerAll', $style.loader]" />
 
       <template v-else>
@@ -39,8 +56,10 @@ defineEmits<{
             :class="$style.section"
             data-test-id="search-suggestion-group"
           >
-            <div :class="['centerItems', 'spaceBetween', $style.titleWrapper]">
-              <div :class="['smallFont', $style.title]">{{ group.title }}</div>
+            <div class="centerItems spaceBetween searchSpacing">
+              <div :class="['smallFont', $style.title]">
+                {{ group.title }}
+              </div>
 
               <NuxtLink
                 class="smallFont link"
@@ -93,10 +112,6 @@ defineEmits<{
   & + & {
     border-top: 1px solid var(--border-color);
   }
-}
-
-.titleWrapper {
-  padding: var(--space-4) var(--space-12);
 }
 
 .title {

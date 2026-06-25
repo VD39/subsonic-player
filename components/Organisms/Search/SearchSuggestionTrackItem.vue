@@ -3,38 +3,50 @@ import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 
-defineProps<{
+const props = defineProps<{
   track: Track;
 }>();
 
-defineEmits<{
+const emit = defineEmits<{
   addToQueue: [track: Track];
   close: [];
   playTrack: [track: Track];
 }>();
+
+const { isCurrentTrack } = useQueue();
+
+function onPlayTrack() {
+  if (isCurrentTrack(props.track.id)) {
+    return;
+  }
+
+  emit('playTrack', props.track);
+}
 </script>
 
 <template>
   <div
     class="trackPlayPauseHover centerItems searchItem"
-    @click="$emit('playTrack', track)"
+    @click.prevent="onPlayTrack"
   >
     <TrackPlayPause
       :image="track.image"
       :trackId="track.id"
       :trackNumber="track.trackNumber"
-      @playTrack="$emit('playTrack', track)"
+      @playTrack="onPlayTrack"
     />
 
     <div class="searchName">
       <span class="clamp">{{ track.name }}</span>
 
-      <ArtistLinks
-        v-if="track.artists.length"
-        :artists="track.artists"
-        class="clamp smallFont"
-        @click.stop="$emit('close')"
-      />
+      <div class="clampWrapper">
+        <ArtistLinks
+          v-if="track.artists.length"
+          :artists="track.artists"
+          class="clamp smallFont noTouchEventsMobile"
+          @click.stop="$emit('close')"
+        />
+      </div>
     </div>
 
     <ButtonLink

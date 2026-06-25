@@ -27,6 +27,12 @@
   }
 }
 
+.noTouchEventsMobile {
+  @media (hover: none) and (--mobile-only) {
+    pointer-events: none;
+  }
+}
+
 .disableAllPointerEvents {
   pointer-events: none;
 

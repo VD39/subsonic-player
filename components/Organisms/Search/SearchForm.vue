@@ -15,6 +15,7 @@ const formInputs = {
 
 const { fetchSearchSuggestions } = useSearch();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
+const { lockScroll, unlockScroll } = useScrollLock('searchSuggestions');
 
 const form = createForm(formInputs);
 
@@ -22,10 +23,22 @@ const showSuggestions = ref(false);
 const suggestions = ref<SuggestionGroup[]>([]);
 const loading = ref(false);
 
-const searchQuery = computed(() => form.fields.query.value.value as string);
+const searchQuery = computed(() =>
+  (form.fields.query.value.value as string).trim().toLowerCase(),
+);
+
+function addEscapeKeyListener() {
+  document.addEventListener('keydown', onKeydown);
+}
 
 function clearQuery() {
+  closeSuggestions();
   form.fields.query.value.value = '';
+}
+
+function closeSuggestions() {
+  setShowSuggestions();
+  (document.activeElement as HTMLElement)?.blur();
 }
 
 async function fetchSuggestions(query: string) {
@@ -40,14 +53,9 @@ async function fetchSuggestions(query: string) {
   loading.value = false;
 }
 
-function onBlur() {
-  showSuggestions.value = false;
-  (document.activeElement as HTMLElement)?.blur();
-}
-
 function onFocus() {
-  if (searchQuery.value.trim().length >= 2) {
-    showSuggestions.value = true;
+  if (searchQuery.value.length >= 2) {
+    setShowSuggestions(true);
   }
 }
 
@@ -58,9 +66,7 @@ async function onFormSubmit() {
     return;
   }
 
-  const query = replaceSpaceWithCharacter(
-    searchQuery.value.trim(),
-  ).toLowerCase();
+  const query = replaceSpaceWithCharacter(searchQuery.value).toLowerCase();
 
   clearQuery();
 
@@ -75,7 +81,7 @@ async function onFormSubmit() {
 
 function onKeydown(event: KeyboardEvent) {
   if (event.key === 'Escape') {
-    onBlur();
+    closeSuggestions();
   }
 }
 
@@ -83,55 +89,73 @@ function onPlayTrack(track: PlayableTrack) {
   playTracks([track]);
 }
 
+function removeEscapeKeyListener() {
+  document.removeEventListener('keydown', onKeydown);
+}
+
+function setShowSuggestions(value = false) {
+  showSuggestions.value = value;
+
+  if (value) {
+    lockScroll();
+    addEscapeKeyListener();
+  } else {
+    unlockScroll();
+    removeEscapeKeyListener();
+  }
+}
+
 const debouncedFetch = debounce(fetchSuggestions, 300);
 
 watch(
   () => searchQuery.value,
   (query) => {
-    if (query?.trim().length < 2) {
+    if (query.length < 2) {
       debouncedFetch.cancel();
       suggestions.value = [];
-      showSuggestions.value = false;
+      setShowSuggestions();
       loading.value = false;
 
       return;
     }
 
     loading.value = true;
-    showSuggestions.value = true;
+    setShowSuggestions(true);
     debouncedFetch(query.toLowerCase());
   },
 );
 
 onUnmounted(() => {
+  removeEscapeKeyListener();
+  unlockScroll();
   debouncedFetch.cancel();
 });
 </script>
 
 <template>
-  <form :class="$style.searchForm" novalidate @submit.prevent="onFormSubmit">
-    <div class="centerItems">
-      <InputField
-        :id="HOTKEY_ELEMENT_IDS.searchInput"
-        v-model="form.fields.query.value.value"
-        :class="$style.inputField"
-        hideLabel
-        :label="form.fields.query.label"
-        placeholder="Enter query"
-        :required="form.fields.query.required"
-        @focus="onFocus"
-        @focusout="onBlur"
-        @keydown="onKeydown"
-      />
+  <div :class="$style.searchForm">
+    <form ref="searchForm" novalidate @submit.prevent="onFormSubmit">
+      <div class="centerItems">
+        <InputField
+          :id="HOTKEY_ELEMENT_IDS.searchInput"
+          v-model="form.fields.query.value.value"
+          :class="$style.inputField"
+          hideLabel
+          :label="form.fields.query.label"
+          placeholder="Enter query"
+          :required="form.fields.query.required"
+          @focus="onFocus"
+        />
 
-      <ButtonLink
-        :class="$style.buttonLink"
-        :icon="loading ? SpinningLoader : ICONS.search"
-        type="submit"
-      >
-        {{ loading ? 'Searching...' : 'Search' }}
-      </ButtonLink>
-    </div>
+        <ButtonLink
+          :class="$style.buttonLink"
+          :icon="loading ? SpinningLoader : ICONS.search"
+          type="submit"
+        >
+          {{ loading ? 'Searching...' : 'Search' }}
+        </ButtonLink>
+      </div>
+    </form>
 
     <SearchSuggestions
       :class="$style.searchSuggestions"
@@ -143,12 +167,20 @@ onUnmounted(() => {
       @close="clearQuery"
       @playTrack="onPlayTrack"
     />
-  </form>
+
+    <div
+      v-if="showSuggestions"
+      ref="backdrop"
+      class="backdrop"
+      @click="clearQuery"
+    />
+  </div>
 </template>
 
 <style module>
 .searchForm {
   position: relative;
+  z-index: 2;
 
   @media (--mobile-only) {
     position: static;
@@ -169,12 +201,14 @@ onUnmounted(() => {
   position: fixed;
   inset: var(--header-height) 0 0;
   z-index: 30;
+  height: calc(100svh - var(--header-height) * 2);
   overflow-y: auto;
   background-color: var(--secondary-background-color);
 
   @media (--tablet-up) {
     position: absolute;
     inset: 100% 0 auto;
+    height: auto;
     max-height: 75vh;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-small);

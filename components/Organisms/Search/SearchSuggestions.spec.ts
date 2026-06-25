@@ -151,6 +151,18 @@ describe('SearchSuggestions', () => {
           });
         });
 
+        describe('when the close button is clicked', () => {
+          beforeEach(async () => {
+            await wrapper
+              .findComponent({ ref: 'closeButton' })
+              .trigger('click');
+          });
+
+          it('emits the close event', () => {
+            expect(wrapper.emitted('close')).toEqual([[]]);
+          });
+        });
+
         describe('when the RouterLink component is clicked', () => {
           beforeEach(async () => {
             const routerLink = wrapper.findComponent(

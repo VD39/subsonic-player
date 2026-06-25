@@ -6,6 +6,7 @@ import { flushPromises, mount } from '@vue/test-utils';
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputField from '@/components/Atoms/InputField.vue';
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
+import { documentEventListenerMock } from '@/test/eventListenersMock.js';
 import { searchSuggestionsMock } from '@/test/fixtures.js';
 import { getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
@@ -35,7 +36,16 @@ mockNuxtImport('debounce', () => {
   };
 });
 
+const lockScrollMock = vi.fn();
+const unlockScrollMock = vi.fn();
+
+mockNuxtImport('useScrollLock', () => () => ({
+  lockScroll: lockScrollMock,
+  unlockScroll: unlockScrollMock,
+}));
+
 const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
+const { documentEvents } = documentEventListenerMock();
 
 const track = getFormattedTracksMock()[0];
 
@@ -76,7 +86,7 @@ describe('SearchForm', () => {
 
   describe('when form is invalid', () => {
     beforeEach(async () => {
-      await wrapper.trigger('submit');
+      await wrapper.find({ ref: 'searchForm' }).trigger('submit');
     });
 
     it('does not call the navigateTo function', () => {
@@ -91,8 +101,7 @@ describe('SearchForm', () => {
   describe('when form is valid', () => {
     beforeEach(async () => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'query');
-      await wrapper.trigger('submit');
-      await wrapper.vm.$nextTick();
+      await wrapper.find({ ref: 'searchForm' }).trigger('submit');
     });
 
     it('matches the snapshot', () => {
@@ -143,9 +152,8 @@ describe('SearchForm', () => {
   });
 
   describe('when the query value changes to a value with less than 2 characters', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'a');
-      await wrapper.vm.$nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -191,13 +199,15 @@ describe('SearchForm', () => {
     it('calls the debouncedFetch cancel function', () => {
       expect(debouncedCancelMock).toHaveBeenCalled();
     });
+
+    it('calls the unlockScroll function', () => {
+      expect(unlockScrollMock).toHaveBeenCalled();
+    });
   });
 
   describe('when the query value changes to a value with at least 2 characters', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
-      await wrapper.vm.$nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -236,12 +246,14 @@ describe('SearchForm', () => {
       ).toEqual([]);
     });
 
+    it('calls the lockScroll function', () => {
+      expect(lockScrollMock).toHaveBeenCalled();
+    });
+
     describe('when fetchSearchSuggestions resolves with data', () => {
       beforeEach(async () => {
         fetchSearchSuggestionsMock.mockResolvedValueOnce(searchSuggestionsMock);
         wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'abc');
-        await wrapper.vm.$nextTick();
-        await wrapper.vm.$nextTick();
         await flushPromises();
       });
 
@@ -267,6 +279,36 @@ describe('SearchForm', () => {
         expect(wrapper.findComponent(ButtonLink).text()).toContain('Search');
       });
 
+      describe('when the query changes to the same value with different casing while a fetch is in progress', () => {
+        beforeEach(async () => {
+          fetchSearchSuggestionsMock.mockResolvedValueOnce(
+            searchSuggestionsMock,
+          );
+          fetchSearchSuggestionsMock.mockResolvedValueOnce(
+            searchSuggestionsMock,
+          );
+          wrapper
+            .findComponent(InputField)
+            .vm.$emit('update:modelValue', 'test');
+          wrapper
+            .findComponent(InputField)
+            .vm.$emit('update:modelValue', 'Test');
+          await flushPromises();
+        });
+
+        it('updates suggestions with the fetch result', () => {
+          expect(
+            wrapper.findComponent(SearchSuggestions).props('suggestions'),
+          ).toEqual(searchSuggestionsMock);
+        });
+
+        it('sets the correct loading prop to false on the SearchSuggestions component', () => {
+          expect(
+            wrapper.findComponent(SearchSuggestions).props('loading'),
+          ).toBe(false);
+        });
+      });
+
       describe('when the query changes while a fetch is in progress', () => {
         beforeEach(async () => {
           fetchSearchSuggestionsMock.mockResolvedValueOnce(
@@ -279,7 +321,6 @@ describe('SearchForm', () => {
           wrapper
             .findComponent(InputField)
             .vm.$emit('update:modelValue', 'abcde');
-          await wrapper.vm.$nextTick();
           await flushPromises();
         });
 
@@ -293,10 +334,9 @@ describe('SearchForm', () => {
   });
 
   describe('when fetchSearchSuggestions is pending', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       fetchSearchSuggestionsMock.mockReturnValue(new Promise(() => {}));
-      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
+      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'abc');
     });
 
     it('sets the correct icon prop on the ButtonLink component', () => {
@@ -312,15 +352,32 @@ describe('SearchForm', () => {
     });
   });
 
-  describe('when the InputField component emits the keydown event with non-Escape key', () => {
+  describe('when the esc key is pressed', () => {
     beforeEach(async () => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
       await wrapper.vm.$nextTick();
-      await wrapper.vm.$nextTick();
-      await wrapper.findComponent(InputField).find('input').trigger('keydown', {
-        key: 'Enter',
-      });
-      await wrapper.vm.$nextTick();
+      documentEvents.keydown({ key: 'Escape' });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct showSuggestions prop on the SearchSuggestions component', () => {
+      expect(
+        wrapper.findComponent(SearchSuggestions).props('showSuggestions'),
+      ).toBe(false);
+    });
+
+    it('calls the blur function', () => {
+      expect(blurSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe('when a non esc key is pressed', () => {
+    beforeEach(async () => {
+      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
+      documentEvents.keydown({ key: 'Shift' });
     });
 
     it('does not call the blur function', () => {
@@ -334,40 +391,12 @@ describe('SearchForm', () => {
     });
   });
 
-  describe('when the InputField component emits the focusout event', () => {
-    beforeEach(async () => {
-      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
-      await wrapper.vm.$nextTick();
-      await wrapper.findComponent(InputField).find('input').trigger('focusout');
-      await wrapper.vm.$nextTick();
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('sets the correct showSuggestions prop on the SearchSuggestions component', () => {
-      expect(
-        wrapper.findComponent(SearchSuggestions).props('showSuggestions'),
-      ).toBe(false);
-    });
-
-    it('calls the blur function', () => {
-      expect(blurSpy).toHaveBeenCalled();
-    });
-  });
-
   describe('when the InputField component emits the focus event', () => {
     describe('when the query has at least 2 characters', () => {
       beforeEach(async () => {
         wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
         await wrapper.vm.$nextTick();
-        await wrapper.vm.$nextTick();
-        wrapper.findComponent(InputField).find('input').trigger('focusout');
-        await wrapper.vm.$nextTick();
-        wrapper.findComponent(InputField).find('input').trigger('focus');
-        await wrapper.vm.$nextTick();
+        await wrapper.findComponent(InputField).find('input').trigger('focus');
       });
 
       it('sets the correct showSuggestions prop on the SearchSuggestions component', () => {
@@ -380,9 +409,7 @@ describe('SearchForm', () => {
     describe('when the query has less than 2 characters', () => {
       beforeEach(async () => {
         wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'a');
-        await wrapper.vm.$nextTick();
-        wrapper.findComponent(InputField).find('input').trigger('focus');
-        await wrapper.vm.$nextTick();
+        await wrapper.findComponent(InputField).find('input').trigger('focus');
       });
 
       it('sets the correct showSuggestions prop on the SearchSuggestions component', () => {
@@ -393,38 +420,11 @@ describe('SearchForm', () => {
     });
   });
 
-  describe('when the InputField component emits the keydown event with Escape', () => {
-    beforeEach(async () => {
-      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
-      await wrapper.vm.$nextTick();
-      await wrapper.findComponent(InputField).find('input').trigger('keydown', {
-        key: 'Escape',
-      });
-      await wrapper.vm.$nextTick();
-    });
-
-    it('matches the snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot();
-    });
-
-    it('sets the correct showSuggestions prop on the SearchSuggestions component', () => {
-      expect(
-        wrapper.findComponent(SearchSuggestions).props('showSuggestions'),
-      ).toBe(false);
-    });
-
-    it('calls the blur function', () => {
-      expect(blurSpy).toHaveBeenCalled();
-    });
-  });
-
   describe('when the SearchSuggestions component emits the close event', () => {
     beforeEach(async () => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
       await wrapper.vm.$nextTick();
       wrapper.findComponent(SearchSuggestions).vm.$emit('close');
-      await wrapper.vm.$nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -454,8 +454,34 @@ describe('SearchForm', () => {
     });
   });
 
-  describe('when the SearchSuggestions component emits the addToQueue event', () => {
+  describe('when the backdrop is clicked', () => {
     beforeEach(async () => {
+      wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
+      await wrapper.vm.$nextTick();
+      await wrapper.find({ ref: 'backdrop' }).trigger('click');
+    });
+
+    it('sets the correct showSuggestions prop on the SearchSuggestions component', () => {
+      expect(
+        wrapper.findComponent(SearchSuggestions).props('showSuggestions'),
+      ).toBe(false);
+    });
+
+    it('sets the correct query prop on the SearchSuggestions component', () => {
+      expect(wrapper.findComponent(SearchSuggestions).props('query')).toBe('');
+    });
+
+    it('calls the blur function', () => {
+      expect(blurSpy).toHaveBeenCalled();
+    });
+
+    it('calls the unlockScroll function', () => {
+      expect(unlockScrollMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the SearchSuggestions component emits the addToQueue event', () => {
+    beforeEach(() => {
       wrapper.findComponent(SearchSuggestions).vm.$emit('addToQueue', track);
     });
 
@@ -465,7 +491,7 @@ describe('SearchForm', () => {
   });
 
   describe('when the SearchSuggestions component emits the playTrack event', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       wrapper.findComponent(SearchSuggestions).vm.$emit('playTrack', track);
     });
 
@@ -481,6 +507,10 @@ describe('SearchForm', () => {
 
     it('cancels the debouncedFetch function', () => {
       expect(debouncedCancelMock).toHaveBeenCalled();
+    });
+
+    it('calls the unlockScroll function', () => {
+      expect(unlockScrollMock).toHaveBeenCalled();
     });
   });
 });
