@@ -71,7 +71,7 @@ useHead({
     @dragStart="dragStart"
     @mediaInformation="openTrackInformationModal"
     @playTrack="playFromQueue"
-    @remove="({ id }) => removeFromQueue(id)"
+    @remove="({ index }) => removeFromQueue(index)"
     @sortList="reorderQueueTrack"
   />
 </template>

@@ -170,12 +170,12 @@ describe('queue', () => {
   describe('when the MixedTracksList component emits the remove event', () => {
     beforeEach(() => {
       wrapper.findComponent(MixedTracksList).vm.$emit('remove', {
-        id: queueTrack.id,
+        index: 0,
       });
     });
 
     it('calls the removeFromQueue function with the correct parameters', () => {
-      expect(removeFromQueueMock).toHaveBeenCalledWith(queueTrack.id);
+      expect(removeFromQueueMock).toHaveBeenCalledWith(0);
     });
   });
 

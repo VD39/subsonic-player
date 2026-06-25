@@ -126,8 +126,8 @@ export function useQueue() {
     return currentTrack.value;
   }
 
-  function removeTrack(id: string) {
-    const isCurrentTrackRemoved = isCurrentTrack(id);
+  function removeTrack(index: number) {
+    const isCurrentTrackRemoved = currentQueueIndex.value === index;
 
     if (queueList.value.length === 1) {
       resetQueue();
@@ -135,9 +135,7 @@ export function useQueue() {
       return 1;
     }
 
-    const index = getQueueIndexById(id);
-
-    if (index === -1) {
+    if (index < 0 || index >= queueList.value.length) {
       return false;
     }
 

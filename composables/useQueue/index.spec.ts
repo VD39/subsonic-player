@@ -665,9 +665,9 @@ describe('useQueue', () => {
   describe('when the removeTrack function is called', () => {
     let result: ReturnType<typeof removeTrack>;
 
-    describe('when the track id does not exist in the queue', () => {
+    describe('when the track index does not exist in the queue', () => {
       beforeAll(() => {
-        result = removeTrack('non-existent-id');
+        result = removeTrack(999);
       });
 
       it('returns the correct response', () => {
@@ -690,7 +690,7 @@ describe('useQueue', () => {
     describe('when the removed track is after the current index', () => {
       beforeAll(() => {
         navigateQueue(2);
-        result = removeTrack(radioStation.id);
+        result = removeTrack(5);
       });
 
       it('returns the correct response', () => {
@@ -713,7 +713,7 @@ describe('useQueue', () => {
     describe('when the removed track is before the current index', () => {
       beforeAll(() => {
         navigateQueue(1);
-        result = removeTrack(tracks[0].id);
+        result = removeTrack(0);
       });
 
       it('returns the correct response', () => {
@@ -731,7 +731,7 @@ describe('useQueue', () => {
 
     describe('when the removed track is the current track', () => {
       beforeAll(() => {
-        result = removeTrack(tracks[1].id);
+        result = removeTrack(0);
       });
 
       it('returns the correct response', () => {
@@ -757,10 +757,10 @@ describe('useQueue', () => {
 
     describe('when the last track is removed', () => {
       beforeAll(() => {
-        removeTrack(podcastEpisode.id);
-        removeTrack(tracks[1].id);
-        removeTrack(tracks[2].id);
-        result = removeTrack(tracks[3].id);
+        removeTrack(2);
+        removeTrack(999);
+        removeTrack(0);
+        result = removeTrack(0);
       });
 
       it('returns the correct response', () => {
@@ -820,7 +820,7 @@ describe('useQueue', () => {
       });
 
       afterAll(() => {
-        removeTrack(radioStation.id);
+        removeTrack(0);
       });
 
       it('sets the position on the current track', () => {

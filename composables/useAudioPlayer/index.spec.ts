@@ -1126,7 +1126,7 @@ describe('useAudioPlayer', () => {
       beforeAll(() => {
         vi.clearAllMocks();
         removeTrackMock.mockReturnValueOnce(1);
-        result.composable.removeFromQueue(queueTrack.id);
+        result.composable.removeFromQueue(0);
       });
 
       it('calls the audio unload function', () => {
@@ -1146,7 +1146,7 @@ describe('useAudioPlayer', () => {
       beforeAll(() => {
         vi.clearAllMocks();
         removeTrackMock.mockReturnValueOnce(true);
-        result.composable.removeFromQueue(queueTrack.id);
+        result.composable.removeFromQueue(0);
       });
 
       it('calls the audio unload function', () => {
@@ -1172,7 +1172,7 @@ describe('useAudioPlayer', () => {
           vi.clearAllMocks();
           removeTrackMock.mockReturnValueOnce(true);
           await result.composable.togglePlay();
-          result.composable.removeFromQueue(queueTrack.id);
+          result.composable.removeFromQueue(0);
         });
 
         it('sets the correct isPlaying value', () => {

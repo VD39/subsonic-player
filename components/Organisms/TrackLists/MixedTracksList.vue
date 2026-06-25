@@ -84,7 +84,7 @@ useSortableList({
     <div ref="sortableListContainerRef" class="sortableListContainer">
       <MixedTracksListItem
         v-for="(track, index) in tracks"
-        :key="track.id"
+        :key="`${track.id}-${index}`"
         :class="[
           SORTABLE_LIST_CLASS_NAMES.item,
           SORTABLE_LIST_CLASS_NAMES.idle,

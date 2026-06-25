@@ -57,7 +57,7 @@ function clearQueue() {
       @downloadMedia="downloadTrack"
       @mediaInformation="openTrackInformationModal"
       @playTrack="playFromQueue"
-      @remove="({ id }) => removeFromQueue(id)"
+      @remove="({ index }) => removeFromQueue(index)"
       @sortList="reorderQueueTrack"
     />
   </div>

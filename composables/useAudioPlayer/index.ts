@@ -224,7 +224,7 @@ export function useAudioPlayer() {
           `The track ${currentTrack.value.id} was not found on the server and removed from queue.`,
         );
 
-        await removeFromQueue(currentTrack.value.id);
+        await removeFromQueue(currentQueueIndex.value);
       }
     }
   }
@@ -467,10 +467,10 @@ export function useAudioPlayer() {
     await changeTrack(track);
   }
 
-  async function removeFromQueue(id: string) {
+  async function removeFromQueue(index: number) {
     const removedTrackWasPlaying = isPlaying.value;
 
-    const removedTrackLastOrSingle = removeTrack(id);
+    const removedTrackLastOrSingle = removeTrack(index);
 
     if (removedTrackLastOrSingle === 1) {
       resetPlayerSession();
