@@ -124,8 +124,8 @@ describe('PlaylistItems', () => {
   });
 
   describe('when the add playlist ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'addPlaylist' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'addPlaylist' }).trigger('click');
     });
 
     it('emits the addPlaylist event', () => {

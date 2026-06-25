@@ -137,9 +137,9 @@ describe('DropdownMenu', () => {
 
   describe('when the ButtonLink component is clicked', () => {
     describe('when isOpen is false', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         isOpenMock.value = false;
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
+        await wrapper.findComponent(ButtonLink).trigger('click');
       });
 
       it('calls the openDropdownMenu function', () => {
@@ -152,9 +152,9 @@ describe('DropdownMenu', () => {
     });
 
     describe('when isOpen is true', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         isOpenMock.value = true;
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
+        await wrapper.findComponent(ButtonLink).trigger('click');
       });
 
       it('calls the closeDropdownMenu function', () => {

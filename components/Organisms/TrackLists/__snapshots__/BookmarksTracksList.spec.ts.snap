@@ -18,7 +18,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -63,7 +63,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -87,7 +87,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -132,7 +132,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -156,7 +156,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -201,7 +201,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -225,7 +225,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -270,7 +270,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -294,7 +294,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -339,7 +339,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -377,7 +377,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -422,7 +422,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -446,7 +446,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -491,7 +491,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -515,7 +515,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -560,7 +560,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -584,7 +584,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -629,7 +629,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
@@ -653,7 +653,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
           <div class="overlapWrapper trackPlayPause withImage">
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
-            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button">
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
@@ -698,7 +698,7 @@ exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > m
         </div>
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
-      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
           <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">

@@ -98,8 +98,8 @@ describe('SidebarNavigation', () => {
   });
 
   describe('when the toggle ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'toggleButton' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'toggleButton' }).trigger('click');
     });
 
     it('calls the toggleCollapsed function', () => {

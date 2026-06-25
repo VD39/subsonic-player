@@ -124,8 +124,8 @@ describe('TrackPlayPause', () => {
     });
 
     describe('when the ButtonLink component is clicked', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'play' }).vm.$emit('click');
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref: 'play' }).trigger('click');
       });
 
       it('emits the playTrack event', () => {

@@ -62,8 +62,8 @@ describe('QueueList', () => {
   });
 
   describe('when the close queue list ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'closeQueueList' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'closeQueueList' }).trigger('click');
     });
 
     it('calls the toggleQueueList function', () => {
@@ -72,8 +72,8 @@ describe('QueueList', () => {
   });
 
   describe('when the clear queue ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'clearQueueButton' }).trigger('click');
     });
 
     it('calls the resetPlayerSession function', () => {

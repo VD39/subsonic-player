@@ -30,7 +30,7 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -171,7 +171,7 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -245,7 +245,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -322,7 +322,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -398,7 +398,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -474,7 +474,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -550,7 +550,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -626,7 +626,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>
@@ -767,7 +767,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not the current t
             <phcheckcircle size="24"></phcheckcircle>
           </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
             <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button">
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
         </div>

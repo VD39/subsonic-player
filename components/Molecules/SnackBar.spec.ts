@@ -111,8 +111,8 @@ describe('SnackBar', () => {
       });
 
       describe('when the ButtonLink component is clicked', () => {
-        beforeEach(() => {
-          wrapper.findAllComponents(ButtonLink)[0].vm.$emit('click');
+        beforeEach(async () => {
+          await wrapper.findAllComponents(ButtonLink)[0].trigger('click');
         });
 
         it('shows the correct number of snack content', () => {

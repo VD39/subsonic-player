@@ -746,9 +746,11 @@ describe('MixedTracksListItem', () => {
       });
     });
 
-    describe('when the add to queue ButtonLink component emits the click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'addToQueueButton' }).vm.$emit('click');
+    describe('when the add to queue ButtonLink component is clicked', () => {
+      beforeEach(async () => {
+        await wrapper
+          .findComponent({ ref: 'addToQueueButton' })
+          .trigger('click');
       });
 
       it('emits the addToQueue event', () => {

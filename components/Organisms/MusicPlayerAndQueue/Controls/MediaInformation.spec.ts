@@ -36,8 +36,8 @@ describe('MediaInformation', () => {
   });
 
   describe('when the ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent(ButtonLink).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent(ButtonLink).trigger('click');
     });
 
     it('calls the openModal function with the correct parameters', () => {

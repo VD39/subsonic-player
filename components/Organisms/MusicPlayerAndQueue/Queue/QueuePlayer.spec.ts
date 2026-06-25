@@ -434,8 +434,8 @@ describe('QueuePlayer', () => {
   });
 
   describe('when the close queue menu ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'closeQueueMenu' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'closeQueueMenu' }).trigger('click');
     });
 
     it('calls the toggleQueuePlayer function', () => {
@@ -444,8 +444,8 @@ describe('QueuePlayer', () => {
   });
 
   describe('when the open queue list ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'openQueueList' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'openQueueList' }).trigger('click');
     });
 
     it('calls the toggleQueueList function', () => {

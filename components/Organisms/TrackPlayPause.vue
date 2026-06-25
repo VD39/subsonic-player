@@ -85,6 +85,7 @@ const { isBuffering, isPlaying } = useAudioPlayer();
         ref="play"
         :class="['centerAll', 'themeHoverButton', $style.buttonLink]"
         :icon="ICONS.play"
+        title="Play track"
         @click="$emit('playTrack')"
       >
         Play track

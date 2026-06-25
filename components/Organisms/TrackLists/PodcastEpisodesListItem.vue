@@ -161,6 +161,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               v-if="episode.downloaded"
               ref="addToQueueButton"
               :icon="ICONS.add"
+              title="Add to queue"
               @click="$emit('addToQueue')"
             >
               Add to queue

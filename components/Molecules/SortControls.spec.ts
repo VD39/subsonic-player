@@ -71,12 +71,11 @@ describe('SortControls', () => {
     });
   });
 
-  describe('when the sort direction ButtonLink component emits the click event', () => {
+  describe('when the sort direction ButtonLink component is clicked', () => {
     beforeEach(async () => {
-      wrapper
+      await wrapper
         .findComponent({ ref: 'sortDirectionButtonLink' })
-        .vm.$emit('click');
-      await wrapper.vm.$nextTick();
+        .trigger('click');
     });
 
     it('emits the toggleDirection event', () => {

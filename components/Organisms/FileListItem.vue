@@ -62,6 +62,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         <ButtonLink
           ref="addToQueueButton"
           :icon="ICONS.add"
+          title="Add to queue"
           @click="$emit('addToQueue')"
         >
           Add to queue

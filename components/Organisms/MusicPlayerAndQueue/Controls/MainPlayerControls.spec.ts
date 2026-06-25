@@ -64,8 +64,8 @@ describe('MainPlayerControls', () => {
     });
 
     describe('when the rewind ButtonLink component is clicked', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'rewind' }).vm.$emit('click');
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref: 'rewind' }).trigger('click');
       });
 
       it('calls the rewindTrack function', () => {
@@ -74,8 +74,8 @@ describe('MainPlayerControls', () => {
     });
 
     describe('when the fast forward ButtonLink component is clicked', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'fastForward' }).vm.$emit('click');
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref: 'fastForward' }).trigger('click');
       });
 
       it('calls the fastForwardTrack function', () => {
@@ -85,8 +85,8 @@ describe('MainPlayerControls', () => {
   });
 
   describe('when the previous track ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'previousTrack' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'previousTrack' }).trigger('click');
     });
 
     it('calls the playPreviousTrack function', () => {
@@ -95,8 +95,8 @@ describe('MainPlayerControls', () => {
   });
 
   describe('when the next track ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'nextTrack' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'nextTrack' }).trigger('click');
     });
 
     it('calls the playNextTrack function', () => {

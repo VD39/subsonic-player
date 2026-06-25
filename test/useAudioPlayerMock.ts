@@ -6,8 +6,8 @@ const addTrackToQueueMock = vi.fn();
 const bufferedDurationMock = ref(2);
 const currentTimeMock = ref(0);
 const fastForwardTrackMock = vi.fn();
-const hasNextTrackMock = ref(false);
-const hasPreviousTrackMock = ref(false);
+const canPlayNextMock = ref(true);
+const canPlayPreviousMock = ref(true);
 const isBufferingMock = ref(false);
 const isMutedMock = ref(false);
 const isPlayingMock = ref(false);
@@ -41,8 +41,8 @@ export function useAudioPlayerMock() {
     addTracksToQueue: addTracksToQueueMock,
     addTrackToQueue: addTrackToQueueMock,
     bufferedDuration: bufferedDurationMock,
-    canPlayNext: hasNextTrackMock,
-    canPlayPrevious: hasPreviousTrackMock,
+    canPlayNext: canPlayNextMock,
+    canPlayPrevious: canPlayPreviousMock,
     currentTime: currentTimeMock,
     cycleRepeat: cycleRepeatMock,
     fastForwardTrack: fastForwardTrackMock,
@@ -78,11 +78,11 @@ export function useAudioPlayerMock() {
     addTracksToQueueMock,
     addTrackToQueueMock,
     bufferedDurationMock,
+    canPlayNextMock,
+    canPlayPreviousMock,
     currentTimeMock,
     cycleRepeatMock,
     fastForwardTrackMock,
-    hasNextTrackMock,
-    hasPreviousTrackMock,
     isBufferingMock,
     isMutedMock,
     isPlayingMock,

@@ -42,8 +42,8 @@ describe('AppUpdate', () => {
   });
 
   describe('when the update ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'updateButtonLink' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'updateButtonLink' }).trigger('click');
     });
 
     it('emits the update event', () => {
@@ -64,8 +64,10 @@ describe('AppUpdate', () => {
   });
 
   describe('when the dismiss ButtonLink component is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'dismissButtonLink' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper
+        .findComponent({ ref: 'dismissButtonLink' })
+        .trigger('click');
     });
 
     it('emits the dismiss event', () => {

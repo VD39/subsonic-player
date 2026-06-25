@@ -87,9 +87,9 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -171,9 +171,9 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -185,9 +185,9 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
     <swiper-container>
       <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -276,9 +276,9 @@ exports[`library > when data returns a value > when artists is an empty array > 
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -291,9 +291,9 @@ exports[`library > when data returns a value > when artists is an empty array > 
     <swiper-container>
       <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -382,9 +382,9 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -466,9 +466,9 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -558,9 +558,9 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -642,9 +642,9 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -656,9 +656,9 @@ exports[`library > when data returns a value > when playlists is an empty array 
     <swiper-container>
       <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -743,9 +743,9 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -827,9 +827,9 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -841,9 +841,9 @@ exports[`library > when data returns a value > when playlists is not an empty ar
     <swiper-container>
       <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -937,9 +937,9 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
           </div>
         </article>
       </swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
@@ -951,9 +951,9 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
     <swiper-container>
       <swiper-slide data-test-id="random-genre-item" style="order: 0; margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
-    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button">
+    </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
       <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
-    </button><button class="centerItems buttonLink next next" draggable="false" type="button">
+    </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
       <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>

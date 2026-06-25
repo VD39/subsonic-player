@@ -23,6 +23,11 @@ const showSuggestions = ref(false);
 const suggestions = ref<SuggestionGroup[]>([]);
 const loading = ref(false);
 
+const buttonProps = computed(() => ({
+  icon: loading.value ? SpinningLoader : ICONS.search,
+  text: loading.value ? 'Searching...' : 'Search',
+}));
+
 const searchQuery = computed(() =>
   (form.fields.query.value.value as string).trim().toLowerCase(),
 );
@@ -149,10 +154,11 @@ onUnmounted(() => {
 
         <ButtonLink
           :class="$style.buttonLink"
-          :icon="loading ? SpinningLoader : ICONS.search"
+          :icon="buttonProps.icon"
+          :title="buttonProps.text"
           type="submit"
         >
-          {{ loading ? 'Searching...' : 'Search' }}
+          {{ buttonProps.text }}
         </ButtonLink>
       </div>
     </form>

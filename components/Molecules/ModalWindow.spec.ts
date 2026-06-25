@@ -113,7 +113,7 @@ describe('ModalWindow', () => {
 
     describe('when the ButtonLink component is clicked', () => {
       beforeEach(async () => {
-        wrapper.findComponent(ButtonLink).vm.$emit('click');
+        await wrapper.findComponent(ButtonLink).trigger('click');
       });
 
       it('matches the snapshot', () => {

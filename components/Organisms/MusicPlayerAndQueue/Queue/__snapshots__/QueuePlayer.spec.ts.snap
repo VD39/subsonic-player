@@ -44,13 +44,13 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             </div>
             <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
@@ -139,7 +139,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -147,7 +147,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions">
@@ -231,7 +231,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -239,7 +239,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
@@ -324,7 +324,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -332,7 +332,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
@@ -421,7 +421,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -429,7 +429,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
@@ -514,7 +514,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -522,7 +522,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
@@ -611,7 +611,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -619,7 +619,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
@@ -704,7 +704,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -712,7 +712,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
@@ -796,13 +796,13 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
@@ -877,13 +877,13 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
             </div>
             <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
@@ -956,13 +956,13 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
             </div>
             <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
@@ -1040,13 +1040,13 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             </div>
             <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
@@ -1119,13 +1119,13 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
             </div>
             <div class="smallFont centerItems spaceBetween"><time>00:00</time><time>02:00</time></div>
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button>
             <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
               <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
             </button>
-            <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button>
           </div>
@@ -1214,7 +1214,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
             </div>
             <!--v-if-->
           </div>
-          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
+          <div class="centerItems spaceBetween fullWidth secondaryOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
               <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">
               <phrewind aria-hidden="true" class="icon" size="24" weight="regular"></phrewind><span class="clamp text visuallyHidden">Rewind back 10 seconds</span>
@@ -1222,7 +1222,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
               <phpause aria-hidden="true" class="icon" size="24" weight="regular"></phpause><span class="clamp text visuallyHidden">Pause current track</span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Fast forward 30 seconds">
               <phfastforward aria-hidden="true" class="icon" size="24" weight="regular"></phfastforward><span class="clamp text visuallyHidden">Fast forward 30 seconds</span>
-            </button><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
+            </button><button class="centerItems buttonLink" draggable="false" type="button" title="Next track">
               <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
             </button></div>
           <div class="centerAll spaceBetween secondaryOptions">

@@ -106,7 +106,7 @@ async function factory(props = {}) {
   const dropdownMenu = wrapper.findComponent(DropdownMenu);
 
   if (dropdownMenu.exists()) {
-    dropdownMenu.findComponent(ButtonLink).vm.$emit('click');
+    await dropdownMenu.findComponent(ButtonLink).trigger('click');
   }
 
   return wrapper;

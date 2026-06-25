@@ -49,7 +49,7 @@ exports[`AlbumTracksListItem > matches the snapshot 1`] = `
         </div>
       </div>
     </div><time class="trackCell trackTime">02:00</time>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
         <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
@@ -117,7 +117,7 @@ exports[`AlbumTracksListItem > when track.artists is an empty array > matches th
     <div class="trackCell trackSecondary">
       <!--v-if-->
     </div><time class="trackCell trackTime">02:00</time>
-    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button">
+    <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
         <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">

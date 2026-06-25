@@ -106,8 +106,8 @@ describe('AddToPlaylistForm', () => {
       });
 
       describe('when the ButtonLink component is clicked', () => {
-        beforeEach(() => {
-          wrapper.findComponent(ButtonLink).vm.$emit('click');
+        beforeEach(async () => {
+          await wrapper.findComponent(ButtonLink).trigger('click');
         });
 
         it('matches the snapshot', () => {
@@ -137,8 +137,8 @@ describe('AddToPlaylistForm', () => {
         });
 
         describe('when the ButtonLink component is clicked again', () => {
-          beforeEach(() => {
-            wrapper.findComponent(ButtonLink).vm.$emit('click');
+          beforeEach(async () => {
+            await wrapper.findComponent(ButtonLink).trigger('click');
           });
 
           it('matches the snapshot', () => {

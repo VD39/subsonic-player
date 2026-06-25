@@ -43,8 +43,7 @@ describe('ThemeSwitcher', () => {
 
   describe('when ButtonLink component is clicked', () => {
     beforeAll(async () => {
-      wrapper.findComponent(ButtonLink).vm.$emit('click');
-      await wrapper.vm.$nextTick();
+      await wrapper.findComponent(ButtonLink).trigger('click');
     });
 
     it('matches the snapshot', () => {

@@ -21,7 +21,11 @@ const { removeSnack, snacks } = useSnack();
                 {{ snack.content }}
               </p>
 
-              <ButtonLink :icon="ICONS.close" @click="removeSnack(snack.id)">
+              <ButtonLink
+                :icon="ICONS.close"
+                title="Clear snack"
+                @click="removeSnack(snack.id)"
+              >
                 Clear snack
               </ButtonLink>
             </MessageBar>
