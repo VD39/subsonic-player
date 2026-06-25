@@ -83,7 +83,7 @@ const { closeModal, modal } = useModal();
 }
 
 .body {
-  max-height: 80vh;
+  max-height: 80svh;
   padding: var(--space-16) var(--space-16) var(--space-24);
   overflow-y: auto;
 }

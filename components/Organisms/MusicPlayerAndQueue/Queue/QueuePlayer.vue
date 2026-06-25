@@ -222,7 +222,7 @@ const {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - (var(--space-40) * 2) - (var(--space-16) * 2));
+  height: calc(100svh - (var(--space-40) * 2) - (var(--space-16) * 2));
   padding: var(--space-40) var(--space-40) var(--space-16);
 }
 

@@ -90,7 +90,7 @@ const transitionName = computed(() => {
 
 .dropdownList {
   @media (--tablet-up) {
-    max-height: 90vh;
+    max-height: 90svh;
     overflow-x: auto;
   }
 }

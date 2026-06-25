@@ -164,7 +164,7 @@ watch(
 
 <style module>
 .playlists {
-  max-height: 60vh;
+  max-height: 60svh;
   overflow-x: auto;
 }
 

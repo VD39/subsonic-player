@@ -209,7 +209,7 @@ onUnmounted(() => {
     position: absolute;
     inset: 100% 0 auto;
     height: auto;
-    max-height: 75vh;
+    max-height: 75svh;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-small);
     box-shadow: var(--box-shadow-medium);

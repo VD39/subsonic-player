@@ -50,7 +50,7 @@ const { HOTKEY_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
   inset: 0;
   z-index: 99;
   width: var(--width-height-100);
-  height: 100vh;
+  height: 100svh;
   padding: var(--space-16) 0;
   overflow-y: auto;
   background-color: var(--modal-background-color);

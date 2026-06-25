@@ -111,7 +111,7 @@ const showPageNavigation = computed(() =>
   position: relative;
   display: flex;
   flex: 1;
-  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
 
   @media (--tablet-up) {

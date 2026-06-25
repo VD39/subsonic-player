@@ -100,11 +100,11 @@ defineExpose({
 }
 
 .dropdownContent {
-  max-height: 70vh;
+  max-height: 70svh;
   overflow-x: auto;
 
   @media (--tablet-up) {
-    max-height: 90vh;
+    max-height: 90svh;
   }
 }
 </style>
