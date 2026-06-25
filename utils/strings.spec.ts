@@ -121,6 +121,10 @@ describe('convertToTitleCase', () => {
     ['!ALL /UPPERCASE/', '!All /Uppercase/'],
     ['^all 23lowercase44', '^All 23Lowercase44'],
     ['$ALL $$UPPERCASE', '$All $$Uppercase'],
+    ["i'm with an apostrophe", "I'm With An Apostrophe"],
+    ['i\u2019m with an another apostrophe', 'I’m With An Another Apostrophe'],
+    ['Don’t BE dIfferenT', 'Don’t Be Different'],
+    ["I'M ALL UPPERCASE", "I'm All Uppercase"],
   ])('when is string %s', (input, output) => {
     it('returns the correct response', () => {
       expect(convertToTitleCase(input)).toBe(output);

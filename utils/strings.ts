@@ -3,15 +3,20 @@ export function convertToTitleCase(str: string) {
     .toLowerCase()
     .split(' ')
     .map((part) => {
-      let i = 0;
+      let index = 0;
 
-      while (i < part.length && !/[a-z]/i.test(part[i])) {
-        i++;
+      while (index < part.length && !/[a-z]/i.test(part[index])) {
+        index++;
       }
 
       return (
-        part.slice(0, i) +
-        part.slice(i).replaceAll(/\b\w/g, (c) => c.toUpperCase())
+        part.slice(0, index) +
+        part
+          .slice(index)
+          .replaceAll(
+            /(^|[^a-zA-Z0-9'\u2019])([a-zA-Z])/g,
+            (_, start, letter) => start + letter.toUpperCase(),
+          )
       );
     })
     .join(' ');
