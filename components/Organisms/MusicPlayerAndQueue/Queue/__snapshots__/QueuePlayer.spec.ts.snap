@@ -3,7 +3,7 @@
 exports[`QueuePlayer > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -13,7 +13,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
 exports[`QueuePlayer > when currentTrack value does not have a favourite key > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -87,7 +87,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@ exports[`QueuePlayer > when currentTrack value does not have a favourite key > m
 exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -185,7 +185,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > matches the snapsho
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value contain author > when currentTrack.author is undefined > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -278,7 +278,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -361,7 +361,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does have a podcastId key > when currentTrack.podcastId is defined > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -371,7 +371,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -458,7 +458,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does have a podcastId key > when currentTrack.podcastId is undefined > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -468,7 +468,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -551,7 +551,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does not have an author key > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -561,7 +561,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -648,7 +648,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
 exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack value does not have an podcastId key > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -658,7 +658,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -741,7 +741,7 @@ exports[`QueuePlayer > when isPodcastEpisode value is true > when currentTrack v
 exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -751,7 +751,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -826,7 +826,7 @@ exports[`QueuePlayer > when isRadioStation value is true > matches the snapshot 
 exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album is undefined > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -836,7 +836,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -910,7 +910,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.album 
 exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artists is an empty array > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -920,7 +920,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -989,7 +989,7 @@ exports[`QueuePlayer > when isTrack value is true > when currentTrackMock.artist
 exports[`QueuePlayer > when isTrack value is true > when the track does not have an album key > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -999,7 +999,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -1073,7 +1073,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
 exports[`QueuePlayer > when isTrack value is true > when the track does not have an artists key > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -1083,7 +1083,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>
@@ -1152,7 +1152,7 @@ exports[`QueuePlayer > when isTrack value is true > when the track does not have
 exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1`] = `
 "<div class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage backgroundImageActive">
-    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+    <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
     <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue menu </span>
   </button>
@@ -1162,7 +1162,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
         <div class="imageWrapper">
           <div class="imageInner">
             <div class="preloadImageWrapper"><button class="rewindFastForwardButton rewindButton"><span class="visuallyHidden">Rewind back 10 seconds</span></button><button class="rewindFastForwardButton fastForwardButton"><span class="visuallyHidden">Fast forward 30 seconds</span></button>
-              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div>
+              <div class="centerAll preloadImage preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             </div>
           </div>
         </div>

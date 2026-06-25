@@ -82,7 +82,6 @@ onUnmounted(() => {
           :alt
           :class="$style.image"
           draggable="false"
-          loading="lazy"
           :src="imageSrc"
           @load="onImageLoad"
         />

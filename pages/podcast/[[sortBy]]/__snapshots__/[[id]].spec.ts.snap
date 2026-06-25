@@ -25,12 +25,12 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -105,12 +105,12 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -181,12 +181,12 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">

@@ -17,7 +17,7 @@ exports[`artists > matches the snapshot 1`] = `
     <article class="interactionWrapper layoutItem" draggable="false">
       <div class="layoutImage layoutItemImageWrapper">
         <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
-            <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+            <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
           </a></figure>
         <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -39,7 +39,7 @@ exports[`artists > matches the snapshot 1`] = `
     <article class="interactionWrapper layoutItem" draggable="false">
       <div class="layoutImage layoutItemImageWrapper">
         <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
-            <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+            <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
           </a></figure>
         <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -61,7 +61,7 @@ exports[`artists > matches the snapshot 1`] = `
     <article class="interactionWrapper layoutItem" draggable="false">
       <div class="layoutImage layoutItemImageWrapper">
         <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
-            <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+            <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
           </a></figure>
         <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
             <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>

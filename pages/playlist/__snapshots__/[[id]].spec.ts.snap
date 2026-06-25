@@ -15,12 +15,12 @@ exports[`[[id]] > when loadPlaylistTracksById does return data > matches the sna
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -75,12 +75,12 @@ exports[`[[id]] > when loadPlaylistTracksById does return data > when playlist t
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -129,12 +129,12 @@ exports[`[[id]] > when loadPlaylistTracksById does return data > when playlist.t
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="playlist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">

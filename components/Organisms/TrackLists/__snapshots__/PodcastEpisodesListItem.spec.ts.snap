@@ -82,7 +82,7 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
-          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
           </button>
         </div>
@@ -678,7 +678,7 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
-          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
             <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
           </button>
         </div>

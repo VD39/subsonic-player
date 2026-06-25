@@ -15,12 +15,12 @@ exports[`[[id]] > when getArtist does returns data > _ > when artistData.similar
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -65,12 +65,12 @@ exports[`[[id]] > when getArtist does returns data > _ > when artistData.topTrac
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -115,12 +115,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.biography i
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -168,12 +168,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.genres is a
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -217,12 +217,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.lastFmUrl i
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -267,12 +267,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.musicBrainz
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -317,12 +317,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.similarArti
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -367,12 +367,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.totalAlbums
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -416,12 +416,12 @@ exports[`[[id]] > when getArtist does returns data > when artistData.totalTracks
 <div class="mainContent gridLayout">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="false">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="artist-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">

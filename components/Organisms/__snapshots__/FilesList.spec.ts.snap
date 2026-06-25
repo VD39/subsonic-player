@@ -57,7 +57,7 @@ exports[`FilesList > when the folders prop is not an empty array > matches the s
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
     <div class="trackCell"><a draggable="false">
-        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-0" class="image" draggable="false" loading="lazy" src="image-0"></div>
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-0" class="image" draggable="false" src="image-0"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-0</div>
@@ -67,7 +67,7 @@ exports[`FilesList > when the folders prop is not an empty array > matches the s
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
     <div class="trackCell"><a draggable="false">
-        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-1" class="image" draggable="false" loading="lazy" src="image-1"></div>
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-1" class="image" draggable="false" src="image-1"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-1</div>
@@ -77,7 +77,7 @@ exports[`FilesList > when the folders prop is not an empty array > matches the s
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
     <div class="trackCell"><a draggable="false">
-        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-2" class="image" draggable="false" loading="lazy" src="image-2"></div>
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-2" class="image" draggable="false" src="image-2"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-2</div>
@@ -87,7 +87,7 @@ exports[`FilesList > when the folders prop is not an empty array > matches the s
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
     <div class="trackCell"><a draggable="false">
-        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-3" class="image" draggable="false" loading="lazy" src="image-3"></div>
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-3" class="image" draggable="false" src="image-3"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-3</div>
@@ -97,7 +97,7 @@ exports[`FilesList > when the folders prop is not an empty array > matches the s
   </div>
   <div class="lazyLoadContent trackRow" data-test-id="folder">
     <div class="trackCell"><a draggable="false">
-        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-4" class="image" draggable="false" loading="lazy" src="image-4"></div>
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-4" class="image" draggable="false" src="image-4"></div>
         <div class="marqueeScroll mBXS" inert="">
           <div class="bulletList inner">
             <div class="content">track-4</div>
@@ -126,7 +126,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-0"></div>
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -160,7 +160,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-1"></div>
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -194,7 +194,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-2"></div>
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -228,7 +228,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-3"></div>
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
@@ -262,7 +262,7 @@ exports[`FilesList > when the tracks prop is not an empty array > matches the sn
       <div class="trackCell">
         <div>
           <div class="overlapWrapper trackPlayPause withImage">
-            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" loading="lazy" src="image-4"></div>
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
                 <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>

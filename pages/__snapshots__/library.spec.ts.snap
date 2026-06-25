@@ -23,7 +23,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
@@ -57,7 +57,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
@@ -103,7 +103,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -127,7 +127,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -151,7 +151,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -212,7 +212,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
@@ -246,7 +246,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
@@ -318,7 +318,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
@@ -352,7 +352,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
@@ -398,7 +398,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -422,7 +422,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -446,7 +446,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -494,7 +494,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
@@ -528,7 +528,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
@@ -574,7 +574,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -598,7 +598,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -622,7 +622,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -679,7 +679,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
@@ -713,7 +713,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to album album-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to album album-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
@@ -759,7 +759,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -783,7 +783,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -807,7 +807,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -869,7 +869,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-0">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -893,7 +893,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-1">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
@@ -917,7 +917,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
         <article class="interactionWrapper layoutItem" draggable="false">
           <div class="layoutImage layoutItemImageWrapper">
             <figure><a class="interactionWrapperLink" draggable="false" title="Go to artist artist-2">
-                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" loading="lazy" src="image"></div>
+                <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
                 <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>

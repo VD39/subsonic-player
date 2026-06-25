@@ -15,12 +15,12 @@ exports[`[[id]] > when getAlbum does return data > matches the snapshot 1`] = `
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -72,12 +72,12 @@ exports[`[[id]] > when getAlbum does return data > when album.genres is an empty
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -129,12 +129,12 @@ exports[`[[id]] > when getAlbum does return data > when album.totalDiscNumber is
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
@@ -194,12 +194,12 @@ exports[`[[id]] > when getAlbum does return data > when album.trackCount is 1 > 
 <div class="mainContent">
   <div>
     <div class="entryHeader">
-      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+      <div class="centerAll preloadImage backgroundImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       <div class="blur"></div>
     </div>
     <section class="mBXL content">
       <figure class="figure" draggable="true">
-        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" loading="lazy" src="image"></div>
+        <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="album-0" class="image" draggable="false" src="image"></div>
       </figure>
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
