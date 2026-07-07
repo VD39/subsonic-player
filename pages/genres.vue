@@ -3,7 +3,7 @@ import GenreLink from '@/components/Atoms/GenreLink.vue';
 import GridWrapper from '@/components/Atoms/GridWrapper.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
-import SortControls from '@/components/Molecules/SortControls.vue';
+import SortControls from '@/components/Organisms/SortControls.vue';
 
 const { getGenres } = useGenre();
 

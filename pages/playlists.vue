@@ -3,8 +3,8 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import SortControls from '@/components/Molecules/SortControls.vue';
 import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
+import SortControls from '@/components/Organisms/SortControls.vue';
 
 const {
   addPlaylistModal,

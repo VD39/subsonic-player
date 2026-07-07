@@ -5,10 +5,10 @@ import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import TextClamp from '@/components/Atoms/TextClamp.vue';
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
-import SortControls from '@/components/Molecules/SortControls.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
+import SortControls from '@/components/Organisms/SortControls.vue';
 import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
 
 definePageMeta({

@@ -3,10 +3,10 @@ import HotkeyMappings from '@/components/Atoms/HotkeyMappings.vue';
 import MobileNavigation from '@/components/Molecules/MobileNavigation.vue';
 import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import UserMenu from '@/components/Molecules/UserMenu.vue';
 import MusicPlayerAndQueue from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 import SearchForm from '@/components/Organisms/Search/SearchForm.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
+import UserMenu from '@/components/Organisms/UserMenu.vue';
 
 const {
   mobileNavigation,

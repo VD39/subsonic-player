@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LoadingData from '@/components/Molecules/LoadingData.vue';
-import SortControls from '@/components/Molecules/SortControls.vue';
 import ArtistsList from '@/components/Organisms/ArtistsList.vue';
+import SortControls from '@/components/Organisms/SortControls.vue';
 
 const { getArtists } = useArtist();
 const { viewLayout } = useSettings();
