@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
@@ -7,7 +8,13 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import RepeatButton from './RepeatButton.vue';
 
-const { cycleRepeatMock, repeatMock } = useAudioPlayerMock();
+const { cycleRepeatMock, repeatMock, resetRepeatMock } = useAudioPlayerMock();
+
+const deletePodcastOnEndMock = ref(false);
+
+mockNuxtImport('useSettings', () => () => ({
+  deletePodcastOnEnd: deletePodcastOnEndMock,
+}));
 
 function factory(props = {}) {
   return mount(RepeatButton, {
@@ -43,6 +50,10 @@ describe('RepeatButton', () => {
 
   beforeEach(() => {
     wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   describe.each([
@@ -96,6 +107,45 @@ describe('RepeatButton', () => {
 
     it('calls the cycleRepeat function', () => {
       expect(cycleRepeatMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the deletePodcastOnEnd value is false', () => {
+    it('does not set the disabled attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('disabled'),
+      ).toBeUndefined();
+    });
+
+    it('does not call the resetRepeat function', () => {
+      expect(resetRepeatMock).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when the deletePodcastOnEnd value is true', () => {
+    beforeEach(() => {
+      deletePodcastOnEndMock.value = true;
+      wrapper = factory();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct disabled attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('disabled'),
+      ).toBeDefined();
+    });
+
+    it('sets the correct title attribute on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+        'Repeat is off while delete on end is enabled',
+      );
+    });
+
+    it('calls the resetRepeat function', () => {
+      expect(resetRepeatMock).toHaveBeenCalled();
     });
   });
 });

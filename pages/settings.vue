@@ -1,0 +1,159 @@
+<script setup lang="ts">
+import ToggleSwitch from '@/components/Atoms/ToggleSwitch.vue';
+import AboutApp from '@/components/Molecules/AboutApp.vue';
+import SelectableBadge from '@/components/Molecules/Settings/SelectableBadge.vue';
+import SelectableOption from '@/components/Molecules/Settings/SelectableOption.vue';
+import SettingsField from '@/components/Molecules/Settings/SettingsField.vue';
+import SettingsGroup from '@/components/Molecules/Settings/SettingsGroup.vue';
+import SettingsSection from '@/components/Molecules/Settings/SettingsSection.vue';
+
+const {
+  deletePodcastOnEnd,
+  scrobbleEnabled,
+  setStreamBitrate,
+  setThemeMode,
+  setViewLayout,
+  showPodcasts,
+  showRadioStations,
+  streamBitrate,
+  themePreference,
+  toggleDeletePodcastOnEnd,
+  toggleScrobble,
+  toggleShowPodcasts,
+  toggleShowRadioStations,
+  viewLayout,
+} = useSettings();
+const { aboutInformation, fetchInformation } = useServerInfo();
+
+onMounted(() => {
+  fetchInformation();
+});
+</script>
+
+<template>
+  <div :class="['column', $style.settings]">
+    <h1 :class="$style.title">Settings</h1>
+
+    <SettingsSection title="Appearance">
+      <SettingsGroup
+        ref="themeGroup"
+        description="Switch between dark, light, or system-preferred appearance"
+        title="Theme"
+        variant="badge"
+      >
+        <SelectableBadge
+          v-for="opt in THEME_OPTIONS"
+          :key="opt.value"
+          :label="opt.label"
+          :selected="themePreference === opt.value"
+          @click="setThemeMode(opt.value)"
+        />
+      </SettingsGroup>
+
+      <SettingsGroup
+        ref="layoutGroup"
+        description="Choose between a compact grid or a detailed list"
+        title="Layout"
+        variant="list"
+      >
+        <SelectableOption
+          v-for="opt in LAYOUT_OPTIONS"
+          :key="opt.value"
+          :description="opt.description"
+          :selected="viewLayout === opt.value"
+          :title="opt.title"
+          @click="setViewLayout(opt.value)"
+        />
+      </SettingsGroup>
+    </SettingsSection>
+
+    <SettingsSection title="Audio Quality">
+      <SettingsGroup
+        ref="streamingGroup"
+        description="Adjusting audio quality enables server-side transcoding, converting to a compatible format with a lower bitrate for smoother streaming"
+        title="Streaming"
+        variant="list"
+      >
+        <SelectableOption
+          v-for="opt in BITRATE_OPTIONS"
+          :key="opt.value"
+          :badge="opt.badge"
+          :description="opt.description"
+          :selected="streamBitrate === opt.value"
+          :title="opt.title"
+          @click="setStreamBitrate(opt.value)"
+        />
+      </SettingsGroup>
+    </SettingsSection>
+
+    <SettingsSection title="Navigation">
+      <SettingsField
+        description="Display podcasts in the navigation menu"
+        title="Show podcasts"
+      >
+        <ToggleSwitch
+          ref="showPodcastsToggle"
+          label="Show podcasts"
+          :pressed="showPodcasts"
+          @click="toggleShowPodcasts"
+        />
+      </SettingsField>
+
+      <SettingsField
+        description="Display radio stations in the navigation menu"
+        title="Show radio stations"
+      >
+        <ToggleSwitch
+          ref="showRadioStationsToggle"
+          label="Show radio stations"
+          :pressed="showRadioStations"
+          @click="toggleShowRadioStations"
+        />
+      </SettingsField>
+    </SettingsSection>
+
+    <SettingsSection title="Playback">
+      <SettingsField
+        description="Report plays to your Subsonic server"
+        title="Scrobble"
+      >
+        <ToggleSwitch
+          ref="scrobbleToggle"
+          label="Scrobble"
+          :pressed="scrobbleEnabled"
+          @click="toggleScrobble"
+        />
+      </SettingsField>
+
+      <SettingsField
+        description="Automatically delete a podcast episode when it finishes. NOTE: Turning this on disables the player's repeat option."
+        title="Delete podcast on end"
+      >
+        <ToggleSwitch
+          ref="deletePodcastOnEndToggle"
+          label="Delete podcast on end"
+          :pressed="deletePodcastOnEnd"
+          @click="toggleDeletePodcastOnEnd"
+        />
+      </SettingsField>
+    </SettingsSection>
+
+    <SettingsSection v-if="aboutInformation" title="About">
+      <AboutApp
+        :appInformation="aboutInformation.appInformation"
+        :serverInformation="aboutInformation.serverInformation"
+      />
+    </SettingsSection>
+  </div>
+</template>
+
+<style module>
+.settings {
+  gap: var(--space-24);
+  padding: var(--space-24);
+}
+
+.title {
+  font-size: var(--h2-font-size);
+}
+</style>

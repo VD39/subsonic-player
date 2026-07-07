@@ -108,6 +108,20 @@ mockNuxtImport('useAlbum', () => () => ({
   loadDashboardAlbums: loadDashboardAlbumsMock,
 }));
 
+const deletePodcastEpisodeMock = vi.fn();
+
+mockNuxtImport('usePodcast', () => () => ({
+  deletePodcastEpisode: deletePodcastEpisodeMock,
+}));
+
+const deletePodcastOnEndMock = ref(false);
+const scrobbleEnabledMock = ref(true);
+
+mockNuxtImport('useSettings', () => () => ({
+  deletePodcastOnEnd: deletePodcastOnEndMock,
+  scrobbleEnabled: scrobbleEnabledMock,
+}));
+
 const addErrorSnackMock = vi.fn();
 
 mockNuxtImport('useSnack', () => () => ({
@@ -138,6 +152,7 @@ const {
   isTrackMock,
   navigateQueueMock,
   queueListMock,
+  removeAllByTrackIdMock,
   removeTrackMock,
   reorderQueueTracksMock,
   shuffleQueueMock,
@@ -613,39 +628,77 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when repeat value is 1', () => {
+      describe('when the deletePodcastOnEnd value is true', () => {
         beforeAll(() => {
-          result.composable.repeat.value = 1;
+          deletePodcastOnEndMock.value = true;
           onEndedCb();
+        });
+
+        it('calls the deletePodcastEpisode function with the correct parameters', () => {
+          expect(deletePodcastEpisodeMock).toHaveBeenCalledWith(
+            currentTrackMock.value,
+          );
+        });
+
+        it('calls the removeAllByTrackId function with the correct parameters', () => {
+          expect(removeAllByTrackIdMock).toHaveBeenCalledWith(
+            currentTrackMock.value.id,
+          );
         });
 
         it('calls the audio load function', () => {
           expect(loadMock).toHaveBeenCalled();
         });
 
-        it('calls the audio play function', () => {
-          expect(playMock).toHaveBeenCalled();
-        });
-      });
-
-      describe('when repeat value is -1', () => {
-        beforeAll(() => {
-          result.composable.repeat.value = -1;
-          onEndedCb();
-        });
-
-        it('calls the audio load function', () => {
-          expect(loadMock).toHaveBeenCalled();
-        });
-
-        it('calls the audio play function', () => {
-          expect(playMock).toHaveBeenCalled();
-        });
-
-        describe('when track is the last track in queueList value', () => {
+        describe('when the queueList value is an empty array', () => {
           beforeAll(() => {
-            isLastTrackMock.value = true;
             vi.clearAllMocks();
+            queueListMock.value = [];
+            onEndedCb();
+          });
+
+          it('calls the audio unload function', () => {
+            expect(unloadMock).toHaveBeenCalled();
+          });
+
+          it('calls the audio preloader clear function', () => {
+            expect(clearPreloaderMock).toHaveBeenCalled();
+          });
+
+          it('does not call the audio load function', () => {
+            expect(loadMock).not.toHaveBeenCalled();
+          });
+
+          it('does not call the audio pause function', () => {
+            expect(pauseMock).not.toHaveBeenCalled();
+          });
+        });
+
+        describe('when the isLastTrack value is false', () => {
+          beforeAll(() => {
+            vi.clearAllMocks();
+            queueListMock.value = getFormattedQueueTracksMock(5);
+            isLastTrackMock.value = false;
+            onEndedCb();
+          });
+
+          it('calls the audio load function', () => {
+            expect(loadMock).toHaveBeenCalled();
+          });
+
+          it('calls the audio play function', () => {
+            expect(playMock).toHaveBeenCalled();
+          });
+
+          it('does not call the audio pause function', () => {
+            expect(pauseMock).not.toHaveBeenCalled();
+          });
+        });
+
+        describe('when the isLastTrack value is true', () => {
+          beforeAll(() => {
+            vi.clearAllMocks();
+            isLastTrackMock.value = true;
             onEndedCb();
           });
 
@@ -663,22 +716,88 @@ describe('useAudioPlayer', () => {
         });
       });
 
-      describe('when repeat value is infinity', () => {
+      describe('when the deletePodcastOnEnd value is false', () => {
         beforeAll(() => {
-          result.composable.repeat.value = REPEAT_MODE.all;
+          deletePodcastOnEndMock.value = false;
+          vi.clearAllMocks();
           onEndedCb();
         });
 
-        afterAll(() => {
-          result.composable.repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
+        it('does not call the deletePodcastEpisode function', () => {
+          expect(deletePodcastEpisodeMock).not.toHaveBeenCalled();
         });
 
-        it('calls the audio load function', () => {
-          expect(loadMock).toHaveBeenCalled();
+        it('does not call the removeAllByTrackId function', () => {
+          expect(removeAllByTrackIdMock).not.toHaveBeenCalled();
         });
 
-        it('calls the audio play function', () => {
-          expect(playMock).toHaveBeenCalled();
+        describe('when the repeat value is 1', () => {
+          beforeAll(() => {
+            result.composable.repeat.value = 1;
+            onEndedCb();
+          });
+
+          it('calls the audio load function', () => {
+            expect(loadMock).toHaveBeenCalled();
+          });
+
+          it('calls the audio play function', () => {
+            expect(playMock).toHaveBeenCalled();
+          });
+        });
+
+        describe('when the repeat value is -1', () => {
+          beforeAll(() => {
+            result.composable.repeat.value = -1;
+            onEndedCb();
+          });
+
+          it('calls the audio load function', () => {
+            expect(loadMock).toHaveBeenCalled();
+          });
+
+          it('calls the audio play function', () => {
+            expect(playMock).toHaveBeenCalled();
+          });
+
+          describe('when the isLastTrack value is true', () => {
+            beforeAll(() => {
+              isLastTrackMock.value = true;
+              vi.clearAllMocks();
+              onEndedCb();
+            });
+
+            it('calls the audio load function', () => {
+              expect(loadMock).toHaveBeenCalled();
+            });
+
+            it('calls the audio play function', () => {
+              expect(playMock).toHaveBeenCalled();
+            });
+
+            it('calls the audio pause function', () => {
+              expect(pauseMock).toHaveBeenCalled();
+            });
+          });
+        });
+
+        describe('when the repeat value is infinity', () => {
+          beforeAll(() => {
+            result.composable.repeat.value = REPEAT_MODE.all;
+            onEndedCb();
+          });
+
+          afterAll(() => {
+            result.composable.repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
+          });
+
+          it('calls the audio load function', () => {
+            expect(loadMock).toHaveBeenCalled();
+          });
+
+          it('calls the audio play function', () => {
+            expect(playMock).toHaveBeenCalled();
+          });
         });
       });
     });
@@ -1030,13 +1149,31 @@ describe('useAudioPlayer', () => {
       });
 
       describe('when currentTime is greater than 80% of track duration', () => {
-        beforeAll(async () => {
-          result.composable.currentTime.value = 100;
-          vi.advanceTimersByTime(SAVE_INTERVAL);
+        describe('when the scrobbleEnabled value is false', () => {
+          beforeAll(async () => {
+            scrobbleEnabledMock.value = false;
+            result.composable.currentTime.value = 100;
+            vi.advanceTimersByTime(SAVE_INTERVAL);
+          });
+
+          afterAll(() => {
+            scrobbleEnabledMock.value = true;
+          });
+
+          it('does not call the scrobble function', () => {
+            expect(scrobbleMock).not.toHaveBeenCalled();
+          });
         });
 
-        it('calls the scrobble function with the correct parameters', () => {
-          expect(scrobbleMock).toHaveBeenCalledWith(queueTrack.id);
+        describe('when the scrobbleEnabled value is true', () => {
+          beforeAll(async () => {
+            result.composable.currentTime.value = 100;
+            vi.advanceTimersByTime(SAVE_INTERVAL);
+          });
+
+          it('calls the scrobble function with the correct parameters', () => {
+            expect(scrobbleMock).toHaveBeenCalledWith(queueTrack.id);
+          });
         });
       });
     });
@@ -1396,6 +1533,51 @@ describe('useAudioPlayer', () => {
         LOCAL_STORAGE_KEYS.player,
         expect.objectContaining({
           repeat: outcome,
+        }),
+      );
+    });
+  });
+
+  describe('when the cycleRepeat function is called', () => {
+    describe('when the deletePodcastOnEnd value is false', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        result.composable.cycleRepeat();
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when the deletePodcastOnEnd value is true', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        deletePodcastOnEndMock.value = true;
+        result.composable.cycleRepeat();
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when the resetRepeat function is called', () => {
+    beforeAll(() => {
+      vi.clearAllMocks();
+      result.composable.resetRepeat();
+    });
+
+    it('sets the correct repeat value', () => {
+      expect(result.composable.repeat.value).toBe(REPEAT_MODE.off);
+    });
+
+    it('calls the setLocalStorage function with the correct parameters', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.player,
+        expect.objectContaining({
+          repeat: REPEAT_MODE.off,
         }),
       );
     });

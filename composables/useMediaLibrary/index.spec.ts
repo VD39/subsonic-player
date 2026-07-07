@@ -44,7 +44,7 @@ describe('useMediaLibrary', () => {
         });
       });
 
-      it('does not call the window.location.assign function', () => {
+      it('does not call the globalThis.location.assign function', () => {
         expect(windowLocationAssignSpy).not.toHaveBeenCalled();
       });
     });
@@ -54,7 +54,7 @@ describe('useMediaLibrary', () => {
         downloadTrack(track);
       });
 
-      it('calls the window.location.assign with the correct value', () => {
+      it('calls the globalThis.location.assign with the correct value', () => {
         expect(windowLocationAssignSpy).toHaveBeenCalledWith(track.streamUrlId);
       });
     });

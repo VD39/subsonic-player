@@ -3,6 +3,7 @@ export const ICONS = {
   album: 'PhVinylRecord',
   artist: 'PhUsersThree',
   bookmark: 'PhBookmarks',
+  check: 'PhCheck',
   clear: 'PhTrash',
   close: 'PhX',
   discover: 'PhCompass',

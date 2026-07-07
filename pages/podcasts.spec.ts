@@ -20,7 +20,7 @@ import PodcastsPage from './podcasts.vue';
 
 const viewLayoutMock = ref<Layout>('gridLayout');
 
-mockNuxtImport('useViewLayout', () => () => ({
+mockNuxtImport('useSettings', () => () => ({
   viewLayout: viewLayoutMock,
 }));
 

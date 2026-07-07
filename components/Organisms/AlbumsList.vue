@@ -15,7 +15,7 @@ const emit = defineEmits<{
   playAlbum: [album: Album];
 }>();
 
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 
 function onDragStart(album: Album, event: DragEvent) {
   emit('dragStart', album, event);

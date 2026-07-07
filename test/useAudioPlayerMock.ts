@@ -28,6 +28,7 @@ const seekToMock = vi.fn();
 const setPlaybackRateMock = vi.fn();
 const setPlaybackRateWithIncrementMock = vi.fn();
 const cycleRepeatMock = vi.fn();
+const resetRepeatMock = vi.fn();
 const setVolumeMock = vi.fn();
 const shuffleMock = ref(false);
 const shuffleTracksMock = vi.fn();
@@ -60,6 +61,7 @@ export function useAudioPlayerMock() {
     repeat: repeatMock,
     resetAudioPlayer: resetAudioPlayerMock,
     resetPlayerSession: resetPlayerSessionMock,
+    resetRepeat: resetRepeatMock,
     restoreAudioPlayerState: restoreAudioPlayerStateMock,
     rewindTrack: rewindTrackMock,
     seekTo: seekToMock,
@@ -96,6 +98,7 @@ export function useAudioPlayerMock() {
     repeatMock,
     resetAudioPlayerMock,
     resetPlayerSessionMock,
+    resetRepeatMock,
     restoreAudioPlayerStateMock,
     rewindTrackMock,
     seekToMock,

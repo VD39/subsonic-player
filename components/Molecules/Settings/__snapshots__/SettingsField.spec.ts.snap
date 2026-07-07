@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SettingsField > matches the snapshot 1`] = `
+"<div class="spaceBetween centerItems">
+  <div class="info">
+    <div class="sentenceCase smallFont strong title">title</div>
+    <!--v-if-->
+  </div>
+  <div class="control"></div>
+</div>"
+`;

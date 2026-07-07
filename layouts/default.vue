@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import HotkeyMappings from '@/components/Atoms/HotkeyMappings.vue';
-import LayoutButton from '@/components/Molecules/LayoutButton.vue';
 import MobileNavigation from '@/components/Molecules/MobileNavigation.vue';
 import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
 import UserMenu from '@/components/Molecules/UserMenu.vue';
 import MusicPlayerAndQueue from '@/components/Organisms/MusicPlayerAndQueue/MusicPlayerAndQueue.vue';
 import SearchForm from '@/components/Organisms/Search/SearchForm.vue';
 import SidebarNavigation from '@/components/Organisms/SidebarNavigation/SidebarNavigation.vue';
 
-const route = useRoute();
-
-const showPageNavigation = computed(() =>
-  MOBILE_TAB_ROUTES.includes(route.name as RouteName),
-);
+const {
+  mobileNavigation,
+  mobilePageNavigation,
+  showPageNavigation,
+  sidebarNavigation,
+} = useNavigation();
 </script>
 
 <template>
@@ -28,19 +27,15 @@ const showPageNavigation = computed(() =>
         </div>
 
         <div :class="['centerItems', $style.secondary]">
-          <LayoutButton />
-
-          <ThemeSwitcher />
-
           <UserMenu />
         </div>
       </div>
     </header>
 
     <aside>
-      <SidebarNavigation class="desktopOnly" />
+      <SidebarNavigation class="desktopOnly" :navigation="sidebarNavigation" />
 
-      <MobileNavigation class="mobileOnly" />
+      <MobileNavigation class="mobileOnly" :navigation="mobileNavigation" />
     </aside>
 
     <main :class="['main', $style.mainContent]">
@@ -56,7 +51,7 @@ const showPageNavigation = computed(() =>
         <PageNavigation
           v-if="showPageNavigation"
           class="mobileOnly mBL"
-          :navigation="MOBILE_PAGE_NAVIGATION"
+          :navigation="mobilePageNavigation"
         />
 
         <div class="column inner mBAllL">

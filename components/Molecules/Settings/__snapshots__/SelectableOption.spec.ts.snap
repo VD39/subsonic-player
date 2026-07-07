@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SelectableOption > matches the snapshot 1`] = `
+"<button aria-pressed="false" class="selectableOption" type="button">
+  <div class="status">
+    <phcheck size="14"></phcheck>
+  </div>
+  <div class="details">
+    <div class="smallFont strong title">title
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</button>"
+`;
+
+exports[`SelectableOption > when the selected prop is true > matches the snapshot 1`] = `
+"<button aria-pressed="true" class="selectableOption selected" type="button">
+  <div class="status">
+    <phcheck size="14"></phcheck>
+  </div>
+  <div class="details">
+    <div class="smallFont strong title">title
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</button>"
+`;

@@ -41,6 +41,12 @@ mockNuxtImport('useAlbum', () => () => ({
   resetAlbums: resetAlbumsMock,
 }));
 
+const resetSettingsMock = vi.fn();
+
+mockNuxtImport('useSettings', () => () => ({
+  resetSettings: resetSettingsMock,
+}));
+
 const { resetAudioPlayerMock } = useAudioPlayerMock();
 const { resetQueueMock } = useQueueMock();
 
@@ -86,6 +92,10 @@ describe('useStateReset', () => {
 
     it('calls the resetQueue function', () => {
       expect(resetQueueMock).toHaveBeenCalledOnce();
+    });
+
+    it('calls the resetSettings function', () => {
+      expect(resetSettingsMock).toHaveBeenCalledOnce();
     });
   });
 });

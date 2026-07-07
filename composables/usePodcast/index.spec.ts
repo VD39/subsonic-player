@@ -311,7 +311,7 @@ describe('usePodcast', () => {
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
         expect(addSuccessSnackMock).toHaveBeenCalledWith(
-          'Successfully deleted podcast episode from server. Podcast will update automatically.',
+          'Podcast episode deleted from the server. Please allow a moment for any updates to appear.',
         );
       });
     });

@@ -5,6 +5,10 @@ import MusicLogo from '@/components/Molecules/MusicLogo.vue';
 import PlaylistNavigation from './PlaylistNavigation.vue';
 import PrimaryNavigation from './PrimaryNavigation.vue';
 
+defineProps<{
+  navigation: NavigationGroup[];
+}>();
+
 const { collapsed, toggleCollapsed } = useSidebar();
 const { addPlaylistModal, playlists } = usePlaylist();
 
@@ -39,7 +43,7 @@ const buttonProps = computed(() => ({
     </div>
 
     <nav class="fullWidth">
-      <PrimaryNavigation :collapsed />
+      <PrimaryNavigation :collapsed :navigation />
 
       <PlaylistNavigation
         :collapsed

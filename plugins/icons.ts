@@ -12,6 +12,7 @@ import {
   PhCaretDown,
   PhCaretRight,
   PhCaretUp,
+  PhCheck,
   PhCheckCircle,
   PhCircleNotch,
   PhCompass,
@@ -126,6 +127,7 @@ const ICONS = [
   PhWaveSine,
   PhX,
   PhXCircle,
+  PhCheck,
 ];
 
 /* istanbul ignore next -- @preserve */

@@ -47,7 +47,7 @@ const emit = defineEmits<{
             :is="ICONS.refresh"
             v-if="sortDirection === 'random'"
             aria-hidden="true"
-            :data-test-id="'sort-icon-refresh'"
+            data-test-id="sort-icon-refresh"
             :size="ICON_SIZE.small"
             weight="bold"
           />

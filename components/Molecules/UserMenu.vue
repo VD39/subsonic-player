@@ -8,7 +8,6 @@ import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 const { resolveAvatarUrl, user } = useUser();
 const { logoutAndRedirect } = useAuth();
 const { startScan } = useMediaLibrary();
-const { openAboutAppModal } = useServerInfo();
 
 const userAvatar = ref<Icon | string>(FALLBACK_ICON_BY_TYPE.user);
 
@@ -48,8 +47,13 @@ watchEffect(async () => {
     <DropdownItem ref="scanDropdownItem" @click="startScan">
       Scan files
     </DropdownItem>
-    <DropdownItem ref="aboutDropdownItem" @click="openAboutAppModal">
-      About
+    <DropdownItem
+      is="nuxt-link"
+      :to="{
+        name: ROUTE_NAMES.settings,
+      }"
+    >
+      Settings
     </DropdownItem>
     <DropdownDivider />
     <DropdownItem

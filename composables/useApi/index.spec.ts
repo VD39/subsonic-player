@@ -18,6 +18,10 @@ mockNuxtImport('useSnack', () => () => ({
   addErrorSnack: addErrorSnackMock,
 }));
 
+mockNuxtImport('useSettings', () => () => ({
+  streamBitrate: ref(30),
+}));
+
 mockNuxtImport('useCookie', () => () => ref(cookieMock));
 
 const { fetchData, getDownloadUrl, getImageUrl, getStreamUrl } = useAPI();
@@ -65,7 +69,7 @@ describe('useAPI', () => {
     describe('when streamUrlId is not a URL', () => {
       it('returns the correct response', () => {
         expect(getStreamUrl('id')).toBe(
-          'https://www.server.com/rest/stream?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id',
+          'https://www.server.com/rest/stream?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id&maxBitRate=30',
         );
       });
     });

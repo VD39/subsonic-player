@@ -16,7 +16,7 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 const { getMediaTracks } = useMediaTracks();
 const { getArtist } = useArtist();
 const { openModal } = useModal();

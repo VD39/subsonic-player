@@ -11,7 +11,7 @@ definePageMeta({
 const route = useRoute();
 const { getAlbums } = useAlbum();
 const { dragStart } = useDragAndDrop();
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 const { addTracksToQueue, playTracks } = useAudioPlayer();
 const { openAlbumInformationModal } = useMediaInformation();
 const { getMediaTracks } = useMediaTracks();

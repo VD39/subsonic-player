@@ -24,6 +24,7 @@ mockNuxtImport('usePlaylist', () => () => ({
 function factory(props = {}) {
   return mount(SidebarNavigation, {
     props: {
+      navigation: SIDEBAR_DESKTOP_NAVIGATION,
       ...props,
     },
   });

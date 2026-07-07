@@ -16,6 +16,7 @@ function factory(props = {}) {
   return mount(PrimaryNavigation, {
     props: {
       collapsed: false,
+      navigation: SIDEBAR_DESKTOP_NAVIGATION,
       ...props,
     },
   });

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SettingsGroup > matches the snapshot 1`] = `
+"<div>
+  <!--v-if-->
+  <div class="list"></div>
+</div>"
+`;
+
+exports[`SettingsGroup > when the variant prop is badge > matches the snapshot 1`] = `
+"<div>
+  <!--v-if-->
+  <div class="badge"></div>
+</div>"
+`;

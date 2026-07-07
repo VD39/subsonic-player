@@ -11,7 +11,7 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 const { addToPlaylistModal } = usePlaylist();
 const { fetchSearchResult } = useSearch();
 const { openAlbumInformationModal, openTrackInformationModal } =

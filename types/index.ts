@@ -1,7 +1,8 @@
 import type { NuxtLinkProps } from 'nuxt/app';
 
-export type ButtonOrLinkType = 'button' | LinkIs;
+export type Bitrate = (typeof BITRATE_OPTIONS)[number]['value'];
 
+export type ButtonOrLinkType = 'button' | LinkIs;
 export interface ButtonProps {
   icon?: Component | Icon;
   iconColor?: string;
@@ -17,6 +18,8 @@ export type Icon = TypeofIcons[keyof TypeofIcons];
 export type IconSize = keyof typeof ICON_SIZE;
 
 export type IconWeight = 'bold' | 'duotone' | 'fill' | 'regular';
+
+export type Layout = (typeof LAYOUT_OPTIONS)[number]['value'];
 
 export type LinkIs = 'a' | 'nuxt-link';
 
@@ -37,6 +40,8 @@ export type QueueableMedia =
 export type RouteName = TypeofRouteNames[keyof TypeofRouteNames];
 
 export type SnackType = 'error' | 'info' | 'success';
+
+export type Theme = (typeof THEME_OPTIONS)[number]['value'];
 
 export type ToProp = NuxtLinkProps['to'];
 

@@ -1,6 +1,7 @@
 export const STATE_KEYS = {
   bookmarks: 'bookmarks',
   currentUser: 'current-user',
+  deletePodcastOnEnd: 'delete-podcast-on-end',
   dropdownActiveMenuId: 'dropdown-active-menu-id',
   dropdownOpenEventCount: 'dropdown-open-event-count',
   favouriteIds: 'favourite-ids',
@@ -43,11 +44,17 @@ export const STATE_KEYS = {
   queueStateRestored: 'queue-state-restored',
   radioStations: 'radio-stations',
   recentAlbums: 'recent-albums',
+  scrobbleEnabled: 'scrobble-enabled',
+  settingsRestored: 'settings-restored',
+  showPodcasts: 'show-podcasts',
+  showRadioStations: 'show-radio-stations',
   sidebarCollapsed: 'sidebar-collapsed',
   sidebarWidth: 'sidebar-width',
   snacks: 'snacks',
   sortableIsDragging: 'sortable-is-dragging',
+  streamBitrate: 'stream-bitrate',
   theme: 'theme',
+  themePreference: 'theme-preference',
   userAuthenticated: 'user-authenticated',
 } as const;
 
@@ -55,6 +62,7 @@ export const LOCAL_STORAGE_KEYS = {
   layout: 'layout',
   player: 'player',
   queue: 'queue',
+  settings: 'settings',
   theme: 'theme',
 } as const;
 

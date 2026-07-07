@@ -1,0 +1,139 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`settings > matches the snapshot 1`] = `
+"<div class="column settings">
+  <h1 class="title">Settings</h1>
+  <section class="settingsSection">
+    <h2 class="smallFont sentenceCase mBM title">Appearance</h2>
+    <div class="content">
+      <div>
+        <div class="mBS">
+          <div class="smallFont strong mBXS title">Theme</div>
+          <div class="smallFont description">Switch between dark, light, or system-preferred appearance</div>
+        </div>
+        <div class="badge"><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Dark</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Light</span></button><button aria-pressed="true" class="selectableBadge selected" type="button"><span class="smallFont strong label">Auto</span></button></div>
+      </div>
+      <div>
+        <div class="mBS">
+          <div class="smallFont strong mBXS title">Layout</div>
+          <div class="smallFont description">Choose between a compact grid or a detailed list</div>
+        </div>
+        <div class="list"><button aria-pressed="true" class="selectableOption selected" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">Grid
+                <!--v-if-->
+              </div>
+              <div class="smallFont description">Compact grid of items</div>
+            </div>
+          </button><button aria-pressed="false" class="selectableOption" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">List
+                <!--v-if-->
+              </div>
+              <div class="smallFont description">Detailed list view</div>
+            </div>
+          </button></div>
+      </div>
+    </div>
+  </section>
+  <section class="settingsSection">
+    <h2 class="smallFont sentenceCase mBM title">Audio Quality</h2>
+    <div class="content">
+      <div>
+        <div class="mBS">
+          <div class="smallFont strong mBXS title">Streaming</div>
+          <div class="smallFont description">Adjusting audio quality enables server-side transcoding, converting to a compatible format with a lower bitrate for smoother streaming</div>
+        </div>
+        <div class="list"><button aria-pressed="false" class="selectableOption" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">Source
+                <!--v-if-->
+              </div>
+              <div class="smallFont description">Direct playback of the original audio source without modifications</div>
+            </div>
+          </button><button aria-pressed="false" class="selectableOption" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">High <span class="badge">320 kbps</span></div>
+              <div class="smallFont description">Superior sound quality, perfect for immersive listening with moderate data usage</div>
+            </div>
+          </button><button aria-pressed="false" class="selectableOption" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">Medium <span class="badge">256 kbps</span></div>
+              <div class="smallFont description">Crisp audio with a balanced blend of quality and data efficiency</div>
+            </div>
+          </button><button aria-pressed="true" class="selectableOption selected" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">Low <span class="badge">192 kbps</span></div>
+              <div class="smallFont description">Solid quality tailored for streaming with reduced bandwidth</div>
+            </div>
+          </button><button aria-pressed="false" class="selectableOption" type="button">
+            <div class="status">
+              <phcheck size="14"></phcheck>
+            </div>
+            <div class="details">
+              <div class="smallFont strong title">Minimal <span class="badge">128 kbps</span></div>
+              <div class="smallFont description">Essential audio quality optimized for the lowest data consumption</div>
+            </div>
+          </button></div>
+      </div>
+    </div>
+  </section>
+  <section class="settingsSection">
+    <h2 class="smallFont sentenceCase mBM title">Navigation</h2>
+    <div class="content">
+      <div class="spaceBetween centerItems">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Show podcasts</div>
+          <div class="smallFont description">Display podcasts in the navigation menu</div>
+        </div>
+        <div class="control"><button aria-checked="true" class="button pressed" role="switch" type="button"><span class="visuallyHidden">Show podcasts</span><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+      <div class="spaceBetween centerItems">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Show radio stations</div>
+          <div class="smallFont description">Display radio stations in the navigation menu</div>
+        </div>
+        <div class="control"><button aria-checked="true" class="button pressed" role="switch" type="button"><span class="visuallyHidden">Show radio stations</span><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+    </div>
+  </section>
+  <section class="settingsSection">
+    <h2 class="smallFont sentenceCase mBM title">Playback</h2>
+    <div class="content">
+      <div class="spaceBetween centerItems">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Scrobble</div>
+          <div class="smallFont description">Report plays to your Subsonic server</div>
+        </div>
+        <div class="control"><button aria-checked="true" class="button pressed" role="switch" type="button"><span class="visuallyHidden">Scrobble</span><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+      <div class="spaceBetween centerItems">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Delete podcast on end</div>
+          <div class="smallFont description">Automatically delete a podcast episode when it finishes. NOTE: Turning this on disables the player's repeat option.</div>
+        </div>
+        <div class="control"><button aria-checked="false" class="button" role="switch" type="button"><span class="visuallyHidden">Delete podcast on end</span><span class="track"></span><span class="knob"></span></button></div>
+      </div>
+    </div>
+  </section>
+  <!--v-if-->
+</div>"
+`;

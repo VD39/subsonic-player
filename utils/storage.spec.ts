@@ -103,6 +103,7 @@ describe('deleteLocalStorage', () => {
   describe('when deleteLocalStorage function is called', () => {
     describe('with a parameter', () => {
       beforeEach(() => {
+        localStorage.clear();
         globalThis.localStorage.setItem('key1', 'key');
         globalThis.localStorage.setItem('key2', 'key');
         deleteLocalStorage('key2');
@@ -111,7 +112,6 @@ describe('deleteLocalStorage', () => {
       it('deletes the key from localStorage', () => {
         expect(globalThis.localStorage).toEqual({
           key1: 'key',
-          testKey: '{"storage":"storage"}',
         });
       });
     });

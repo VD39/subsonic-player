@@ -20,6 +20,7 @@ export const ROUTE_NAMES = {
   queue: 'queue',
   radioStations: 'radio-stations',
   search: 'search-mediaType-query',
+  settings: 'settings',
 } as const;
 
 export const ROUTE_PARAM_KEYS = {
@@ -54,13 +55,6 @@ export const ROUTE_PARAM_KEYS = {
     query: 'query',
   },
 } as const;
-
-export const MOBILE_TAB_ROUTES: RouteName[] = [
-  ROUTE_NAMES.index,
-  ROUTE_NAMES.podcast,
-  ROUTE_NAMES.podcasts,
-  ROUTE_NAMES.radioStations,
-];
 
 export const ROUTE_MEDIA_TYPE_PARAMS = {
   Albums: 'albums',

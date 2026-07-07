@@ -2,11 +2,14 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+
 import MobileNavigation from './MobileNavigation.vue';
 
 function factory(props = {}) {
   return mount(MobileNavigation, {
     props: {
+      navigation: MOBILE_NAVIGATION,
       ...props,
     },
   });
@@ -21,5 +24,11 @@ describe('MobileNavigation', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('shows the correct number of navigation items', () => {
+    expect(wrapper.findAllComponents(ButtonLink).length).toBe(
+      MOBILE_NAVIGATION.length,
+    );
   });
 });

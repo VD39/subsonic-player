@@ -7,6 +7,7 @@ export function useStateReset() {
   const { resetAlbums } = useAlbum();
   const { resetAudioPlayer } = useAudioPlayer();
   const { resetQueue } = useQueue();
+  const { resetSettings } = useSettings();
 
   function resetAllUserState() {
     resetAlbums();
@@ -17,6 +18,7 @@ export function useStateReset() {
     resetPodcasts();
     resetQueue(false);
     resetRadioStations();
+    resetSettings();
   }
 
   return {

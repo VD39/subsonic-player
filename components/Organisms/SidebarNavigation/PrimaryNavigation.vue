@@ -4,6 +4,7 @@ import SubNavigationItem from './Items/SubNavigationItem.vue';
 
 defineProps<{
   collapsed: boolean;
+  navigation: NavigationGroup[];
 }>();
 
 const { drop } = useDragAndDrop();
@@ -12,7 +13,7 @@ const { drop } = useDragAndDrop();
 <template>
   <ul class="mBM">
     <NavigationItem
-      v-for="items in SIDEBAR_DESKTOP_NAVIGATION"
+      v-for="items in navigation"
       :key="`navigation-${items.title}`"
       class="mBM"
       :collapsed

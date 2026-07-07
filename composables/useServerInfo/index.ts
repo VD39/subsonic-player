@@ -3,8 +3,19 @@ export function useServerInfo() {
   const { APP_GITHUB_URL, APP_RELEASE_DATE, APP_VERSION } = config.public;
 
   const { fetchData } = useAPI();
-  const { openModal } = useModal();
   const { user } = useUser();
+
+  const aboutInformation = ref<AboutInformation | null>(null);
+
+  async function fetchInformation() {
+    const appInfo = getAppInformation();
+    const serverInfo = await getServerInformation();
+
+    aboutInformation.value = {
+      appInformation: appInfo,
+      serverInformation: serverInfo,
+    };
+  }
 
   function getAppInformation(): AppInformation {
     return {
@@ -29,17 +40,8 @@ export function useServerInfo() {
     };
   }
 
-  async function openAboutAppModal() {
-    const serverInformation = await getServerInformation();
-    const appInformation = getAppInformation();
-
-    openModal(MODAL_TYPE.aboutAppModal, {
-      appInformation,
-      serverInformation,
-    });
-  }
-
   return {
-    openAboutAppModal,
+    aboutInformation,
+    fetchInformation,
   };
 }

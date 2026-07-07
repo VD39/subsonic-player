@@ -37,12 +37,6 @@ mockNuxtImport('useMediaLibrary', () => () => ({
   startScan: startScanMock,
 }));
 
-const openAboutAppModalMock = vi.fn();
-
-mockNuxtImport('useServerInfo', () => () => ({
-  openAboutAppModal: openAboutAppModalMock,
-}));
-
 function factory() {
   return mount(UserMenu, {
     attachTo: document.body,
@@ -124,17 +118,6 @@ describe('UserMenu', () => {
 
     it('calls the logoutAndRedirect function', () => {
       expect(logoutAndRedirectMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('when the about app DropdownItem component emits the click event', () => {
-    beforeEach(async () => {
-      wrapper.findComponent({ ref: 'aboutDropdownItem' }).vm.$emit('click');
-      await wrapper.vm.$nextTick();
-    });
-
-    it('calls the openAboutAppModal function', () => {
-      expect(openAboutAppModalMock).toHaveBeenCalled();
     });
   });
 });

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
-const { isDarkTheme, toggleTheme } = useTheme();
+const { isDarkTheme, toggleTheme } = useSettings();
 
 const buttonProps = computed(() => ({
   icon: isDarkTheme.value ? ICONS.switchToLightTheme : ICONS.switchToDarkTheme,

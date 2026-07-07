@@ -78,6 +78,7 @@ const {
   navigateQueue,
   originalQueueSnapshot,
   queueList,
+  removeAllByTrackId,
   removeTrack,
   reorderQueueTracks,
   resetQueue,
@@ -791,6 +792,98 @@ describe('useQueue', () => {
 
       it('calls the unlockScroll function', () => {
         expect(unlockScrollMock).toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when the removeAllByTrackId function is called', () => {
+    describe('when no track with the given id exists in the queue', () => {
+      beforeAll(() => {
+        addTracks(tracks);
+        vi.clearAllMocks();
+        removeAllByTrackId('non-existent-id');
+      });
+
+      it('does not update the queueList value', () => {
+        expect(queueList.value).toHaveLength(tracks.length);
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+        );
+      });
+    });
+
+    describe('when the track id matches a non-current track', () => {
+      beforeAll(() => {
+        navigateQueue(2);
+        removeAllByTrackId(tracks[3].id);
+      });
+
+      it('removes from the queueList value', () => {
+        expect(queueList.value).toHaveLength(tracks.length - 1);
+      });
+
+      it('does not update the currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(2);
+      });
+
+      it('calls the setLocalStorage function', () => {
+        expect(setLocalStorageMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when the track id matches a track before the current index', () => {
+      beforeAll(() => {
+        navigateQueue(2);
+        removeAllByTrackId(tracks[0].id);
+      });
+
+      it('removes from the queueList value', () => {
+        expect(queueList.value).toHaveLength(tracks.length - 2);
+      });
+
+      it('sets the correct currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(1);
+      });
+    });
+
+    describe('when the track id matches the current track', () => {
+      beforeAll(() => {
+        navigateQueue(1);
+        removeAllByTrackId(tracks[2].id);
+      });
+
+      it('removes from the queueList value', () => {
+        expect(queueList.value).toHaveLength(tracks.length - 3);
+      });
+
+      it('sets the correct currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(0);
+      });
+    });
+
+    describe('when the removed tracks empty the queue', () => {
+      beforeAll(() => {
+        vi.clearAllMocks();
+        removeAllByTrackId(tracks[1].id);
+      });
+
+      it('clears the queueList value', () => {
+        expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
+      });
+
+      it('clears the currentQueueIndex value', () => {
+        expect(currentQueueIndex.value).toBe(
+          QUEUE_DEFAULT_STATES.currentQueueIndex,
+        );
+      });
+
+      it('calls the deleteLocalStorage function with the correct parameters', () => {
+        expect(deleteLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.queue,
+        );
       });
     });
   });

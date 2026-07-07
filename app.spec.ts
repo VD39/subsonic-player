@@ -27,11 +27,11 @@ mockNuxtImport('useNuxtApp', () => () => ({
   runWithContext: vi.fn(),
 }));
 
-mockNuxtImport('useTheme', () => () => ({
+mockNuxtImport('useSidebar', () => () => ({
   width: ref(100),
 }));
 
-mockNuxtImport('useSidebar', () => () => ({
+mockNuxtImport('useSettings', () => () => ({
   isDarkTheme: ref(false),
 }));
 

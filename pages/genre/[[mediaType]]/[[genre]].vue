@@ -10,7 +10,7 @@ definePageMeta({
 });
 
 const route = useRoute();
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 const { getMediaByGenre } = useGenre();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();

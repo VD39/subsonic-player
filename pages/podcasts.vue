@@ -9,7 +9,7 @@ import SortControls from '@/components/Molecules/SortControls.vue';
 import PodcastItem from '@/components/Organisms/PodcastItem.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
 
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openPodcastInformationModal, openTrackInformationModal } =

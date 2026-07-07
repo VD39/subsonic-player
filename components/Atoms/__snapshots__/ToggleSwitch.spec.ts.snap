@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ToggleSwitch > matches the snapshot 1`] = `"<button aria-checked="false" class="button" role="switch" type="button"><span class="visuallyHidden">label</span><span class="track"></span><span class="knob"></span></button>"`;
+
+exports[`ToggleSwitch > when the pressed prop is true > matches the snapshot 1`] = `"<button aria-checked="true" class="button pressed" role="switch" type="button"><span class="visuallyHidden">label</span><span class="track"></span><span class="knob"></span></button>"`;

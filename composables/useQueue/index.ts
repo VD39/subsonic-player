@@ -149,6 +149,44 @@ export function useQueue() {
     return isCurrentTrackRemoved;
   }
 
+  function removeAllByTrackId(trackId: string) {
+    const indices: number[] = [];
+
+    queueList.value.forEach((track, index) => {
+      if (track.id === trackId) {
+        indices.push(index);
+      }
+    });
+
+    if (!indices.length) {
+      return;
+    }
+
+    const removedCurrent = indices.includes(currentQueueIndex.value);
+
+    for (let index = indices.length - 1; index >= 0; index--) {
+      queueList.value.splice(indices[index], 1);
+    }
+
+    if (queueList.value.length === 0) {
+      resetQueue();
+
+      return;
+    }
+
+    if (removedCurrent) {
+      currentQueueIndex.value = Math.min(
+        currentQueueIndex.value,
+        queueList.value.length - 1,
+      );
+    } else {
+      const shift = indices.filter((i) => i < currentQueueIndex.value).length;
+      currentQueueIndex.value -= shift;
+    }
+
+    saveQueueState();
+  }
+
   function reorderQueueTracks(fromIndex: number, toIndex: number) {
     if (
       fromIndex < 0 ||
@@ -449,6 +487,7 @@ export function useQueue() {
     navigateQueue,
     originalQueueSnapshot,
     queueList,
+    removeAllByTrackId,
     removeTrack,
     reorderQueueTracks,
     resetQueue,

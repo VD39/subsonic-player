@@ -7,7 +7,7 @@ defineProps<{
   artists: Artist[];
 }>();
 
-const { viewLayout } = useViewLayout();
+const { viewLayout } = useSettings();
 
 const layoutColumnOverride = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',

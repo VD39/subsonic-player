@@ -14,12 +14,6 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const openModalMock = vi.fn();
-
-mockNuxtImport('useModal', () => () => ({
-  openModal: openModalMock,
-}));
-
 const userMock = ref<null | Partial<User>>({
   server: null,
 });
@@ -38,31 +32,34 @@ const config = vi.hoisted(() => ({
 
 mockNuxtImport('useRuntimeConfig', () => () => config);
 
-const { openAboutAppModal } = useServerInfo();
+const { aboutInformation, fetchInformation } = useServerInfo();
 
 describe('useServerInfo', () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  describe('when the openAboutAppModal function is called', () => {
-    beforeEach(async () => {
-      fetchDataMock.mockResolvedValue({
-        data: serverInformationMock,
+  it('sets the default aboutInformation value', () => {
+    expect(aboutInformation.value).toBeNull();
+  });
+
+  describe('when the fetchInformation function is called', () => {
+    describe('when the fetchData response returns null', () => {
+      beforeEach(async () => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+        await fetchInformation();
       });
 
-      await openAboutAppModal();
-    });
-
-    it('calls fetchData with the correct path', () => {
-      expect(fetchDataMock).toHaveBeenCalledWith('/ping', {
-        transform: expect.any(Function),
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/ping', {
+          transform: expect.any(Function),
+        });
       });
-    });
 
-    describe('when the user server is null', () => {
-      it('calls the openModal function with the correct parameters', () => {
-        expect(openModalMock).toHaveBeenCalledWith(MODAL_TYPE.aboutAppModal, {
+      it('sets the correct aboutInformation value', () => {
+        expect(aboutInformation.value).toEqual({
           appInformation: {
             bugReportUrl: 'https://github.com/url/issues/new',
             githubReleaseUrl: 'https://github.com/url/releases',
@@ -72,26 +69,22 @@ describe('useServerInfo', () => {
             version: '2.5.0',
           },
           serverInformation: {
-            name: 'type',
-            openSubsonic: 'Yes',
             url: '',
-            version: '1.16.1',
           },
         });
       });
     });
 
-    describe('when the user server is not null', () => {
+    describe('when the fetchData response returns server information', () => {
       beforeEach(async () => {
-        userMock.value = {
-          server: 'https://www.server.com',
-        };
-
-        await openAboutAppModal();
+        fetchDataMock.mockResolvedValue({
+          data: serverInformationMock,
+        });
+        await fetchInformation();
       });
 
-      it('calls the openModal function with the correct parameters', () => {
-        expect(openModalMock).toHaveBeenCalledWith(MODAL_TYPE.aboutAppModal, {
+      it('sets the correct aboutInformation value', () => {
+        expect(aboutInformation.value).toEqual({
           appInformation: {
             bugReportUrl: 'https://github.com/url/issues/new',
             githubReleaseUrl: 'https://github.com/url/releases',
@@ -101,11 +94,22 @@ describe('useServerInfo', () => {
             version: '2.5.0',
           },
           serverInformation: {
-            name: 'type',
-            openSubsonic: 'Yes',
-            url: 'https://www.server.com',
-            version: '1.16.1',
+            ...serverInformationMock,
+            url: '',
           },
+        });
+      });
+
+      describe('when the user server is set', () => {
+        beforeEach(async () => {
+          userMock.value = { server: 'https://www.server.com' };
+          await fetchInformation();
+        });
+
+        it('sets the correct serverInformation url value', () => {
+          expect(aboutInformation.value?.serverInformation.url).toBe(
+            'https://www.server.com',
+          );
         });
       });
     });

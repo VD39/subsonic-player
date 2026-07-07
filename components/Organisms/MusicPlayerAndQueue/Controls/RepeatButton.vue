@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
-const { cycleRepeat, repeat } = useAudioPlayer();
+const { cycleRepeat, repeat, resetRepeat } = useAudioPlayer();
+const { deletePodcastOnEnd } = useSettings();
 
 const buttonProps = computed<ButtonProps>(() => {
   const noRepeat = repeat.value === REPEAT_MODE.off;
@@ -14,6 +15,10 @@ const buttonProps = computed<ButtonProps>(() => {
 });
 
 const title = computed(() => {
+  if (deletePodcastOnEnd.value) {
+    return 'Repeat is off while delete on end is enabled';
+  }
+
   switch (repeat.value) {
     case REPEAT_MODE.all:
       return 'Turn on repeat one';
@@ -23,10 +28,23 @@ const title = computed(() => {
       return 'Turn repeat off';
   }
 });
+
+watch(
+  deletePodcastOnEnd,
+  (enabled) => {
+    if (enabled) {
+      resetRepeat();
+    }
+  },
+  {
+    immediate: true,
+  },
+);
 </script>
 
 <template>
   <ButtonLink
+    :disabled="deletePodcastOnEnd"
     :icon="buttonProps.icon"
     :iconColor="buttonProps.iconColor"
     :iconWeight="buttonProps.iconWeight"

@@ -11,13 +11,14 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn().mockReturnValue({
-    name: '',
-  }),
-}));
+const showPageNavigationMock = ref(false);
 
-mockNuxtImport('useRoute', () => routeMock);
+mockNuxtImport('useNavigation', () => () => ({
+  mobileNavigation: MOBILE_NAVIGATION,
+  mobilePageNavigation: MOBILE_PAGE_NAVIGATION,
+  showPageNavigation: showPageNavigationMock,
+  sidebarNavigation: SIDEBAR_DESKTOP_NAVIGATION,
+}));
 
 function factory(props = {}) {
   return mount(DefaultLayout, {
@@ -52,19 +53,15 @@ describe('DefaultLayout', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when route name is not in MOBILE_TAB_ROUTES', () => {
+  describe('when the showPageNavigation value is false', () => {
     it('does not show the PageNavigation component', () => {
       expect(wrapper.findComponent(PageNavigation).exists()).toBe(false);
     });
   });
 
-  describe.each([...MOBILE_TAB_ROUTES])('when route name is %s', (name) => {
+  describe('when the showPageNavigation value is true', () => {
     beforeEach(() => {
-      routeMock.mockReturnValue({
-        name,
-      });
-
-      wrapper = factory();
+      showPageNavigationMock.value = true;
     });
 
     it('matches the snapshot', () => {

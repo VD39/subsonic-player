@@ -24,6 +24,7 @@ export function useHotkeyManager() {
   const { addPlaylistModal } = usePlaylist();
   const { toggleFavourite } = useFavourite();
   const { addRadioStationModal } = useRadioStation();
+  const { cycleLayout, toggleTheme } = useSettings();
   const { lockScroll, unlockScroll } = useScrollLock('hotkeyManager');
 
   const pressedKeys = ref(new Set<string>());
@@ -220,13 +221,18 @@ export function useHotkeyManager() {
         keys: ['Alt', 'E'],
       },
       {
-        action: () => {
-          clickElementById(HOTKEY_ELEMENT_IDS.viewLayoutButton);
-        },
+        action: cycleLayout,
         description: 'Change the layout of the album/artist view.',
         helpText:
           "Press 'Shift' and 'L' keys together to change the layout of the album/artist view.",
         keys: ['Shift', 'L'],
+      },
+      {
+        action: toggleTheme,
+        description: 'Toggle dark/light mode.',
+        helpText:
+          "Press 'Shift' and 'T' keys together to toggle dark/light mode.",
+        keys: ['Shift', 'T'],
       },
       {
         action: () => {

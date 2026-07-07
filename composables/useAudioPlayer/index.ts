@@ -2,6 +2,8 @@ export function useAudioPlayer() {
   const { getStreamUrl } = useAPI();
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
+  const { deletePodcastOnEnd, scrobbleEnabled } = useSettings();
+  const { deletePodcastEpisode } = usePodcast();
   const { createBookmark, deleteBookmark } = useBookmark();
   const { loadDashboardAlbums } = useAlbum();
   const {
@@ -18,6 +20,7 @@ export function useAudioPlayer() {
     isTrack,
     navigateQueue,
     queueList,
+    removeAllByTrackId,
     removeTrack,
     reorderQueueTracks,
     shuffleQueue,
@@ -187,6 +190,7 @@ export function useAudioPlayer() {
     if (
       isTrack.value &&
       !trackHasScrobbled.value &&
+      scrobbleEnabled.value &&
       currentTime.value / currentTrack.value.duration > 0.8
     ) {
       scrobble(currentTrack.value.id);
@@ -376,6 +380,10 @@ export function useAudioPlayer() {
 
   // Repeat/Shuffle actions.
   function cycleRepeat() {
+    if (deletePodcastOnEnd.value) {
+      return;
+    }
+
     switch (repeat.value) {
       case REPEAT_MODE.all:
         repeat.value = REPEAT_MODE.one;
@@ -390,6 +398,11 @@ export function useAudioPlayer() {
 
     saveAudioPlayerState();
     prefetchUpcomingTracks();
+  }
+
+  function resetRepeat() {
+    repeat.value = REPEAT_MODE.off;
+    saveAudioPlayerState();
   }
 
   function toggleShuffle() {
@@ -542,6 +555,28 @@ export function useAudioPlayer() {
     playerStateRestored.value = false;
   }
 
+  async function deletePodcastEpisodeOnFinished(episode: PodcastEpisode) {
+    const wasLastTrack = isLastTrack.value;
+
+    deletePodcastEpisode(episode);
+    removeAllByTrackId(episode.id);
+
+    // Nothing left to play so clear the session.
+    if (!queueList.value.length) {
+      resetPlayerSession();
+
+      return;
+    }
+
+    // The queue index now points at the next different track.
+    await changeTrack(currentTrack.value);
+
+    // Pause playback when episode was last episode.
+    if (wasLastTrack) {
+      pausePlayback();
+    }
+  }
+
   function setupAudioPlayer() {
     audioPlayer.value = new AudioPlayer();
     preloader.value = new AudioPreloader();
@@ -567,12 +602,22 @@ export function useAudioPlayer() {
     audioPlayer.value.onEnded(async () => {
       loadDashboardAlbums();
 
+      const finishedId = currentTrack.value.id;
+
       if (isPodcastEpisode.value) {
-        deleteBookmark(currentTrack.value.id, false);
+        deleteBookmark(finishedId, false);
       }
 
       resetPlaybackState();
       updateCurrentTrackPosition(0);
+
+      if (isPodcastEpisode.value && deletePodcastOnEnd.value) {
+        await deletePodcastEpisodeOnFinished(
+          currentTrack.value as PodcastEpisode,
+        );
+
+        return;
+      }
 
       switch (repeat.value) {
         case REPEAT_MODE.all: {
@@ -637,6 +682,7 @@ export function useAudioPlayer() {
     repeat,
     resetAudioPlayer,
     resetPlayerSession,
+    resetRepeat,
     restoreAudioPlayerState,
     rewindTrack,
     seekTo,

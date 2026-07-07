@@ -5,7 +5,7 @@ import SnackBar from '@/components/Molecules/SnackBar.vue';
 
 const { $pwa, hook } = useNuxtApp();
 const { closeModal, openModal } = useModal();
-const { isDarkTheme } = useTheme();
+const { isDarkTheme } = useSettings();
 const { width } = useSidebar();
 const { hasQueueTracks } = useQueue();
 

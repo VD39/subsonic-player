@@ -3,5 +3,4 @@ export const HOTKEY_ELEMENT_IDS = {
   refreshDataButton: 'refresh-data-button',
   searchInput: 'search-input',
   shuffleAllButton: 'shuffle-all-button',
-  viewLayoutButton: 'view-layout-button',
 } as const;

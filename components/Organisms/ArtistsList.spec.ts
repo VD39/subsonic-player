@@ -13,7 +13,7 @@ import ArtistsList from './ArtistsList.vue';
 
 const viewLayoutMock = ref<Layout>('gridLayout');
 
-mockNuxtImport('useViewLayout', () => () => ({
+mockNuxtImport('useSettings', () => () => ({
   viewLayout: viewLayoutMock,
 }));
 

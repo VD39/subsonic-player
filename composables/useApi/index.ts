@@ -5,6 +5,7 @@ export function useAPI() {
   const { IMAGE_SIZE } = config.public;
 
   const { addErrorSnack } = useSnack();
+  const { streamBitrate } = useSettings();
 
   function getUrl(path: string, queryParams: Record<string, number | string>) {
     const authCookie = useCookie(COOKIE_NAMES.auth);
@@ -39,6 +40,7 @@ export function useAPI() {
 
     return getUrl('stream', {
       id: streamSource,
+      maxBitRate: streamBitrate.value,
     });
   }
 

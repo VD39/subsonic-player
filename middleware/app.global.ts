@@ -1,5 +1,4 @@
 export default defineNuxtRouteMiddleware(async (to) => {
-  const { loadThemePreference } = useTheme();
   const { autoLogin, isAuthenticated } = useAuth();
   const { closeModal } = useModal();
   const { closeQueuePanels } = useQueue();
@@ -9,12 +8,6 @@ export default defineNuxtRouteMiddleware(async (to) => {
   await callOnce(async () => {
     await autoLogin();
   });
-
-  if (import.meta.client) {
-    await callOnce(() => {
-      loadThemePreference();
-    });
-  }
 
   if (to.name === ROUTE_NAMES.login && isAuthenticated.value) {
     const destination = to.query.redirect?.toString() || {

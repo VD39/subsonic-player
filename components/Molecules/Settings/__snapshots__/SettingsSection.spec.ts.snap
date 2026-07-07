@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SettingsSection > matches the snapshot 1`] = `
+"<section class="settingsSection">
+  <h2 class="smallFont sentenceCase mBM title">title</h2>
+  <div class="content"></div>
+</section>"
+`;

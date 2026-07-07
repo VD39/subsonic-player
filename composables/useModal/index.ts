@@ -1,5 +1,4 @@
 import ReadMore from '@/components/Atoms/ReadMore.vue';
-import AboutApp from '@/components/Molecules/AboutApp.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
 import AppUpdate from '@/components/Molecules/AppUpdate.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
@@ -33,14 +32,6 @@ export function useModal() {
       attrs,
       component: markRaw(AddUpdatePlaylistForm),
       title: `${update ? 'Update' : 'Add'} playlist`,
-    };
-  }
-
-  function openAboutAppModal(attrs: ModalProps['attrs']) {
-    modal.value = {
-      attrs,
-      component: markRaw(AboutApp),
-      title: 'About',
     };
   }
 
@@ -121,9 +112,6 @@ export function useModal() {
 
   function openModal(modalType: ModalType, attrs = {}) {
     switch (modalType) {
-      case MODAL_TYPE.aboutAppModal:
-        openAboutAppModal(attrs);
-        break;
       case MODAL_TYPE.addPlaylistModal:
         openAddUpdatePlaylistModal(attrs);
         break;

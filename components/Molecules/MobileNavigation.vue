@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+
+defineProps<{
+  navigation?: NavigationItem[];
+}>();
 </script>
 
 <template>
@@ -8,7 +12,7 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
       :class="['inner', 'centerAll', 'spaceBetween', $style.mobileNavigation]"
     >
       <li
-        v-for="item in MOBILE_NAVIGATION"
+        v-for="item in navigation"
         :key="`navigation-${item.title}`"
         :class="$style.item"
       >

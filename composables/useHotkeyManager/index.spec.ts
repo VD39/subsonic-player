@@ -35,6 +35,14 @@ mockNuxtImport('useRadioStation', () => () => ({
   addRadioStationModal: addRadioStationModalMock,
 }));
 
+const cycleLayoutMock = vi.fn();
+const toggleThemeMock = vi.fn();
+
+mockNuxtImport('useSettings', () => () => ({
+  cycleLayout: cycleLayoutMock,
+  toggleTheme: toggleThemeMock,
+}));
+
 const modalMock = ref<ModalProps>({
   component: null,
 });
@@ -91,6 +99,7 @@ const ALL_MOCKS = {
   addPlaylistModal: addPlaylistModalMock,
   addPodcastModal: addPodcastModalMock,
   addRadioStationModal: addRadioStationModalMock,
+  cycleLayout: cycleLayoutMock,
   cycleRepeat: cycleRepeatMock,
   fastForwardTrack: fastForwardTrackMock,
   playNextTrack: playNextTrackMock,
@@ -104,6 +113,7 @@ const ALL_MOCKS = {
   togglePlay: togglePlayMock,
   toggleQueuePlayer: toggleQueuePlayerMock,
   toggleShuffle: toggleShuffleMock,
+  toggleTheme: toggleThemeMock,
 };
 
 describe('useHotkeyManager', () => {
@@ -428,6 +438,8 @@ describe('useHotkeyManager', () => {
       [['Alt', 'E'], 'addPodcastModal'],
       [['Alt', 'P'], 'addPlaylistModal'],
       [['Alt', 'R'], 'addRadioStationModal'],
+      [['Shift', 'L'], 'cycleLayout'],
+      [['Shift', 'T'], 'toggleTheme'],
     ])('when %s key is pressed', (keys, exceptFunctionName) => {
       setEvents(keys);
 

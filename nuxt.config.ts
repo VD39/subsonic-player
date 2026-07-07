@@ -16,12 +16,19 @@ const ENVIRONMENT_VARIABLES = {
   APP_GITHUB_URL: 'https://github.com/VD39/subsonic-player',
   APP_RELEASE_DATE: process.env.APP_RELEASE_DATE || '',
   APP_VERSION: process.env.APP_VERSION || 'dev',
+  BITRATE: Number(process.env.BITRATE || 0),
+  DELETE_PODCAST_ON_END: process.env.DELETE_PODCAST_ON_END === 'true',
   ENABLE_QUEUE_SYNC: process.env.ENABLE_QUEUE_SYNC === 'true',
   IMAGE_SIZE: process.env.IMAGE_SIZE || '500',
+  LAYOUT: process.env.LAYOUT || 'gridLayout',
   LOAD_SIZE: process.env.LOAD_SIZE || '50',
   MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',
+  SCROBBLE_ENABLED: process.env.SCROBBLE_ENABLED !== 'false',
   SERVER_URL: process.env.SERVER_URL || '',
+  SHOW_PODCASTS: process.env.SHOW_PODCASTS !== 'false',
+  SHOW_RADIO_STATIONS: process.env.SHOW_RADIO_STATIONS !== 'false',
   SPA_MODE: process.env.SPA_MODE === 'true',
+  THEME: process.env.THEME || 'auto',
 };
 
 export default defineNuxtConfig({
