@@ -2,6 +2,12 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
+import {
+  getFormattedAlbumsMock,
+  getFormattedArtistsMock,
+  getFormattedTracksMock,
+} from '@/test/helpers';
+
 import { useSearch } from './index';
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
@@ -12,7 +18,11 @@ mockNuxtImport('useAPI', () => () => ({
   fetchData: fetchDataMock,
 }));
 
-const { fetchSearchResult } = useSearch();
+const albums = getFormattedAlbumsMock();
+const artists = getFormattedArtistsMock();
+const tracks = getFormattedTracksMock();
+
+const { fetchSearchResult, fetchSearchSuggestions } = useSearch();
 
 describe('useSearch', () => {
   afterEach(() => {
@@ -139,6 +149,245 @@ describe('useSearch', () => {
             } as SearchParams),
           ).toEqual([outcome]);
         });
+      });
+    });
+  });
+
+  describe('when the fetchSearchSuggestions function is called', () => {
+    describe('when offset is not set', () => {
+      beforeEach(async () => {
+        await fetchSearchSuggestions('query');
+      });
+
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/search3', {
+          query: {
+            albumCount: 5,
+            albumOffset: 0,
+            artistCount: 5,
+            artistOffset: 0,
+            query: 'query',
+            songCount: 5,
+            songOffset: 0,
+          },
+          transform: expect.any(Function),
+        });
+      });
+    });
+
+    describe('when fetchData response returns null', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await fetchSearchSuggestions('query')).toEqual([]);
+      });
+    });
+
+    describe('when fetchData response returns arrays without data', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            albums: [],
+            artists: [],
+            tracks: [],
+          },
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await fetchSearchSuggestions('query')).toEqual([]);
+      });
+    });
+
+    describe('when fetchData response returns data with artists only', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            albums: [],
+            artists,
+            tracks: [],
+          },
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await fetchSearchSuggestions('query')).toEqual([
+          {
+            items: [
+              {
+                artists: [],
+                icon: ICONS.artist,
+                id: `artist-${artists[0].id}`,
+                name: artists[0].name,
+                route: {
+                  name: ROUTE_NAMES.artist,
+                  params: {
+                    [ROUTE_PARAM_KEYS.artist.id]: artists[0].id,
+                  },
+                },
+                type: MEDIA_TYPE.artist,
+              },
+            ],
+            searchType: ROUTE_MEDIA_TYPE_PARAMS.Artists,
+            title: 'Artists',
+          },
+        ]);
+      });
+    });
+
+    describe('when fetchData response returns data with albums only', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            albums,
+            artists: [],
+            tracks: [],
+          },
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await fetchSearchSuggestions('query')).toEqual([
+          {
+            items: [
+              {
+                artists: albums[0].artists,
+                icon: ICONS.album,
+                id: `album-${albums[0].id}`,
+                name: albums[0].name,
+                route: {
+                  name: ROUTE_NAMES.album,
+                  params: {
+                    [ROUTE_PARAM_KEYS.album.id]: albums[0].id,
+                  },
+                },
+                type: MEDIA_TYPE.album,
+              },
+            ],
+            searchType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+            title: 'Albums',
+          },
+        ]);
+      });
+    });
+
+    describe('when fetchData response returns data with tracks only', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            albums: [],
+            artists: [],
+            tracks,
+          },
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await fetchSearchSuggestions('query')).toEqual([
+          {
+            items: [
+              {
+                artists: tracks[0].artists,
+                icon: ICONS.track,
+                id: `track-${tracks[0].id}`,
+                name: tracks[0].name,
+                route: {
+                  name: ROUTE_NAMES.search,
+                  params: {
+                    [ROUTE_PARAM_KEYS.search.mediaType]:
+                      ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+                    [ROUTE_PARAM_KEYS.search.query]: 'query',
+                  },
+                },
+                track: tracks[0],
+                type: MEDIA_TYPE.track,
+              },
+            ],
+            searchType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+            title: 'Tracks',
+          },
+        ]);
+      });
+    });
+
+    describe('when fetchData response returns data for all media types', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: {
+            albums,
+            artists,
+            tracks,
+          },
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await fetchSearchSuggestions('query')).toEqual([
+          {
+            items: [
+              {
+                artists: [],
+                icon: ICONS.artist,
+                id: `artist-${artists[0].id}`,
+                name: artists[0].name,
+                route: {
+                  name: ROUTE_NAMES.artist,
+                  params: {
+                    [ROUTE_PARAM_KEYS.artist.id]: artists[0].id,
+                  },
+                },
+                type: MEDIA_TYPE.artist,
+              },
+            ],
+            searchType: ROUTE_MEDIA_TYPE_PARAMS.Artists,
+            title: 'Artists',
+          },
+          {
+            items: [
+              {
+                artists: albums[0].artists,
+                icon: ICONS.album,
+                id: `album-${albums[0].id}`,
+                name: albums[0].name,
+                route: {
+                  name: ROUTE_NAMES.album,
+                  params: {
+                    [ROUTE_PARAM_KEYS.album.id]: albums[0].id,
+                  },
+                },
+                type: MEDIA_TYPE.album,
+              },
+            ],
+            searchType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+            title: 'Albums',
+          },
+          {
+            items: [
+              {
+                artists: tracks[0].artists,
+                icon: ICONS.track,
+                id: `track-${tracks[0].id}`,
+                name: tracks[0].name,
+                route: {
+                  name: ROUTE_NAMES.search,
+                  params: {
+                    [ROUTE_PARAM_KEYS.search.mediaType]:
+                      ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+                    [ROUTE_PARAM_KEYS.search.query]: 'query',
+                  },
+                },
+                track: tracks[0],
+                type: MEDIA_TYPE.track,
+              },
+            ],
+            searchType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+            title: 'Tracks',
+          },
+        ]);
       });
     });
   });
