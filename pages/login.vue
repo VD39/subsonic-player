@@ -25,6 +25,8 @@ async function onFormSubmit(fields: AuthData) {
 
 async function redirectIfAuthenticated() {
   if (isAuthenticated.value) {
+    setLocalStorage(LOCAL_STORAGE_KEYS.login, Date.now().toString());
+
     const destination = route.query.redirect?.toString() || {
       name: ROUTE_NAMES.index,
     };

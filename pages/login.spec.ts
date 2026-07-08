@@ -12,6 +12,10 @@ import LoginPage from './login.vue';
 const loginMock = vi.fn();
 const isAuthenticatedMock = ref(false);
 
+const setLocalStorageMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
+
 mockNuxtImport('useAuth', () => () => ({
   error: ref(null),
   isAuthenticated: isAuthenticatedMock,
@@ -87,6 +91,13 @@ describe('login', () => {
             name: 'index',
           });
         });
+
+        it('calls the setLocalStorage function with the correct parameters', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            LOCAL_STORAGE_KEYS.login,
+            expect.any(String),
+          );
+        });
       });
 
       describe('when there is a redirect query parameter', () => {
@@ -104,6 +115,13 @@ describe('login', () => {
 
         it('calls the navigateTo function with the correct parameters', () => {
           expect(navigateToMock).toHaveBeenCalledWith('/albums');
+        });
+
+        it('calls the setLocalStorage function with the correct parameters', () => {
+          expect(setLocalStorageMock).toHaveBeenCalledWith(
+            LOCAL_STORAGE_KEYS.login,
+            expect.any(String),
+          );
         });
       });
     });

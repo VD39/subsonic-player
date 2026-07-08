@@ -11,6 +11,12 @@ const { startScan } = useMediaLibrary();
 
 const userAvatar = ref<Icon | string>(FALLBACK_ICON_BY_TYPE.user);
 
+async function onLogout() {
+  setLocalStorage(LOCAL_STORAGE_KEYS.logout, Date.now().toString());
+
+  await logoutAndRedirect();
+}
+
 const username = computed(() => user.value?.username);
 
 watchEffect(async () => {
@@ -59,7 +65,7 @@ watchEffect(async () => {
     <DropdownItem
       ref="logoutDropdownItem"
       :icon="ICONS.logOut"
-      @click="logoutAndRedirect"
+      @click="onLogout"
     >
       Log out
     </DropdownItem>

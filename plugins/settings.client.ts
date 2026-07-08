@@ -10,8 +10,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     loadSettings();
   });
 
-  globalThis.addEventListener('storage', (event) => {
-    if ((event as StorageEvent).key === LOCAL_STORAGE_KEYS.settings) {
+  globalThis.addEventListener('storage', (event: StorageEvent) => {
+    if (event.key === LOCAL_STORAGE_KEYS.settings) {
       syncFromStorage();
     }
   });

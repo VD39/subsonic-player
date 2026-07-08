@@ -60,6 +60,8 @@ export const STATE_KEYS = {
 
 export const LOCAL_STORAGE_KEYS = {
   layout: 'layout',
+  login: 'login',
+  logout: 'logout',
   player: 'player',
   queue: 'queue',
   settings: 'settings',

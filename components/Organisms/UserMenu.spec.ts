@@ -27,6 +27,10 @@ mockNuxtImport('useUser', () => () => ({
 
 const logoutAndRedirectMock = vi.fn();
 
+const setLocalStorageMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
+
 mockNuxtImport('useAuth', () => () => ({
   logoutAndRedirect: logoutAndRedirectMock,
 }));
@@ -118,6 +122,13 @@ describe('UserMenu', () => {
 
     it('calls the logoutAndRedirect function', () => {
       expect(logoutAndRedirectMock).toHaveBeenCalled();
+    });
+
+    it('calls the setLocalStorage function with the correct parameters', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.logout,
+        expect.any(String),
+      );
     });
   });
 });
