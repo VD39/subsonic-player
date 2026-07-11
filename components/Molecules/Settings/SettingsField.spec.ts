@@ -57,4 +57,26 @@ describe('SettingsField', () => {
       expect(wrapper.text()).toContain('Slot content');
     });
   });
+
+  describe('when the responsive prop is not set', () => {
+    it('does not add the responsive class to the wrapper element', () => {
+      expect(wrapper.classes()).not.toContain('responsive');
+    });
+  });
+
+  describe('when the responsive prop is set', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        responsive: true,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('adds the responsive class to the wrapper element', () => {
+      expect(wrapper.classes()).toContain('responsive');
+    });
+  });
 });

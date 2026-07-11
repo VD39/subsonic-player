@@ -35,6 +35,15 @@ function onUpdate() {
 
     <div class="centerItems" :class="$style.actions">
       <ButtonLink
+        ref="dismissButtonLink"
+        class="actionButton"
+        showText
+        @click="onDismiss"
+      >
+        Dismiss
+      </ButtonLink>
+
+      <ButtonLink
         ref="updateButtonLink"
         class="actionButton"
         :icon="buttonProps.icon"
@@ -42,15 +51,6 @@ function onUpdate() {
         @click="onUpdate"
       >
         {{ buttonProps.text }}
-      </ButtonLink>
-
-      <ButtonLink
-        ref="dismissButtonLink"
-        class="actionButton"
-        showText
-        @click="onDismiss"
-      >
-        Dismiss
       </ButtonLink>
     </div>
   </div>
@@ -65,6 +65,6 @@ function onUpdate() {
 
 .actions {
   gap: var(--default-space);
-  margin-top: var(--default-space);
+  margin: var(--default-space) 0 0 auto;
 }
 </style>

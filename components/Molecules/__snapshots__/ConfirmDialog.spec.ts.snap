@@ -1,13 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AppUpdate > matches the snapshot 1`] = `
+exports[`ConfirmDialog > matches the snapshot 1`] = `
 "<div class="content">
-  <p>A new version is available. Update now to get the latest features.</p>
-  <p><span class="strong">Note:</span> Updating the app will cause the current page to reload. </p>
+  <p>Are you sure?</p>
   <div class="centerItems actions"><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="button">
-      <!--v-if--><span class="clamp text"> Dismiss </span>
+      <!--v-if--><span class="clamp text"> Cancel </span>
     </button><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="button">
-      <!--v-if--><span class="clamp text">Update</span>
+      <!--v-if--><span class="clamp text">Confirm</span>
     </button></div>
 </div>"
 `;

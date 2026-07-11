@@ -468,6 +468,7 @@ export function useQueue() {
 
   return {
     addTracks,
+    clearServerQueue,
     closeQueuePanels,
     currentQueueIndex,
     currentTrack,

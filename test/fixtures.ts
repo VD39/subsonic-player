@@ -425,3 +425,13 @@ export const searchSuggestionsMock: SuggestionGroup[] = [
     title: 'Tracks',
   },
 ];
+
+export const settingsMock = {
+  deletePodcastOnEnd: true,
+  layout: 'gridLayout' as Layout,
+  scrobbleEnabled: false,
+  showPodcasts: true,
+  showRadioStations: false,
+  streamBitrate: 320 as Bitrate,
+  theme: 'dark' as Theme,
+};

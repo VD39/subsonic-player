@@ -1,4 +1,12 @@
-import { resolveDarkTheme, toBitrate, toLayout, toTheme } from './utils';
+import { settingsMock } from '@/test/fixtures';
+
+import {
+  isValidSettings,
+  resolveDarkTheme,
+  toBitrate,
+  toLayout,
+  toTheme,
+} from './utils';
 
 const matchesMock = ref(false);
 
@@ -86,6 +94,68 @@ describe('toTheme', () => {
   ])('when the value is %o', (value, expected) => {
     it('returns the correct response', () => {
       expect(toTheme(value as Theme)).toBe(expected);
+    });
+  });
+});
+
+describe('isValidSettings', () => {
+  describe.each([
+    [settingsMock, true],
+    [null, false],
+    ['string', false],
+    [[], false],
+    [
+      {
+        ...settingsMock,
+        layout: 'invalidLayout',
+      },
+      false,
+    ],
+    [
+      {
+        ...settingsMock,
+        streamBitrate: 999,
+      },
+      false,
+    ],
+    [
+      {
+        ...settingsMock,
+        theme: 'invalidTheme',
+      },
+      false,
+    ],
+    [
+      {
+        ...settingsMock,
+        deletePodcastOnEnd: 'true',
+      },
+      false,
+    ],
+    [
+      {
+        ...settingsMock,
+        scrobbleEnabled: 1,
+      },
+      false,
+    ],
+    [
+      {
+        ...settingsMock,
+        showPodcasts: 'true',
+      },
+      false,
+    ],
+    [
+      {
+        ...settingsMock,
+        showRadioStations: 0,
+      },
+      false,
+    ],
+  ])('when the value is %o', (data, expected) => {
+    it('returns the correct response', () => {
+      expect(isValidSettings(data as unknown as SettingsData)).toBe(expected);
     });
   });
 });

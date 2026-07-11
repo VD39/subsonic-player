@@ -19,6 +19,7 @@ mockNuxtImport('useServerInfo', () => () => ({
 }));
 
 const deletePodcastOnEndMock = ref(false);
+const resetSettingsMock = vi.fn();
 const scrobbleEnabledMock = ref(true);
 const setStreamBitrateMock = vi.fn();
 const setThemeModeMock = vi.fn();
@@ -35,6 +36,7 @@ const viewLayoutMock = ref<Layout>(LAYOUT_OPTIONS[0].value);
 
 mockNuxtImport('useSettings', () => () => ({
   deletePodcastOnEnd: deletePodcastOnEndMock,
+  resetSettings: resetSettingsMock,
   scrobbleEnabled: scrobbleEnabledMock,
   setStreamBitrate: setStreamBitrateMock,
   setThemeMode: setThemeModeMock,
@@ -48,6 +50,26 @@ mockNuxtImport('useSettings', () => () => ({
   toggleShowPodcasts: toggleShowPodcastsMock,
   toggleShowRadioStations: toggleShowRadioStationsMock,
   viewLayout: viewLayoutMock,
+}));
+
+const cacheEstimateMock = ref('');
+const clearAllAppStorageMock = vi.fn();
+const clearPwaCachesMock = vi.fn();
+const fetchCacheEstimateMock = vi.fn();
+
+mockNuxtImport('useMaintenance', () => () => ({
+  cacheEstimate: cacheEstimateMock,
+  clearAllAppStorage: clearAllAppStorageMock,
+  clearPwaCaches: clearPwaCachesMock,
+  fetchCacheEstimate: fetchCacheEstimateMock,
+}));
+
+const closeModalMock = vi.fn();
+const openModalMock = vi.fn();
+
+mockNuxtImport('useModal', () => () => ({
+  closeModal: closeModalMock,
+  openModal: openModalMock,
 }));
 
 function factory(props = {}) {
@@ -75,6 +97,10 @@ describe('settings', () => {
 
   it('calls the fetchInformation function', () => {
     expect(fetchInformationMock).toHaveBeenCalled();
+  });
+
+  it('calls the fetchCacheEstimate function', () => {
+    expect(fetchCacheEstimateMock).toHaveBeenCalled();
   });
 
   describe('inside the theme group', () => {
@@ -243,6 +269,52 @@ describe('settings', () => {
 
     it('shows the AboutApp component', () => {
       expect(wrapper.findComponent(AboutApp).exists()).toBe(true);
+    });
+  });
+
+  describe('when the cacheEstimate value is set', () => {
+    beforeEach(() => {
+      cacheEstimateMock.value = '5.0 MB used of 1024.0 MB available';
+    });
+
+    it('displays the cache size text', () => {
+      expect(wrapper.text()).toContain('5.0 MB used of 1024.0 MB available');
+    });
+  });
+
+  describe('when the clear cache ButtonLink component is clicked', () => {
+    beforeEach(async () => {
+      await wrapper
+        .findComponent({ ref: 'clearCacheButtonLink' })
+        .trigger('click');
+    });
+
+    it('calls the openModal function with the correct parameters', () => {
+      expect(openModalMock).toHaveBeenCalledWith(MODAL_TYPE.confirmDialog, {
+        confirmText: 'Clear',
+        message:
+          'Permanently clear all locally cached data? This includes cached audio, images, and player/queue state.',
+        onCancel: expect.any(Function),
+        onConfirm: expect.any(Function),
+      });
+    });
+  });
+
+  describe('when the reset settings ButtonLink component is clicked', () => {
+    beforeEach(async () => {
+      await wrapper
+        .findComponent({ ref: 'resetSettingsButtonLink' })
+        .trigger('click');
+    });
+
+    it('calls the openModal function with the correct parameters', () => {
+      expect(openModalMock).toHaveBeenCalledWith(MODAL_TYPE.confirmDialog, {
+        confirmText: 'Reset',
+        message:
+          'Reset all settings to their default values? This cannot be undone.',
+        onCancel: expect.any(Function),
+        onConfirm: expect.any(Function),
+      });
     });
   });
 });

@@ -1,12 +1,21 @@
 <script setup lang="ts">
 defineProps<{
   description?: string;
+  responsive?: boolean;
   title: string;
 }>();
 </script>
 
 <template>
-  <div class="spaceBetween centerItems">
+  <div
+    :class="[
+      'spaceBetween',
+      'centerItems',
+      {
+        [$style.responsive]: responsive,
+      },
+    ]"
+  >
     <div :class="$style.info">
       <div :class="['sentenceCase', 'smallFont', 'strong', $style.title]">
         {{ title }}
@@ -30,6 +39,13 @@ defineProps<{
 <style module>
 .info {
   flex: 1;
+}
+
+.responsive {
+  @media (--mobile-only) {
+    flex-direction: column;
+    align-items: unset;
+  }
 }
 
 .title {

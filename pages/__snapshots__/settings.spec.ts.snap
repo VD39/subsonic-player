@@ -134,6 +134,36 @@ exports[`settings > matches the snapshot 1`] = `
       </div>
     </div>
   </section>
+  <section class="settingsSection">
+    <h2 class="smallFont sentenceCase mBM title">Maintenance</h2>
+    <div class="content">
+      <div class="spaceBetween centerItems responsive">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Cache size</div>
+          <div class="smallFont description">Approximate space used by cached audio, images, and other data</div>
+        </div>
+        <div class="control"><span class="cacheSize"></span></div>
+      </div>
+      <div class="spaceBetween centerItems">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Clear cache</div>
+          <div class="smallFont description">Remove all cached data and stored player/queue state</div>
+        </div>
+        <div class="control"><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Clear </span>
+          </button></div>
+      </div>
+      <div class="spaceBetween centerItems">
+        <div class="info">
+          <div class="sentenceCase smallFont strong title">Reset settings</div>
+          <div class="smallFont description">Restore all settings to their factory defaults</div>
+        </div>
+        <div class="control"><button class="centerItems buttonLink actionButton actionButton" draggable="false" type="button">
+            <!--v-if--><span class="clamp text"> Reset </span>
+          </button></div>
+      </div>
+    </div>
+  </section>
   <!--v-if-->
 </div>"
 `;

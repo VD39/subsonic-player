@@ -3,6 +3,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import ReadMore from '@/components/Atoms/ReadMore.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
 import AppUpdate from '@/components/Molecules/AppUpdate.vue';
+import ConfirmDialog from '@/components/Molecules/ConfirmDialog.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
 import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
 import TrackDetails from '@/components/Molecules/TrackInformation.vue';
@@ -123,6 +124,14 @@ describe('useModal', () => {
         MODAL_TYPE.trackDetailsModal,
         TrackDetails,
         'Track Details',
+        {
+          attrs: 'attrs',
+        },
+      ],
+      [
+        MODAL_TYPE.confirmDialog,
+        ConfirmDialog,
+        'Confirm',
         {
           attrs: 'attrs',
         },

@@ -146,7 +146,7 @@ describe('SearchForm', () => {
       );
     });
 
-    it('displays the correct text in the ButtonLink component', () => {
+    it('sets the correct slot data on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).text()).toContain('Search');
     });
   });
@@ -188,7 +188,7 @@ describe('SearchForm', () => {
       );
     });
 
-    it('displays the correct text in the ButtonLink component', () => {
+    it('sets the correct slot data on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).text()).toContain('Search');
     });
 
@@ -232,7 +232,7 @@ describe('SearchForm', () => {
       );
     });
 
-    it('displays the correct text in the ButtonLink component', () => {
+    it('sets the correct slot data on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).text()).toContain('Search');
     });
 
@@ -275,7 +275,7 @@ describe('SearchForm', () => {
         );
       });
 
-      it('displays the correct text in the ButtonLink component', () => {
+      it('sets the correct slot data on the ButtonLink component', () => {
         expect(wrapper.findComponent(ButtonLink).text()).toContain('Search');
       });
 
@@ -345,7 +345,7 @@ describe('SearchForm', () => {
       );
     });
 
-    it('displays the correct text in the ButtonLink component', () => {
+    it('sets the correct slot data on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).text()).toContain(
         'Searching...',
       );

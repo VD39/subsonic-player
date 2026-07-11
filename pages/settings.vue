@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import ToggleSwitch from '@/components/Atoms/ToggleSwitch.vue';
 import AboutApp from '@/components/Molecules/AboutApp.vue';
 import SelectableBadge from '@/components/Molecules/Settings/SelectableBadge.vue';
@@ -9,6 +10,7 @@ import SettingsSection from '@/components/Molecules/Settings/SettingsSection.vue
 
 const {
   deletePodcastOnEnd,
+  resetSettings,
   scrobbleEnabled,
   setStreamBitrate,
   setThemeMode,
@@ -24,9 +26,48 @@ const {
   viewLayout,
 } = useSettings();
 const { aboutInformation, fetchInformation } = useServerInfo();
+const {
+  cacheEstimate,
+  clearAllAppStorage,
+  clearPwaCaches,
+  fetchCacheEstimate,
+} = useMaintenance();
+const { closeModal, openModal } = useModal();
+
+function onClearCache() {
+  openModal(MODAL_TYPE.confirmDialog, {
+    confirmText: 'Clear',
+    message:
+      'Permanently clear all locally cached data? This includes cached audio, images, and player/queue state.',
+    onCancel() {
+      closeModal();
+    },
+    onConfirm() {
+      clearAllAppStorage();
+      clearPwaCaches();
+      closeModal();
+    },
+  });
+}
+
+function onResetSettings() {
+  openModal(MODAL_TYPE.confirmDialog, {
+    confirmText: 'Reset',
+    message:
+      'Reset all settings to their default values? This cannot be undone.',
+    onCancel() {
+      closeModal();
+    },
+    onConfirm() {
+      resetSettings();
+      closeModal();
+    },
+  });
+}
 
 onMounted(() => {
   fetchInformation();
+  fetchCacheEstimate();
 });
 </script>
 
@@ -138,6 +179,44 @@ onMounted(() => {
       </SettingsField>
     </SettingsSection>
 
+    <SettingsSection title="Maintenance">
+      <SettingsField
+        description="Approximate space used by cached audio, images, and other data"
+        responsive
+        title="Cache size"
+      >
+        <span :class="$style.cacheSize">{{ cacheEstimate }}</span>
+      </SettingsField>
+
+      <SettingsField
+        description="Remove all cached data and stored player/queue state"
+        title="Clear cache"
+      >
+        <ButtonLink
+          ref="clearCacheButtonLink"
+          class="actionButton"
+          showText
+          @click="onClearCache"
+        >
+          Clear
+        </ButtonLink>
+      </SettingsField>
+
+      <SettingsField
+        description="Restore all settings to their factory defaults"
+        title="Reset settings"
+      >
+        <ButtonLink
+          ref="resetSettingsButtonLink"
+          class="actionButton"
+          showText
+          @click="onResetSettings"
+        >
+          Reset
+        </ButtonLink>
+      </SettingsField>
+    </SettingsSection>
+
     <SettingsSection v-if="aboutInformation" title="About">
       <AboutApp
         :appInformation="aboutInformation.appInformation"
@@ -155,5 +234,9 @@ onMounted(() => {
 
 .title {
   font-size: var(--h2-font-size);
+}
+
+.cacheSize {
+  color: var(--secondary-font-color);
 }
 </style>

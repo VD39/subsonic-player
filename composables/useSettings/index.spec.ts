@@ -790,16 +790,18 @@ describe('useSettings', () => {
       );
     });
 
-    it('calls the getLocalStorage function with the correct parameters', () => {
-      expect(getLocalStorageMock).toHaveBeenCalledWith(
-        LOCAL_STORAGE_KEYS.settings,
-      );
-    });
-
-    it('calls the setLocalStorage function with the correct parameters', () => {
+    it('calls the setLocalStorage function with the default values', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
         LOCAL_STORAGE_KEYS.settings,
-        expect.any(Object),
+        {
+          deletePodcastOnEnd: false,
+          layout: 'gridLayout',
+          scrobbleEnabled: true,
+          showPodcasts: true,
+          showRadioStations: true,
+          streamBitrate: 0,
+          theme: 'auto',
+        },
       );
     });
   });

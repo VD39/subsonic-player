@@ -44,7 +44,7 @@ export function useSettings() {
   const settingsRestored = useState(STATE_KEYS.settingsRestored, () => false);
 
   function saveSettingsState() {
-    setLocalStorage(LOCAL_STORAGE_KEYS.settings, {
+    const toSave: SettingsData = {
       deletePodcastOnEnd: deletePodcastOnEnd.value,
       layout: viewLayout.value,
       scrobbleEnabled: scrobbleEnabled.value,
@@ -52,7 +52,9 @@ export function useSettings() {
       showRadioStations: showRadioStations.value,
       streamBitrate: streamBitrate.value,
       theme: themePreference.value,
-    });
+    };
+
+    setLocalStorage(LOCAL_STORAGE_KEYS.settings, toSave);
   }
 
   function applyThemePreference() {
@@ -169,8 +171,16 @@ export function useSettings() {
 
   function resetSettings() {
     deleteLocalStorage(LOCAL_STORAGE_KEYS.settings);
+    themePreference.value = toTheme(THEME as Theme);
+    isDarkTheme.value = resolveDarkTheme(THEME);
+    viewLayout.value = toLayout(LAYOUT as Layout);
+    scrobbleEnabled.value = SCROBBLE_ENABLED;
+    streamBitrate.value = toBitrate(BITRATE as Bitrate);
+    showPodcasts.value = SHOW_PODCASTS;
+    showRadioStations.value = SHOW_RADIO_STATIONS;
+    deletePodcastOnEnd.value = DELETE_PODCAST_ON_END;
     settingsRestored.value = false;
-    loadSettings();
+    saveSettingsState();
   }
 
   function syncFromStorage() {

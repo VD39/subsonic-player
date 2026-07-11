@@ -59,6 +59,7 @@ mockNuxtImport('useRuntimeConfig', () => () => config);
 
 const {
   addTracks,
+  clearServerQueue,
   closeQueuePanels,
   currentQueueIndex,
   currentTrack,
@@ -1239,6 +1240,19 @@ describe('useQueue', () => {
         expect(fetchDataMock).not.toHaveBeenCalledWith('/savePlayQueue', {
           method: 'POST',
         });
+      });
+    });
+  });
+
+  describe('when the clearServerQueue function is called', () => {
+    beforeAll(async () => {
+      vi.clearAllMocks();
+      await clearServerQueue();
+    });
+
+    it('calls the fetchData function with the correct parameters', () => {
+      expect(fetchDataMock).toHaveBeenCalledWith('/savePlayQueue', {
+        method: 'POST',
       });
     });
   });

@@ -9,3 +9,13 @@ exports[`SettingsField > matches the snapshot 1`] = `
   <div class="control"></div>
 </div>"
 `;
+
+exports[`SettingsField > when the responsive prop is set > matches the snapshot 1`] = `
+"<div class="spaceBetween centerItems responsive">
+  <div class="info">
+    <div class="sentenceCase smallFont strong title">title</div>
+    <!--v-if-->
+  </div>
+  <div class="control"></div>
+</div>"
+`;

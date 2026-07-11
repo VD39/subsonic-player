@@ -11,6 +11,7 @@ export const MODAL_TYPE = {
   addToPlaylistModal: 'addToPlaylistModal',
   albumDetailsModal: 'albumDetailsModal',
   appUpdateModal: 'appUpdateModal',
+  confirmDialog: 'confirmDialog',
   podcastEpisodeInformationModal: 'podcastEpisodeInformationModal',
   podcastInformationModal: 'podcastInformationModal',
   readMoreModal: 'readMoreModal',

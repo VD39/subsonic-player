@@ -94,6 +94,7 @@ Never explicitly import types, constants, composables, or utilities that are aut
 - Composables from `composables/` (e.g. `useLocalSort`, `useAuth`)
 
 Only import from:
+
 - `@/test/helpers` and `@/test/withSetup` (test utilities)
 - The file under test itself (e.g. `import { useLocalSort } from './index'`)
 
@@ -542,28 +543,31 @@ describe('when the slot content is provided', () => {
 
 Every `it()` description uses a specific verb. Use the correct one for the assertion type — no substitutes:
 
-| Assertion type                  | Wording                                                                                         |
-| ------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Snapshot                        | `'matches the snapshot'`                                                                        |
-| Component / element visible     | `'shows the X component'` / `'shows the X element'`                                             |
-| Component / element not visible | `'does not show the X component'` / `'does not show the X element'`                             |
-| Default composable state        | `'sets the default X value'`                                                                    |
-| State after a change            | `'sets the correct X value'`                                                                    |
-| Composable `.value` property    | `'sets the correct X value'` — never `'returns the correct response'`                          |
-| Prop on a component             | `'sets the correct X prop on the Y component'`                                                  |
-| Attribute on an element         | `'sets the correct X attribute on the Y element'`                                               |
-| Mock called with args           | `'calls the X function with the correct parameters'`                                            |
-| Mock called without args        | `'calls the X function'`                                                                        |
-| Mock not called                 | `'does not call the X function'`                                                                |
-| Utility return value            | `'returns the correct response'`                                                                |
-| Component emits                 | `'emits the X event'`                                                                           |
-| Text content                    | `'displays X in the Y'`                                                                         |
-| Page head title                 | `'sets the useHead function with correct title'`                                                |
-| Adding to a collection          | `'adds to the X value'`                                                                         |
-| Removing from a collection      | `'removes from the X value'`                                                                    |
-| Clearing a collection           | `'clears the X value'`                                                                          |
-| Class present                   | `'adds the X class to the Y element'` / `'adds the X class to the Y component'`                 |
-| Class absent                    | `'does not add the X class to the Y element'` / `'does not add the X class to the Y component'` |
+| Assertion type                  | Wording                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Snapshot                        | `'matches the snapshot'`                                                                                                                                                                                                                                                                                                     |
+| Component / element visible     | `'shows the X component'` / `'shows the X element'`                                                                                                                                                                                                                                                                          |
+| Component / element not visible | `'does not show the X component'` / `'does not show the X element'`                                                                                                                                                                                                                                                          |
+| Default composable state        | `'sets the default X value'`                                                                                                                                                                                                                                                                                                 |
+| State after a change            | `'sets the correct X value'`                                                                                                                                                                                                                                                                                                 |
+| Composable `.value` property    | `'sets the correct X value'` — never `'returns the correct response'`                                                                                                                                                                                                                                                        |
+| Prop on a component             | `'sets the correct X prop on the Y component'`                                                                                                                                                                                                                                                                               |
+| Attribute on an element         | `'sets the correct X attribute on the Y element'`                                                                                                                                                                                                                                                                            |
+| Mock called with args           | `'calls the X function with the correct parameters'`                                                                                                                                                                                                                                                                         |
+| Modal opened with args          | `'calls the openModal function with the correct parameters'`                                                                                                                                                                                                                                                                 |
+| Mock called without args        | `'calls the X function'`                                                                                                                                                                                                                                                                                                     |
+| Mock not called                 | `'does not call the X function'`                                                                                                                                                                                                                                                                                             |
+| Utility return value            | `'returns the correct response'`                                                                                                                                                                                                                                                                                             |
+| Component emits                 | `'emits the X event'`                                                                                                                                                                                                                                                                                                        |
+| Text content                    | `'displays X in the Y'`                                                                                                                                                                                                                                                                                                      |
+| ButtonLink slot content         | `'sets the correct slot data on the X ButtonLink component'`                                                                                                                                                                                                                                                                 |
+| Page head title                 | `'sets the useHead function with correct title'`                                                                                                                                                                                                                                                                             |
+| Adding to a collection          | `'adds to the X value'`                                                                                                                                                                                                                                                                                                      |
+| Removing from a collection      | `'removes from the X value'`                                                                                                                                                                                                                                                                                                 |
+| Clearing a collection           | `'clears the X value'`                                                                                                                                                                                                                                                                                                       |
+| Class present                   | `'adds the X class to the Y element'` / `'adds the X class to the Y component'`                                                                                                                                                                                                                                              |
+| Class absent                    | `'does not add the X class to the Y element'` / `'does not add the X class to the Y component'`                                                                                                                                                                                                                              |
+| Prop-driven behaviour           | Both `describe('when the X prop is set', ...)` and `describe('when the X prop is not set', ...)`. Only required when the prop conditionally changes the component (adds/removes a class, shows/hides an element, switches between values). Not needed when the prop value is just passed through to a child component as-is. |
 
 ### Negation
 
@@ -1006,9 +1010,7 @@ Trigger a child emit with `.vm.$emit(...)`, then assert on the parent with `.emi
 ```ts
 describe('when the AlbumTracksListItem component emits the dragStart event', () => {
   beforeEach(async () => {
-    wrapper
-      .findComponent(AlbumTracksListItem)
-      .vm.$emit('dragStart', DragEvent);
+    wrapper.findComponent(AlbumTracksListItem).vm.$emit('dragStart', DragEvent);
   });
 
   it('emits the dragStart event with the correct value', () => {
@@ -1132,6 +1134,59 @@ it('creates the AbortController', () => {
 
 Stubs the `<audio>` element for audio player tests. Call before `withSetup(useAudioPlayer)`.
 
+### browserMocks
+
+Stubs browser APIs that are not available in the test environment via `Object.defineProperty`. Call at module scope in **composable specs**.
+
+**`cachesMock()`** — Stubs `globalThis.caches` for PWA cache testing. Returns `{ deleteMock, keysMock, restore }`:
+
+```ts
+import { cachesMock } from '@/test/browserMocks';
+
+const { deleteMock, keysMock } = cachesMock();
+
+it('calls the caches.delete function with the correct parameters', () => {
+  expect(deleteMock).toHaveBeenCalledWith('audio-cache');
+});
+```
+
+Only call `restore` when a test deletes `globalThis.caches` (e.g. testing the "API not available" path):
+
+```ts
+const { restore: restoreCachesMock } = cachesMock();
+
+afterEach(() => {
+  vi.clearAllMocks();
+  restoreCachesMock();
+});
+
+describe('when the caches API is not available', () => {
+  beforeEach(async () => {
+    delete (globalThis as Record<string, unknown>).caches;
+    await clearPwaCaches();
+  });
+});
+```
+
+**`navigatorStorageMock()`** — Stubs `globalThis.navigator.storage` for storage estimate testing. Returns `{ estimateMock, restore }`:
+
+```ts
+import { navigatorStorageMock } from '@/test/browserMocks';
+
+const { estimateMock } = navigatorStorageMock();
+```
+
+Only call `restore` when a test deletes `navigator.storage`:
+
+```ts
+const { restore: restoreStorageMock } = navigatorStorageMock();
+
+afterEach(() => {
+  vi.clearAllMocks();
+  restoreStorageMock();
+});
+```
+
 ### classListMock
 
 Stubs `HTMLElement.prototype.classList`. Returns `{ addClassMock, containsClassMock, removeClassMock }`:
@@ -1174,6 +1229,63 @@ it('adds the keydown event listener function', () => {
 documentEvents.keydown(new KeyboardEvent('keydown', { key: 'Escape' }));
 windowEvents.click(new MouseEvent('click'));
 ```
+
+### fixtures
+
+Static mock data objects used as building blocks for tests. Import from `@/test/fixtures`. Each fixture represents a real entity shape used across the project:
+
+```ts
+import { albumMock, trackMock, settingsMock } from '@/test/fixtures';
+```
+
+Available fixtures are split into two categories:
+
+**Raw API responses** (match Subsonic API types):
+`authDataMock`, `cookieMock`, `apiDateMock`, `trackBlobMock`, `routeMock`, `musicFolderMock`, `radioStationMock`, `trackMock`, `queueMock`, `albumMock`, `artistMock`, `artistInfo2Mock`, `artistDataMock`, `similarSongsMock`, `topSongsMock`, `playlistMock`, `podcastEpisodeMock`, `podcastMock`, `genreMock`
+
+**Formatted entities** (match app-level display types):
+`formattedGenreMock`, `formattedTrackMock`, `formattedPlaylistMock`, `formattedAlbumMock`, `formattedArtistMock`, `formattedPodcastEpisodeMock`, `formattedBookmarkMock`, `formattedPodcastMock`, `formattedRadioStationMock`
+
+**Configuration mocks:**
+`gridWrapperPropsMock`, `appInformationMock`, `serverInformationMock`, `searchSuggestionsMock`, `settingsMock`
+
+These are the single-instance defaults. Use `helpers` factory functions when you need multiple items with unique IDs.
+
+### helpers
+
+Factory functions that generate arrays of mock objects with auto-incrementing IDs. Import from `@/test/helpers`. Each factory accepts a `length` (default `1`) and optional `params` override:
+
+```ts
+import { getFormattedTracksMock, getFormattedAlbumsMock } from '@/test/helpers';
+
+// Single item
+const track = getFormattedTracksMock(1)[0];
+
+// Multiple items with overrides
+const albums = getFormattedAlbumsMock(3, { year: 2024 });
+
+// With type override for queue tracks
+const podcasts = getFormattedQueueTracksMock(2, {
+  type: MEDIA_TYPE.podcastEpisode,
+});
+```
+
+Available factories:
+`getAlbumsMock`, `getFormattedAlbumsMock`, `getFormattedArtistsMock`, `getFormattedBookmarksMock`, `getFormattedGenresMock`, `getFormattedPlaylistsMock`, `getFormattedPodcastEpisodesMock`, `getFormattedPodcastsMock`, `getFormattedQueueTracksMock`, `getFormattedRadioStationMock`, `getFormattedTracksMock`, `getPlaylistsMock`, `getPodcastEpisodesMock`, `getTracksMock`
+
+The `params` argument on all helpers overrides individual fields per call. All helpers support `name` as an overridable param.
+
+### types
+
+Shared TypeScript types used across test utilities. Import from `@/test/types`:
+
+```ts
+import type { DataMock, EventCallback, EventHandler } from '@/test/types';
+```
+
+- `DataMock` — Object with `data: unknown` and optional `error` field, used as a generic API response shape
+- `EventCallback` — Function type accepting an optional partial event, used for event handler tests
+- `EventHandler` — Generic variadic function type `(...args: unknown[]) => void`
 
 ### intersectionObserverMock
 
@@ -1259,9 +1371,41 @@ it('sets the useHead function with correct title', () => {
 });
 ```
 
+### useQueueMock
+
+Globally mocks `useQueue` for component specs via `mockNuxtImport`. Call at module scope and destructure only the refs and mocks needed by the test:
+
+```ts
+import { useQueueMock } from '@/test/useQueueMock';
+
+const { addTracksMock, currentTrackMock, queueListMock, resetQueueMock } =
+  useQueueMock();
+```
+
+Provides mocks for every return value of `useQueue`: `addTracksMock`, `closeQueuePanelsMock`, `currentQueueIndexMock`, `currentTrackMock`, `enrichTracksWithPositionsMock`, `hasCurrentTrackMock`, `hasNextTrackMock`, `hasPreviousTrackMock`, `hasQueueTracksMock`, `isCurrentTrackMock`, `isLastTrackMock`, `isPodcastEpisodeMock`, `isQueueListOpenedMock`, `isQueuePlayerOpenedMock`, `isRadioStationMock`, `isTrackMock`, `loadQueueStateMock`, `mergeBookmarksToCurrentQueueMock`, `navigateQueueMock`, `originalQueueListMock`, `queueListMock`, `removeAllByTrackIdMock`, `removeTrackMock`, `reorderQueueTracksMock`, `resetQueueMock`, `restoreLocalStateMock`, `restoreQueueStateFromLocalMock`, `restoreQueueStateFromServerMock`, `shuffleQueueMock`, `toggleQueueListMock`, `toggleQueuePlayerMock`, `unshuffleQueueMock`, `updateCurrentTrackPositionMock`, `updateTrackFavouriteMock`.
+
+Pre-populated defaults: `queueListMock.value` starts with 5 formatted queue tracks, `currentTrackMock.value` is the first item, `addTracksMock` pushes into `queueListMock`, and `resetQueueMock` empties the list and resets the index. Override any mock in `beforeEach` as needed.
+
 ## Partial match assertions
 
 Use `expect.arrayContaining`, `expect.objectContaining`, and `expect.any` when only part of the structure matters:
+
+### Modal argument assertions
+
+When a component or page calls `openModal`, assert the `MODAL_TYPE` and relevant static attrs. Use `expect.any(Function)` for callback references to avoid coupling to closure identity:
+
+```ts
+it('calls the openModal function with the correct parameters', () => {
+  expect(openModalMock).toHaveBeenCalledWith(
+    MODAL_TYPE.<modalType>,
+    {
+      ...attrs,
+      onCancel: expect.any(Function),
+      onConfirm: expect.any(Function),
+    },
+  );
+});
+```
 
 ```ts
 // Array — check a subset of items

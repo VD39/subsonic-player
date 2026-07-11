@@ -1,6 +1,7 @@
 import ReadMore from '@/components/Atoms/ReadMore.vue';
 import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
 import AppUpdate from '@/components/Molecules/AppUpdate.vue';
+import ConfirmDialog from '@/components/Molecules/ConfirmDialog.vue';
 import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
 import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
 import TrackInformation from '@/components/Molecules/TrackInformation.vue';
@@ -102,6 +103,14 @@ export function useModal() {
     };
   }
 
+  function openConfirmDialog(attrs: ModalProps['attrs']) {
+    modal.value = {
+      attrs,
+      component: markRaw(ConfirmDialog),
+      title: 'Confirm',
+    };
+  }
+
   function openAddToPlaylistFormModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
@@ -129,6 +138,9 @@ export function useModal() {
         break;
       case MODAL_TYPE.appUpdateModal:
         openAppUpdateModal(attrs);
+        break;
+      case MODAL_TYPE.confirmDialog:
+        openConfirmDialog(attrs);
         break;
       case MODAL_TYPE.podcastEpisodeInformationModal:
         openPodcastEpisodeInformationModal(attrs);
