@@ -57,7 +57,7 @@ defineEmits<{
             data-test-id="search-suggestion-group"
           >
             <div class="centerItems spaceBetween searchSpacing">
-              <div :class="['smallFont', $style.title]">
+              <div :class="['smallFont', 'strong', $style.title]">
                 {{ group.title }}
               </div>
 
@@ -115,7 +115,6 @@ defineEmits<{
 }
 
 .title {
-  font-weight: 700;
   color: var(--secondary-font-color);
   text-transform: uppercase;
 }

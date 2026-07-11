@@ -24,7 +24,7 @@ exports[`SearchSuggestions > when the showSuggestions prop is true > when the lo
   </div>
   <div class="section" data-test-id="search-suggestion-group">
     <div class="centerItems spaceBetween searchSpacing">
-      <div class="smallFont title">Albums</div><a class="smallFont link" data-test-id="viewAllLink"> View all </a>
+      <div class="smallFont strong title">Albums</div><a class="smallFont link" data-test-id="viewAllLink"> View all </a>
     </div><a class="centerItems searchItem"><span class="centerItems searchIcon"><phvinylrecord size="18"></phvinylrecord></span><span class="clamp searchName">album-suggestion-0</span>
       <ul class="commaList clamp smallFont searchArtistLinks">
         <li data-test-id="artist-list-item"><a aria-label="Go to artist name" class="link">name</a></li>
@@ -39,7 +39,7 @@ exports[`SearchSuggestions > when the showSuggestions prop is true > when the lo
   </div>
   <div class="section" data-test-id="search-suggestion-group">
     <div class="centerItems spaceBetween searchSpacing">
-      <div class="smallFont title">Tracks</div><a class="smallFont link" data-test-id="viewAllLink"> View all </a>
+      <div class="smallFont strong title">Tracks</div><a class="smallFont link" data-test-id="viewAllLink"> View all </a>
     </div>
     <div class="trackPlayPauseHover centerItems searchItem">
       <div class="overlapWrapper trackPlayPause withImage">

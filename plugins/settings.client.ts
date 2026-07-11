@@ -7,7 +7,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   } = useSettings();
 
   nuxtApp.hook('page:finish', () => {
-    loadSettings();
+    // Run after Nuxt page transitions finish to prevent Unhead reactivity locks.
+    requestAnimationFrame(() => {
+      loadSettings();
+    });
   });
 
   globalThis.addEventListener('storage', (event: StorageEvent) => {

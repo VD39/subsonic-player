@@ -35,6 +35,13 @@ Object.defineProperty(globalThis, 'matchMedia', {
   writable: true,
 });
 
+const requestAnimationFrameSpy = vi
+  .spyOn(globalThis, 'requestAnimationFrame')
+  .mockImplementation((callback) => {
+    callback(0);
+    return 0;
+  });
+
 const { windowEvents } = windowEventListenerMock();
 
 describe('settings.client plugin', () => {
@@ -63,6 +70,10 @@ describe('settings.client plugin', () => {
   describe('when the page:finish hook is triggered', () => {
     beforeEach(() => {
       hookCallback();
+    });
+
+    it('calls the requestAnimationFrame function', () => {
+      expect(requestAnimationFrameSpy).toHaveBeenCalled();
     });
 
     it('calls the loadSettings function', () => {

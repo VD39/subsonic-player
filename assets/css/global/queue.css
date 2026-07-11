@@ -9,5 +9,5 @@
 }
 
 .queueAction {
-  padding: 16px;
+  padding: var(--space-16);
 }

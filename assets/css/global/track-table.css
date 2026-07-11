@@ -124,7 +124,7 @@
 
 .trackOptions {
   --track-cell-padding: 0;
-  --track-cell-width: 40px;
+  --track-cell-width: var(--track-width-height-default);
 
   overflow: unset;
 }
