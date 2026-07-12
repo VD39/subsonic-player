@@ -94,6 +94,13 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
           </button></div>
       </div>
+      <div>
+        <div class="mBS">
+          <div class="smallFont strong mBXS title">ReplayGain</div>
+          <div class="smallFont description">Adjust playback volume to a consistent level using metadata embedded in your audio files</div>
+        </div>
+        <div class="badge"><button aria-pressed="true" class="selectableBadge selected" type="button"><span class="smallFont strong label">Off</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Track</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Album</span></button></div>
+      </div>
     </div>
   </section>
   <section class="settingsSection">

@@ -1469,7 +1469,9 @@ describe('useAudioPlayer', () => {
       const peakAlbum = 0.85;
 
       beforeAll(() => {
-        currentTrackMock.value = getFormattedQueueTracksMock(1, { peakAlbum })[0];
+        currentTrackMock.value = getFormattedQueueTracksMock(1, {
+          peakAlbum,
+        })[0];
         replayGainModeMock.value = 'album';
         vi.clearAllMocks();
         result.composable.setReplayGainMode('album');

@@ -10,6 +10,7 @@ import SettingsSection from '@/components/Molecules/Settings/SettingsSection.vue
 
 const {
   deletePodcastOnEnd,
+  replayGainMode,
   resetSettings,
   scrobbleEnabled,
   setStreamBitrate,
@@ -25,6 +26,7 @@ const {
   toggleShowRadioStations,
   viewLayout,
 } = useSettings();
+const { setReplayGainMode } = useAudioPlayer();
 const { aboutInformation, fetchInformation } = useServerInfo();
 const {
   cacheEstimate,
@@ -123,6 +125,21 @@ onMounted(() => {
           :selected="streamBitrate === opt.value"
           :title="opt.title"
           @click="setStreamBitrate(opt.value)"
+        />
+      </SettingsGroup>
+
+      <SettingsGroup
+        ref="replayGainGroup"
+        description="Adjust playback volume to a consistent level using metadata embedded in your audio files"
+        title="ReplayGain"
+        variant="badge"
+      >
+        <SelectableBadge
+          v-for="opt in REPLAY_GAIN_OPTIONS"
+          :key="opt.value"
+          :label="opt.label"
+          :selected="replayGainMode === opt.value"
+          @click="setReplayGainMode(opt.value)"
         />
       </SettingsGroup>
     </SettingsSection>

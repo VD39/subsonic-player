@@ -36,6 +36,7 @@ const viewLayoutMock = ref<Layout>(LAYOUT_OPTIONS[0].value);
 
 mockNuxtImport('useSettings', () => () => ({
   deletePodcastOnEnd: deletePodcastOnEndMock,
+  replayGainMode: replayGainModeMock,
   resetSettings: resetSettingsMock,
   scrobbleEnabled: scrobbleEnabledMock,
   setStreamBitrate: setStreamBitrateMock,
@@ -50,6 +51,13 @@ mockNuxtImport('useSettings', () => () => ({
   toggleShowPodcasts: toggleShowPodcastsMock,
   toggleShowRadioStations: toggleShowRadioStationsMock,
   viewLayout: viewLayoutMock,
+}));
+
+const replayGainModeMock = ref<ReplayGainMode>('off');
+const setReplayGainModeMock = vi.fn();
+
+mockNuxtImport('useAudioPlayer', () => () => ({
+  setReplayGainMode: setReplayGainModeMock,
 }));
 
 const cacheEstimateMock = ref('');
@@ -200,6 +208,41 @@ describe('settings', () => {
       it('calls the setStreamBitrate function', () => {
         expect(setStreamBitrateMock).toHaveBeenCalledWith(
           BITRATE_OPTIONS[2].value,
+        );
+      });
+    });
+  });
+
+  describe('inside the replayGain group', () => {
+    it('shows the correct number of SelectableBadge components', () => {
+      expect(
+        wrapper
+          .findComponent({ ref: 'replayGainGroup' })
+          .findAllComponents(SelectableBadge),
+      ).toHaveLength(REPLAY_GAIN_OPTIONS.length);
+    });
+
+    it('sets the correct selected prop on each SelectableBadge component', () => {
+      const badges = wrapper
+        .findComponent({ ref: 'replayGainGroup' })
+        .findAllComponents(SelectableBadge);
+
+      expect(badges[0].props('selected')).toBe(true);
+      expect(badges[1].props('selected')).toBe(false);
+      expect(badges[2].props('selected')).toBe(false);
+    });
+
+    describe('when the SelectableBadge component emits the click event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent({ ref: 'replayGainGroup' })
+          .findAllComponents(SelectableBadge)[1]
+          .vm.$emit('click');
+      });
+
+      it('calls the setReplayGainMode function', () => {
+        expect(setReplayGainModeMock).toHaveBeenCalledWith(
+          REPLAY_GAIN_OPTIONS[1].value,
         );
       });
     });
