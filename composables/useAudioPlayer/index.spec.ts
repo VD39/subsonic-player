@@ -30,6 +30,8 @@ const onPlayMock = vi.fn((cb) => (onPlayCb = cb));
 const onTimeupdateMock = vi.fn((cb) => (onTimeupdateCb = cb));
 const onWaitingMock = vi.fn((cb) => (onWaitingCb = cb));
 const pauseMock = vi.fn();
+const applyReplayGainMock = vi.fn();
+const destroyMock = vi.fn();
 const playMock = vi.fn(() => Promise.resolve());
 const setCurrentTimeMock = vi.fn();
 const unloadMock = vi.fn();
@@ -37,7 +39,9 @@ const unloadMock = vi.fn();
 mockNuxtImport('AudioPlayer', () =>
   vi.fn(function () {
     return {
+      applyReplayGain: applyReplayGainMock,
       changePlaybackRate: changePlaybackRateMock,
+      destroy: destroyMock,
       load: loadMock,
       loadFromElement: loadFromElementMock,
       onBuffered: onBufferedMock,
@@ -117,9 +121,14 @@ mockNuxtImport('usePodcast', () => () => ({
 const deletePodcastOnEndMock = ref(false);
 const scrobbleEnabledMock = ref(true);
 
+const setReplayGainModeMock = vi.fn();
+const replayGainModeMock = ref<ReplayGainMode>('off');
+
 mockNuxtImport('useSettings', () => () => ({
   deletePodcastOnEnd: deletePodcastOnEndMock,
+  replayGainMode: replayGainModeMock,
   scrobbleEnabled: scrobbleEnabledMock,
+  setReplayGainMode: setReplayGainModeMock,
 }));
 
 const addErrorSnackMock = vi.fn();
@@ -1077,52 +1086,73 @@ describe('useAudioPlayer', () => {
     });
 
     describe.each([
-      [MEDIA_TYPE.track, 0],
-      [MEDIA_TYPE.radioStation, 0],
-      [MEDIA_TYPE.podcastEpisode, 1],
-    ])('when the track type is %s', (type, createBookmarkCalledLength) => {
-      beforeAll(async () => {
-        result.composable.currentTime.value = 80;
+      [MEDIA_TYPE.track, 0, true],
+      [MEDIA_TYPE.radioStation, 0, false],
+      [MEDIA_TYPE.podcastEpisode, 1, false],
+    ])(
+      'when the track type is %s',
+      (type, createBookmarkCalledLength, isMusicTrack) => {
+        beforeAll(async () => {
+          result.composable.currentTime.value = 80;
 
-        const tracksWithType = getFormattedQueueTracksMock(1, {
-          type,
+          const tracksWithType = getFormattedQueueTracksMock(1, {
+            type,
+          });
+
+          isPodcastEpisodeMock.value = type === MEDIA_TYPE.podcastEpisode;
+
+          vi.clearAllMocks();
+
+          await result.composable.playTracks(tracksWithType);
+
+          vi.advanceTimersByTime(SAVE_INTERVAL * 2);
         });
 
-        isPodcastEpisodeMock.value = type === MEDIA_TYPE.podcastEpisode;
+        it(`${isMusicTrack ? 'calls' : 'does not call'} the applyReplayGain function with mode-based arguments`, () => {
+          if (isMusicTrack) {
+            expect(applyReplayGainMock).toHaveBeenCalledWith(
+              replayGainModeMock.value,
+              undefined,
+              undefined,
+              undefined,
+            );
+          } else {
+            expect(applyReplayGainMock).toHaveBeenCalledWith(
+              'off',
+              undefined,
+              undefined,
+              undefined,
+            );
+          }
+        });
 
-        vi.clearAllMocks();
+        it(`${createBookmarkCalledLength ? 'calls' : 'does not call'} the createBookmark function`, () => {
+          if (createBookmarkCalledLength) {
+            expect(createBookmarkMock).toHaveBeenCalledTimes(
+              createBookmarkCalledLength,
+            );
+            expect(createBookmarkMock).toHaveBeenCalledWith(
+              currentTrackMock.value.id,
+              80,
+            );
+          } else {
+            expect(createBookmarkMock).not.toHaveBeenCalled();
+          }
+        });
 
-        await result.composable.playTracks(tracksWithType);
+        it('calls the updateCurrentTrackPosition function', () => {
+          expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(0);
+        });
 
-        vi.advanceTimersByTime(SAVE_INTERVAL * 2);
-      });
-
-      it(`${createBookmarkCalledLength ? 'calls' : 'does not call'} the createBookmark function`, () => {
-        if (createBookmarkCalledLength) {
-          expect(createBookmarkMock).toHaveBeenCalledTimes(
-            createBookmarkCalledLength,
-          );
-          expect(createBookmarkMock).toHaveBeenCalledWith(
-            currentTrackMock.value.id,
-            80,
-          );
-        } else {
-          expect(createBookmarkMock).not.toHaveBeenCalled();
-        }
-      });
-
-      it('calls the updateCurrentTrackPosition function', () => {
-        expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(0);
-      });
-
-      it(`${createBookmarkCalledLength ? 'calls' : 'does not call'} the changePlaybackRate function`, () => {
-        if (createBookmarkCalledLength) {
-          expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
-        } else {
-          expect(changePlaybackRateMock).not.toHaveBeenCalled();
-        }
-      });
-    });
+        it(`${createBookmarkCalledLength ? 'calls' : 'does not call'} the changePlaybackRate function`, () => {
+          if (createBookmarkCalledLength) {
+            expect(changePlaybackRateMock).toHaveBeenCalledWith(0.5);
+          } else {
+            expect(changePlaybackRateMock).not.toHaveBeenCalled();
+          }
+        });
+      },
+    );
 
     describe('when the isTrack value is false', () => {
       beforeAll(async () => {
@@ -1418,6 +1448,46 @@ describe('useAudioPlayer', () => {
           playbackRate: 0,
         }),
       );
+    });
+  });
+
+  describe('when setReplayGainMode function is called', () => {
+    beforeAll(() => {
+      vi.clearAllMocks();
+      result.composable.setReplayGainMode('track');
+    });
+
+    it('calls the settings setReplayGainMode function with the correct parameters', () => {
+      expect(setReplayGainModeMock).toHaveBeenCalledWith('track');
+    });
+
+    it('calls the applyReplayGain function for the current track', () => {
+      expect(applyReplayGainMock).toHaveBeenCalled();
+    });
+
+    describe('when the mode is album', () => {
+      const peakAlbum = 0.85;
+
+      beforeAll(() => {
+        currentTrackMock.value = getFormattedQueueTracksMock(1, { peakAlbum })[0];
+        replayGainModeMock.value = 'album';
+        vi.clearAllMocks();
+        result.composable.setReplayGainMode('album');
+      });
+
+      afterAll(() => {
+        replayGainModeMock.value = 'off';
+        currentTrackMock.value = getFormattedQueueTracksMock()[0];
+      });
+
+      it('passes peakAlbum as the peak argument', () => {
+        expect(applyReplayGainMock).toHaveBeenCalledWith(
+          'album',
+          undefined,
+          undefined,
+          peakAlbum,
+        );
+      });
     });
   });
 
@@ -2118,8 +2188,8 @@ describe('useAudioPlayer', () => {
       result.composable.resetAudioPlayer();
     });
 
-    it('calls the audio unload function', () => {
-      expect(unloadMock).toHaveBeenCalled();
+    it('calls the audio destroy function', () => {
+      expect(destroyMock).toHaveBeenCalled();
     });
 
     it('calls the audio preloader clear function', () => {

@@ -4,6 +4,7 @@ import {
   getPreviousTracks,
   getTracksToPreload,
   getUpcomingTracks,
+  isMusicTrack,
 } from './utils';
 
 const tracks = getFormattedQueueTracksMock(5);
@@ -75,4 +76,26 @@ describe('getTracksToPreload', () => {
       });
     },
   );
+});
+
+describe('isMusicTrack', () => {
+  describe.each([
+    [getFormattedQueueTracksMock()[0], true],
+    [
+      getFormattedQueueTracksMock(1, {
+        type: MEDIA_TYPE.radioStation,
+      })[0],
+      false,
+    ],
+    [
+      getFormattedQueueTracksMock(1, {
+        type: MEDIA_TYPE.podcastEpisode,
+      })[0],
+      false,
+    ],
+  ])('when the value is %o', (track, expected) => {
+    it('returns the correct response', () => {
+      expect(isMusicTrack(track)).toBe(expected);
+    });
+  });
 });

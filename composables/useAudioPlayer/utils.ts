@@ -65,6 +65,10 @@ export function getUpcomingTracks(
   return upcoming;
 }
 
+export function isMusicTrack(track: PlayableTrack): track is Track {
+  return track.type === MEDIA_TYPE.track;
+}
+
 function isPreloadable(track: PlayableTrack) {
   return track.type !== MEDIA_TYPE.radioStation && !!track.streamUrlId;
 }

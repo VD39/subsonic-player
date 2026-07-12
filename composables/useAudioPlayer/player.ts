@@ -60,6 +60,10 @@ export class AudioPlayer {
 
   constructor() {
     this.audioElement = new Audio();
+    // Required for createMediaElementSource(), without a CORS
+    // request the browser blocks audio from flowing through the
+    // Web Audio graph and outputs zeroes.
+    this.audioElement.crossOrigin = 'anonymous';
     this.addEventListeners();
   }
 

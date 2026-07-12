@@ -2,7 +2,12 @@ export function useAudioPlayer() {
   const { getStreamUrl } = useAPI();
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
-  const { deletePodcastOnEnd, scrobbleEnabled } = useSettings();
+  const {
+    deletePodcastOnEnd,
+    replayGainMode,
+    scrobbleEnabled,
+    setReplayGainMode: persistReplayGainMode,
+  } = useSettings();
   const { deletePodcastEpisode } = usePodcast();
   const { createBookmark, deleteBookmark } = useBookmark();
   const { loadDashboardAlbums } = useAlbum();
@@ -260,6 +265,23 @@ export function useAudioPlayer() {
     }
   }
 
+  function applyReplayGainForTrack(track: PlayableTrack) {
+    if (isMusicTrack(track)) {
+      const musicTrack = track as Track;
+
+      audioPlayer.value?.applyReplayGain(
+        replayGainMode.value,
+        musicTrack.replayGain,
+        musicTrack.replayGainAlbum,
+        replayGainMode.value === 'album'
+          ? musicTrack.peakAlbum
+          : musicTrack.peak,
+      );
+    } else {
+      audioPlayer.value?.applyReplayGain('off');
+    }
+  }
+
   function prefetchUpcomingTracks() {
     const urlsToKeep = new Set<string>();
 
@@ -285,6 +307,7 @@ export function useAudioPlayer() {
     setMediaSessionMetadata();
     setupMediaSessionHandlers();
     loadTrack(track);
+    applyReplayGainForTrack(track);
 
     if (isPodcastEpisode.value && track.position) {
       setCurrentTime(track.position);
@@ -465,6 +488,11 @@ export function useAudioPlayer() {
     saveAudioPlayerState();
   }
 
+  function setReplayGainMode(mode: ReplayGainMode) {
+    persistReplayGainMode(mode);
+    applyReplayGainForTrack(currentTrack.value);
+  }
+
   function resetPlayerSession() {
     audioPlayer.value?.unload();
     preloader.value?.clear();
@@ -548,7 +576,7 @@ export function useAudioPlayer() {
   }
 
   function resetAudioPlayer() {
-    audioPlayer.value?.unload();
+    audioPlayer.value?.destroy();
     preloader.value?.clear();
     resetAudioPlayerState();
     stopSaveInterval();
@@ -688,6 +716,7 @@ export function useAudioPlayer() {
     seekTo,
     setPlaybackRate,
     setPlaybackRateWithIncrement,
+    setReplayGainMode,
     setVolume,
     setVolumeWithIncrement,
     shuffle,
