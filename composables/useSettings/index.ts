@@ -41,12 +41,18 @@ export function useSettings() {
     () => DELETE_PODCAST_ON_END,
   );
 
+  const replayGainMode = useState<ReplayGainMode>(
+    STATE_KEYS.replayGainMode,
+    () => 'off',
+  );
+
   const settingsRestored = useState(STATE_KEYS.settingsRestored, () => false);
 
   function saveSettingsState() {
     const toSave: SettingsData = {
       deletePodcastOnEnd: deletePodcastOnEnd.value,
       layout: viewLayout.value,
+      replayGainMode: replayGainMode.value,
       scrobbleEnabled: scrobbleEnabled.value,
       showPodcasts: showPodcasts.value,
       showRadioStations: showRadioStations.value,
@@ -105,6 +111,10 @@ export function useSettings() {
 
     if (typeof stored.deletePodcastOnEnd === 'boolean') {
       deletePodcastOnEnd.value = stored.deletePodcastOnEnd;
+    }
+
+    if (typeof stored.replayGainMode === 'string') {
+      replayGainMode.value = stored.replayGainMode as ReplayGainMode;
     }
 
     settingsRestored.value = true;
@@ -169,6 +179,18 @@ export function useSettings() {
     saveSettingsState();
   }
 
+  function setReplayGainMode(mode: ReplayGainMode) {
+    replayGainMode.value = mode;
+    saveSettingsState();
+  }
+
+  function cycleReplayGainMode() {
+    const currentIndex = REPLAY_GAIN_MODES.indexOf(replayGainMode.value);
+    const nextIndex = (currentIndex + 1) % REPLAY_GAIN_MODES.length;
+    replayGainMode.value = REPLAY_GAIN_MODES[nextIndex];
+    saveSettingsState();
+  }
+
   function resetSettings() {
     deleteLocalStorage(LOCAL_STORAGE_KEYS.settings);
     themePreference.value = toTheme(THEME as Theme);
@@ -179,6 +201,7 @@ export function useSettings() {
     showPodcasts.value = SHOW_PODCASTS;
     showRadioStations.value = SHOW_RADIO_STATIONS;
     deletePodcastOnEnd.value = DELETE_PODCAST_ON_END;
+    replayGainMode.value = 'off';
     settingsRestored.value = false;
     saveSettingsState();
   }
@@ -190,11 +213,14 @@ export function useSettings() {
   return {
     applyThemePreference,
     cycleLayout,
+    cycleReplayGainMode,
     deletePodcastOnEnd,
     isDarkTheme,
     loadSettings,
+    replayGainMode,
     resetSettings,
     scrobbleEnabled,
+    setReplayGainMode,
     setStreamBitrate,
     setThemeMode,
     setViewLayout,

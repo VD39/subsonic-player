@@ -796,6 +796,7 @@ describe('useSettings', () => {
         {
           deletePodcastOnEnd: false,
           layout: 'gridLayout',
+          replayGainMode: 'off',
           scrobbleEnabled: true,
           showPodcasts: true,
           showRadioStations: true,

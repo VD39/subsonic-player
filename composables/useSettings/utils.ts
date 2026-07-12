@@ -8,6 +8,9 @@ export function isValidSettings(data: SettingsData) {
   const checks: Record<keyof SettingsData, boolean> = {
     deletePodcastOnEnd: typeof data.deletePodcastOnEnd === 'boolean',
     layout: typeof data.layout === 'string' && LAYOUTS.includes(data.layout),
+    replayGainMode:
+      typeof data.replayGainMode === 'string' &&
+      REPLAY_GAIN_MODES.includes(data.replayGainMode),
     scrobbleEnabled: typeof data.scrobbleEnabled === 'boolean',
     showPodcasts: typeof data.showPodcasts === 'boolean',
     showRadioStations: typeof data.showRadioStations === 'boolean',

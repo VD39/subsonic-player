@@ -426,12 +426,13 @@ export const searchSuggestionsMock: SuggestionGroup[] = [
   },
 ];
 
-export const settingsMock = {
+export const settingsMock: SettingsData = {
   deletePodcastOnEnd: true,
-  layout: 'gridLayout' as Layout,
+  layout: 'gridLayout',
+  replayGainMode: 'track',
   scrobbleEnabled: false,
   showPodcasts: true,
   showRadioStations: false,
-  streamBitrate: 320 as Bitrate,
+  streamBitrate: 320,
   theme: 'dark' as Theme,
 };

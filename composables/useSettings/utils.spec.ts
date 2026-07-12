@@ -153,6 +153,13 @@ describe('isValidSettings', () => {
       },
       false,
     ],
+    [
+      {
+        ...settingsMock,
+        replayGainMode: 'invalidMode',
+      },
+      false,
+    ],
   ])('when the value is %o', (data, expected) => {
     it('returns the correct response', () => {
       expect(isValidSettings(data as unknown as SettingsData)).toBe(expected);
