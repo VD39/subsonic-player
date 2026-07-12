@@ -3,13 +3,20 @@ import { audioElementMock } from '@/test/audioElementMock';
 import { AudioPlayer } from './player';
 
 const {
+  audioContextCloseMock,
+  audioContextResumeMock,
   audioEvents,
   audioLoadMock,
   audioMock,
+  createGainMock,
+  createMediaElementSourceMock,
   pauseMock,
   playMock,
   removeAttributeMock,
   removeEventListenerMock,
+  replayGainNodeMock,
+  sourceNodeMock,
+  volumeNodeMock,
 } = audioElementMock();
 const {
   addEventListenerMock: newAddEventListenerMock,
@@ -55,6 +62,26 @@ describe('AudioPlayer', () => {
     });
   });
 
+  describe('when setVolume is called before the audio context exists', () => {
+    beforeAll(() => {
+      player.setVolume(0.5);
+    });
+
+    it('does not write to the volume node yet', () => {
+      expect(volumeNodeMock.gain.value).toBe(1);
+    });
+  });
+
+  describe('when applyReplayGain is called before the audio context exists', () => {
+    beforeAll(() => {
+      player.applyReplayGain('track', -6);
+    });
+
+    it('does not write to the replayGain node yet', () => {
+      expect(replayGainNodeMock.gain.value).toBe(1);
+    });
+  });
+
   describe('when the load function is called', () => {
     beforeAll(() => {
       player.load('stream-url');
@@ -71,6 +98,18 @@ describe('AudioPlayer', () => {
     it('calls the audio load function', () => {
       expect(audioLoadMock).toHaveBeenCalled();
     });
+
+    it('applies the pending volume to the volume node', () => {
+      expect(volumeNodeMock.gain.value).toBe(0.5);
+    });
+
+    it('applies the pending replayGain to the replayGain node', () => {
+      expect(replayGainNodeMock.gain.value).toBe(Math.pow(10, -6 / 20));
+    });
+
+    it('creates a source node for the element', () => {
+      expect(createMediaElementSourceMock).toHaveBeenCalledWith(audioMock);
+    });
   });
 
   describe('when the pause function is called', () => {
@@ -86,6 +125,10 @@ describe('AudioPlayer', () => {
   describe('when the play function is called', () => {
     beforeAll(async () => {
       await player.play();
+    });
+
+    it('resumes the audio context', () => {
+      expect(audioContextResumeMock).toHaveBeenCalled();
     });
 
     it('calls the audio play function', () => {
@@ -110,7 +153,7 @@ describe('AudioPlayer', () => {
       });
 
       it('sets the correct volume value', () => {
-        expect(audioMock.volume).toBe(1);
+        expect(volumeNodeMock.gain.value).toBe(1);
       });
     });
 
@@ -120,7 +163,7 @@ describe('AudioPlayer', () => {
       });
 
       it('sets the correct volume value', () => {
-        expect(audioMock.volume).toBe(0);
+        expect(volumeNodeMock.gain.value).toBe(0);
       });
     });
 
@@ -130,7 +173,7 @@ describe('AudioPlayer', () => {
       });
 
       it('sets the correct volume value', () => {
-        expect(audioMock.volume).toBe(0.75);
+        expect(volumeNodeMock.gain.value).toBe(0.75);
       });
     });
   });
@@ -317,8 +360,11 @@ describe('AudioPlayer', () => {
   describe('when the loadFromElement function is called', () => {
     beforeAll(() => {
       vi.clearAllMocks();
-      audioMock.volume = 0.5;
       player.loadFromElement(newAudioMock as unknown as HTMLAudioElement);
+    });
+
+    it('disconnects the old source node', () => {
+      expect(sourceNodeMock.disconnect).toHaveBeenCalled();
     });
 
     it('removes event listeners from the old element', () => {
@@ -345,8 +391,88 @@ describe('AudioPlayer', () => {
       expect(newAddEventListenerMock).toHaveBeenCalled();
     });
 
-    it('sets the correct volume on the new element', () => {
-      expect(newAudioMock.volume).toBe(0.5);
+    it('creates a source node for the new element', () => {
+      expect(createMediaElementSourceMock).toHaveBeenCalledWith(newAudioMock);
+    });
+
+    it('connects the new source node through the replayGain node', () => {
+      expect(sourceNodeMock.connect).toHaveBeenCalledWith(replayGainNodeMock);
+    });
+  });
+
+  describe('when the applyReplayGain function is called', () => {
+    describe('when the mode is off', () => {
+      beforeAll(() => {
+        replayGainNodeMock.gain.value = 5;
+        player.applyReplayGain('off', -6, -3, 0.9);
+      });
+
+      it('resets the replayGain node to 1', () => {
+        expect(replayGainNodeMock.gain.value).toBe(1);
+      });
+    });
+
+    describe('when the mode is track', () => {
+      beforeAll(() => {
+        player.applyReplayGain('track', -6);
+      });
+
+      it('applies the track gain', () => {
+        expect(replayGainNodeMock.gain.value).toBe(Math.pow(10, -6 / 20));
+      });
+    });
+
+    describe('when the mode is album', () => {
+      beforeAll(() => {
+        player.applyReplayGain('album', -6, -3);
+      });
+
+      it('applies the album gain', () => {
+        expect(replayGainNodeMock.gain.value).toBe(Math.pow(10, -3 / 20));
+      });
+    });
+
+    describe('when the computed gain would exceed the peak headroom', () => {
+      beforeAll(() => {
+        player.applyReplayGain('track', 12, undefined, 0.9);
+      });
+
+      it('clamps the gain to 1 / peak', () => {
+        expect(replayGainNodeMock.gain.value).toBe(1 / 0.9);
+      });
+    });
+  });
+
+  describe('when load is called again after a source node already exists', () => {
+    beforeAll(() => {
+      createMediaElementSourceMock.mockClear();
+      player.load('stream-url-again');
+    });
+
+    it('does not create another source node', () => {
+      expect(createMediaElementSourceMock).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when the destroy function is called', () => {
+    beforeAll(() => {
+      audioContextCloseMock.mockClear();
+      player.destroy();
+    });
+
+    it('closes the audio context', () => {
+      expect(audioContextCloseMock).toHaveBeenCalled();
+    });
+
+    describe('when the player is played again after being destroyed', () => {
+      beforeAll(async () => {
+        createGainMock.mockClear();
+        await player.play();
+      });
+
+      it('re-creates the audio context', () => {
+        expect(createGainMock).toHaveBeenCalled();
+      });
     });
   });
 });

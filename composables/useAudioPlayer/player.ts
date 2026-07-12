@@ -1,9 +1,65 @@
 export class AudioPlayer {
-  private audio: HTMLAudioElement;
+  private audioContext: AudioContext | null = null;
+
+  private audioElement: HTMLAudioElement;
+
+  private audioSourceNode: MediaElementAudioSourceNode | null = null;
+
+  // Pending volume, applied to volumeNode once the context exists
+  // (lazy init means setVolume() can run before the nodes are created).
+  private currentVolume = 1;
+
+  private replayGainNode: GainNode | null = null;
+
+  // Pending ReplayGain multiplier, applied to replayGainNode on creation.
+  private replayGainValue = 1;
+
+  private volumeNode: GainNode | null = null;
+
+  // Event listeners for the audio element.
+  private get eventListeners() {
+    return [
+      {
+        handler: this.handleCanPlay,
+        type: 'canplay',
+      },
+      {
+        handler: this.handleCanPlayThrough,
+        type: 'canplaythrough',
+      },
+      {
+        handler: this.handleEnded,
+        type: 'ended',
+      },
+      {
+        handler: this.handleLoadedMetadata,
+        type: 'loadedmetadata',
+      },
+      {
+        handler: this.handlePause,
+        type: 'pause',
+      },
+      {
+        handler: this.handlePlay,
+        type: 'play',
+      },
+      {
+        handler: this.handleProgress,
+        type: 'progress',
+      },
+      {
+        handler: this.handleTimeupdate,
+        type: 'timeupdate',
+      },
+      {
+        handler: this.handleWaiting,
+        type: 'waiting',
+      },
+    ];
+  }
 
   constructor() {
-    this.audio = new Audio();
-    this.audio.volume = 1;
+    this.audioElement = new Audio();
     this.addEventListeners();
   }
 
@@ -13,24 +69,62 @@ export class AudioPlayer {
     audio.load();
   }
 
+  applyReplayGain(
+    mode: ReplayGainMode,
+    trackGain?: number,
+    albumGain?: number,
+    peak?: number,
+  ) {
+    if (mode === 'off') {
+      this.replayGainValue = 1;
+    } else {
+      const gainDb = mode === 'album' ? albumGain : trackGain;
+      const rawGain = Math.pow(10, (gainDb ?? 0) / 20);
+      const maxGain = peak && peak > 0 ? 1 / peak : Infinity;
+      this.replayGainValue = Math.min(rawGain, maxGain);
+    }
+
+    if (this.replayGainNode) {
+      this.replayGainNode.gain.value = this.replayGainValue;
+    }
+  }
+
   changePlaybackRate(rate: number) {
-    this.audio.playbackRate = rate;
+    this.audioElement.playbackRate = rate;
+  }
+
+  destroy() {
+    this.audioElement.pause();
+    AudioPlayer.detachSource(this.audioElement);
+    void this.audioContext?.close();
+    this.audioContext = null;
+    this.audioSourceNode = null;
+    this.replayGainNode = null;
+    this.volumeNode = null;
   }
 
   load(source: string) {
-    this.audio.pause();
-    this.audio.src = source;
-    this.audio.load();
+    this.ensureAudioContext();
+
+    if (!this.audioSourceNode) {
+      this.connectElement(this.audioElement);
+    }
+
+    this.audioElement.pause();
+    this.audioElement.src = source;
+    this.audioElement.load();
   }
 
   loadFromElement(element: HTMLAudioElement) {
-    const currentVolume = this.audio.volume;
-    const oldAudio = this.audio;
+    this.ensureAudioContext();
+
+    const oldAudio = this.audioElement;
+    this.audioSourceNode?.disconnect();
     this.removeEventListeners();
     oldAudio.pause();
-    this.audio = element;
-    this.audio.volume = currentVolume;
+    this.audioElement = element;
     this.addEventListeners();
+    this.connectElement(element);
     AudioPlayer.detachSource(oldAudio);
   }
 
@@ -67,44 +161,69 @@ export class AudioPlayer {
   }
 
   pause() {
-    this.audio.pause();
+    this.audioElement.pause();
   }
 
   async play() {
-    await this.audio.play();
+    this.ensureAudioContext();
+    await this.audioContext?.resume();
+    await this.audioElement.play();
   }
 
   setCurrentTime(time: number) {
-    this.audio.currentTime = time;
+    this.audioElement.currentTime = time;
   }
 
   setVolume(volume: number) {
     const adjustedVolume = Math.max(0, Math.min(volume, 1));
-    this.audio.volume = adjustedVolume;
+    this.currentVolume = adjustedVolume;
+
+    if (this.volumeNode) {
+      this.volumeNode.gain.value = adjustedVolume;
+    }
   }
 
   unload() {
-    this.audio.pause();
-    AudioPlayer.detachSource(this.audio);
+    this.audioElement.pause();
+    AudioPlayer.detachSource(this.audioElement);
   }
 
   private addEventListeners() {
-    this.audio.addEventListener('loadedmetadata', this.handleLoadedMetadata);
-    this.audio.addEventListener('progress', this.handleProgress);
-    this.audio.addEventListener('timeupdate', this.handleTimeupdate);
-    this.audio.addEventListener('canplay', this.handleCanPlay);
-    this.audio.addEventListener('canplaythrough', this.handleCanPlayThrough);
-    this.audio.addEventListener('waiting', this.handleWaiting);
-    this.audio.addEventListener('ended', this.handleEnded);
-    this.audio.addEventListener('pause', this.handlePause);
-    this.audio.addEventListener('play', this.handlePlay);
+    this.eventListeners.forEach(({ handler, type }) => {
+      this.audioElement.addEventListener(type, handler);
+    });
   }
 
   private bufferedCallback: (bufferedTime: number) => void = () => ({});
 
   private canPlayCallback: () => void = () => ({});
 
+  private connectElement(element: HTMLAudioElement) {
+    if (!this.audioContext || !this.replayGainNode) {
+      return;
+    }
+
+    this.audioSourceNode = this.audioContext.createMediaElementSource(element);
+    this.audioSourceNode.connect(this.replayGainNode);
+  }
+
   private endedCallback: () => void = () => ({});
+
+  private ensureAudioContext() {
+    if (this.audioContext) {
+      return;
+    }
+
+    this.audioContext = new AudioContext();
+    this.replayGainNode = this.audioContext.createGain();
+    this.volumeNode = this.audioContext.createGain();
+
+    this.replayGainNode.connect(this.volumeNode);
+    this.volumeNode.connect(this.audioContext.destination);
+
+    this.replayGainNode.gain.value = this.replayGainValue;
+    this.volumeNode.gain.value = this.currentVolume;
+  }
 
   private readonly handleCanPlay = () => {
     this.canPlayCallback();
@@ -119,7 +238,7 @@ export class AudioPlayer {
   };
 
   private readonly handleLoadedMetadata = () => {
-    this.loadedMetadataCallback(this.audio.duration);
+    this.loadedMetadataCallback(this.audioElement.duration);
   };
 
   private readonly handlePause = () => {
@@ -135,13 +254,13 @@ export class AudioPlayer {
   };
 
   private readonly handleTimeupdate = () => {
-    if (!this.audio.currentTime) {
+    if (!this.audioElement.currentTime) {
       return;
     }
 
     // trunc value as current time is a decimal. This should prevent an
     // Uncaught TypeError of the position being more than the duration.
-    this.timeupdateCallback(Math.trunc(this.audio.currentTime));
+    this.timeupdateCallback(Math.trunc(this.audioElement.currentTime));
     this.setBufferProgress();
   };
 
@@ -156,28 +275,23 @@ export class AudioPlayer {
   private playCallback: () => void = () => ({});
 
   private removeEventListeners() {
-    this.audio.removeEventListener('loadedmetadata', this.handleLoadedMetadata);
-    this.audio.removeEventListener('progress', this.handleProgress);
-    this.audio.removeEventListener('timeupdate', this.handleTimeupdate);
-    this.audio.removeEventListener('canplay', this.handleCanPlay);
-    this.audio.removeEventListener('canplaythrough', this.handleCanPlayThrough);
-    this.audio.removeEventListener('waiting', this.handleWaiting);
-    this.audio.removeEventListener('ended', this.handleEnded);
-    this.audio.removeEventListener('pause', this.handlePause);
-    this.audio.removeEventListener('play', this.handlePlay);
+    this.eventListeners.forEach(({ handler, type }) => {
+      this.audioElement.removeEventListener(type, handler);
+    });
   }
 
   private readonly setBufferProgress = () => {
-    const duration = this.audio?.duration || 0;
+    const duration = this.audioElement?.duration || 0;
 
     if (duration > 0) {
-      for (let index = 0; index < this.audio.buffered.length; index++) {
+      for (let index = 0; index < this.audioElement.buffered.length; index++) {
         if (
-          this.audio.buffered.start(this.audio.buffered.length - 1 - index) <
-          this.audio.currentTime
+          this.audioElement.buffered.start(
+            this.audioElement.buffered.length - 1 - index,
+          ) < this.audioElement.currentTime
         ) {
-          const bufferedDuration = this.audio.buffered.end(
-            this.audio.buffered.length - 1 - index,
+          const bufferedDuration = this.audioElement.buffered.end(
+            this.audioElement.buffered.length - 1 - index,
           );
           this.bufferedCallback(bufferedDuration);
           break;

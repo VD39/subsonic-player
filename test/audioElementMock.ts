@@ -36,20 +36,72 @@ const audioMock = {
   volume: 1,
 };
 
+const replayGainNodeMock = {
+  connect: vi.fn(),
+  gain: {
+    value: 1,
+  },
+};
+const volumeNodeMock = {
+  connect: vi.fn(),
+  gain: {
+    value: 1,
+  },
+};
+const sourceNodeMock = {
+  connect: vi.fn(),
+  disconnect: vi.fn(),
+};
+const createGainMock = vi.fn();
+const createMediaElementSourceMock = vi.fn(() => sourceNodeMock);
+const audioContextCloseMock = vi.fn();
+const audioContextResumeMock = vi.fn();
+
+const audioContextMock = {
+  close: audioContextCloseMock,
+  createGain: createGainMock,
+  createMediaElementSource: createMediaElementSourceMock,
+  destination: {},
+  resume: audioContextResumeMock,
+  state: 'suspended',
+};
+
 export function audioElementMock() {
   globalThis.Audio = vi.fn(function () {
     return audioMock;
   }) as unknown as typeof Audio;
 
+  // createGain() is called twice per ensureAudioContext(): 1st for the replayGain
+  // node, 2nd for the volume node. Reset + re-queue per call so each spec's setup
+  // gets a clean, order-correct queue; the trailing default guards extra calls.
+  createGainMock.mockReset();
+  createGainMock
+    .mockReturnValueOnce(replayGainNodeMock)
+    .mockReturnValueOnce(volumeNodeMock)
+    .mockReturnValue(volumeNodeMock);
+
+  // Must be a function (not an arrow) so `new AudioContext()` works.
+  globalThis.AudioContext = vi.fn(function () {
+    return audioContextMock;
+  }) as unknown as typeof AudioContext;
+
   return {
     addEventListenerMock,
+    audioContextCloseMock,
+    audioContextMock,
+    audioContextResumeMock,
     audioEvents,
     audioLoadMock,
     audioMock,
+    createGainMock,
+    createMediaElementSourceMock,
     pauseMock,
     playMock,
     removeAttributeMock,
     removeEventListenerMock,
+    replayGainNodeMock,
     setAttributeMock,
+    sourceNodeMock,
+    volumeNodeMock,
   };
 }
