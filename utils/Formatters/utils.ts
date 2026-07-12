@@ -100,6 +100,20 @@ export function getPodcastEpisodesByDownloadStatus(
   };
 }
 
+export function getReplayGain(track: Base) {
+  const { peakValue, replayGain } = track;
+
+  const gainData = typeof replayGain === 'object' ? replayGain : undefined;
+  const flatGain = typeof replayGain === 'number' ? replayGain : undefined;
+
+  return {
+    peak: gainData?.trackPeak ?? peakValue,
+    peakAlbum: gainData?.albumPeak,
+    replayGain: gainData?.trackGain ?? flatGain,
+    replayGainAlbum: gainData?.albumGain,
+  };
+}
+
 export function getTotalTracks(albums: AlbumWithSongsID3[] = []) {
   return albums.reduce((sum, album) => sum + album.songCount, 0);
 }

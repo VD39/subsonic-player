@@ -301,6 +301,7 @@ export function formatTrack(track: Base, index: number): Track {
   } = track;
 
   return {
+    ...getReplayGain(track),
     album,
     albumId: albumId || parent,
     artists: getArtists(track),

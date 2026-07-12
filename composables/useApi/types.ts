@@ -102,7 +102,9 @@ export interface Base {
   originalWidth?: number;
   parent?: string;
   path?: string;
+  peakValue?: number;
   playCount?: number;
+  replayGain?: number | ReplayGainData;
   size?: number;
   starred?: Date;
   suffix?: string;
@@ -279,6 +281,15 @@ export interface PodcastChannel {
 
 export interface Podcasts {
   channel?: PodcastChannel[];
+}
+
+export interface ReplayGainData {
+  albumGain?: number;
+  albumPeak?: number;
+  baseGain?: number;
+  fallbackGain?: number;
+  trackGain?: number;
+  trackPeak?: number;
 }
 
 export interface ResponseArtist extends ArtistID3 {

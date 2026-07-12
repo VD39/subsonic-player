@@ -953,6 +953,76 @@ describe('formatTrack', () => {
       });
     });
   });
+
+  describe('when the track has a flat ReplayGain fields', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatTrack(
+          {
+            ...trackMock,
+            peakValue: 0.9,
+            replayGain: -6,
+          },
+          0,
+        ),
+      ).toEqual(
+        expect.objectContaining({
+          peak: 0.9,
+          peakAlbum: undefined,
+          replayGain: -6,
+          replayGainAlbum: undefined,
+        }),
+      );
+    });
+  });
+
+  describe('when the track has a nested ReplayGain fields', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatTrack(
+          {
+            ...trackMock,
+            replayGain: {
+              albumGain: -5,
+              albumPeak: 0.8,
+              trackGain: -7,
+              trackPeak: 0.95,
+            },
+          },
+          0,
+        ),
+      ).toEqual(
+        expect.objectContaining({
+          peak: 0.95,
+          peakAlbum: 0.8,
+          replayGain: -7,
+          replayGainAlbum: -5,
+        }),
+      );
+    });
+  });
+
+  describe('when the track has no ReplayGain data', () => {
+    it('returns the correct values', () => {
+      expect(
+        formatTrack(
+          {
+            ...trackMock,
+            peakValue: undefined,
+            replayGain: undefined,
+          },
+          0,
+        ),
+      ).toEqual(
+        expect.objectContaining({
+          peak: undefined,
+          peakAlbum: undefined,
+          replayGain: undefined,
+          replayGainAlbum: undefined,
+        }),
+      );
+    });
+  });
 });
 
 describe('formatPlaylist', () => {

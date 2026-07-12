@@ -63,8 +63,27 @@ export const BITRATE_OPTIONS = [
   },
 ] as const;
 
+export const REPLAY_GAIN_OPTIONS = [
+  {
+    label: 'Off',
+    value: 'off',
+  },
+  {
+    label: 'Track',
+    value: 'track',
+  },
+  {
+    label: 'Album',
+    value: 'album',
+  },
+] as const;
+
 export const LAYOUTS = LAYOUT_OPTIONS.map((option) => option.value);
 
 export const BITRATES = BITRATE_OPTIONS.map((option) => option.value);
 
 export const THEMES = THEME_OPTIONS.map((option) => option.value);
+
+export const REPLAY_GAIN_MODES = REPLAY_GAIN_OPTIONS.map(
+  (option) => option.value,
+);

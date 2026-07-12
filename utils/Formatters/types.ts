@@ -134,7 +134,11 @@ export interface Track {
   index: number;
   information: TrackInformation;
   name: string;
+  peak?: number;
+  peakAlbum?: number;
   position?: number;
+  replayGain?: number;
+  replayGainAlbum?: number;
   size: string;
   streamUrlId: string;
   trackNumber: number | string;

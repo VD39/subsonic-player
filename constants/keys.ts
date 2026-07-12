@@ -44,6 +44,7 @@ export const STATE_KEYS = {
   queueStateRestored: 'queue-state-restored',
   radioStations: 'radio-stations',
   recentAlbums: 'recent-albums',
+  replayGainMode: 'replay-gain-mode',
   scrobbleEnabled: 'scrobble-enabled',
   settingsRestored: 'settings-restored',
   showPodcasts: 'show-podcasts',

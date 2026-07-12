@@ -37,6 +37,8 @@ export type QueueableMedia =
   | Podcast
   | PodcastEpisode;
 
+export type ReplayGainMode = (typeof REPLAY_GAIN_OPTIONS)[number]['value'];
+
 export type RouteName = TypeofRouteNames[keyof TypeofRouteNames];
 
 export type SnackType = 'error' | 'info' | 'success';

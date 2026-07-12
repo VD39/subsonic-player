@@ -14,6 +14,7 @@ import {
   getGenres,
   getLatestDate,
   getPodcastEpisodesByDownloadStatus,
+  getReplayGain,
   getTotalTracks,
   getTotalTracksDuration,
   getUniqueGenres,
@@ -494,6 +495,94 @@ describe('getPodcastEpisodesByDownloadStatus', () => {
         [ROUTE_PODCAST_FILTER_PARAMS.Downloaded]: downloadedPodcastEpisodes,
         [ROUTE_PODCAST_FILTER_PARAMS['Not downloaded']]:
           nonDownloadedPodcastEpisodes,
+      });
+    });
+  });
+});
+
+describe('getReplayGain', () => {
+  describe('when the track has a nested ReplayGain data', () => {
+    it('returns the correct response', () => {
+      expect(
+        getReplayGain(
+          getTracksMock(1, {
+            replayGain: {
+              albumGain: -5,
+              albumPeak: 0.8,
+              trackGain: -7,
+              trackPeak: 0.95,
+            },
+          })[0],
+        ),
+      ).toEqual({
+        peak: 0.95,
+        peakAlbum: 0.8,
+        replayGain: -7,
+        replayGainAlbum: -5,
+      });
+    });
+
+    describe('when the nested data omits the track peak', () => {
+      it('returns the correct response', () => {
+        expect(
+          getReplayGain(
+            getTracksMock(1, {
+              peakValue: 0.7,
+              replayGain: { trackGain: -3 },
+            })[0],
+          ),
+        ).toEqual({
+          peak: 0.7,
+          peakAlbum: undefined,
+          replayGain: -3,
+          replayGainAlbum: undefined,
+        });
+      });
+    });
+
+    describe('when a nested gain value is zero', () => {
+      it('returns the correct response', () => {
+        expect(
+          getReplayGain(
+            getTracksMock(1, {
+              replayGain: { trackGain: 0 },
+            })[0],
+          ),
+        ).toEqual({
+          peak: undefined,
+          peakAlbum: undefined,
+          replayGain: 0,
+          replayGainAlbum: undefined,
+        });
+      });
+    });
+  });
+
+  describe('when the track has a flat ReplayGain fields', () => {
+    it('returns the correct response', () => {
+      expect(
+        getReplayGain(
+          getTracksMock(1, {
+            peakValue: 0.9,
+            replayGain: -6,
+          })[0],
+        ),
+      ).toEqual({
+        peak: 0.9,
+        peakAlbum: undefined,
+        replayGain: -6,
+        replayGainAlbum: undefined,
+      });
+    });
+  });
+
+  describe('when the track has no ReplayGain data', () => {
+    it('returns the correct response', () => {
+      expect(getReplayGain(getTracksMock()[0])).toEqual({
+        peak: undefined,
+        peakAlbum: undefined,
+        replayGain: undefined,
+        replayGainAlbum: undefined,
       });
     });
   });
