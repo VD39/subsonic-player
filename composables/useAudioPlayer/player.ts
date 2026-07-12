@@ -207,8 +207,19 @@ export class AudioPlayer {
       return;
     }
 
-    this.audioSourceNode = this.audioContext.createMediaElementSource(element);
-    this.audioSourceNode.connect(this.replayGainNode);
+    try {
+      this.audioSourceNode =
+        this.audioContext.createMediaElementSource(element);
+
+      this.audioSourceNode.connect(this.replayGainNode);
+    } catch {
+      // Tear down the Web Audio graph so the element falls
+      // back to direct playback.
+      this.audioContext = null;
+      this.audioSourceNode = null;
+      this.replayGainNode = null;
+      this.volumeNode = null;
+    }
   }
 
   private endedCallback: () => void = () => ({});

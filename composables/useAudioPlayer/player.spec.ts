@@ -454,6 +454,39 @@ describe('AudioPlayer', () => {
     });
   });
 
+  describe('when the createMediaElementSource function throws an error', () => {
+    beforeAll(() => {
+      audioElementMock();
+      createMediaElementSourceMock.mockImplementationOnce(() => {
+        throw new Error('CORS');
+      });
+      volumeNodeMock.gain.value = 1;
+      replayGainNodeMock.gain.value = 1;
+      player.loadFromElement(newAudioMock as unknown as HTMLAudioElement);
+    });
+
+    it('does not update the volume node gain value', () => {
+      player.setVolume(0.5);
+      expect(volumeNodeMock.gain.value).toBe(1);
+    });
+
+    it('does not update the replayGain node gain value', () => {
+      player.applyReplayGain('track', -6);
+      expect(replayGainNodeMock.gain.value).toBe(1);
+    });
+
+    describe('when the load function is called again', () => {
+      beforeAll(() => {
+        createGainMock.mockClear();
+        player.load('stream-url-retry');
+      });
+
+      it('re-creates the audio context', () => {
+        expect(createGainMock).toHaveBeenCalled();
+      });
+    });
+  });
+
   describe('when the destroy function is called', () => {
     beforeAll(() => {
       audioContextCloseMock.mockClear();
