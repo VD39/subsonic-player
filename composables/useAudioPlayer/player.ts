@@ -5,9 +5,13 @@ export class AudioPlayer {
 
   private audioSourceNode: MediaElementAudioSourceNode | null = null;
 
+  private crossfadeGainNode: GainNode | null = null;
+
   // Pending volume, applied to volumeNode once the context exists
   // (lazy init means setVolume() can run before the nodes are created).
   private currentVolume = 1;
+
+  private ownsContext = true;
 
   private replayGainNode: GainNode | null = null;
 
@@ -58,13 +62,19 @@ export class AudioPlayer {
     ];
   }
 
-  constructor() {
+  constructor(audioCtx?: AudioContext) {
     this.audioElement = new Audio();
     // Required for createMediaElementSource(), without a CORS
     // request the browser blocks audio from flowing through the
     // Web Audio graph and outputs zeroes.
     this.audioElement.crossOrigin = 'anonymous';
     this.addEventListeners();
+
+    if (audioCtx) {
+      this.audioContext = audioCtx;
+      this.ownsContext = false;
+      this.createNodes();
+    }
   }
 
   private static detachSource(audio: HTMLAudioElement) {
@@ -100,11 +110,20 @@ export class AudioPlayer {
   destroy() {
     this.audioElement.pause();
     AudioPlayer.detachSource(this.audioElement);
-    void this.audioContext?.close();
+
+    if (this.ownsContext) {
+      void this.audioContext?.close();
+    }
+
     this.audioContext = null;
     this.audioSourceNode = null;
     this.replayGainNode = null;
+    this.crossfadeGainNode = null;
     this.volumeNode = null;
+  }
+
+  getCrossfadeGainNode() {
+    return this.crossfadeGainNode;
   }
 
   load(source: string) {
@@ -130,6 +149,12 @@ export class AudioPlayer {
     this.addEventListeners();
     this.connectElement(element);
     AudioPlayer.detachSource(oldAudio);
+  }
+
+  mute() {
+    if (this.crossfadeGainNode) {
+      this.crossfadeGainNode.gain.value = 0;
+    }
   }
 
   onBuffered(callback: (bufferedTime: number) => void) {
@@ -172,6 +197,12 @@ export class AudioPlayer {
     this.ensureAudioContext();
     await this.audioContext?.resume();
     await this.audioElement.play();
+  }
+
+  resetCrossfadeGain() {
+    if (this.crossfadeGainNode) {
+      this.crossfadeGainNode.gain.value = 1;
+    }
   }
 
   setCurrentTime(time: number) {
@@ -218,8 +249,27 @@ export class AudioPlayer {
       this.audioContext = null;
       this.audioSourceNode = null;
       this.replayGainNode = null;
+      this.crossfadeGainNode = null;
       this.volumeNode = null;
     }
+  }
+
+  private createNodes() {
+    if (!this.audioContext) {
+      return;
+    }
+
+    this.replayGainNode = this.audioContext.createGain();
+    this.crossfadeGainNode = this.audioContext.createGain();
+    this.volumeNode = this.audioContext.createGain();
+
+    this.replayGainNode.connect(this.crossfadeGainNode);
+    this.crossfadeGainNode.connect(this.volumeNode);
+    this.volumeNode.connect(this.audioContext.destination);
+
+    this.replayGainNode.gain.value = this.replayGainValue;
+    this.crossfadeGainNode.gain.value = 1;
+    this.volumeNode.gain.value = this.currentVolume;
   }
 
   private endedCallback: () => void = () => ({});
@@ -230,14 +280,8 @@ export class AudioPlayer {
     }
 
     this.audioContext = new AudioContext();
-    this.replayGainNode = this.audioContext.createGain();
-    this.volumeNode = this.audioContext.createGain();
-
-    this.replayGainNode.connect(this.volumeNode);
-    this.volumeNode.connect(this.audioContext.destination);
-
-    this.replayGainNode.gain.value = this.replayGainValue;
-    this.volumeNode.gain.value = this.currentVolume;
+    this.ownsContext = true;
+    this.createNodes();
   }
 
   private readonly handleCanPlay = () => {

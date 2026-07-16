@@ -36,6 +36,12 @@ const audioMock = {
   volume: 1,
 };
 
+const crossfadeGainNodeMock = {
+  connect: vi.fn(),
+  gain: {
+    value: 1,
+  },
+};
 const replayGainNodeMock = {
   connect: vi.fn(),
   gain: {
@@ -71,12 +77,14 @@ export function audioElementMock() {
     return audioMock;
   }) as unknown as typeof Audio;
 
-  // createGain() is called twice per ensureAudioContext(): 1st for the replayGain
-  // node, 2nd for the volume node. Reset + re-queue per call so each spec's setup
-  // gets a clean, order-correct queue; the trailing default guards extra calls.
+  // createGain() is called three times per createNodes(): 1st for the replayGain
+  // node, 2nd for the crossfadeGain node, 3rd for the volume node. Reset + re-queue
+  // per call so each spec's setup gets a clean, order-correct queue; the trailing
+  // default guards extra calls.
   createGainMock.mockReset();
   createGainMock
     .mockReturnValueOnce(replayGainNodeMock)
+    .mockReturnValueOnce(crossfadeGainNodeMock)
     .mockReturnValueOnce(volumeNodeMock)
     .mockReturnValue(volumeNodeMock);
 
@@ -95,6 +103,7 @@ export function audioElementMock() {
     audioMock,
     createGainMock,
     createMediaElementSourceMock,
+    crossfadeGainNodeMock,
     pauseMock,
     playMock,
     removeAttributeMock,
