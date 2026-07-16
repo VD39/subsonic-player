@@ -4,6 +4,7 @@ export function useSettings() {
     BITRATE,
     DELETE_PODCAST_ON_END,
     LAYOUT,
+    REPLAY_GAIN_MODE,
     SCROBBLE_ENABLED,
     SHOW_PODCASTS,
     SHOW_RADIO_STATIONS,
@@ -41,9 +42,8 @@ export function useSettings() {
     () => DELETE_PODCAST_ON_END,
   );
 
-  const replayGainMode = useState<ReplayGainMode>(
-    STATE_KEYS.replayGainMode,
-    () => 'off',
+  const replayGainMode = useState(STATE_KEYS.replayGainMode, () =>
+    toReplayGainMode(REPLAY_GAIN_MODE as ReplayGainMode),
   );
 
   const settingsRestored = useState(STATE_KEYS.settingsRestored, () => false);
@@ -114,7 +114,7 @@ export function useSettings() {
     }
 
     if (typeof stored.replayGainMode === 'string') {
-      replayGainMode.value = stored.replayGainMode as ReplayGainMode;
+      replayGainMode.value = toReplayGainMode(stored.replayGainMode);
     }
 
     settingsRestored.value = true;
@@ -180,7 +180,7 @@ export function useSettings() {
   }
 
   function setReplayGainMode(mode: ReplayGainMode) {
-    replayGainMode.value = mode;
+    replayGainMode.value = toReplayGainMode(mode);
     saveSettingsState();
   }
 
@@ -201,7 +201,7 @@ export function useSettings() {
     showPodcasts.value = SHOW_PODCASTS;
     showRadioStations.value = SHOW_RADIO_STATIONS;
     deletePodcastOnEnd.value = DELETE_PODCAST_ON_END;
-    replayGainMode.value = 'off';
+    replayGainMode.value = toReplayGainMode(REPLAY_GAIN_MODE as ReplayGainMode);
     settingsRestored.value = false;
     saveSettingsState();
   }

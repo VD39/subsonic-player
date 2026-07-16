@@ -19,6 +19,7 @@ const config = vi.hoisted(() => ({
     BITRATE: 0,
     DELETE_PODCAST_ON_END: false,
     LAYOUT: 'gridLayout',
+    REPLAY_GAIN_MODE: 'off',
     SCROBBLE_ENABLED: true,
     SHOW_PODCASTS: true,
     SHOW_RADIO_STATIONS: true,
@@ -31,11 +32,14 @@ mockNuxtImport('useRuntimeConfig', () => () => config);
 const {
   applyThemePreference,
   cycleLayout,
+  cycleReplayGainMode,
   deletePodcastOnEnd,
   isDarkTheme,
   loadSettings,
+  replayGainMode,
   resetSettings,
   scrobbleEnabled,
+  setReplayGainMode,
   setStreamBitrate,
   setThemeMode,
   setViewLayout,
@@ -89,16 +93,15 @@ describe('useSettings', () => {
     expect(deletePodcastOnEnd.value).toBe(false);
   });
 
+  it('sets the default replayGainMode value', () => {
+    expect(replayGainMode.value).toBe('off');
+  });
+
   describe('when the applyThemePreference function is called', () => {
     describe('when the themePreference value is dark', () => {
       beforeAll(() => {
         themePreference.value = 'dark';
         applyThemePreference();
-      });
-
-      afterAll(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
       });
 
       it('sets the correct isDarkTheme value', () => {
@@ -110,11 +113,6 @@ describe('useSettings', () => {
       beforeAll(() => {
         themePreference.value = 'light';
         applyThemePreference();
-      });
-
-      afterAll(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
       });
 
       it('sets the correct isDarkTheme value', () => {
@@ -140,11 +138,6 @@ describe('useSettings', () => {
         setThemeMode('dark');
       });
 
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
-      });
-
       it('sets the correct themePreference value', () => {
         expect(themePreference.value).toBe('dark');
       });
@@ -168,11 +161,6 @@ describe('useSettings', () => {
         setThemeMode('light');
       });
 
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
-      });
-
       it('sets the correct themePreference value', () => {
         expect(themePreference.value).toBe('light');
       });
@@ -188,11 +176,6 @@ describe('useSettings', () => {
       beforeEach(() => {
         themePreference.value = 'dark';
         toggleTheme();
-      });
-
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
       });
 
       it('sets the correct themePreference value', () => {
@@ -219,11 +202,6 @@ describe('useSettings', () => {
         toggleTheme();
       });
 
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
-      });
-
       it('sets the correct themePreference value', () => {
         expect(themePreference.value).toBe('dark');
       });
@@ -238,10 +216,6 @@ describe('useSettings', () => {
     describe('when value is listLayout', () => {
       beforeEach(() => {
         setViewLayout('listLayout');
-      });
-
-      afterEach(() => {
-        viewLayout.value = 'gridLayout';
       });
 
       it('sets the correct viewLayout value', () => {
@@ -262,10 +236,6 @@ describe('useSettings', () => {
       beforeEach(() => {
         viewLayout.value = 'listLayout';
         setViewLayout();
-      });
-
-      afterEach(() => {
-        viewLayout.value = 'gridLayout';
       });
 
       it('sets the correct viewLayout value', () => {
@@ -290,10 +260,6 @@ describe('useSettings', () => {
           cycleLayout();
         });
 
-        afterAll(() => {
-          viewLayout.value = 'gridLayout';
-        });
-
         it('sets the correct viewLayout value', () => {
           expect(viewLayout.value).toBe('gridLayout');
         });
@@ -306,10 +272,6 @@ describe('useSettings', () => {
       beforeEach(() => {
         scrobbleEnabled.value = true;
         toggleScrobble();
-      });
-
-      afterEach(() => {
-        scrobbleEnabled.value = true;
       });
 
       it('sets the correct scrobbleEnabled value', () => {
@@ -332,10 +294,6 @@ describe('useSettings', () => {
         toggleScrobble();
       });
 
-      afterAll(() => {
-        scrobbleEnabled.value = true;
-      });
-
       it('sets the correct scrobbleEnabled value', () => {
         expect(scrobbleEnabled.value).toBe(true);
       });
@@ -345,10 +303,6 @@ describe('useSettings', () => {
   describe('when the setStreamBitrate function is called', () => {
     beforeEach(() => {
       setStreamBitrate(320);
-    });
-
-    afterEach(() => {
-      streamBitrate.value = 0;
     });
 
     it('sets the correct streamBitrate value', () => {
@@ -372,10 +326,6 @@ describe('useSettings', () => {
         toggleShowPodcasts();
       });
 
-      afterEach(() => {
-        showPodcasts.value = true;
-      });
-
       it('sets the correct showPodcasts value', () => {
         expect(showPodcasts.value).toBe(false);
       });
@@ -396,10 +346,6 @@ describe('useSettings', () => {
         toggleShowPodcasts();
       });
 
-      afterAll(() => {
-        showPodcasts.value = true;
-      });
-
       it('sets the correct showPodcasts value', () => {
         expect(showPodcasts.value).toBe(true);
       });
@@ -411,10 +357,6 @@ describe('useSettings', () => {
       beforeEach(() => {
         showRadioStations.value = true;
         toggleShowRadioStations();
-      });
-
-      afterEach(() => {
-        showRadioStations.value = true;
       });
 
       it('sets the correct showRadioStations value', () => {
@@ -437,10 +379,6 @@ describe('useSettings', () => {
         toggleShowRadioStations();
       });
 
-      afterAll(() => {
-        showRadioStations.value = true;
-      });
-
       it('sets the correct showRadioStations value', () => {
         expect(showRadioStations.value).toBe(true);
       });
@@ -452,10 +390,6 @@ describe('useSettings', () => {
       beforeEach(() => {
         deletePodcastOnEnd.value = false;
         toggleDeletePodcastOnEnd();
-      });
-
-      afterEach(() => {
-        deletePodcastOnEnd.value = false;
       });
 
       it('sets the correct deletePodcastOnEnd value', () => {
@@ -478,12 +412,50 @@ describe('useSettings', () => {
         toggleDeletePodcastOnEnd();
       });
 
-      afterAll(() => {
-        deletePodcastOnEnd.value = false;
-      });
-
       it('sets the correct deletePodcastOnEnd value', () => {
         expect(deletePodcastOnEnd.value).toBe(false);
+      });
+    });
+  });
+
+  describe('when the setReplayGainMode function is called', () => {
+    beforeEach(() => {
+      setReplayGainMode('album');
+    });
+
+    it('sets the correct replayGainMode value', () => {
+      expect(replayGainMode.value).toBe('album');
+    });
+
+    it('calls the setLocalStorage function with the correct parameters', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.settings,
+        expect.objectContaining({
+          replayGainMode: 'album',
+        }),
+      );
+    });
+  });
+
+  describe('when the cycleReplayGainMode function is called', () => {
+    describe('when the replayGainMode value is off', () => {
+      beforeAll(() => {
+        replayGainMode.value = 'off';
+        cycleReplayGainMode();
+      });
+
+      it('sets the correct replayGainMode value', () => {
+        expect(replayGainMode.value).toBe('track');
+      });
+
+      describe('when cycleReplayGainMode is called again', () => {
+        beforeAll(() => {
+          cycleReplayGainMode();
+        });
+
+        it('sets the correct replayGainMode value', () => {
+          expect(replayGainMode.value).toBe('album');
+        });
       });
     });
   });
@@ -542,11 +514,6 @@ describe('useSettings', () => {
         syncFromStorage();
       });
 
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
-      });
-
       it('sets the correct themePreference value', () => {
         expect(themePreference.value).toBe('dark');
       });
@@ -569,10 +536,6 @@ describe('useSettings', () => {
         syncFromStorage();
       });
 
-      afterEach(() => {
-        viewLayout.value = 'gridLayout';
-      });
-
       it('sets the correct viewLayout value', () => {
         expect(viewLayout.value).toBe('listLayout');
       });
@@ -589,10 +552,6 @@ describe('useSettings', () => {
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
         syncFromStorage();
-      });
-
-      afterEach(() => {
-        scrobbleEnabled.value = true;
       });
 
       it('sets the correct scrobbleEnabled value', () => {
@@ -613,10 +572,6 @@ describe('useSettings', () => {
         syncFromStorage();
       });
 
-      afterEach(() => {
-        streamBitrate.value = 0;
-      });
-
       it('sets the correct streamBitrate value', () => {
         expect(streamBitrate.value).toBe(256);
       });
@@ -633,10 +588,6 @@ describe('useSettings', () => {
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
         syncFromStorage();
-      });
-
-      afterEach(() => {
-        showPodcasts.value = true;
       });
 
       it('sets the correct showPodcasts value', () => {
@@ -657,10 +608,6 @@ describe('useSettings', () => {
         syncFromStorage();
       });
 
-      afterEach(() => {
-        showRadioStations.value = true;
-      });
-
       it('sets the correct showRadioStations value', () => {
         expect(showRadioStations.value).toBe(false);
       });
@@ -679,12 +626,26 @@ describe('useSettings', () => {
         syncFromStorage();
       });
 
-      afterEach(() => {
-        deletePodcastOnEnd.value = false;
-      });
-
       it('sets the correct deletePodcastOnEnd value', () => {
         expect(deletePodcastOnEnd.value).toBe(true);
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when stored settings contain a replayGainMode value', () => {
+      beforeEach(() => {
+        getLocalStorageMock
+          .mockReturnValueOnce({ replayGainMode: 'track' })
+          .mockReturnValueOnce(null)
+          .mockReturnValueOnce(null);
+        syncFromStorage();
+      });
+
+      it('sets the correct replayGainMode value', () => {
+        expect(replayGainMode.value).toBe('track');
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -699,11 +660,6 @@ describe('useSettings', () => {
           .mockReturnValueOnce(true)
           .mockReturnValueOnce(null);
         syncFromStorage();
-      });
-
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
       });
 
       it('sets the correct themePreference value', () => {
@@ -730,11 +686,6 @@ describe('useSettings', () => {
         syncFromStorage();
       });
 
-      afterEach(() => {
-        themePreference.value = 'auto';
-        isDarkTheme.value = false;
-      });
-
       it('sets the correct themePreference value', () => {
         expect(themePreference.value).toBe('light');
       });
@@ -757,10 +708,6 @@ describe('useSettings', () => {
           .mockReturnValueOnce(null)
           .mockReturnValueOnce('listLayout');
         syncFromStorage();
-      });
-
-      afterEach(() => {
-        viewLayout.value = 'gridLayout';
       });
 
       it('sets the correct viewLayout value', () => {

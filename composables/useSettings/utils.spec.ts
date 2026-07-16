@@ -5,6 +5,7 @@ import {
   resolveDarkTheme,
   toBitrate,
   toLayout,
+  toReplayGainMode,
   toTheme,
 } from './utils';
 
@@ -94,6 +95,21 @@ describe('toTheme', () => {
   ])('when the value is %o', (value, expected) => {
     it('returns the correct response', () => {
       expect(toTheme(value as Theme)).toBe(expected);
+    });
+  });
+});
+
+describe('toReplayGainMode', () => {
+  describe.each([
+    ['off', 'off'],
+    ['track', 'track'],
+    ['album', 'album'],
+    ['invalid', 'off'],
+    [undefined, 'off'],
+    [null, 'off'],
+  ])('when the value is %o', (value, expected) => {
+    it('returns the correct response', () => {
+      expect(toReplayGainMode(value as ReplayGainMode)).toBe(expected);
     });
   });
 });

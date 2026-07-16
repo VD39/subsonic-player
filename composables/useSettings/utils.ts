@@ -49,6 +49,10 @@ export function toLayout(value: Layout) {
   return LAYOUTS.includes(value) ? value : LAYOUTS[0];
 }
 
+export function toReplayGainMode(value: ReplayGainMode) {
+  return REPLAY_GAIN_MODES.includes(value) ? value : REPLAY_GAIN_MODES[0];
+}
+
 export function toTheme(value: Theme) {
   return THEMES.includes(value) ? value : 'auto';
 }

@@ -23,6 +23,7 @@ const ENVIRONMENT_VARIABLES = {
   LAYOUT: process.env.LAYOUT || 'gridLayout',
   LOAD_SIZE: process.env.LOAD_SIZE || '50',
   MAIN_APP_TITLE: process.env.MAIN_APP_TITLE || 'Music App',
+  REPLAY_GAIN_MODE: process.env.REPLAY_GAIN_MODE || 'off',
   SCROBBLE_ENABLED: process.env.SCROBBLE_ENABLED !== 'false',
   SERVER_URL: process.env.SERVER_URL || '',
   SHOW_PODCASTS: process.env.SHOW_PODCASTS !== 'false',
