@@ -1,5 +1,7 @@
 export const STATE_KEYS = {
   bookmarks: 'bookmarks',
+  crossfadeDuration: 'crossfade-duration',
+  crossfadeEnabled: 'crossfade-enabled',
   currentUser: 'current-user',
   deletePodcastOnEnd: 'delete-podcast-on-end',
   dropdownActiveMenuId: 'dropdown-active-menu-id',

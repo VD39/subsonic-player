@@ -427,6 +427,8 @@ export const searchSuggestionsMock: SuggestionGroup[] = [
 ];
 
 export const settingsMock: SettingsData = {
+  crossfadeDuration: 7,
+  crossfadeEnabled: true,
   deletePodcastOnEnd: true,
   layout: 'gridLayout',
   replayGainMode: 'track',

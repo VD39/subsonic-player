@@ -2,6 +2,8 @@ export function useSettings() {
   const config = useRuntimeConfig();
   const {
     BITRATE,
+    CROSSFADE_DURATION,
+    CROSSFADE_ENABLED,
     DELETE_PODCAST_ON_END,
     LAYOUT,
     REPLAY_GAIN_MODE,
@@ -46,10 +48,21 @@ export function useSettings() {
     toReplayGainMode(REPLAY_GAIN_MODE as ReplayGainMode),
   );
 
+  const crossfadeEnabled = useState(
+    STATE_KEYS.crossfadeEnabled,
+    () => CROSSFADE_ENABLED,
+  );
+
+  const crossfadeDuration = useState(STATE_KEYS.crossfadeDuration, () =>
+    toCrossfadeDuration(CROSSFADE_DURATION),
+  );
+
   const settingsRestored = useState(STATE_KEYS.settingsRestored, () => false);
 
   function saveSettingsState() {
     const toSave: SettingsData = {
+      crossfadeDuration: crossfadeDuration.value,
+      crossfadeEnabled: crossfadeEnabled.value,
       deletePodcastOnEnd: deletePodcastOnEnd.value,
       layout: viewLayout.value,
       replayGainMode: replayGainMode.value,
@@ -115,6 +128,14 @@ export function useSettings() {
 
     if (typeof stored.replayGainMode === 'string') {
       replayGainMode.value = toReplayGainMode(stored.replayGainMode);
+    }
+
+    if (typeof stored.crossfadeEnabled === 'boolean') {
+      crossfadeEnabled.value = stored.crossfadeEnabled;
+    }
+
+    if (typeof stored.crossfadeDuration === 'number') {
+      crossfadeDuration.value = stored.crossfadeDuration;
     }
 
     settingsRestored.value = true;
@@ -191,6 +212,16 @@ export function useSettings() {
     saveSettingsState();
   }
 
+  function setCrossfadeDuration(value: number) {
+    crossfadeDuration.value = toCrossfadeDuration(value);
+    saveSettingsState();
+  }
+
+  function toggleCrossfade() {
+    crossfadeEnabled.value = !crossfadeEnabled.value;
+    saveSettingsState();
+  }
+
   function resetSettings() {
     deleteLocalStorage(LOCAL_STORAGE_KEYS.settings);
     themePreference.value = toTheme(THEME as Theme);
@@ -202,6 +233,8 @@ export function useSettings() {
     showRadioStations.value = SHOW_RADIO_STATIONS;
     deletePodcastOnEnd.value = DELETE_PODCAST_ON_END;
     replayGainMode.value = toReplayGainMode(REPLAY_GAIN_MODE as ReplayGainMode);
+    crossfadeEnabled.value = false;
+    crossfadeDuration.value = CROSSFADE_DURATION_MIN;
     settingsRestored.value = false;
     saveSettingsState();
   }
@@ -212,6 +245,8 @@ export function useSettings() {
 
   return {
     applyThemePreference,
+    crossfadeDuration,
+    crossfadeEnabled,
     cycleLayout,
     cycleReplayGainMode,
     deletePodcastOnEnd,
@@ -220,6 +255,7 @@ export function useSettings() {
     replayGainMode,
     resetSettings,
     scrobbleEnabled,
+    setCrossfadeDuration,
     setReplayGainMode,
     setStreamBitrate,
     setThemeMode,
@@ -229,6 +265,7 @@ export function useSettings() {
     streamBitrate,
     syncFromStorage,
     themePreference,
+    toggleCrossfade,
     toggleDeletePodcastOnEnd,
     toggleScrobble,
     toggleShowPodcasts,

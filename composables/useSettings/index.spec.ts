@@ -17,6 +17,8 @@ mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
 const config = vi.hoisted(() => ({
   public: {
     BITRATE: 0,
+    CROSSFADE_DURATION: 1,
+    CROSSFADE_ENABLED: false,
     DELETE_PODCAST_ON_END: false,
     LAYOUT: 'gridLayout',
     REPLAY_GAIN_MODE: 'off',
@@ -31,6 +33,8 @@ mockNuxtImport('useRuntimeConfig', () => () => config);
 
 const {
   applyThemePreference,
+  crossfadeDuration,
+  crossfadeEnabled,
   cycleLayout,
   cycleReplayGainMode,
   deletePodcastOnEnd,
@@ -39,6 +43,7 @@ const {
   replayGainMode,
   resetSettings,
   scrobbleEnabled,
+  setCrossfadeDuration,
   setReplayGainMode,
   setStreamBitrate,
   setThemeMode,
@@ -48,6 +53,7 @@ const {
   streamBitrate,
   syncFromStorage,
   themePreference,
+  toggleCrossfade,
   toggleDeletePodcastOnEnd,
   toggleScrobble,
   toggleShowPodcasts,
@@ -97,9 +103,17 @@ describe('useSettings', () => {
     expect(replayGainMode.value).toBe('off');
   });
 
+  it('sets the default crossfadeEnabled value', () => {
+    expect(crossfadeEnabled.value).toBe(false);
+  });
+
+  it('sets the default crossfadeDuration value', () => {
+    expect(crossfadeDuration.value).toBe(3);
+  });
+
   describe('when the applyThemePreference function is called', () => {
     describe('when the themePreference value is dark', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         themePreference.value = 'dark';
         applyThemePreference();
       });
@@ -110,7 +124,7 @@ describe('useSettings', () => {
     });
 
     describe('when the themePreference value is light', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         themePreference.value = 'light';
         applyThemePreference();
       });
@@ -246,7 +260,7 @@ describe('useSettings', () => {
 
   describe('when the cycleLayout function is called', () => {
     describe('when the viewLayout value is gridLayout', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         viewLayout.value = 'gridLayout';
         cycleLayout();
       });
@@ -256,7 +270,7 @@ describe('useSettings', () => {
       });
 
       describe('when cycleLayout is called again', () => {
-        beforeAll(() => {
+        beforeEach(() => {
           cycleLayout();
         });
 
@@ -289,7 +303,7 @@ describe('useSettings', () => {
     });
 
     describe('when the scrobbleEnabled value is false', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         scrobbleEnabled.value = false;
         toggleScrobble();
       });
@@ -341,7 +355,7 @@ describe('useSettings', () => {
     });
 
     describe('when the showPodcasts value is false', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         showPodcasts.value = false;
         toggleShowPodcasts();
       });
@@ -374,7 +388,7 @@ describe('useSettings', () => {
     });
 
     describe('when the showRadioStations value is false', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         showRadioStations.value = false;
         toggleShowRadioStations();
       });
@@ -407,7 +421,7 @@ describe('useSettings', () => {
     });
 
     describe('when the deletePodcastOnEnd value is true', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         deletePodcastOnEnd.value = true;
         toggleDeletePodcastOnEnd();
       });
@@ -439,7 +453,7 @@ describe('useSettings', () => {
 
   describe('when the cycleReplayGainMode function is called', () => {
     describe('when the replayGainMode value is off', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         replayGainMode.value = 'off';
         cycleReplayGainMode();
       });
@@ -449,7 +463,7 @@ describe('useSettings', () => {
       });
 
       describe('when cycleReplayGainMode is called again', () => {
-        beforeAll(() => {
+        beforeEach(() => {
           cycleReplayGainMode();
         });
 
@@ -460,9 +474,81 @@ describe('useSettings', () => {
     });
   });
 
+  describe('when the setCrossfadeDuration function is called', () => {
+    beforeEach(() => {
+      setCrossfadeDuration(7);
+    });
+
+    it('sets the correct crossfadeDuration value', () => {
+      expect(crossfadeDuration.value).toBe(7);
+    });
+
+    it('calls the setLocalStorage function with the correct parameters', () => {
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.settings,
+        expect.objectContaining({
+          crossfadeDuration: 7,
+        }),
+      );
+    });
+
+    describe(`when the value exceeds ${CROSSFADE_DURATION_MAX}`, () => {
+      beforeEach(() => {
+        setCrossfadeDuration(20);
+      });
+
+      it('sets the correct crossfadeDuration value', () => {
+        expect(crossfadeDuration.value).toBe(12);
+      });
+    });
+
+    describe(`when the value is below ${CROSSFADE_DURATION_MIN}`, () => {
+      beforeEach(() => {
+        setCrossfadeDuration(0);
+      });
+
+      it('sets the correct crossfadeDuration value', () => {
+        expect(crossfadeDuration.value).toBe(3);
+      });
+    });
+  });
+
+  describe('when the toggleCrossfade function is called', () => {
+    describe('when the crossfadeEnabled value is false', () => {
+      beforeEach(() => {
+        crossfadeEnabled.value = false;
+        toggleCrossfade();
+      });
+
+      it('sets the correct crossfadeEnabled value', () => {
+        expect(crossfadeEnabled.value).toBe(true);
+      });
+
+      it('calls the setLocalStorage function with the correct parameters', () => {
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.settings,
+          expect.objectContaining({
+            crossfadeEnabled: true,
+          }),
+        );
+      });
+    });
+
+    describe('when the crossfadeEnabled value is true', () => {
+      beforeEach(() => {
+        crossfadeEnabled.value = true;
+        toggleCrossfade();
+      });
+
+      it('sets the correct crossfadeEnabled value', () => {
+        expect(crossfadeEnabled.value).toBe(false);
+      });
+    });
+  });
+
   describe('when the loadSettings function is called', () => {
     describe('when the settingsRestored value is false', () => {
-      beforeAll(() => {
+      beforeEach(() => {
         useState(STATE_KEYS.settingsRestored).value = false;
         getLocalStorageMock.mockReturnValue(null);
         loadSettings();
@@ -475,7 +561,7 @@ describe('useSettings', () => {
       });
 
       describe('when loadSettings is called again', () => {
-        beforeAll(() => {
+        beforeEach(() => {
           vi.clearAllMocks();
           loadSettings();
         });
@@ -653,6 +739,42 @@ describe('useSettings', () => {
       });
     });
 
+    describe('when stored settings contain a crossfadeEnabled value', () => {
+      beforeEach(() => {
+        getLocalStorageMock
+          .mockReturnValueOnce({ crossfadeEnabled: true })
+          .mockReturnValueOnce(null)
+          .mockReturnValueOnce(null);
+        syncFromStorage();
+      });
+
+      it('sets the correct crossfadeEnabled value', () => {
+        expect(crossfadeEnabled.value).toBe(true);
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when stored settings contain a crossfadeDuration value', () => {
+      beforeEach(() => {
+        getLocalStorageMock
+          .mockReturnValueOnce({ crossfadeDuration: 8 })
+          .mockReturnValueOnce(null)
+          .mockReturnValueOnce(null);
+        syncFromStorage();
+      });
+
+      it('sets the correct crossfadeDuration value', () => {
+        expect(crossfadeDuration.value).toBe(8);
+      });
+
+      it('does not call the setLocalStorage function', () => {
+        expect(setLocalStorageMock).not.toHaveBeenCalled();
+      });
+    });
+
     describe('when the legacy theme value is boolean true', () => {
       beforeEach(() => {
         getLocalStorageMock
@@ -741,6 +863,8 @@ describe('useSettings', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
         LOCAL_STORAGE_KEYS.settings,
         {
+          crossfadeDuration: 3,
+          crossfadeEnabled: false,
           deletePodcastOnEnd: false,
           layout: 'gridLayout',
           replayGainMode: 'off',

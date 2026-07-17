@@ -1,9 +1,7 @@
-import { settingsMock } from '@/test/fixtures';
-
 import {
-  isValidSettings,
   resolveDarkTheme,
   toBitrate,
+  toCrossfadeDuration,
   toLayout,
   toReplayGainMode,
   toTheme,
@@ -114,71 +112,18 @@ describe('toReplayGainMode', () => {
   });
 });
 
-describe('isValidSettings', () => {
+describe('toCrossfadeDuration', () => {
   describe.each([
-    [settingsMock, true],
-    [null, false],
-    ['string', false],
-    [[], false],
-    [
-      {
-        ...settingsMock,
-        layout: 'invalidLayout',
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        streamBitrate: 999,
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        theme: 'invalidTheme',
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        deletePodcastOnEnd: 'true',
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        scrobbleEnabled: 1,
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        showPodcasts: 'true',
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        showRadioStations: 0,
-      },
-      false,
-    ],
-    [
-      {
-        ...settingsMock,
-        replayGainMode: 'invalidMode',
-      },
-      false,
-    ],
-  ])('when the value is %o', (data, expected) => {
+    [5, 5],
+    [3, 3],
+    [12, 12],
+    [2, 3],
+    [15, 12],
+    [0, 3],
+    [7.5, 7.5],
+  ])('when the value is %o', (value, expected) => {
     it('returns the correct response', () => {
-      expect(isValidSettings(data as unknown as SettingsData)).toBe(expected);
+      expect(toCrossfadeDuration(value)).toBe(expected);
     });
   });
 });
