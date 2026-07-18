@@ -84,6 +84,26 @@ describe('AudioPlayer', () => {
     });
   });
 
+  describe('when mute is called before the audio context exists', () => {
+    beforeAll(() => {
+      player.mute();
+    });
+
+    it('does not set the crossfadeGain node gain value', () => {
+      expect(crossfadeGainNodeMock.gain.value).toBe(1);
+    });
+  });
+
+  describe('when resetCrossfadeGain is called before the audio context exists', () => {
+    beforeAll(() => {
+      player.resetCrossfadeGain();
+    });
+
+    it('does not set the crossfadeGain node gain value', () => {
+      expect(crossfadeGainNodeMock.gain.value).toBe(1);
+    });
+  });
+
   describe('when the load function is called', () => {
     beforeAll(() => {
       player.load('stream-url');
@@ -93,8 +113,8 @@ describe('AudioPlayer', () => {
       expect(pauseMock).toHaveBeenCalled();
     });
 
-    it('sets the correct src value', () => {
-      expect(audioMock.src).toBe('stream-url');
+    it('removes the audio src attribute', () => {
+      expect(removeAttributeMock).toHaveBeenCalledWith('src');
     });
 
     it('calls the audio load function', () => {
@@ -242,7 +262,7 @@ describe('AudioPlayer', () => {
         audioEvents.canplay();
       });
 
-      it('calls the callback', () => {
+      it('calls the onCanPlay callback', () => {
         expect(onCanPlayCallbackMock).toHaveBeenCalled();
       });
     });
@@ -252,7 +272,7 @@ describe('AudioPlayer', () => {
         audioEvents.canplaythrough();
       });
 
-      it('calls the callback', () => {
+      it('calls the onCanPlay callback', () => {
         expect(onCanPlayCallbackMock).toHaveBeenCalled();
       });
     });
@@ -266,7 +286,7 @@ describe('AudioPlayer', () => {
       audioEvents.pause();
     });
 
-    it('calls the callback', () => {
+    it('calls the onPause callback', () => {
       expect(onPauseCallbackMock).toHaveBeenCalled();
     });
   });
@@ -279,7 +299,7 @@ describe('AudioPlayer', () => {
       audioEvents.play();
     });
 
-    it('calls the callback', () => {
+    it('calls the onPlay callback', () => {
       expect(onPlayCallbackMock).toHaveBeenCalled();
     });
   });
@@ -292,7 +312,7 @@ describe('AudioPlayer', () => {
       audioEvents.ended();
     });
 
-    it('calls the callback', () => {
+    it('calls the onEnded callback', () => {
       expect(onEndedCallbackMock).toHaveBeenCalled();
     });
   });
@@ -306,7 +326,7 @@ describe('AudioPlayer', () => {
       audioEvents.loadedmetadata();
     });
 
-    it('calls the callback with the correct parameters', () => {
+    it('calls the onLoadedMetadata callback with the correct parameters', () => {
       expect(onLoadedMetadataCallbackMock).toHaveBeenCalledWith(180);
     });
   });
@@ -319,7 +339,7 @@ describe('AudioPlayer', () => {
       audioEvents.waiting();
     });
 
-    it('calls the callback', () => {
+    it('calls the onWaiting callback', () => {
       expect(onWaitingCallbackMock).toHaveBeenCalled();
     });
   });
@@ -493,16 +513,51 @@ describe('AudioPlayer', () => {
         expect(replayGainNodeMock.gain.value).toBe(1 / 0.9);
       });
     });
+
+    describe('when the mode is track with no gain value', () => {
+      beforeAll(() => {
+        player.applyReplayGain('track');
+      });
+
+      it('sets the correct replayGain node gain value', () => {
+        expect(replayGainNodeMock.gain.value).toBe(1);
+      });
+    });
+
+    describe('when the mode is album with no gain value', () => {
+      beforeAll(() => {
+        player.applyReplayGain('album');
+      });
+
+      it('sets the correct replayGain node gain value', () => {
+        expect(replayGainNodeMock.gain.value).toBe(1);
+      });
+    });
+
+    describe('when the peak value is 0', () => {
+      beforeAll(() => {
+        player.applyReplayGain('track', 6, undefined, 0);
+      });
+
+      it('sets the correct replayGain node gain value', () => {
+        expect(replayGainNodeMock.gain.value).toBe(Math.pow(10, 6 / 20));
+      });
+    });
   });
 
-  describe('when load is called again after a source node already exists', () => {
+  describe('when load is called again', () => {
     beforeAll(() => {
       createMediaElementSourceMock.mockClear();
+      sourceNodeMock.disconnect.mockClear();
       player.load('stream-url-again');
     });
 
-    it('does not call the createMediaElementSource function', () => {
-      expect(createMediaElementSourceMock).not.toHaveBeenCalled();
+    it('calls the disconnect function', () => {
+      expect(sourceNodeMock.disconnect).toHaveBeenCalled();
+    });
+
+    it('calls the createMediaElementSource function', () => {
+      expect(createMediaElementSourceMock).toHaveBeenCalled();
     });
   });
 
@@ -517,18 +572,18 @@ describe('AudioPlayer', () => {
       player.loadFromElement(newAudioMock as unknown as HTMLAudioElement);
     });
 
-    it('does not change the volume node gain value', () => {
+    it('does not set the volume node gain value', () => {
       player.setVolume(0.5);
       expect(volumeNodeMock.gain.value).toBe(1);
     });
 
-    it('does not change the replayGain node gain value', () => {
+    it('does not set the replayGain node gain value', () => {
       player.applyReplayGain('track', -6);
       expect(replayGainNodeMock.gain.value).toBe(1);
     });
 
     it('returns null', () => {
-      expect(player.getCrossfadeGainNode()).toBeNull();
+      expect(player.getCrossfadeGainNode()).toBe(null);
     });
 
     describe('when the load function is called again', () => {
@@ -554,7 +609,7 @@ describe('AudioPlayer', () => {
     });
 
     it('returns null', () => {
-      expect(player.getCrossfadeGainNode()).toBeNull();
+      expect(player.getCrossfadeGainNode()).toBe(null);
     });
 
     describe('when the player is played again after being destroyed', () => {
@@ -625,7 +680,7 @@ describe('AudioPlayer', () => {
       });
 
       it('returns null', () => {
-        expect(injectedPlayer.getCrossfadeGainNode()).toBeNull();
+        expect(injectedPlayer.getCrossfadeGainNode()).toBe(null);
       });
     });
   });

@@ -46,6 +46,7 @@ export class AudioPreloader {
     }
 
     const audio = new Audio();
+    audio.crossOrigin = 'anonymous';
     audio.preload = 'auto';
     audio.src = url;
 

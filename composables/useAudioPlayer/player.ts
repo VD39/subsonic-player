@@ -129,26 +129,16 @@ export class AudioPlayer {
   load(source: string) {
     this.ensureAudioContext();
 
-    if (!this.audioSourceNode) {
-      this.connectElement(this.audioElement);
-    }
+    const newAudio = new Audio();
+    newAudio.crossOrigin = 'anonymous';
+    newAudio.src = source;
 
-    this.audioElement.pause();
-    this.audioElement.src = source;
-    this.audioElement.load();
+    this.swapElement(newAudio);
   }
 
   loadFromElement(element: HTMLAudioElement) {
     this.ensureAudioContext();
-
-    const oldAudio = this.audioElement;
-    this.audioSourceNode?.disconnect();
-    this.removeEventListeners();
-    oldAudio.pause();
-    this.audioElement = element;
-    this.addEventListeners();
-    this.connectElement(element);
-    AudioPlayer.detachSource(oldAudio);
+    this.swapElement(element);
   }
 
   mute() {
@@ -358,6 +348,17 @@ export class AudioPlayer {
       }
     }
   };
+
+  private swapElement(newElement: HTMLAudioElement) {
+    const oldAudio = this.audioElement;
+    this.audioSourceNode?.disconnect();
+    this.removeEventListeners();
+    oldAudio.pause();
+    this.audioElement = newElement;
+    this.addEventListeners();
+    this.connectElement(newElement);
+    AudioPlayer.detachSource(oldAudio);
+  }
 
   private timeupdateCallback: (currentTime: number) => void = () => ({});
 

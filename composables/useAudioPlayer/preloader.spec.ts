@@ -72,7 +72,7 @@ describe('AudioPreloader', () => {
           expect(result).toBe(audioMock);
         });
 
-        it('removes the url from the pool', () => {
+        it('removes from the pool value', () => {
           expect(preloader.has('stream-url')).toBe(false);
         });
 
@@ -99,7 +99,7 @@ describe('AudioPreloader', () => {
           expect(result).toBe(null);
         });
 
-        it('removes the url from the pool', () => {
+        it('removes from the pool value', () => {
           expect(preloader.has('error-url')).toBe(false);
         });
 
@@ -139,13 +139,13 @@ describe('AudioPreloader', () => {
     });
 
     describe('when the url is in the set to keep', () => {
-      it('keeps the url in the pool', () => {
+      it('does not remove the kept url from the pool', () => {
         expect(preloader.has('stream-url-1')).toBe(true);
       });
     });
 
     describe('when the url is not in the set to keep', () => {
-      it('removes the url from the pool', () => {
+      it('removes from the pool value', () => {
         expect(preloader.has('stream-url-2')).toBe(false);
       });
 
