@@ -156,6 +156,66 @@ describe('InputRange', () => {
     });
   });
 
+  describe('when the min prop is set to a value greater than 0', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        max: 12,
+        min: 3,
+        modelValue: 3,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct style attribute on the progress bar element', () => {
+      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+        'width: 0px;',
+      );
+    });
+
+    describe('when the modelValue changes to a middle value', () => {
+      beforeEach(async () => {
+        await wrapper.setProps({ modelValue: 7.5 });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct style attribute on the progress bar element', () => {
+        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+          'width: 50px;',
+        );
+      });
+    });
+
+    describe('when the modelValue changes to the minimum value', () => {
+      beforeEach(async () => {
+        await wrapper.setProps({ modelValue: 3 });
+      });
+
+      it('sets the correct style attribute on the progress bar element', () => {
+        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
+          'width: 0px;',
+        );
+      });
+    });
+
+    describe('when the mousedown on slider is called', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
+          pageX: 50,
+        });
+      });
+
+      it('emits the update:modelValue value with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[7.5]]);
+      });
+    });
+  });
+
   describe('when the height prop is not set', () => {
     it('sets the correct style attribute on the wrapper element', () => {
       expect(wrapper.attributes('style')).toBe('--input-slider-height: 6px;');
@@ -197,6 +257,52 @@ describe('InputRange', () => {
 
     it('does not show the thumb element', () => {
       expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(false);
+    });
+  });
+
+  describe('when the disabled prop is not set', () => {
+    it('does not add the disabled class to the wrapper element', () => {
+      expect(wrapper.classes()).not.toContain('disabled');
+    });
+
+    it('sets the correct aria-disabled attribute on the wrapper element', () => {
+      expect(wrapper.attributes('aria-disabled')).toBe('false');
+    });
+  });
+
+  describe('when the disabled prop is set to true', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        disabled: true,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('adds the disabled class to the wrapper element', () => {
+      expect(wrapper.classes()).toContain('disabled');
+    });
+
+    it('sets the correct aria-disabled attribute on the wrapper element', () => {
+      expect(wrapper.attributes('aria-disabled')).toBe('true');
+    });
+
+    describe('when the mousedown on slider is called', () => {
+      beforeEach(() => {
+        wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
+          pageX: 60,
+        });
+      });
+
+      it('does not add the seeking class to the wrapper element', () => {
+        expect(wrapper.classes()).not.toContain('seeking');
+      });
+
+      it('does not call the AbortController constructor', () => {
+        expect(abortControllerConstructorMock).not.toHaveBeenCalled();
+      });
     });
   });
 

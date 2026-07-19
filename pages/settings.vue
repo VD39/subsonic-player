@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
+import InputRange from '@/components/Atoms/InputRange.vue';
 import ToggleSwitch from '@/components/Atoms/ToggleSwitch.vue';
 import AboutApp from '@/components/Molecules/AboutApp.vue';
 import SelectableBadge from '@/components/Molecules/Settings/SelectableBadge.vue';
@@ -9,10 +10,13 @@ import SettingsGroup from '@/components/Molecules/Settings/SettingsGroup.vue';
 import SettingsSection from '@/components/Molecules/Settings/SettingsSection.vue';
 
 const {
+  crossfadeDuration,
+  crossfadeEnabled,
   deletePodcastOnEnd,
   replayGainMode,
   resetSettings,
   scrobbleEnabled,
+  setCrossfadeDuration,
   setStreamBitrate,
   setThemeMode,
   setViewLayout,
@@ -20,6 +24,7 @@ const {
   showRadioStations,
   streamBitrate,
   themePreference,
+  toggleCrossfade,
   toggleDeletePodcastOnEnd,
   toggleScrobble,
   toggleShowPodcasts,
@@ -50,6 +55,10 @@ function onClearCache() {
       closeModal();
     },
   });
+}
+
+function onCrossfadeDuration(value: number) {
+  setCrossfadeDuration(Math.round(value));
 }
 
 function onResetSettings() {
@@ -142,6 +151,51 @@ onMounted(() => {
           @click="setReplayGainMode(opt.value)"
         />
       </SettingsGroup>
+
+      <SettingsGroup
+        ref="crossfadeGroup"
+        description="Smoothly transition between tracks by switching early to the preloaded next track"
+        title="Crossfade"
+        variant="list"
+      >
+        <SettingsField title="Enable crossfade">
+          <ToggleSwitch
+            ref="crossfadeToggle"
+            label="Enable crossfade"
+            :pressed="crossfadeEnabled"
+            @click="toggleCrossfade"
+          />
+        </SettingsField>
+
+        <SettingsField title="Duration">
+          <div
+            ref="crossfadeWrapper"
+            :class="[
+              'centerAll',
+              'spaceBetween',
+              $style.crossfadeWrapper,
+              {
+                [$style.disabled]: !crossfadeEnabled,
+              },
+            ]"
+          >
+            <span class="strong">{{ crossfadeDuration }}s</span>
+
+            <InputRange
+              ref="crossfadeInputRange"
+              v-model="crossfadeDuration"
+              :disabled="!crossfadeEnabled"
+              :max="CROSSFADE_DURATION_MAX"
+              :min="CROSSFADE_DURATION_MIN"
+              @change="onCrossfadeDuration"
+            />
+
+            <span :class="['strong', $style.secondaryText]">
+              {{ CROSSFADE_DURATION_MAX }}s
+            </span>
+          </div>
+        </SettingsField>
+      </SettingsGroup>
     </SettingsSection>
 
     <SettingsSection title="Navigation">
@@ -202,7 +256,7 @@ onMounted(() => {
         responsive
         title="Cache size"
       >
-        <span :class="$style.cacheSize">{{ cacheEstimate }}</span>
+        <span :class="$style.secondaryText">{{ cacheEstimate }}</span>
       </SettingsField>
 
       <SettingsField
@@ -253,7 +307,15 @@ onMounted(() => {
   font-size: var(--h2-font-size);
 }
 
-.cacheSize {
+.secondaryText {
   color: var(--secondary-font-color);
+}
+
+.crossfadeWrapper {
+  width: 200px;
+}
+
+.disabled {
+  opacity: 0.5;
 }
 </style>

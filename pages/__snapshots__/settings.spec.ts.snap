@@ -101,6 +101,41 @@ exports[`settings > matches the snapshot 1`] = `
         </div>
         <div class="badge"><button aria-pressed="true" class="selectableBadge selected" type="button"><span class="smallFont strong label">Off</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Track</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Album</span></button></div>
       </div>
+      <div>
+        <div class="mBS">
+          <div class="smallFont strong mBXS title">Crossfade</div>
+          <div class="smallFont description">Smoothly transition between tracks by switching early to the preloaded next track</div>
+        </div>
+        <div class="list">
+          <div class="spaceBetween centerItems">
+            <div class="info">
+              <div class="sentenceCase smallFont strong title">Enable crossfade</div>
+              <!--v-if-->
+            </div>
+            <div class="control"><button aria-checked="false" class="button" role="switch" type="button"><span class="visuallyHidden">Enable crossfade</span><span class="track"></span><span class="knob"></span></button></div>
+          </div>
+          <div class="spaceBetween centerItems">
+            <div class="info">
+              <div class="sentenceCase smallFont strong title">Duration</div>
+              <!--v-if-->
+            </div>
+            <div class="control">
+              <div class="centerAll spaceBetween crossfadeWrapper disabled"><span class="strong">3s</span>
+                <div aria-disabled="true" class="inputRange disabled" style="--input-slider-height: 6px;">
+                  <div class="centerItems slider">
+                    <div class="progressWrapper">
+                      <div class="progress" style="width: 0px;"></div>
+                      <!--v-if-->
+                    </div>
+                    <div class="thumb" style="left: -6px;"></div>
+                    <!--v-if-->
+                  </div>
+                </div><span class="strong secondaryText">12s </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <section class="settingsSection">
@@ -149,7 +184,7 @@ exports[`settings > matches the snapshot 1`] = `
           <div class="sentenceCase smallFont strong title">Cache size</div>
           <div class="smallFont description">Approximate space used by cached audio, images, and other data</div>
         </div>
-        <div class="control"><span class="cacheSize"></span></div>
+        <div class="control"><span class="secondaryText"></span></div>
       </div>
       <div class="spaceBetween centerItems">
         <div class="info">

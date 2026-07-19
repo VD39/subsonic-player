@@ -3,6 +3,7 @@ const props = withDefaults(
   defineProps<{
     buffer?: number;
     commitOnRelease?: boolean;
+    disabled?: boolean;
     height?: number;
     hideThumb?: boolean;
     max: number;
@@ -47,7 +48,7 @@ function getProgress(newValue = 0) {
     return sliderWidth;
   }
 
-  return (newValue / props.max) * sliderWidth;
+  return ((newValue - props.min) / (props.max - props.min)) * sliderWidth;
 }
 
 function modifyProgress(event: MouseEvent | TouchEvent) {
@@ -63,7 +64,8 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
 
   const { left, width } = sliderRef.value.getBoundingClientRect();
 
-  const processedValue = ((pointer.pageX - left) / width) * props.max;
+  const range = props.max - props.min;
+  const processedValue = ((pointer.pageX - left) / width) * range + props.min;
   const clippedValue = Math.min(Math.max(processedValue, props.min), props.max);
 
   hoverValue.value = clippedValue;
@@ -104,6 +106,10 @@ function onSliderMouseOver() {
 }
 
 function onSliderPointerDown(event: MouseEvent | TouchEvent) {
+  if (props.disabled) {
+    return;
+  }
+
   isSeeking.value = true;
   modifyProgress(event);
 
@@ -161,11 +167,13 @@ onUnmounted(() => {
 
 <template>
   <div
+    :aria-disabled="disabled"
     :class="[
       $style.inputRange,
       {
         [$style.seeking]: isSeeking,
         [$style.standard]: isUnbounded,
+        [$style.disabled]: disabled,
       },
     ]"
     :style="{
@@ -281,6 +289,10 @@ onUnmounted(() => {
     background-size: 50px 50px;
     animation: stripes-move 10s linear infinite;
   }
+}
+
+.disabled {
+  cursor: not-allowed;
 }
 
 .buffer {

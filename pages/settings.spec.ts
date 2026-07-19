@@ -18,9 +18,12 @@ mockNuxtImport('useServerInfo', () => () => ({
   fetchInformation: fetchInformationMock,
 }));
 
+const crossfadeEnabledMock = ref(false);
+const crossfadeDurationMock = ref(3);
 const deletePodcastOnEndMock = ref(false);
 const resetSettingsMock = vi.fn();
 const scrobbleEnabledMock = ref(true);
+const setCrossfadeDurationMock = vi.fn();
 const setStreamBitrateMock = vi.fn();
 const setThemeModeMock = vi.fn();
 const setViewLayoutMock = vi.fn();
@@ -28,6 +31,7 @@ const showPodcastsMock = ref(true);
 const showRadioStationsMock = ref(true);
 const streamBitrateMock = ref(BITRATE_OPTIONS[3].value);
 const themePreferenceMock = ref(THEME_OPTIONS[2].value);
+const toggleCrossfadeMock = vi.fn();
 const toggleDeletePodcastOnEndMock = vi.fn();
 const toggleScrobbleMock = vi.fn();
 const toggleShowPodcastsMock = vi.fn();
@@ -35,10 +39,13 @@ const toggleShowRadioStationsMock = vi.fn();
 const viewLayoutMock = ref<Layout>(LAYOUT_OPTIONS[0].value);
 
 mockNuxtImport('useSettings', () => () => ({
+  crossfadeDuration: crossfadeDurationMock,
+  crossfadeEnabled: crossfadeEnabledMock,
   deletePodcastOnEnd: deletePodcastOnEndMock,
   replayGainMode: replayGainModeMock,
   resetSettings: resetSettingsMock,
   scrobbleEnabled: scrobbleEnabledMock,
+  setCrossfadeDuration: setCrossfadeDurationMock,
   setStreamBitrate: setStreamBitrateMock,
   setThemeMode: setThemeModeMock,
   setViewLayout: setViewLayoutMock,
@@ -46,6 +53,7 @@ mockNuxtImport('useSettings', () => () => ({
   showRadioStations: showRadioStationsMock,
   streamBitrate: streamBitrateMock,
   themePreference: themePreferenceMock,
+  toggleCrossfade: toggleCrossfadeMock,
   toggleDeletePodcastOnEnd: toggleDeletePodcastOnEndMock,
   toggleScrobble: toggleScrobbleMock,
   toggleShowPodcasts: toggleShowPodcastsMock,
@@ -244,6 +252,54 @@ describe('settings', () => {
         expect(setReplayGainModeMock).toHaveBeenCalledWith(
           REPLAY_GAIN_OPTIONS[1].value,
         );
+      });
+    });
+  });
+
+  describe('inside the crossfade group', () => {
+    describe('when the crossfadeEnabled value is set to false', () => {
+      beforeEach(() => {
+        crossfadeEnabledMock.value = false;
+      });
+
+      it('adds the disabled class to the crossfade wrapper element', () => {
+        expect(wrapper.find({ ref: 'crossfadeWrapper' }).classes()).toContain(
+          'disabled',
+        );
+      });
+    });
+
+    describe('when the crossfadeEnabled value is set to true', () => {
+      beforeEach(() => {
+        crossfadeEnabledMock.value = true;
+      });
+
+      it('does not add the disabled class to the crossfade wrapper element', () => {
+        expect(
+          wrapper.find({ ref: 'crossfadeWrapper' }).classes(),
+        ).not.toContain('disabled');
+      });
+
+      describe('when the crossfade InputRange component emits the change event', () => {
+        beforeEach(() => {
+          wrapper
+            .findComponent({ ref: 'crossfadeInputRange' })
+            .vm.$emit('change', 7);
+        });
+
+        it('calls the setCrossfadeDuration function with the correct parameters', () => {
+          expect(setCrossfadeDurationMock).toHaveBeenCalledWith(7);
+        });
+      });
+    });
+
+    describe('when the crossfade ToggleSwitch component emits the click event', () => {
+      beforeEach(() => {
+        wrapper.findComponent({ ref: 'crossfadeToggle' }).vm.$emit('click');
+      });
+
+      it('calls the toggleCrossfade function', () => {
+        expect(toggleCrossfadeMock).toHaveBeenCalled();
       });
     });
   });

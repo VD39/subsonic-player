@@ -7,7 +7,7 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
-      <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
+      <div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="centerItems slider">
           <div class="progressWrapper">
             <div class="progress" style="width: 0px;"></div>
@@ -38,7 +38,7 @@ exports[`PlayerOptions > when currentTrack value does not have a favourite key >
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
-      <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
+      <div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="centerItems slider">
           <div class="progressWrapper">
             <div class="progress" style="width: 0px;"></div>
@@ -74,7 +74,7 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
-      <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
+      <div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="centerItems slider">
           <div class="progressWrapper">
             <div class="progress" style="width: 0px;"></div>
@@ -111,7 +111,7 @@ exports[`PlayerOptions > when isRadioStation value is true > matches the snapsho
       <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
-      <div class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
+      <div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;" aria-label="Volume" aria-valuetext="1 of 1">
         <div class="centerItems slider">
           <div class="progressWrapper">
             <div class="progress" style="width: 0px;"></div>
