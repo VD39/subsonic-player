@@ -3,6 +3,8 @@ export function useAudioPlayer() {
   const { addErrorSnack } = useSnack();
   const { scrobble } = useMediaLibrary();
   const {
+    crossfadeDuration,
+    crossfadeEnabled,
     deletePodcastOnEnd,
     replayGainMode,
     scrobbleEnabled,
@@ -134,6 +136,7 @@ export function useAudioPlayer() {
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
     isBuffering.value = AUDIO_PLAYER_DEFAULT_STATES.isBuffering;
     isPlaying.value = false;
+    pausedExternally.value = false;
     playbackRate.value = AUDIO_PLAYER_DEFAULT_STATES.playbackRate;
     repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
     shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
@@ -188,19 +191,15 @@ export function useAudioPlayer() {
     setLocalStorage(LOCAL_STORAGE_KEYS.player, STATE_TO_SAVE);
   }
 
+  function saveAndPrefetch() {
+    saveAudioPlayerState();
+    prefetchUpcomingTracks();
+  }
+
   function onSaveInterval() {
     saveAudioPlayerState();
     syncPlaybackPosition();
-
-    if (
-      isTrack.value &&
-      !trackHasScrobbled.value &&
-      scrobbleEnabled.value &&
-      currentTime.value / currentTrack.value.duration > 0.8
-    ) {
-      scrobble(currentTrack.value.id);
-      trackHasScrobbled.value = true;
-    }
+    scrobbleIfNeeded(SCROBBLE_THRESHOLD);
   }
 
   function stopSaveInterval() {
@@ -253,16 +252,31 @@ export function useAudioPlayer() {
     }
   }
 
-  function loadTrack(track: PlayableTrack) {
+  function loadTrack(track: PlayableTrack, crossfade = false) {
     const url = getStreamUrl(track.streamUrlId!);
     const preloadedElement = preloader.value?.consume(url);
 
+    // Use preloaded element first if available to avoids a new network request.
     if (preloadedElement) {
-      audioPlayer.value?.loadFromElement(preloadedElement);
+      if (crossfade) {
+        audioPlayer.value?.crossfadeToElement(preloadedElement, track.duration);
+      } else {
+        audioPlayer.value?.loadFromElement(preloadedElement, track.duration);
+      }
+
       isBuffering.value = false;
-    } else {
-      audioPlayer.value?.load(url);
+
+      return;
     }
+
+    // No preloaded element, so fetch from stream URL.
+    if (crossfade) {
+      audioPlayer.value?.crossfadeTo(url, track.duration);
+
+      return;
+    }
+
+    audioPlayer.value?.load(url, track.duration);
   }
 
   function applyReplayGainForTrack(track: PlayableTrack) {
@@ -300,15 +314,29 @@ export function useAudioPlayer() {
     preloader.value?.prune(urlsToKeep);
   }
 
-  async function changeTrack(track: PlayableTrack) {
+  function scrobbleIfNeeded(threshold: number) {
+    if (
+      isTrack.value &&
+      !trackHasScrobbled.value &&
+      scrobbleEnabled.value &&
+      currentTime.value / currentTrack.value.duration > threshold
+    ) {
+      scrobble(currentTrack.value.id);
+      trackHasScrobbled.value = true;
+    }
+  }
+
+  async function changeTrack(track: PlayableTrack, crossfade = false) {
     trackHasScrobbled.value = false;
+    currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
 
     stopSaveInterval();
     setMediaSessionMetadata();
     setupMediaSessionHandlers();
-    loadTrack(track);
+    loadTrack(track, crossfade);
     applyReplayGainForTrack(track);
 
+    // Restore podcast saved position.
     if (isPodcastEpisode.value && track.position) {
       setCurrentTime(track.position);
     }
@@ -316,12 +344,12 @@ export function useAudioPlayer() {
     setMediaSessionPositionState();
     await resumePlayback();
 
+    // Podcasts reset playback rate on track change.
     if (isPodcastEpisode.value) {
       setPlaybackRate(playbackRate.value);
     }
 
-    saveAudioPlayerState();
-    prefetchUpcomingTracks();
+    saveAndPrefetch();
     syncPlaybackPosition();
   }
 
@@ -375,6 +403,7 @@ export function useAudioPlayer() {
   function syncPlaybackPosition(currentSyncTime = currentTime.value) {
     updateCurrentTrackPosition(currentSyncTime);
 
+    // Bookmark podcast position for resume.
     if (isPodcastEpisode.value && currentSyncTime > 0) {
       createBookmark(currentTrack.value.id, currentSyncTime);
     }
@@ -419,8 +448,7 @@ export function useAudioPlayer() {
         break;
     }
 
-    saveAudioPlayerState();
-    prefetchUpcomingTracks();
+    saveAndPrefetch();
   }
 
   function resetRepeat() {
@@ -437,8 +465,7 @@ export function useAudioPlayer() {
       unshuffleQueue();
     }
 
-    saveAudioPlayerState();
-    prefetchUpcomingTracks();
+    saveAndPrefetch();
   }
 
   async function playTracksShuffled(tracks: PlayableTrack[]) {
@@ -496,6 +523,7 @@ export function useAudioPlayer() {
   function resetPlayerSession() {
     audioPlayer.value?.unload();
     preloader.value?.clear();
+    pausedExternally.value = false;
     shuffle.value = AUDIO_PLAYER_DEFAULT_STATES.shuffle;
     repeat.value = AUDIO_PLAYER_DEFAULT_STATES.repeat;
     resetPlaybackTimes();
@@ -527,8 +555,7 @@ export function useAudioPlayer() {
       }
     }
 
-    saveAudioPlayerState();
-    prefetchUpcomingTracks();
+    saveAndPrefetch();
   }
 
   function reorderQueueTrack(fromIndex: number, toIndex: number) {
@@ -545,8 +572,7 @@ export function useAudioPlayer() {
       pausePlayback();
     }
 
-    saveAudioPlayerState();
-    prefetchUpcomingTracks();
+    saveAndPrefetch();
   }
 
   async function addTrackToQueue(track: PlayableTrack) {
@@ -605,9 +631,17 @@ export function useAudioPlayer() {
     }
   }
 
+  watch([crossfadeEnabled, crossfadeDuration], ([enabled, duration]) => {
+    audioPlayer.value?.setCrossfadeDuration(enabled ? duration : 0);
+  });
+
   function setupAudioPlayer() {
     audioPlayer.value = new AudioPlayer();
     preloader.value = new AudioPreloader();
+
+    audioPlayer.value.setCrossfadeDuration(
+      crossfadeEnabled.value ? crossfadeDuration.value : 0,
+    );
 
     // Audio actions.
     audioPlayer.value.onTimeupdate((newCurrentTime: number) => {
@@ -658,8 +692,6 @@ export function useAudioPlayer() {
           break;
         default: {
           if (isLastTrack.value) {
-            const track = navigateQueue(0);
-            await changeTrack(track);
             pausePlayback();
 
             return;
@@ -684,6 +716,26 @@ export function useAudioPlayer() {
         audioPlayer.value?.pause();
         await resumePlayback();
       }
+    });
+
+    audioPlayer.value.onCrossfadeTrigger(async () => {
+      if (!isTrack.value) {
+        return;
+      }
+
+      if (repeat.value === REPEAT_MODE.one) {
+        return;
+      }
+
+      if (isLastTrack.value && repeat.value !== REPEAT_MODE.all) {
+        return;
+      }
+
+      scrobbleIfNeeded(CROSSFADE_SCROBBLE_THRESHOLD);
+      loadDashboardAlbums();
+
+      const track = navigateQueue('next');
+      await changeTrack(track, true);
     });
   }
 

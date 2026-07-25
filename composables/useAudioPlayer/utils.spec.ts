@@ -1,11 +1,15 @@
+import { audioElementMock } from '@/test/audioElementMock';
 import { getFormattedQueueTracksMock } from '@/test/helpers';
 
 import {
-  getPreviousTracks,
+  detachAudioSource,
+  getPreviousTrack,
   getTracksToPreload,
   getUpcomingTracks,
   isMusicTrack,
 } from './utils';
+
+const { audioLoadMock, audioMock, removeAttributeMock } = audioElementMock();
 
 const tracks = getFormattedQueueTracksMock(5);
 const shortTracks = getFormattedQueueTracksMock(2);
@@ -41,7 +45,7 @@ describe('getUpcomingTracks', () => {
   );
 });
 
-describe('getPreviousTracks', () => {
+describe('getPreviousTrack', () => {
   describe.each([
     [tracks, 1, REPEAT_MODE.off, [tracks[0]]],
     [tracks, 0, REPEAT_MODE.off, []],
@@ -53,9 +57,7 @@ describe('getPreviousTracks', () => {
     'when currentIndex is %i and repeat is %s',
     (queue, currentIndex, repeat, expected) => {
       it('returns the correct response', () => {
-        expect(getPreviousTracks(queue, currentIndex, repeat)).toEqual(
-          expected,
-        );
+        expect(getPreviousTrack(queue, currentIndex, repeat)).toEqual(expected);
       });
     },
   );
@@ -97,5 +99,24 @@ describe('isMusicTrack', () => {
     it('returns the correct response', () => {
       expect(isMusicTrack(track)).toBe(expected);
     });
+  });
+});
+
+describe('detachAudioSource', () => {
+  beforeEach(() => {
+    audioMock.src = 'https://example.com/song.mp3';
+    detachAudioSource(audioMock as unknown as HTMLAudioElement);
+  });
+
+  it('sets the correct src value', () => {
+    expect(audioMock.src).toBe('');
+  });
+
+  it('calls the removeAttribute function with the correct parameters', () => {
+    expect(removeAttributeMock).toHaveBeenCalledWith('src');
+  });
+
+  it('calls the audio load function', () => {
+    expect(audioLoadMock).toHaveBeenCalled();
   });
 });

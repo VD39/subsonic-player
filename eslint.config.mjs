@@ -38,6 +38,29 @@ export default withNuxt(
       'no-unused-vars': 'off',
       'no-useless-rename': 'error',
       'object-shorthand': ['error', 'always'],
+      'perfectionist/sort-classes': [
+        'error',
+        {
+          groups: [
+            [
+              'index-signature',
+              'static-property',
+              'private-property',
+              'property',
+            ],
+            ['constructor'],
+            [
+              'static-method',
+              'private-method',
+              'method',
+              'get-method',
+              'set-method',
+            ],
+          ],
+          order: 'asc',
+          type: 'alphabetical',
+        },
+      ],
       'prefer-const': 'error',
       'vue/attribute-hyphenation': ['error', 'never'],
       'vue/attributes-order': [

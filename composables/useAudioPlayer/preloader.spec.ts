@@ -2,7 +2,8 @@ import { audioElementMock } from '@/test/audioElementMock';
 
 import { AudioPreloader } from './preloader';
 
-const { audioLoadMock, audioMock, removeAttributeMock } = audioElementMock();
+const { audioEvents, audioLoadMock, audioMock, removeAttributeMock } =
+  audioElementMock();
 
 describe('AudioPreloader', () => {
   let preloader: AudioPreloader;
@@ -107,6 +108,25 @@ describe('AudioPreloader', () => {
           expect(audioLoadMock).toHaveBeenCalled();
         });
       });
+    });
+  });
+
+  describe('when the error is triggered on the preloaded audio element', () => {
+    beforeAll(() => {
+      preloader.preload('error-event-url');
+      audioEvents.error();
+    });
+
+    it('removes from the pool value', () => {
+      expect(preloader.has('error-event-url')).toBe(false);
+    });
+
+    it('removes the audio src attribute', () => {
+      expect(removeAttributeMock).toHaveBeenCalledWith('src');
+    });
+
+    it('calls the audio load function', () => {
+      expect(audioLoadMock).toHaveBeenCalled();
     });
   });
 

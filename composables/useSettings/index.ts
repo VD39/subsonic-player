@@ -97,7 +97,7 @@ export function useSettings() {
       deleteLocalStorage(LOCAL_STORAGE_KEYS.layout);
     }
 
-    themePreference.value = toTheme(stored.theme ?? THEME);
+    themePreference.value = toTheme(stored.theme || THEME);
 
     applyThemePreference();
 

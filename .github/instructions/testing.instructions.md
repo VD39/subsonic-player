@@ -592,8 +592,20 @@ it('calls the fetchData function with the correct parameters');
 it('calls the resetAllUserState function');
 it('calls the clearQueue function');
 
+// ✓ when the mock wraps a native HTMLAudioElement method, prefix with "audio"
+it('calls the audio pause function');
+it('calls the audio play function');
+it('calls the audio load function');
+
+// ✓ when multiple mocks share a method name, specify the mock with "on the X"
+it('calls the connect function on the replayGainNode with the correct parameters');
+it('calls the disconnect function on the sourceNode');
+
 // ✗ never append the composable name
 it('calls the toggleInline function from useDropdownSubmenu');
+
+// ✗ ambiguous when 3 mocks all have .connect and descriptions are identical
+it('calls the connect function with the correct parameters');
 ```
 
 ### Event wiring describes

@@ -1,14 +1,10 @@
 export class AudioPreloader {
-  get size() {
-    return this.pool.size;
-  }
-
   private readonly pool = new Map<string, HTMLAudioElement>();
 
   // Dispose of all pre-loaded elements.
   clear() {
     for (const [, audio] of this.pool) {
-      this.detach(audio);
+      detachAudioSource(audio);
     }
 
     this.pool.clear();
@@ -27,7 +23,7 @@ export class AudioPreloader {
 
     // Discard elements that failed to load.
     if (audio.error) {
-      this.detach(audio);
+      detachAudioSource(audio);
       return null;
     }
 
@@ -50,6 +46,17 @@ export class AudioPreloader {
     audio.preload = 'auto';
     audio.src = url;
 
+    audio.addEventListener(
+      'error',
+      () => {
+        detachAudioSource(audio);
+        this.pool.delete(url);
+      },
+      {
+        once: true,
+      },
+    );
+
     this.pool.set(url, audio);
   }
 
@@ -57,15 +64,13 @@ export class AudioPreloader {
   prune(urlsToKeep: Set<string>) {
     for (const [url, audio] of this.pool) {
       if (!urlsToKeep.has(url)) {
-        this.detach(audio);
+        detachAudioSource(audio);
         this.pool.delete(url);
       }
     }
   }
 
-  private detach(audio: HTMLAudioElement) {
-    audio.src = '';
-    audio.removeAttribute('src');
-    audio.load();
+  get size() {
+    return this.pool.size;
   }
 }

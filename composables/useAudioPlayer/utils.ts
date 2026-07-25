@@ -1,4 +1,10 @@
-export function getPreviousTracks(
+export function detachAudioSource(audio: HTMLAudioElement) {
+  audio.src = '';
+  audio.removeAttribute('src');
+  audio.load();
+}
+
+export function getPreviousTrack(
   queue: PlayableTrack[],
   currentIndex: number,
   repeat: number,
@@ -25,7 +31,7 @@ export function getTracksToPreload(
 
   return [
     ...getUpcomingTracks(queue, currentIndex, repeat),
-    ...getPreviousTracks(queue, currentIndex, repeat),
+    ...getPreviousTrack(queue, currentIndex, repeat),
   ];
 }
 

@@ -36,24 +36,21 @@ const audioMock = {
   volume: 1,
 };
 
-const crossfadeGainNodeMock = {
-  connect: vi.fn(),
-  gain: {
-    value: 1,
-  },
-};
-const replayGainNodeMock = {
-  connect: vi.fn(),
-  gain: {
-    value: 1,
-  },
-};
-const volumeNodeMock = {
-  connect: vi.fn(),
-  gain: {
-    value: 1,
-  },
-};
+function createGainMockNode() {
+  return {
+    connect: vi.fn(),
+    disconnect: vi.fn(),
+    gain: {
+      linearRampToValueAtTime: vi.fn(),
+      setValueAtTime: vi.fn(),
+      value: 1,
+    },
+  };
+}
+
+const crossfadeGainNodeMock = createGainMockNode();
+const masterVolumeNodeMock = createGainMockNode();
+const replayGainNodeMock = createGainMockNode();
 const sourceNodeMock = {
   connect: vi.fn(),
   disconnect: vi.fn(),
@@ -77,18 +74,13 @@ export function audioElementMock() {
     return audioMock;
   }) as unknown as typeof Audio;
 
-  // createGain() is called three times per createNodes(): 1st for the replayGain
-  // node, 2nd for the crossfadeGain node, 3rd for the volume node. Reset + re-queue
-  // per call so each spec's setup gets a clean, order-correct queue; the trailing
-  // default guards extra calls.
   createGainMock.mockReset();
   createGainMock
+    .mockReturnValueOnce(masterVolumeNodeMock)
     .mockReturnValueOnce(replayGainNodeMock)
     .mockReturnValueOnce(crossfadeGainNodeMock)
-    .mockReturnValueOnce(volumeNodeMock)
-    .mockReturnValue(volumeNodeMock);
+    .mockReturnValue(masterVolumeNodeMock);
 
-  // Must be a function (not an arrow) so `new AudioContext()` works.
   globalThis.AudioContext = vi.fn(function () {
     return audioContextMock;
   }) as unknown as typeof AudioContext;
@@ -104,6 +96,7 @@ export function audioElementMock() {
     createGainMock,
     createMediaElementSourceMock,
     crossfadeGainNodeMock,
+    masterVolumeNodeMock,
     pauseMock,
     playMock,
     removeAttributeMock,
@@ -111,6 +104,5 @@ export function audioElementMock() {
     replayGainNodeMock,
     setAttributeMock,
     sourceNodeMock,
-    volumeNodeMock,
   };
 }

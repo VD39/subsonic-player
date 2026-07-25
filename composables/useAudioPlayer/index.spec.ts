@@ -12,6 +12,7 @@ type CB = (...args: unknown[]) => void;
 
 let onBufferedCb: CB;
 let onCanPlayCb: CB;
+let onCrossfadeTriggerCb: CB;
 let onEndedCb: CB;
 let onPauseCb: CB;
 let onPlayCb: CB;
@@ -19,11 +20,14 @@ let onTimeupdateCb: CB;
 let onWaitingCb: CB;
 
 const changePlaybackRateMock = vi.fn();
+const crossfadeToElementMock = vi.fn();
+const crossfadeToMock = vi.fn();
 const loadFromElementMock = vi.fn();
 const setVolumeMock = vi.fn();
 const loadMock = vi.fn();
 const onBufferedMock = vi.fn((cb) => (onBufferedCb = cb));
 const onCanPlayMock = vi.fn((cb) => (onCanPlayCb = cb));
+const onCrossfadeTriggerMock = vi.fn((cb) => (onCrossfadeTriggerCb = cb));
 const onEndedMock = vi.fn((cb) => (onEndedCb = cb));
 const onPauseMock = vi.fn((cb) => (onPauseCb = cb));
 const onPlayMock = vi.fn((cb) => (onPlayCb = cb));
@@ -33,6 +37,7 @@ const pauseMock = vi.fn();
 const applyReplayGainMock = vi.fn();
 const destroyMock = vi.fn();
 const playMock = vi.fn(() => Promise.resolve());
+const setCrossfadeDurationMock = vi.fn();
 const setCurrentTimeMock = vi.fn();
 const unloadMock = vi.fn();
 
@@ -41,11 +46,14 @@ mockNuxtImport('AudioPlayer', () =>
     return {
       applyReplayGain: applyReplayGainMock,
       changePlaybackRate: changePlaybackRateMock,
+      crossfadeTo: crossfadeToMock,
+      crossfadeToElement: crossfadeToElementMock,
       destroy: destroyMock,
       load: loadMock,
       loadFromElement: loadFromElementMock,
       onBuffered: onBufferedMock,
       onCanPlay: onCanPlayMock,
+      onCrossfadeTrigger: onCrossfadeTriggerMock,
       onEnded: onEndedMock,
       onPause: onPauseMock,
       onPlay: onPlayMock,
@@ -53,6 +61,7 @@ mockNuxtImport('AudioPlayer', () =>
       onWaiting: onWaitingMock,
       pause: pauseMock,
       play: playMock,
+      setCrossfadeDuration: setCrossfadeDurationMock,
       setCurrentTime: setCurrentTimeMock,
       setVolume: setVolumeMock,
       unload: unloadMock,
@@ -118,6 +127,8 @@ mockNuxtImport('usePodcast', () => () => ({
   deletePodcastEpisode: deletePodcastEpisodeMock,
 }));
 
+const crossfadeDurationMock = ref(0);
+const crossfadeEnabledMock = ref(false);
 const deletePodcastOnEndMock = ref(false);
 const scrobbleEnabledMock = ref(true);
 
@@ -125,6 +136,8 @@ const setReplayGainModeMock = vi.fn();
 const replayGainModeMock = ref<ReplayGainMode>('off');
 
 mockNuxtImport('useSettings', () => () => ({
+  crossfadeDuration: crossfadeDurationMock,
+  crossfadeEnabled: crossfadeEnabledMock,
   deletePodcastOnEnd: deletePodcastOnEndMock,
   replayGainMode: replayGainModeMock,
   scrobbleEnabled: scrobbleEnabledMock,
@@ -381,6 +394,7 @@ describe('useAudioPlayer', () => {
           it('calls the audio load function with the correct parameters', () => {
             expect(loadMock).toHaveBeenCalledWith(
               currentTrackMock.value.streamUrlId,
+              currentTrackMock.value.duration,
             );
           });
 
@@ -776,14 +790,6 @@ describe('useAudioPlayer', () => {
               onEndedCb();
             });
 
-            it('calls the audio load function', () => {
-              expect(loadMock).toHaveBeenCalled();
-            });
-
-            it('calls the audio play function', () => {
-              expect(playMock).toHaveBeenCalled();
-            });
-
             it('calls the audio pause function', () => {
               expect(pauseMock).toHaveBeenCalled();
             });
@@ -807,6 +813,88 @@ describe('useAudioPlayer', () => {
           it('calls the audio play function', () => {
             expect(playMock).toHaveBeenCalled();
           });
+        });
+      });
+    });
+  });
+
+  describe('when the crossfade trigger callback is invoked', () => {
+    beforeAll(() => {
+      vi.clearAllMocks();
+    });
+
+    describe('when the isTrack value is false', () => {
+      beforeAll(async () => {
+        isTrackMock.value = false;
+        await onCrossfadeTriggerCb();
+      });
+
+      it('does not call the navigateQueue function', () => {
+        expect(navigateQueueMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the repeat value is one', () => {
+      beforeAll(async () => {
+        isTrackMock.value = true;
+        result.composable.repeat.value = REPEAT_MODE.one;
+        await onCrossfadeTriggerCb();
+      });
+
+      it('does not call the navigateQueue function', () => {
+        expect(navigateQueueMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the isLastTrack value is true and repeat is not all', () => {
+      beforeAll(async () => {
+        result.composable.repeat.value = REPEAT_MODE.off;
+        isLastTrackMock.value = true;
+        await onCrossfadeTriggerCb();
+      });
+
+      it('does not call the navigateQueue function', () => {
+        expect(navigateQueueMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when all guards pass', () => {
+      beforeAll(async () => {
+        isLastTrackMock.value = false;
+        result.composable.repeat.value = REPEAT_MODE.all;
+        result.composable.currentTime.value = 100;
+        vi.clearAllMocks();
+        navigateQueueMock.mockReturnValueOnce(queueTrack);
+        await onCrossfadeTriggerCb();
+      });
+
+      it('calls the loadDashboardAlbums function', () => {
+        expect(loadDashboardAlbumsMock).toHaveBeenCalled();
+      });
+
+      it('calls the navigateQueue function with the correct parameters', () => {
+        expect(navigateQueueMock).toHaveBeenCalledWith('next');
+      });
+
+      it('calls the audio crossfadeTo function', () => {
+        expect(crossfadeToMock).toHaveBeenCalled();
+      });
+
+      it('calls the audio play function', () => {
+        expect(playMock).toHaveBeenCalled();
+      });
+
+      describe('when the scrobble conditions are met', () => {
+        beforeAll(async () => {
+          result.composable.repeat.value = REPEAT_MODE.all;
+          result.composable.currentTime.value = 100;
+          vi.clearAllMocks();
+          navigateQueueMock.mockReturnValueOnce(queueTrack);
+          await onCrossfadeTriggerCb();
+        });
+
+        it('calls the scrobble function with the correct parameters', () => {
+          expect(scrobbleMock).toHaveBeenCalledWith(queueTrack.id);
         });
       });
     });

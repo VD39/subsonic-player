@@ -9,7 +9,7 @@ export function calculateReplayGain(
   }
 
   const gainDb = mode === 'album' ? albumGain : trackGain;
-  const rawGain = Math.pow(10, (gainDb ?? 0) / 20);
+  const rawGain = Math.pow(10, (gainDb || 0) / 20);
   const maxGain = peak && peak > 0 ? 1 / peak : Infinity;
 
   return Math.min(rawGain, maxGain);

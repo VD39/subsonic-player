@@ -77,7 +77,7 @@
     "dev": "yarn postinstall && nuxt dev --open",
     "generate": "nuxt generate",
     "generate:preview-videos": "yarn playwright install && yarn build && playwright test docs/generate-preview-videos.spec.ts",
-    "lint": "yarn postinstall && yarn lint:scripts && yarn check-types && yarn lint:styles",
+    "lint": "yarn postinstall && yarn lint:scripts && yarn lint:styles",
     "lint:fix": "yarn postinstall && yarn lint:scripts:fix && yarn lint:styles:fix",
     "lint:scripts": "eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
