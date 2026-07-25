@@ -17,9 +17,3 @@ exports[`RepeatButton > when shuffle is set to Infinity > matches the snapshot 1
   <phrepeat aria-hidden="true" class="icon" color="var(--theme-color)" size="24" weight="fill"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat one</span>
 </button>"
 `;
-
-exports[`RepeatButton > when the deletePodcastOnEnd value is true > matches the snapshot 1`] = `
-"<button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Repeat is off while delete on end is enabled">
-  <phrepeat aria-hidden="true" class="icon" color="var(--theme-color)" size="24" weight="fill"></phrepeat><span class="clamp text visuallyHidden">Repeat is off while delete on end is enabled</span>
-</button>"
-`;

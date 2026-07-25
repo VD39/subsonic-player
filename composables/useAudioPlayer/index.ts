@@ -326,7 +326,11 @@ export function useAudioPlayer() {
     }
   }
 
-  async function changeTrack(track: PlayableTrack, crossfade = false) {
+  async function changeTrack(
+    track: PlayableTrack,
+    crossfade = false,
+    shouldPlay = true,
+  ) {
     trackHasScrobbled.value = false;
     currentTime.value = AUDIO_PLAYER_DEFAULT_STATES.currentTime;
 
@@ -342,7 +346,10 @@ export function useAudioPlayer() {
     }
 
     setMediaSessionPositionState();
-    await resumePlayback();
+
+    if (shouldPlay) {
+      await resumePlayback();
+    }
 
     // Podcasts reset playback rate on track change.
     if (isPodcastEpisode.value) {
@@ -432,10 +439,6 @@ export function useAudioPlayer() {
 
   // Repeat/Shuffle actions.
   function cycleRepeat() {
-    if (deletePodcastOnEnd.value) {
-      return;
-    }
-
     switch (repeat.value) {
       case REPEAT_MODE.all:
         repeat.value = REPEAT_MODE.one;
@@ -568,8 +571,9 @@ export function useAudioPlayer() {
     const queueListHasTrack = addTracks(tracks);
 
     if (!queueListHasTrack) {
-      await playNextTrack();
-      pausePlayback();
+      resetPlaybackTimes();
+      const track = navigateQueue('next');
+      await changeTrack(track, false, false);
     }
 
     saveAndPrefetch();
@@ -623,12 +627,7 @@ export function useAudioPlayer() {
     }
 
     // The queue index now points at the next different track.
-    await changeTrack(currentTrack.value);
-
-    // Pause playback when episode was last episode.
-    if (wasLastTrack) {
-      pausePlayback();
-    }
+    await changeTrack(currentTrack.value, false, !wasLastTrack);
   }
 
   watch([crossfadeEnabled, crossfadeDuration], ([enabled, duration]) => {

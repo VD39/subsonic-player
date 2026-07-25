@@ -729,12 +729,12 @@ describe('useAudioPlayer', () => {
             expect(loadMock).toHaveBeenCalled();
           });
 
-          it('calls the audio play function', () => {
-            expect(playMock).toHaveBeenCalled();
+          it('does not call the audio play function', () => {
+            expect(playMock).not.toHaveBeenCalled();
           });
 
-          it('calls the audio pause function', () => {
-            expect(pauseMock).toHaveBeenCalled();
+          it('does not call the audio pause function', () => {
+            expect(pauseMock).not.toHaveBeenCalled();
           });
         });
       });
@@ -919,6 +919,7 @@ describe('useAudioPlayer', () => {
 
     describe('when the queueList value length is 0', () => {
       beforeAll(() => {
+        vi.clearAllMocks();
         addTracksMock.mockImplementationOnce((tracks) => {
           queueListMock.value = [];
           queueListMock.value.push(...tracks);
@@ -933,8 +934,12 @@ describe('useAudioPlayer', () => {
         expect(loadMock).toHaveBeenCalled();
       });
 
-      it('calls the audio play function', () => {
-        expect(playMock).toHaveBeenCalled();
+      it('does not call the audio play function', () => {
+        expect(playMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the audio pause function', () => {
+        expect(pauseMock).not.toHaveBeenCalled();
       });
     });
 
@@ -1699,27 +1704,13 @@ describe('useAudioPlayer', () => {
   });
 
   describe('when the cycleRepeat function is called', () => {
-    describe('when the deletePodcastOnEnd value is false', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        result.composable.cycleRepeat();
-      });
-
-      it('calls the setLocalStorage function', () => {
-        expect(setLocalStorageMock).toHaveBeenCalled();
-      });
+    beforeAll(() => {
+      vi.clearAllMocks();
+      result.composable.cycleRepeat();
     });
 
-    describe('when the deletePodcastOnEnd value is true', () => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        deletePodcastOnEndMock.value = true;
-        result.composable.cycleRepeat();
-      });
-
-      it('does not call the setLocalStorage function', () => {
-        expect(setLocalStorageMock).not.toHaveBeenCalled();
-      });
+    it('calls the setLocalStorage function', () => {
+      expect(setLocalStorageMock).toHaveBeenCalled();
     });
   });
 

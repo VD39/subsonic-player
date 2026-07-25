@@ -167,7 +167,10 @@ onMounted(() => {
           />
         </SettingsField>
 
-        <SettingsField title="Duration">
+        <SettingsField
+          description="Tracks shorter than the crossfade duration may not scrobble on some services"
+          title="Duration"
+        >
           <div
             ref="crossfadeWrapper"
             :class="[
@@ -238,7 +241,7 @@ onMounted(() => {
       </SettingsField>
 
       <SettingsField
-        description="Automatically delete a podcast episode when it finishes. NOTE: Turning this on disables the player's repeat option."
+        description="Automatically delete a podcast episode when it finishes playing. NOTE: Enabling this option will not respect the repeat setting, and will delete the episode even if it is set to repeat."
         title="Delete podcast on end"
       >
         <ToggleSwitch

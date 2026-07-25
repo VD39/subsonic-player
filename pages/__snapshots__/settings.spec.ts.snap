@@ -117,7 +117,7 @@ exports[`settings > matches the snapshot 1`] = `
           <div class="spaceBetween centerItems">
             <div class="info">
               <div class="sentenceCase smallFont strong title">Duration</div>
-              <!--v-if-->
+              <div class="smallFont description">Tracks shorter than the crossfade duration may not scrobble on some services</div>
             </div>
             <div class="control">
               <div class="centerAll spaceBetween crossfadeWrapper disabled"><span class="strong">3s</span>
@@ -170,7 +170,7 @@ exports[`settings > matches the snapshot 1`] = `
       <div class="spaceBetween centerItems">
         <div class="info">
           <div class="sentenceCase smallFont strong title">Delete podcast on end</div>
-          <div class="smallFont description">Automatically delete a podcast episode when it finishes. NOTE: Turning this on disables the player's repeat option.</div>
+          <div class="smallFont description">Automatically delete a podcast episode when it finishes playing. NOTE: Enabling this option will not respect the repeat setting, and will delete the episode even if it is set to repeat.</div>
         </div>
         <div class="control"><button aria-checked="false" class="button" role="switch" type="button"><span class="visuallyHidden">Delete podcast on end</span><span class="track"></span><span class="knob"></span></button></div>
       </div>
