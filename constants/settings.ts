@@ -88,6 +88,6 @@ export const REPLAY_GAIN_MODES = REPLAY_GAIN_OPTIONS.map(
   (option) => option.value,
 );
 
-export const CROSSFADE_DURATION_MIN = 3; // Duration in seconds.
+export const CROSSFADE_DURATION_MIN = 1; // Duration in seconds.
 
 export const CROSSFADE_DURATION_MAX = 12; // Duration in seconds.

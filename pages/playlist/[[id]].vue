@@ -66,16 +66,16 @@ function onPlayTrack(index: number) {
   playTracks(playlist.value!.tracks, index);
 }
 
-async function onSortList(fromIndex: number, toIndex: number) {
-  await reorderPlaylistTracks(
+function onSortList(fromIndex: number, toIndex: number) {
+  reorderPlaylistTracks(
     route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
     fromIndex,
     toIndex,
   );
 }
 
-async function removeTrackFromPlaylist(songIndexToRemove: number) {
-  await removeFromPlaylist({
+function removeTrackFromPlaylist(songIndexToRemove: number) {
+  removeFromPlaylist({
     playlistId: route.params[ROUTE_PARAM_KEYS.playlist.id] as string,
     songIndexToRemove,
   });

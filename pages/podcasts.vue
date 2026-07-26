@@ -14,6 +14,7 @@ const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openPodcastInformationModal, openTrackInformationModal } =
   useMediaInformation();
+const { deleteBookmark } = useBookmark();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 const { getMediaTracks } = useMediaTracks();
@@ -60,11 +61,16 @@ const gridWrapperProps = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
 );
 
+function deleteEpisode(episode: PodcastEpisode) {
+  deleteBookmark(episode.id, false);
+  deletePodcastEpisode(episode);
+}
+
 async function onAddPodcastToQueue(podcast: Podcast) {
   const podcastEpisodes = await getMediaTracks(podcast);
 
   if (podcastEpisodes) {
-    await addTracksToQueue(podcastEpisodes);
+    addTracksToQueue(podcastEpisodes);
   }
 }
 
@@ -133,7 +139,7 @@ useHead({
         :podcastEpisodes="newestPodcastEpisodes"
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
-        @deleteEpisode="deletePodcastEpisode"
+        @deleteEpisode="deleteEpisode"
         @downloadEpisode="downloadPodcastEpisode"
         @downloadMedia="downloadTrack"
         @dragStart="dragStart"

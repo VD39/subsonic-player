@@ -52,7 +52,7 @@ export function useFavourite() {
     favouriteIds.value[id] = isFavourite;
   }
 
-  async function toggleFavourite(
+  function toggleFavourite(
     track: FavouriteParams,
     isCurrentlyFavourite: boolean,
   ) {

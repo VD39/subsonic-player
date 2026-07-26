@@ -36,17 +36,17 @@ export function useGenre() {
         ),
     });
 
-    return tracksByGenreData;
+    return tracksByGenreData || [];
   }
 
-  async function getMediaByGenre(params: MediaByGenreParams) {
+  function getMediaByGenre(params: MediaByGenreParams) {
     switch (params.mediaType) {
       case ROUTE_MEDIA_TYPE_PARAMS.Albums:
         return getAlbumsByGenre(params);
       case ROUTE_MEDIA_TYPE_PARAMS.Tracks:
         return getTracksByGenre(params);
       default:
-        return [];
+        return [] as (Album | Track)[];
     }
   }
 

@@ -146,7 +146,7 @@ export function useAudioPlayer() {
     deleteLocalStorage(LOCAL_STORAGE_KEYS.player);
   }
 
-  async function restoreAudioPlayerState() {
+  function restoreAudioPlayerState() {
     if (playerStateRestored.value) {
       return;
     }
@@ -630,17 +630,9 @@ export function useAudioPlayer() {
     await changeTrack(currentTrack.value, false, !wasLastTrack);
   }
 
-  watch([crossfadeEnabled, crossfadeDuration], ([enabled, duration]) => {
-    audioPlayer.value?.setCrossfadeDuration(enabled ? duration : 0);
-  });
-
   function setupAudioPlayer() {
     audioPlayer.value = new AudioPlayer();
     preloader.value = new AudioPreloader();
-
-    audioPlayer.value.setCrossfadeDuration(
-      crossfadeEnabled.value ? crossfadeDuration.value : 0,
-    );
 
     // Audio actions.
     audioPlayer.value.onTimeupdate((newCurrentTime: number) => {
@@ -716,6 +708,10 @@ export function useAudioPlayer() {
         await resumePlayback();
       }
     });
+
+    audioPlayer.value.setCrossfadeDuration(() =>
+      crossfadeEnabled.value ? crossfadeDuration.value : 0,
+    );
 
     audioPlayer.value.onCrossfadeTrigger(async () => {
       if (!isTrack.value) {

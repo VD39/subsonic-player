@@ -108,7 +108,7 @@ describe('useSettings', () => {
   });
 
   it('sets the default crossfadeDuration value', () => {
-    expect(crossfadeDuration.value).toBe(3);
+    expect(crossfadeDuration.value).toBe(1);
   });
 
   describe('when the applyThemePreference function is called', () => {
@@ -508,7 +508,7 @@ describe('useSettings', () => {
       });
 
       it('sets the correct crossfadeDuration value', () => {
-        expect(crossfadeDuration.value).toBe(3);
+        expect(crossfadeDuration.value).toBe(1);
       });
     });
   });
@@ -863,7 +863,7 @@ describe('useSettings', () => {
       expect(setLocalStorageMock).toHaveBeenCalledWith(
         LOCAL_STORAGE_KEYS.settings,
         {
-          crossfadeDuration: 3,
+          crossfadeDuration: 1,
           crossfadeEnabled: false,
           deletePodcastOnEnd: false,
           layout: 'gridLayout',

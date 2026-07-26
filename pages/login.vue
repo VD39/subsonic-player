@@ -23,7 +23,7 @@ async function onFormSubmit(fields: AuthData) {
   await redirectIfAuthenticated();
 }
 
-async function redirectIfAuthenticated() {
+function redirectIfAuthenticated() {
   if (isAuthenticated.value) {
     setLocalStorage(LOCAL_STORAGE_KEYS.login, Date.now().toString());
 

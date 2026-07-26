@@ -5,7 +5,7 @@ export class AudioPlayer {
 
   private canPlayCallback: () => void = () => ({});
 
-  private crossfadeDuration = 0;
+  private crossfadeDurationCallback: () => number = () => 0;
 
   private crossfadeEffect: CrossfadeEffect | null = null;
 
@@ -60,7 +60,7 @@ export class AudioPlayer {
     this.transitionScheduler.monitor(
       currentTime,
       duration,
-      this.crossfadeDuration,
+      this.crossfadeDurationCallback(),
     );
   };
 
@@ -305,8 +305,8 @@ export class AudioPlayer {
     });
   }
 
-  setCrossfadeDuration(duration: number) {
-    this.crossfadeDuration = duration;
+  setCrossfadeDuration(callback: () => number) {
+    this.crossfadeDurationCallback = callback;
   }
 
   setCurrentTime(time: number) {
@@ -336,7 +336,7 @@ export class AudioPlayer {
       this.crossfadeEffect.fade(
         outgoing.crossfadeGainNode,
         0,
-        this.crossfadeDuration,
+        this.crossfadeDurationCallback(),
       );
     }
 
@@ -349,7 +349,7 @@ export class AudioPlayer {
       this.crossfadeEffect.fade(
         track.crossfadeGainNode,
         1,
-        this.crossfadeDuration,
+        this.crossfadeDurationCallback(),
       );
     }
   }
@@ -382,7 +382,7 @@ export class AudioPlayer {
       crossfade &&
       !!this.currentTrack &&
       !!this.crossfadeEffect &&
-      this.crossfadeDuration > 0;
+      this.crossfadeDurationCallback() > 0;
 
     if (canCrossfade) {
       this.startCrossfade(track);

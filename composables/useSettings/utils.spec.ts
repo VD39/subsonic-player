@@ -115,11 +115,10 @@ describe('toReplayGainMode', () => {
 describe('toCrossfadeDuration', () => {
   describe.each([
     [5, 5],
-    [3, 3],
+    [1, 1],
     [12, 12],
-    [2, 3],
+    [0, 1],
     [15, 12],
-    [0, 3],
     [7.5, 7.5],
   ])('when the value is %o', (value, expected) => {
     it('returns the correct response', () => {

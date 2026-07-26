@@ -20,6 +20,7 @@ const { openModal } = useModal();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { openTrackInformationModal } = useMediaInformation();
+const { deleteBookmark } = useBookmark();
 const { dragStart } = useDragAndDrop();
 const {
   deletePodcast,
@@ -66,6 +67,11 @@ const hasDownloadedEpisodes = computed(
 
 function addDownloadedTracksToQueue() {
   addTracksToQueue(podcast.value!.episodes.downloaded);
+}
+
+function deleteEpisode(episode: PodcastEpisode) {
+  deleteBookmark(episode.id, false);
+  deletePodcastEpisode(episode);
 }
 
 async function deleteSelectedPodcast() {
@@ -204,7 +210,7 @@ useHead({
         :podcastEpisodes
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
-        @deleteEpisode="deletePodcastEpisode"
+        @deleteEpisode="deleteEpisode"
         @downloadEpisode="downloadPodcastEpisode"
         @downloadMedia="downloadTrack"
         @dragStart="dragStart"

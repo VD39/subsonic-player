@@ -46,7 +46,7 @@ async function addAlbumToQueue(album: Album) {
   const tracks = await getMediaTracks(album);
 
   if (tracks) {
-    await addTracksToQueue(tracks);
+    addTracksToQueue(tracks);
   }
 }
 

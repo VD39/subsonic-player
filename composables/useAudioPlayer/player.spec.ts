@@ -563,7 +563,7 @@ describe('AudioPlayer', () => {
     const onCrossfadeTriggerCallbackMock = vi.fn();
 
     beforeAll(() => {
-      player.setCrossfadeDuration(5);
+      player.setCrossfadeDuration(() => 5);
       player.onCrossfadeTrigger(onCrossfadeTriggerCallbackMock);
       vi.clearAllMocks();
       audioMock.buffered = {
@@ -670,7 +670,7 @@ describe('AudioPlayer', () => {
 
   describe('when the crossfadeToElement function is called', () => {
     beforeAll(async () => {
-      player.setCrossfadeDuration(4);
+      player.setCrossfadeDuration(() => 4);
       vi.clearAllMocks();
 
       createGainMock

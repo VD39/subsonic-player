@@ -46,6 +46,12 @@ mockNuxtImport('useDragAndDrop', () => () => ({
   dragStart: dragStartMock,
 }));
 
+const deleteBookmarkMock = vi.fn();
+
+mockNuxtImport('useBookmark', () => () => ({
+  deleteBookmark: deleteBookmarkMock,
+}));
+
 const deletePodcastMock = vi.fn();
 const deletePodcastEpisodeMock = vi.fn();
 const downloadPodcastEpisodeMock = vi.fn();
@@ -432,6 +438,10 @@ describe('[[id]]', () => {
           wrapper
             .findComponent(PodcastEpisodesList)
             .vm.$emit('deleteEpisode', episode);
+        });
+
+        it('calls the deleteBookmark function with the correct parameters', () => {
+          expect(deleteBookmarkMock).toHaveBeenCalledWith(episode.id, false);
         });
 
         it('calls the deletePodcastEpisode function with the correct parameters', () => {
