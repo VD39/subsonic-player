@@ -37,7 +37,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.0.7",
     "playwright-core": "^1.60.0",
-    "postcss": "^8.5.14",
+    "postcss": "^8.5.18",
     "postcss-custom-media": "^12.0.1",
     "postcss-extend-rule": "^4.0.0",
     "postcss-html": "^1.8.1",
