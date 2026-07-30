@@ -38,7 +38,7 @@ export function useSnack() {
     snacks.value = [];
   }
 
-  function addErrorSnack(message = DEFAULT_ERROR_MESSAGE, auto = true) {
+  function addErrorSnack(message = DEFAULT_ERROR_MESSAGE, auto = false) {
     addSnack({
       auto,
       content: message,

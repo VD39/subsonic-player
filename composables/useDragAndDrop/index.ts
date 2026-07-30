@@ -173,7 +173,11 @@ export function useDragAndDrop() {
     const invisibleDragImage = document.createElement('div');
     event.dataTransfer.setDragImage(invisibleDragImage, 0, 0);
     event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData(DATA_TRANSFER_MEDIA_ID, JSON.stringify(media));
+    const json = safeJsonStringify(media);
+
+    if (json) {
+      event.dataTransfer.setData(DATA_TRANSFER_MEDIA_ID, json);
+    }
 
     document.addEventListener('dragover', dragOver);
     document.addEventListener('dragenter', dragEnter);
@@ -197,9 +201,9 @@ export function useDragAndDrop() {
       return;
     }
 
-    const media: QueueableMedia = JSON.parse(mediaData);
+    const media = safeJsonParse<QueueableMedia>(mediaData);
 
-    if (!hasTypeProperty(media)) {
+    if (!media || !hasTypeProperty(media)) {
       return;
     }
 

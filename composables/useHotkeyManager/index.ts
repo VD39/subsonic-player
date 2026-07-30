@@ -17,6 +17,7 @@ export function useHotkeyManager() {
     currentTrack,
     hasCurrentTrack,
     isPodcastEpisode,
+    isRadioStation,
     isTrack,
     toggleQueuePlayer,
   } = useQueue();
@@ -147,6 +148,10 @@ export function useHotkeyManager() {
   }
 
   function seekByPercentKey(key: string) {
+    if (isRadioStation.value) {
+      return;
+    }
+
     const time = (currentTrack.value.duration * (Number(key) * 10)) / 100;
     seekTo(time);
   }

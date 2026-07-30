@@ -20,5 +20,5 @@ export function isUrl(url: string) {
 
 /* istanbul ignore next -- @preserve */
 export function parseQueryString(query = '') {
-  return new URLSearchParams(decodeURIComponent(query));
+  return new URLSearchParams(safeDecodeURIComponent(query));
 }

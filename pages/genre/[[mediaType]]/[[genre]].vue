@@ -23,7 +23,7 @@ const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
 const { dragStart } = useDragAndDrop();
 const { getMediaTracks } = useMediaTracks();
 
-const genre = decodeURIComponent(
+const genre = safeDecodeURIComponent(
   route.params[ROUTE_PARAM_KEYS.genre.genre] as string,
 );
 

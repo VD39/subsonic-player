@@ -7,9 +7,10 @@ export default defineNuxtPlugin(() => {
       const subsonicResponse = response._data['subsonic-response'];
 
       if (subsonicResponse?.status !== 'ok') {
-        throw new Error(
-          subsonicResponse?.error?.message || DEFAULT_ERROR_MESSAGE,
-        );
+        const code = subsonicResponse?.error?.code;
+        const message =
+          subsonicResponse?.error?.message || DEFAULT_ERROR_MESSAGE;
+        throw new Error(code ? `[${code}] ${message}` : message);
       }
 
       if (subsonicResponse.status === 'ok') {

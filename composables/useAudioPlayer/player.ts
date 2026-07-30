@@ -21,6 +21,8 @@ export class AudioPlayer {
 
   private endedCallback: () => void = () => ({});
 
+  private errorCallback: (event: Event) => void = () => ({});
+
   private fadingTrack: null | TrackInstance = null;
 
   private readonly handleCanPlayThrough = () => {
@@ -31,9 +33,16 @@ export class AudioPlayer {
     this.endedCallback();
   };
 
+  private readonly handleError = (event: Event) => {
+    this.errorCallback(event);
+  };
+
   private readonly handleFadingEnded = () => {
-    this.fadingTrack?.destroy();
-    this.fadingTrack = null;
+    this.clearFadingTrack();
+  };
+
+  private readonly handleFadingError = () => {
+    this.clearFadingTrack();
   };
 
   private readonly handlePause = () => {
@@ -46,6 +55,10 @@ export class AudioPlayer {
 
   private readonly handleProgress = () => {
     this.setBufferProgress();
+  };
+
+  private readonly handleStalled = () => {
+    this.stalledCallback();
   };
 
   private readonly handleTimeupdate = () => {
@@ -80,19 +93,21 @@ export class AudioPlayer {
     const element = this.currentTrack?.element;
     const duration = element?.duration || 0;
 
-    if (duration <= 0) {
+    if (duration <= 0 || !element) {
       return;
     }
 
-    for (let index = 0; index < element!.buffered.length; index++) {
-      const bufferedIndex = element!.buffered.length - 1 - index;
+    for (let index = 0; index < element.buffered.length; index++) {
+      const bufferedIndex = element.buffered.length - 1 - index;
 
-      if (element!.buffered.start(bufferedIndex) < element!.currentTime) {
-        this.bufferedCallback(element!.buffered.end(bufferedIndex));
+      if (element.buffered.start(bufferedIndex) < element.currentTime) {
+        this.bufferedCallback(element.buffered.end(bufferedIndex));
         break;
       }
     }
   };
+
+  private stalledCallback: () => void = () => ({});
 
   private timeupdateCallback: (currentTime: number) => void = () => ({});
 
@@ -140,6 +155,11 @@ export class AudioPlayer {
     }
   }
 
+  private clearFadingTrack() {
+    this.fadingTrack?.destroy();
+    this.fadingTrack = null;
+  }
+
   private createNodes() {
     if (!this.audioContext) {
       return;
@@ -174,8 +194,13 @@ export class AudioPlayer {
         'ended',
         this.handleFadingEnded,
       );
-      this.fadingTrack.destroy();
-      this.fadingTrack = null;
+
+      this.fadingTrack.element.removeEventListener(
+        'error',
+        this.handleFadingError,
+      );
+
+      this.clearFadingTrack();
     }
 
     if (this.ownsContext) {
@@ -230,8 +255,16 @@ export class AudioPlayer {
         type: 'timeupdate',
       },
       {
+        handler: this.handleStalled,
+        type: 'stalled',
+      },
+      {
         handler: this.handleWaiting,
         type: 'waiting',
+      },
+      {
+        handler: this.handleError,
+        type: 'error',
       },
     ];
   }
@@ -273,12 +306,20 @@ export class AudioPlayer {
     this.endedCallback = callback;
   }
 
+  onError(callback: (event: Event) => void) {
+    this.errorCallback = callback;
+  }
+
   onPause(callback: () => void) {
     this.pauseCallback = callback;
   }
 
   onPlay(callback: () => void) {
     this.playCallback = callback;
+  }
+
+  onStalled(callback: () => void) {
+    this.stalledCallback = callback;
   }
 
   onTimeupdate(callback: (currentTime: number) => void) {
@@ -327,9 +368,15 @@ export class AudioPlayer {
   private startCrossfade(track: TrackInstance) {
     const outgoing = this.currentTrack!;
     this.removeEventListeners(outgoing.element);
+
     outgoing.element.addEventListener('ended', this.handleFadingEnded, {
       once: true,
     });
+
+    outgoing.element.addEventListener('error', this.handleFadingError, {
+      once: true,
+    });
+
     this.fadingTrack = outgoing;
 
     if (outgoing.crossfadeGainNode && this.crossfadeEffect) {
@@ -368,8 +415,13 @@ export class AudioPlayer {
         'ended',
         this.handleFadingEnded,
       );
-      this.fadingTrack.destroy();
-      this.fadingTrack = null;
+
+      this.fadingTrack.element.removeEventListener(
+        'error',
+        this.handleFadingError,
+      );
+
+      this.clearFadingTrack();
     }
 
     const track = new TrackInstance(

@@ -1,4 +1,5 @@
 export function useMaintenance() {
+  const { handleError } = useErrorHandler();
   const { clearServerQueue, restoreQueueStateFromLocal } = useQueue();
 
   const cacheEstimate = ref('');
@@ -33,20 +34,30 @@ export function useMaintenance() {
       return;
     }
 
-    const keys = await globalThis.caches.keys();
+    try {
+      const keys = await globalThis.caches.keys();
 
-    const deletePromises = keys.reduce<Promise<boolean>[]>((promises, name) => {
-      if (CACHE_NAMES.includes(name) || name.startsWith('workbox-precache')) {
-        promises.push(globalThis.caches.delete(name));
-      }
+      const deletePromises = keys.reduce<Promise<boolean>[]>(
+        (promises, name) => {
+          if (
+            CACHE_NAMES.includes(name) ||
+            name.startsWith('workbox-precache')
+          ) {
+            promises.push(globalThis.caches.delete(name));
+          }
 
-      return promises;
-    }, []);
+          return promises;
+        },
+        [],
+      );
 
-    await Promise.all(deletePromises);
+      await Promise.all(deletePromises);
 
-    // Refresh the estimate UI after clearing.
-    await fetchCacheEstimate();
+      // Refresh the estimate UI after clearing.
+      await fetchCacheEstimate();
+    } catch (error) {
+      handleError(error, 'caches');
+    }
   }
 
   return {

@@ -26,17 +26,29 @@ describe('useUser', () => {
   });
 
   describe('when the resolveAvatarUrl function is called', () => {
-    describe('when the response is ok and the content type is an image', () => {
-      beforeEach(() => {
-        fetchMock.mockResolvedValue({
-          headers: {
-            get: vi.fn(() => 'image/jpeg'),
-          },
-          ok: true,
-        });
+    beforeEach(async () => {
+      fetchMock.mockResolvedValue({
+        headers: {
+          get: vi.fn(() => 'image/jpeg'),
+        },
+        ok: true,
       });
 
-      it('returns the avatar url', async () => {
+      await resolveAvatarUrl('username');
+    });
+
+    it('calls the fetch function with the correct parameters', () => {
+      expect(fetchMock).toHaveBeenCalledWith('http://server/avatar', {
+        method: 'HEAD',
+      });
+    });
+
+    it('calls the getAvatarUrl function with the correct parameters', () => {
+      expect(getAvatarUrlMock).toHaveBeenCalledWith('username');
+    });
+
+    describe('when the response is ok and the content type is an image', () => {
+      it('returns the correct response', async () => {
         expect(await resolveAvatarUrl('username')).toBe('http://server/avatar');
       });
     });
@@ -51,7 +63,7 @@ describe('useUser', () => {
         });
       });
 
-      it('returns the default user image', async () => {
+      it('returns the correct response', async () => {
         expect(await resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
@@ -68,7 +80,7 @@ describe('useUser', () => {
         });
       });
 
-      it('returns the default user image', async () => {
+      it('returns the correct response', async () => {
         expect(await resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
@@ -85,33 +97,22 @@ describe('useUser', () => {
         });
       });
 
-      it('returns the default user image', async () => {
+      it('returns the correct response', async () => {
         expect(await resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
       });
     });
 
-    describe('when fetch is called', () => {
+    describe('when the fetch function throws an error', () => {
       beforeEach(() => {
-        fetchMock.mockResolvedValue({
-          headers: { get: vi.fn(() => 'image/jpeg') },
-          ok: true,
-        });
+        fetchMock.mockRejectedValue(new Error('Network error'));
       });
 
-      it('calls fetch with a HEAD request to the avatar url', async () => {
-        await resolveAvatarUrl('username');
-
-        expect(fetchMock).toHaveBeenCalledWith('http://server/avatar', {
-          method: 'HEAD',
-        });
-      });
-
-      it('calls getAvatarUrl with the username', async () => {
-        await resolveAvatarUrl('username');
-
-        expect(getAvatarUrlMock).toHaveBeenCalledWith('username');
+      it('returns the correct response', async () => {
+        expect(await resolveAvatarUrl('username')).toBe(
+          FALLBACK_ICON_BY_TYPE.user,
+        );
       });
     });
   });
@@ -121,7 +122,7 @@ describe('useUser', () => {
       setUser(cookieMock);
     });
 
-    it('sets the user value from the cookie string', () => {
+    it('sets the correct user value', () => {
       expect(user.value).toEqual({
         salt: 'salt',
         server: 'https://www.server.com',
@@ -136,8 +137,8 @@ describe('useUser', () => {
       clearUser();
     });
 
-    it('sets the user value to null', () => {
-      expect(user.value).toBeNull();
+    it('sets the correct user value', () => {
+      expect(user.value).toBe(null);
     });
   });
 });

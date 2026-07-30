@@ -4,17 +4,21 @@ export function useUser() {
   const user = useState<null | User>(STATE_KEYS.currentUser, () => null);
 
   async function resolveAvatarUrl(username: string) {
-    const url = getAvatarUrl(username);
+    try {
+      const url = getAvatarUrl(username);
 
-    const response = await fetch(url, {
-      method: 'HEAD',
-    });
+      const response = await fetch(url, {
+        method: 'HEAD',
+      });
 
-    const contentType = response.headers.get('Content-Type');
+      const contentType = response.headers.get('Content-Type');
 
-    return response.ok && contentType?.startsWith('image/')
-      ? url
-      : FALLBACK_ICON_BY_TYPE.user;
+      return response.ok && contentType?.startsWith('image/')
+        ? url
+        : FALLBACK_ICON_BY_TYPE.user;
+    } catch {
+      return FALLBACK_ICON_BY_TYPE.user;
+    }
   }
 
   function setUser(cookie: string) {

@@ -26,25 +26,39 @@ export function useFavourite() {
     return favourites;
   }
 
-  /* istanbul ignore next -- @preserve */
   async function addFavourite(params: FavouriteParams) {
-    await fetchData('/star', {
+    if (!params.id) {
+      return;
+    }
+
+    const { error } = await fetchData('/star', {
       method: 'POST',
       query: getFavouriteApiParams(params),
     });
 
-    setFavouriteId(params.id!);
+    if (error) {
+      return;
+    }
+
+    setFavouriteId(params.id);
     getFavourites();
   }
 
-  /* istanbul ignore next -- @preserve */
   async function removeFavourite(params: FavouriteParams) {
-    await fetchData('/unstar', {
+    if (!params.id) {
+      return;
+    }
+
+    const { error } = await fetchData('/unstar', {
       method: 'POST',
       query: getFavouriteApiParams(params),
     });
 
-    setFavouriteId(params.id!, false);
+    if (error) {
+      return;
+    }
+
+    setFavouriteId(params.id, false);
     getFavourites();
   }
 
@@ -56,13 +70,17 @@ export function useFavourite() {
     track: FavouriteParams,
     isCurrentlyFavourite: boolean,
   ) {
+    if (!track.id) {
+      return;
+    }
+
     if (isCurrentlyFavourite) {
       removeFavourite(track);
     } else {
       addFavourite(track);
     }
 
-    updateTrackFavourite(track.id!, !isCurrentlyFavourite);
+    updateTrackFavourite(track.id, !isCurrentlyFavourite);
   }
 
   return {

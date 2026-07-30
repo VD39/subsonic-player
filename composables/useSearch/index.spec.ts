@@ -151,6 +151,16 @@ describe('useSearch', () => {
         });
       });
     });
+
+    describe('when mediaType is not defined', () => {
+      it('returns the correct response', async () => {
+        expect(
+          await fetchSearchResult({
+            query: 'query',
+          } as SearchParams),
+        ).toEqual([]);
+      });
+    });
   });
 
   describe('when the fetchSearchSuggestions function is called', () => {

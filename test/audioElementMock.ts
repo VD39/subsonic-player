@@ -2,17 +2,32 @@ import { vi } from 'vitest';
 
 import type { EventHandler } from './types';
 
-const audioEvents: Record<string, EventHandler> = {};
+const audioEvents: Record<string, EventHandler[]> = {};
+
+function fireEvent(event: string, ...args: unknown[]) {
+  audioEvents[event]?.forEach((handler) => {
+    handler(...args);
+  });
+}
 
 const addEventListenerMock = vi.fn((event: string, handler: EventHandler) => {
-  audioEvents[event] = handler;
+  if (!audioEvents[event]) {
+    audioEvents[event] = [];
+  }
+  audioEvents[event].push(handler);
 });
 
 const audioLoadMock = vi.fn();
 const pauseMock = vi.fn();
 const playMock = vi.fn(() => Promise.resolve());
 const removeAttributeMock = vi.fn();
-const removeEventListenerMock = vi.fn();
+const removeEventListenerMock = vi.fn(
+  (event: string, handler: EventHandler) => {
+    if (audioEvents[event]) {
+      audioEvents[event] = audioEvents[event].filter((h) => h !== handler);
+    }
+  },
+);
 const setAttributeMock = vi.fn();
 
 const audioMock = {
@@ -96,6 +111,7 @@ export function audioElementMock() {
     createGainMock,
     createMediaElementSourceMock,
     crossfadeGainNodeMock,
+    fireEvent,
     masterVolumeNodeMock,
     pauseMock,
     playMock,

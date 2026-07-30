@@ -550,13 +550,25 @@ describe('useSettings', () => {
     describe('when the settingsRestored value is false', () => {
       beforeEach(() => {
         useState(STATE_KEYS.settingsRestored).value = false;
-        getLocalStorageMock.mockReturnValue(null);
+        getLocalStorageMock.mockReturnValue({});
         loadSettings();
       });
 
       it('calls the getLocalStorage function with the correct parameters', () => {
         expect(getLocalStorageMock).toHaveBeenCalledWith(
           LOCAL_STORAGE_KEYS.settings,
+          {
+            crossfadeDuration: 1,
+            crossfadeEnabled: false,
+            deletePodcastOnEnd: false,
+            layout: 'gridLayout',
+            replayGainMode: 'off',
+            scrobbleEnabled: true,
+            showPodcasts: true,
+            showRadioStations: true,
+            streamBitrate: 0,
+            theme: 'auto',
+          },
         );
       });
 
@@ -574,15 +586,27 @@ describe('useSettings', () => {
   });
 
   describe('when the syncFromStorage function is called', () => {
-    describe('when getLocalStorage returns null', () => {
+    describe('when getLocalStorage returns empty settings', () => {
       beforeEach(() => {
-        getLocalStorageMock.mockReturnValue(null);
+        getLocalStorageMock.mockReturnValue({});
         syncFromStorage();
       });
 
       it('calls the getLocalStorage function with the correct parameters', () => {
         expect(getLocalStorageMock).toHaveBeenCalledWith(
           LOCAL_STORAGE_KEYS.settings,
+          {
+            crossfadeDuration: 1,
+            crossfadeEnabled: false,
+            deletePodcastOnEnd: false,
+            layout: 'gridLayout',
+            replayGainMode: 'off',
+            scrobbleEnabled: true,
+            showPodcasts: true,
+            showRadioStations: true,
+            streamBitrate: 0,
+            theme: 'auto',
+          },
         );
       });
 
@@ -778,7 +802,7 @@ describe('useSettings', () => {
     describe('when the legacy theme value is boolean true', () => {
       beforeEach(() => {
         getLocalStorageMock
-          .mockReturnValueOnce(null)
+          .mockReturnValueOnce({})
           .mockReturnValueOnce(true)
           .mockReturnValueOnce(null);
         syncFromStorage();
@@ -802,7 +826,7 @@ describe('useSettings', () => {
     describe('when the legacy theme value is boolean false', () => {
       beforeEach(() => {
         getLocalStorageMock
-          .mockReturnValueOnce(null)
+          .mockReturnValueOnce({})
           .mockReturnValueOnce(false)
           .mockReturnValueOnce(null);
         syncFromStorage();
@@ -826,7 +850,7 @@ describe('useSettings', () => {
     describe('when the legacy layout value exists', () => {
       beforeEach(() => {
         getLocalStorageMock
-          .mockReturnValueOnce(null)
+          .mockReturnValueOnce({})
           .mockReturnValueOnce(null)
           .mockReturnValueOnce('listLayout');
         syncFromStorage();

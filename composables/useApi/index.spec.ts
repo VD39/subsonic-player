@@ -12,10 +12,10 @@ mockNuxtImport('useNuxtApp', () => () => ({
   $api: $apiMock,
 }));
 
-const addErrorSnackMock = vi.fn();
+const handleErrorMock = vi.fn();
 
-mockNuxtImport('useSnack', () => () => ({
-  addErrorSnack: addErrorSnackMock,
+mockNuxtImport('useErrorHandler', () => () => ({
+  handleError: handleErrorMock,
 }));
 
 mockNuxtImport('useSettings', () => () => ({
@@ -125,8 +125,11 @@ describe('useAPI', () => {
           result = await fetchData('/path');
         });
 
-        it('calls the addErrorSnack function with the correct parameters', () => {
-          expect(addErrorSnackMock).toHaveBeenCalledWith(DEFAULT_ERROR_MESSAGE);
+        it('calls the handleError function with the correct parameters', () => {
+          expect(handleErrorMock).toHaveBeenCalledWith(
+            new Error(DEFAULT_ERROR_MESSAGE),
+            'api',
+          );
         });
 
         it('returns the correct response', () => {
@@ -143,8 +146,8 @@ describe('useAPI', () => {
           result = await fetchData('/path');
         });
 
-        it('does not call the addErrorSnack function', () => {
-          expect(addErrorSnackMock).not.toHaveBeenCalled();
+        it('does not call the handleError function', () => {
+          expect(handleErrorMock).not.toHaveBeenCalled();
         });
 
         it('returns the correct response', () => {
@@ -177,8 +180,11 @@ describe('useAPI', () => {
             result = await fetchData('/path');
           });
 
-          it('calls the addErrorSnack function with the correct parameters', () => {
-            expect(addErrorSnackMock).toHaveBeenCalledWith('Error message.');
+          it('calls the handleError function with the correct parameters', () => {
+            expect(handleErrorMock).toHaveBeenCalledWith(
+              'Error message.',
+              'api',
+            );
           });
 
           it('returns the correct response', () => {
@@ -198,9 +204,10 @@ describe('useAPI', () => {
             result = await fetchData('/path');
           });
 
-          it('calls the addErrorSnack function with the correct parameters', () => {
-            expect(addErrorSnackMock).toHaveBeenCalledWith(
-              'new Error message.',
+          it('calls the handleError function with the correct parameters', () => {
+            expect(handleErrorMock).toHaveBeenCalledWith(
+              new Error('new Error message.'),
+              'api',
             );
           });
 
@@ -208,6 +215,26 @@ describe('useAPI', () => {
             expect(result).toEqual({
               data: null,
               error: new Error('new Error message.'),
+            });
+          });
+        });
+
+        describe('when suppressErrorSnack is set to true', () => {
+          beforeEach(async () => {
+            $apiMock.mockRejectedValue('Error message.');
+            result = await fetchData('/path', {
+              suppressErrorSnack: true,
+            });
+          });
+
+          it('does not call the handleError function', () => {
+            expect(handleErrorMock).not.toHaveBeenCalled();
+          });
+
+          it('returns the correct response', () => {
+            expect(result).toEqual({
+              data: null,
+              error: new Error('Error message.'),
             });
           });
         });

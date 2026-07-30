@@ -72,3 +72,13 @@ if (!globalThis.$fetch) {
       }),
   }) as typeof globalThis.$fetch;
 }
+
+vi.mock('virtual:pwa-register/vue', () => {
+  return {
+    useRegisterSW: vi.fn(() => ({
+      needRefresh: { value: false },
+      offlineReady: { value: false },
+      updateServiceWorker: vi.fn(),
+    })),
+  };
+});

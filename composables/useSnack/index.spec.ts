@@ -34,7 +34,7 @@ describe('useSnack', () => {
             {
               content: DEFAULT_ERROR_MESSAGE,
               id: 'randomString',
-              timer: expect.any(Object),
+              timer: null,
               type: 'error',
             },
           ]),
@@ -53,7 +53,7 @@ describe('useSnack', () => {
             {
               content: 'Content',
               id: 'randomString',
-              timer: expect.any(Object),
+              timer: null,
               type: 'error',
             },
           ]),
@@ -112,13 +112,13 @@ describe('useSnack', () => {
         {
           content: DEFAULT_ERROR_MESSAGE,
           id: 'randomString',
-          timer: expect.any(Object),
+          timer: null,
           type: 'error',
         },
         {
           content: 'Content',
           id: 'randomString',
-          timer: expect.any(Object),
+          timer: null,
           type: 'error',
         },
         {
@@ -143,7 +143,7 @@ describe('useSnack', () => {
 
   describe('when auto is set to true on a add snack functions', () => {
     beforeAll(() => {
-      addErrorSnack('Content');
+      addErrorSnack('Content', true);
     });
 
     it('adds to the snacks value', () => {

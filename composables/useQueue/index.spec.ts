@@ -1098,7 +1098,9 @@ describe('useQueue', () => {
     });
 
     it('sets the correct originalQueueSnapshot value', () => {
-      expect(originalQueueSnapshot.value).toBe(JSON.stringify(preShuffleQueue));
+      expect(originalQueueSnapshot.value).toBe(
+        safeJsonStringify(preShuffleQueue),
+      );
     });
 
     it('calls the setLocalStorage function', () => {
@@ -1169,7 +1171,7 @@ describe('useQueue', () => {
 
       describe('when localStorage does not have a saved originalQueueSnapshot', () => {
         beforeAll(() => {
-          getLocalStorageMock.mockReturnValue(null);
+          getLocalStorageMock.mockReturnValue(QUEUE_DEFAULT_STATES);
           unshuffleQueue();
         });
 
@@ -1268,24 +1270,25 @@ describe('useQueue', () => {
       restoreQueueStateFromLocalResult = queue.restoreQueueStateFromLocal;
     });
 
-    describe('when getLocalStorage returns null', () => {
+    describe('when the getLocalStorage function returns the default state', () => {
       beforeAll(() => {
         resetQueue(false); // reset queueStateRestored
-        getLocalStorageMock.mockReturnValue(null);
+        getLocalStorageMock.mockReturnValue(QUEUE_DEFAULT_STATES);
         restoreQueueStateFromLocalResult();
       });
 
       it('calls the getLocalStorage function with the correct parameters', () => {
         expect(getLocalStorageMock).toHaveBeenCalledWith(
           LOCAL_STORAGE_KEYS.queue,
+          QUEUE_DEFAULT_STATES,
         );
       });
 
-      it('does not update the queueList value', () => {
+      it('sets the correct queueList value', () => {
         expect(queueList.value).toEqual(QUEUE_DEFAULT_STATES.queueList);
       });
 
-      it('does not update the currentQueueIndex value', () => {
+      it('sets the correct currentQueueIndex value', () => {
         expect(currentQueueIndex.value).toBe(
           QUEUE_DEFAULT_STATES.currentQueueIndex,
         );
@@ -1306,6 +1309,7 @@ describe('useQueue', () => {
       it('calls the getLocalStorage function with the correct parameters', () => {
         expect(getLocalStorageMock).toHaveBeenCalledWith(
           LOCAL_STORAGE_KEYS.queue,
+          QUEUE_DEFAULT_STATES,
         );
       });
 
@@ -1485,11 +1489,11 @@ describe('useQueue', () => {
   });
 
   describe('when the restoreLocalState function is called', () => {
-    describe('when getLocalStorage returns null', () => {
+    describe('when the getLocalStorage function returns the default state', () => {
       beforeAll(() => {
         addTracks(tracks);
         vi.clearAllMocks();
-        getLocalStorageMock.mockReturnValue(null);
+        getLocalStorageMock.mockReturnValue(QUEUE_DEFAULT_STATES);
         restoreLocalState();
       });
 

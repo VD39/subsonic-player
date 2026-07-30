@@ -86,6 +86,7 @@ const {
 const {
   hasCurrentTrackMock,
   isPodcastEpisodeMock,
+  isRadioStationMock,
   isTrackMock,
   toggleQueuePlayerMock,
 } = useQueueMock();
@@ -593,9 +594,9 @@ describe('useHotkeyManager', () => {
       [['8'], 96],
       [['9'], 108],
     ])('when %s key is pressed', (keys, time) => {
-      describe('when hasCurrentTrack value is false', () => {
+      describe('when isRadioStation value is true', () => {
         beforeAll(() => {
-          hasCurrentTrackMock.value = false;
+          isRadioStationMock.value = true;
         });
 
         setEvents(keys);
@@ -604,9 +605,9 @@ describe('useHotkeyManager', () => {
         expectGetElementByIdMock();
       });
 
-      describe('when hasCurrentTrack value is true', () => {
+      describe('when isRadioStation value is false', () => {
         beforeAll(() => {
-          hasCurrentTrackMock.value = true;
+          isRadioStationMock.value = false;
         });
 
         setEvents(keys);

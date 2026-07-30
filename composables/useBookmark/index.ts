@@ -22,8 +22,10 @@ export function useBookmark() {
             ...bookmark.entry,
             position: bookmark.position,
           }))
-          .filter((bookmark) =>
-            ['podcast', 'podcastepisode'].includes(bookmark.type!),
+          .filter(
+            (bookmark) =>
+              bookmark.type &&
+              ['podcast', 'podcastepisode'].includes(bookmark.type),
           )
           .map(formatBookmark),
     });

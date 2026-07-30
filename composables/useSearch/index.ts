@@ -25,10 +25,14 @@ export function useSearch() {
   }
 
   async function fetchSearchResult(params: SearchParams) {
+    if (!params.mediaType) {
+      return [];
+    }
+
     const searchData = await search(params);
 
     return (
-      searchData?.[params.mediaType!] || DEFAULT_ALL_MEDIA[params.mediaType!]
+      searchData?.[params.mediaType] || DEFAULT_ALL_MEDIA[params.mediaType]
     );
   }
 

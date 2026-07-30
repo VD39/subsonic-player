@@ -52,7 +52,7 @@ describe('usePodcast', () => {
 
   describe('when the getPodcastsAndNewestPodcastEpisodes function is called', () => {
     describe('when fetchData response returns non array value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock
           .mockResolvedValueOnce({
             data: null,
@@ -61,7 +61,7 @@ describe('usePodcast', () => {
             data: null,
           });
 
-        getPodcastsAndNewestPodcastEpisodes();
+        await getPodcastsAndNewestPodcastEpisodes();
       });
 
       it('sets the correct podcasts value', () => {
@@ -74,7 +74,7 @@ describe('usePodcast', () => {
     });
 
     describe('when fetchData response returns an array', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock
           .mockResolvedValueOnce({
             data: [
@@ -91,7 +91,7 @@ describe('usePodcast', () => {
             ],
           });
 
-        getPodcastsAndNewestPodcastEpisodes();
+        await getPodcastsAndNewestPodcastEpisodes();
       });
 
       it('sets the correct podcasts value', () => {
@@ -331,15 +331,44 @@ describe('usePodcast', () => {
         );
       });
     });
+
+    describe('when podcastId is not defined', () => {
+      beforeEach(async () => {
+        fetchDataMock.mockClear();
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        await deletePodcastEpisode({
+          id: 'id',
+        } as PodcastEpisode);
+
+        vi.runAllTimers();
+      });
+
+      it('does not call the getPodcast function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
+      });
+
+      it('does not call the getNewestPodcastEpisodes function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
+      });
+    });
   });
 
   describe('when the downloadPodcastEpisode function is called', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       fetchDataMock.mockResolvedValue({
         data: null,
       });
 
-      downloadPodcastEpisode({
+      await downloadPodcastEpisode({
         id: 'id',
         podcastId: 'podcastId',
       } as PodcastEpisode);
@@ -354,14 +383,14 @@ describe('usePodcast', () => {
     });
 
     describe('when fetchData response returns a value', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {
             name: 'name',
           },
         });
 
-        downloadPodcastEpisode({
+        await downloadPodcastEpisode({
           id: 'id',
           podcastId: 'podcastId',
         } as PodcastEpisode);
@@ -386,6 +415,36 @@ describe('usePodcast', () => {
 
       it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
         expect(fetchDataMock).toHaveBeenCalledWith(
+          '/getNewestPodcasts',
+          expect.any(Object),
+        );
+      });
+    });
+
+    describe('when podcastId is not defined', () => {
+      beforeEach(async () => {
+        vi.clearAllMocks();
+        fetchDataMock.mockClear();
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        await downloadPodcastEpisode({
+          id: 'id',
+        } as PodcastEpisode);
+
+        vi.runAllTimers();
+      });
+
+      it('does not call the getPodcast function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
+          '/getPodcasts',
+          expect.any(Object),
+        );
+      });
+
+      it('does not call the getNewestPodcastEpisodes function', () => {
+        expect(fetchDataMock).not.toHaveBeenCalledWith(
           '/getNewestPodcasts',
           expect.any(Object),
         );

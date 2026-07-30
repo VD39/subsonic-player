@@ -4,7 +4,7 @@ export function useAPI() {
   const config = useRuntimeConfig();
   const { IMAGE_SIZE } = config.public;
 
-  const { addErrorSnack } = useSnack();
+  const { handleError } = useErrorHandler();
   const { streamBitrate } = useSettings();
 
   function getUrl(path: string, queryParams: Record<string, number | string>) {
@@ -58,7 +58,10 @@ export function useAPI() {
 
   async function fetchData<DataT = SubsonicResponse>(
     url: string,
-    options: UseFetchOptions<SubsonicResponse, DataT> = {},
+    options: { suppressErrorSnack?: boolean } & UseFetchOptions<
+      SubsonicResponse,
+      DataT
+    > = {},
   ) {
     try {
       const { $api } = useNuxtApp();
@@ -93,7 +96,9 @@ export function useAPI() {
       const errorMessage =
         error instanceof Error ? error : new Error(error as string);
 
-      addErrorSnack(errorMessage.message);
+      if (!options.suppressErrorSnack) {
+        handleError(error, 'api');
+      }
 
       return {
         data: null,

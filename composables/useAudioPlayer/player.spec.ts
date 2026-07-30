@@ -6,12 +6,12 @@ const {
   audioContextCloseMock,
   audioContextMock,
   audioContextResumeMock,
-  audioEvents,
   audioLoadMock,
   audioMock,
   createGainMock,
   createMediaElementSourceMock,
   crossfadeGainNodeMock,
+  fireEvent,
   masterVolumeNodeMock,
   pauseMock,
   playMock,
@@ -199,7 +199,7 @@ describe('AudioPlayer', () => {
 
     describe('when the canplay event is fired', () => {
       beforeAll(() => {
-        audioEvents.canplay();
+        fireEvent('canplay');
       });
 
       it('calls the onCanPlay callback', () => {
@@ -209,7 +209,7 @@ describe('AudioPlayer', () => {
 
     describe('when the canplaythrough event is fired', () => {
       beforeAll(() => {
-        audioEvents.canplaythrough();
+        fireEvent('canplaythrough');
       });
 
       it('calls the onCanPlay callback', () => {
@@ -223,7 +223,7 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onPause(onPauseCallbackMock);
-      audioEvents.pause();
+      fireEvent('pause');
     });
 
     it('calls the onPause callback', () => {
@@ -236,7 +236,7 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onPlay(onPlayCallbackMock);
-      audioEvents.play();
+      fireEvent('play');
     });
 
     it('calls the onPlay callback', () => {
@@ -249,7 +249,7 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onEnded(onEndedCallbackMock);
-      audioEvents.ended();
+      fireEvent('ended');
     });
 
     it('calls the onEnded callback', () => {
@@ -262,11 +262,37 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onWaiting(onWaitingCallbackMock);
-      audioEvents.waiting();
+      fireEvent('waiting');
     });
 
     it('calls the onWaiting callback', () => {
       expect(onWaitingCallbackMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the onStalled function is called', () => {
+    const onStalledCallbackMock = vi.fn();
+
+    beforeAll(() => {
+      player.onStalled(onStalledCallbackMock);
+      fireEvent('stalled');
+    });
+
+    it('calls the onStalled callback', () => {
+      expect(onStalledCallbackMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the onError function is called', () => {
+    const onErrorCallbackMock = vi.fn();
+
+    beforeAll(() => {
+      player.onError(onErrorCallbackMock);
+      fireEvent('error');
+    });
+
+    it('calls the onError callback', () => {
+      expect(onErrorCallbackMock).toHaveBeenCalled();
     });
   });
 
@@ -280,7 +306,7 @@ describe('AudioPlayer', () => {
     describe('when currentTime is 0', () => {
       beforeAll(() => {
         audioMock.currentTime = 0;
-        audioEvents.timeupdate();
+        fireEvent('timeupdate');
       });
 
       it('does not call the callback', () => {
@@ -291,7 +317,7 @@ describe('AudioPlayer', () => {
     describe('when currentTime is greater than 0', () => {
       beforeAll(() => {
         audioMock.currentTime = 10.7;
-        audioEvents.timeupdate();
+        fireEvent('timeupdate');
       });
 
       it('calls the callback with the correct parameters', () => {
@@ -310,7 +336,7 @@ describe('AudioPlayer', () => {
     describe('when the audio duration is 0', () => {
       beforeAll(() => {
         audioMock.duration = 0;
-        audioEvents.progress();
+        fireEvent('progress');
       });
 
       it('does not call the callback', () => {
@@ -328,7 +354,7 @@ describe('AudioPlayer', () => {
           } as unknown as TimeRanges;
           audioMock.currentTime = 10;
           audioMock.duration = 60;
-          audioEvents.progress();
+          fireEvent('progress');
         });
 
         it('does not call the callback', () => {
@@ -345,7 +371,7 @@ describe('AudioPlayer', () => {
           } as unknown as TimeRanges;
           audioMock.currentTime = 10;
           audioMock.duration = 60;
-          audioEvents.progress();
+          fireEvent('progress');
         });
 
         it('calls the callback with the correct parameters', () => {
@@ -559,6 +585,20 @@ describe('AudioPlayer', () => {
     });
   });
 
+  describe('when the progress event is fired after the player is destroyed', () => {
+    const onProgressCallbackMock = vi.fn();
+
+    beforeAll(() => {
+      vi.clearAllMocks();
+      player.onBuffered(onProgressCallbackMock);
+      fireEvent('progress');
+    });
+
+    it('does not call the callback', () => {
+      expect(onProgressCallbackMock).not.toHaveBeenCalled();
+    });
+  });
+
   describe('when the crossfadeTo function is called', () => {
     const onCrossfadeTriggerCallbackMock = vi.fn();
 
@@ -589,13 +629,23 @@ describe('AudioPlayer', () => {
       player.crossfadeTo('second-url', 246);
     });
 
-    it('calls the removeEventListener function 8 times', () => {
-      expect(removeEventListenerMock).toHaveBeenCalledTimes(8);
+    it('calls the removeEventListener function 10 times', () => {
+      expect(removeEventListenerMock).toHaveBeenCalledTimes(10);
     });
 
-    it('calls the addEventListener function with the correct parameters', () => {
+    it('calls the addEventListener function with the correct parameters for the ended event', () => {
       expect(newAddEventListenerMock).toHaveBeenCalledWith(
         'ended',
+        expect.any(Function),
+        {
+          once: true,
+        },
+      );
+    });
+
+    it('calls the addEventListener function with the correct parameters for the error event', () => {
+      expect(newAddEventListenerMock).toHaveBeenCalledWith(
+        'error',
         expect.any(Function),
         {
           once: true,
@@ -627,11 +677,57 @@ describe('AudioPlayer', () => {
         onCrossfadeTriggerCallbackMock.mockClear();
         audioMock.currentTime = 185;
         audioMock.duration = 190;
-        audioEvents.timeupdate();
+        fireEvent('timeupdate');
       });
 
       it('calls the onCrossfadeTrigger callback', () => {
         expect(onCrossfadeTriggerCallbackMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when the ended event is fired on the fading track', () => {
+      beforeAll(() => {
+        createGainMock
+          .mockReset()
+          .mockReturnValueOnce(replayGainNodeMock)
+          .mockReturnValueOnce(crossfadeGainNodeMock)
+          .mockReturnValue(masterVolumeNodeMock);
+        player.crossfadeTo('ended-test-url', 300);
+
+        vi.clearAllMocks();
+
+        fireEvent('ended');
+      });
+
+      it('calls the pause function on the fading track element', () => {
+        expect(pauseMock).toHaveBeenCalled();
+      });
+
+      it('calls the removeAttribute function with the correct parameters', () => {
+        expect(removeAttributeMock).toHaveBeenCalledWith('src');
+      });
+    });
+
+    describe('when the error event is fired on the fading track', () => {
+      beforeAll(() => {
+        createGainMock
+          .mockReset()
+          .mockReturnValueOnce(replayGainNodeMock)
+          .mockReturnValueOnce(crossfadeGainNodeMock)
+          .mockReturnValue(masterVolumeNodeMock);
+        player.crossfadeTo('error-test-url', 300);
+
+        vi.clearAllMocks();
+
+        fireEvent('error');
+      });
+
+      it('calls the pause function on the fading track element', () => {
+        expect(pauseMock).toHaveBeenCalled();
+      });
+
+      it('calls the removeAttribute function with the correct parameters', () => {
+        expect(removeAttributeMock).toHaveBeenCalledWith('src');
       });
     });
 
@@ -690,8 +786,8 @@ describe('AudioPlayer', () => {
       player.crossfadeToElement(audioMock as unknown as HTMLAudioElement, 180);
     });
 
-    it('calls the removeEventListener function 8 times', () => {
-      expect(removeEventListenerMock).toHaveBeenCalledTimes(8);
+    it('calls the removeEventListener function 10 times', () => {
+      expect(removeEventListenerMock).toHaveBeenCalledTimes(10);
     });
 
     it('calls the addEventListener function with the correct parameters', () => {

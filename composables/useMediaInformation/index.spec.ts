@@ -32,10 +32,10 @@ mockNuxtImport('usePodcast', () => () => ({
   getPodcast: getPodcastMock,
 }));
 
-const addErrorSnackMock = vi.fn();
+const handleErrorMock = vi.fn();
 
-mockNuxtImport('useSnack', () => () => ({
-  addErrorSnack: addErrorSnackMock,
+mockNuxtImport('useErrorHandler', () => () => ({
+  handleError: handleErrorMock,
 }));
 
 const {
@@ -56,8 +56,8 @@ describe('useMediaInformation', () => {
         await openAlbumInformationModal(album);
       });
 
-      it('does not call the addErrorSnack function', () => {
-        expect(addErrorSnackMock).not.toHaveBeenCalled();
+      it('does not call the handleError function', () => {
+        expect(handleErrorMock).not.toHaveBeenCalled();
       });
 
       it('calls the getAlbum function with the correct id', () => {
@@ -80,8 +80,8 @@ describe('useMediaInformation', () => {
         await openAlbumInformationModal(album);
       });
 
-      it('calls the addErrorSnack function with the correct message', () => {
-        expect(addErrorSnackMock).toHaveBeenCalledWith(
+      it('calls the handleError function with the correct message', () => {
+        expect(handleErrorMock).toHaveBeenCalledWith(
           'Unable to fetch album information. Please try again later.',
         );
       });
@@ -99,8 +99,8 @@ describe('useMediaInformation', () => {
         await openPodcastInformationModal(podcast);
       });
 
-      it('does not call the addErrorSnack function', () => {
-        expect(addErrorSnackMock).not.toHaveBeenCalled();
+      it('does not call the handleError function', () => {
+        expect(handleErrorMock).not.toHaveBeenCalled();
       });
 
       it('calls the getPodcast function with the correct id', () => {
@@ -123,8 +123,8 @@ describe('useMediaInformation', () => {
         await openPodcastInformationModal(podcast);
       });
 
-      it('calls the addErrorSnack function with the correct message', () => {
-        expect(addErrorSnackMock).toHaveBeenCalledWith(
+      it('calls the handleError function with the correct message', () => {
+        expect(handleErrorMock).toHaveBeenCalledWith(
           'Unable to fetch podcast information. Please try again later.',
         );
       });

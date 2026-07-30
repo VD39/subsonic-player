@@ -4,18 +4,10 @@ import {
   setLocalStorage,
 } from './storage';
 
-const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-
 describe('getLocalStorage', () => {
-  let storage: ReturnType<typeof getLocalStorage>;
-
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   describe('when key in localStorage does not exist', () => {
     it('returns the correct response', () => {
-      expect(getLocalStorage('key')).toBe('');
+      expect(getLocalStorage('key', 'fallback')).toBe('fallback');
     });
   });
 
@@ -28,12 +20,10 @@ describe('getLocalStorage', () => {
             storage: 'storage',
           }),
         );
-
-        storage = getLocalStorage('key');
       });
 
       it('returns the correct response', () => {
-        expect(storage).toEqual({
+        expect(getLocalStorage('key', {})).toEqual({
           storage: 'storage',
         });
       });
@@ -42,15 +32,10 @@ describe('getLocalStorage', () => {
     describe('when value is not valid JSON', () => {
       beforeEach(() => {
         globalThis.localStorage.setItem('key', '{//}');
-        storage = getLocalStorage('key');
-      });
-
-      it('calls the console.error function', () => {
-        expect(consoleErrorSpy).toHaveBeenCalled();
       });
 
       it('returns the correct response', () => {
-        expect(storage).toBe('');
+        expect(getLocalStorage('key', 'default')).toBe('default');
       });
     });
   });
@@ -77,24 +62,15 @@ describe('setLocalStorage', () => {
     });
   });
 
-  describe('when invalid data is passed', () => {
+  describe('when un-stringifiable data is passed', () => {
     beforeEach(() => {
-      vi.spyOn(globalThis.localStorage, 'setItem').mockImplementationOnce(
-        () => {
-          throw new Error('new Error message.');
-        },
-      );
+      vi.spyOn(globalThis.localStorage, 'setItem');
 
-      setLocalStorage('testKey', {
-        storage: 'storage',
-      });
+      setLocalStorage('testKey', 100n);
     });
 
-    it('calls the console.error function with the correct parameters', () => {
-      expect(consoleErrorSpy).toHaveBeenCalledWith(
-        'Error setting local storage data for key "testKey":',
-        expect.any(Error),
-      );
+    it('does not call the localStorage.setItem function', () => {
+      expect(globalThis.localStorage.setItem).not.toHaveBeenCalled();
     });
   });
 });

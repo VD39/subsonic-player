@@ -1,6 +1,6 @@
 export function useAudioPlayer() {
   const { getStreamUrl } = useAPI();
-  const { addErrorSnack } = useSnack();
+  const { handleError } = useErrorHandler();
   const { scrobble } = useMediaLibrary();
   const {
     crossfadeDuration,
@@ -153,14 +153,15 @@ export function useAudioPlayer() {
 
     setupAudioPlayer();
 
-    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.player);
+    const SAVED_STATE = getLocalStorage(
+      LOCAL_STORAGE_KEYS.player,
+      AUDIO_PLAYER_DEFAULT_STATES,
+    );
 
-    if (SAVED_STATE) {
-      repeat.value = SAVED_STATE.repeat;
-      shuffle.value = SAVED_STATE.shuffle;
-      setVolume(SAVED_STATE.volume);
-      setPlaybackRate(SAVED_STATE.playbackRate);
-    }
+    repeat.value = SAVED_STATE.repeat;
+    shuffle.value = SAVED_STATE.shuffle;
+    setVolume(SAVED_STATE.volume);
+    setPlaybackRate(SAVED_STATE.playbackRate);
 
     if (hasCurrentTrack.value) {
       loadTrack(currentTrack.value);
@@ -168,7 +169,7 @@ export function useAudioPlayer() {
       setupMediaSessionHandlers();
 
       const position = currentTrack.value.position;
-      const savedTime = SAVED_STATE?.currentTime;
+      const savedTime = SAVED_STATE.currentTime;
       const timeToRestore = savedTime || position || 0;
 
       setCurrentTime(timeToRestore);
@@ -203,7 +204,12 @@ export function useAudioPlayer() {
   }
 
   function stopSaveInterval() {
-    clearInterval(saveInterval.value!);
+    if (!saveInterval.value) {
+      return;
+    }
+
+    clearInterval(saveInterval.value);
+    saveInterval.value = null;
   }
 
   function startSaveInterval() {
@@ -213,28 +219,10 @@ export function useAudioPlayer() {
 
   // Play/Pause actions.
   async function resumePlayback() {
-    try {
-      await audioPlayer.value?.play();
-      isPlaying.value = true;
-      startSaveInterval();
-      setMediaSessionPlaybackState('playing');
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error : new Error(error as string);
-
-      // Error can throw when user is offline.
-      // Only remove if we know they are online and media is not on the server.
-      if (
-        navigator.onLine &&
-        errorMessage.message.includes('no supported source')
-      ) {
-        addErrorSnack(
-          `The track ${currentTrack.value.id} was not found on the server and removed from queue.`,
-        );
-
-        await removeFromQueue(currentQueueIndex.value);
-      }
-    }
+    await audioPlayer.value?.play();
+    isPlaying.value = true;
+    startSaveInterval();
+    setMediaSessionPlaybackState('playing');
   }
 
   function pausePlayback() {
@@ -648,8 +636,16 @@ export function useAudioPlayer() {
       bufferedDuration.value = newBufferedDuration;
     });
 
+    audioPlayer.value.onStalled(() => {
+      isBuffering.value = true;
+    });
+
     audioPlayer.value.onWaiting(() => {
       isBuffering.value = true;
+    });
+
+    audioPlayer.value.onError((event) => {
+      handleError(event, 'audio');
     });
 
     audioPlayer.value.onEnded(async () => {

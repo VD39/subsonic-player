@@ -14,8 +14,10 @@ let onBufferedCb: CB;
 let onCanPlayCb: CB;
 let onCrossfadeTriggerCb: CB;
 let onEndedCb: CB;
+let onErrorCb: CB;
 let onPauseCb: CB;
 let onPlayCb: CB;
+let onStalledCb: CB;
 let onTimeupdateCb: CB;
 let onWaitingCb: CB;
 
@@ -29,8 +31,10 @@ const onBufferedMock = vi.fn((cb) => (onBufferedCb = cb));
 const onCanPlayMock = vi.fn((cb) => (onCanPlayCb = cb));
 const onCrossfadeTriggerMock = vi.fn((cb) => (onCrossfadeTriggerCb = cb));
 const onEndedMock = vi.fn((cb) => (onEndedCb = cb));
+const onErrorMock = vi.fn((cb) => (onErrorCb = cb));
 const onPauseMock = vi.fn((cb) => (onPauseCb = cb));
 const onPlayMock = vi.fn((cb) => (onPlayCb = cb));
+const onStalledMock = vi.fn((cb) => (onStalledCb = cb));
 const onTimeupdateMock = vi.fn((cb) => (onTimeupdateCb = cb));
 const onWaitingMock = vi.fn((cb) => (onWaitingCb = cb));
 const pauseMock = vi.fn();
@@ -55,8 +59,10 @@ mockNuxtImport('AudioPlayer', () =>
       onCanPlay: onCanPlayMock,
       onCrossfadeTrigger: onCrossfadeTriggerMock,
       onEnded: onEndedMock,
+      onError: onErrorMock,
       onPause: onPauseMock,
       onPlay: onPlayMock,
+      onStalled: onStalledMock,
       onTimeupdate: onTimeupdateMock,
       onWaiting: onWaitingMock,
       pause: pauseMock,
@@ -144,10 +150,10 @@ mockNuxtImport('useSettings', () => () => ({
   setReplayGainMode: setReplayGainModeMock,
 }));
 
-const addErrorSnackMock = vi.fn();
+const handleErrorMock = vi.fn();
 
-mockNuxtImport('useSnack', () => () => ({
-  addErrorSnack: addErrorSnackMock,
+mockNuxtImport('useErrorHandler', () => () => ({
+  handleError: handleErrorMock,
 }));
 
 const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
@@ -260,8 +266,7 @@ describe('useAudioPlayer', () => {
       });
 
       beforeAll(async () => {
-        getLocalStorageMock.mockReturnValue(null);
-
+        getLocalStorageMock.mockReturnValue(AUDIO_PLAYER_DEFAULT_STATES);
         result = withSetup(useAudioPlayer);
         await result.composable.restoreAudioPlayerState();
       });
@@ -276,6 +281,10 @@ describe('useAudioPlayer', () => {
 
       it('calls the onBuffered function', () => {
         expect(onBufferedMock).toHaveBeenCalled();
+      });
+
+      it('calls the onStalled function', () => {
+        expect(onStalledMock).toHaveBeenCalled();
       });
 
       it('calls the onWaiting function', () => {
@@ -294,48 +303,48 @@ describe('useAudioPlayer', () => {
         expect(onPlayMock).toHaveBeenCalled();
       });
 
-      describe('when the getLocalStorage function returns null', () => {
-        it('resets the correct bufferedDuration value', () => {
+      describe('when the getLocalStorage function returns the default state', () => {
+        it('sets the correct bufferedDuration value', () => {
           expect(result.composable.bufferedDuration.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.bufferedDuration,
           );
         });
 
-        it('resets the correct currentTime value', () => {
+        it('sets the correct currentTime value', () => {
           expect(result.composable.currentTime.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.currentTime,
           );
         });
 
-        it('resets the correct isBuffering value', () => {
+        it('sets the correct isBuffering value', () => {
           expect(result.composable.isBuffering.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.isBuffering,
           );
         });
 
-        it('resets the correct isPlaying value', () => {
+        it('sets the correct isPlaying value', () => {
           expect(result.composable.isPlaying.value).toBe(false);
         });
 
-        it('resets the correct playbackRate value', () => {
+        it('sets the correct playbackRate value', () => {
           expect(result.composable.playbackRate.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.playbackRate,
           );
         });
 
-        it('resets the correct repeat value', () => {
+        it('sets the correct repeat value', () => {
           expect(result.composable.repeat.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.repeat,
           );
         });
 
-        it('resets the correct shuffle value', () => {
+        it('sets the correct shuffle value', () => {
           expect(result.composable.shuffle.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.shuffle,
           );
         });
 
-        it('resets the correct volume value', () => {
+        it('sets the correct volume value', () => {
           expect(result.composable.volume.value).toBe(
             AUDIO_PLAYER_DEFAULT_STATES.volume,
           );
@@ -512,6 +521,16 @@ describe('useAudioPlayer', () => {
       });
     });
 
+    describe('when onStalled event is called', () => {
+      beforeAll(() => {
+        onStalledCb();
+      });
+
+      it('sets the correct isBuffering value', () => {
+        expect(result.composable.isBuffering.value).toBe(true);
+      });
+    });
+
     describe('when onWaiting event is called', () => {
       beforeAll(() => {
         onWaitingCb();
@@ -529,6 +548,33 @@ describe('useAudioPlayer', () => {
 
       it('sets the correct isBuffering value', () => {
         expect(result.composable.isBuffering.value).toBe(false);
+      });
+    });
+
+    describe('when onError event is called', () => {
+      beforeAll(() => {
+        const event = {
+          target: {
+            error: {
+              message: 'Decoder error',
+            },
+          },
+        };
+
+        onErrorCb(event);
+      });
+
+      it('calls the handleError function with the correct parameters', () => {
+        expect(handleErrorMock).toHaveBeenCalledWith(
+          {
+            target: {
+              error: {
+                message: 'Decoder error',
+              },
+            },
+          },
+          'audio',
+        );
       });
     });
 
@@ -1119,62 +1165,6 @@ describe('useAudioPlayer', () => {
 
       it('sets the correct isBuffering value', () => {
         expect(result.composable.isBuffering.value).toBe(false);
-      });
-    });
-
-    describe('when the audio play throws an error', () => {
-      describe('when the navigator.onLine is false', () => {
-        beforeAll(() => {
-          playMock.mockImplementationOnce(() => {
-            throw new Error('new Error message.');
-          });
-
-          result.composable.playTracks(queueTracks);
-        });
-
-        it('does not call the addErrorSnack function', () => {
-          expect(addErrorSnackMock).not.toHaveBeenCalled();
-        });
-      });
-
-      describe('when the navigator.onLine is true', () => {
-        beforeAll(() => {
-          Object.defineProperty(globalThis.navigator, 'onLine', {
-            configurable: true,
-            value: true,
-            writable: true,
-          });
-        });
-
-        describe('when the error does not contain no supported source', () => {
-          beforeAll(() => {
-            playMock.mockImplementationOnce(() => {
-              throw new Error('new Error message.');
-            });
-
-            result.composable.playTracks(queueTracks);
-          });
-
-          it('does not call the addErrorSnack function', () => {
-            expect(addErrorSnackMock).not.toHaveBeenCalled();
-          });
-        });
-
-        describe('when the error contains no supported source', () => {
-          beforeAll(() => {
-            playMock.mockImplementationOnce(() => {
-              throw new Error('no supported source.');
-            });
-
-            result.composable.playTracks(queueTracks);
-          });
-
-          it('calls the addErrorSnack function with the correct parameters', () => {
-            expect(addErrorSnackMock).toHaveBeenCalledWith(
-              `The track ${queueTrack.id} was not found on the server and removed from queue.`,
-            );
-          });
-        });
       });
     });
 

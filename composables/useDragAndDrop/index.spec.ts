@@ -127,7 +127,25 @@ describe('useDragAndDrop', () => {
       });
 
       describe('when event.dataTransfer.getData does return data', () => {
-        describe('when dataTransfer data return is not valid', () => {
+        describe('when safeJsonParse returns null', () => {
+          beforeEach(() => {
+            drop('drop-id', createDropDragEvent(true, 'not-json'));
+          });
+
+          it('does not call the getMediaTracks function', () => {
+            expect(getMediaTracksMock).not.toHaveBeenCalled();
+          });
+
+          it('does not call the addTracksToQueue function', () => {
+            expect(addTracksToQueueMock).not.toHaveBeenCalled();
+          });
+
+          it('does not call the addToPlaylist function', () => {
+            expect(addToPlaylistMock).not.toHaveBeenCalled();
+          });
+        });
+
+        describe('when the parsed media does not have a type property', () => {
           beforeEach(() => {
             drop(
               'drop-id',
@@ -138,6 +156,10 @@ describe('useDragAndDrop', () => {
                 }),
               ),
             );
+          });
+
+          it('does not call the getMediaTracks function', () => {
+            expect(getMediaTracksMock).not.toHaveBeenCalled();
           });
 
           it('does not call the addTracksToQueue function', () => {
@@ -354,7 +376,7 @@ describe('useDragAndDrop', () => {
         it('calls the event.dataTransfer.setData function with the correct parameters', () => {
           expect(setDataMock).toHaveBeenCalledWith(
             DATA_TRANSFER_MEDIA_ID,
-            JSON.stringify(mediaMock),
+            safeJsonStringify(mediaMock),
           );
         });
 

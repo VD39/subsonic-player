@@ -9,7 +9,7 @@ export function getAuthParams(params: Record<string, null | string>) {
 export function getBaseOptions(cookie: string) {
   const params = loadSession(cookie);
 
-  const baseURL = `${decodeURIComponent(params.server!)}/rest`;
+  const baseURL = `${safeDecodeURIComponent(params.server!)}/rest`;
   const baseParams = {
     ...getAuthParams(params),
     ...getConfigParams(),

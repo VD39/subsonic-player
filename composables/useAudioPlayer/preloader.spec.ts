@@ -2,7 +2,7 @@ import { audioElementMock } from '@/test/audioElementMock';
 
 import { AudioPreloader } from './preloader';
 
-const { audioEvents, audioLoadMock, audioMock, removeAttributeMock } =
+const { audioLoadMock, audioMock, fireEvent, removeAttributeMock } =
   audioElementMock();
 
 describe('AudioPreloader', () => {
@@ -114,7 +114,7 @@ describe('AudioPreloader', () => {
   describe('when the error is triggered on the preloaded audio element', () => {
     beforeAll(() => {
       preloader.preload('error-event-url');
-      audioEvents.error();
+      fireEvent('error');
     });
 
     it('removes from the pool value', () => {

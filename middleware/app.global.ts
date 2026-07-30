@@ -30,7 +30,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   closeQueuePanels();
 
   if (isAuthenticated.value) {
-    await Promise.all([
+    await Promise.allSettled([
       !playlists.value.length && getPlaylists(),
       !bookmarks.value.length && getBookmarks(),
     ]);

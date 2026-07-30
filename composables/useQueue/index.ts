@@ -230,9 +230,13 @@ export function useQueue() {
   }
 
   function unshuffleQueue() {
-    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
+    const SAVED_STATE = getLocalStorage(
+      LOCAL_STORAGE_KEYS.queue,
+      QUEUE_DEFAULT_STATES,
+    );
+
     const snapshot =
-      originalQueueSnapshot.value || SAVED_STATE?.originalQueueSnapshot;
+      originalQueueSnapshot.value || SAVED_STATE.originalQueueSnapshot;
 
     if (!snapshot) {
       return;
@@ -241,7 +245,7 @@ export function useQueue() {
     const currentTrackIdBeforeRestore = currentTrack.value.id;
     queueList.value = pruneOriginalQueue(
       [...queueList.value],
-      [...JSON.parse(snapshot)],
+      [...safeJsonParse(snapshot, [] as PlayableTrack[])],
     );
 
     originalQueueSnapshot.value = QUEUE_DEFAULT_STATES.originalQueueSnapshot;
@@ -255,17 +259,14 @@ export function useQueue() {
       return;
     }
 
-    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
-
-    if (!SAVED_STATE) {
-      clearQueue();
-
-      return;
-    }
+    const SAVED_STATE = getLocalStorage(
+      LOCAL_STORAGE_KEYS.queue,
+      QUEUE_DEFAULT_STATES,
+    );
 
     currentQueueIndex.value = SAVED_STATE.currentQueueIndex;
     originalQueueSnapshot.value = SAVED_STATE.originalQueueSnapshot;
-    queueList.value = SAVED_STATE.queueList;
+    queueList.value = [...SAVED_STATE.queueList];
 
     queueStateRestored.value = true;
   }
@@ -306,21 +307,18 @@ export function useQueue() {
   }
 
   function restoreLocalState() {
-    const SAVED_STATE = getLocalStorage(LOCAL_STORAGE_KEYS.queue);
+    const SAVED_STATE = getLocalStorage(
+      LOCAL_STORAGE_KEYS.queue,
+      QUEUE_DEFAULT_STATES,
+    );
 
-    if (!SAVED_STATE) {
-      return;
-    }
+    for (const track of queueList.value) {
+      const savedTrack = SAVED_STATE.queueList.find(
+        (saved: PlayableTrack) => saved.id === track.id,
+      );
 
-    if (SAVED_STATE.queueList) {
-      for (const track of queueList.value) {
-        const savedTrack = SAVED_STATE.queueList.find(
-          (saved: PlayableTrack) => saved.id === track.id,
-        );
-
-        if (savedTrack?.position) {
-          track.position = savedTrack.position;
-        }
+      if (savedTrack?.position) {
+        track.position = savedTrack.position;
       }
     }
 
@@ -380,7 +378,10 @@ export function useQueue() {
 
   function shuffleQueue() {
     const queueClone = [...queueList.value];
-    originalQueueSnapshot.value = JSON.stringify(queueClone);
+    originalQueueSnapshot.value = safeJsonStringify(
+      queueClone,
+      QUEUE_DEFAULT_STATES.originalQueueSnapshot,
+    );
     const index = getQueueIndexById(currentTrack.value.id);
     queueList.value = shuffleTrackInQueue(queueClone, index);
     currentQueueIndex.value = 0;

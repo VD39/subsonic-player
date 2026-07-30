@@ -17,7 +17,7 @@ const ENVIRONMENT_VARIABLES = {
   APP_RELEASE_DATE: process.env.APP_RELEASE_DATE || '',
   APP_VERSION: process.env.APP_VERSION || 'dev',
   BITRATE: Number(process.env.BITRATE || 0),
-  CROSSFADE_DURATION: Number(process.env.CROSSFADE_DURATION || 3),
+  CROSSFADE_DURATION: Number(process.env.CROSSFADE_DURATION || 1),
   CROSSFADE_ENABLED: process.env.CROSSFADE_ENABLED === 'true',
   DELETE_PODCAST_ON_END: process.env.DELETE_PODCAST_ON_END === 'true',
   ENABLE_QUEUE_SYNC: process.env.ENABLE_QUEUE_SYNC === 'true',

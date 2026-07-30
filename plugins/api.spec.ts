@@ -33,7 +33,27 @@ describe('api plugin', () => {
 
   describe('when the response data has a subsonic-response key', () => {
     describe('when the status is not ok', () => {
-      describe('when the error object has a message', () => {
+      describe('when the error object has a message and code', () => {
+        it('throws an error with the code prefix', () => {
+          expect(() =>
+            onResponseCallback({
+              response: {
+                _data: {
+                  'subsonic-response': {
+                    error: {
+                      code: 40,
+                      message: 'Invalid username or password.',
+                    },
+                    status: 'failed',
+                  },
+                },
+              },
+            }),
+          ).toThrow('[40] Invalid username or password.');
+        });
+      });
+
+      describe('when the error object has a message but no code', () => {
         it('throws an error with the correct message', () => {
           expect(() =>
             onResponseCallback({

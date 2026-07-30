@@ -2,15 +2,13 @@ export function useMediaInformation() {
   const { openModal } = useModal();
   const { getPodcast } = usePodcast();
   const { getAlbum } = useAlbum();
-  const { addErrorSnack } = useSnack();
+  const { handleError } = useErrorHandler();
 
   async function openAlbumInformationModal(album: Album) {
     const fullAlbum = await getAlbum(album.id);
 
     if (!fullAlbum) {
-      addErrorSnack(
-        'Unable to fetch album information. Please try again later.',
-      );
+      handleError('Unable to fetch album information. Please try again later.');
 
       return;
     }
@@ -24,7 +22,7 @@ export function useMediaInformation() {
     const fullPodcast = await getPodcast(podcast.id);
 
     if (!fullPodcast) {
-      addErrorSnack(
+      handleError(
         'Unable to fetch podcast information. Please try again later.',
       );
 

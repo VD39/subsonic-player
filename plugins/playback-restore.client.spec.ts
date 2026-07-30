@@ -14,7 +14,7 @@ mockNuxtImport('useAuth', () => () => ({
 let hookCallback: () => void;
 
 const nuxtApp = {
-  hook: vi.fn((_event: string, cb: () => void) => {
+  hook: vi.fn((_event, cb) => {
     hookCallback = cb;
   }),
 } as never;

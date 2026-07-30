@@ -59,6 +59,21 @@ export function useSettings() {
 
   const settingsRestored = useState(STATE_KEYS.settingsRestored, () => false);
 
+  function createDefaultSettings(): SettingsData {
+    return {
+      crossfadeDuration: toCrossfadeDuration(CROSSFADE_DURATION),
+      crossfadeEnabled: CROSSFADE_ENABLED,
+      deletePodcastOnEnd: DELETE_PODCAST_ON_END,
+      layout: toLayout(LAYOUT as Layout),
+      replayGainMode: toReplayGainMode(REPLAY_GAIN_MODE as ReplayGainMode),
+      scrobbleEnabled: SCROBBLE_ENABLED,
+      showPodcasts: SHOW_PODCASTS,
+      showRadioStations: SHOW_RADIO_STATIONS,
+      streamBitrate: toBitrate(BITRATE as Bitrate),
+      theme: toTheme(THEME as Theme),
+    };
+  }
+
   function saveSettingsState() {
     const toSave: SettingsData = {
       crossfadeDuration: crossfadeDuration.value,
@@ -81,11 +96,20 @@ export function useSettings() {
   }
 
   function restoreSettingsState(persistAfter = true) {
-    const stored = getLocalStorage(LOCAL_STORAGE_KEYS.settings) || {};
+    const stored = getLocalStorage(
+      LOCAL_STORAGE_KEYS.settings,
+      createDefaultSettings(),
+    );
 
     // TODO: Remove legacy migration after sufficient time.
-    const legacyTheme = getLocalStorage(LOCAL_STORAGE_KEYS.theme);
-    const legacyLayout = getLocalStorage(LOCAL_STORAGE_KEYS.layout);
+    const legacyTheme = getLocalStorage<Theme>(
+      LOCAL_STORAGE_KEYS.theme,
+      'auto',
+    );
+    const legacyLayout = getLocalStorage<Layout>(
+      LOCAL_STORAGE_KEYS.layout,
+      'gridLayout',
+    );
 
     if (typeof legacyTheme === 'boolean') {
       stored.theme = legacyTheme ? 'dark' : 'light';
@@ -97,46 +121,19 @@ export function useSettings() {
       deleteLocalStorage(LOCAL_STORAGE_KEYS.layout);
     }
 
-    themePreference.value = toTheme(stored.theme || THEME);
+    themePreference.value = toTheme(stored.theme || (THEME as Theme));
 
     applyThemePreference();
 
-    // Guard against missing fields when stored is empty or contains unexpected types.
-    if (typeof stored.layout === 'string') {
-      viewLayout.value = toLayout(stored.layout);
-    }
-
-    if (typeof stored.scrobbleEnabled === 'boolean') {
-      scrobbleEnabled.value = stored.scrobbleEnabled;
-    }
-
-    if (stored.streamBitrate !== undefined) {
-      streamBitrate.value = toBitrate(stored.streamBitrate);
-    }
-
-    if (typeof stored.showPodcasts === 'boolean') {
-      showPodcasts.value = stored.showPodcasts;
-    }
-
-    if (typeof stored.showRadioStations === 'boolean') {
-      showRadioStations.value = stored.showRadioStations;
-    }
-
-    if (typeof stored.deletePodcastOnEnd === 'boolean') {
-      deletePodcastOnEnd.value = stored.deletePodcastOnEnd;
-    }
-
-    if (typeof stored.replayGainMode === 'string') {
-      replayGainMode.value = toReplayGainMode(stored.replayGainMode);
-    }
-
-    if (typeof stored.crossfadeEnabled === 'boolean') {
-      crossfadeEnabled.value = stored.crossfadeEnabled;
-    }
-
-    if (typeof stored.crossfadeDuration === 'number') {
-      crossfadeDuration.value = stored.crossfadeDuration;
-    }
+    viewLayout.value = toLayout(stored.layout);
+    scrobbleEnabled.value = stored.scrobbleEnabled;
+    streamBitrate.value = toBitrate(stored.streamBitrate);
+    showPodcasts.value = stored.showPodcasts;
+    showRadioStations.value = stored.showRadioStations;
+    deletePodcastOnEnd.value = stored.deletePodcastOnEnd;
+    replayGainMode.value = toReplayGainMode(stored.replayGainMode);
+    crossfadeEnabled.value = stored.crossfadeEnabled;
+    crossfadeDuration.value = stored.crossfadeDuration;
 
     settingsRestored.value = true;
 
@@ -224,18 +221,22 @@ export function useSettings() {
 
   function resetSettings() {
     deleteLocalStorage(LOCAL_STORAGE_KEYS.settings);
-    themePreference.value = toTheme(THEME as Theme);
-    isDarkTheme.value = resolveDarkTheme(THEME);
-    viewLayout.value = toLayout(LAYOUT as Layout);
-    scrobbleEnabled.value = SCROBBLE_ENABLED;
-    streamBitrate.value = toBitrate(BITRATE as Bitrate);
-    showPodcasts.value = SHOW_PODCASTS;
-    showRadioStations.value = SHOW_RADIO_STATIONS;
-    deletePodcastOnEnd.value = DELETE_PODCAST_ON_END;
-    replayGainMode.value = toReplayGainMode(REPLAY_GAIN_MODE as ReplayGainMode);
-    crossfadeEnabled.value = false;
-    crossfadeDuration.value = CROSSFADE_DURATION_MIN;
+
+    const defaults = createDefaultSettings();
+
+    themePreference.value = defaults.theme;
+    isDarkTheme.value = resolveDarkTheme(defaults.theme);
+    viewLayout.value = defaults.layout;
+    scrobbleEnabled.value = defaults.scrobbleEnabled;
+    streamBitrate.value = defaults.streamBitrate;
+    showPodcasts.value = defaults.showPodcasts;
+    showRadioStations.value = defaults.showRadioStations;
+    deletePodcastOnEnd.value = defaults.deletePodcastOnEnd;
+    replayGainMode.value = defaults.replayGainMode;
+    crossfadeEnabled.value = defaults.crossfadeEnabled;
+    crossfadeDuration.value = defaults.crossfadeDuration;
     settingsRestored.value = false;
+
     saveSettingsState();
   }
 

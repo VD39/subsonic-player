@@ -16,6 +16,12 @@ const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
 
+const handleErrorMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useErrorHandler', () => () => ({
+  handleError: handleErrorMock,
+}));
+
 const { deleteMock, keysMock, restore: restoreCachesMock } = cachesMock();
 const { estimateMock, restore: restoreStorageMock } = navigatorStorageMock();
 
@@ -151,6 +157,28 @@ describe('useMaintenance', () => {
 
       it('does not attempt to fetch cache keys', () => {
         expect(keysMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when caches.keys rejects', () => {
+      beforeEach(async () => {
+        keysMock.mockRejectedValue(new Error('error'));
+        await clearPwaCaches();
+      });
+
+      it('does not call the caches.delete function', () => {
+        expect(deleteMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the fetchCacheEstimate function', () => {
+        expect(estimateMock).not.toHaveBeenCalled();
+      });
+
+      it('calls the handleError function with the correct parameters', () => {
+        expect(handleErrorMock).toHaveBeenCalledWith(
+          new Error('error'),
+          'caches',
+        );
       });
     });
   });

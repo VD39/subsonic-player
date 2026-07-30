@@ -13,7 +13,10 @@ export function useAuth() {
   const loading = ref(false);
   const error = ref<null | string>(null);
   const isAuthenticated = useState(STATE_KEYS.userAuthenticated, () => false);
-  setUser(authCookie.value!);
+
+  if (authCookie.value) {
+    setUser(authCookie.value);
+  }
 
   async function autoLogin() {
     if (!user.value?.server) {
@@ -58,11 +61,12 @@ export function useAuth() {
           t: params.token,
           u: params.username,
         },
+        suppressErrorSnack: true,
       },
     );
 
     if (loginError?.message) {
-      error.value = loginError.message;
+      error.value = getFriendlyErrorMessage(loginError);
       loading.value = false;
       isAuthenticated.value = false;
 

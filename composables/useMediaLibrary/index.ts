@@ -38,7 +38,7 @@ export function useMediaLibrary() {
       },
       transform: /* istanbul ignore next -- @preserve */ (response) => ({
         folders: (response.indexes.index || [])
-          .flatMap((index) => index.artist!)
+          .flatMap((index) => index.artist || [])
           .map((artist) => formatArtist(artist)),
         tracks: (response.indexes.child || []).map((track, index) =>
           formatTrack(track, index),

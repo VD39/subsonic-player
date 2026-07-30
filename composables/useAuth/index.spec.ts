@@ -60,8 +60,8 @@ describe('useAuth', () => {
       result = withSetup(useAuth);
     });
 
-    it('calls the setUser function with the cookie value', () => {
-      expect(setUserMock).toHaveBeenCalledWith(null);
+    it('does not call the setUser function', () => {
+      expect(setUserMock).not.toHaveBeenCalled();
     });
 
     describe('when the autoLogin function is called', () => {

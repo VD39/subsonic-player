@@ -70,7 +70,11 @@ export function usePodcast() {
       );
     }
 
-    refreshPodcastAfterDelay(episode.podcastId!);
+    if (!episode.podcastId) {
+      return;
+    }
+
+    refreshPodcastAfterDelay(episode.podcastId);
   }
 
   async function downloadPodcastEpisode(episode: PodcastEpisode) {
@@ -86,7 +90,11 @@ export function usePodcast() {
       );
     }
 
-    refreshPodcastAfterDelay(episode.podcastId!);
+    if (!episode.podcastId) {
+      return;
+    }
+
+    refreshPodcastAfterDelay(episode.podcastId);
   }
 
   async function getNewestPodcastEpisodes() {

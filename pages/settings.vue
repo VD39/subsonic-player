@@ -49,9 +49,9 @@ function onClearCache() {
     onCancel() {
       closeModal();
     },
-    onConfirm() {
-      clearAllAppStorage();
-      clearPwaCaches();
+    async onConfirm() {
+      await clearAllAppStorage();
+      await clearPwaCaches();
       closeModal();
     },
   });
