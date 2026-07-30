@@ -104,11 +104,11 @@ export function useSettings() {
     // TODO: Remove legacy migration after sufficient time.
     const legacyTheme = getLocalStorage<Theme>(
       LOCAL_STORAGE_KEYS.theme,
-      'auto',
+      '' as Theme,
     );
     const legacyLayout = getLocalStorage<Layout>(
       LOCAL_STORAGE_KEYS.layout,
-      'gridLayout',
+      '' as Layout,
     );
 
     if (typeof legacyTheme === 'boolean') {
