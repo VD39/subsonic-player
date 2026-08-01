@@ -3,7 +3,7 @@
 exports[`PodcastEpisodesList > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
-    <div class="trackCell">Episodes (5) </div>
+    <div class="trackCell">Podcast Episodes (5) </div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
@@ -39,8 +39,8 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -104,8 +104,8 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -169,8 +169,8 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -234,8 +234,8 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -299,8 +299,8 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -337,7 +337,7 @@ exports[`PodcastEpisodesList > matches the snapshot 1`] = `
 exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable">
   <div class="trackHeader">
-    <div class="trackCell">Episodes (5) </div>
+    <div class="trackCell">Podcast Episodes (5) </div>
     <div class="trackCell trackOptions"></div>
   </div>
   <div class="lazyLoadContent trackRow trackBorder spaceBetween trackPlayPauseHover">
@@ -373,8 +373,8 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -438,8 +438,8 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -503,8 +503,8 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -568,8 +568,8 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
@@ -633,8 +633,8 @@ exports[`PodcastEpisodesList > when the podcastEpisodes prop is not an empty arr
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
               <phcheckcircle size="24"></phcheckcircle>
-            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+            </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
               <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>

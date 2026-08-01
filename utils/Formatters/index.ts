@@ -203,7 +203,7 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
     image: originalImageUrl || coverArt,
     lastUpdated: formatDate(getLatestDate(episode)),
     name,
-    totalDownloadedEpisodes: getDownloadedEpisodesCount(episode),
+    totalDownloadedEpisodes: getDownloadedPodcastEpisodesCount(episode),
     totalEpisodes: episode.length,
     type: MEDIA_TYPE.podcast,
     url,
@@ -211,7 +211,7 @@ export function formatPodcast(podcast: PodcastChannel): Podcast {
 }
 
 export function formatPodcastEpisode(
-  episode: ResponsePodcastEpisode,
+  podcastEpisode: ResponsePodcastEpisode,
 ): PodcastEpisode {
   const {
     album = EMPTY_DISPLAY_VALUE,
@@ -226,7 +226,7 @@ export function formatPodcastEpisode(
     status,
     streamId,
     title: name,
-  } = episode;
+  } = podcastEpisode;
 
   return {
     author,
@@ -234,7 +234,7 @@ export function formatPodcastEpisode(
     downloaded: status === 'completed',
     duration: duration!,
     formattedDuration: secondsToHHMMSS(duration),
-    genres: getGenres(episode),
+    genres: getGenres(podcastEpisode),
     id,
     image,
     name,

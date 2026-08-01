@@ -56,14 +56,7 @@ mockNuxtImport('useDragAndDrop', () => () => ({
   dragStart: dragStartMock,
 }));
 
-const deleteBookmarkMock = vi.fn();
-
-mockNuxtImport('useBookmark', () => () => ({
-  deleteBookmark: deleteBookmarkMock,
-}));
-
 const addPodcastModalMock = vi.fn();
-const deletePodcastEpisodeMock = vi.fn();
 const downloadPodcastEpisodeMock = vi.fn();
 const getPodcastsAndNewestPodcastEpisodesMock = vi.fn();
 const newestPodcastEpisodes = ref<PodcastEpisode[]>([]);
@@ -71,11 +64,18 @@ const podcasts = ref<Podcast[]>([]);
 
 mockNuxtImport('usePodcast', () => () => ({
   addPodcastModal: addPodcastModalMock,
-  deletePodcastEpisode: deletePodcastEpisodeMock,
   downloadPodcastEpisode: downloadPodcastEpisodeMock,
   getPodcastsAndNewestPodcastEpisodes: getPodcastsAndNewestPodcastEpisodesMock,
   newestPodcastEpisodes,
   podcasts,
+}));
+
+const deletePodcastEpisodeGloballyMock = vi.fn();
+const deletePodcastGloballyMock = vi.fn();
+
+mockNuxtImport('usePodcastCleanup', () => () => ({
+  deletePodcastEpisodeGlobally: deletePodcastEpisodeGloballyMock,
+  deletePodcastGlobally: deletePodcastGloballyMock,
 }));
 
 const refreshMock = vi.fn();
@@ -91,7 +91,7 @@ const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
 
 const podcast = getFormattedPodcastsMock()[0];
 const podcastEpisodes = getFormattedPodcastEpisodesMock(3);
-const podcastEpisode = podcastEpisodes[0];
+const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 
 function factory(props = {}) {
   return mount(PodcastsPage, {
@@ -327,30 +327,25 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the deleteEpisode event', () => {
+    describe('when the PodcastEpisodesList component emits the deletePodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
           .findComponent(PodcastEpisodesList)
-          .vm.$emit('deleteEpisode', podcastEpisode);
+          .vm.$emit('deletePodcastEpisode', podcastEpisode);
       });
 
-      it('calls the deleteBookmark function with the correct parameters', () => {
-        expect(deleteBookmarkMock).toHaveBeenCalledWith(
-          podcastEpisode.id,
-          false,
+      it('calls the deletePodcastEpisodeGlobally function with the correct parameters', () => {
+        expect(deletePodcastEpisodeGloballyMock).toHaveBeenCalledWith(
+          podcastEpisode,
         );
-      });
-
-      it('calls the deletePodcastEpisode function with the correct parameters', () => {
-        expect(deletePodcastEpisodeMock).toHaveBeenCalledWith(podcastEpisode);
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the downloadEpisode event', () => {
+    describe('when the PodcastEpisodesList component emits the downloadPodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
           .findComponent(PodcastEpisodesList)
-          .vm.$emit('downloadEpisode', podcastEpisode);
+          .vm.$emit('downloadPodcastEpisode', podcastEpisode);
       });
 
       it('calls the downloadPodcastEpisode function with the correct parameters', () => {
@@ -370,11 +365,11 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the episodeInformation event', () => {
+    describe('when the PodcastEpisodesList component emits the podcastEpisodeInformation event', () => {
       beforeEach(() => {
         wrapper
           .findComponent(PodcastEpisodesList)
-          .vm.$emit('episodeInformation', podcastEpisode);
+          .vm.$emit('podcastEpisodeInformation', podcastEpisode);
       });
 
       it('calls the openTrackInformationModal function with the correct parameters', () => {
@@ -384,15 +379,27 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the playEpisode event', () => {
+    describe('when the PodcastEpisodesList component emits the playPodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
           .findComponent(PodcastEpisodesList)
-          .vm.$emit('playEpisode', podcastEpisode);
+          .vm.$emit('playPodcastEpisode', podcastEpisode);
       });
 
       it('calls the playTracks function with the correct parameters', () => {
         expect(playTracksMock).toHaveBeenCalledWith([podcastEpisode]);
+      });
+    });
+
+    describe('when the PodcastItem component emits the deletePodcast event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent(PodcastItem)
+          .vm.$emit('deletePodcast', podcast.id);
+      });
+
+      it('calls the deletePodcastGlobally function with the correct parameters', () => {
+        expect(deletePodcastGloballyMock).toHaveBeenCalledWith(podcast.id);
       });
     });
   });

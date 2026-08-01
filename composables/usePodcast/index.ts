@@ -57,10 +57,10 @@ export function usePodcast() {
     getPodcastsAndNewestPodcastEpisodes();
   }
 
-  async function deletePodcastEpisode(episode: PodcastEpisode) {
+  async function deletePodcastEpisode(podcastEpisode: PodcastEpisode) {
     const { data: podcastData } = await fetchData('/deletePodcastEpisode', {
       query: {
-        id: episode.id,
+        id: podcastEpisode.id,
       },
     });
 
@@ -70,17 +70,17 @@ export function usePodcast() {
       );
     }
 
-    if (!episode.podcastId) {
+    if (!podcastEpisode.podcastId) {
       return;
     }
 
-    refreshPodcastAfterDelay(episode.podcastId);
+    refreshPodcastAfterDelay(podcastEpisode.podcastId);
   }
 
-  async function downloadPodcastEpisode(episode: PodcastEpisode) {
+  async function downloadPodcastEpisode(podcastEpisode: PodcastEpisode) {
     const { data: podcastData } = await fetchData('/downloadPodcastEpisode', {
       query: {
-        id: episode.id,
+        id: podcastEpisode.id,
       },
     });
 
@@ -90,11 +90,11 @@ export function usePodcast() {
       );
     }
 
-    if (!episode.podcastId) {
+    if (!podcastEpisode.podcastId) {
       return;
     }
 
-    refreshPodcastAfterDelay(episode.podcastId);
+    refreshPodcastAfterDelay(podcastEpisode.podcastId);
   }
 
   async function getNewestPodcastEpisodes() {
@@ -161,9 +161,13 @@ export function usePodcast() {
   }
 
   function refreshPodcastAfterDelay(podcastId: string) {
-    setTimeout(async () => {
-      await Promise.all([getPodcast(podcastId), getNewestPodcastEpisodes()]);
-    }, 15000);
+    runTaskOnSchedule(
+      `refreshPodcast-${podcastId}`,
+      [0, 5, 10, 15],
+      async () => {
+        await Promise.all([getPodcast(podcastId), getNewestPodcastEpisodes()]);
+      },
+    );
   }
 
   return {

@@ -64,6 +64,16 @@ describe('PodcastItem', () => {
     },
   );
 
+  describe('when the delete podcast DropdownItem emits the click event', () => {
+    beforeEach(() => {
+      wrapper.findComponent({ ref: 'deletePodcast' }).vm.$emit('click');
+    });
+
+    it('emits the deletePodcast event', () => {
+      expect(wrapper.emitted('deletePodcast')).toEqual([[podcast.id]]);
+    });
+  });
+
   describe('when the InteractionWrapper component emits the click event', () => {
     beforeEach(() => {
       wrapper.findComponent(InteractionWrapper).vm.$emit('click');

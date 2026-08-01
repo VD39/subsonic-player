@@ -11,20 +11,20 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/Organisms/TrackPlayPauseDropdownItem.vue';
 
 const props = defineProps<{
-  episode: PodcastEpisode;
   index: number;
   isRecentList?: boolean;
+  podcastEpisode: PodcastEpisode;
 }>();
 
 const emit = defineEmits<{
   addToPlaylist: [];
   addToQueue: [];
-  deleteEpisode: [];
-  downloadEpisode: [];
+  deletePodcastEpisode: [];
   downloadMedia: [];
+  downloadPodcastEpisode: [];
   dragStart: [event: DragEvent];
-  episodeInformation: [];
-  playEpisode: [];
+  playPodcastEpisode: [];
+  podcastEpisodeInformation: [];
 }>();
 
 const { isCurrentTrack } = useQueue();
@@ -33,18 +33,22 @@ const { currentTime } = useAudioPlayer();
 
 const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
 
-const isCurrentEpisode = computed(() => isCurrentTrack(props.episode.id));
+const isCurrentPodcastEpisode = computed(() =>
+  isCurrentTrack(props.podcastEpisode.id),
+);
 
-const bookmarkPosition = computed(() => getBookmarkPosition(props.episode.id));
+const bookmarkPosition = computed(() =>
+  getBookmarkPosition(props.podcastEpisode.id),
+);
 
 const showProgress = computed(
-  () => isCurrentEpisode.value || !!bookmarkPosition.value,
+  () => isCurrentPodcastEpisode.value || !!bookmarkPosition.value,
 );
 
 const progressPercent = computed(() => {
-  const duration = props.episode.duration;
+  const duration = props.podcastEpisode.duration;
 
-  if (isCurrentEpisode.value) {
+  if (isCurrentPodcastEpisode.value) {
     return (currentTime.value / duration) * 100;
   }
 
@@ -52,7 +56,7 @@ const progressPercent = computed(() => {
 });
 
 const displayPosition = computed(() => {
-  if (isCurrentEpisode.value) {
+  if (isCurrentPodcastEpisode.value) {
     return secondsToHHMMSS(currentTime.value);
   }
 
@@ -60,11 +64,14 @@ const displayPosition = computed(() => {
 });
 
 function onClick() {
-  if (isCurrentTrack(props.episode.id) || !props.episode.downloaded) {
+  if (
+    isCurrentTrack(props.podcastEpisode.id) ||
+    !props.podcastEpisode.downloaded
+  ) {
     return;
   }
 
-  emit('playEpisode');
+  emit('playPodcastEpisode');
 }
 
 function openDropdownMenu(event: MouseEvent | TouchEvent) {
@@ -77,7 +84,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
     class="trackRow trackBorder spaceBetween trackPlayPauseHover"
   >
     <InteractionWrapper
-      :draggable="episode.downloaded"
+      :draggable="podcastEpisode.downloaded"
       @click="onClick"
       @contextMenu="openDropdownMenu"
       @dragStart="$emit('dragStart', $event)"
@@ -85,43 +92,43 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
       <div class="trackCell trackPodcastEpisode column">
         <div>
           <DownloadPodcastEpisode
-            v-if="!episode.downloaded"
-            :image="episode.image"
-            @downloadEpisode="$emit('downloadEpisode')"
+            v-if="!podcastEpisode.downloaded"
+            :image="podcastEpisode.image"
+            @downloadPodcastEpisode="$emit('downloadPodcastEpisode')"
           />
 
           <TrackPlayPause
             v-else
-            :image="episode.image"
+            :image="podcastEpisode.image"
             large
-            :trackId="episode.id"
+            :trackId="podcastEpisode.id"
             :trackNumber="index + 1"
-            @playTrack="$emit('playEpisode')"
+            @playTrack="$emit('playPodcastEpisode')"
           />
 
           <div :class="$style.column">
             <MarqueeScroll inert>
               <h4 class="strong mBM">
-                {{ episode.name }}
+                {{ podcastEpisode.name }}
               </h4>
             </MarqueeScroll>
 
             <MarqueeScroll
-              v-if="episode.author"
+              v-if="podcastEpisode.author"
               ref="authorMarqueeScroll"
               inert
             >
               <p class="strong mBM">
-                {{ episode.author }}
+                {{ podcastEpisode.author }}
               </p>
             </MarqueeScroll>
 
             <!-- eslint-disable vue/no-v-html -->
             <div
-              v-if="episode.description"
+              v-if="podcastEpisode.description"
               ref="description"
               class="clamp2"
-              v-html="episode.description"
+              v-html="podcastEpisode.description"
             />
             <!-- eslint-enable vue/no-v-html -->
           </div>
@@ -130,13 +137,13 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
         <div :class="['centerItems', $style.podcastOptions]">
           <div class="centerItems">
             <ButtonLink
-              v-if="!episode.downloaded"
-              ref="downloadEpisodeButton"
+              v-if="!podcastEpisode.downloaded"
+              ref="downloadPodcastEpisodeButton"
               :icon="ICONS.download"
-              title="Download episode"
-              @click="$emit('downloadEpisode')"
+              title="Download podcast episode"
+              @click="$emit('downloadPodcastEpisode')"
             >
-              Download episode
+              Download podcast episode
             </ButtonLink>
 
             <div
@@ -149,16 +156,16 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             </div>
 
             <ButtonLink
-              ref="episodeInformationButton"
+              ref="podcastEpisodeInformationButton"
               :icon="ICONS.information"
-              title="Episode information"
-              @click="$emit('episodeInformation')"
+              title="Podcast episode information"
+              @click="$emit('podcastEpisodeInformation')"
             >
-              Episode information
+              Podcast episode information
             </ButtonLink>
 
             <ButtonLink
-              v-if="episode.downloaded"
+              v-if="podcastEpisode.downloaded"
               ref="addToQueueButton"
               :icon="ICONS.add"
               title="Add to queue"
@@ -172,7 +179,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
             <ul class="bulletList">
               <li>
                 <span class="visually-hidden">Published: </span>
-                {{ episode.publishDate }}
+                {{ podcastEpisode.publishDate }}
               </li>
               <li>
                 <span class="visually-hidden">Duration: </span>
@@ -181,7 +188,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
                   <span>/</span>
                 </template>
 
-                <time>{{ episode.formattedDuration }}</time>
+                <time>{{ podcastEpisode.formattedDuration }}</time>
               </li>
             </ul>
           </MarqueeScroll>
@@ -200,11 +207,11 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
 
       <div class="trackCell trackOptions trackPodcastEpisode">
         <DropdownMenu ref="dropdownMenuRef">
-          <template v-if="episode.downloaded">
+          <template v-if="podcastEpisode.downloaded">
             <TrackPlayPauseDropdownItem
-              :trackId="episode.id"
-              :type="episode.type"
-              @playTrack="$emit('playEpisode')"
+              :trackId="podcastEpisode.id"
+              :type="podcastEpisode.type"
+              @playTrack="$emit('playPodcastEpisode')"
             />
             <DropdownItem ref="addToQueue" @click="$emit('addToQueue')">
               Add to queue
@@ -222,7 +229,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
                   params: {
                     [ROUTE_PARAM_KEYS.podcast.sortBy]:
                       ROUTE_PODCAST_FILTER_PARAMS.All,
-                    [ROUTE_PARAM_KEYS.podcast.id]: episode.podcastId,
+                    [ROUTE_PARAM_KEYS.podcast.id]: podcastEpisode.podcastId,
                   },
                 }"
               >
@@ -231,31 +238,34 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               <DropdownDivider />
             </template>
             <DropdownItem
-              ref="episodeInformationDropdownItem"
-              @click="$emit('episodeInformation')"
+              ref="podcastEpisodeInformationDropdownItem"
+              @click="$emit('podcastEpisodeInformation')"
             >
-              Episode information
+              Podcast episode information
             </DropdownItem>
             <DropdownItem ref="downloadMedia" @click="$emit('downloadMedia')">
-              Download episode
+              Download podcast episode
             </DropdownItem>
             <DropdownDivider />
-            <DropdownItem ref="deleteEpisode" @click="$emit('deleteEpisode')">
-              Delete episode
+            <DropdownItem
+              ref="deletePodcastEpisode"
+              @click="$emit('deletePodcastEpisode')"
+            >
+              Delete podcast episode
             </DropdownItem>
           </template>
           <template v-else>
             <DropdownItem
-              ref="episodeInformationDropdownItem"
-              @click="$emit('episodeInformation')"
+              ref="podcastEpisodeInformationDropdownItem"
+              @click="$emit('podcastEpisodeInformation')"
             >
-              Episode information
+              Podcast episode information
             </DropdownItem>
             <DropdownItem
-              ref="downloadEpisodeDropdownItem"
-              @click="$emit('downloadEpisode')"
+              ref="downloadPodcastEpisodeDropdownItem"
+              @click="$emit('downloadPodcastEpisode')"
             >
-              Download episode
+              Download podcast episode
             </DropdownItem>
           </template>
         </DropdownMenu>

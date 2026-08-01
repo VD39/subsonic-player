@@ -127,19 +127,18 @@ mockNuxtImport('useAlbum', () => () => ({
   loadDashboardAlbums: loadDashboardAlbumsMock,
 }));
 
-const deletePodcastEpisodeMock = vi.fn();
+const deletePodcastEpisodeGloballyMock = vi.fn();
 
-mockNuxtImport('usePodcast', () => () => ({
-  deletePodcastEpisode: deletePodcastEpisodeMock,
+mockNuxtImport('usePodcastCleanup', () => () => ({
+  deletePodcastEpisodeGlobally: deletePodcastEpisodeGloballyMock,
 }));
 
 const crossfadeDurationMock = ref(0);
 const crossfadeEnabledMock = ref(false);
 const deletePodcastOnEndMock = ref(false);
 const scrobbleEnabledMock = ref(true);
-
-const setReplayGainModeMock = vi.fn();
 const replayGainModeMock = ref<ReplayGainMode>('off');
+const setReplayGainModeMock = vi.fn();
 
 mockNuxtImport('useSettings', () => () => ({
   crossfadeDuration: crossfadeDurationMock,
@@ -180,7 +179,6 @@ const {
   isTrackMock,
   navigateQueueMock,
   queueListMock,
-  removeAllByTrackIdMock,
   removeTrackMock,
   reorderQueueTracksMock,
   shuffleQueueMock,
@@ -703,20 +701,10 @@ describe('useAudioPlayer', () => {
           onEndedCb();
         });
 
-        it('calls the deletePodcastEpisode function with the correct parameters', () => {
-          expect(deletePodcastEpisodeMock).toHaveBeenCalledWith(
+        it('calls the deletePodcastEpisodeGlobally function with the correct parameters', () => {
+          expect(deletePodcastEpisodeGloballyMock).toHaveBeenCalledWith(
             currentTrackMock.value,
           );
-        });
-
-        it('calls the removeAllByTrackId function with the correct parameters', () => {
-          expect(removeAllByTrackIdMock).toHaveBeenCalledWith(
-            currentTrackMock.value.id,
-          );
-        });
-
-        it('calls the audio load function', () => {
-          expect(loadMock).toHaveBeenCalled();
         });
 
         describe('when the queueList value is an empty array', () => {
@@ -751,12 +739,12 @@ describe('useAudioPlayer', () => {
             onEndedCb();
           });
 
-          it('calls the audio load function', () => {
-            expect(loadMock).toHaveBeenCalled();
+          it('does not call the audio load function', () => {
+            expect(loadMock).not.toHaveBeenCalled();
           });
 
-          it('calls the audio play function', () => {
-            expect(playMock).toHaveBeenCalled();
+          it('does not call the audio play function', () => {
+            expect(playMock).not.toHaveBeenCalled();
           });
 
           it('does not call the audio pause function', () => {
@@ -771,16 +759,16 @@ describe('useAudioPlayer', () => {
             onEndedCb();
           });
 
-          it('calls the audio load function', () => {
-            expect(loadMock).toHaveBeenCalled();
+          it('does not call the audio load function', () => {
+            expect(loadMock).not.toHaveBeenCalled();
           });
 
           it('does not call the audio play function', () => {
             expect(playMock).not.toHaveBeenCalled();
           });
 
-          it('does not call the audio pause function', () => {
-            expect(pauseMock).not.toHaveBeenCalled();
+          it('calls the audio pause function', () => {
+            expect(pauseMock).toHaveBeenCalled();
           });
         });
       });
@@ -792,12 +780,8 @@ describe('useAudioPlayer', () => {
           onEndedCb();
         });
 
-        it('does not call the deletePodcastEpisode function', () => {
-          expect(deletePodcastEpisodeMock).not.toHaveBeenCalled();
-        });
-
-        it('does not call the removeAllByTrackId function', () => {
-          expect(removeAllByTrackIdMock).not.toHaveBeenCalled();
+        it('does not call the deletePodcastEpisodeGlobally function', () => {
+          expect(deletePodcastEpisodeGloballyMock).not.toHaveBeenCalled();
         });
 
         describe('when the repeat value is 1', () => {
@@ -1367,6 +1351,60 @@ describe('useAudioPlayer', () => {
 
       it('does not call the createBookmark function', () => {
         expect(createBookmarkMock).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when the playCurrentTrackFromQueue function is called', () => {
+    beforeAll(async () => {
+      await result.composable.playCurrentTrackFromQueue();
+    });
+
+    it('calls the audio unload function', () => {
+      expect(unloadMock).toHaveBeenCalled();
+    });
+
+    it('calls the audio load function', () => {
+      expect(loadMock).toHaveBeenCalled();
+    });
+
+    it('calls the audio play function', () => {
+      expect(playMock).toHaveBeenCalled();
+    });
+
+    it('sets the correct currentTime value', () => {
+      expect(result.composable.currentTime.value).toBe(
+        AUDIO_PLAYER_DEFAULT_STATES.currentTime,
+      );
+    });
+
+    it('calls the setMediaSessionMetadata function', () => {
+      expect(setMediaSessionMetadataMock).toHaveBeenCalled();
+    });
+
+    it('calls the updateCurrentTrackPosition function with the correct parameters', () => {
+      expect(updateCurrentTrackPositionMock).toHaveBeenCalledWith(0);
+    });
+
+    it('does not call the createBookmark function', () => {
+      expect(createBookmarkMock).not.toHaveBeenCalled();
+    });
+
+    describe('when the current track is a podcast episode', () => {
+      beforeAll(async () => {
+        isPodcastEpisodeMock.value = true;
+        vi.clearAllMocks();
+        await result.composable.playCurrentTrackFromQueue();
+      });
+
+      afterAll(() => {
+        isPodcastEpisodeMock.value = false;
+      });
+
+      it('calls the audio changePlaybackRate function with the correct parameters', () => {
+        expect(changePlaybackRateMock).toHaveBeenCalledWith(
+          PLAYBACK_RATES[result.composable.playbackRate.value].speed,
+        );
       });
     });
   });

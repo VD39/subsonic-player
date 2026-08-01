@@ -37,7 +37,7 @@ const { refresh, status } = useAsyncData(
   },
 );
 
-function playEpisodeFromBookmarks(index: number) {
+function playPodcastEpisodeFromBookmarks(index: number) {
   playTracks([bookmarks.value[index]]);
 }
 
@@ -69,7 +69,7 @@ useHead({
       @downloadMedia="downloadTrack"
       @dragStart="dragStart"
       @mediaInformation="openTrackInformationModal"
-      @playTrack="playEpisodeFromBookmarks"
+      @playTrack="playPodcastEpisodeFromBookmarks"
       @remove="deleteBookmark"
     />
   </LoadingData>

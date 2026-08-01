@@ -8,14 +8,14 @@ defineProps<{
 }>();
 
 defineEmits<{
-  addToPlaylist: [episodeId: string];
-  addToQueue: [episode: PodcastEpisode];
-  deleteEpisode: [episode: PodcastEpisode];
-  downloadEpisode: [episode: PodcastEpisode];
-  downloadMedia: [episode: PodcastEpisode];
-  dragStart: [episode: PodcastEpisode, event: DragEvent];
-  episodeInformation: [episode: PodcastEpisode];
-  playEpisode: [episode: PodcastEpisode];
+  addToPlaylist: [podcastEpisodeId: string];
+  addToQueue: [podcastEpisode: PodcastEpisode];
+  deletePodcastEpisode: [podcastEpisode: PodcastEpisode];
+  downloadMedia: [podcastEpisode: PodcastEpisode];
+  downloadPodcastEpisode: [podcastEpisode: PodcastEpisode];
+  dragStart: [podcastEpisode: PodcastEpisode, event: DragEvent];
+  playPodcastEpisode: [podcastEpisode: PodcastEpisode];
+  podcastEpisodeInformation: [podcastEpisode: PodcastEpisode];
 }>();
 
 const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.podcastEpisodes;
@@ -31,25 +31,27 @@ const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.podcastEpisodes;
     </div>
 
     <PodcastEpisodesListItem
-      v-for="(episode, index) in podcastEpisodes"
-      :key="episode.id"
-      :episode
+      v-for="(podcastEpisode, index) in podcastEpisodes"
+      :key="podcastEpisode.id"
       :index
       :isRecentList
-      @addToPlaylist="$emit('addToPlaylist', episode.id)"
-      @addToQueue="$emit('addToQueue', episode)"
-      @deleteEpisode="$emit('deleteEpisode', episode)"
-      @downloadEpisode="$emit('downloadEpisode', episode)"
-      @downloadMedia="$emit('downloadMedia', episode)"
-      @dragStart="(event) => $emit('dragStart', episode, event)"
-      @episodeInformation="$emit('episodeInformation', episode)"
-      @playEpisode="$emit('playEpisode', episode)"
+      :podcastEpisode
+      @addToPlaylist="$emit('addToPlaylist', podcastEpisode.id)"
+      @addToQueue="$emit('addToQueue', podcastEpisode)"
+      @deletePodcastEpisode="$emit('deletePodcastEpisode', podcastEpisode)"
+      @downloadMedia="$emit('downloadMedia', podcastEpisode)"
+      @downloadPodcastEpisode="$emit('downloadPodcastEpisode', podcastEpisode)"
+      @dragStart="(event) => $emit('dragStart', podcastEpisode, event)"
+      @playPodcastEpisode="$emit('playPodcastEpisode', podcastEpisode)"
+      @podcastEpisodeInformation="
+        $emit('podcastEpisodeInformation', podcastEpisode)
+      "
     />
   </div>
 
   <NoMediaMessage
     v-else
     :icon="FALLBACK_ICON_BY_TYPE.podcast"
-    message="No episodes found."
+    message="No podcast episodes found."
   />
 </template>

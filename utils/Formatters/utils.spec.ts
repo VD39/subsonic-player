@@ -10,7 +10,7 @@ import {
   filterPodcastEpisodesByStatus,
   getAlbumSize,
   getArtists,
-  getDownloadedEpisodesCount,
+  getDownloadedPodcastEpisodesCount,
   getGenres,
   getLatestDate,
   getPodcastEpisodesByDownloadStatus,
@@ -333,17 +333,17 @@ describe('getLatestDate', () => {
   });
 });
 
-describe('getDownloadedEpisodesCount', () => {
+describe('getDownloadedPodcastEpisodesCount', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct values', () => {
-      expect(getDownloadedEpisodesCount()).toEqual(0);
+      expect(getDownloadedPodcastEpisodesCount()).toEqual(0);
     });
   });
 
   describe('when podcast episodes is defined', () => {
     describe('when podcast episodes is an empty array', () => {
       it('returns the correct values', () => {
-        expect(getDownloadedEpisodesCount([])).toEqual(0);
+        expect(getDownloadedPodcastEpisodesCount([])).toEqual(0);
       });
     });
 
@@ -351,7 +351,7 @@ describe('getDownloadedEpisodesCount', () => {
       describe('when podcast episodes does not contain downloaded episodes', () => {
         it('returns the correct values', () => {
           expect(
-            getDownloadedEpisodesCount([
+            getDownloadedPodcastEpisodesCount([
               ...getPodcastEpisodesMock(2, {
                 status: 'downloading',
               }),
@@ -363,7 +363,7 @@ describe('getDownloadedEpisodesCount', () => {
       describe('when podcast episodes contains downloaded episodes', () => {
         it('returns the correct values', () => {
           expect(
-            getDownloadedEpisodesCount([...getPodcastEpisodesMock(5)]),
+            getDownloadedPodcastEpisodesCount([...getPodcastEpisodesMock(5)]),
           ).toEqual(5);
         });
       });

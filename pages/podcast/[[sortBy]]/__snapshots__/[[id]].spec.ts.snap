@@ -40,9 +40,9 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
             </button></div>
         </div>
         <ul class="bulletList">
-          <li> Episodes: <span class="strong">1</span></li>
+          <li> Podcast episodes: <span class="strong">1</span></li>
           <li> Last updated: <span class="strong">01 January 2000</span></li>
-          <li> Downloaded episodes: <span class="strong">1</span></li>
+          <li> Downloaded podcast episodes: <span class="strong">1</span></li>
         </ul>
         <div class="textClamp">
           <div class="clamp lineClamp" style="--truncate-line-clamp: 3;"><span>description</span>
@@ -59,13 +59,13 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
               <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                      <!--v-if--><span class="clamp text"> Play latest episode </span>
+                      <!--v-if--><span class="clamp text"> Play latest podcast episode </span>
                     </button></li>
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                      <!--v-if--><span class="clamp text"> Play all episodes </span>
+                      <!--v-if--><span class="clamp text"> Play all podcast episodes </span>
                     </button></li>
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                      <!--v-if--><span class="clamp text"> Add episodes to queue </span>
+                      <!--v-if--><span class="clamp text"> Add podcast episodes to queue </span>
                     </button></li>
                   <li aria-hidden="true" class="divider"></li>
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -120,9 +120,9 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
             </button></div>
         </div>
         <ul class="bulletList">
-          <li> Episodes: <span class="strong">1</span></li>
+          <li> Podcast episodes: <span class="strong">1</span></li>
           <li> Last updated: <span class="strong">01 January 2000</span></li>
-          <li> Downloaded episodes: <span class="strong">1</span></li>
+          <li> Downloaded podcast episodes: <span class="strong">1</span></li>
         </ul>
         <!--v-if-->
         <div class="list"><button class="centerItems buttonLink largeThemeHoverButton largeThemeHoverButton" draggable="false" type="button" id="play-all-button" title="Play podcast episodes">
@@ -135,13 +135,13 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
               <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                      <!--v-if--><span class="clamp text"> Play latest episode </span>
+                      <!--v-if--><span class="clamp text"> Play latest podcast episode </span>
                     </button></li>
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                      <!--v-if--><span class="clamp text"> Play all episodes </span>
+                      <!--v-if--><span class="clamp text"> Play all podcast episodes </span>
                     </button></li>
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-                      <!--v-if--><span class="clamp text"> Add episodes to queue </span>
+                      <!--v-if--><span class="clamp text"> Add podcast episodes to queue </span>
                     </button></li>
                   <li aria-hidden="true" class="divider"></li>
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
@@ -196,9 +196,9 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
             </button></div>
         </div>
         <ul class="bulletList">
-          <li> Episodes: <span class="strong">1</span></li>
+          <li> Podcast episodes: <span class="strong">1</span></li>
           <li> Last updated: <span class="strong">01 January 2000</span></li>
-          <li> Downloaded episodes: <span class="strong">0</span></li>
+          <li> Downloaded podcast episodes: <span class="strong">0</span></li>
         </ul>
         <div class="textClamp">
           <div class="clamp lineClamp" style="--truncate-line-clamp: 3;"><span>description</span>

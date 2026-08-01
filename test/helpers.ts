@@ -89,7 +89,7 @@ export function getFormattedPodcastEpisodesMock(
   return Array.from({ length }, (_, index) => ({
     ...formattedPodcastEpisodeMock,
     ...params,
-    id: `podcast-episode-${index}`,
+    id: params.id || `podcast-episode-${index}`,
   }));
 }
 

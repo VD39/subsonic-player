@@ -10,7 +10,10 @@ import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
-import { getFormattedPodcastsMock } from '@/test/helpers';
+import {
+  getFormattedPodcastEpisodesMock,
+  getFormattedPodcastsMock,
+} from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
 
@@ -46,24 +49,22 @@ mockNuxtImport('useDragAndDrop', () => () => ({
   dragStart: dragStartMock,
 }));
 
-const deleteBookmarkMock = vi.fn();
-
-mockNuxtImport('useBookmark', () => () => ({
-  deleteBookmark: deleteBookmarkMock,
-}));
-
-const deletePodcastMock = vi.fn();
-const deletePodcastEpisodeMock = vi.fn();
 const downloadPodcastEpisodeMock = vi.fn();
 const getPodcastMock = vi.fn();
 const podcastMock = ref<PodcastState>({});
 
 mockNuxtImport('usePodcast', () => () => ({
-  deletePodcast: deletePodcastMock,
-  deletePodcastEpisode: deletePodcastEpisodeMock,
   downloadPodcastEpisode: downloadPodcastEpisodeMock,
   getPodcast: getPodcastMock,
   podcast: podcastMock,
+}));
+
+const deletePodcastEpisodeGloballyMock = vi.fn();
+const deletePodcastGloballyMock = vi.fn();
+
+mockNuxtImport('usePodcastCleanup', () => () => ({
+  deletePodcastEpisodeGlobally: deletePodcastEpisodeGloballyMock,
+  deletePodcastGlobally: deletePodcastGloballyMock,
 }));
 
 const refreshMock = vi.fn();
@@ -93,7 +94,7 @@ const { useHeadTitleMock } = useHeadMock();
 const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
   useAudioPlayerMock();
 
-const episode = getFormattedPodcastsMock()[0].episodes.downloaded[0];
+const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 
 async function factory(props = {}) {
   const wrapper = mount(PodcastPage, {
@@ -247,8 +248,8 @@ describe('[[id]]', () => {
             .vm.$emit('click');
         });
 
-        it('calls the deletePodcast function with correct parameters', () => {
-          expect(deletePodcastMock).toHaveBeenCalledWith(
+        it('calls the deletePodcastGlobally function with correct parameters', () => {
+          expect(deletePodcastGloballyMock).toHaveBeenCalledWith(
             podcastMock.value.id!.id,
           );
         });
@@ -280,80 +281,80 @@ describe('[[id]]', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('sets the correct disabled prop on the play all episodes ButtonLink component', () => {
+        it('sets the correct disabled prop on the play all podcast episodes ButtonLink component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playAllEpisodesButton' })
+              .findComponent({ ref: 'playAllPodcastEpisodesButton' })
               .props('disabled'),
           ).toBe(true);
         });
 
-        it('does not show the add downloaded episodes to queue DropdownItem component', () => {
+        it('does not show the add downloaded podcast episodes to queue DropdownItem component', () => {
           expect(
             wrapper
               .findComponent({
-                ref: 'addDownloadedEpisodesToQueueDropdownItem',
+                ref: 'addDownloadedPodcastEpisodesToQueueDropdownItem',
               })
               .exists(),
           ).toBe(false);
         });
 
-        it('does not show the play latest episode DropdownItem component', () => {
+        it('does not show the play latest podcast episode DropdownItem component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playLatestEpisodeDropdownItem' })
+              .findComponent({ ref: 'playLatestPodcastEpisodeDropdownItem' })
               .exists(),
           ).toBe(false);
         });
 
-        it('does not show the play all episodes DropdownItem component', () => {
+        it('does not show the play all podcast episodes DropdownItem component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playAllEpisodesDropdownItem' })
+              .findComponent({ ref: 'playAllPodcastEpisodesDropdownItem' })
               .exists(),
           ).toBe(false);
         });
       });
 
       describe('when podcast.episodes.downloaded is not an empty array', () => {
-        it('sets the correct disabled prop on the play all episodes ButtonLink component', () => {
+        it('sets the correct disabled prop on the play all podcast episodes ButtonLink component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playAllEpisodesButton' })
+              .findComponent({ ref: 'playAllPodcastEpisodesButton' })
               .props('disabled'),
           ).toBe(false);
         });
 
-        it('shows the add downloaded episodes to queue DropdownItem component', () => {
+        it('shows the add downloaded podcast episodes to queue DropdownItem component', () => {
           expect(
             wrapper
               .findComponent({
-                ref: 'addDownloadedEpisodesToQueueDropdownItem',
+                ref: 'addDownloadedPodcastEpisodesToQueueDropdownItem',
               })
               .exists(),
           ).toBe(true);
         });
 
-        it('shows the play latest episode DropdownItem component', () => {
+        it('shows the play latest podcast episode DropdownItem component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playLatestEpisodeDropdownItem' })
+              .findComponent({ ref: 'playLatestPodcastEpisodeDropdownItem' })
               .exists(),
           ).toBe(true);
         });
 
-        it('shows the play all episodes DropdownItem component', () => {
+        it('shows the play all podcast episodes DropdownItem component', () => {
           expect(
             wrapper
-              .findComponent({ ref: 'playAllEpisodesDropdownItem' })
+              .findComponent({ ref: 'playAllPodcastEpisodesDropdownItem' })
               .exists(),
           ).toBe(true);
         });
 
-        describe('when the play all episodes ButtonLink component emits a click event', () => {
+        describe('when the play all podcast episodes ButtonLink component emits a click event', () => {
           beforeEach(() => {
             wrapper
-              .findComponent({ ref: 'playAllEpisodesButton' })
+              .findComponent({ ref: 'playAllPodcastEpisodesButton' })
               .vm.$emit('click');
           });
 
@@ -364,11 +365,11 @@ describe('[[id]]', () => {
           });
         });
 
-        describe('when the add downloaded episodes to queue DropdownItem component emits a click event', () => {
+        describe('when the add downloaded podcast episodes to queue DropdownItem component emits a click event', () => {
           beforeEach(() => {
             wrapper
               .findComponent({
-                ref: 'addDownloadedEpisodesToQueueDropdownItem',
+                ref: 'addDownloadedPodcastEpisodesToQueueDropdownItem',
               })
               .vm.$emit('click');
           });
@@ -380,10 +381,10 @@ describe('[[id]]', () => {
           });
         });
 
-        describe('when the play latest episode DropdownItem component emits a click event', () => {
+        describe('when the play latest podcast episode DropdownItem component emits a click event', () => {
           beforeEach(() => {
             wrapper
-              .findComponent({ ref: 'playLatestEpisodeDropdownItem' })
+              .findComponent({ ref: 'playLatestPodcastEpisodeDropdownItem' })
               .vm.$emit('click');
           });
 
@@ -394,10 +395,10 @@ describe('[[id]]', () => {
           });
         });
 
-        describe('when the play all episodes DropdownItem component emits a click event', () => {
+        describe('when the play all podcast episodes DropdownItem component emits a click event', () => {
           beforeEach(() => {
             wrapper
-              .findComponent({ ref: 'playAllEpisodesDropdownItem' })
+              .findComponent({ ref: 'playAllPodcastEpisodesDropdownItem' })
               .vm.$emit('click');
           });
 
@@ -413,11 +414,11 @@ describe('[[id]]', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('addToPlaylist', episode);
+            .vm.$emit('addToPlaylist', podcastEpisode);
         });
 
         it('calls the addToPlaylistModal function with the correct parameters', () => {
-          expect(addToPlaylistModalMock).toHaveBeenCalledWith(episode);
+          expect(addToPlaylistModalMock).toHaveBeenCalledWith(podcastEpisode);
         });
       });
 
@@ -425,39 +426,39 @@ describe('[[id]]', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('addToQueue', episode);
+            .vm.$emit('addToQueue', podcastEpisode);
         });
 
         it('calls the addTrackToQueue function with the correct parameters', () => {
-          expect(addTrackToQueueMock).toHaveBeenCalledWith(episode);
+          expect(addTrackToQueueMock).toHaveBeenCalledWith(podcastEpisode);
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the deleteEpisode event', () => {
+      describe('when the PodcastEpisodesList component emits the deletePodcastEpisode event', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('deleteEpisode', episode);
+            .vm.$emit('deletePodcastEpisode', podcastEpisode);
         });
 
-        it('calls the deleteBookmark function with the correct parameters', () => {
-          expect(deleteBookmarkMock).toHaveBeenCalledWith(episode.id, false);
-        });
-
-        it('calls the deletePodcastEpisode function with the correct parameters', () => {
-          expect(deletePodcastEpisodeMock).toHaveBeenCalledWith(episode);
+        it('calls the deletePodcastEpisodeGlobally function with the correct parameters', () => {
+          expect(deletePodcastEpisodeGloballyMock).toHaveBeenCalledWith(
+            podcastEpisode,
+          );
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the downloadEpisode event', () => {
+      describe('when the PodcastEpisodesList component emits the downloadPodcastEpisode event', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('downloadEpisode', episode);
+            .vm.$emit('downloadPodcastEpisode', podcastEpisode);
         });
 
         it('calls the downloadPodcastEpisode function with the correct parameters', () => {
-          expect(downloadPodcastEpisodeMock).toHaveBeenCalledWith(episode);
+          expect(downloadPodcastEpisodeMock).toHaveBeenCalledWith(
+            podcastEpisode,
+          );
         });
       });
 
@@ -465,11 +466,11 @@ describe('[[id]]', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('downloadMedia', episode);
+            .vm.$emit('downloadMedia', podcastEpisode);
         });
 
         it('calls the downloadTrack function with the correct parameters', () => {
-          expect(downloadTrackMock).toHaveBeenCalledWith(episode);
+          expect(downloadTrackMock).toHaveBeenCalledWith(podcastEpisode);
         });
       });
 
@@ -477,35 +478,37 @@ describe('[[id]]', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('dragStart', episode);
+            .vm.$emit('dragStart', podcastEpisode);
         });
 
         it('calls the dragStart function with the correct parameters', () => {
-          expect(dragStartMock).toHaveBeenCalledWith(episode);
+          expect(dragStartMock).toHaveBeenCalledWith(podcastEpisode);
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the episodeInformation event', () => {
+      describe('when the PodcastEpisodesList component emits the podcastEpisodeInformation event', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('episodeInformation', episode);
+            .vm.$emit('podcastEpisodeInformation', podcastEpisode);
         });
 
         it('calls the openTrackInformationModal function with the correct parameters', () => {
-          expect(openTrackInformationModalMock).toHaveBeenCalledWith(episode);
+          expect(openTrackInformationModalMock).toHaveBeenCalledWith(
+            podcastEpisode,
+          );
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the playEpisode event', () => {
+      describe('when the PodcastEpisodesList component emits the playPodcastEpisode event', () => {
         beforeEach(() => {
           wrapper
             .findComponent(PodcastEpisodesList)
-            .vm.$emit('playEpisode', episode);
+            .vm.$emit('playPodcastEpisode', podcastEpisode);
         });
 
         it('calls the playTracks function with the correct parameters', () => {
-          expect(playTracksMock).toHaveBeenCalledWith([episode]);
+          expect(playTracksMock).toHaveBeenCalledWith([podcastEpisode]);
         });
       });
 

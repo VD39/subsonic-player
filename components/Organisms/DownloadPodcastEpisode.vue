@@ -7,7 +7,7 @@ defineProps<{
 }>();
 
 defineEmits<{
-  downloadEpisode: [];
+  downloadPodcastEpisode: [];
 }>();
 </script>
 
@@ -18,10 +18,10 @@ defineEmits<{
     <ButtonLink
       :class="['overlap', $style.buttonLink]"
       :icon="ICONS.download"
-      title="Download episode"
-      @click="$emit('downloadEpisode')"
+      title="Download podcast episode"
+      @click="$emit('downloadPodcastEpisode')"
     >
-      Download episode
+      Download podcast episode
     </ButtonLink>
   </div>
 </template>

@@ -29,7 +29,7 @@ exports[`bookmarks > when getBookmarks does return data > matches the snapshot 1
 <div class="mainContent">
   <div class="trackTable withPreview">
     <div class="trackHeader">
-      <div class="trackCell">Episode</div>
+      <div class="trackCell">Podcast Episode</div>
       <div class="trackCell trackSecondary">Podcast</div>
       <div class="trackCell trackSecondary">Author</div>
       <div class="trackCell trackTime withPosition">Current/Duration</div>

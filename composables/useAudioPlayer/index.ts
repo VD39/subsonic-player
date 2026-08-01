@@ -10,7 +10,7 @@ export function useAudioPlayer() {
     scrobbleEnabled,
     setReplayGainMode: persistReplayGainMode,
   } = useSettings();
-  const { deletePodcastEpisode } = usePodcast();
+  const { deletePodcastEpisodeGlobally } = usePodcastCleanup();
   const { createBookmark, deleteBookmark } = useBookmark();
   const { loadDashboardAlbums } = useAlbum();
   const {
@@ -27,7 +27,6 @@ export function useAudioPlayer() {
     isTrack,
     navigateQueue,
     queueList,
-    removeAllByTrackId,
     removeTrack,
     reorderQueueTracks,
     shuffleQueue,
@@ -527,6 +526,12 @@ export function useAudioPlayer() {
     await changeTrack(track);
   }
 
+  async function playCurrentTrackFromQueue() {
+    audioPlayer.value?.unload();
+    resetPlaybackState();
+    await changeTrack(currentTrack.value);
+  }
+
   async function removeFromQueue(index: number) {
     const removedTrackWasPlaying = isPlaying.value;
 
@@ -601,11 +606,12 @@ export function useAudioPlayer() {
     playerStateRestored.value = false;
   }
 
-  async function deletePodcastEpisodeOnFinished(episode: PodcastEpisode) {
+  async function deletePodcastEpisodeOnFinished(
+    podcastEpisode: PodcastEpisode,
+  ) {
     const wasLastTrack = isLastTrack.value;
 
-    deletePodcastEpisode(episode);
-    removeAllByTrackId(episode.id);
+    await deletePodcastEpisodeGlobally(podcastEpisode);
 
     // Nothing left to play so clear the session.
     if (!queueList.value.length) {
@@ -614,8 +620,12 @@ export function useAudioPlayer() {
       return;
     }
 
-    // The queue index now points at the next different track.
-    await changeTrack(currentTrack.value, false, !wasLastTrack);
+    // deletePodcastEpisodeGlobally already switched to the next track and
+    // started playback. Mirror the default end-of-queue behavior by stopping
+    // when the finished track was the last one in the queue.
+    if (wasLastTrack) {
+      pausePlayback();
+    }
   }
 
   function setupAudioPlayer() {
@@ -654,19 +664,19 @@ export function useAudioPlayer() {
       const finishedId = currentTrack.value.id;
 
       if (isPodcastEpisode.value) {
+        if (deletePodcastOnEnd.value) {
+          await deletePodcastEpisodeOnFinished(
+            currentTrack.value as PodcastEpisode,
+          );
+
+          return;
+        }
+
         deleteBookmark(finishedId, false);
       }
 
       resetPlaybackState();
       updateCurrentTrackPosition(0);
-
-      if (isPodcastEpisode.value && deletePodcastOnEnd.value) {
-        await deletePodcastEpisodeOnFinished(
-          currentTrack.value as PodcastEpisode,
-        );
-
-        return;
-      }
 
       switch (repeat.value) {
         case REPEAT_MODE.all: {
@@ -743,6 +753,7 @@ export function useAudioPlayer() {
     isMuted,
     isPlaying,
     playbackRate,
+    playCurrentTrackFromQueue,
     playFromQueue,
     playNextTrack,
     playPreviousTrack,

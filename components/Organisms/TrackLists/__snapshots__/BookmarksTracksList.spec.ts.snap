@@ -3,7 +3,7 @@
 exports[`BookmarksTracksList > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Episode</div>
+    <div class="trackCell">Podcast Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>
@@ -362,7 +362,7 @@ exports[`BookmarksTracksList > matches the snapshot 1`] = `
 exports[`BookmarksTracksList > when the bookmarks prop is not an empty array > matches the snapshot 1`] = `
 "<div class="trackTable withPreview">
   <div class="trackHeader">
-    <div class="trackCell">Episode</div>
+    <div class="trackCell">Podcast Episode</div>
     <div class="trackCell trackSecondary">Podcast</div>
     <div class="trackCell trackSecondary">Author</div>
     <div class="trackCell trackTime withPosition">Current/Duration</div>

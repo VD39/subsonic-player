@@ -38,7 +38,7 @@ defineProps<{
 
     <div class="trackRow trackBorder">
       <div :class="['trackCell', 'trackMeta', $style.title]">
-        Total Episodes
+        Total Podcast Episodes
       </div>
 
       <div class="trackCell">
@@ -48,7 +48,7 @@ defineProps<{
 
     <div class="trackRow trackBorder">
       <div :class="['trackCell', 'trackMeta', $style.title]">
-        Downloaded Episodes
+        Downloaded Podcast Episodes
       </div>
 
       <div class="trackCell">

@@ -20,7 +20,7 @@ exports[`TrackPlayPauseDropdownItem > when the isCurrentTrack value returns true
 
 exports[`TrackPlayPauseDropdownItem > when the type prop is podcastEpisode > matches the snapshot 1`] = `
 "<li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-    <!--v-if--><span class="clamp text">Play Episode</span>
+    <!--v-if--><span class="clamp text">Play Podcast episode</span>
   </button></li>"
 `;
 

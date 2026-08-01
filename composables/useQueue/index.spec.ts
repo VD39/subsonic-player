@@ -93,8 +93,8 @@ const {
 } = useQueue();
 
 const tracks = getFormattedQueueTracksMock(4);
-const podcastEpisode = getFormattedPodcastEpisodesMock(1)[0];
-const radioStation = getFormattedRadioStationMock(1)[0];
+const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
+const radioStation = getFormattedRadioStationMock()[0];
 const bookmarks = getFormattedBookmarksMock(4);
 const enrichedTracks = getFormattedPodcastEpisodesMock(4);
 

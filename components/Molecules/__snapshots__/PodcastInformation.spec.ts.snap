@@ -14,13 +14,13 @@ exports[`PodcastInformation > matches the snapshot 1`] = `
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackMeta title"> Total Episodes </div>
+    <div class="trackCell trackMeta title"> Total Podcast Episodes </div>
     <div class="trackCell">
       <p>1</p>
     </div>
   </div>
   <div class="trackRow trackBorder">
-    <div class="trackCell trackMeta title"> Downloaded Episodes </div>
+    <div class="trackCell trackMeta title"> Downloaded Podcast Episodes </div>
     <div class="trackCell">
       <p>1</p>
     </div>

@@ -66,7 +66,7 @@ describe('TrackPlayPauseDropdownItem', () => {
   });
 
   describe.each([
-    [MEDIA_TYPE.podcastEpisode, 'Episode'],
+    [MEDIA_TYPE.podcastEpisode, 'Podcast episode'],
     [MEDIA_TYPE.radioStation, 'Station'],
     [MEDIA_TYPE.track, 'Track'],
   ])('when the type prop is %s', (type, text) => {

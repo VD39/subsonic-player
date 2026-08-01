@@ -129,7 +129,7 @@ const tracks = [
 const tracks = getFormattedTracksMock(3);
 
 // ✓ — single item: call with 1 and index into the result
-const track = getFormattedTracksMock(1)[0];
+const track = getFormattedTracksMock()[0];
 
 // ✗ — do not build mock objects from scratch when a helper exists
 const tracks = [
@@ -1271,7 +1271,7 @@ Factory functions that generate arrays of mock objects with auto-incrementing ID
 import { getFormattedTracksMock, getFormattedAlbumsMock } from '@/test/helpers';
 
 // Single item
-const track = getFormattedTracksMock(1)[0];
+const track = getFormattedTracksMock()[0];
 
 // Multiple items with overrides
 const albums = getFormattedAlbumsMock(3, { year: 2024 });

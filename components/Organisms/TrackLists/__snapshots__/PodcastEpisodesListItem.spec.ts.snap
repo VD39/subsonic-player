@@ -28,8 +28,8 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -61,14 +61,14 @@ exports[`PodcastEpisodesListItem > matches the snapshot 1`] = `
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -82,8 +82,8 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
-          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
-            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download podcast episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download podcast episode </span>
           </button>
         </div>
         <div class="column">
@@ -105,10 +105,10 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
         </div>
       </div>
       <div class="centerItems podcastOptions">
-        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
-            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download podcast episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download podcast episode </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button>
           <!--v-if-->
         </div>
@@ -130,10 +130,10 @@ exports[`PodcastEpisodesListItem > when the InteractionWrapper component emits t
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -169,8 +169,8 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -205,14 +205,14 @@ exports[`PodcastEpisodesListItem > when the isRecentList prop is true and the po
           </a></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -243,8 +243,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -276,14 +276,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no author > matc
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -320,8 +320,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -353,14 +353,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode has no description >
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -396,8 +396,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -429,14 +429,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -472,8 +472,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -505,14 +505,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -548,8 +548,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -581,14 +581,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode is current track > w
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -624,8 +624,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -657,14 +657,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode is downloaded > matc
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -678,8 +678,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
     <div class="trackCell trackPodcastEpisode column">
       <div>
         <div class="overlapWrapper downloadPodcastEpisode">
-          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download episode">
-            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
+          <div class="centerAll preloadImage overlap"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div><button class="centerItems buttonLink overlap buttonLink overlap buttonLink" draggable="false" type="button" title="Download podcast episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download podcast episode </span>
           </button>
         </div>
         <div class="column">
@@ -701,10 +701,10 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
         </div>
       </div>
       <div class="centerItems podcastOptions">
-        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download episode">
-            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download episode </span>
-          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+        <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Download podcast episode">
+            <phdownload aria-hidden="true" class="icon" size="24" weight="regular"></phdownload><span class="clamp text visuallyHidden"> Download podcast episode </span>
+          </button><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button>
           <!--v-if-->
         </div>
@@ -726,10 +726,10 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not downloaded > 
     <div class="trackCell trackOptions trackPodcastEpisode">
       <div>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
       </div>
     </div>
@@ -765,8 +765,8 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not the current t
         <div class="centerItems">
           <div class="centerItems downloaded" title="Downloaded">
             <phcheckcircle size="24"></phcheckcircle>
-          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Episode information">
-            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Episode information </span>
+          </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
+            <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
           </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button>
@@ -798,14 +798,14 @@ exports[`PodcastEpisodesListItem > when the podcast episode is not the current t
         <li aria-hidden="true" class="divider"></li>
         <!--v-if-->
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Episode information </span>
+            <!--v-if--><span class="clamp text"> Podcast episode information </span>
           </button></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Download episode </span>
+            <!--v-if--><span class="clamp text"> Download podcast episode </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <!--v-if--><span class="clamp text"> Delete episode </span>
+            <!--v-if--><span class="clamp text"> Delete podcast episode </span>
           </button></li>
       </div>
     </div>

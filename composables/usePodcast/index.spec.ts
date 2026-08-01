@@ -4,7 +4,9 @@ import type { DataMock } from '@/test/types';
 
 import { usePodcast } from './index';
 
-vi.useFakeTimers();
+const runTaskOnScheduleMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('runTaskOnSchedule', () => runTaskOnScheduleMock);
 
 const fetchDataMock = vi.fn<() => DataMock>(() => ({
   data: null,
@@ -283,8 +285,6 @@ describe('usePodcast', () => {
         id: 'id',
         podcastId: 'podcastId',
       } as PodcastEpisode);
-
-      vi.runAllTimers();
     });
 
     describe('when fetchData response returns null', () => {
@@ -305,8 +305,6 @@ describe('usePodcast', () => {
           id: 'id',
           podcastId: 'podcastId',
         } as PodcastEpisode);
-
-        vi.runAllTimers();
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -316,24 +314,19 @@ describe('usePodcast', () => {
       });
     });
 
-    describe('when 15 seconds passes', () => {
-      it('calls the getPodcast function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
+    describe('when podcastId is defined', () => {
+      it('calls the runTaskOnSchedule function with the correct parameters', () => {
+        expect(runTaskOnScheduleMock).toHaveBeenCalledWith(
+          'refreshPodcast-podcastId',
+          [0, 5, 10, 15],
+          expect.any(Function),
         );
       });
     });
 
     describe('when podcastId is not defined', () => {
       beforeEach(async () => {
+        vi.clearAllMocks();
         fetchDataMock.mockClear();
         fetchDataMock.mockResolvedValue({
           data: null,
@@ -342,22 +335,34 @@ describe('usePodcast', () => {
         await deletePodcastEpisode({
           id: 'id',
         } as PodcastEpisode);
-
-        vi.runAllTimers();
       });
 
-      it('does not call the getPodcast function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
+      it('does not call the runTaskOnSchedule function', () => {
+        expect(runTaskOnScheduleMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the deletePodcastEpisode function is called again before the milestones pass', () => {
+      beforeEach(async () => {
+        fetchDataMock.mockClear();
+        runTaskOnScheduleMock.mockClear();
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+
+        await deletePodcastEpisode({
+          id: 'id',
+          podcastId: 'podcastId',
+        } as PodcastEpisode);
+
+        await deletePodcastEpisode({
+          id: 'id1',
+          podcastId: 'podcastId',
+        } as PodcastEpisode);
       });
 
-      it('does not call the getNewestPodcastEpisodes function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
+      it('calls the runTaskOnSchedule function for each deletePodcastEpisode call', () => {
+        expect(runTaskOnScheduleMock).toHaveBeenCalledTimes(2);
       });
     });
   });
@@ -372,8 +377,6 @@ describe('usePodcast', () => {
         id: 'id',
         podcastId: 'podcastId',
       } as PodcastEpisode);
-
-      vi.runAllTimers();
     });
 
     describe('when fetchData response returns null', () => {
@@ -394,8 +397,6 @@ describe('usePodcast', () => {
           id: 'id',
           podcastId: 'podcastId',
         } as PodcastEpisode);
-
-        vi.runAllTimers();
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -405,18 +406,12 @@ describe('usePodcast', () => {
       });
     });
 
-    describe('when 15 seconds passes', () => {
-      it('calls the getPodcast function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('calls the getNewestPodcastEpisodes function with the correct parameters', () => {
-        expect(fetchDataMock).toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
+    describe('when podcastId is defined', () => {
+      it('calls the runTaskOnSchedule function with the correct parameters', () => {
+        expect(runTaskOnScheduleMock).toHaveBeenCalledWith(
+          'refreshPodcast-podcastId',
+          [0, 5, 10, 15],
+          expect.any(Function),
         );
       });
     });
@@ -432,22 +427,10 @@ describe('usePodcast', () => {
         await downloadPodcastEpisode({
           id: 'id',
         } as PodcastEpisode);
-
-        vi.runAllTimers();
       });
 
-      it('does not call the getPodcast function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getPodcasts',
-          expect.any(Object),
-        );
-      });
-
-      it('does not call the getNewestPodcastEpisodes function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith(
-          '/getNewestPodcasts',
-          expect.any(Object),
-        );
+      it('does not call the runTaskOnSchedule function', () => {
+        expect(runTaskOnScheduleMock).not.toHaveBeenCalled();
       });
     });
   });

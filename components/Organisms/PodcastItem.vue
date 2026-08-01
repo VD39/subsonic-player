@@ -12,6 +12,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   addPodcastToQueue: [podcast: Podcast];
+  deletePodcast: [podcastId: string];
   dragStart: [podcast: Podcast, event: DragEvent];
   mediaInformation: [podcast: Podcast];
   playPodcast: [podcast: Podcast];
@@ -110,6 +111,13 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           @click="$emit('mediaInformation', podcast)"
         >
           Media information
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem
+          ref="deletePodcast"
+          @click="$emit('deletePodcast', podcast.id)"
+        >
+          Delete podcast
         </DropdownItem>
       </DropdownMenu>
     </div>

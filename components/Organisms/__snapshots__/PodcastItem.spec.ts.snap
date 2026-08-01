@@ -29,6 +29,10 @@ exports[`PodcastItem > matches the snapshot 1`] = `
       <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
+      <li aria-hidden="true" class="divider"></li>
+      <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
+          <!--v-if--><span class="clamp text"> Delete podcast </span>
+        </button></li>
     </div>
   </div>
 </article>"

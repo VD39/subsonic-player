@@ -9,7 +9,7 @@ import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 import PodcastEpisodesList from './PodcastEpisodesList.vue';
 
 const podcastEpisodes = getFormattedPodcastEpisodesMock(5);
-const episode = podcastEpisodes[0];
+const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 
 function factory(props = {}) {
   return mount(PodcastEpisodesList, {
@@ -56,7 +56,7 @@ describe('PodcastEpisodesList', () => {
       expect(wrapper.find({ ref: 'tracksWrapper' }).exists()).toBe(true);
     });
 
-    it('shows the correct number of episode items', () => {
+    it('shows the correct number of podcast episode items', () => {
       expect(wrapper.findAllComponents(PodcastEpisodesListItem).length).toBe(5);
     });
 
@@ -79,13 +79,13 @@ describe('PodcastEpisodesList', () => {
     });
 
     describe.each([
-      ['addToPlaylist', [episode.id]],
-      ['addToQueue', [episode]],
-      ['deleteEpisode', [episode]],
-      ['downloadEpisode', [episode]],
-      ['downloadMedia', [episode]],
-      ['episodeInformation', [episode]],
-      ['playEpisode', [episode]],
+      ['addToPlaylist', [podcastEpisode.id]],
+      ['addToQueue', [podcastEpisode]],
+      ['deletePodcastEpisode', [podcastEpisode]],
+      ['downloadPodcastEpisode', [podcastEpisode]],
+      ['downloadMedia', [podcastEpisode]],
+      ['podcastEpisodeInformation', [podcastEpisode]],
+      ['playPodcastEpisode', [podcastEpisode]],
     ])(
       'when the PodcastEpisodesListItem component emits the %s event',
       (eventName, expectedArgs) => {
@@ -107,7 +107,9 @@ describe('PodcastEpisodesList', () => {
       });
 
       it('emits the dragStart event with the correct value', () => {
-        expect(wrapper.emitted('dragStart')).toEqual([[episode, DragEvent]]);
+        expect(wrapper.emitted('dragStart')).toEqual([
+          [podcastEpisode, DragEvent],
+        ]);
       });
     });
   });

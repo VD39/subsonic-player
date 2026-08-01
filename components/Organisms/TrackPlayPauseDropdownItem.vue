@@ -24,7 +24,7 @@ const playPauseText = computed(() =>
 const trackTypeLabel = computed(() => {
   switch (props.type) {
     case MEDIA_TYPE.podcastEpisode:
-      return 'Episode';
+      return 'Podcast episode';
     case MEDIA_TYPE.radioStation:
       return 'Station';
     default:

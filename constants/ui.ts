@@ -17,9 +17,9 @@ export const DEFAULT_ALL_MEDIA = {
 
 export const MEDIA_LIST_COLUMN_HEADERS = {
   albumTracks: ['Track', 'Artists', 'Duration'],
-  bookmarkTracks: ['Episode', 'Podcast', 'Author', 'Current/Duration'],
+  bookmarkTracks: ['Podcast Episode', 'Podcast', 'Author', 'Current/Duration'],
   mix: ['Track', 'Album/Podcast', 'Artists/Author', 'Duration'],
-  podcastEpisodes: ['Episodes'],
+  podcastEpisodes: ['Podcast Episodes'],
   radioStations: ['Stations'],
   tracks: ['Track', 'Album', 'Artists', 'Duration'],
 } as const;

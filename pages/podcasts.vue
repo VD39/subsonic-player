@@ -12,15 +12,15 @@ import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisod
 const { viewLayout } = useSettings();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
+const { deletePodcastEpisodeGlobally, deletePodcastGlobally } =
+  usePodcastCleanup();
 const { openPodcastInformationModal, openTrackInformationModal } =
   useMediaInformation();
-const { deleteBookmark } = useBookmark();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 const { getMediaTracks } = useMediaTracks();
 const {
   addPodcastModal,
-  deletePodcastEpisode,
   downloadPodcastEpisode,
   getPodcastsAndNewestPodcastEpisodes,
   newestPodcastEpisodes,
@@ -61,11 +61,6 @@ const gridWrapperProps = computed(() =>
   viewLayout.value === 'gridLayout' ? undefined : '0',
 );
 
-function deleteEpisode(episode: PodcastEpisode) {
-  deleteBookmark(episode.id, false);
-  deletePodcastEpisode(episode);
-}
-
 async function onAddPodcastToQueue(podcast: Podcast) {
   const podcastEpisodes = await getMediaTracks(podcast);
 
@@ -74,16 +69,16 @@ async function onAddPodcastToQueue(podcast: Podcast) {
   }
 }
 
-function onPlayEpisode(episode: PodcastEpisode) {
-  playTracks([episode]);
-}
-
 async function onPlayPodcast(podcast: Podcast) {
   const podcastEpisodes = await getMediaTracks(podcast);
 
   if (podcastEpisodes) {
     playTracks(podcastEpisodes);
   }
+}
+
+function onPlayPodcastEpisode(podcastEpisode: PodcastEpisode) {
+  playTracks([podcastEpisode]);
 }
 
 useHead({
@@ -126,6 +121,7 @@ useHead({
           :key="podcast.id"
           :podcast
           @addPodcastToQueue="onAddPodcastToQueue"
+          @deletePodcast="deletePodcastGlobally"
           @dragStart="dragStart"
           @mediaInformation="openPodcastInformationModal"
           @playPodcast="onPlayPodcast"
@@ -139,12 +135,12 @@ useHead({
         :podcastEpisodes="newestPodcastEpisodes"
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
-        @deleteEpisode="deleteEpisode"
-        @downloadEpisode="downloadPodcastEpisode"
+        @deletePodcastEpisode="deletePodcastEpisodeGlobally"
         @downloadMedia="downloadTrack"
+        @downloadPodcastEpisode="downloadPodcastEpisode"
         @dragStart="dragStart"
-        @episodeInformation="openTrackInformationModal"
-        @playEpisode="onPlayEpisode"
+        @playPodcastEpisode="onPlayPodcastEpisode"
+        @podcastEpisodeInformation="openTrackInformationModal"
       />
     </div>
 

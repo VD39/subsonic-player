@@ -19,12 +19,11 @@ const route = useRoute();
 const { openModal } = useModal();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
+const { deletePodcastEpisodeGlobally, deletePodcastGlobally } =
+  usePodcastCleanup();
 const { openTrackInformationModal } = useMediaInformation();
-const { deleteBookmark } = useBookmark();
 const { dragStart } = useDragAndDrop();
 const {
-  deletePodcast,
-  deletePodcastEpisode,
   downloadPodcastEpisode,
   getPodcast,
   podcast: podcastState,
@@ -61,7 +60,7 @@ const podcast = computed(
     podcastState.value?.[route.params[ROUTE_PARAM_KEYS.podcast.id] as string],
 );
 
-const hasDownloadedEpisodes = computed(
+const hasDownloadedPodcastEpisodes = computed(
   () => Number(podcast.value?.totalDownloadedEpisodes) > 0,
 );
 
@@ -69,13 +68,8 @@ function addDownloadedTracksToQueue() {
   addTracksToQueue(podcast.value!.episodes.downloaded);
 }
 
-function deleteEpisode(episode: PodcastEpisode) {
-  deleteBookmark(episode.id, false);
-  deletePodcastEpisode(episode);
-}
-
 async function deleteSelectedPodcast() {
-  await deletePodcast(podcast.value!.id);
+  await deletePodcastGlobally(podcast.value!.id);
   await navigateTo({
     name: ROUTE_NAMES.podcasts,
   });
@@ -85,8 +79,8 @@ function onDragStart(event: DragEvent) {
   dragStart(podcast.value!, event);
 }
 
-function onPlayEpisode(episode: PodcastEpisode) {
-  playTracks([episode]);
+function onPlayPodcastEpisode(podcastEpisode: PodcastEpisode) {
+  playTracks([podcastEpisode]);
 }
 
 function openPodcastDescriptionModal() {
@@ -96,12 +90,12 @@ function openPodcastDescriptionModal() {
   });
 }
 
-function playDownloadedEpisodes() {
+function playDownloadedPodcastEpisodes() {
   playTracks(podcast.value!.episodes.downloaded);
 }
 
-function playFirstDownloadedEpisode() {
-  onPlayEpisode(podcast.value!.episodes.downloaded[0]);
+function playFirstDownloadedPodcastEpisode() {
+  onPlayPodcastEpisode(podcast.value!.episodes.downloaded[0]);
 }
 
 const podcastEpisodes = computed(
@@ -137,7 +131,7 @@ useHead({
 
         <ul class="bulletList">
           <li>
-            Episodes:
+            Podcast episodes:
             <span class="strong">{{ podcast.totalEpisodes }}</span>
           </li>
           <li>
@@ -145,7 +139,7 @@ useHead({
             <span class="strong">{{ podcast.lastUpdated }}</span>
           </li>
           <li>
-            Downloaded episodes:
+            Downloaded podcast episodes:
             <span class="strong">
               {{ podcast.totalDownloadedEpisodes }}
             </span>
@@ -162,35 +156,35 @@ useHead({
         <div class="list">
           <ButtonLink
             :id="HOTKEY_ELEMENT_IDS.playAllButton"
-            ref="playAllEpisodesButton"
+            ref="playAllPodcastEpisodesButton"
             class="largeThemeHoverButton"
-            :disabled="!hasDownloadedEpisodes"
+            :disabled="!hasDownloadedPodcastEpisodes"
             :icon="ICONS.play"
             title="Play podcast episodes"
-            @click="playDownloadedEpisodes"
+            @click="playDownloadedPodcastEpisodes"
           >
             Play podcast episodes
           </ButtonLink>
 
           <DropdownMenu>
-            <template v-if="hasDownloadedEpisodes">
+            <template v-if="hasDownloadedPodcastEpisodes">
               <DropdownItem
-                ref="playLatestEpisodeDropdownItem"
-                @click="playFirstDownloadedEpisode"
+                ref="playLatestPodcastEpisodeDropdownItem"
+                @click="playFirstDownloadedPodcastEpisode"
               >
-                Play latest episode
+                Play latest podcast episode
               </DropdownItem>
               <DropdownItem
-                ref="playAllEpisodesDropdownItem"
-                @click="playDownloadedEpisodes"
+                ref="playAllPodcastEpisodesDropdownItem"
+                @click="playDownloadedPodcastEpisodes"
               >
-                Play all episodes
+                Play all podcast episodes
               </DropdownItem>
               <DropdownItem
-                ref="addDownloadedEpisodesToQueueDropdownItem"
+                ref="addDownloadedPodcastEpisodesToQueueDropdownItem"
                 @click="addDownloadedTracksToQueue"
               >
-                Add episodes to queue
+                Add podcast episodes to queue
               </DropdownItem>
               <DropdownDivider />
             </template>
@@ -210,12 +204,12 @@ useHead({
         :podcastEpisodes
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
-        @deleteEpisode="deleteEpisode"
-        @downloadEpisode="downloadPodcastEpisode"
+        @deletePodcastEpisode="deletePodcastEpisodeGlobally"
         @downloadMedia="downloadTrack"
+        @downloadPodcastEpisode="downloadPodcastEpisode"
         @dragStart="dragStart"
-        @episodeInformation="openTrackInformationModal"
-        @playEpisode="onPlayEpisode"
+        @playPodcastEpisode="onPlayPodcastEpisode"
+        @podcastEpisodeInformation="openTrackInformationModal"
       />
     </div>
 

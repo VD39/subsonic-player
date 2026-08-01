@@ -1,5 +1,5 @@
 export function filterPodcastEpisodesByStatus(
-  episodes: PodcastEpisode[],
+  podcastEpisodes: PodcastEpisode[],
   sortBy: PodcastSortByParam,
 ) {
   let downloaded = undefined;
@@ -12,10 +12,12 @@ export function filterPodcastEpisodesByStatus(
       downloaded = false;
       break;
     default:
-      return episodes;
+      return podcastEpisodes;
   }
 
-  return episodes.filter((episode) => episode.downloaded === downloaded);
+  return podcastEpisodes.filter(
+    (podcastEpisode) => podcastEpisode.downloaded === downloaded,
+  );
 }
 
 export function getAlbumSize(tracks: Base[] = []) {
@@ -41,10 +43,12 @@ export function getArtists(media: AlbumWithSongsID3 | Base): BaseArtist[] {
   return artist;
 }
 
-export function getDownloadedEpisodesCount(
-  episodes: ResponsePodcastEpisode[] = [],
+export function getDownloadedPodcastEpisodesCount(
+  podcastEpisodes: ResponsePodcastEpisode[] = [],
 ) {
-  return episodes.filter((episode) => episode.status === 'completed').length;
+  return podcastEpisodes.filter(
+    (podcastEpisode) => podcastEpisode.status === 'completed',
+  ).length;
 }
 
 export function getGenres(media: Base): Genre[] {
@@ -65,14 +69,14 @@ export function getGenres(media: Base): Genre[] {
   return genre;
 }
 
-export function getLatestDate(episodes: ResponsePodcastEpisode[] = []) {
-  const dates = episodes
-    .map((episode) => {
-      if (!episode.publishDate) {
+export function getLatestDate(podcastEpisodes: ResponsePodcastEpisode[] = []) {
+  const dates = podcastEpisodes
+    .map((podcastEpisode) => {
+      if (!podcastEpisode.publishDate) {
         return 0;
       }
 
-      return new Date(episode.publishDate).getTime();
+      return new Date(podcastEpisode.publishDate).getTime();
     })
     .filter(Boolean);
 

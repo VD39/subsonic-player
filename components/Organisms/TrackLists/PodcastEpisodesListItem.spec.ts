@@ -22,8 +22,8 @@ mockNuxtImport('useBookmark', () => () => ({
 const { isCurrentTrackMock } = useQueueMock();
 const { currentTimeMock } = useAudioPlayerMock();
 
-const downloadedEpisode = getFormattedPodcastEpisodesMock()[0];
-const noneDownloadedEpisode = getFormattedPodcastEpisodesMock(1, {
+const downloadedPodcastEpisode = getFormattedPodcastEpisodesMock()[0];
+const noneDownloadedPodcastEpisode = getFormattedPodcastEpisodesMock(1, {
   downloaded: false,
 })[0];
 
@@ -44,8 +44,8 @@ function factory(props = {}) {
       },
     },
     props: {
-      episode: downloadedEpisode,
       index: 0,
+      podcastEpisode: downloadedPodcastEpisode,
       ...props,
     },
   });
@@ -71,7 +71,7 @@ describe('PodcastEpisodesListItem', () => {
   describe('when the podcast episode has no description', () => {
     beforeEach(() => {
       wrapper = factory({
-        episode: getFormattedPodcastEpisodesMock(1, {
+        podcastEpisode: getFormattedPodcastEpisodesMock(1, {
           description: undefined,
         })[0],
       });
@@ -97,7 +97,7 @@ describe('PodcastEpisodesListItem', () => {
   describe('when the podcast episode has no author', () => {
     beforeEach(() => {
       wrapper = factory({
-        episode: getFormattedPodcastEpisodesMock(1, {
+        podcastEpisode: getFormattedPodcastEpisodesMock(1, {
           author: undefined,
         })[0],
       });
@@ -129,10 +129,10 @@ describe('PodcastEpisodesListItem', () => {
       );
     });
 
-    it('shows the delete episode DropdownItem component', () => {
-      expect(wrapper.findComponent({ ref: 'deleteEpisode' }).exists()).toBe(
-        true,
-      );
+    it('shows the delete podcast episode DropdownItem component', () => {
+      expect(
+        wrapper.findComponent({ ref: 'deletePodcastEpisode' }).exists(),
+      ).toBe(true);
     });
 
     it('shows the download media DropdownItem component', () => {
@@ -163,9 +163,11 @@ describe('PodcastEpisodesListItem', () => {
       );
     });
 
-    it('does not show the download episode DropdownItem component', () => {
+    it('does not show the download podcast episode DropdownItem component', () => {
       expect(
-        wrapper.findComponent({ ref: 'downloadEpisodeDropdownItem' }).exists(),
+        wrapper
+          .findComponent({ ref: 'downloadPodcastEpisodeDropdownItem' })
+          .exists(),
       ).toBe(false);
     });
 
@@ -173,14 +175,18 @@ describe('PodcastEpisodesListItem', () => {
       expect(wrapper.find({ ref: 'downloaded' }).exists()).toBe(true);
     });
 
-    it('does not show the download episode ButtonLink component', () => {
+    it('does not show the download podcast episode ButtonLink component', () => {
       expect(
-        wrapper.findComponent({ ref: 'downloadEpisodeButton' }).exists(),
+        wrapper.findComponent({ ref: 'downloadPodcastEpisodeButton' }).exists(),
       ).toBe(false);
     });
 
     describe.each([
-      ['delete episode DropdownItem', 'deleteEpisode', 'deleteEpisode'],
+      [
+        'delete podcast episode DropdownItem',
+        'deletePodcastEpisode',
+        'deletePodcastEpisode',
+      ],
       ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
       ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
       ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
@@ -203,8 +209,8 @@ describe('PodcastEpisodesListItem', () => {
         wrapper.findComponent(TrackPlayPauseDropdownItem).vm.$emit('playTrack');
       });
 
-      it('emits the playEpisode event', () => {
-        expect(wrapper.emitted('playEpisode')).toEqual([[]]);
+      it('emits the playPodcastEpisode event', () => {
+        expect(wrapper.emitted('playPodcastEpisode')).toEqual([[]]);
       });
     });
 
@@ -213,8 +219,8 @@ describe('PodcastEpisodesListItem', () => {
         wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
       });
 
-      it('emits the playEpisode event', () => {
-        expect(wrapper.emitted('playEpisode')).toEqual([[]]);
+      it('emits the playPodcastEpisode event', () => {
+        expect(wrapper.emitted('playPodcastEpisode')).toEqual([[]]);
       });
     });
   });
@@ -222,7 +228,7 @@ describe('PodcastEpisodesListItem', () => {
   describe('when the podcast episode is not downloaded', () => {
     beforeEach(() => {
       wrapper = factory({
-        episode: noneDownloadedEpisode,
+        podcastEpisode: noneDownloadedPodcastEpisode,
       });
     });
 
@@ -238,10 +244,10 @@ describe('PodcastEpisodesListItem', () => {
       expect(wrapper.findComponent(DownloadPodcastEpisode).exists()).toBe(true);
     });
 
-    it('does not show the delete episode DropdownItem component', () => {
-      expect(wrapper.findComponent({ ref: 'deleteEpisode' }).exists()).toBe(
-        false,
-      );
+    it('does not show the delete podcast episode DropdownItem component', () => {
+      expect(
+        wrapper.findComponent({ ref: 'deletePodcastEpisode' }).exists(),
+      ).toBe(false);
     });
 
     it('does not show the download media DropdownItem component', () => {
@@ -272,9 +278,11 @@ describe('PodcastEpisodesListItem', () => {
       );
     });
 
-    it('shows the download episode DropdownItem component', () => {
+    it('shows the download podcast episode DropdownItem component', () => {
       expect(
-        wrapper.findComponent({ ref: 'downloadEpisodeDropdownItem' }).exists(),
+        wrapper
+          .findComponent({ ref: 'downloadPodcastEpisodeDropdownItem' })
+          .exists(),
       ).toBe(true);
     });
 
@@ -282,22 +290,22 @@ describe('PodcastEpisodesListItem', () => {
       expect(wrapper.find({ ref: 'downloaded' }).exists()).toBe(false);
     });
 
-    it('shows the download episode ButtonLink component', () => {
+    it('shows the download podcast episode ButtonLink component', () => {
       expect(
-        wrapper.findComponent({ ref: 'downloadEpisodeButton' }).exists(),
+        wrapper.findComponent({ ref: 'downloadPodcastEpisodeButton' }).exists(),
       ).toBe(true);
     });
 
     describe.each([
       [
-        'download episode ButtonLink',
-        'downloadEpisodeButton',
-        'downloadEpisode',
+        'download podcast episode ButtonLink',
+        'downloadPodcastEpisodeButton',
+        'downloadPodcastEpisode',
       ],
       [
-        'download episode DropdownItem',
-        'downloadEpisodeDropdownItem',
-        'downloadEpisode',
+        'download podcast episode DropdownItem',
+        'downloadPodcastEpisodeDropdownItem',
+        'downloadPodcastEpisode',
       ],
     ])(
       'when the %s component emits the click event',
@@ -312,15 +320,15 @@ describe('PodcastEpisodesListItem', () => {
       },
     );
 
-    describe('when the DownloadPodcastEpisode component emits the downloadEpisode event', () => {
+    describe('when the DownloadPodcastEpisode component emits the downloadPodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
           .findComponent(DownloadPodcastEpisode)
-          .vm.$emit('downloadEpisode');
+          .vm.$emit('downloadPodcastEpisode');
       });
 
-      it('emits the downloadEpisode event', () => {
-        expect(wrapper.emitted('downloadEpisode')).toEqual([[]]);
+      it('emits the downloadPodcastEpisode event', () => {
+        expect(wrapper.emitted('downloadPodcastEpisode')).toEqual([[]]);
       });
     });
   });
@@ -443,14 +451,14 @@ describe('PodcastEpisodesListItem', () => {
 
   describe.each([
     [
-      'episode information ButtonLink',
-      'episodeInformationButton',
-      'episodeInformation',
+      'podcast episode information ButtonLink',
+      'podcastEpisodeInformationButton',
+      'podcastEpisodeInformation',
     ],
     [
-      'episode information DropdownItem',
-      'episodeInformationDropdownItem',
-      'episodeInformation',
+      'podcast episode information DropdownItem',
+      'podcastEpisodeInformationDropdownItem',
+      'podcastEpisodeInformation',
     ],
   ])(
     'when the %s component emits the click event',
@@ -496,15 +504,15 @@ describe('PodcastEpisodesListItem', () => {
         wrapper.findComponent(InteractionWrapper).vm.$emit('click');
       });
 
-      it('does not emit the playEpisode event', () => {
-        expect(wrapper.emitted('playEpisode')).toBeUndefined();
+      it('does not emit the playPodcastEpisode event', () => {
+        expect(wrapper.emitted('playPodcastEpisode')).toBeUndefined();
       });
     });
 
     describe('when the podcast episode is not downloaded', () => {
       beforeEach(async () => {
         wrapper = factory({
-          episode: noneDownloadedEpisode,
+          podcastEpisode: noneDownloadedPodcastEpisode,
         });
 
         await wrapper.vm.$nextTick();
@@ -516,8 +524,8 @@ describe('PodcastEpisodesListItem', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not emit the playEpisode event', () => {
-        expect(wrapper.emitted('playEpisode')).toBeUndefined();
+      it('does not emit the playPodcastEpisode event', () => {
+        expect(wrapper.emitted('playPodcastEpisode')).toBeUndefined();
       });
     });
 
@@ -528,8 +536,8 @@ describe('PodcastEpisodesListItem', () => {
         wrapper.findComponent(InteractionWrapper).vm.$emit('click');
       });
 
-      it('emits the playEpisode event', () => {
-        expect(wrapper.emitted('playEpisode')).toEqual([[]]);
+      it('emits the playPodcastEpisode event', () => {
+        expect(wrapper.emitted('playPodcastEpisode')).toEqual([[]]);
       });
     });
   });

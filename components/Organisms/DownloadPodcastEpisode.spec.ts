@@ -31,8 +31,8 @@ describe('DownloadPodcastEpisode', () => {
       await wrapper.findComponent(ButtonLink).trigger('click');
     });
 
-    it('emits the downloadEpisode event', () => {
-      expect(wrapper.emitted('downloadEpisode')).toEqual([[]]);
+    it('emits the downloadPodcastEpisode event', () => {
+      expect(wrapper.emitted('downloadPodcastEpisode')).toEqual([[]]);
     });
   });
 });
