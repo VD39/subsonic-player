@@ -16,10 +16,10 @@ const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
 
-const handleErrorMock = vi.hoisted(() => vi.fn());
+const logErrorMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useErrorHandler', () => () => ({
-  handleError: handleErrorMock,
+  logError: logErrorMock,
 }));
 
 const { deleteMock, keysMock, restore: restoreCachesMock } = cachesMock();
@@ -174,11 +174,8 @@ describe('useMaintenance', () => {
         expect(estimateMock).not.toHaveBeenCalled();
       });
 
-      it('calls the handleError function with the correct parameters', () => {
-        expect(handleErrorMock).toHaveBeenCalledWith(
-          new Error('error'),
-          'caches',
-        );
+      it('calls the logError function with the correct parameters', () => {
+        expect(logErrorMock).toHaveBeenCalledWith(new Error('error'), 'caches');
       });
     });
   });

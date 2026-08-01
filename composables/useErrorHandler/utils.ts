@@ -19,9 +19,16 @@ export function getFriendlyErrorMessage(error: unknown) {
       ?.error;
 
     if (mediaError) {
+      const isMissingSource =
+        mediaError.code === 4 ||
+        mediaError.message?.toLowerCase().includes('no supported sources');
+
       let audioMessage = mediaError.message;
 
-      if (!audioMessage) {
+      if (isMissingSource) {
+        audioMessage =
+          'The file could not be played. It may have been deleted from the server or is no longer available.';
+      } else if (!audioMessage) {
         switch (mediaError.code) {
           case 1:
             audioMessage = 'The audio playback was aborted.';
@@ -32,9 +39,6 @@ export function getFriendlyErrorMessage(error: unknown) {
           case 3:
             audioMessage =
               'The audio format is not supported or the URL is invalid.';
-            break;
-          case 4:
-            audioMessage = 'The audio source is not supported.';
             break;
           default:
             audioMessage = 'An unknown audio playback error occurred.';
@@ -62,6 +66,13 @@ export function getFriendlyErrorMessage(error: unknown) {
   }
 
   const lower = message.toLowerCase();
+
+  if (
+    lower.includes('no supported sources') ||
+    (error instanceof DOMException && error.name === 'NotSupportedError')
+  ) {
+    return 'Playback error: The file could not be played. It may have been deleted from the server or is no longer available.';
+  }
 
   if (
     lower.includes('timeout') ||

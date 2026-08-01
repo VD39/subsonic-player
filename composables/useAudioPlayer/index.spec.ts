@@ -574,6 +574,22 @@ describe('useAudioPlayer', () => {
           'audio',
         );
       });
+
+      it('sets the correct isBuffering value', () => {
+        expect(result.composable.isBuffering.value).toBe(false);
+      });
+
+      it('sets the correct isPlaying value', () => {
+        expect(result.composable.isPlaying.value).toBe(false);
+      });
+
+      it('calls the audio pause function', () => {
+        expect(pauseMock).toHaveBeenCalled();
+      });
+
+      it('calls the setMediaSessionPlaybackState function with the correct parameters', () => {
+        expect(setMediaSessionPlaybackStateMock).toHaveBeenCalledWith('paused');
+      });
     });
 
     describe('when onTimeupdate event is called', () => {
@@ -1274,11 +1290,69 @@ describe('useAudioPlayer', () => {
         });
       });
     });
+
+    describe('when the play function rejects with an interrupted error', () => {
+      beforeAll(async () => {
+        vi.clearAllMocks();
+        playMock.mockRejectedValueOnce(
+          new DOMException(
+            'The play() request was interrupted by a call to pause().',
+            'AbortError',
+          ),
+        );
+
+        await result.composable.playTracks(queueTracks);
+      });
+
+      it('does not call the handleError function', () => {
+        expect(handleErrorMock).not.toHaveBeenCalled();
+      });
+
+      it('sets the correct isPlaying value', () => {
+        expect(result.composable.isPlaying.value).toBe(true);
+      });
+    });
+
+    describe('when the play function rejects with an error', () => {
+      beforeAll(async () => {
+        vi.clearAllMocks();
+        playMock.mockRejectedValueOnce(
+          new DOMException(
+            'The element has no supported sources.',
+            'NotSupportedError',
+          ),
+        );
+
+        await result.composable.playTracks(queueTracks);
+      });
+
+      afterAll(async () => {
+        // Reset the state to avoid affecting other tests.
+        await result.composable.playTracks(queueTracks);
+      });
+
+      it('calls the handleError function with the correct parameters', () => {
+        expect(handleErrorMock).toHaveBeenCalledWith(
+          new DOMException(
+            'The element has no supported sources.',
+            'NotSupportedError',
+          ),
+          'audio',
+        );
+      });
+
+      it('sets the correct isPlaying value', () => {
+        expect(result.composable.isPlaying.value).toBe(false);
+      });
+
+      it('calls the audio pause function', () => {
+        expect(pauseMock).toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when the togglePlay function is called', () => {
     beforeAll(async () => {
-      result = withSetup(useAudioPlayer);
       vi.clearAllMocks();
       await result.composable.togglePlay();
     });

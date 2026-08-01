@@ -33,6 +33,17 @@ describe('getFriendlyErrorMessage', () => {
       'The server encountered an error. Please try again later.',
     ],
     [
+      new DOMException(
+        'The element has no supported sources.',
+        'NotSupportedError',
+      ),
+      'Playback error: The file could not be played. It may have been deleted from the server or is no longer available.',
+    ],
+    [
+      new Error('The element has no supported sources.'),
+      'Playback error: The file could not be played. It may have been deleted from the server or is no longer available.',
+    ],
+    [
       new Error('timeout'),
       'A network error occurred. Please check your connection and try again.',
     ],
@@ -149,7 +160,17 @@ describe('getFriendlyErrorMessage', () => {
           },
         },
       },
-      'Playback error: The audio source is not supported.',
+      'Playback error: The file could not be played. It may have been deleted from the server or is no longer available.',
+    ],
+    [
+      {
+        target: {
+          error: {
+            message: 'The element has no supported sources.',
+          },
+        },
+      },
+      'Playback error: The file could not be played. It may have been deleted from the server or is no longer available.',
     ],
     [
       {

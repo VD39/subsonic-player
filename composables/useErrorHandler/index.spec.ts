@@ -8,11 +8,46 @@ mockNuxtImport('useSnack', () => () => ({
   addErrorSnack: addErrorSnackMock,
 }));
 
-const { handleError } = useErrorHandler();
+const { handleError, logError } = useErrorHandler();
+
+const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
 describe('useErrorHandler', () => {
   afterEach(() => {
     vi.clearAllMocks();
+  });
+
+  describe('when the logError function is called', () => {
+    describe('when the source is set', () => {
+      beforeEach(() => {
+        logError(new Error('test'), 'source');
+      });
+
+      it('calls the console.error function with the correct parameters', () => {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          '[source]',
+          expect.any(Error),
+        );
+      });
+
+      it('calls the console.error function with the friendly error message', () => {
+        expect(consoleErrorSpy).toHaveBeenCalledWith('test');
+      });
+    });
+
+    describe('when the source is not set', () => {
+      beforeEach(() => {
+        logError(new Error('test'));
+      });
+
+      it('calls the console.error function with the correct parameters', () => {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(expect.any(Error));
+      });
+
+      it('calls the console.error function with the friendly error message', () => {
+        expect(consoleErrorSpy).toHaveBeenCalledWith('test');
+      });
+    });
   });
 
   describe('when the handleError function is called', () => {

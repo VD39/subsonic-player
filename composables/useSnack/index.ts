@@ -6,6 +6,15 @@ export function useSnack() {
       return;
     }
 
+    const existing = snacks.value.find(
+      (snack) =>
+        snack.content === snackData.content && snack.type === snackData.type,
+    );
+
+    if (existing) {
+      removeSnack(existing.id);
+    }
+
     let timer = null;
     const id = generateRandomString(50);
 

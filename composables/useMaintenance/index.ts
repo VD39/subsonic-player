@@ -1,5 +1,5 @@
 export function useMaintenance() {
-  const { handleError } = useErrorHandler();
+  const { logError } = useErrorHandler();
   const { clearServerQueue, restoreQueueStateFromLocal } = useQueue();
 
   const cacheEstimate = ref('');
@@ -56,7 +56,7 @@ export function useMaintenance() {
       // Refresh the estimate UI after clearing.
       await fetchCacheEstimate();
     } catch (error) {
-      handleError(error, 'caches');
+      logError(error, 'caches');
     }
   }
 

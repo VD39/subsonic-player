@@ -2,10 +2,10 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import errorHandlerPlugin from './error-handler.client';
 
-const handleErrorMock = vi.fn();
+const logErrorMock = vi.fn();
 
 mockNuxtImport('useErrorHandler', () => () => ({
-  handleError: handleErrorMock,
+  logError: logErrorMock,
 }));
 
 let vueErrorCallback: (error: unknown) => void;
@@ -55,8 +55,8 @@ describe('error-handler plugin', () => {
       vueErrorCallback(new Error('test error'));
     });
 
-    it('calls the handleError function with the correct parameters', () => {
-      expect(handleErrorMock).toHaveBeenCalledWith(
+    it('calls the logError function with the correct parameters', () => {
+      expect(logErrorMock).toHaveBeenCalledWith(
         new Error('test error'),
         'vue:error',
       );
@@ -75,8 +75,8 @@ describe('error-handler plugin', () => {
       } as unknown as Event);
     });
 
-    it('calls the handleError function with the correct parameters', () => {
-      expect(handleErrorMock).toHaveBeenCalledWith(
+    it('calls the logError function with the correct parameters', () => {
+      expect(logErrorMock).toHaveBeenCalledWith(
         new Error('rejection error'),
         'unhandledRejection',
       );
@@ -98,8 +98,8 @@ describe('error-handler plugin', () => {
       );
     });
 
-    it('calls the handleError function with the correct parameters', () => {
-      expect(handleErrorMock).toHaveBeenCalledWith(
+    it('calls the logError function with the correct parameters', () => {
+      expect(logErrorMock).toHaveBeenCalledWith(
         new Error('onerror test'),
         'window.onerror',
       );

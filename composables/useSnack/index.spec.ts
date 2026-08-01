@@ -201,4 +201,46 @@ describe('useSnack', () => {
       });
     });
   });
+
+  describe('when a snack with the same content and type is added', () => {
+    beforeAll(() => {
+      randomStringMock.value = 'deduplicated';
+      addErrorSnack('Content');
+    });
+
+    it('replaces the existing snack', () => {
+      expect(snacks.value).toEqual([
+        {
+          content: 'Content',
+          id: 'deduplicated',
+          timer: null,
+          type: 'error',
+        },
+      ]);
+    });
+  });
+
+  describe('when a snack with the same content but a different type is added', () => {
+    beforeAll(() => {
+      randomStringMock.value = 'differentType';
+      addInfoSnack('Content');
+    });
+
+    it('adds the snack to the snacks value', () => {
+      expect(snacks.value).toEqual([
+        {
+          content: 'Content',
+          id: 'deduplicated',
+          timer: null,
+          type: 'error',
+        },
+        {
+          content: 'Content',
+          id: 'differentType',
+          timer: expect.any(Object),
+          type: 'info',
+        },
+      ]);
+    });
+  });
 });

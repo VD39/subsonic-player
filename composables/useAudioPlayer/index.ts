@@ -218,10 +218,20 @@ export function useAudioPlayer() {
 
   // Play/Pause actions.
   async function resumePlayback() {
-    await audioPlayer.value?.play();
     isPlaying.value = true;
     startSaveInterval();
     setMediaSessionPlaybackState('playing');
+
+    try {
+      await audioPlayer.value?.play();
+    } catch (error) {
+      if (isInterruptedPlayError(error)) {
+        return;
+      }
+
+      handleError(error, 'audio');
+      pausePlayback();
+    }
   }
 
   function pausePlayback() {
@@ -656,6 +666,8 @@ export function useAudioPlayer() {
 
     audioPlayer.value.onError((event) => {
       handleError(event, 'audio');
+      isBuffering.value = false;
+      pausePlayback();
     });
 
     audioPlayer.value.onEnded(async () => {

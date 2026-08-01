@@ -71,6 +71,10 @@ export function getUpcomingTracks(
   return upcoming;
 }
 
+export function isInterruptedPlayError(error: unknown) {
+  return error instanceof DOMException && error.name === 'AbortError';
+}
+
 export function isMusicTrack(track: PlayableTrack): track is Track {
   return track.type === MEDIA_TYPE.track;
 }
