@@ -16,6 +16,7 @@ mockNuxtImport('useModal', () => () => ({
 
 function factory(props = {}) {
   return mount(ModalWindow, {
+    attachTo: document.body,
     props: {
       ...props,
     },
@@ -27,6 +28,10 @@ describe('ModalWindow', () => {
 
   beforeEach(() => {
     wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   describe('when modal values are not set', () => {
@@ -123,6 +128,81 @@ describe('ModalWindow', () => {
       it('removes the component', () => {
         expect(wrapper.find({ ref: 'modalContainer' }).exists()).toBe(false);
       });
+    });
+  });
+
+  describe('when the modal component contains an input', () => {
+    beforeEach(async () => {
+      modalMock.value = {
+        component: markRaw({
+          template: `
+            <div>
+              <input
+                class="${INTERACTION_INPUT_CLASS}"
+                data-test-id="first-input"
+              />
+              <input
+                class="${INTERACTION_INPUT_CLASS}"
+                data-test-id="second-input"
+              />
+            </div>
+          `,
+        }),
+      };
+
+      await wrapper.vm.$nextTick();
+    });
+
+    it('focuses the first input element', () => {
+      expect(document.activeElement).toBe(
+        wrapper.find('[data-test-id="first-input"]').element,
+      );
+    });
+
+    describe('when the first input is disabled', () => {
+      beforeEach(async () => {
+        modalMock.value = {
+          component: markRaw({
+            template: `
+              <div>
+                <input
+                  class="${INTERACTION_INPUT_CLASS}"
+                  data-test-id="first-input"
+                  disabled
+                />
+                <input
+                  class="${INTERACTION_INPUT_CLASS}"
+                  data-test-id="second-input"
+                />
+              </div>
+            `,
+          }),
+        };
+
+        await wrapper.vm.$nextTick();
+      });
+
+      it('focuses the next enabled input element', () => {
+        expect(document.activeElement).toBe(
+          wrapper.find('[data-test-id="second-input"]').element,
+        );
+      });
+    });
+  });
+
+  describe('when the modal component does not contain an input', () => {
+    beforeEach(async () => {
+      modalMock.value = {
+        component: markRaw({
+          template: '<div>No input here.</div>',
+        }),
+      };
+
+      await wrapper.vm.$nextTick();
+    });
+
+    it('does not focus an input element', () => {
+      expect(document.activeElement).not.toBeInstanceOf(HTMLInputElement);
     });
   });
 });

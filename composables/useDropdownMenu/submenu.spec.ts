@@ -2,6 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { abortControllerMock } from '@/test/abortControllerMock';
 import { refElementMock } from '@/test/refElementMock';
+import { requestAnimationFrameMock } from '@/test/requestAnimationFrameMock';
 import { withSetup } from '@/test/withSetup';
 
 import { useDropdownSubmenu } from './submenu';
@@ -23,6 +24,7 @@ mockNuxtImport('useDropdownMenuState', () => () => ({
 
 const { abortControllerConstructorMock, abortMock, signalMock } =
   abortControllerMock();
+const { triggerAnimationFrame } = requestAnimationFrameMock();
 
 const dropdownSubListRef = refElementMock();
 const dropdownSubmenuRef = refElementMock();
@@ -85,6 +87,7 @@ describe('useDropdownSubmenu', () => {
           );
 
           await result.composable.openSubmenu();
+          triggerAnimationFrame();
         });
 
         it('does not set the submenuStyle value', () => {
@@ -102,6 +105,7 @@ describe('useDropdownSubmenu', () => {
           );
 
           await result.composable.openSubmenu();
+          triggerAnimationFrame();
         });
 
         it('does not set the submenuStyle value', () => {
@@ -141,6 +145,7 @@ describe('useDropdownSubmenu', () => {
             });
 
             await result.composable.openSubmenu();
+            triggerAnimationFrame();
           });
 
           it('positions the submenu at the expected coordinates', () => {
@@ -187,6 +192,7 @@ describe('useDropdownSubmenu', () => {
               });
 
               await result.composable.openSubmenu();
+              triggerAnimationFrame();
             });
 
             it('positions the submenu at the expected coordinates', () => {
@@ -227,6 +233,7 @@ describe('useDropdownSubmenu', () => {
               });
 
               await result.composable.openSubmenu();
+              triggerAnimationFrame();
             });
 
             it('positions the submenu at the expected coordinates', () => {
@@ -274,6 +281,7 @@ describe('useDropdownSubmenu', () => {
               });
 
               await result.composable.openSubmenu();
+              triggerAnimationFrame();
             });
 
             it('positions the submenu at the expected coordinates', () => {
@@ -305,6 +313,7 @@ describe('useDropdownSubmenu', () => {
               } as unknown as DOMRect);
 
               await result.composable.openSubmenu();
+              triggerAnimationFrame();
             });
 
             it('positions the submenu at the expected coordinates', () => {
@@ -347,6 +356,7 @@ describe('useDropdownSubmenu', () => {
             });
 
             await result.composable.openSubmenu();
+            triggerAnimationFrame();
           });
 
           it('positions the submenu at the expected coordinates', () => {
@@ -374,6 +384,7 @@ describe('useDropdownSubmenu', () => {
             );
 
             await result.composable.openSubmenu();
+            triggerAnimationFrame();
           });
 
           it('does not call the AbortController constructor', () => {
@@ -390,6 +401,7 @@ describe('useDropdownSubmenu', () => {
         describe('when the submenu has a parent list element', () => {
           beforeEach(async () => {
             await result.composable.openSubmenu();
+            triggerAnimationFrame();
           });
 
           it('calls the AbortController constructor', () => {
@@ -415,6 +427,7 @@ describe('useDropdownSubmenu', () => {
               dropdownSubmenuRef.containsMock.mockReturnValue(false);
 
               await result.composable.openSubmenu();
+              triggerAnimationFrame();
 
               dropdownSubmenuRef.refMockElementEvent.mouseover({
                 target: document.body,
@@ -459,6 +472,7 @@ describe('useDropdownSubmenu', () => {
               dropdownSubmenuRef.containsMock.mockReturnValue(true);
 
               await result.composable.openSubmenu();
+              triggerAnimationFrame();
 
               dropdownSubmenuRef.refMockElementEvent.mouseover({
                 target: dropdownSubmenuRef.refMock,
@@ -481,6 +495,18 @@ describe('useDropdownSubmenu', () => {
             });
           });
         });
+      });
+    });
+
+    describe('when the submenu closes before the animation frame fires', () => {
+      beforeEach(async () => {
+        await result.composable.openSubmenu();
+        result.composable.closeSubmenu();
+        triggerAnimationFrame();
+      });
+
+      it('does not set the submenuStyle value', () => {
+        expect(result.composable.submenuStyle.value).toEqual({});
       });
     });
 
@@ -548,6 +574,7 @@ describe('useDropdownSubmenu', () => {
       await result.composable.openSubmenu();
       menuOpenRevision.value++;
       await nextTick();
+      triggerAnimationFrame();
     });
 
     it('sets the correct isOpen value', () => {
@@ -582,6 +609,7 @@ describe('useDropdownSubmenu', () => {
         await result.composable.openSubmenu();
         menuOpenRevision.value++;
         await nextTick();
+        triggerAnimationFrame();
       });
 
       it('does not call the abort function', () => {
@@ -593,6 +621,7 @@ describe('useDropdownSubmenu', () => {
   describe('when the closeSubmenu function is called', () => {
     beforeEach(async () => {
       await result.composable.openSubmenu();
+      triggerAnimationFrame();
       result.composable.closeSubmenu();
     });
 
@@ -629,6 +658,7 @@ describe('useDropdownSubmenu', () => {
   describe('when the component unmounts', () => {
     beforeEach(async () => {
       await result.composable.openSubmenu();
+      triggerAnimationFrame();
       result.app.unmount();
     });
 

@@ -4,6 +4,7 @@ const MULTIPLICATION_TIME = 30;
 const cloneCount = ref(0);
 // Disable cloned content links so tabbing works as expected.
 const isClonedContentDisabled = ref(true);
+const isIntersecting = ref(true);
 
 const marqueeScrollRef = useTemplateRef('marqueeScrollRef');
 const marqueeContentRef = useTemplateRef('marqueeContentRef');
@@ -12,6 +13,10 @@ const mutationObserver = ref<MutationObserver | null>(null);
 const intersectionObserver = ref<IntersectionObserver | null>(null);
 
 function getCloneData() {
+  if (!isIntersecting.value) {
+    return;
+  }
+
   if (
     !marqueeContentRef.value ||
     !marqueeScrollRef.value ||
@@ -70,6 +75,8 @@ onMounted(() => {
 
   intersectionObserver.value = new IntersectionObserver(
     ([entry]) => {
+      isIntersecting.value = !!entry?.isIntersecting;
+
       if (entry && entry.isIntersecting) {
         getCloneData();
         globalThis.addEventListener('resize', onResize);

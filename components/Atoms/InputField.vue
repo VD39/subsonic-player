@@ -51,7 +51,7 @@ const internalValue = defineModel<string | string[]>();
       ref="input"
       v-model="internalValue"
       autocomplete="off"
-      :class="$style.input"
+      :class="[INTERACTION_INPUT_CLASS, $style.input]"
       :placeholder
       :required
       :type

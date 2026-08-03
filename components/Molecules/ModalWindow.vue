@@ -3,6 +3,16 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
 
 const { closeModal, modal } = useModal();
+
+const modalContent = useTemplateRef('modalContent');
+
+function focusFirstInput() {
+  modalContent.value
+    ?.querySelector<HTMLElement>(
+      `.${INTERACTION_INPUT_CLASS}:not([disabled]):not([type="hidden"])`,
+    )
+    ?.focus();
+}
 </script>
 
 <template>
@@ -46,6 +56,7 @@ const { closeModal, modal } = useModal();
               :is="modal.component"
               ref="component"
               v-bind="modal.attrs"
+              @vue:mounted="focusFirstInput"
             />
           </div>
         </div>

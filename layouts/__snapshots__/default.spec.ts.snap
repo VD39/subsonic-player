@@ -10,7 +10,7 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
         <div class="searchForm">
           <form novalidate="">
             <div class="centerItems">
-              <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+              <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="interactionInput input inputField" placeholder="Enter query" required="" type="text">
                 <!--v-if-->
               </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit" title="Search">
                 <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>
@@ -128,7 +128,7 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
         <div class="searchForm">
           <form novalidate="">
             <div class="centerItems">
-              <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="input inputField" placeholder="Enter query" required="" type="text">
+              <div class="column inputField inputField"><label class="mBXS sentenceCase smallFont label visuallyHidden" for="search-input">query <span class="required">*</span></label><input id="search-input" autocomplete="off" class="interactionInput input inputField" placeholder="Enter query" required="" type="text">
                 <!--v-if-->
               </div><button class="centerItems buttonLink buttonLink buttonLink" draggable="false" type="submit" title="Search">
                 <phmagnifyingglass aria-hidden="true" class="icon" size="24" weight="regular"></phmagnifyingglass><span class="clamp text visuallyHidden">Search</span>

@@ -25,6 +25,7 @@ const sliderRef = useTemplateRef('sliderRef');
 
 const isSeeking = ref(false);
 const isHovering = ref(false);
+const sliderWidth = ref(0);
 const hoverValue = ref(internalValue.value);
 const pendingValue = ref(internalValue.value);
 const abortController = ref<AbortController | null>(null);
@@ -32,8 +33,8 @@ const abortController = ref<AbortController | null>(null);
 const progress = ref(getProgress(internalValue.value));
 const bufferProgress = ref(getProgress(props.buffer));
 
-const hoverProgress = computed(() => getProgress(hoverValue.value));
 const isUnbounded = computed(() => !props.max);
+const hoverProgress = computed(() => getProgress(hoverValue.value));
 const showThumb = computed(() => !props.hideThumb && !isUnbounded.value);
 
 function getProgress(newValue = 0) {
@@ -41,14 +42,25 @@ function getProgress(newValue = 0) {
     return 0;
   }
 
-  const { width: sliderWidth } = sliderRef.value.getBoundingClientRect();
+  const width =
+    sliderWidth.value || sliderRef.value.getBoundingClientRect().width || 0;
 
   // If max is not set, set progress to be width of the slider.
   if (isUnbounded.value) {
-    return sliderWidth;
+    return width;
   }
 
-  return ((newValue - props.min) / (props.max - props.min)) * sliderWidth;
+  return ((newValue - props.min) / (props.max - props.min)) * width;
+}
+
+function measureSliderWidth() {
+  if (!sliderRef.value) {
+    sliderWidth.value = 0;
+
+    return;
+  }
+
+  sliderWidth.value = sliderRef.value.getBoundingClientRect().width;
 }
 
 function modifyProgress(event: MouseEvent | TouchEvent) {
@@ -152,9 +164,13 @@ watch(() => [props.buffer, internalValue.value], updateProgress, {
   immediate: true,
 });
 
-const onResize = debounce(updateProgress);
+const onResize = debounce(() => {
+  measureSliderWidth();
+  updateProgress();
+});
 
 onMounted(() => {
+  measureSliderWidth();
   updateProgress();
 
   globalThis.addEventListener('resize', onResize);

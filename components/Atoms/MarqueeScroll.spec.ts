@@ -8,7 +8,8 @@ import { mutationObserverMock } from '@/test/mutationObserverMock';
 
 import MarqueeScroll from './MarqueeScroll.vue';
 
-const { disconnectMock, observeMock } = mutationObserverMock();
+const { disconnectMock, observeMock, triggerMutationObserver } =
+  mutationObserverMock();
 
 const {
   windowAddEventListenerSpy,
@@ -63,6 +64,40 @@ describe('MarqueeScroll', () => {
         'resize',
         expect.any(Function),
       );
+    });
+  });
+
+  describe('when the intersectionObserver is not intersecting and the slot content changes', () => {
+    beforeEach(() => {
+      vi.clearAllMocks();
+      intersectionObserverMock([
+        {
+          isIntersecting: false,
+        } as never,
+      ]);
+
+      wrapper = factory();
+
+      const marqueeScroll = wrapper.find({ ref: 'marqueeScrollRef' });
+      const marqueeContent = wrapper.find({ ref: 'marqueeContentRef' });
+
+      Object.defineProperty(marqueeScroll.element, 'clientWidth', {
+        value: 200,
+      });
+
+      Object.defineProperty(marqueeContent.element, 'clientWidth', {
+        value: 201,
+      });
+
+      triggerMutationObserver();
+    });
+
+    it('does not clone the slot content', () => {
+      expect(wrapper.find('[data-test-id="cloned-item"]').exists()).toBe(false);
+    });
+
+    it('does not add the animating class to the wrapper element', () => {
+      expect(wrapper.classes('animating')).toBe(false);
     });
   });
 

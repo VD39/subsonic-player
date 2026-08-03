@@ -26,7 +26,11 @@ export function useDropdownSubmenu(options: DropdownSubmenuOptions) {
   }
 
   function positionSubmenu() {
-    if (!dropdownSubmenuRef.value || !dropdownSubListRef.value) {
+    if (
+      !isOpen.value ||
+      !dropdownSubmenuRef.value ||
+      !dropdownSubListRef.value
+    ) {
       return;
     }
 
@@ -67,7 +71,7 @@ export function useDropdownSubmenu(options: DropdownSubmenuOptions) {
     isOpen.value = true;
 
     await nextTick();
-    positionSubmenu();
+    requestAnimationFrame(() => positionSubmenu());
 
     const parentList = dropdownSubmenuRef.value?.parentElement;
 
