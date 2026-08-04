@@ -41,6 +41,9 @@ Built with [Nuxt 4][nuxt], a modern [Vue 3][vue] framework, this open-source app
    - Seamlessly download the app icon to the home screen, providing the convenience of launching the app just like a traditional native application.
    - Benefit from a web-based app that reduces storage space on devices compared to traditional downloadable applications, while still providing robust functionality.
 
+5. Settings
+   - The app includes settings for theme, layout, crossfade, replay gain, scrobbling, and more. See the [environment variables](#-environment-variables) section for which can be pre-configured across all devices.
+
 ## 📷 Previews
 
 Click on the images to see video of the app in action.
@@ -165,13 +168,35 @@ Changes you make to the code will automatically trigger a rebuild and refresh of
 
 ## 🔧 Environment Variables
 
+Settings in this application can be configured at two levels. Environment variables establish default values that apply to all users across all devices (ideal for Docker deployments sharing a single server). These defaults can be overridden at an individual user level via localStorage when a setting is changed in the UI; the environment variable then acts as the fallback value.
+
+All environment variables are optional. `NUXT_PUBLIC_SERVER_URL` pre-fills the server URL so users can bypass the login screen. Every other variable defines an app default that users can subsequently override in the UI.
+
+### Connection & Build
+
 | Variable                        | Default     | Description                               |
 | ------------------------------- | ----------- | ----------------------------------------- |
-| `NUXT_PUBLIC_SERVER_URL`        | `undefined` | Subsonic server URL                       |
+| `NUXT_PUBLIC_SERVER_URL`        | `''`        | Subsonic server URL                       |
 | `NUXT_PUBLIC_MAIN_APP_TITLE`    | `Music App` | Browser tab title                         |
 | `NUXT_PUBLIC_LOAD_SIZE`         | `50`        | Items loaded per scroll                   |
 | `NUXT_PUBLIC_IMAGE_SIZE`        | `500`       | Album art image size (in pixels)          |
 | `NUXT_PUBLIC_ENABLE_QUEUE_SYNC` | `false`     | Enable server queue sync via Subsonic API |
+| `NUXT_PUBLIC_SPA_MODE`          | `false`     | Enable static SPA export mode             |
+| `NUXT_PUBLIC_BITRATE`           | `0`         | Max streaming bitrate (`0` = no limit)    |
+
+### Settings
+
+| Variable                            | Default      | Description                                   |
+| ----------------------------------- | ------------ | --------------------------------------------- |
+| `NUXT_PUBLIC_THEME`                 | `auto`       | Theme preference (`auto`, `light`, `dark`)    |
+| `NUXT_PUBLIC_LAYOUT`                | `gridLayout` | Default view layout                           |
+| `NUXT_PUBLIC_SCROBBLE_ENABLED`      | `true`       | Enable scrobbling to Subsonic server          |
+| `NUXT_PUBLIC_SHOW_PODCASTS`         | `true`       | Show podcasts in the library                  |
+| `NUXT_PUBLIC_SHOW_RADIO_STATIONS`   | `true`       | Show radio stations in the library            |
+| `NUXT_PUBLIC_DELETE_PODCAST_ON_END` | `false`      | Auto-delete podcast episode when finished     |
+| `NUXT_PUBLIC_CROSSFADE_ENABLED`     | `false`      | Enable crossfade between tracks               |
+| `NUXT_PUBLIC_CROSSFADE_DURATION`    | `1`          | Crossfade duration in seconds (range 1–12)    |
+| `NUXT_PUBLIC_REPLAY_GAIN_MODE`      | `off`        | Replay gain mode (`off`, `track`, or `album`) |
 
 ## 🤝 Contributing
 
@@ -179,7 +204,7 @@ Contributions are always welcome! Feel free to contribute, provide feedback, or 
 
 ## 📄 License
 
-This project is licensed under the AGPLv3 license. Full license details available in the [LICENSE][license] file for details.
+This project is licensed under the GPL-3.0 license. Full license details available in the [LICENSE][license] file for details.
 
 ## 🌐 Project Resources
 

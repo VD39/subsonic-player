@@ -2,6 +2,8 @@ import type { Page, TestInfo } from '@playwright/test';
 
 import { test } from '@nuxt/test-utils/playwright';
 
+test.describe.configure({ timeout: 600000 });
+
 const TEST_SETTINGS = {
   imagePath: 'docs/images',
   loginDetails: {
@@ -12,31 +14,25 @@ const TEST_SETTINGS = {
   videoPath: 'docs/videos',
 };
 
-async function changeLayoutToGrid(page: Page) {
-  await page.locator('[title="Switch to grid layout"]').click();
-  await page.waitForTimeout(10000);
-}
-
-async function changeLayoutToList(page: Page) {
-  await page.locator('[title="Switch to list layout"]').click();
-  await page.waitForTimeout(10000);
-}
-
 function getPath(rootPath: string, device: string, isDark = false) {
   return `${rootPath}/${device}${isDark ? '-dark' : '-light'}`;
 }
 
-async function goToAlbumPage(page: Page, device: string) {
-  await goToPage(page, 5, device);
-  await changeLayoutToList(page);
-  await changeLayoutToGrid(page);
+async function goToAlbumPage(page: Page, device: string, isDark = false) {
+  await goToPage(page, 5, device, isDark);
+  await setLayoutViaSettings(page, 'listLayout');
+  await goToPage(page, 5, device, isDark);
+  await setLayoutViaSettings(page, 'gridLayout');
+  await goToPage(page, 5, device, isDark);
   await goToSubPage(page);
 }
 
-async function goToArtistPage(page: Page, device: string) {
-  await goToPage(page, 6, device);
-  await changeLayoutToList(page);
-  await changeLayoutToGrid(page);
+async function goToArtistPage(page: Page, device: string, isDark = false) {
+  await goToPage(page, 6, device, isDark);
+  await setLayoutViaSettings(page, 'listLayout');
+  await goToPage(page, 6, device, isDark);
+  await setLayoutViaSettings(page, 'gridLayout');
+  await goToPage(page, 6, device, isDark);
   await goToSubPage(page);
 }
 
@@ -61,9 +57,9 @@ async function goToPagesDesktop(page: Page, device: string, isDark = false) {
     await goToPage(page, index, device, isDark);
   }
 
-  await goToAlbumPage(page, device);
-  await goToArtistPage(page, device);
-  await goToPodcastsPageDesktop(page, device);
+  await goToAlbumPage(page, device, isDark);
+  await goToArtistPage(page, device, isDark);
+  await goToPodcastsPageDesktop(page, device, isDark);
 }
 
 async function goToPagesMobile(page: Page, device: string, isDark = false) {
@@ -74,10 +70,16 @@ async function goToPagesMobile(page: Page, device: string, isDark = false) {
   await goToPodcastsPageMobile(page);
 }
 
-async function goToPodcastsPageDesktop(page: Page, device: string) {
-  await goToPage(page, 1, device);
-  await changeLayoutToList(page);
-  await changeLayoutToGrid(page);
+async function goToPodcastsPageDesktop(
+  page: Page,
+  device: string,
+  isDark = false,
+) {
+  await goToPage(page, 1, device, isDark);
+  await setLayoutViaSettings(page, 'listLayout');
+  await goToPage(page, 1, device, isDark);
+  await setLayoutViaSettings(page, 'gridLayout');
+  await goToPage(page, 1, device, isDark);
   await goToSubPage(page);
 }
 
@@ -109,16 +111,23 @@ async function playMusic(page: Page, device: string) {
   const currentTrackIndex = device === 'mobile' ? 1 : 2;
 
   await page.locator('[title="Play podcast episodes"]').click();
-  await page
-    .locator('[title="Pause current track"]')
-    .nth(currentTrackIndex)
-    .click();
+  await page.waitForTimeout(1000);
+
+  const pauseButtons = page.locator('[title="Pause current track"]');
+
+  if (await pauseButtons.nth(currentTrackIndex).isVisible()) {
+    await pauseButtons.nth(currentTrackIndex).click();
+  } else {
+    await pauseButtons
+      .nth(currentTrackIndex)
+      .evaluate((el: HTMLElement) => el.click());
+  }
 
   const queueIndex = device === 'mobile' ? 0 : 1;
 
   await page.locator('[title="Open queue"]').nth(queueIndex).click();
   await page.locator('.queueWrapper [title="Open queue list"]').click();
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(2000);
   await page.locator('[title="Clear queue"]').click();
 }
 
@@ -149,6 +158,20 @@ async function saveVideo(page: Page, device: string, isDark = false) {
 async function selectDarkThemeMode(page: Page) {
   await page.locator('[title="Activate dark mode"]').click();
   await page.waitForTimeout(500);
+}
+
+async function setLayoutViaSettings(
+  page: Page,
+  layout: 'gridLayout' | 'listLayout',
+) {
+  await page.goto('/settings', { waitUntil: 'load' });
+  await page.waitForTimeout(5000);
+  await page
+    .getByRole('button', {
+      name: layout === 'gridLayout' ? /^Grid / : /^List /,
+    })
+    .click();
+  await page.waitForTimeout(10000);
 }
 
 async function takeScreenshot(page: Page, device: string, isDark = false) {
