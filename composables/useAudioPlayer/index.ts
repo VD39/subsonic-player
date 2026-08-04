@@ -218,14 +218,15 @@ export function useAudioPlayer() {
 
   // Play/Pause actions.
   async function resumePlayback() {
-    isPlaying.value = true;
-    startSaveInterval();
-    setMediaSessionPlaybackState('playing');
-
     try {
       await audioPlayer.value?.play();
+      isPlaying.value = true;
+      startSaveInterval();
+      setMediaSessionPlaybackState('playing');
     } catch (error) {
       if (isInterruptedPlayError(error)) {
+        isPlaying.value = true;
+
         return;
       }
 

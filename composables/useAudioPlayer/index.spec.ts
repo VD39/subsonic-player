@@ -666,6 +666,47 @@ describe('useAudioPlayer', () => {
       });
     });
 
+    describe('when the audio element resumes playback after an external pause', () => {
+      describe('when a pause event fires while the play promise is pending', () => {
+        let resolvePlay: () => void;
+        let resumePromise: Promise<unknown>;
+
+        beforeAll(() => {
+          vi.clearAllMocks();
+
+          result.composable.isPlaying.value = true;
+          onPauseCb();
+
+          const pendingPlayPromise = new Promise<void>((resolve) => {
+            resolvePlay = () => resolve();
+          });
+
+          playMock.mockImplementationOnce(() => pendingPlayPromise);
+
+          resumePromise = Promise.resolve(onPlayCb());
+
+          // Simulate the pause event emitted by our own pause() call inside
+          // the onPlay handler firing before the pending play() resolves.
+          onPauseCb();
+        });
+
+        it('does not call the pause function', () => {
+          expect(pauseMock).toHaveBeenCalledTimes(2);
+        });
+
+        describe('when the pending play promise resolves', () => {
+          beforeAll(async () => {
+            resolvePlay();
+            await resumePromise;
+          });
+
+          it('sets the correct isPlaying value', () => {
+            expect(result.composable.isPlaying.value).toBe(true);
+          });
+        });
+      });
+    });
+
     describe('when onEnded event is called', () => {
       beforeAll(() => {
         onEndedCb();
