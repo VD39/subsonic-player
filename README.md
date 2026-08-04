@@ -181,7 +181,6 @@ All environment variables are optional. `NUXT_PUBLIC_SERVER_URL` pre-fills the s
 | `NUXT_PUBLIC_LOAD_SIZE`         | `50`        | Items loaded per scroll                   |
 | `NUXT_PUBLIC_IMAGE_SIZE`        | `500`       | Album art image size (in pixels)          |
 | `NUXT_PUBLIC_ENABLE_QUEUE_SYNC` | `false`     | Enable server queue sync via Subsonic API |
-| `NUXT_PUBLIC_SPA_MODE`          | `false`     | Enable static SPA export mode             |
 | `NUXT_PUBLIC_BITRATE`           | `0`         | Max streaming bitrate (`0` = no limit)    |
 
 ### Settings
