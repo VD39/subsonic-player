@@ -1,14 +1,21 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import apiPlugin from './api';
 
 let onResponseCallback: (typeof $fetch)['arguments'][0]['onResponse'];
 
-globalThis.$fetch = {
-  create: vi.fn().mockImplementation((options) => {
-    onResponseCallback = options.onResponse;
+const $fetchMock = vi.hoisted(() => {
+  const baseFetchMock = vi.fn();
 
-    return vi.fn();
-  }),
-} as unknown as typeof $fetch;
+  return Object.assign(baseFetchMock, {
+    create: vi.fn().mockImplementation((options) => {
+      onResponseCallback = options?.onResponse;
+      return baseFetchMock;
+    }),
+  });
+});
+
+mockNuxtImport('$fetch', () => $fetchMock);
 
 describe('api plugin', () => {
   beforeEach(() => {

@@ -1,10 +1,12 @@
-import type { MockInstance } from 'vitest';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { artistDataMock, artistInfo2Mock, cookieMock } from '@/test/fixtures';
 
 import artistApi from './artist';
 
-const $fetchMock = vi.spyOn(globalThis, '$fetch') as MockInstance;
+const $fetchMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('$fetch', () => $fetchMock);
 
 describe('artist-api', () => {
   afterEach(() => {
@@ -105,6 +107,51 @@ describe('artist-api', () => {
         data: expect.objectContaining({
           id: 'id',
           name: 'name',
+        }),
+      });
+    });
+  });
+
+  describe('when $fetch response for all endpoints returns a value', () => {
+    beforeEach(() => {
+      $fetchMock
+        .mockResolvedValueOnce({
+          'subsonic-response': {
+            artistInfo2: artistInfo2Mock,
+            status: 'ok',
+          },
+        })
+        .mockResolvedValueOnce({
+          'subsonic-response': {
+            artist: artistDataMock,
+            status: 'ok',
+          },
+        })
+        .mockResolvedValueOnce({
+          'subsonic-response': {
+            similarSongs2: {
+              song: [],
+            },
+            status: 'ok',
+          },
+        })
+        .mockResolvedValueOnce({
+          'subsonic-response': {
+            status: 'ok',
+            topSongs: {
+              song: [],
+            },
+          },
+        });
+    });
+
+    it('returns the correct response', async () => {
+      expect(await artistApi({} as never)).toEqual({
+        data: expect.objectContaining({
+          id: 'id',
+          name: 'name',
+          similarTracks: [],
+          topTracks: [],
         }),
       });
     });
