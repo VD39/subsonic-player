@@ -170,7 +170,7 @@ Changes you make to the code will automatically trigger a rebuild and refresh of
 
 Settings in this application can be configured at two levels. Environment variables establish default values that apply to all users across all devices (ideal for Docker deployments sharing a single server). These defaults can be overridden at an individual user level via localStorage when a setting is changed in the UI; the environment variable then acts as the fallback value.
 
-All environment variables are optional. `NUXT_PUBLIC_SERVER_URL` pre-fills the server URL so users can bypass the login screen. Every other variable defines an app default that users can subsequently override in the UI.
+All environment variables are optional. `NUXT_PUBLIC_SERVER_URL` pre-fills the server URL so users can bypass entry at the login screen. Every other variable defines an app default that users can subsequently override in the UI.
 
 ### Connection & Build
 
