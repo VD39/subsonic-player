@@ -125,13 +125,11 @@ export function useMediaSession(actions: MediaSessionActions) {
   }
 
   function setMediaSessionPositionState() {
-    if (
-      !(
-        hasMediaSession &&
-        actions.hasCurrentTrack.value &&
-        !actions.isRadioStation.value
-      )
-    ) {
+    if (!(
+      hasMediaSession &&
+      actions.hasCurrentTrack.value &&
+      !actions.isRadioStation.value
+    )) {
       return;
     }
 

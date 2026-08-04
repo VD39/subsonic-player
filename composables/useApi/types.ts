@@ -487,11 +487,6 @@ export interface Videos {
 type MediaType = 'audiobook' | 'music' | 'podcast' | 'podcastepisode' | 'video';
 
 type PodcastStatus =
-  | 'completed'
-  | 'deleted'
-  | 'downloading'
-  | 'error'
-  | 'new'
-  | 'skipped';
+  'completed' | 'deleted' | 'downloading' | 'error' | 'new' | 'skipped';
 
 type ResponseStatus = 'failed' | 'ok';

@@ -31,11 +31,7 @@ export type PageNavigationMap = Record<string, ToProp>;
 export type PlayableTrack = PodcastEpisode | RadioStation | Track;
 
 export type QueueableMedia =
-  | Album
-  | PlayableTrack
-  | Playlist
-  | Podcast
-  | PodcastEpisode;
+  Album | PlayableTrack | Playlist | Podcast | PodcastEpisode;
 
 export type ReplayGainMode = (typeof REPLAY_GAIN_OPTIONS)[number]['value'];
 

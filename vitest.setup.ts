@@ -55,30 +55,3 @@ config.global.stubs = {
 
 vi.stubGlobal('defineEventHandler', (func: unknown) => func);
 vi.stubGlobal('getQuery', () => ({ id: 'id' }));
-
-// Assign $fetch directly on globalThis (not via vi.stubGlobal) so that it
-// survives vitest's per-file cleanup.  Nuxt's payload.client plugin schedules
-// `setTimeout(getAppManifest, 1e3)` which fires *after* the test file is torn
-// down, and vi.stubGlobal values are restored (removed) at that point.
-if (!globalThis.$fetch) {
-  const fetchFn = (..._args: unknown[]) => Promise.resolve({});
-  globalThis.$fetch = Object.assign(fetchFn, {
-    create: () =>
-      Object.assign((..._args: unknown[]) => Promise.resolve({}), {
-        create:
-          () =>
-          (..._args: unknown[]) =>
-            Promise.resolve({}),
-      }),
-  }) as typeof globalThis.$fetch;
-}
-
-vi.mock('virtual:pwa-register/vue', () => {
-  return {
-    useRegisterSW: vi.fn(() => ({
-      needRefresh: { value: false },
-      offlineReady: { value: false },
-      updateServiceWorker: vi.fn(),
-    })),
-  };
-});
