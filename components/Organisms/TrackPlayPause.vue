@@ -109,7 +109,7 @@ const { isBuffering, isPlaying } = useAudioPlayer();
 }
 
 .hideImage {
-  opacity: 0;
+  --preload-opacity: 0 !important;
 }
 
 .trackNumber,
