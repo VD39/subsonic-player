@@ -24,19 +24,19 @@ jobs:
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .nvmrc
-          cache: yarn
+          cache: npm
 
       - name: Install dependencies 👨🏻‍💻
-        run: yarn --frozen-lockfile
+        run: npm ci
 
       - name: Build 📦
-        run: yarn build
+        run: npm run build
 
       - name: Run linter 👀
-        run: yarn lint
+        run: npm run lint
 
       - name: Check types 🔍
-        run: yarn check-types
+        run: npm run check-types
 
       - name: Run tests 🧪
-        run: yarn test:once
+        run: npm run test:once

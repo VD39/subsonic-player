@@ -19,18 +19,18 @@ ARG APP_RELEASE_DATE=
 ENV APP_VERSION=${APP_VERSION}
 ENV APP_RELEASE_DATE=${APP_RELEASE_DATE}
 
-# Copy package.json and yarn.lock files to the working directory.
+# Copy package.json and package-lock.json files to the working directory.
 COPY ./package.json .
-COPY ./yarn.lock .
+COPY ./package-lock.json .
 
 # Install dependencies.
-RUN yarn install --production=false --frozen-lockfile
+RUN npm ci
 
 # Copy the rest of the application files to the working directory.
 COPY . .
 
 # Build the application.
-RUN yarn build
+RUN npm run build
 
 # Create a new stage for the production image.
 FROM base

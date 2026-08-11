@@ -66,7 +66,7 @@ Click on the images to see video of the app in action.
 
 - [Docker][docker] (recommended).
 - [Node.js][nodejs] 20+.
-- [Yarn][yarn].
+- [npm][npm].
 
 ### Method 1: Docker Deployment
 
@@ -134,7 +134,7 @@ Pre-built static SPA archives are published as [GitHub Releases][github-releases
 
 ### Method 3: Local Development
 
-This method skips Docker and runs the application directly using Node.js and Yarn.
+This method skips Docker and runs the application directly using Node.js and npm.
 
 1. Clone the repository:
 
@@ -151,7 +151,7 @@ This method skips Docker and runs the application directly using Node.js and Yar
 3. Install dependencies:
 
    ```bash
-   yarn install
+   npm install
    ```
 
 4. **(Optional)** Create a `.env` file: Create a file named `.env` in the project's root directory. This file will hold your [environment variables][env-vars].
@@ -159,7 +159,7 @@ This method skips Docker and runs the application directly using Node.js and Yar
 5. Start the development server:
 
    ```bash
-   yarn dev
+   npm run dev
    ```
 
 The development server will start at `http://localhost:3000`.
@@ -220,7 +220,7 @@ This project is licensed under the GPL-3.0 license. Full license details availab
 [subsonic]: https://github.com/topics/subsonic/
 [docker]: https://www.docker.com/
 [nodejs]: https://nodejs.org/
-[yarn]: https://yarnpkg.com/
+[npm]: https://www.npmjs.com/
 [env-vars]: #-environment-variables
 [license]: LICENSE
 [github]: https://github.com/VD39/subsonic-player

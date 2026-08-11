@@ -56,7 +56,7 @@ export default defineConfig<ConfigOptions>({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'yarn preview',
+    command: 'npm run preview',
     stderr: 'pipe',
     stdout: 'ignore',
     timeout,
