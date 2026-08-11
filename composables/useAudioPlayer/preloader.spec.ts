@@ -59,7 +59,7 @@ describe('AudioPreloader', () => {
 
     describe('when the url is not in the pool', () => {
       it('returns the correct response', () => {
-        expect(preloader.consume('unknown-url')).toBe(null);
+        expect(preloader.consume('unknown-url')).toBeNull();
       });
     });
 
@@ -97,7 +97,7 @@ describe('AudioPreloader', () => {
         });
 
         it('returns the correct response', () => {
-          expect(result).toBe(null);
+          expect(result).toBeNull();
         });
 
         it('removes from the pool value', () => {

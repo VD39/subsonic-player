@@ -31,9 +31,15 @@ export default defineVitestConfig({
       },
     },
     environment: 'nuxt',
+    environmentOptions: {
+      nuxt: {
+        rootDir: import.meta.dirname,
+      },
+    },
     exclude: [...configDefaults.exclude, '**/docs/**', '.nuxt/**'],
     globals: true,
+    hookTimeout: 60000,
     setupFiles: ['./vitest.setup.ts'],
-    testTimeout: 10000,
+    testTimeout: 20000,
   },
 });

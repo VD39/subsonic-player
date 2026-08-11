@@ -7,13 +7,18 @@ import MessageBar from '@/components/Atoms/MessageBar.vue';
 
 import LoginForm from './LoginForm.vue';
 
-const config = vi.hoisted(() => ({
-  public: {
-    SERVER_URL: '',
+const { configMock } = vi.hoisted(() => ({
+  configMock: {
+    public: {
+      SERVER_URL: '',
+    },
   },
 }));
 
-mockNuxtImport('useRuntimeConfig', () => () => config);
+mockNuxtImport('useRuntimeConfig', (original) => () => ({
+  ...original(),
+  ...configMock,
+}));
 
 function factory(props = {}) {
   return mount(LoginForm, {
@@ -42,7 +47,7 @@ describe('LoginForm', () => {
 
   describe('when serverUrl in config is defined', () => {
     beforeEach(() => {
-      config.public.SERVER_URL = 'https://www.test.com';
+      configMock.public.SERVER_URL = 'https://www.test.com';
       wrapper = factory();
     });
 
@@ -61,13 +66,13 @@ describe('LoginForm', () => {
     });
 
     it('does not emit submit event', () => {
-      expect(wrapper.emitted('submit')).toBe(undefined);
+      expect(wrapper.emitted('submit')).toBeUndefined();
     });
   });
 
   describe('when form is valid', () => {
     beforeEach(async () => {
-      config.public.SERVER_URL = '';
+      configMock.public.SERVER_URL = '';
       wrapper = factory();
 
       wrapper
@@ -106,7 +111,7 @@ describe('LoginForm', () => {
 
     describe('when the error prop is set', () => {
       beforeEach(async () => {
-        config.public.SERVER_URL = '';
+        configMock.public.SERVER_URL = '';
         wrapper = factory({
           error: 'Error message',
         });

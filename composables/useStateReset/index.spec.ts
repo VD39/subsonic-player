@@ -5,61 +5,72 @@ import { useQueueMock } from '@/test/useQueueMock';
 
 import { useStateReset } from './index';
 
-const resetFavouritesMock = vi.fn();
+const resetFavouritesMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useFavourite', () => () => ({
+mockNuxtImport('useFavourite', (original) => () => ({
+  ...original(),
   resetFavourites: resetFavouritesMock,
 }));
 
-const resetPlaylistsMock = vi.fn();
+const resetPlaylistsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   resetPlaylists: resetPlaylistsMock,
 }));
 
-const resetRadioStationsMock = vi.fn();
+const resetRadioStationsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useRadioStation', () => () => ({
+mockNuxtImport('useRadioStation', (original) => () => ({
+  ...original(),
   resetRadioStations: resetRadioStationsMock,
 }));
 
-const resetBookmarksMock = vi.fn();
+const resetBookmarksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useBookmark', () => () => ({
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
   resetBookmarks: resetBookmarksMock,
 }));
 
-const resetPodcastsMock = vi.fn();
+const resetPodcastsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   resetPodcasts: resetPodcastsMock,
 }));
 
-const resetAlbumsMock = vi.fn();
+const resetAlbumsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   resetAlbums: resetAlbumsMock,
 }));
 
-const resetSettingsMock = vi.fn();
+const resetSettingsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   resetSettings: resetSettingsMock,
 }));
 
 const { resetAudioPlayerMock } = useAudioPlayerMock();
 const { resetQueueMock } = useQueueMock();
 
-const { resetAllUserState } = useStateReset();
-
 describe('useStateReset', () => {
+  let composable: ReturnType<typeof useStateReset>;
+
+  beforeAll(() => {
+    composable = useStateReset();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  describe('when resetAllUserState is called', () => {
+  describe('when the resetAllUserState function is called', () => {
     beforeEach(() => {
-      resetAllUserState();
+      composable.resetAllUserState();
     });
 
     it('calls the resetAudioPlayer function', () => {

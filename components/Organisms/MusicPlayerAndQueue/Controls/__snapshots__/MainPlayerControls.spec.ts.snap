@@ -13,7 +13,7 @@ exports[`MainPlayerControls > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`MainPlayerControls > when isPodcastEpisode value is true > matches the snapshot 1`] = `
+exports[`MainPlayerControls > when the isPodcastEpisode value is true > matches the snapshot 1`] = `
 "<div class="centerItems spaceBetween"><button class="centerItems buttonLink" draggable="false" type="button" title="Previous track">
     <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Rewind back 10 seconds">

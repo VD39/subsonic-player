@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
@@ -7,6 +8,11 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useQueueMock } from '@/test/useQueueMock';
 
 import TrackPlayPause from './TrackPlayPause.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const { isBufferingMock, isPlayingMock } = useAudioPlayerMock();
 
@@ -110,7 +116,7 @@ describe('TrackPlayPause', () => {
     });
   });
 
-  describe('when isCurrentTrack value is false', () => {
+  describe('when the isCurrentTrack value is false', () => {
     it('does not add the currentTrack class to the wrapper element', () => {
       expect(wrapper.classes()).not.toContain('currentTrack');
     });
@@ -134,7 +140,7 @@ describe('TrackPlayPause', () => {
     });
   });
 
-  describe('when isCurrentTrack value is true', () => {
+  describe('when the isCurrentTrack value is true', () => {
     beforeEach(() => {
       isCurrentTrackMock.mockReturnValue(true);
       wrapper = factory();
@@ -156,7 +162,7 @@ describe('TrackPlayPause', () => {
       expect(wrapper.findComponent({ ref: 'play' }).exists()).toBe(false);
     });
 
-    describe('when isBuffering value is false', () => {
+    describe('when the isBuffering value is false', () => {
       it('does not add the buffering class to the play pause wrapper element', () => {
         expect(
           wrapper.find({ ref: 'playPauseWrapper' }).classes(),
@@ -164,7 +170,7 @@ describe('TrackPlayPause', () => {
       });
     });
 
-    describe('when isBuffering value is true', () => {
+    describe('when the isBuffering value is true', () => {
       beforeEach(() => {
         isBufferingMock.value = true;
       });
@@ -180,7 +186,7 @@ describe('TrackPlayPause', () => {
       });
     });
 
-    describe('when isPlaying value is false', () => {
+    describe('when the isPlaying value is false', () => {
       it('adds the paused class to the play pause wrapper element', () => {
         expect(wrapper.find({ ref: 'playPauseWrapper' }).classes()).toContain(
           'paused',
@@ -194,7 +200,7 @@ describe('TrackPlayPause', () => {
       });
     });
 
-    describe('when isPlaying value is true', () => {
+    describe('when the isPlaying value is true', () => {
       beforeEach(() => {
         isPlayingMock.value = true;
       });

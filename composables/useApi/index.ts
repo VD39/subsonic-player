@@ -65,6 +65,7 @@ export function useAPI() {
   ) {
     try {
       const { $api } = useNuxtApp();
+
       const authCookie = useCookie(COOKIE_NAMES.auth);
 
       const { baseParams, baseURL } = getBaseOptions(authCookie.value!);

@@ -10,10 +10,16 @@ import { appInformationMock, serverInformationMock } from '@/test/fixtures';
 
 import SettingsPage from './settings.vue';
 
-const fetchInformationMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
+const fetchInformationMock = vi.hoisted(() => vi.fn());
 const aboutInformationMock = ref<AboutInformation | null>(null);
 
-mockNuxtImport('useServerInfo', () => () => ({
+mockNuxtImport('useServerInfo', (original) => () => ({
+  ...original(),
   aboutInformation: aboutInformationMock,
   fetchInformation: fetchInformationMock,
 }));
@@ -21,24 +27,38 @@ mockNuxtImport('useServerInfo', () => () => ({
 const crossfadeEnabledMock = ref(false);
 const crossfadeDurationMock = ref(3);
 const deletePodcastOnEndMock = ref(false);
-const resetSettingsMock = vi.fn();
+const {
+  resetSettingsMock,
+  setCrossfadeDurationMock,
+  setStreamBitrateMock,
+  setThemeModeMock,
+  setViewLayoutMock,
+  toggleCrossfadeMock,
+  toggleDeletePodcastOnEndMock,
+  toggleScrobbleMock,
+  toggleShowPodcastsMock,
+  toggleShowRadioStationsMock,
+} = vi.hoisted(() => ({
+  resetSettingsMock: vi.fn(),
+  setCrossfadeDurationMock: vi.fn(),
+  setStreamBitrateMock: vi.fn(),
+  setThemeModeMock: vi.fn(),
+  setViewLayoutMock: vi.fn(),
+  toggleCrossfadeMock: vi.fn(),
+  toggleDeletePodcastOnEndMock: vi.fn(),
+  toggleScrobbleMock: vi.fn(),
+  toggleShowPodcastsMock: vi.fn(),
+  toggleShowRadioStationsMock: vi.fn(),
+}));
 const scrobbleEnabledMock = ref(true);
-const setCrossfadeDurationMock = vi.fn();
-const setStreamBitrateMock = vi.fn();
-const setThemeModeMock = vi.fn();
-const setViewLayoutMock = vi.fn();
 const showPodcastsMock = ref(true);
 const showRadioStationsMock = ref(true);
 const streamBitrateMock = ref(BITRATE_OPTIONS[3].value);
 const themePreferenceMock = ref(THEME_OPTIONS[2].value);
-const toggleCrossfadeMock = vi.fn();
-const toggleDeletePodcastOnEndMock = vi.fn();
-const toggleScrobbleMock = vi.fn();
-const toggleShowPodcastsMock = vi.fn();
-const toggleShowRadioStationsMock = vi.fn();
 const viewLayoutMock = ref<Layout>(LAYOUT_OPTIONS[0].value);
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   crossfadeDuration: crossfadeDurationMock,
   crossfadeEnabled: crossfadeEnabledMock,
   deletePodcastOnEnd: deletePodcastOnEndMock,
@@ -62,28 +82,36 @@ mockNuxtImport('useSettings', () => () => ({
 }));
 
 const replayGainModeMock = ref<ReplayGainMode>('off');
-const setReplayGainModeMock = vi.fn();
+const setReplayGainModeMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAudioPlayer', () => () => ({
+mockNuxtImport('useAudioPlayer', (original) => () => ({
+  ...original(),
   setReplayGainMode: setReplayGainModeMock,
 }));
 
 const cacheEstimateMock = ref('');
-const clearAllAppStorageMock = vi.fn();
-const clearPwaCachesMock = vi.fn();
-const fetchCacheEstimateMock = vi.fn();
+const { clearAllAppStorageMock, clearPwaCachesMock, fetchCacheEstimateMock } =
+  vi.hoisted(() => ({
+    clearAllAppStorageMock: vi.fn(),
+    clearPwaCachesMock: vi.fn(),
+    fetchCacheEstimateMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMaintenance', () => () => ({
+mockNuxtImport('useMaintenance', (original) => () => ({
+  ...original(),
   cacheEstimate: cacheEstimateMock,
   clearAllAppStorage: clearAllAppStorageMock,
   clearPwaCaches: clearPwaCachesMock,
   fetchCacheEstimate: fetchCacheEstimateMock,
 }));
 
-const closeModalMock = vi.fn();
-const openModalMock = vi.fn();
+const { closeModalMock, openModalMock } = vi.hoisted(() => ({
+  closeModalMock: vi.fn(),
+  openModalMock: vi.fn(),
+}));
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   closeModal: closeModalMock,
   openModal: openModalMock,
 }));

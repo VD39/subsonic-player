@@ -11,12 +11,25 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import RadioStationsPage from './radio-stations.vue';
 
-const addRadioStationModalMock = vi.fn();
-const deleteRadioStationMock = vi.fn();
-const getRadioStationsMock = vi.fn();
-const updateRadioStationModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useRadioStation', () => () => ({
+const {
+  addRadioStationModalMock,
+  deleteRadioStationMock,
+  getRadioStationsMock,
+  updateRadioStationModalMock,
+} = vi.hoisted(() => ({
+  addRadioStationModalMock: vi.fn(),
+  deleteRadioStationMock: vi.fn(),
+  getRadioStationsMock: vi.fn(),
+  updateRadioStationModalMock: vi.fn(),
+}));
+
+mockNuxtImport('useRadioStation', (original) => () => ({
+  ...original(),
   addRadioStationModal: addRadioStationModalMock,
   deleteRadioStation: deleteRadioStationMock,
   getRadioStations: getRadioStationsMock,
@@ -24,9 +37,11 @@ mockNuxtImport('useRadioStation', () => () => ({
   updateRadioStationModal: updateRadioStationModalMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
@@ -74,8 +89,10 @@ describe('radio-stations', () => {
   });
 
   describe('when the ButtonLink is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'addRadioStationButton' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper
+        .findComponent({ ref: 'addRadioStationButton' })
+        .trigger('click');
     });
 
     it('calls the addRadioStationModal function', () => {

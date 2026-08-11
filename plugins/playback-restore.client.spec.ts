@@ -7,7 +7,8 @@ import playbackRestorePlugin from './playback-restore.client';
 
 const isAuthenticatedMock = ref(false);
 
-mockNuxtImport('useAuth', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
   isAuthenticated: isAuthenticatedMock,
 }));
 

@@ -5,53 +5,73 @@ exports[`AddToPlaylistForm > when form is valid > matches the snapshot 1`] = `
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove">
-          <phminuscircle aria-hidden="true" class="icon" size="24" weight="regular"></phminuscircle><span class="clamp text visuallyHidden">Remove</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-1" class="mBS nuxtLink" draggable="false">playlist-1</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-2" class="mBS nuxtLink" draggable="false">playlist-2</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-3" class="mBS nuxtLink" draggable="false">playlist-3</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-4" class="mBS nuxtLink" draggable="false">playlist-4</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
   </div>
 </div>
@@ -88,53 +108,73 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > mat
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-1" class="mBS nuxtLink" draggable="false">playlist-1</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-2" class="mBS nuxtLink" draggable="false">playlist-2</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-3" class="mBS nuxtLink" draggable="false">playlist-3</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-4" class="mBS nuxtLink" draggable="false">playlist-4</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
   </div>
 </div>
@@ -156,53 +196,73 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove">
-          <phminuscircle aria-hidden="true" class="icon" size="24" weight="regular"></phminuscircle><span class="clamp text visuallyHidden">Remove</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M176,128a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,128Zm56,0A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Remove</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-1" class="mBS nuxtLink" draggable="false">playlist-1</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-2" class="mBS nuxtLink" draggable="false">playlist-2</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-3" class="mBS nuxtLink" draggable="false">playlist-3</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-4" class="mBS nuxtLink" draggable="false">playlist-4</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
   </div>
 </div>
@@ -224,53 +284,73 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-1" class="mBS nuxtLink" draggable="false">playlist-1</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-2" class="mBS nuxtLink" draggable="false">playlist-2</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-3" class="mBS nuxtLink" draggable="false">playlist-3</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-4" class="mBS nuxtLink" draggable="false">playlist-4</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
   </div>
 </div>
@@ -292,9 +372,11 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
       <div class="centerAll">
         <!--v-if-->
@@ -320,53 +402,73 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M176,128a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,128Zm56,0A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Remove</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-1" class="mBS nuxtLink" draggable="false">playlist-1</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-2" class="mBS nuxtLink" draggable="false">playlist-2</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-3" class="mBS nuxtLink" draggable="false">playlist-3</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-4" class="mBS nuxtLink" draggable="false">playlist-4</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
   </div>
 </div>
@@ -388,53 +490,73 @@ exports[`AddToPlaylistForm > when the playlists prop is not an empty array > whe
   <div class="trackTable">
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-0" class="mBS nuxtLink" draggable="false">playlist-0</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove">
-          <phminuscircle aria-hidden="true" class="icon" size="24" weight="regular"></phminuscircle><span class="clamp text visuallyHidden">Remove</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M176,128a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,128Zm56,0A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Remove</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-1" class="mBS nuxtLink" draggable="false">playlist-1</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-2" class="mBS nuxtLink" draggable="false">playlist-2</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-3" class="mBS nuxtLink" draggable="false">playlist-3</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
     <div class="trackRow trackBorder spaceBetween" data-test-id="playlist">
       <div class="column playlistDetails"><a aria-label="Go to playlist playlist-4" class="mBS nuxtLink" draggable="false">playlist-4</a>
-        <div>
-          <phplaylist></phplaylist> 1
-        </div>
+        <div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="1em" height="1em" fill="currentColor">
+            <g>
+              <path d="M32,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H40A8,8,0,0,1,32,64Zm8,72H160a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm72,48H40a8,8,0,0,0,0,16h72a8,8,0,0,0,0-16Zm135.66-57.7a8,8,0,0,1-10,5.36L208,122.75V192a32.05,32.05,0,1,1-16-27.69V112a8,8,0,0,1,10.3-7.66l40,12A8,8,0,0,1,247.66,126.3ZM192,192a16,16,0,1,0-16,16A16,16,0,0,0,192,192Z"></path>
+            </g>
+          </svg> 1</div>
       </div>
-      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Add</span>
-        </button></div>
+      <div class="centerAll"><button class="centerItems buttonLink" draggable="false" type="button" title="Add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+            <g>
+              <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+            </g>
+          </svg><span class="clamp text visuallyHidden">Add</span></button></div>
     </div>
   </div>
 </div>

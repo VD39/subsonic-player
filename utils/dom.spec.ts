@@ -8,7 +8,7 @@ describe('findClosestElement', () => {
     ['not an Element', {} as EventTarget],
   ])('when target is %s', (_, target) => {
     it('returns the correct response', () => {
-      expect(findClosestElement(target, 'className')).toBe(null);
+      expect(findClosestElement(target, 'className')).toBeNull();
     });
   });
 
@@ -17,7 +17,7 @@ describe('findClosestElement', () => {
       it('returns the correct response', () => {
         const element = document.createElement('div');
 
-        expect(findClosestElement(element, 'className')).toBe(null);
+        expect(findClosestElement(element, 'className')).toBeNull();
       });
     });
 

@@ -4,23 +4,31 @@ import type { DataMock } from '@/test/types';
 
 import { useGenre } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
-const getAlbumsMock = vi.fn().mockReturnValue(['albums']);
+const getAlbumsMock = vi.hoisted(() => vi.fn().mockReturnValue(['albums']));
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   getAlbums: getAlbumsMock,
 }));
 
-const { getGenres, getMediaByGenre } = useGenre();
-
 describe('useGenre', () => {
+  let composable: ReturnType<typeof useGenre>;
+
+  beforeAll(() => {
+    composable = useGenre();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -34,7 +42,7 @@ describe('useGenre', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getGenres()).toEqual([]);
+        expect(await composable.getGenres()).toEqual([]);
       });
     });
 
@@ -50,7 +58,7 @@ describe('useGenre', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getGenres()).toEqual([
+        expect(await composable.getGenres()).toEqual([
           {
             name: 'name',
           },
@@ -60,11 +68,11 @@ describe('useGenre', () => {
   });
 
   describe('when the getMediaByGenre function is called', () => {
-    let result: Awaited<ReturnType<typeof getMediaByGenre>>;
+    let result: Awaited<ReturnType<typeof composable.getMediaByGenre>>;
 
     describe(`when route media type is ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
       beforeEach(async () => {
-        result = await getMediaByGenre({
+        result = await composable.getMediaByGenre({
           genre: 'soundtrack',
           mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
         });
@@ -86,7 +94,7 @@ describe('useGenre', () => {
             data: ['tracks'],
           });
 
-          result = await getMediaByGenre({
+          result = await composable.getMediaByGenre({
             genre: 'soundtrack',
             mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
           });
@@ -113,7 +121,7 @@ describe('useGenre', () => {
         describe('when offset is set', () => {
           describe('when offset is greater than 1', () => {
             beforeEach(() => {
-              getMediaByGenre({
+              composable.getMediaByGenre({
                 genre: 'soundtrack',
                 mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
                 offset: 1,
@@ -141,7 +149,7 @@ describe('useGenre', () => {
             data: null,
           });
 
-          result = await getMediaByGenre({
+          result = await composable.getMediaByGenre({
             genre: 'soundtrack',
             mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
           });
@@ -155,7 +163,9 @@ describe('useGenre', () => {
 
     describe(`when route media type is not ${ROUTE_MEDIA_TYPE_PARAMS.Albums} or ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
       it('returns the correct response', async () => {
-        expect(await getMediaByGenre({} as MediaByGenreParams)).toEqual([]);
+        expect(
+          await composable.getMediaByGenre({} as MediaByGenreParams),
+        ).toEqual([]);
       });
     });
   });

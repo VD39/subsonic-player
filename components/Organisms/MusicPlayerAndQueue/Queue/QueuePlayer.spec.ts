@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
@@ -14,6 +15,11 @@ import { useQueueMock } from '@/test/useQueueMock';
 import QueuePlayer from './QueuePlayer.vue';
 
 vi.useFakeTimers();
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const { fastForwardTrackMock, isPlayingMock, rewindTrackMock } =
   useAudioPlayerMock();
@@ -50,7 +56,7 @@ describe('QueuePlayer', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isTrack value is false', () => {
+  describe('when the isTrack value is false', () => {
     it('does not show the MarqueeScroll component containing the album details', () => {
       expect(
         wrapper.findComponent({ ref: 'albumMarqueeScroll' }).exists(),
@@ -64,7 +70,7 @@ describe('QueuePlayer', () => {
     });
   });
 
-  describe('when isTrack value is true', () => {
+  describe('when the isTrack value is true', () => {
     beforeEach(() => {
       isTrackMock.value = true;
     });
@@ -107,7 +113,8 @@ describe('QueuePlayer', () => {
       beforeEach(async () => {
         currentTrackMock.value = getFormattedQueueTracksMock()[0];
         wrapper = factory();
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
       });
 
       it('shows the MarqueeScroll component containing the album details', () => {
@@ -164,7 +171,7 @@ describe('QueuePlayer', () => {
     });
   });
 
-  describe('when isRadioStation value is false', () => {
+  describe('when the isRadioStation value is false', () => {
     it('shows the RepeatButton component', () => {
       expect(wrapper.findComponent(RepeatButton).exists()).toBe(true);
     });
@@ -182,7 +189,7 @@ describe('QueuePlayer', () => {
     });
   });
 
-  describe('when isRadioStation value is true', () => {
+  describe('when the isRadioStation value is true', () => {
     beforeEach(() => {
       isRadioStationMock.value = true;
     });
@@ -208,7 +215,7 @@ describe('QueuePlayer', () => {
     });
   });
 
-  describe('when isPodcastEpisode value is false', () => {
+  describe('when the isPodcastEpisode value is false', () => {
     it('does not show the MarqueeScroll component containing the podcast name link', () => {
       expect(
         wrapper.findComponent({ ref: 'podcastIdMarqueeScroll' }).exists(),
@@ -226,7 +233,7 @@ describe('QueuePlayer', () => {
     });
   });
 
-  describe('when isPodcastEpisode value is true', () => {
+  describe('when the isPodcastEpisode value is true', () => {
     beforeEach(() => {
       isPodcastEpisodeMock.value = true;
     });
@@ -239,7 +246,7 @@ describe('QueuePlayer', () => {
       expect(wrapper.findComponent(PlaybackRateButton).exists()).toBe(true);
     });
 
-    describe('when currentTrack value does not have an podcastId key', () => {
+    describe('when the currentTrack value does not have an podcastId key', () => {
       beforeEach(() => {
         delete (currentTrackMock.value as PodcastEpisode).podcastId;
       });
@@ -255,7 +262,7 @@ describe('QueuePlayer', () => {
       });
     });
 
-    describe('when currentTrack value does have a podcastId key', () => {
+    describe('when the currentTrack value does have a podcastId key', () => {
       describe('when currentTrack.podcastId is undefined', () => {
         beforeEach(() => {
           currentTrackMock.value = getFormattedQueueTracksMock(1, {
@@ -295,7 +302,7 @@ describe('QueuePlayer', () => {
       });
     });
 
-    describe('when currentTrack value does not have an author key', () => {
+    describe('when the currentTrack value does not have an author key', () => {
       beforeEach(() => {
         delete (currentTrackMock.value as Partial<PodcastEpisode>).author;
       });
@@ -311,7 +318,7 @@ describe('QueuePlayer', () => {
       });
     });
 
-    describe('when currentTrack value contain author', () => {
+    describe('when the currentTrack value contain author', () => {
       describe('when currentTrack.author is undefined', () => {
         beforeEach(() => {
           currentTrackMock.value = getFormattedQueueTracksMock(1, {
@@ -346,13 +353,13 @@ describe('QueuePlayer', () => {
     });
   });
 
-  describe('when currentTrack value does have a favourite key', () => {
+  describe('when the currentTrack value does have a favourite key', () => {
     it('shows the FavouriteButton component', () => {
       expect(wrapper.findComponent(FavouriteButton).exists()).toBe(true);
     });
   });
 
-  describe('when currentTrack value does not have a favourite key', () => {
+  describe('when the currentTrack value does not have a favourite key', () => {
     beforeEach(() => {
       delete (currentTrackMock.value as Partial<Track>).favourite;
     });

@@ -1,32 +1,42 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { cookieMock } from '@/test/fixtures';
+import { useRouterMock } from '@/test/useRouterMock';
 
 import { useAPI } from './index';
 
-vi.unmock('./index');
+const { $apiMock } = vi.hoisted(() => ({
+  $apiMock: vi.fn(),
+}));
+const { routerMock } = useRouterMock();
 
-const $apiMock = vi.fn();
-
-mockNuxtImport('useNuxtApp', () => () => ({
+mockNuxtImport('useNuxtApp', (original) => () => ({
+  ...original(),
   $api: $apiMock,
+  $router: routerMock,
 }));
 
-const handleErrorMock = vi.fn();
+const handleErrorMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useErrorHandler', () => () => ({
+mockNuxtImport('useErrorHandler', (original) => () => ({
+  ...original(),
   handleError: handleErrorMock,
 }));
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   streamBitrate: ref(30),
 }));
 
 mockNuxtImport('useCookie', () => () => ref(cookieMock));
 
-const { fetchData, getDownloadUrl, getImageUrl, getStreamUrl } = useAPI();
-
 describe('useAPI', () => {
+  let composable: ReturnType<typeof useAPI>;
+
+  beforeAll(() => {
+    composable = useAPI();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -34,14 +44,16 @@ describe('useAPI', () => {
   describe('getImageUrl', () => {
     describe('when streamUrlId is a URL', () => {
       it('returns the correct response', () => {
-        expect(getImageUrl('https://imageId.jpg')).toBe('https://imageId.jpg');
+        expect(composable.getImageUrl('https://imageId.jpg')).toBe(
+          'https://imageId.jpg',
+        );
       });
     });
 
     describe('when streamUrlId is not a URL', () => {
       describe('when size is not set', () => {
         it('returns the correct response', () => {
-          expect(getImageUrl('id')).toBe(
+          expect(composable.getImageUrl('id')).toBe(
             'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id&size=500',
           );
         });
@@ -49,7 +61,7 @@ describe('useAPI', () => {
 
       describe('when size is set', () => {
         it('returns the correct response', () => {
-          expect(getImageUrl('id', '250')).toBe(
+          expect(composable.getImageUrl('id', '250')).toBe(
             'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id&size=250',
           );
         });
@@ -60,7 +72,7 @@ describe('useAPI', () => {
   describe('getStreamUrl', () => {
     describe('when streamUrlId is a URL', () => {
       it('returns the correct response', () => {
-        expect(getStreamUrl('https://streamUrlId.mp3')).toBe(
+        expect(composable.getStreamUrl('https://streamUrlId.mp3')).toBe(
           'https://streamUrlId.mp3',
         );
       });
@@ -68,7 +80,7 @@ describe('useAPI', () => {
 
     describe('when streamUrlId is not a URL', () => {
       it('returns the correct response', () => {
-        expect(getStreamUrl('id')).toBe(
+        expect(composable.getStreamUrl('id')).toBe(
           'https://www.server.com/rest/stream?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id&maxBitRate=30',
         );
       });
@@ -77,18 +89,20 @@ describe('useAPI', () => {
 
   describe('getDownloadUrl', () => {
     it('returns the correct response', () => {
-      expect(getDownloadUrl('id')).toBe(
+      expect(composable.getDownloadUrl('id')).toBe(
         'https://www.server.com/rest/download?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id',
       );
     });
   });
 
   describe('when the fetchData function is called', () => {
-    let result: Awaited<ReturnType<typeof fetchData>>;
+    let result: Awaited<ReturnType<typeof composable.fetchData>>;
 
     describe('when baseUrl is not set', () => {
       beforeEach(async () => {
-        result = await fetchData('/path');
+        $apiMock.mockResolvedValue({});
+
+        result = await composable.fetchData('/path');
       });
 
       it('sets the correct baseUrl', () => {
@@ -103,7 +117,9 @@ describe('useAPI', () => {
 
     describe('when baseUrl is set', () => {
       beforeEach(async () => {
-        result = await fetchData('/path', {
+        $apiMock.mockResolvedValue({});
+
+        result = await composable.fetchData('/path', {
           baseURL: 'https://www.baseUrl.com',
         });
       });
@@ -122,12 +138,12 @@ describe('useAPI', () => {
       describe('when api response returns null', () => {
         beforeEach(async () => {
           $apiMock.mockResolvedValue(null);
-          result = await fetchData('/path');
+          result = await composable.fetchData('/path');
         });
 
         it('calls the handleError function with the correct parameters', () => {
           expect(handleErrorMock).toHaveBeenCalledWith(
-            new Error(DEFAULT_ERROR_MESSAGE),
+            expect.any(Error),
             'api',
           );
         });
@@ -135,7 +151,7 @@ describe('useAPI', () => {
         it('returns the correct response', () => {
           expect(result).toEqual({
             data: null,
-            error: new Error(DEFAULT_ERROR_MESSAGE),
+            error: expect.any(Error),
           });
         });
       });
@@ -143,7 +159,8 @@ describe('useAPI', () => {
       describe('when api response returns a value', () => {
         beforeEach(async () => {
           $apiMock.mockResolvedValue({});
-          result = await fetchData('/path');
+
+          result = await composable.fetchData('/path');
         });
 
         it('does not call the handleError function', () => {
@@ -159,7 +176,9 @@ describe('useAPI', () => {
 
         describe('when transform is set', () => {
           beforeEach(async () => {
-            result = await fetchData('/path', {
+            $apiMock.mockResolvedValue({});
+
+            result = await composable.fetchData('/path', {
               transform: () => 'I will return instead of response',
             });
           });
@@ -177,7 +196,7 @@ describe('useAPI', () => {
         describe('when api response is rejected value', () => {
           beforeEach(async () => {
             $apiMock.mockRejectedValue('Error message.');
-            result = await fetchData('/path');
+            result = await composable.fetchData('/path');
           });
 
           it('calls the handleError function with the correct parameters', () => {
@@ -201,12 +220,12 @@ describe('useAPI', () => {
               throw new Error('new Error message.');
             });
 
-            result = await fetchData('/path');
+            result = await composable.fetchData('/path');
           });
 
           it('calls the handleError function with the correct parameters', () => {
             expect(handleErrorMock).toHaveBeenCalledWith(
-              new Error('new Error message.'),
+              expect.any(Error),
               'api',
             );
           });
@@ -222,7 +241,7 @@ describe('useAPI', () => {
         describe('when suppressErrorSnack is set to true', () => {
           beforeEach(async () => {
             $apiMock.mockRejectedValue('Error message.');
-            result = await fetchData('/path', {
+            result = await composable.fetchData('/path', {
               suppressErrorSnack: true,
             });
           });

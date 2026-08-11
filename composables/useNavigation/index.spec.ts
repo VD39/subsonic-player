@@ -2,31 +2,28 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { useNavigation } from './index';
 
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn().mockReturnValue({
-    name: 'index',
-  }),
-}));
+const routeMock = reactive({
+  name: 'index',
+});
 
-mockNuxtImport('useRoute', () => routeMock);
+mockNuxtImport('useRoute', () => () => routeMock);
 
 const showPodcastsMock = ref(true);
 const showRadioStationsMock = ref(true);
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   showPodcasts: showPodcastsMock,
   showRadioStations: showRadioStationsMock,
 }));
 
-const {
-  mobileNavigation,
-  mobilePageNavigation,
-  mobileTabRoutes,
-  showPageNavigation,
-  sidebarNavigation,
-} = useNavigation();
-
 describe('useNavigation', () => {
+  let composable: ReturnType<typeof useNavigation>;
+
+  beforeAll(() => {
+    composable = useNavigation();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -37,7 +34,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct sidebarNavigation value', () => {
-      expect(sidebarNavigation.value).toEqual([
+      expect(composable.sidebarNavigation.value).toEqual([
         {
           items: [
             {
@@ -117,7 +114,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobileNavigation value', () => {
-      expect(mobileNavigation.value).toEqual([
+      expect(composable.mobileNavigation.value).toEqual([
         {
           icon: ICONS.discover,
           title: 'Browse',
@@ -143,7 +140,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobilePageNavigation value', () => {
-      expect(mobilePageNavigation.value).toEqual({
+      expect(composable.mobilePageNavigation.value).toEqual({
         Discover: {
           name: ROUTE_NAMES.index,
         },
@@ -154,14 +151,14 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobileTabRoutes value', () => {
-      expect(mobileTabRoutes.value).toEqual([
+      expect(composable.mobileTabRoutes.value).toEqual([
         ROUTE_NAMES.index,
         ROUTE_NAMES.radioStations,
       ]);
     });
 
     it('sets the correct showPageNavigation value', () => {
-      expect(showPageNavigation.value).toBe(true);
+      expect(composable.showPageNavigation.value).toBe(true);
     });
   });
 
@@ -171,19 +168,23 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct sidebarNavigation value', () => {
-      expect(sidebarNavigation.value).toEqual(SIDEBAR_DESKTOP_NAVIGATION);
+      expect(composable.sidebarNavigation.value).toEqual(
+        SIDEBAR_DESKTOP_NAVIGATION,
+      );
     });
 
     it('sets the correct mobileNavigation value', () => {
-      expect(mobileNavigation.value).toEqual(MOBILE_NAVIGATION);
+      expect(composable.mobileNavigation.value).toEqual(MOBILE_NAVIGATION);
     });
 
     it('sets the correct mobilePageNavigation value', () => {
-      expect(mobilePageNavigation.value).toEqual(MOBILE_PAGE_NAVIGATION);
+      expect(composable.mobilePageNavigation.value).toEqual(
+        MOBILE_PAGE_NAVIGATION,
+      );
     });
 
     it('sets the correct mobileTabRoutes value', () => {
-      expect(mobileTabRoutes.value).toEqual([
+      expect(composable.mobileTabRoutes.value).toEqual([
         ROUTE_NAMES.index,
         ROUTE_NAMES.podcast,
         ROUTE_NAMES.podcasts,
@@ -192,7 +193,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct showPageNavigation value', () => {
-      expect(showPageNavigation.value).toBe(true);
+      expect(composable.showPageNavigation.value).toBe(true);
     });
   });
 
@@ -203,7 +204,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct sidebarNavigation value', () => {
-      expect(sidebarNavigation.value).toEqual([
+      expect(composable.sidebarNavigation.value).toEqual([
         {
           items: [
             {
@@ -290,11 +291,11 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobileNavigation value', () => {
-      expect(mobileNavigation.value).toEqual(MOBILE_NAVIGATION);
+      expect(composable.mobileNavigation.value).toEqual(MOBILE_NAVIGATION);
     });
 
     it('sets the correct mobilePageNavigation value', () => {
-      expect(mobilePageNavigation.value).toEqual({
+      expect(composable.mobilePageNavigation.value).toEqual({
         Discover: {
           name: ROUTE_NAMES.index,
         },
@@ -305,7 +306,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobileTabRoutes value', () => {
-      expect(mobileTabRoutes.value).toEqual([
+      expect(composable.mobileTabRoutes.value).toEqual([
         ROUTE_NAMES.index,
         ROUTE_NAMES.podcast,
         ROUTE_NAMES.podcasts,
@@ -313,7 +314,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct showPageNavigation value', () => {
-      expect(showPageNavigation.value).toBe(true);
+      expect(composable.showPageNavigation.value).toBe(true);
     });
   });
 
@@ -324,19 +325,23 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct sidebarNavigation value', () => {
-      expect(sidebarNavigation.value).toEqual(SIDEBAR_DESKTOP_NAVIGATION);
+      expect(composable.sidebarNavigation.value).toEqual(
+        SIDEBAR_DESKTOP_NAVIGATION,
+      );
     });
 
     it('sets the correct mobileNavigation value', () => {
-      expect(mobileNavigation.value).toEqual(MOBILE_NAVIGATION);
+      expect(composable.mobileNavigation.value).toEqual(MOBILE_NAVIGATION);
     });
 
     it('sets the correct mobilePageNavigation value', () => {
-      expect(mobilePageNavigation.value).toEqual(MOBILE_PAGE_NAVIGATION);
+      expect(composable.mobilePageNavigation.value).toEqual(
+        MOBILE_PAGE_NAVIGATION,
+      );
     });
 
     it('sets the correct mobileTabRoutes value', () => {
-      expect(mobileTabRoutes.value).toEqual([
+      expect(composable.mobileTabRoutes.value).toEqual([
         ROUTE_NAMES.index,
         ROUTE_NAMES.podcast,
         ROUTE_NAMES.podcasts,
@@ -345,7 +350,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct showPageNavigation value', () => {
-      expect(showPageNavigation.value).toBe(true);
+      expect(composable.showPageNavigation.value).toBe(true);
     });
   });
 
@@ -356,7 +361,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct sidebarNavigation value', () => {
-      expect(sidebarNavigation.value).toEqual([
+      expect(composable.sidebarNavigation.value).toEqual([
         {
           items: [
             {
@@ -429,7 +434,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobileNavigation value', () => {
-      expect(mobileNavigation.value).toEqual([
+      expect(composable.mobileNavigation.value).toEqual([
         {
           icon: ICONS.discover,
           title: 'Browse',
@@ -455,7 +460,7 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobilePageNavigation value', () => {
-      expect(mobilePageNavigation.value).toEqual({
+      expect(composable.mobilePageNavigation.value).toEqual({
         Discover: {
           name: ROUTE_NAMES.index,
         },
@@ -463,23 +468,21 @@ describe('useNavigation', () => {
     });
 
     it('sets the correct mobileTabRoutes value', () => {
-      expect(mobileTabRoutes.value).toEqual([ROUTE_NAMES.index]);
+      expect(composable.mobileTabRoutes.value).toEqual([ROUTE_NAMES.index]);
     });
 
     it('sets the correct showPageNavigation value', () => {
-      expect(showPageNavigation.value).toBe(false);
+      expect(composable.showPageNavigation.value).toBe(false);
     });
   });
 
   describe('when the route name is not in the navigation', () => {
     beforeAll(() => {
-      routeMock.mockReturnValue({
-        name: 'not-in-navigation',
-      });
+      routeMock.name = 'not-in-navigation';
     });
 
     it('sets the correct showPageNavigation value', () => {
-      expect(showPageNavigation.value).toBe(false);
+      expect(composable.showPageNavigation.value).toBe(false);
     });
   });
 });

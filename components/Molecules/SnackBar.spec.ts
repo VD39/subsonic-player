@@ -10,7 +10,8 @@ import SnackBar from './SnackBar.vue';
 
 const snacksMock = ref<Snack[]>([]);
 
-mockNuxtImport('useSnack', () => () => ({
+mockNuxtImport('useSnack', (original) => () => ({
+  ...original(),
   removeSnack: vi.fn((id: string) => {
     snacksMock.value = snacksMock.value.filter((snack) => snack.id !== id);
   }),
@@ -107,7 +108,7 @@ describe('SnackBar', () => {
       });
 
       it('shows the correct number of snack content', () => {
-        expect(wrapper.findAllComponents(MessageBar).length).toBe(4);
+        expect(wrapper.findAllComponents(MessageBar)).toHaveLength(4);
       });
 
       describe('when the ButtonLink component is clicked', () => {
@@ -116,7 +117,7 @@ describe('SnackBar', () => {
         });
 
         it('shows the correct number of snack content', () => {
-          expect(wrapper.findAllComponents(MessageBar).length).toBe(3);
+          expect(wrapper.findAllComponents(MessageBar)).toHaveLength(3);
         });
       });
     });

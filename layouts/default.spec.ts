@@ -13,7 +13,8 @@ mockNuxtImport('navigateTo', () => navigateToMock);
 
 const showPageNavigationMock = ref(false);
 
-mockNuxtImport('useNavigation', () => () => ({
+mockNuxtImport('useNavigation', (original) => () => ({
+  ...original(),
   mobileNavigation: MOBILE_NAVIGATION,
   mobilePageNavigation: MOBILE_PAGE_NAVIGATION,
   showPageNavigation: showPageNavigationMock,

@@ -16,6 +16,7 @@ const shortTracks = getFormattedQueueTracksMock(2);
 const radioTracks = getFormattedQueueTracksMock(5, {
   type: MEDIA_TYPE.radioStation,
 });
+
 const noStreamUrlTracks = [
   getFormattedQueueTracksMock()[0],
   getFormattedQueueTracksMock(1, { streamUrlId: undefined })[0],

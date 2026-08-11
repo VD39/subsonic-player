@@ -8,9 +8,10 @@ import { useQueueMock } from '@/test/useQueueMock';
 
 import MediaInformation from './MediaInformation.vue';
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 

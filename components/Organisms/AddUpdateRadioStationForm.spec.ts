@@ -64,7 +64,7 @@ describe('AddUpdateRadioStationForm', () => {
     });
 
     it('does not emit submit event', () => {
-      expect(wrapper.emitted('submit')).toBe(undefined);
+      expect(wrapper.emitted('submit')).toBeUndefined();
     });
   });
 

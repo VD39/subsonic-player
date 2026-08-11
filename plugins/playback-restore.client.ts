@@ -15,7 +15,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     await restoreQueueStateFromServer();
     restoreQueueStateFromLocal();
     await mergeBookmarksToCurrentQueue();
+
     await nextTick();
-    await restoreAudioPlayerState();
+
+    restoreAudioPlayerState();
   });
 });

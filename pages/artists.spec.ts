@@ -8,10 +8,17 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import ArtistsPage from './artists.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 mockNuxtImport('useAsyncData', () => () => ({
   data: ref({
     artists: getFormattedArtistsMock(3),
   }),
+  error: ref(null),
+  pending: ref(false),
   status: ref('success'),
 }));
 

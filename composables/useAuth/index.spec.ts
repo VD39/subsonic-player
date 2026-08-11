@@ -11,22 +11,28 @@ const useCookieMock = ref<null | string>(null);
 
 mockNuxtImport('useCookie', () => () => useCookieMock);
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: {},
-  error: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: {},
+    error: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
 const useUserMock = ref<null | User>(null);
-const clearUserMock = vi.fn();
-const setUserMock = vi.fn((cookie: string) => {
-  useUserMock.value = loadSession(cookie);
-});
+const { clearUserMock, setUserMock } = vi.hoisted(() => ({
+  clearUserMock: vi.fn(),
+  setUserMock: vi.fn((cookie: string) => {
+    useUserMock.value = loadSession(cookie);
+  }),
+}));
 
-mockNuxtImport('useUser', () => () => ({
+mockNuxtImport('useUser', (original) => () => ({
+  ...original(),
   clearUser: clearUserMock,
   setUser: setUserMock,
   user: useUserMock,
@@ -34,9 +40,10 @@ mockNuxtImport('useUser', () => () => ({
 
 mockNuxtImport('generateRandomString', () => () => 'randomString');
 
-const resetAllUserStateMock = vi.fn();
+const resetAllUserStateMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useStateReset', () => () => ({
+mockNuxtImport('useStateReset', (original) => () => ({
+  ...original(),
   resetAllUserState: resetAllUserStateMock,
 }));
 
@@ -49,15 +56,19 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 mockNuxtImport('navigateTo', () => navigateToMock);
 
 describe('useAuth', () => {
-  let result: ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>;
+  let result: Awaited<ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>>;
+
+  beforeAll(() => {
+    vi.clearAllMocks();
+  });
 
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   describe('when cookie is undefined', () => {
-    beforeEach(() => {
-      result = withSetup(useAuth);
+    beforeEach(async () => {
+      result = await withSetup(useAuth);
     });
 
     it('does not call the setUser function', () => {
@@ -78,7 +89,7 @@ describe('useAuth', () => {
       });
 
       it('sets the correct useCookie value', () => {
-        expect(useCookieMock.value).toBe(null);
+        expect(useCookieMock.value).toBeNull();
       });
 
       it('calls the resetAllUserState function', () => {
@@ -96,9 +107,9 @@ describe('useAuth', () => {
   });
 
   describe('when cookie is defined', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       useCookieMock.value = cookieMock;
-      result = withSetup(useAuth);
+      result = await withSetup(useAuth);
     });
 
     it('calls the setUser function with the cookie value', () => {
@@ -111,7 +122,7 @@ describe('useAuth', () => {
       });
 
       it('calls the fetchData function', () => {
-        expect(fetchDataMock).toHaveBeenCalled();
+        expect(fetchDataMock).toHaveBeenCalledWith('/ping');
       });
 
       describe('when fetchData response returns is successful', () => {
@@ -139,7 +150,7 @@ describe('useAuth', () => {
         });
 
         it('sets the correct useCookie value', () => {
-          expect(useCookieMock.value).toBe(null);
+          expect(useCookieMock.value).toBeNull();
         });
 
         it('calls the resetAllUserState function', () => {
@@ -159,13 +170,13 @@ describe('useAuth', () => {
 
   describe('when the login function is called', () => {
     describe('when fetchData response returns is not successful', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: null,
           error: new Error('Error message.'),
         });
 
-        result = withSetup(useAuth);
+        result = await withSetup(useAuth);
 
         result.composable.login({
           password: 'password',
@@ -175,7 +186,7 @@ describe('useAuth', () => {
       });
 
       it('sets the correct useCookie value', () => {
-        expect(useCookieMock.value).toBe(null);
+        expect(useCookieMock.value).toBeNull();
       });
 
       it('sets the correct error value', () => {
@@ -188,13 +199,13 @@ describe('useAuth', () => {
     });
 
     describe('when fetchData response returns is successful', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {},
           error: null,
         });
 
-        result = withSetup(useAuth);
+        result = await withSetup(useAuth);
 
         result.composable.login({
           password: 'password',
@@ -220,7 +231,7 @@ describe('useAuth', () => {
       });
 
       it('sets the correct error value', () => {
-        expect(result.composable.error.value).toBe(null);
+        expect(result.composable.error.value).toBeNull();
       });
     });
   });
@@ -231,7 +242,7 @@ describe('useAuth', () => {
     });
 
     it('sets the correct useCookie value', () => {
-      expect(useCookieMock.value).toBe(null);
+      expect(useCookieMock.value).toBeNull();
     });
 
     it('calls the clearUser function', () => {

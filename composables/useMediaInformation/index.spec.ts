@@ -14,37 +14,41 @@ const album = getFormattedAlbumsMock()[0];
 const podcast = getFormattedPodcastsMock()[0];
 const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 
-const openModalMock = vi.fn();
+const openModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   openModal: openModalMock,
 }));
 
-const getAlbumMock = vi.fn();
+const getAlbumMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   getAlbum: getAlbumMock,
 }));
 
-const getPodcastMock = vi.fn();
+const getPodcastMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   getPodcast: getPodcastMock,
 }));
 
-const handleErrorMock = vi.fn();
+const handleErrorMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useErrorHandler', () => () => ({
+mockNuxtImport('useErrorHandler', (original) => () => ({
+  ...original(),
   handleError: handleErrorMock,
 }));
 
-const {
-  openAlbumInformationModal,
-  openPodcastInformationModal,
-  openTrackInformationModal,
-} = useMediaInformation();
-
 describe('useMediaInformation', () => {
+  let composable: ReturnType<typeof useMediaInformation>;
+
+  beforeAll(() => {
+    composable = useMediaInformation();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -53,7 +57,7 @@ describe('useMediaInformation', () => {
     describe('when getAlbum returns an album', () => {
       beforeEach(async () => {
         getAlbumMock.mockResolvedValue(album);
-        await openAlbumInformationModal(album);
+        await composable.openAlbumInformationModal(album);
       });
 
       it('does not call the handleError function', () => {
@@ -77,7 +81,7 @@ describe('useMediaInformation', () => {
     describe('when getAlbum returns null', () => {
       beforeEach(async () => {
         getAlbumMock.mockResolvedValue(null);
-        await openAlbumInformationModal(album);
+        await composable.openAlbumInformationModal(album);
       });
 
       it('calls the handleError function with the correct message', () => {
@@ -96,7 +100,7 @@ describe('useMediaInformation', () => {
     describe('when getPodcast returns a podcast', () => {
       beforeEach(async () => {
         getPodcastMock.mockResolvedValue(podcast);
-        await openPodcastInformationModal(podcast);
+        await composable.openPodcastInformationModal(podcast);
       });
 
       it('does not call the handleError function', () => {
@@ -120,7 +124,7 @@ describe('useMediaInformation', () => {
     describe('when getPodcast returns null', () => {
       beforeEach(async () => {
         getPodcastMock.mockResolvedValue(null);
-        await openPodcastInformationModal(podcast);
+        await composable.openPodcastInformationModal(podcast);
       });
 
       it('calls the handleError function with the correct message', () => {
@@ -153,7 +157,7 @@ describe('useMediaInformation', () => {
       ],
     ])('when track type is %s', (track, modalType, attrs) => {
       beforeEach(() => {
-        openTrackInformationModal(track);
+        composable.openTrackInformationModal(track);
       });
 
       it('calls the openModal function with the correct parameters', () => {
@@ -165,7 +169,7 @@ describe('useMediaInformation', () => {
       beforeEach(() => {
         delete (track as Partial<Track>).type;
 
-        openTrackInformationModal(track);
+        composable.openTrackInformationModal(track);
       });
 
       it('does not call the openModal function', () => {

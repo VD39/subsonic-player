@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
@@ -12,57 +11,63 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import AlbumsPage from './[[sortBy]].vue';
 
-const dragStartMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
+  autoLogin: vi.fn(),
+  isAuthenticated: ref(true),
+}));
+
+mockNuxtImport('navigateTo', () => vi.fn());
+
+const dragStartMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
+const openAlbumInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const fetchMoreDataMock = vi.fn();
+const fetchMoreDataMock = vi.hoisted(() => vi.fn());
 const hasMoreMock = ref(true);
 
-mockNuxtImport('useInfinityLoading', () => () => ({
+mockNuxtImport('useInfinityLoading', (original) => () => ({
+  ...original(),
   fetchMoreData: fetchMoreDataMock,
   hasMore: hasMoreMock,
 }));
 
-const albumsDataMock = ref<{
-  albums: Album[];
-}>({
+const albumsDataMock = ref({
   albums: getFormattedAlbumsMock(5),
 });
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 const statusMock = ref('success');
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: albumsDataMock,
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: statusMock,
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/albums/newest',
-    params: {
-      sortBy: 'newest',
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const { useHeadTitleMock } = useHeadMock();
 const { addTracksToQueueMock, playTracksMock } = useAudioPlayerMock();
@@ -70,8 +75,8 @@ const { addTracksToQueueMock, playTracksMock } = useAudioPlayerMock();
 const album = getFormattedAlbumsMock()[0];
 const tracks = getFormattedTracksMock(3);
 
-function factory(props = {}) {
-  return mount(AlbumsPage, {
+async function factory(props = {}, route = '/albums/newest') {
+  return mountSuspended(AlbumsPage, {
     global: {
       stubs: {
         AlbumsList: true,
@@ -80,14 +85,15 @@ function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
 }
 
 describe('[[sortBy]]', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   afterEach(() => {
@@ -179,9 +185,9 @@ describe('[[sortBy]]', () => {
   });
 
   describe('when status is pending', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       statusMock.value = 'pending';
-      wrapper = factory();
+      wrapper = await factory();
     });
 
     it('matches the snapshot', () => {
@@ -208,15 +214,8 @@ describe('[[sortBy]]', () => {
   describe.each(Object.values(ROUTE_ALBUMS_SORT_BY_PARAMS))(
     'when the sortBy route param is %s',
     (sortBy) => {
-      beforeEach(() => {
-        routeMock.mockReturnValue({
-          fullPath: `/albums/${sortBy}`,
-          params: {
-            sortBy,
-          },
-        });
-
-        wrapper = factory();
+      beforeEach(async () => {
+        wrapper = await factory({}, `/albums/${sortBy}`);
       });
 
       it('sets the useHead function with correct title', () => {
@@ -233,12 +232,12 @@ describe('[[sortBy]]', () => {
       });
 
       describe('when albumsData.album is not an empty array', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           albumsDataMock.value = {
             albums: getFormattedAlbumsMock(5),
           };
 
-          wrapper = factory();
+          wrapper = await factory();
         });
 
         it('matches the snapshot', () => {
@@ -253,12 +252,12 @@ describe('[[sortBy]]', () => {
       });
 
       describe('when albumsData.album is an empty array', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           albumsDataMock.value = {
             albums: [],
           };
 
-          wrapper = factory();
+          wrapper = await factory();
         });
 
         it('matches the snapshot', () => {

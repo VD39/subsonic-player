@@ -9,40 +9,30 @@ import {
 
 import { usePlaylist } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
-const addSuccessSnackMock = vi.fn();
+const addSuccessSnackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSnack', () => () => ({
+mockNuxtImport('useSnack', (original) => () => ({
+  ...original(),
   addSuccessSnack: addSuccessSnackMock,
 }));
 
-const openModalMock = vi.fn();
+const openModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   openModal: (...args: unknown[]) => openModalMock(...args),
 }));
-
-const {
-  addPlaylist,
-  addToPlaylist,
-  addToPlaylistModal,
-  deletePlaylist,
-  getPlaylists,
-  loadPlaylistTracksById,
-  playlist,
-  playlists,
-  removeFromPlaylist,
-  reorderPlaylistTracks,
-  resetPlaylists,
-  updatePlaylist,
-} = usePlaylist();
 
 const playlistsMock = getFormattedPlaylistsMock(2);
 const playlistMock = playlistsMock[0];
@@ -51,12 +41,18 @@ const reorderPlaylist = getFormattedPlaylistsMock(1, {
 })[0];
 
 describe('usePlaylist', () => {
+  let composable: ReturnType<typeof usePlaylist>;
+
+  beforeAll(() => {
+    composable = usePlaylist();
+  });
+
   it('sets the default playlists value', () => {
-    expect(playlists.value).toEqual([]);
+    expect(composable.playlists.value).toEqual([]);
   });
 
   it('sets the default playlist value', () => {
-    expect(playlist.value).toEqual(null);
+    expect(composable.playlist.value).toBeNull();
   });
 
   describe('when the getPlaylists function is called', () => {
@@ -66,11 +62,11 @@ describe('usePlaylist', () => {
           data: null,
         });
 
-        getPlaylists();
+        composable.getPlaylists();
       });
 
       it('does not add to the playlists value', () => {
-        expect(playlists.value).toEqual([]);
+        expect(composable.playlists.value).toEqual([]);
       });
     });
 
@@ -81,11 +77,11 @@ describe('usePlaylist', () => {
             data: {},
           });
 
-          getPlaylists();
+          composable.getPlaylists();
         });
 
         it('does not add to the playlists value', () => {
-          expect(playlists.value).toEqual([]);
+          expect(composable.playlists.value).toEqual([]);
         });
       });
 
@@ -99,11 +95,11 @@ describe('usePlaylist', () => {
             ],
           });
 
-          await getPlaylists();
+          await composable.getPlaylists();
         });
 
         it('adds to the playlists value', () => {
-          expect(playlists.value).toEqual([
+          expect(composable.playlists.value).toEqual([
             RANDOM_PLAYLIST,
             {
               name: 'name',
@@ -117,7 +113,7 @@ describe('usePlaylist', () => {
   describe('when the loadPlaylistTracksById function is called', () => {
     describe('when id is not set', () => {
       beforeAll(() => {
-        loadPlaylistTracksById();
+        composable.loadPlaylistTracksById();
       });
 
       it('calls the fetchRandomPlaylist function with the correct parameters', () => {
@@ -133,11 +129,11 @@ describe('usePlaylist', () => {
             data: null,
           });
 
-          loadPlaylistTracksById();
+          composable.loadPlaylistTracksById();
         });
 
         it('sets the correct playlist value', () => {
-          expect(playlist.value).toEqual(null);
+          expect(composable.playlist.value).toBeNull();
         });
       });
 
@@ -149,11 +145,11 @@ describe('usePlaylist', () => {
             },
           });
 
-          loadPlaylistTracksById();
+          composable.loadPlaylistTracksById();
         });
 
         it('sets the correct playlist value', () => {
-          expect(playlist.value).toEqual({
+          expect(composable.playlist.value).toEqual({
             name: 'name',
           });
         });
@@ -162,7 +158,7 @@ describe('usePlaylist', () => {
 
     describe('when id is set', () => {
       beforeAll(() => {
-        loadPlaylistTracksById('playlistId');
+        composable.loadPlaylistTracksById('playlistId');
       });
 
       it('calls the fetchPlaylist function with the correct parameters', () => {
@@ -182,11 +178,11 @@ describe('usePlaylist', () => {
             data: null,
           });
 
-          loadPlaylistTracksById('playlistId', false);
+          composable.loadPlaylistTracksById('playlistId', false);
         });
 
         it('sets the correct playlist value', () => {
-          expect(playlist.value).toEqual(null);
+          expect(composable.playlist.value).toBeNull();
         });
       });
 
@@ -198,11 +194,11 @@ describe('usePlaylist', () => {
             },
           });
 
-          loadPlaylistTracksById('playlistId');
+          composable.loadPlaylistTracksById('playlistId');
         });
 
         it('sets the correct playlist value', () => {
-          expect(playlist.value).toEqual({
+          expect(composable.playlist.value).toEqual({
             name: 'name',
           });
         });
@@ -218,7 +214,7 @@ describe('usePlaylist', () => {
         data: null,
       });
 
-      addPlaylist({
+      composable.addPlaylist({
         name: 'name',
       });
     });
@@ -244,7 +240,7 @@ describe('usePlaylist', () => {
           },
         });
 
-        addPlaylist({
+        composable.addPlaylist({
           name: 'name',
         });
       });
@@ -265,7 +261,7 @@ describe('usePlaylist', () => {
         data: null,
       });
 
-      updatePlaylist({} as PlaylistParam);
+      composable.updatePlaylist({} as PlaylistParam);
     });
 
     it('calls the getPlaylists function with the correct parameters', () => {
@@ -289,7 +285,7 @@ describe('usePlaylist', () => {
           },
         });
 
-        updatePlaylist({} as PlaylistParam);
+        composable.updatePlaylist({} as PlaylistParam);
       });
 
       describe('when showMessage parameter is true', () => {
@@ -303,7 +299,7 @@ describe('usePlaylist', () => {
 
         describe('when success message is set', () => {
           beforeAll(() => {
-            updatePlaylist({} as PlaylistParam, 'Success message');
+            composable.updatePlaylist({} as PlaylistParam, 'Success message');
           });
 
           it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -315,7 +311,11 @@ describe('usePlaylist', () => {
       describe('when showMessage parameter is false', () => {
         beforeAll(() => {
           vi.clearAllMocks();
-          updatePlaylist({} as PlaylistParam, 'Success message', false);
+          composable.updatePlaylist(
+            {} as PlaylistParam,
+            'Success message',
+            false,
+          );
         });
 
         it('does not call the addSuccessSnack function', () => {
@@ -333,7 +333,7 @@ describe('usePlaylist', () => {
         data: null,
       });
 
-      deletePlaylist('id');
+      composable.deletePlaylist('id');
     });
 
     it('calls the getPlaylists function with the correct parameters', () => {
@@ -357,7 +357,7 @@ describe('usePlaylist', () => {
           },
         });
 
-        deletePlaylist('id');
+        composable.deletePlaylist('id');
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -371,7 +371,7 @@ describe('usePlaylist', () => {
   describe('when the addToPlaylist function is called', () => {
     describe('when fetchPlaylistTracks is true', () => {
       beforeAll(async () => {
-        await addToPlaylist({
+        await composable.addToPlaylist({
           playlistId: 'playlistId',
         });
       });
@@ -395,7 +395,7 @@ describe('usePlaylist', () => {
       beforeAll(async () => {
         vi.clearAllMocks();
 
-        await addToPlaylist(
+        await composable.addToPlaylist(
           {
             playlistId: 'playlistId',
           },
@@ -422,7 +422,7 @@ describe('usePlaylist', () => {
   describe('when the removeFromPlaylist function is called', () => {
     describe('when fetchPlaylistTracks is true', () => {
       beforeAll(async () => {
-        await removeFromPlaylist({
+        await composable.removeFromPlaylist({
           playlistId: 'playlistId',
         });
       });
@@ -446,7 +446,7 @@ describe('usePlaylist', () => {
       beforeAll(async () => {
         vi.clearAllMocks();
 
-        await removeFromPlaylist(
+        await composable.removeFromPlaylist(
           {
             playlistId: 'playlistId',
           },
@@ -474,7 +474,7 @@ describe('usePlaylist', () => {
     let handlers: Record<string, (...args: unknown[]) => Promise<void> | Ref>;
 
     beforeAll(() => {
-      addToPlaylistModal('trackId', 6);
+      composable.addToPlaylistModal('trackId', 6);
       handlers = openModalMock.mock.calls[0][1];
     });
 
@@ -494,7 +494,7 @@ describe('usePlaylist', () => {
 
     describe('when the onAddToPlaylist function is called', () => {
       beforeAll(() => {
-        playlist.value = playlistMock;
+        composable.playlist.value = playlistMock;
       });
 
       describe('when playlist matches current playlist', () => {
@@ -541,8 +541,8 @@ describe('usePlaylist', () => {
 
     describe('when the onRemoveFromPlaylist function is called', () => {
       beforeAll(() => {
-        playlists.value = playlistsMock;
-        playlist.value = playlistMock;
+        composable.playlists.value = playlistsMock;
+        composable.playlist.value = playlistMock;
       });
 
       describe('when playlist is not found', () => {
@@ -699,7 +699,7 @@ describe('usePlaylist', () => {
 
   describe('when the reorderPlaylistTracks function is called', () => {
     beforeAll(() => {
-      playlist.value = {
+      composable.playlist.value = {
         ...reorderPlaylist,
         tracks: [...reorderPlaylist.tracks],
       };
@@ -707,11 +707,11 @@ describe('usePlaylist', () => {
 
     describe('when moving the selected track forward', () => {
       beforeAll(async () => {
-        await reorderPlaylistTracks('playlist-123', 0, 2);
+        await composable.reorderPlaylistTracks('playlist-123', 0, 2);
       });
 
       it('sets the correct playlist tracks value', () => {
-        expect(playlist.value!.tracks).toEqual([
+        expect(composable.playlist.value!.tracks).toEqual([
           reorderPlaylist.tracks[1],
           reorderPlaylist.tracks[2],
           reorderPlaylist.tracks[0],
@@ -737,11 +737,11 @@ describe('usePlaylist', () => {
 
     describe('when moving the selected track backward', () => {
       beforeAll(async () => {
-        await reorderPlaylistTracks('playlist-123', 3, 1);
+        await composable.reorderPlaylistTracks('playlist-123', 3, 1);
       });
 
       it('sets the correct playlist tracks value', () => {
-        expect(playlist.value!.tracks).toEqual([
+        expect(composable.playlist.value!.tracks).toEqual([
           reorderPlaylist.tracks[1],
           reorderPlaylist.tracks[3],
           reorderPlaylist.tracks[2],
@@ -769,11 +769,11 @@ describe('usePlaylist', () => {
       beforeAll(async () => {
         vi.clearAllMocks();
 
-        await reorderPlaylistTracks('playlist-123', 1, 1);
+        await composable.reorderPlaylistTracks('playlist-123', 1, 1);
       });
 
       it('does not update the playlist tracks value', () => {
-        expect(playlist.value!.tracks).toEqual([
+        expect(composable.playlist.value!.tracks).toEqual([
           reorderPlaylist.tracks[1],
           reorderPlaylist.tracks[3],
           reorderPlaylist.tracks[2],
@@ -788,11 +788,11 @@ describe('usePlaylist', () => {
 
     describe('when an invalid fromIndex is provided', () => {
       beforeAll(async () => {
-        await reorderPlaylistTracks('playlist-123', -1, 0);
+        await composable.reorderPlaylistTracks('playlist-123', -1, 0);
       });
 
       it('does not update the playlist tracks value', () => {
-        expect(playlist.value!.tracks).toEqual([
+        expect(composable.playlist.value!.tracks).toEqual([
           reorderPlaylist.tracks[1],
           reorderPlaylist.tracks[3],
           reorderPlaylist.tracks[2],
@@ -807,11 +807,11 @@ describe('usePlaylist', () => {
 
     describe('when an invalid toIndex is provided', () => {
       beforeAll(async () => {
-        await reorderPlaylistTracks('playlist-123', 0, 5);
+        await composable.reorderPlaylistTracks('playlist-123', 0, 5);
       });
 
       it('does not update the playlist tracks value', () => {
-        expect(playlist.value!.tracks).toEqual([
+        expect(composable.playlist.value!.tracks).toEqual([
           reorderPlaylist.tracks[1],
           reorderPlaylist.tracks[3],
           reorderPlaylist.tracks[2],
@@ -824,10 +824,10 @@ describe('usePlaylist', () => {
       });
     });
 
-    describe('when playlist value is null', () => {
+    describe('when the playlist value is null', () => {
       beforeAll(async () => {
-        playlist.value = null;
-        await reorderPlaylistTracks('playlist-123', 0, 1);
+        composable.playlist.value = null;
+        await composable.reorderPlaylistTracks('playlist-123', 0, 1);
       });
 
       it('does not call the fetchData function', () => {
@@ -838,15 +838,15 @@ describe('usePlaylist', () => {
 
   describe('when the resetPlaylists function is called', () => {
     beforeAll(() => {
-      resetPlaylists();
+      composable.resetPlaylists();
     });
 
     it('sets the playlist value to the default value', () => {
-      expect(playlist.value).toEqual(null);
+      expect(composable.playlist.value).toBeNull();
     });
 
     it('sets the playlists value to the default value', () => {
-      expect(playlists.value).toEqual([]);
+      expect(composable.playlists.value).toEqual([]);
     });
   });
 });

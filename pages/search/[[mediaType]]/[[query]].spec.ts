@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import LoadingData from '@/components/Molecules/LoadingData.vue';
@@ -18,45 +17,65 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import SearchPage from './[[query]].vue';
 
-const addToPlaylistModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
+  autoLogin: vi.fn(),
+  isAuthenticated: ref(true),
+}));
+
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const searchMock = vi.fn();
+const searchMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSearch', () => () => ({
+mockNuxtImport('useSearch', (original) => () => ({
+  ...original(),
   search: searchMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
-const openTrackInformationModalMock = vi.fn();
+const { openAlbumInformationModalMock, openTrackInformationModalMock } =
+  vi.hoisted(() => ({
+    openAlbumInformationModalMock: vi.fn(),
+    openTrackInformationModalMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 const statusMock = ref('success');
 const searchResultsDataMock = ref<{
   searchResults: SearchResultByType[];
@@ -66,21 +85,11 @@ const searchResultsDataMock = ref<{
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: searchResultsDataMock,
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: statusMock,
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/search/albums/test-query',
-    params: {
-      mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums as string,
-      query: 'test-query',
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const { useHeadTitleMock } = useHeadMock();
 const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
@@ -90,8 +99,8 @@ const album = getFormattedAlbumsMock()[0];
 const albumTracks = getFormattedTracksMock(3);
 const track = getFormattedTracksMock()[0];
 
-function factory(props = {}) {
-  return mount(SearchPage, {
+async function factory(props = {}, route = '/search/albums/test-query') {
+  return mountSuspended(SearchPage, {
     global: {
       stubs: {
         AlbumsList: true,
@@ -102,14 +111,15 @@ function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
 }
 
 describe('[[query]]', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   afterEach(() => {
@@ -139,9 +149,9 @@ describe('[[query]]', () => {
   });
 
   describe('when status is pending', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       statusMock.value = 'pending';
-      wrapper = factory();
+      wrapper = await factory();
     });
 
     it('matches the snapshot', () => {
@@ -166,8 +176,8 @@ describe('[[query]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
-    beforeEach(() => {
-      wrapper = factory();
+    beforeEach(async () => {
+      wrapper = await factory();
     });
 
     it('sets the useHead function with correct title', () => {
@@ -256,20 +266,12 @@ describe('[[query]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Artists}`, () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       searchResultsDataMock.value = {
         searchResults: getFormattedArtistsMock(2),
       };
 
-      routeMock.mockReturnValue({
-        fullPath: '/search/artists/test-query',
-        params: {
-          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Artists,
-          query: 'test-query',
-        },
-      });
-
-      wrapper = factory();
+      wrapper = await factory({}, '/search/artists/test-query');
     });
 
     it('matches the snapshot', () => {
@@ -294,20 +296,12 @@ describe('[[query]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       searchResultsDataMock.value = {
         searchResults: getFormattedTracksMock(2),
       };
 
-      routeMock.mockReturnValue({
-        fullPath: '/search/tracks/test-query',
-        params: {
-          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-          query: 'test-query',
-        },
-      });
-
-      wrapper = factory();
+      wrapper = await factory({}, '/search/tracks/test-query');
     });
 
     it('matches the snapshot', () => {
@@ -401,12 +395,12 @@ describe('[[query]]', () => {
       });
 
       describe('when searchResults is not an empty array', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           searchResultsDataMock.value = {
             searchResults: getFormattedTracksMock(2),
           };
 
-          wrapper = factory();
+          wrapper = await factory();
         });
 
         it('matches the snapshot', () => {
@@ -421,12 +415,12 @@ describe('[[query]]', () => {
       });
 
       describe('when searchResults is an empty array', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           searchResultsDataMock.value = {
             searchResults: [],
           };
 
-          wrapper = factory();
+          wrapper = await factory();
         });
 
         it('matches the snapshot', () => {

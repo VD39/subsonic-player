@@ -17,47 +17,62 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import ArtistPage from './[[id]].vue';
 
-const openModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useModal', () => () => ({
+const openModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   openModal: openModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
-const openTrackInformationModalMock = vi.fn();
+const { openAlbumInformationModalMock, openTrackInformationModalMock } =
+  vi.hoisted(() => ({
+    openAlbumInformationModalMock: vi.fn(),
+    openTrackInformationModalMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
 const artistDataMock = ref<Artist | null>(null);
 
-mockNuxtImport('useArtist', () => () => ({
+mockNuxtImport('useArtist', (original) => () => ({
+  ...original(),
   getArtist: vi.fn().mockReturnValue({
     data: artistDataMock,
     status: ref('success'),

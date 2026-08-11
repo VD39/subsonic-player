@@ -3,8 +3,11 @@
 exports[`[[id]] > matches the snapshot 1`] = `
 "<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
 <div class="mainContent">
-  <div class="column centerAll noMediaMessage">
-    <phapplepodcastslogo size="50"></phapplepodcastslogo>
+  <div class="column centerAll noMediaMessage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="50" height="50" fill="currentColor">
+      <g>
+        <path d="M154.2,138.33a32,32,0,1,0-52.4,0,24.27,24.27,0,0,0-8.76,7,23.68,23.68,0,0,0-4.3,20.49l12.18,48A24.18,24.18,0,0,0,124.44,232h7.12a24.18,24.18,0,0,0,23.52-18.15l12.18-48a23.68,23.68,0,0,0-4.3-20.49A24.27,24.27,0,0,0,154.2,138.33ZM128,104a16,16,0,1,1-16,16A16,16,0,0,1,128,104Zm23.75,57.91-12.18,48a8.18,8.18,0,0,1-8,6.09h-7.12a8.18,8.18,0,0,1-8-6.09l-12.18-48a7.71,7.71,0,0,1,1.42-6.73,8.26,8.26,0,0,1,6.58-3.18h31.5a8.26,8.26,0,0,1,6.58,3.18A7.71,7.71,0,0,1,151.75,161.91ZM72,128a56.31,56.31,0,0,0,2,15,8,8,0,0,1-15.41,4.29,72,72,0,1,1,138.74,0A8,8,0,0,1,182,143,56,56,0,1,0,72,128Zm160,0a103.92,103.92,0,0,1-46.18,86.46,8,8,0,0,1-8.9-13.3,88,88,0,1,0-97.84,0,8,8,0,0,1-8.9,13.3A104,104,0,1,1,232,128Z"></path>
+      </g>
+    </svg>
     <p>No podcast found.</p>
   </div>
 </div>"
@@ -13,8 +16,11 @@ exports[`[[id]] > matches the snapshot 1`] = `
 exports[`[[id]] > when getPodcast does return data > when podcast does not have an key with route param id > matches the snapshot 1`] = `
 "<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><span class="visuallyHidden">Loading data</span></span></div>
 <div class="mainContent">
-  <div class="column centerAll noMediaMessage">
-    <phapplepodcastslogo size="50"></phapplepodcastslogo>
+  <div class="column centerAll noMediaMessage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="50" height="50" fill="currentColor">
+      <g>
+        <path d="M154.2,138.33a32,32,0,1,0-52.4,0,24.27,24.27,0,0,0-8.76,7,23.68,23.68,0,0,0-4.3,20.49l12.18,48A24.18,24.18,0,0,0,124.44,232h7.12a24.18,24.18,0,0,0,23.52-18.15l12.18-48a23.68,23.68,0,0,0-4.3-20.49A24.27,24.27,0,0,0,154.2,138.33ZM128,104a16,16,0,1,1-16,16A16,16,0,0,1,128,104Zm23.75,57.91-12.18,48a8.18,8.18,0,0,1-8,6.09h-7.12a8.18,8.18,0,0,1-8-6.09l-12.18-48a7.71,7.71,0,0,1,1.42-6.73,8.26,8.26,0,0,1,6.58-3.18h31.5a8.26,8.26,0,0,1,6.58,3.18A7.71,7.71,0,0,1,151.75,161.91ZM72,128a56.31,56.31,0,0,0,2,15,8,8,0,0,1-15.41,4.29,72,72,0,1,1,138.74,0A8,8,0,0,1,182,143,56,56,0,1,0,72,128Zm160,0a103.92,103.92,0,0,1-46.18,86.46,8,8,0,0,1-8.9-13.3,88,88,0,1,0-97.84,0,8,8,0,0,1-8.9,13.3A104,104,0,1,1,232,128Z"></path>
+      </g>
+    </svg>
     <p>No podcast found.</p>
   </div>
 </div>"
@@ -35,9 +41,11 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
           <h1>title</h1>
-          <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
-              <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
-            </button></div>
+          <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32" fill="currentColor" aria-hidden="true" class="icon">
+                <g>
+                  <path d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z"></path>
+                </g>
+              </svg><span class="clamp text visuallyHidden">Refresh page data</span></button></div>
         </div>
         <ul class="bulletList">
           <li> Podcast episodes: <span class="strong">1</span></li>
@@ -49,14 +57,18 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
             <!--v-if-->
           </div>
         </div>
-        <div class="list"><button class="centerItems buttonLink largeThemeHoverButton largeThemeHoverButton" draggable="false" type="button" id="play-all-button" title="Play podcast episodes">
-            <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play podcast episodes </span>
-          </button>
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
-            </button>
+        <div class="list"><button class="centerItems buttonLink largeThemeHoverButton largeThemeHoverButton" draggable="false" type="button" id="play-all-button" title="Play podcast episodes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+              <g>
+                <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+              </g>
+            </svg><span class="clamp text visuallyHidden"> Play podcast episodes </span></button>
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+                <g>
+                  <path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM128,72a12,12,0,1,0-12-12A12,12,0,0,0,128,72Zm0,112a12,12,0,1,0,12,12A12,12,0,0,0,128,184Z"></path>
+                </g>
+              </svg><span class="clamp text visuallyHidden"> More</span></button>
             <teleport-stub disabled="false" to="#teleports">
-              <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+              <div class="dropdownOverlay backdrop dropdown">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Play latest podcast episode </span>
@@ -115,9 +127,11 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
           <h1>title</h1>
-          <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
-              <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
-            </button></div>
+          <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32" fill="currentColor" aria-hidden="true" class="icon">
+                <g>
+                  <path d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z"></path>
+                </g>
+              </svg><span class="clamp text visuallyHidden">Refresh page data</span></button></div>
         </div>
         <ul class="bulletList">
           <li> Podcast episodes: <span class="strong">1</span></li>
@@ -125,14 +139,18 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
           <li> Downloaded podcast episodes: <span class="strong">1</span></li>
         </ul>
         <!--v-if-->
-        <div class="list"><button class="centerItems buttonLink largeThemeHoverButton largeThemeHoverButton" draggable="false" type="button" id="play-all-button" title="Play podcast episodes">
-            <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play podcast episodes </span>
-          </button>
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
-            </button>
+        <div class="list"><button class="centerItems buttonLink largeThemeHoverButton largeThemeHoverButton" draggable="false" type="button" id="play-all-button" title="Play podcast episodes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+              <g>
+                <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+              </g>
+            </svg><span class="clamp text visuallyHidden"> Play podcast episodes </span></button>
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+                <g>
+                  <path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM128,72a12,12,0,1,0-12-12A12,12,0,0,0,128,72Zm0,112a12,12,0,1,0,12,12A12,12,0,0,0,128,184Z"></path>
+                </g>
+              </svg><span class="clamp text visuallyHidden"> More</span></button>
             <teleport-stub disabled="false" to="#teleports">
-              <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+              <div class="dropdownOverlay backdrop dropdown">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
                       <!--v-if--><span class="clamp text"> Play latest podcast episode </span>
@@ -191,9 +209,11 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
       <div class="mBAllM detailsWrapper">
         <div class="centerItems spaceBetween">
           <h1>title</h1>
-          <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data">
-              <pharrowsclockwise aria-hidden="true" class="icon" size="32" weight="regular"></pharrowsclockwise><span class="clamp text visuallyHidden">Refresh page data</span>
-            </button></div>
+          <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" id="refresh-data-button" title="Refresh page data"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="32" height="32" fill="currentColor" aria-hidden="true" class="icon">
+                <g>
+                  <path d="M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z"></path>
+                </g>
+              </svg><span class="clamp text visuallyHidden">Refresh page data</span></button></div>
         </div>
         <ul class="bulletList">
           <li> Podcast episodes: <span class="strong">1</span></li>
@@ -205,14 +225,18 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
             <!--v-if-->
           </div>
         </div>
-        <div class="list"><button class="centerItems buttonLink disabled largeThemeHoverButton largeThemeHoverButton" disabled="" draggable="false" type="button" id="play-all-button" title="Play podcast episodes">
-            <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play podcast episodes </span>
-          </button>
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
-            </button>
+        <div class="list"><button class="centerItems buttonLink disabled largeThemeHoverButton largeThemeHoverButton" disabled="" draggable="false" type="button" id="play-all-button" title="Play podcast episodes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+              <g>
+                <path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path>
+              </g>
+            </svg><span class="clamp text visuallyHidden"> Play podcast episodes </span></button>
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" class="icon">
+                <g>
+                  <path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM128,72a12,12,0,1,0-12-12A12,12,0,0,0,128,72Zm0,112a12,12,0,1,0,12,12A12,12,0,0,0,128,184Z"></path>
+                </g>
+              </svg><span class="clamp text visuallyHidden"> More</span></button>
             <teleport-stub disabled="false" to="#teleports">
-              <div class="dropdownOverlay backdrop dropdown fade-enter-from fade-enter-active" style="left: 0px; top: 0px;">
+              <div class="dropdownOverlay backdrop dropdown">
                 <ul class="hasPointerEvents dropdownContent dropdownContent">
                   <!--v-if-->
                   <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">

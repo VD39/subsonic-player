@@ -1,4 +1,3 @@
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { config, RouterLinkStub } from '@vue/test-utils';
 import { vi } from 'vitest';
 
@@ -17,41 +16,17 @@ globalThis.MutationObserver = vi.fn().mockImplementation(function () {
   };
 });
 
-mockNuxtImport('callOnce', () => {
-  return <T>(cb: () => T) => {
-    cb();
-  };
-});
-
 vi.mock('crypto-js/md5', () => ({
   default: vi.fn().mockReturnValue('MD5'),
 }));
-
-mockNuxtImport('useAPI', () => () => ({
-  fetchData: vi.fn(() => ({
-    data: null,
-  })),
-  getDownloadUrl: vi.fn((path) => path),
-  getImageUrl: vi.fn((path) => path),
-  getStreamUrl: vi.fn((path) => path),
-}));
-
-mockNuxtImport('debounce', () => {
-  return <T extends (...args: unknown[]) => unknown>(cb: T) => {
-    const debounced = (...args: Parameters<T>) => cb(...args);
-
-    debounced.cancel = () => {};
-
-    return debounced;
-  };
-});
-
-mockNuxtImport('useId', () => () => Math.random().toString(36).substring(2));
 
 config.global.stubs = {
   RouterLink: RouterLinkStub,
   teleport: true,
 };
 
-vi.stubGlobal('defineEventHandler', (func: unknown) => func);
-vi.stubGlobal('getQuery', () => ({ id: 'id' }));
+vi.stubGlobal('defineEventHandler', (handler: unknown) => handler);
+
+vi.stubGlobal('getQuery', () => ({
+  id: 'id',
+}));

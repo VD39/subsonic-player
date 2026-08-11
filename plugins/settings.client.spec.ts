@@ -1,15 +1,20 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { windowEventListenerMock } from '@/test/eventListenersMock';
+import { matchMediaMock } from '@/test/matchMediaMock';
 
 import settingsPlugin from './settings.client';
 
-const applyThemePreferenceMock = vi.fn();
-const loadSettingsMock = vi.fn();
-const syncFromStorageMock = vi.fn();
+const { applyThemePreferenceMock, loadSettingsMock, syncFromStorageMock } =
+  vi.hoisted(() => ({
+    applyThemePreferenceMock: vi.fn(),
+    loadSettingsMock: vi.fn(),
+    syncFromStorageMock: vi.fn(),
+  }));
 const themePreferenceMock = ref('auto');
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   applyThemePreference: applyThemePreferenceMock,
   loadSettings: loadSettingsMock,
   syncFromStorage: syncFromStorageMock,
@@ -24,16 +29,7 @@ const nuxtApp = {
   }),
 } as never;
 
-let colorSchemeChangeCallback: () => void;
-
-Object.defineProperty(globalThis, 'matchMedia', {
-  value: vi.fn(() => ({
-    addEventListener: vi.fn((_event: string, cb: () => void) => {
-      colorSchemeChangeCallback = cb;
-    }),
-  })),
-  writable: true,
-});
+const { triggerChangeEvent } = matchMediaMock();
 
 const requestAnimationFrameSpy = vi
   .spyOn(globalThis, 'requestAnimationFrame')
@@ -115,7 +111,7 @@ describe('settings.client plugin', () => {
     describe('when the themePreference value is auto', () => {
       beforeEach(() => {
         themePreferenceMock.value = 'auto';
-        colorSchemeChangeCallback();
+        triggerChangeEvent();
       });
 
       it('calls the applyThemePreference function', () => {
@@ -126,7 +122,7 @@ describe('settings.client plugin', () => {
     describe('when the themePreference value is dark', () => {
       beforeEach(() => {
         themePreferenceMock.value = 'dark';
-        colorSchemeChangeCallback();
+        triggerChangeEvent();
       });
 
       afterEach(() => {

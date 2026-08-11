@@ -1,20 +1,16 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import { abortControllerMock } from '@/test/abortControllerMock';
+import { matchMediaMock } from '@/test/matchMediaMock';
 import { refElementMock } from '@/test/refElementMock';
 import { requestAnimationFrameMock } from '@/test/requestAnimationFrameMock';
 import { withSetup } from '@/test/withSetup';
 
 import { useDropdownSubmenu } from './submenu';
 
-const matchesMock = ref(false);
+vi.useFakeTimers();
 
-Object.defineProperty(globalThis, 'matchMedia', {
-  value: vi.fn(() => ({
-    matches: matchesMock.value,
-  })),
-  writable: true,
-});
+const { matchesMock } = matchMediaMock();
 
 const menuOpenRevision = ref(0);
 
@@ -30,24 +26,24 @@ const dropdownSubListRef = refElementMock();
 const dropdownSubmenuRef = refElementMock();
 
 describe('useDropdownSubmenu', () => {
-  let result: ReturnType<
-    typeof withSetup<ReturnType<typeof useDropdownSubmenu>>
+  let result: Awaited<
+    ReturnType<typeof withSetup<ReturnType<typeof useDropdownSubmenu>>>
   >;
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
-  beforeEach(() => {
+  beforeEach(async () => {
     menuOpenRevision.value = 0;
     matchesMock.value = true;
 
-    result = withSetup(() =>
+    result = await withSetup(() =>
       useDropdownSubmenu({
         dropdownSubListRef: dropdownSubListRef.refMock,
         dropdownSubmenuRef: dropdownSubmenuRef.refMock,
       }),
     );
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it('sets the default isOpen value', () => {
@@ -64,8 +60,8 @@ describe('useDropdownSubmenu', () => {
 
   describe('when the openSubmenu function is called', () => {
     describe('when the isHoverDevice value is true', () => {
-      beforeEach(() => {
-        result = withSetup(() =>
+      beforeEach(async () => {
+        result = await withSetup(() =>
           useDropdownSubmenu({
             dropdownSubListRef: dropdownSubListRef.refMock,
             dropdownSubmenuRef: dropdownSubmenuRef.refMock,
@@ -79,7 +75,7 @@ describe('useDropdownSubmenu', () => {
 
       describe('when the submenu list element is not available', () => {
         beforeEach(async () => {
-          result = withSetup(() =>
+          result = await withSetup(() =>
             useDropdownSubmenu({
               dropdownSubListRef: ref(null),
               dropdownSubmenuRef: dropdownSubmenuRef.refMock,
@@ -97,7 +93,7 @@ describe('useDropdownSubmenu', () => {
 
       describe('when the submenu trigger element is not available', () => {
         beforeEach(async () => {
-          result = withSetup(() =>
+          result = await withSetup(() =>
             useDropdownSubmenu({
               dropdownSubListRef: dropdownSubListRef.refMock,
               dropdownSubmenuRef: ref(null),
@@ -114,6 +110,15 @@ describe('useDropdownSubmenu', () => {
       });
 
       describe('when both submenu elements are available', () => {
+        beforeEach(async () => {
+          result = await withSetup(() =>
+            useDropdownSubmenu({
+              dropdownSubListRef: dropdownSubListRef.refMock,
+              dropdownSubmenuRef: dropdownSubmenuRef.refMock,
+            }),
+          );
+        });
+
         describe('when the submenu fits within the viewport on both axes', () => {
           beforeEach(async () => {
             dropdownSubmenuRef.getBoundingClientRectMock.mockReturnValueOnce({
@@ -373,7 +378,7 @@ describe('useDropdownSubmenu', () => {
 
         describe('when the submenu has no parent list element', () => {
           beforeEach(async () => {
-            result = withSetup(() =>
+            result = await withSetup(() =>
               useDropdownSubmenu({
                 dropdownSubListRef: dropdownSubListRef.refMock,
                 dropdownSubmenuRef: ref({
@@ -432,6 +437,8 @@ describe('useDropdownSubmenu', () => {
               dropdownSubmenuRef.refMockElementEvent.mouseover({
                 target: document.body,
               });
+
+              vi.runAllTimers();
             });
 
             it('sets the isOpen value to false', () => {
@@ -514,7 +521,7 @@ describe('useDropdownSubmenu', () => {
       beforeEach(async () => {
         matchesMock.value = false;
 
-        result = withSetup(() =>
+        result = await withSetup(() =>
           useDropdownSubmenu({
             dropdownSubListRef: dropdownSubListRef.refMock,
             dropdownSubmenuRef: dropdownSubmenuRef.refMock,
@@ -550,10 +557,10 @@ describe('useDropdownSubmenu', () => {
     });
 
     describe('when the isHoverDevice value is false', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         matchesMock.value = false;
 
-        result = withSetup(() =>
+        result = await withSetup(() =>
           useDropdownSubmenu({
             dropdownSubListRef: dropdownSubListRef.refMock,
             dropdownSubmenuRef: dropdownSubmenuRef.refMock,
@@ -573,7 +580,9 @@ describe('useDropdownSubmenu', () => {
     beforeEach(async () => {
       await result.composable.openSubmenu();
       menuOpenRevision.value++;
+
       await nextTick();
+
       triggerAnimationFrame();
     });
 
@@ -599,7 +608,7 @@ describe('useDropdownSubmenu', () => {
       beforeEach(async () => {
         vi.clearAllMocks();
 
-        result = withSetup(() =>
+        result = await withSetup(() =>
           useDropdownSubmenu({
             dropdownSubListRef: dropdownSubListRef.refMock,
             dropdownSubmenuRef: ref(null) as unknown as Ref<HTMLElement | null>,
@@ -608,7 +617,9 @@ describe('useDropdownSubmenu', () => {
 
         await result.composable.openSubmenu();
         menuOpenRevision.value++;
+
         await nextTick();
+
         triggerAnimationFrame();
       });
 

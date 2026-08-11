@@ -91,6 +91,7 @@ export function useDragAndDrop() {
     if (draggedElement.value) {
       draggedElement.value.style.opacity = '1';
     }
+
     draggedElement.value = null;
     clonedElement.value = null;
 

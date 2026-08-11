@@ -10,7 +10,7 @@ describe('doubleClick', () => {
     vi.runOnlyPendingTimers();
   });
 
-  describe('when doubleClick is called once', () => {
+  describe('when the doubleClick function is called once', () => {
     beforeEach(() => {
       doubleClick(callbackMock);
     });
@@ -20,7 +20,7 @@ describe('doubleClick', () => {
     });
   });
 
-  describe('when doubleClick is called again after 250ms', () => {
+  describe('when the doubleClick function is called again after 250ms', () => {
     beforeEach(() => {
       doubleClick(callbackMock);
       vi.advanceTimersByTime(300);
@@ -32,7 +32,7 @@ describe('doubleClick', () => {
     });
   });
 
-  describe('when doubleClick is called again within 250ms', () => {
+  describe('when the doubleClick function is called again within 250ms', () => {
     beforeEach(() => {
       doubleClick(callbackMock);
       doubleClick(callbackMock);

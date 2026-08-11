@@ -30,7 +30,7 @@ describe('fetchAndMergeArtistData', () => {
     });
 
     it('returns the correct response', async () => {
-      expect(await fetchAndMergeArtistData('id', fetchFnMock)).toBe(null);
+      expect(await fetchAndMergeArtistData('id', fetchFnMock)).toBeNull();
     });
   });
 
@@ -50,7 +50,7 @@ describe('fetchAndMergeArtistData', () => {
     });
 
     it('returns the correct response', async () => {
-      expect(await fetchAndMergeArtistData('id', fetchFnMock)).toBe(null);
+      expect(await fetchAndMergeArtistData('id', fetchFnMock)).toBeNull();
     });
   });
 

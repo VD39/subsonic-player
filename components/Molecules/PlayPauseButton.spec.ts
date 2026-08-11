@@ -36,7 +36,7 @@ describe('PlayPauseButton', () => {
     wrapper = factory();
   });
 
-  describe('when isBuffering value is false', () => {
+  describe('when the isBuffering value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -52,7 +52,7 @@ describe('PlayPauseButton', () => {
     describe.each([
       [false, buttonProps.false],
       [true, buttonProps.true],
-    ])('when shuffle value is set to %s', (shuffle, buttonProps) => {
+    ])('when the shuffle value is set to %s', (shuffle, buttonProps) => {
       beforeEach(() => {
         isPlayingMock.value = shuffle;
       });
@@ -91,7 +91,7 @@ describe('PlayPauseButton', () => {
     });
   });
 
-  describe('when isBuffering value is true', () => {
+  describe('when the isBuffering value is true', () => {
     beforeEach(() => {
       isBufferingMock.value = true;
     });

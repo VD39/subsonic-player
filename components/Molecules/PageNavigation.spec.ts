@@ -38,7 +38,7 @@ describe('PageNavigation', () => {
   });
 
   it('shows the correct number of the ButtonLink component', () => {
-    expect(wrapper.findAllComponents(ButtonLink).length).toBe(2);
+    expect(wrapper.findAllComponents(ButtonLink)).toHaveLength(2);
   });
 
   it('sets the correct to prop on the RouterLink component', () => {
@@ -49,6 +49,7 @@ describe('PageNavigation', () => {
         id: '/to',
       },
     });
+
     expect(router[1].props('to')).toEqual({
       params: {
         id: '/to1',

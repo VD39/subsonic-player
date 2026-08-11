@@ -31,7 +31,7 @@ describe('PlayerOptions', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isRadioStation value is true', () => {
+  describe('when the isRadioStation value is true', () => {
     beforeEach(() => {
       isRadioStationMock.value = true;
     });
@@ -49,7 +49,7 @@ describe('PlayerOptions', () => {
     });
   });
 
-  describe('when isRadioStation value is false', () => {
+  describe('when the isRadioStation value is false', () => {
     beforeEach(() => {
       isRadioStationMock.value = false;
     });
@@ -63,13 +63,13 @@ describe('PlayerOptions', () => {
     });
   });
 
-  describe('when isPodcastEpisode value is false', () => {
+  describe('when the isPodcastEpisode value is false', () => {
     it('does not show the PlaybackRateButton component', () => {
       expect(wrapper.findComponent(PlaybackRateButton).exists()).toBe(false);
     });
   });
 
-  describe('when isPodcastEpisode value is true', () => {
+  describe('when the isPodcastEpisode value is true', () => {
     beforeEach(() => {
       isPodcastEpisodeMock.value = true;
     });
@@ -83,13 +83,13 @@ describe('PlayerOptions', () => {
     });
   });
 
-  describe('when currentTrack value does have a favourite key', () => {
+  describe('when the currentTrack value does have a favourite key', () => {
     it('shows the FavouriteButton component', () => {
       expect(wrapper.findComponent(FavouriteButton).exists()).toBe(true);
     });
   });
 
-  describe('when currentTrack value does not have a favourite key', () => {
+  describe('when the currentTrack value does not have a favourite key', () => {
     beforeEach(() => {
       delete (currentTrackMock.value as Partial<Track>).favourite;
     });

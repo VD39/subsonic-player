@@ -21,7 +21,7 @@ exports[`VolumeControl > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`VolumeControl > when isMuted value is true > matches the snapshot 1`] = `
+exports[`VolumeControl > when the isMuted value is true > matches the snapshot 1`] = `
 "<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Unmute</span>
   </button>
@@ -42,7 +42,7 @@ exports[`VolumeControl > when isMuted value is true > matches the snapshot 1`] =
 </div>"
 `;
 
-exports[`VolumeControl > when volume value is 0 > matches the snapshot 1`] = `
+exports[`VolumeControl > when the volume value is 0 > matches the snapshot 1`] = `
 "<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerx aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerx><span class="clamp text visuallyHidden">Unmute</span>
   </button>
@@ -63,7 +63,7 @@ exports[`VolumeControl > when volume value is 0 > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`VolumeControl > when volume value is 0.1 > matches the snapshot 1`] = `
+exports[`VolumeControl > when the volume value is 0.1 > matches the snapshot 1`] = `
 "<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakernone aria-hidden="true" class="icon" size="24" weight="regular"></phspeakernone><span class="clamp text visuallyHidden">Unmute</span>
   </button>
@@ -84,7 +84,7 @@ exports[`VolumeControl > when volume value is 0.1 > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`VolumeControl > when volume value is 0.3 > matches the snapshot 1`] = `
+exports[`VolumeControl > when the volume value is 0.3 > matches the snapshot 1`] = `
 "<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerlow aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerlow><span class="clamp text visuallyHidden">Unmute</span>
   </button>
@@ -105,7 +105,7 @@ exports[`VolumeControl > when volume value is 0.3 > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`VolumeControl > when volume value is 0.6 > matches the snapshot 1`] = `
+exports[`VolumeControl > when the volume value is 0.6 > matches the snapshot 1`] = `
 "<div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Unmute">
     <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Unmute</span>
   </button>

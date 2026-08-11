@@ -7,7 +7,8 @@ import HotkeyMappings from './HotkeyMappings.vue';
 
 const isHotkeyListOpenedMock = ref(false);
 
-mockNuxtImport('useHotkeyManager', () => () => ({
+mockNuxtImport('useHotkeyManager', (original) => () => ({
+  ...original(),
   HOTKEY_MAPPINGS: [
     {
       Test: [
@@ -46,7 +47,7 @@ describe('HotkeyMappings', () => {
     wrapper = factory();
   });
 
-  describe('when isHotkeyListOpened is false', () => {
+  describe('when the isHotkeyListOpened value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -60,7 +61,7 @@ describe('HotkeyMappings', () => {
     });
   });
 
-  describe('when isHotkeyListOpened is true', () => {
+  describe('when the isHotkeyListOpened value is true', () => {
     beforeEach(() => {
       isHotkeyListOpenedMock.value = true;
     });

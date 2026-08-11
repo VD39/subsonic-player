@@ -4,20 +4,19 @@ import { useScrollLock } from './index';
 
 const { addClassMock, removeClassMock } = classListMock();
 
-const {
-  lockScroll: lockScrollWithoutGlobalClass,
-  unlockScroll: unlockScrollWithoutGlobalClass,
-} = useScrollLock('no-class');
-
-const {
-  lockScroll: lockScrollWithGlobalClass,
-  unlockScroll: unlockScrollWithGlobalClass,
-} = useScrollLock('with-global-class', [
-  'global-class',
-  'another-global-class',
-]);
-
 describe('useScrollLock', () => {
+  let composableWithoutGlobalClass: ReturnType<typeof useScrollLock>;
+  let composableWithGlobalClass: ReturnType<typeof useScrollLock>;
+
+  beforeAll(() => {
+    composableWithoutGlobalClass = useScrollLock('no-class');
+
+    composableWithGlobalClass = useScrollLock('with-global-class', [
+      'global-class',
+      'another-global-class',
+    ]);
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -25,7 +24,7 @@ describe('useScrollLock', () => {
   describe('when the lockScroll function is called', () => {
     describe('when no bodyClasses parameter is provided', () => {
       beforeAll(() => {
-        lockScrollWithoutGlobalClass();
+        composableWithoutGlobalClass.lockScroll();
       });
 
       it('only adds the lockScroll class to the document.body', () => {
@@ -36,7 +35,7 @@ describe('useScrollLock', () => {
 
     describe('when a bodyClasses parameter is provided', () => {
       beforeAll(() => {
-        lockScrollWithGlobalClass();
+        composableWithGlobalClass.lockScroll();
       });
 
       it('adds the bodyClasses parameter to the document.body', () => {
@@ -53,9 +52,9 @@ describe('useScrollLock', () => {
       beforeAll(() => {
         // Call both unlock functions to ensure that the lockScroll
         // class is removed when all locks are released.
-        unlockScrollWithGlobalClass();
+        composableWithGlobalClass.unlockScroll();
         vi.clearAllMocks();
-        unlockScrollWithoutGlobalClass();
+        composableWithoutGlobalClass.unlockScroll();
       });
 
       it('only removes the lockScroll class from the document.body', () => {
@@ -68,8 +67,8 @@ describe('useScrollLock', () => {
       beforeAll(() => {
         // Call both unlock functions to ensure that the lockScroll
         // class and globalClasses are removed when all locks are released.
-        unlockScrollWithoutGlobalClass();
-        unlockScrollWithGlobalClass();
+        composableWithoutGlobalClass.unlockScroll();
+        composableWithGlobalClass.unlockScroll();
       });
 
       it('removes the bodyClasses parameter from the document.body', () => {
@@ -84,9 +83,9 @@ describe('useScrollLock', () => {
   describe('when the lockScroll function is called multiple times', () => {
     describe('when the unlockScroll function is called once', () => {
       beforeAll(() => {
-        lockScrollWithoutGlobalClass();
-        lockScrollWithGlobalClass();
-        unlockScrollWithoutGlobalClass();
+        composableWithoutGlobalClass.lockScroll();
+        composableWithGlobalClass.lockScroll();
+        composableWithoutGlobalClass.unlockScroll();
       });
 
       it('does not remove the lockScroll class from the document.body', () => {
@@ -96,7 +95,7 @@ describe('useScrollLock', () => {
 
     describe('when the unlockScroll function is called for all locks', () => {
       beforeAll(() => {
-        unlockScrollWithGlobalClass();
+        composableWithGlobalClass.unlockScroll();
       });
 
       it('removes the lockScroll class from the document.body', () => {
@@ -107,10 +106,10 @@ describe('useScrollLock', () => {
 
   describe('when the same unlockScroll function is called multiple times', () => {
     beforeAll(() => {
-      lockScrollWithoutGlobalClass();
-      lockScrollWithGlobalClass();
-      unlockScrollWithoutGlobalClass();
-      unlockScrollWithoutGlobalClass();
+      composableWithoutGlobalClass.lockScroll();
+      composableWithGlobalClass.lockScroll();
+      composableWithoutGlobalClass.lockScroll();
+      composableWithoutGlobalClass.unlockScroll();
     });
 
     it('does not remove the lockScroll class from the document.body', () => {

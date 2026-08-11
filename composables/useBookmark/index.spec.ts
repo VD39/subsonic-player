@@ -6,42 +6,44 @@ import { getFormattedBookmarksMock } from '@/test/helpers';
 
 import { useBookmark } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
   getDownloadUrl: vi.fn((path) => path),
 }));
 
-const addSuccessSnackMock = vi.fn();
+const addSuccessSnackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSnack', () => () => ({
+mockNuxtImport('useSnack', (original) => () => ({
+  ...original(),
   addSuccessSnack: addSuccessSnackMock,
 }));
-
-const {
-  bookmarks,
-  createBookmark,
-  deleteBookmark,
-  getBookmarkPosition,
-  getBookmarks,
-  resetBookmarks,
-} = useBookmark();
 
 const bookmarksMock = getFormattedBookmarksMock(3, {
   position: 123,
 });
+
 const bookmark = bookmarksMock[0];
 
 describe('useBookmark', () => {
+  let composable: ReturnType<typeof useBookmark>;
+
+  beforeAll(() => {
+    composable = useBookmark();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default bookmarks value', () => {
-    expect(bookmarks.value).toEqual([]);
+    expect(composable.bookmarks.value).toEqual([]);
   });
 
   describe('when the getBookmarks function is called', () => {
@@ -51,11 +53,11 @@ describe('useBookmark', () => {
           data: null,
         });
 
-        await getBookmarks();
+        await composable.getBookmarks();
       });
 
       it('sets the correct bookmarks value', () => {
-        expect(bookmarks.value).toEqual([]);
+        expect(composable.bookmarks.value).toEqual([]);
       });
     });
 
@@ -65,18 +67,18 @@ describe('useBookmark', () => {
           data: bookmarksMock,
         });
 
-        await getBookmarks();
+        await composable.getBookmarks();
       });
 
       it('sets the correct bookmarks value', () => {
-        expect(bookmarks.value).toEqual(bookmarksMock);
+        expect(composable.bookmarks.value).toEqual(bookmarksMock);
       });
     });
   });
 
   describe('when the createBookmark function is called', () => {
     beforeEach(() => {
-      createBookmark(bookmark.id, 12345);
+      composable.createBookmark(bookmark.id, 12345);
     });
 
     describe('when fetchData response returns null', () => {
@@ -85,7 +87,7 @@ describe('useBookmark', () => {
           data: null,
         });
 
-        createBookmark(bookmark.id, 12345);
+        composable.createBookmark(bookmark.id, 12345);
       });
 
       it('calls the getBookmarks function', () => {
@@ -103,7 +105,7 @@ describe('useBookmark', () => {
         data: null,
       });
 
-      deleteBookmark(bookmark.id);
+      composable.deleteBookmark(bookmark.id);
     });
 
     it('calls the getBookmarks function', () => {
@@ -125,18 +127,18 @@ describe('useBookmark', () => {
           data: bookmark,
         });
 
-        deleteBookmark(bookmark.id, false);
+        composable.deleteBookmark(bookmark.id, false);
       });
 
-      describe('when showMessage is false', () => {
+      describe('when the showMessage value is false', () => {
         it('does not call the addSuccessSnack function', () => {
           expect(addSuccessSnackMock).not.toHaveBeenCalled();
         });
       });
 
-      describe('when showMessage is true', () => {
+      describe('when the showMessage value is true', () => {
         beforeEach(() => {
-          deleteBookmark(bookmark.id);
+          composable.deleteBookmark(bookmark.id);
         });
 
         it('calls the addSuccessSnack function', () => {
@@ -150,32 +152,34 @@ describe('useBookmark', () => {
 
   describe('when the resetBookmarks function is called', () => {
     beforeEach(() => {
-      resetBookmarks();
+      composable.resetBookmarks();
     });
 
     it('sets the bookmarks value to the default value', () => {
-      expect(bookmarks.value).toEqual([]);
+      expect(composable.bookmarks.value).toEqual([]);
     });
   });
 
   describe('when the getBookmarkPosition function is called', () => {
     describe('when a bookmark with the given id exists', () => {
       beforeEach(() => {
-        bookmarks.value = bookmarksMock;
+        composable.bookmarks.value = bookmarksMock;
       });
 
       it('returns the correct response', () => {
-        expect(getBookmarkPosition(bookmark.id)).toBe(123);
+        expect(composable.getBookmarkPosition(bookmark.id)).toBe(123);
       });
     });
 
     describe('when no bookmark with the given id exists', () => {
       beforeEach(() => {
-        bookmarks.value = [];
+        composable.bookmarks.value = [];
       });
 
       it('returns the correct response', () => {
-        expect(getBookmarkPosition('non-existent-id')).toBeUndefined();
+        expect(
+          composable.getBookmarkPosition('non-existent-id'),
+        ).toBeUndefined();
       });
     });
   });

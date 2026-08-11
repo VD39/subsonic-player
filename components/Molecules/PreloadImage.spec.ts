@@ -1,11 +1,17 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import IconImage from '@/components/Atoms/IconImage.vue';
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
 import PreloadImage from './PreloadImage.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 function factory(props = {}) {
   return mount(PreloadImage, {
@@ -77,7 +83,9 @@ describe('PreloadImage', () => {
       });
 
       it('adds the IntersectionObserver function', () => {
-        expect(iOMock.observeMock).toHaveBeenCalled();
+        expect(iOMock.observeMock).toHaveBeenCalledWith(
+          wrapper.find({ ref: 'preloadImageRef' }).element,
+        );
       });
 
       describe('when intersectionObserver is not intersecting', () => {
@@ -120,7 +128,8 @@ describe('PreloadImage', () => {
         describe('when image has finished loading', () => {
           beforeEach(async () => {
             await wrapper.find({ ref: 'img' }).trigger('load');
-            await wrapper.vm.$nextTick();
+
+            await nextTick();
           });
 
           it('matches the snapshot', () => {
@@ -200,7 +209,8 @@ describe('PreloadImage', () => {
       describe('when the image has finished loading', () => {
         beforeEach(async () => {
           await wrapper.find({ ref: 'img' }).trigger('load');
-          await wrapper.vm.$nextTick();
+
+          await nextTick();
         });
 
         it('matches the snapshot', () => {

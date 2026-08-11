@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -7,6 +8,11 @@ import BookmarksTracksListItem from '@/components/Organisms/TrackLists/Bookmarks
 import { getFormattedBookmarksMock } from '@/test/helpers';
 
 import BookmarksTracksList from './BookmarksTracksList.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const bookmarks = getFormattedBookmarksMock(5);
 const bookmark = bookmarks[0];
@@ -57,7 +63,9 @@ describe('BookmarksTracksList', () => {
     });
 
     it('shows the correct number of bookmark items', () => {
-      expect(wrapper.findAllComponents(BookmarksTracksListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(BookmarksTracksListItem)).toHaveLength(
+        5,
+      );
     });
 
     it('does not show the NoMediaMessage component', () => {
@@ -75,7 +83,7 @@ describe('BookmarksTracksList', () => {
     ])(
       'when the BookmarksTracksListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(BookmarksTracksListItem).vm.$emit(eventName);
         });
 

@@ -2,9 +2,10 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import errorHandlerPlugin from './error-handler.client';
 
-const logErrorMock = vi.fn();
+const logErrorMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useErrorHandler', () => () => ({
+mockNuxtImport('useErrorHandler', (original) => () => ({
+  ...original(),
   logError: logErrorMock,
 }));
 

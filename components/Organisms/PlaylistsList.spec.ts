@@ -53,7 +53,7 @@ describe('PlaylistsList', () => {
     });
 
     it('shows the correct number of playlist items', () => {
-      expect(wrapper.findAllComponents(PlaylistsListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(PlaylistsListItem)).toHaveLength(5);
     });
 
     it('does not show the NoMediaMessage component', () => {
@@ -66,7 +66,7 @@ describe('PlaylistsList', () => {
     ])(
       'when the PlaylistsListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(PlaylistsListItem).vm.$emit(eventName);
         });
 

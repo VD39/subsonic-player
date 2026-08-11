@@ -1,33 +1,32 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
+import { useRouterMock } from '@/test/useRouterMock';
 
 import EntryHeader from './EntryHeader.vue';
 
-let onDragStartMock: typeof vi.fn | undefined = undefined;
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-vi.mock('vue', async () => {
-  const vue = await vi.importActual<typeof import('vue')>('vue');
+const { routerMock } = useRouterMock();
 
-  return {
-    ...vue,
-    getCurrentInstance: vi.fn(() => ({
-      ...vue.getCurrentInstance(),
-      vnode: {
-        props: {
-          onDragStart: onDragStartMock,
-        },
-      },
-    })),
-  };
-});
+mockNuxtImport('useNuxtApp', (original) => () => ({
+  ...original(),
+  $router: routerMock,
+}));
+
+let onDragStartMock: ((event: DragEvent) => unknown) | undefined;
 
 function factory(props = {}) {
   return mount(EntryHeader, {
     props: {
       images: ['image'],
+      onDragStart: onDragStartMock,
       title: 'title',
       ...props,
     },
@@ -65,7 +64,7 @@ describe('EntryHeader', () => {
     });
 
     it('shows the correct number of the PreloadImage component', () => {
-      expect(wrapper.findAll('[data-test-id="image"]').length).toBe(3);
+      expect(wrapper.findAll('[data-test-id="image"]')).toHaveLength(3);
     });
   });
 
@@ -82,7 +81,7 @@ describe('EntryHeader', () => {
       });
 
       it('does not emit the dragStart event', () => {
-        expect(wrapper.emitted('dragStart')).toBe(undefined);
+        expect(wrapper.emitted('dragStart')).toBeUndefined();
       });
     });
   });
@@ -90,6 +89,7 @@ describe('EntryHeader', () => {
   describe('when the onDragStart event is attached', () => {
     beforeEach(() => {
       onDragStartMock = vi.fn();
+      wrapper = factory();
     });
 
     it('matches the snapshot', () => {

@@ -11,27 +11,36 @@ import { useQueueMock } from '@/test/useQueueMock';
 
 import QueuePage from './queue.vue';
 
-const addToPlaylistModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('usePlaylist', () => () => ({
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
@@ -74,8 +83,8 @@ describe('queue', () => {
   });
 
   describe('when the ButtonLink is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'clearQueueButton' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'clearQueueButton' }).trigger('click');
     });
 
     it('calls the resetPlayerSession function', () => {

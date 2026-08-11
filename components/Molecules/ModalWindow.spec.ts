@@ -9,7 +9,8 @@ import ModalWindow from './ModalWindow.vue';
 
 const modalMock = ref({});
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   closeModal: vi.fn(() => (modalMock.value = {})),
   modal: modalMock,
 }));
@@ -150,7 +151,7 @@ describe('ModalWindow', () => {
         }),
       };
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
     });
 
     it('focuses the first input element', () => {
@@ -179,7 +180,7 @@ describe('ModalWindow', () => {
           }),
         };
 
-        await wrapper.vm.$nextTick();
+        await nextTick();
       });
 
       it('focuses the next enabled input element', () => {
@@ -198,7 +199,7 @@ describe('ModalWindow', () => {
         }),
       };
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
     });
 
     it('does not focus an input element', () => {

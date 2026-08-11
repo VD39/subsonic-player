@@ -7,8 +7,15 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 import DropdownMenu from './DropdownMenu.vue';
 
-const closeDropdownMenuMock = vi.fn();
-const openDropdownMenuMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
+const { closeDropdownMenuMock, openDropdownMenuMock } = vi.hoisted(() => ({
+  closeDropdownMenuMock: vi.fn(),
+  openDropdownMenuMock: vi.fn(),
+}));
 const isOpenMock = ref(false);
 const menuStyleMock = ref<Record<string, string>>({});
 
@@ -19,7 +26,7 @@ mockNuxtImport('useDropdownMenu', () => () => ({
   openDropdownMenu: openDropdownMenuMock,
 }));
 
-function factory(props = {}) {
+function factory(props = {}, slots = {}) {
   return mount(DropdownMenu, {
     attachTo: document.body,
     props: {
@@ -27,6 +34,7 @@ function factory(props = {}) {
     },
     slots: {
       default: 'Default slot content.',
+      ...slots,
     },
   });
 }
@@ -46,16 +54,17 @@ describe('DropdownMenu', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isOpen is false', () => {
+  describe('when the isOpen value is false', () => {
     it('does not show the dropdown list element', () => {
       expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
     });
   });
 
-  describe('when isOpen changes to true', () => {
+  describe('when the isOpen value changes to true', () => {
     beforeAll(async () => {
       isOpenMock.value = true;
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -66,10 +75,11 @@ describe('DropdownMenu', () => {
       expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(true);
     });
 
-    describe('when isOpen changes to false', () => {
+    describe('when the isOpen value changes to false', () => {
       beforeAll(async () => {
         isOpenMock.value = false;
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
       });
 
       it('matches the snapshot', () => {
@@ -87,7 +97,7 @@ describe('DropdownMenu', () => {
       isOpenMock.value = true;
       menuStyleMock.value = {};
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
     });
 
     it('does not add any style on the dropdown list element', () => {
@@ -109,7 +119,7 @@ describe('DropdownMenu', () => {
         top: '10px',
       };
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -118,6 +128,7 @@ describe('DropdownMenu', () => {
 
     it('sets the correct style on the dropdown list element', () => {
       const dropdownElement = wrapper.find({ ref: 'dropdownListRef' });
+
       expect(dropdownElement.attributes('style')).toContain('top: 10px;');
       expect(dropdownElement.attributes('style')).toContain('left: 20px;');
     });
@@ -136,7 +147,7 @@ describe('DropdownMenu', () => {
   });
 
   describe('when the ButtonLink component is clicked', () => {
-    describe('when isOpen is false', () => {
+    describe('when the isOpen value is false', () => {
       beforeEach(async () => {
         isOpenMock.value = false;
         await wrapper.findComponent(ButtonLink).trigger('click');
@@ -151,7 +162,7 @@ describe('DropdownMenu', () => {
       });
     });
 
-    describe('when isOpen is true', () => {
+    describe('when the isOpen value is true', () => {
       beforeEach(async () => {
         isOpenMock.value = true;
         await wrapper.findComponent(ButtonLink).trigger('click');
@@ -168,26 +179,21 @@ describe('DropdownMenu', () => {
   });
 
   describe('when the icon slot is provided', () => {
-    let iconWrapper: VueWrapper;
-
     beforeEach(() => {
-      iconWrapper = mount(DropdownMenu, {
-        attachTo: document.body,
-        slots: {
-          default: 'Default slot content.',
+      wrapper = factory(
+        {},
+        {
           icon: '<span data-test="custom-icon">Custom icon</span>',
         },
-      });
+      );
     });
 
     it('matches the snapshot', () => {
-      expect(iconWrapper.html()).toMatchSnapshot();
+      expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('shows the icon slot content in the ButtonLink', () => {
-      expect(iconWrapper.findComponent(ButtonLink).html()).toContain(
-        'Custom icon',
-      );
+      expect(wrapper.findComponent(ButtonLink).html()).toContain('Custom icon');
     });
   });
 
@@ -205,7 +211,7 @@ describe('DropdownMenu', () => {
         isStatic: true,
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
     });
 
     it('matches the snapshot', () => {

@@ -1,11 +1,17 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount, RouterLinkStub } from '@vue/test-utils';
 
 import FileListItem from '@/components/Organisms/FileListItem.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import FilesList from './FilesList.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const routeMock = ref<Record<string, unknown>>({
   params: {
@@ -104,7 +110,7 @@ describe('FilesList', () => {
     });
 
     it('shows the correct number of folder items', () => {
-      expect(wrapper.findAll('[data-test-id="folder"]').length).toBe(5);
+      expect(wrapper.findAll('[data-test-id="folder"]')).toHaveLength(5);
     });
 
     it('does not show the no folder files element', () => {
@@ -124,7 +130,7 @@ describe('FilesList', () => {
     });
 
     it('shows the correct number of track items', () => {
-      expect(wrapper.findAllComponents(FileListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(FileListItem)).toHaveLength(5);
     });
 
     it('does not show the no folder files element', () => {
@@ -140,7 +146,7 @@ describe('FilesList', () => {
     ])(
       'when the FileListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(FileListItem).vm.$emit(eventName);
         });
 

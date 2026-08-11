@@ -33,7 +33,9 @@ describe('InfiniteScroller', () => {
   });
 
   it('adds the IntersectionObserver function', () => {
-    expect(iOMock.observeMock).toHaveBeenCalled();
+    expect(iOMock.observeMock).toHaveBeenCalledWith(
+      wrapper.find({ ref: 'infiniteScrollerRef' }).element,
+    );
   });
 
   describe('when the hasMore prop is false', () => {
@@ -118,7 +120,7 @@ describe('InfiniteScroller', () => {
     });
 
     it('does not call the loadMore event', () => {
-      expect(wrapper.emitted('loadMore')).toEqual(undefined);
+      expect(wrapper.emitted('loadMore')).toBeUndefined();
     });
   });
 
@@ -139,7 +141,7 @@ describe('InfiniteScroller', () => {
       });
 
       it('does not call the loadMore event', () => {
-        expect(wrapper.emitted('loadMore')).toEqual(undefined);
+        expect(wrapper.emitted('loadMore')).toBeUndefined();
       });
 
       it('disconnects the IntersectionObserver function', () => {
@@ -171,7 +173,7 @@ describe('InfiniteScroller', () => {
         });
 
         it('does not call the loadMore event', () => {
-          expect(wrapper.emitted('loadMore')).toEqual(undefined);
+          expect(wrapper.emitted('loadMore')).toBeUndefined();
         });
 
         it('disconnects the IntersectionObserver function', () => {

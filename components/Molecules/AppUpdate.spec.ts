@@ -32,7 +32,7 @@ describe('AppUpdate', () => {
   it('sets the correct icon prop on the update ButtonLink component', () => {
     expect(
       wrapper.findComponent({ ref: 'updateButtonLink' }).props('icon'),
-    ).toBe(undefined);
+    ).toBeUndefined();
   });
 
   it('sets the correct slot data on the update ButtonLink component', () => {

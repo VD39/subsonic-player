@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
@@ -7,6 +8,11 @@ import TrackPlayPause from '@/components/Organisms/TrackPlayPause.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import SearchSuggestionTrackItem from './SearchSuggestionTrackItem.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const track = getFormattedTracksMock()[0];
 

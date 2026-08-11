@@ -5,45 +5,62 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import MainLoader from '@/components/Atoms/MainLoader.vue';
+import { useRouterMock } from '@/test/useRouterMock';
 
 import App from './app.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const hookEvents = {} as Record<keyof RuntimeNuxtHooks, () => void>;
 
 const needRefreshMock = ref(false);
-const cancelPromptMock = vi.fn();
-const updateServiceWorkerMock = vi.fn();
+const { cancelPromptMock, updateServiceWorkerMock } = vi.hoisted(() => ({
+  cancelPromptMock: vi.fn(),
+  updateServiceWorkerMock: vi.fn(),
+}));
 
-mockNuxtImport('useNuxtApp', () => () => ({
+const { routerMock } = useRouterMock();
+
+mockNuxtImport('useNuxtApp', (original) => () => ({
+  ...original(),
   $pwa: reactive({
     cancelPrompt: cancelPromptMock,
     needRefresh: needRefreshMock,
     updateServiceWorker: updateServiceWorkerMock,
   }),
+  $router: routerMock,
   hook: vi.fn().mockImplementation((event, cb) => {
     hookEvents[event as keyof RuntimeNuxtHooks] = cb;
   }),
-  payload: {},
   runWithContext: vi.fn(),
 }));
 
-mockNuxtImport('useSidebar', () => () => ({
+mockNuxtImport('useSidebar', (original) => () => ({
+  ...original(),
   width: ref(100),
 }));
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   isDarkTheme: ref(false),
 }));
 
-const closeModalMock = vi.fn();
-const openModalMock = vi.fn();
+const { closeModalMock, openModalMock } = vi.hoisted(() => ({
+  closeModalMock: vi.fn(),
+  openModalMock: vi.fn(),
+}));
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   closeModal: closeModalMock,
   openModal: openModalMock,
 }));
 
-mockNuxtImport('useQueue', () => () => ({
+mockNuxtImport('useQueue', (original) => () => ({
+  ...original(),
   hasQueueTracks: ref(false),
 }));
 
@@ -112,7 +129,9 @@ describe('App', () => {
 
     beforeEach(async () => {
       needRefreshMock.value = true;
+
       await nextTick();
+
       handlers = openModalMock.mock.calls[0][1];
     });
 

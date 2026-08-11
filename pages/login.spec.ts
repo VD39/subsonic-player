@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import LoginForm from '@/components/Organisms/LoginForm.vue';
 import { authDataMock } from '@/test/fixtures';
@@ -9,14 +8,20 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import LoginPage from './login.vue';
 
-const loginMock = vi.fn();
-const isAuthenticatedMock = ref(false);
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const setLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
 
-mockNuxtImport('useAuth', () => () => ({
+const loginMock = vi.hoisted(() => vi.fn());
+const isAuthenticatedMock = ref(false);
+
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
   error: ref(null),
   isAuthenticated: isAuthenticatedMock,
   loading: ref(false),
@@ -27,29 +32,22 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn().mockReturnValue({
-    query: {},
-  }),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
-
 const { useHeadTitleMock } = useHeadMock();
 
-function factory(props = {}) {
-  return mount(LoginPage, {
+async function factory(props = {}, route = '/login') {
+  return mountSuspended(LoginPage, {
     props: {
       ...props,
     },
+    route,
   });
 }
 
 describe('login', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   afterEach(() => {
@@ -101,14 +99,8 @@ describe('login', () => {
       });
 
       describe('when there is a redirect query parameter', () => {
-        beforeEach(() => {
-          routeMock.mockReturnValue({
-            query: {
-              redirect: '/albums',
-            },
-          });
-
-          wrapper = factory();
+        beforeEach(async () => {
+          wrapper = await factory({}, '/login?redirect=/albums');
 
           wrapper.findComponent(LoginForm).vm.$emit('submit', authDataMock);
         });

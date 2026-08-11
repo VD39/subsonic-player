@@ -31,7 +31,7 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`PlayerOptions > when currentTrack value does not have a favourite key > matches the snapshot 1`] = `
+exports[`PlayerOptions > when the currentTrack value does not have a favourite key > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
   <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
@@ -67,7 +67,7 @@ exports[`PlayerOptions > when currentTrack value does not have a favourite key >
 </div>"
 `;
 
-exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snapshot 1`] = `
+exports[`PlayerOptions > when the isPodcastEpisode value is true > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
   <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
@@ -104,7 +104,7 @@ exports[`PlayerOptions > when isPodcastEpisode value is true > matches the snaps
 </div>"
 `;
 
-exports[`PlayerOptions > when isRadioStation value is true > matches the snapshot 1`] = `
+exports[`PlayerOptions > when the isRadioStation value is true > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
   <!--v-if-->
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">

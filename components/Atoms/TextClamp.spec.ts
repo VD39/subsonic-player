@@ -6,6 +6,8 @@ import { windowEventListenerMock } from '@/test/eventListenersMock';
 
 import TextClamp from './TextClamp.vue';
 
+vi.useFakeTimers();
+
 const TEXT_TO_CLAMP =
   'This is a long test text that will definitely exceed the max lines set by the component.';
 
@@ -53,7 +55,7 @@ describe('TextClamp', () => {
   });
 
   it('calls the checkClamp function', () => {
-    expect(requestAnimationFrameSpy).toHaveBeenCalled();
+    expect(requestAnimationFrameSpy).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('sets the correct style attribute on the clamp element', () => {
@@ -102,6 +104,7 @@ describe('TextClamp', () => {
         );
 
       wrapper = factory();
+
       await nextTick();
     });
 

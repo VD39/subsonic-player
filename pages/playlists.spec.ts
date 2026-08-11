@@ -10,12 +10,25 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import PlaylistsPage from './playlists.vue';
 
-const addPlaylistModalMock = vi.fn();
-const deletePlaylistMock = vi.fn();
-const getPlaylistsMock = vi.fn();
-const updatePlaylistModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('usePlaylist', () => () => ({
+const {
+  addPlaylistModalMock,
+  deletePlaylistMock,
+  getPlaylistsMock,
+  updatePlaylistModalMock,
+} = vi.hoisted(() => ({
+  addPlaylistModalMock: vi.fn(),
+  deletePlaylistMock: vi.fn(),
+  getPlaylistsMock: vi.fn(),
+  updatePlaylistModalMock: vi.fn(),
+}));
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addPlaylistModal: addPlaylistModalMock,
   deletePlaylist: deletePlaylistMock,
   getPlaylists: getPlaylistsMock,
@@ -23,9 +36,11 @@ mockNuxtImport('usePlaylist', () => () => ({
   updatePlaylistModal: updatePlaylistModalMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
@@ -72,8 +87,10 @@ describe('playlists', () => {
   });
 
   describe('when the ButtonLink is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'addPlaylistButton' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper
+        .findComponent({ ref: 'addPlaylistButton' })
+        .trigger('click');
     });
 
     it('calls the addPlaylistModal function', () => {

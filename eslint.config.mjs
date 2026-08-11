@@ -90,6 +90,22 @@ export default withNuxt(
     },
   },
   {
+    files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts', '**/*.vue'],
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['./*.js'],
+          defaultProject: './tsconfig.json',
+        },
+        tsconfigRootDir: process.cwd(),
+      },
+    },
+    rules: {
+      '@typescript-eslint/await-thenable': 'error',
+      '@typescript-eslint/require-await': 'error',
+    },
+  },
+  {
     files: ['vitest.setup.ts', '**/*.spec.ts'],
     languageOptions: {
       globals: {

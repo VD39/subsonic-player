@@ -13,19 +13,6 @@ exports[`InputRange > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`InputRange > when model value updates > matches the snapshot 1`] = `
-"<div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;">
-  <div class="centerItems slider">
-    <div class="progressWrapper">
-      <div class="progress" style="width: 50px;"></div>
-      <!--v-if-->
-    </div>
-    <div class="thumb" style="left: 44px;"></div>
-    <!--v-if-->
-  </div>
-</div>"
-`;
-
 exports[`InputRange > when the bufferLength prop is set to true > matches the snapshot 1`] = `
 "<div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
@@ -188,6 +175,19 @@ exports[`InputRange > when the min prop is set to a value greater than 0 > when 
 </div>"
 `;
 
+exports[`InputRange > when the model value updates > matches the snapshot 1`] = `
+"<div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;">
+  <div class="centerItems slider">
+    <div class="progressWrapper">
+      <div class="progress" style="width: 50px;"></div>
+      <!--v-if-->
+    </div>
+    <div class="thumb" style="left: 44px;"></div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
 exports[`InputRange > when the mousedown on slider is called > matches the snapshot 1`] = `
 "<div aria-disabled="false" class="inputRange seeking" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
@@ -309,10 +309,10 @@ exports[`InputRange > when the window change size is called > matches the snapsh
 "<div aria-disabled="false" class="inputRange" style="--input-slider-height: 6px;">
   <div class="centerItems slider">
     <div class="progressWrapper">
-      <div class="progress" style="width: 50px;"></div>
+      <div class="progress" style="width: 25px;"></div>
       <!--v-if-->
     </div>
-    <div class="thumb" style="left: 44px;"></div>
+    <div class="thumb" style="left: 19px;"></div>
     <!--v-if-->
   </div>
 </div>"

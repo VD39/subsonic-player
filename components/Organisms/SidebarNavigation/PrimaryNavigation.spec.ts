@@ -6,9 +6,10 @@ import { mount } from '@vue/test-utils';
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PrimaryNavigation from './PrimaryNavigation.vue';
 
-const dropMock = vi.fn();
+const dropMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   drop: dropMock,
 }));
 

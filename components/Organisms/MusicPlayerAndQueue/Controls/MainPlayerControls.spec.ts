@@ -34,7 +34,7 @@ describe('MainPlayerControls', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isPodcastEpisode value is false', () => {
+  describe('when the isPodcastEpisode value is false', () => {
     it('does not show the rewind button component', () => {
       expect(wrapper.findComponent({ ref: 'rewind' }).exists()).toBe(false);
     });
@@ -46,7 +46,7 @@ describe('MainPlayerControls', () => {
     });
   });
 
-  describe('when isPodcastEpisode value is true', () => {
+  describe('when the isPodcastEpisode value is true', () => {
     beforeEach(() => {
       isPodcastEpisodeMock.value = true;
     });

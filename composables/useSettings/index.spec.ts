@@ -14,134 +14,114 @@ const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
 
-const config = vi.hoisted(() => ({
-  public: {
-    BITRATE: 0,
-    CROSSFADE_DURATION: 1,
-    CROSSFADE_ENABLED: false,
-    DELETE_PODCAST_ON_END: false,
-    LAYOUT: 'gridLayout',
-    REPLAY_GAIN_MODE: 'off',
-    SCROBBLE_ENABLED: true,
-    SHOW_PODCASTS: true,
-    SHOW_RADIO_STATIONS: true,
-    THEME: 'auto',
+const { configMock } = vi.hoisted(() => ({
+  configMock: {
+    public: {
+      BITRATE: 0,
+      CROSSFADE_DURATION: 1,
+      CROSSFADE_ENABLED: false,
+      DELETE_PODCAST_ON_END: false,
+      LAYOUT: 'gridLayout',
+      REPLAY_GAIN_MODE: 'off',
+      SCROBBLE_ENABLED: true,
+      SHOW_PODCASTS: true,
+      SHOW_RADIO_STATIONS: true,
+      THEME: 'auto',
+    },
   },
 }));
 
-mockNuxtImport('useRuntimeConfig', () => () => config);
-
-const {
-  applyThemePreference,
-  crossfadeDuration,
-  crossfadeEnabled,
-  cycleLayout,
-  cycleReplayGainMode,
-  deletePodcastOnEnd,
-  isDarkTheme,
-  loadSettings,
-  replayGainMode,
-  resetSettings,
-  scrobbleEnabled,
-  setCrossfadeDuration,
-  setReplayGainMode,
-  setStreamBitrate,
-  setThemeMode,
-  setViewLayout,
-  showPodcasts,
-  showRadioStations,
-  streamBitrate,
-  syncFromStorage,
-  themePreference,
-  toggleCrossfade,
-  toggleDeletePodcastOnEnd,
-  toggleScrobble,
-  toggleShowPodcasts,
-  toggleShowRadioStations,
-  toggleTheme,
-  viewLayout,
-} = useSettings();
+mockNuxtImport('useRuntimeConfig', (original) => () => ({
+  ...original(),
+  ...configMock,
+}));
 
 describe('useSettings', () => {
+  let composable: ReturnType<typeof useSettings>;
+
+  beforeAll(() => {
+    composable = useSettings();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default themePreference value', () => {
-    expect(themePreference.value).toBe('auto');
+    expect(composable.themePreference.value).toBe('auto');
   });
 
   it('sets the default isDarkTheme value', () => {
-    expect(isDarkTheme.value).toBe(false);
+    expect(composable.isDarkTheme.value).toBe(false);
   });
 
   it('sets the default viewLayout value', () => {
-    expect(viewLayout.value).toBe('gridLayout');
+    expect(composable.viewLayout.value).toBe('gridLayout');
   });
 
   it('sets the default scrobbleEnabled value', () => {
-    expect(scrobbleEnabled.value).toBe(true);
+    expect(composable.scrobbleEnabled.value).toBe(true);
   });
 
   it('sets the default streamBitrate value', () => {
-    expect(streamBitrate.value).toBe(0);
+    expect(composable.streamBitrate.value).toBe(0);
   });
 
   it('sets the default showPodcasts value', () => {
-    expect(showPodcasts.value).toBe(true);
+    expect(composable.showPodcasts.value).toBe(true);
   });
 
   it('sets the default showRadioStations value', () => {
-    expect(showRadioStations.value).toBe(true);
+    expect(composable.showRadioStations.value).toBe(true);
   });
 
   it('sets the default deletePodcastOnEnd value', () => {
-    expect(deletePodcastOnEnd.value).toBe(false);
+    expect(composable.deletePodcastOnEnd.value).toBe(false);
   });
 
   it('sets the default replayGainMode value', () => {
-    expect(replayGainMode.value).toBe('off');
+    expect(composable.replayGainMode.value).toBe('off');
   });
 
   it('sets the default crossfadeEnabled value', () => {
-    expect(crossfadeEnabled.value).toBe(false);
+    expect(composable.crossfadeEnabled.value).toBe(false);
   });
 
   it('sets the default crossfadeDuration value', () => {
-    expect(crossfadeDuration.value).toBe(1);
+    expect(composable.crossfadeDuration.value).toBe(1);
   });
 
   describe('when the applyThemePreference function is called', () => {
     describe('when the themePreference value is dark', () => {
       beforeEach(() => {
-        themePreference.value = 'dark';
-        applyThemePreference();
+        composable.themePreference.value = 'dark';
+        composable.applyThemePreference();
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(true);
+        expect(composable.isDarkTheme.value).toBe(true);
       });
     });
 
     describe('when the themePreference value is light', () => {
       beforeEach(() => {
-        themePreference.value = 'light';
-        applyThemePreference();
+        composable.themePreference.value = 'light';
+        composable.applyThemePreference();
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(false);
+        expect(composable.isDarkTheme.value).toBe(false);
       });
     });
 
     describe('when the themePreference value is auto', () => {
       beforeEach(() => {
-        themePreference.value = 'auto';
-        applyThemePreference();
+        composable.themePreference.value = 'auto';
+        composable.applyThemePreference();
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(false);
+        expect(composable.isDarkTheme.value).toBe(false);
       });
     });
   });
@@ -149,15 +129,15 @@ describe('useSettings', () => {
   describe('when the setThemeMode function is called', () => {
     describe('when mode is dark', () => {
       beforeEach(() => {
-        setThemeMode('dark');
+        composable.setThemeMode('dark');
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('dark');
+        expect(composable.themePreference.value).toBe('dark');
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(true);
+        expect(composable.isDarkTheme.value).toBe(true);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -172,15 +152,15 @@ describe('useSettings', () => {
 
     describe('when mode is light', () => {
       beforeEach(() => {
-        setThemeMode('light');
+        composable.setThemeMode('light');
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('light');
+        expect(composable.themePreference.value).toBe('light');
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(false);
+        expect(composable.isDarkTheme.value).toBe(false);
       });
     });
   });
@@ -188,16 +168,16 @@ describe('useSettings', () => {
   describe('when the toggleTheme function is called', () => {
     describe('when the themePreference value is dark', () => {
       beforeEach(() => {
-        themePreference.value = 'dark';
-        toggleTheme();
+        composable.themePreference.value = 'dark';
+        composable.toggleTheme();
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('light');
+        expect(composable.themePreference.value).toBe('light');
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(false);
+        expect(composable.isDarkTheme.value).toBe(false);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -212,16 +192,16 @@ describe('useSettings', () => {
 
     describe('when the themePreference value is light', () => {
       beforeEach(() => {
-        themePreference.value = 'light';
-        toggleTheme();
+        composable.themePreference.value = 'light';
+        composable.toggleTheme();
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('dark');
+        expect(composable.themePreference.value).toBe('dark');
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(true);
+        expect(composable.isDarkTheme.value).toBe(true);
       });
     });
   });
@@ -229,11 +209,11 @@ describe('useSettings', () => {
   describe('when the setViewLayout function is called', () => {
     describe('when value is listLayout', () => {
       beforeEach(() => {
-        setViewLayout('listLayout');
+        composable.setViewLayout('listLayout');
       });
 
       it('sets the correct viewLayout value', () => {
-        expect(viewLayout.value).toBe('listLayout');
+        expect(composable.viewLayout.value).toBe('listLayout');
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -248,12 +228,12 @@ describe('useSettings', () => {
 
     describe('when no value is provided', () => {
       beforeEach(() => {
-        viewLayout.value = 'listLayout';
-        setViewLayout();
+        composable.viewLayout.value = 'listLayout';
+        composable.setViewLayout();
       });
 
       it('sets the correct viewLayout value', () => {
-        expect(viewLayout.value).toBe('gridLayout');
+        expect(composable.viewLayout.value).toBe('gridLayout');
       });
     });
   });
@@ -261,21 +241,21 @@ describe('useSettings', () => {
   describe('when the cycleLayout function is called', () => {
     describe('when the viewLayout value is gridLayout', () => {
       beforeEach(() => {
-        viewLayout.value = 'gridLayout';
-        cycleLayout();
+        composable.viewLayout.value = 'gridLayout';
+        composable.cycleLayout();
       });
 
       it('sets the correct viewLayout value', () => {
-        expect(viewLayout.value).toBe('listLayout');
+        expect(composable.viewLayout.value).toBe('listLayout');
       });
 
-      describe('when cycleLayout is called again', () => {
+      describe('when the cycleLayout function is called again', () => {
         beforeEach(() => {
-          cycleLayout();
+          composable.cycleLayout();
         });
 
         it('sets the correct viewLayout value', () => {
-          expect(viewLayout.value).toBe('gridLayout');
+          expect(composable.viewLayout.value).toBe('gridLayout');
         });
       });
     });
@@ -284,12 +264,12 @@ describe('useSettings', () => {
   describe('when the toggleScrobble function is called', () => {
     describe('when the scrobbleEnabled value is true', () => {
       beforeEach(() => {
-        scrobbleEnabled.value = true;
-        toggleScrobble();
+        composable.scrobbleEnabled.value = true;
+        composable.toggleScrobble();
       });
 
       it('sets the correct scrobbleEnabled value', () => {
-        expect(scrobbleEnabled.value).toBe(false);
+        expect(composable.scrobbleEnabled.value).toBe(false);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -304,23 +284,23 @@ describe('useSettings', () => {
 
     describe('when the scrobbleEnabled value is false', () => {
       beforeEach(() => {
-        scrobbleEnabled.value = false;
-        toggleScrobble();
+        composable.scrobbleEnabled.value = false;
+        composable.toggleScrobble();
       });
 
       it('sets the correct scrobbleEnabled value', () => {
-        expect(scrobbleEnabled.value).toBe(true);
+        expect(composable.scrobbleEnabled.value).toBe(true);
       });
     });
   });
 
   describe('when the setStreamBitrate function is called', () => {
     beforeEach(() => {
-      setStreamBitrate(320);
+      composable.setStreamBitrate(320);
     });
 
     it('sets the correct streamBitrate value', () => {
-      expect(streamBitrate.value).toBe(320);
+      expect(composable.streamBitrate.value).toBe(320);
     });
 
     it('calls the setLocalStorage function with the correct parameters', () => {
@@ -336,12 +316,12 @@ describe('useSettings', () => {
   describe('when the toggleShowPodcasts function is called', () => {
     describe('when the showPodcasts value is true', () => {
       beforeEach(() => {
-        showPodcasts.value = true;
-        toggleShowPodcasts();
+        composable.showPodcasts.value = true;
+        composable.toggleShowPodcasts();
       });
 
       it('sets the correct showPodcasts value', () => {
-        expect(showPodcasts.value).toBe(false);
+        expect(composable.showPodcasts.value).toBe(false);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -356,12 +336,12 @@ describe('useSettings', () => {
 
     describe('when the showPodcasts value is false', () => {
       beforeEach(() => {
-        showPodcasts.value = false;
-        toggleShowPodcasts();
+        composable.showPodcasts.value = false;
+        composable.toggleShowPodcasts();
       });
 
       it('sets the correct showPodcasts value', () => {
-        expect(showPodcasts.value).toBe(true);
+        expect(composable.showPodcasts.value).toBe(true);
       });
     });
   });
@@ -369,12 +349,12 @@ describe('useSettings', () => {
   describe('when the toggleShowRadioStations function is called', () => {
     describe('when the showRadioStations value is true', () => {
       beforeEach(() => {
-        showRadioStations.value = true;
-        toggleShowRadioStations();
+        composable.showRadioStations.value = true;
+        composable.toggleShowRadioStations();
       });
 
       it('sets the correct showRadioStations value', () => {
-        expect(showRadioStations.value).toBe(false);
+        expect(composable.showRadioStations.value).toBe(false);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -389,12 +369,12 @@ describe('useSettings', () => {
 
     describe('when the showRadioStations value is false', () => {
       beforeEach(() => {
-        showRadioStations.value = false;
-        toggleShowRadioStations();
+        composable.showRadioStations.value = false;
+        composable.toggleShowRadioStations();
       });
 
       it('sets the correct showRadioStations value', () => {
-        expect(showRadioStations.value).toBe(true);
+        expect(composable.showRadioStations.value).toBe(true);
       });
     });
   });
@@ -402,12 +382,12 @@ describe('useSettings', () => {
   describe('when the toggleDeletePodcastOnEnd function is called', () => {
     describe('when the deletePodcastOnEnd value is false', () => {
       beforeEach(() => {
-        deletePodcastOnEnd.value = false;
-        toggleDeletePodcastOnEnd();
+        composable.deletePodcastOnEnd.value = false;
+        composable.toggleDeletePodcastOnEnd();
       });
 
       it('sets the correct deletePodcastOnEnd value', () => {
-        expect(deletePodcastOnEnd.value).toBe(true);
+        expect(composable.deletePodcastOnEnd.value).toBe(true);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -422,23 +402,23 @@ describe('useSettings', () => {
 
     describe('when the deletePodcastOnEnd value is true', () => {
       beforeEach(() => {
-        deletePodcastOnEnd.value = true;
-        toggleDeletePodcastOnEnd();
+        composable.deletePodcastOnEnd.value = true;
+        composable.toggleDeletePodcastOnEnd();
       });
 
       it('sets the correct deletePodcastOnEnd value', () => {
-        expect(deletePodcastOnEnd.value).toBe(false);
+        expect(composable.deletePodcastOnEnd.value).toBe(false);
       });
     });
   });
 
   describe('when the setReplayGainMode function is called', () => {
     beforeEach(() => {
-      setReplayGainMode('album');
+      composable.setReplayGainMode('album');
     });
 
     it('sets the correct replayGainMode value', () => {
-      expect(replayGainMode.value).toBe('album');
+      expect(composable.replayGainMode.value).toBe('album');
     });
 
     it('calls the setLocalStorage function with the correct parameters', () => {
@@ -454,21 +434,21 @@ describe('useSettings', () => {
   describe('when the cycleReplayGainMode function is called', () => {
     describe('when the replayGainMode value is off', () => {
       beforeEach(() => {
-        replayGainMode.value = 'off';
-        cycleReplayGainMode();
+        composable.replayGainMode.value = 'off';
+        composable.cycleReplayGainMode();
       });
 
       it('sets the correct replayGainMode value', () => {
-        expect(replayGainMode.value).toBe('track');
+        expect(composable.replayGainMode.value).toBe('track');
       });
 
-      describe('when cycleReplayGainMode is called again', () => {
+      describe('when the cycleReplayGainMode function is called again', () => {
         beforeEach(() => {
-          cycleReplayGainMode();
+          composable.cycleReplayGainMode();
         });
 
         it('sets the correct replayGainMode value', () => {
-          expect(replayGainMode.value).toBe('album');
+          expect(composable.replayGainMode.value).toBe('album');
         });
       });
     });
@@ -476,11 +456,11 @@ describe('useSettings', () => {
 
   describe('when the setCrossfadeDuration function is called', () => {
     beforeEach(() => {
-      setCrossfadeDuration(7);
+      composable.setCrossfadeDuration(7);
     });
 
     it('sets the correct crossfadeDuration value', () => {
-      expect(crossfadeDuration.value).toBe(7);
+      expect(composable.crossfadeDuration.value).toBe(7);
     });
 
     it('calls the setLocalStorage function with the correct parameters', () => {
@@ -494,21 +474,21 @@ describe('useSettings', () => {
 
     describe(`when the value exceeds ${CROSSFADE_DURATION_MAX}`, () => {
       beforeEach(() => {
-        setCrossfadeDuration(20);
+        composable.setCrossfadeDuration(20);
       });
 
       it('sets the correct crossfadeDuration value', () => {
-        expect(crossfadeDuration.value).toBe(12);
+        expect(composable.crossfadeDuration.value).toBe(12);
       });
     });
 
     describe(`when the value is below ${CROSSFADE_DURATION_MIN}`, () => {
       beforeEach(() => {
-        setCrossfadeDuration(0);
+        composable.setCrossfadeDuration(0);
       });
 
       it('sets the correct crossfadeDuration value', () => {
-        expect(crossfadeDuration.value).toBe(1);
+        expect(composable.crossfadeDuration.value).toBe(1);
       });
     });
   });
@@ -516,12 +496,12 @@ describe('useSettings', () => {
   describe('when the toggleCrossfade function is called', () => {
     describe('when the crossfadeEnabled value is false', () => {
       beforeEach(() => {
-        crossfadeEnabled.value = false;
-        toggleCrossfade();
+        composable.crossfadeEnabled.value = false;
+        composable.toggleCrossfade();
       });
 
       it('sets the correct crossfadeEnabled value', () => {
-        expect(crossfadeEnabled.value).toBe(true);
+        expect(composable.crossfadeEnabled.value).toBe(true);
       });
 
       it('calls the setLocalStorage function with the correct parameters', () => {
@@ -536,12 +516,12 @@ describe('useSettings', () => {
 
     describe('when the crossfadeEnabled value is true', () => {
       beforeEach(() => {
-        crossfadeEnabled.value = true;
-        toggleCrossfade();
+        composable.crossfadeEnabled.value = true;
+        composable.toggleCrossfade();
       });
 
       it('sets the correct crossfadeEnabled value', () => {
-        expect(crossfadeEnabled.value).toBe(false);
+        expect(composable.crossfadeEnabled.value).toBe(false);
       });
     });
   });
@@ -551,7 +531,8 @@ describe('useSettings', () => {
       beforeEach(() => {
         useState(STATE_KEYS.settingsRestored).value = false;
         getLocalStorageMock.mockReturnValue({});
-        loadSettings();
+
+        composable.loadSettings();
       });
 
       it('calls the getLocalStorage function with the correct parameters', () => {
@@ -572,10 +553,10 @@ describe('useSettings', () => {
         );
       });
 
-      describe('when loadSettings is called again', () => {
+      describe('when the loadSettings function is called again', () => {
         beforeEach(() => {
           vi.clearAllMocks();
-          loadSettings();
+          composable.loadSettings();
         });
 
         it('does not call the getLocalStorage function', () => {
@@ -589,7 +570,8 @@ describe('useSettings', () => {
     describe('when getLocalStorage returns empty settings', () => {
       beforeEach(() => {
         getLocalStorageMock.mockReturnValue({});
-        syncFromStorage();
+
+        composable.syncFromStorage();
       });
 
       it('calls the getLocalStorage function with the correct parameters', () => {
@@ -621,15 +603,15 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ theme: 'dark' })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('dark');
+        expect(composable.themePreference.value).toBe('dark');
       });
 
       it('sets the correct isDarkTheme value', () => {
-        expect(isDarkTheme.value).toBe(true);
+        expect(composable.isDarkTheme.value).toBe(true);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -643,11 +625,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ layout: 'listLayout' })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct viewLayout value', () => {
-        expect(viewLayout.value).toBe('listLayout');
+        expect(composable.viewLayout.value).toBe('listLayout');
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -661,11 +643,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ scrobbleEnabled: false })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct scrobbleEnabled value', () => {
-        expect(scrobbleEnabled.value).toBe(false);
+        expect(composable.scrobbleEnabled.value).toBe(false);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -679,11 +661,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ streamBitrate: 256 })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct streamBitrate value', () => {
-        expect(streamBitrate.value).toBe(256);
+        expect(composable.streamBitrate.value).toBe(256);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -697,11 +679,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ showPodcasts: false })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct showPodcasts value', () => {
-        expect(showPodcasts.value).toBe(false);
+        expect(composable.showPodcasts.value).toBe(false);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -715,11 +697,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ showRadioStations: false })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct showRadioStations value', () => {
-        expect(showRadioStations.value).toBe(false);
+        expect(composable.showRadioStations.value).toBe(false);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -733,11 +715,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ deletePodcastOnEnd: true })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct deletePodcastOnEnd value', () => {
-        expect(deletePodcastOnEnd.value).toBe(true);
+        expect(composable.deletePodcastOnEnd.value).toBe(true);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -751,11 +733,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ replayGainMode: 'track' })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct replayGainMode value', () => {
-        expect(replayGainMode.value).toBe('track');
+        expect(composable.replayGainMode.value).toBe('track');
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -769,11 +751,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ crossfadeEnabled: true })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct crossfadeEnabled value', () => {
-        expect(crossfadeEnabled.value).toBe(true);
+        expect(composable.crossfadeEnabled.value).toBe(true);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -787,11 +769,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({ crossfadeDuration: 8 })
           .mockReturnValueOnce(null)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct crossfadeDuration value', () => {
-        expect(crossfadeDuration.value).toBe(8);
+        expect(composable.crossfadeDuration.value).toBe(8);
       });
 
       it('does not call the setLocalStorage function', () => {
@@ -805,11 +787,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({})
           .mockReturnValueOnce(true)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('dark');
+        expect(composable.themePreference.value).toBe('dark');
       });
 
       it('calls the deleteLocalStorage function with the correct parameters', () => {
@@ -829,11 +811,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({})
           .mockReturnValueOnce(false)
           .mockReturnValueOnce(null);
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct themePreference value', () => {
-        expect(themePreference.value).toBe('light');
+        expect(composable.themePreference.value).toBe('light');
       });
 
       it('calls the deleteLocalStorage function with the correct parameters', () => {
@@ -853,11 +835,11 @@ describe('useSettings', () => {
           .mockReturnValueOnce({})
           .mockReturnValueOnce(null)
           .mockReturnValueOnce('listLayout');
-        syncFromStorage();
+        composable.syncFromStorage();
       });
 
       it('sets the correct viewLayout value', () => {
-        expect(viewLayout.value).toBe('listLayout');
+        expect(composable.viewLayout.value).toBe('listLayout');
       });
 
       it('calls the deleteLocalStorage function with the correct parameters', () => {
@@ -874,7 +856,7 @@ describe('useSettings', () => {
 
   describe('when the resetSettings function is called', () => {
     beforeEach(() => {
-      resetSettings();
+      composable.resetSettings();
     });
 
     it('calls the deleteLocalStorage function with the correct parameters', () => {

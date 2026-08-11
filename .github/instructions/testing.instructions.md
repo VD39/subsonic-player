@@ -41,13 +41,15 @@ describe('MyComponent', () => {
   describe('when isOpen changes to true', () => {
     beforeAll(async () => {
       isOpenMock.value = true;
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     describe('when isOpen changes to false', () => {
       beforeAll(async () => {
         isOpenMock.value = false;
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
       });
     });
   });
@@ -64,19 +66,50 @@ describe('MyComponent', () => {
 const isOpenMock = ref(false);
 const openSubmenuMock = vi.fn();
 
-mockNuxtImport('useDropdownSubmenu', () => () => ({
+mockNuxtImport('useDropdownSubmenu', (original) => () => ({
+ ...original(),
   isOpen: isOpenMock,
   openSubmenu: openSubmenuMock,
   // ... all returned values
 }));
 
 // Composable spec — mock dependencies, call composable directly
-mockNuxtImport('useDropdownMenuState', () => () => ({
+mockNuxtImport('useDropdownMenuState', (original) => () => ({
+ ...original(),
   openEventCount: openEventCountMock,
 }));
 
-result = withSetup(() => useDropdownSubmenu({ ... }));
+result = await withSetup(() => useDropdownSubmenu({ ... }));
 ```
+
+For object-returning mocks, use a concise nested arrow function. Do not wrap it in a block with an explicit `return`:
+
+```ts
+// ✓ correct
+mockNuxtImport('useRuntimeConfig', (original) => () => ({
+  ...original(),
+  ...configMock,
+}));
+
+// ✗ wrong
+mockNuxtImport('useRuntimeConfig', (original) => {
+  return () => ({
+    ...original(),
+    ...configMock,
+  });
+});
+```
+
+## NUXT_E1005 — app initialization errors
+
+`[NUXT_E1005]` on stderr means "Error caught during app initialization". The nuxt vitest environment (with `@nuxt/test-utils` 4) runs the real Nuxt app setup — plugins, global middleware, and the initial navigation — in a `beforeAll` for every spec file. An error thrown there is caught and logged as `[NUXT_E1005]`; tests still pass, but the noise signals a real setup bug. Common causes and fixes:
+
+- **Incomplete `useRouter` mock** — Nuxt client plugins (`chunk-reload`, `navigation-repaint`, `restore-state`, `view-transitions`) call `router.beforeEach`, `router.beforeResolve`, `router.afterEach`, `router.onError`, `router.replace`, and `router.resolve` during app init. Mock a complete router with `useRouterMock` from `@/test/useRouterMock` (see `app.spec.ts`).
+- **`useNuxtApp` mock missing `$router`** — `navigateTo` calls `useRouter().resolve(...)` internally, and `useRouter` reads `$router` off the nuxtApp. `$router` is a non-enumerable getter on the real nuxtApp, so the `...original()` spread does not carry it over — add `$router: routerMock` explicitly.
+- **`useNuxtApp` mock clobbering `payload`** — do not override `payload` with `{}`; the global middleware's `callOnce` reads `nuxtApp.payload.once`. Spread the real `...original()` payload (or ensure `payload.once` is a `Set`).
+- **Shallow `matchMedia` mock** — `plugins/settings.client.ts` runs during app init and calls `matchMedia(...).addEventListener(...)`. If a spec stubs `matchMedia` with only `{ matches }`, the plugin throws. Use `matchMediaMock` from `@/test/matchMediaMock`, which includes `addEventListener`.
+- **`$fetch` mock missing `create`** — `plugins/api.ts` calls `$fetch.create(...)` during app init. When a spec mocks `$fetch` (e.g. `server/api/artist.spec.ts`), the mock must expose a `create` function: `Object.assign(vi.fn(), { create: vi.fn() })`.
+- **Real `autoLogin` running with an `undefined`-returning `fetchData` mock** — the global middleware (`app.global.ts`) calls `autoLogin()` at app init, and the real `autoLogin` destructures `{ data, error }` from `fetchData(...)`. When a spec mocks `useAPI` with `fetchData: vi.fn()` (returns `undefined`) while `useUser` provides a truthy `server` (so `autoLogin` does not bail early), app init throws. Either mock `autoLogin: vi.fn()` in the `useAuth` mock, or give `fetchData` a default return like `vi.fn(() => ({ data: null }))`.
 
 ## Mock data conventions
 
@@ -264,7 +297,7 @@ Always use `.toBe()` for primitive values — never use matcher aliases:
 
 ```ts
 // ✓ correct
-expect(value).toBe(null);
+expect(value).toBeNull();
 expect(value).toBe(true);
 expect(value).toBe(false);
 expect(value).toBe(0);
@@ -447,7 +480,7 @@ describe('when the isStatic prop is true', () => {
       isStatic: true,
     });
 
-    await wrapper.vm.$nextTick();
+    await nextTick();
   });
 
   it('matches the snapshot', () => {
@@ -503,7 +536,7 @@ props.value = {
 };
 
 // ✓ correct exception — single-property selector inline is fine
-wrapper.find({ ref: 'dropdownSubmenuRef' }).trigger('mouseenter');
+await wrapper.find({ ref: 'dropdownSubmenuRef' }).trigger('mouseenter');
 wrapper.findComponent({ ref: 'albumImageLink' });
 
 // ✗ wrong — object args on one line
@@ -534,7 +567,7 @@ describe('when the slot content is provided', () => {
       },
     );
 
-    await wrapper.vm.$nextTick();
+    await nextTick();
   });
 });
 ```
@@ -598,7 +631,9 @@ it('calls the audio play function');
 it('calls the audio load function');
 
 // ✓ when multiple mocks share a method name, specify the mock with "on the X"
-it('calls the connect function on the replayGainNode with the correct parameters');
+it(
+  'calls the connect function on the replayGainNode with the correct parameters',
+);
 it('calls the disconnect function on the sourceNode');
 
 // ✗ never append the composable name
@@ -697,13 +732,11 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 mockNuxtImport('navigateTo', () => navigateToMock);
 
 // Named object — destructure to keep each ref individually accessible
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn().mockReturnValue({
-    name: '',
-  }),
-}));
+const routeMock = reactive({
+  name: '',
+});
 
-mockNuxtImport('useRoute', () => routeMock);
+mockNuxtImport('useRoute', () => () => routeMock);
 
 // Typed generic — when the mock return type must be explicit
 const getLocalStorageMock = vi.hoisted(() =>
@@ -796,22 +829,28 @@ describe('isNumeric', () => {
 
 ## Composable spec setup
 
-### Module-scope calls (no lifecycle)
+### Composable instantiation (no lifecycle)
 
-Simple composables that do not use `onMounted`, watchers, or `onBeforeUnmount` are called directly at module scope and destructured. Do not wrap them in `withSetup`:
+Simple composables that do not use `onMounted`, watchers, or `onBeforeUnmount` do not need `withSetup`, but with `@nuxt/test-utils` 4 the composable must be instantiated inside a `beforeEach`, never at module scope (module-scope calls throw `NUXT_E1001` at import). Declare `let composable` and assign it in the top-level `beforeEach`, then reference every destructured member through `composable.`:
 
 ```ts
-// ✓ module scope — no lifecycle needed
-const { collapsed, toggle, width } = useSidebar();
-const { isQueueListOpened, toggleQueueList } = useQueue();
-const { isDarkTheme, toggleTheme } = useTheme();
-
+// ✓ beforeEach — the Nuxt app context is only available inside lifecycle hooks
 describe('useSidebar', () => {
+  let composable: ReturnType<typeof useSidebar>;
+
+  beforeEach(() => {
+    composable = useSidebar();
+  });
+
   it('sets the default collapsed value', () => {
-    expect(collapsed.value).toBe(false);
+    expect(composable.collapsed.value).toBe(false);
   });
 });
 ```
+
+`beforeEach` runs before any nested `beforeAll`, so setup inside nested `beforeAll` blocks still sees the freshly instantiated composable.
+
+Composables that use `onMounted`, watchers, or `onBeforeUnmount` must be mounted with `withSetup` (see below).
 
 ### withSetup (lifecycle required)
 
@@ -820,10 +859,12 @@ Use `withSetup` when the composable calls `onMounted`, registers watchers, or ca
 ```ts
 import { withSetup } from '@/test/withSetup';
 
-let result: ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>;
+let result: Awaited<
+  ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>
+>;
 
-beforeEach(() => {
-  result = withSetup(useAudioPlayer);
+beforeEach(async () => {
+  result = await withSetup(useAudioPlayer);
 });
 ```
 
@@ -981,6 +1022,49 @@ function factory(props = {}) {
 }
 ```
 
+### mountSuspended() with routes
+
+For a component or page spec that depends on the Nuxt route, use `mountSuspended()` with a real route instead of mocking `useRoute`. The factory becomes async and every assignment must await it:
+
+```ts
+import { mountSuspended } from '@nuxt/test-utils/runtime';
+
+async function factory(props = {}, route = '/albums/newest') {
+  return mountSuspended(AlbumsPage, {
+    props: {
+      ...props,
+    },
+    route,
+  });
+}
+
+beforeEach(async () => {
+  wrapper = await factory();
+});
+
+describe('when the sortBy route param is random', () => {
+  beforeEach(async () => {
+    wrapper = await factory({}, '/albums/random');
+  });
+});
+```
+
+For a composable spec, keep `useRoute` as a mocked dependency. Return one reactive route object so state changes are observed by the composable; do not replace the mock implementation after the composable has been created:
+
+```ts
+const routeMock = reactive({
+  name: ROUTE_NAMES.index,
+});
+
+mockNuxtImport('useRoute', () => () => routeMock);
+
+describe('when the route name is not in the navigation', () => {
+  beforeEach(() => {
+    routeMock.name = 'not-in-navigation';
+  });
+});
+```
+
 ### setProps()
 
 Use `await wrapper.setProps(...)` inside `beforeEach` to update a prop without remounting. Always `await` it:
@@ -1017,7 +1101,31 @@ it('sets the correct to prop on the RouterLink component', () => {
 
 ### .emitted() for event assertions
 
-Trigger a child emit with `.vm.$emit(...)`, then assert on the parent with `.emitted()`:
+Use `.vm.$emit(...)` only to simulate a **custom child-component event** whose payload is part of that child's public contract. Use `await .trigger(...)` for native DOM interactions, including `click`, `focus`, keyboard, pointer, and form events. Never simulate a native interaction with `$emit('click')`.
+
+Always await `trigger()`, including when it is part of a multiline chain, and make the enclosing hook or test `async`:
+
+```ts
+// ✓ correct — native DOM interaction
+beforeEach(async () => {
+  await wrapper.findComponent(ButtonLink).trigger('click');
+});
+
+// ✓ correct — custom event emitted by a child component
+beforeEach(() => {
+  wrapper.findComponent(AlbumTracksListItem).vm.$emit('dragStart', DragEvent);
+});
+
+// ✗ wrong — trigger is not awaited
+beforeEach(() => {
+  wrapper.findComponent(ButtonLink).trigger('click');
+});
+
+// ✗ wrong — click is a native interaction, not a child contract event
+wrapper.findComponent(ButtonLink).vm.$emit('click');
+```
+
+Then assert on the parent with `.emitted()`:
 
 ```ts
 describe('when the AlbumTracksListItem component emits the dragStart event', () => {
@@ -1041,6 +1149,24 @@ describe('when the ButtonLink component is clicked', () => {
     expect(wrapper.emitted('addToQueue')).toEqual([[track]]);
   });
 });
+```
+
+### Mock call arguments
+
+When the implementation passes stable, meaningful arguments to a mock, assert them with `.toHaveBeenCalledWith(...)`. Keep `.toHaveBeenCalled()` only for genuinely argument-free calls.
+
+```ts
+// ✓ correct — the endpoint is part of the behavior
+expect(fetchDataMock).toHaveBeenCalledWith('/ping');
+
+// ✓ correct — a callback is registered
+expect(onPlayMock).toHaveBeenCalledWith(expect.any(Function));
+
+// ✓ correct — no arguments are passed
+expect(playMock).toHaveBeenCalled();
+
+// ✗ wrong — omits an important argument contract
+expect(fetchDataMock).toHaveBeenCalled();
 ```
 
 ## DOM and browser API mocking
@@ -1097,7 +1223,9 @@ const requestAnimationFrameSpy = vi
   });
 
 // Spy on console
-const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+const consoleErrorSpy = vi
+  .spyOn(console, 'error')
+  .mockImplementation(() => ({}));
 ```
 
 ### HTMLElement.prototype for layout measurements
@@ -1119,7 +1247,9 @@ Call `await nextTick()` twice when a watcher needs two ticks to propagate (e.g. 
 
 ```ts
 listContainerRef.value = container;
+
 await nextTick();
+
 await nextTick();
 ```
 
@@ -1242,6 +1372,24 @@ documentEvents.keydown(new KeyboardEvent('keydown', { key: 'Escape' }));
 windowEvents.click(new MouseEvent('click'));
 ```
 
+### matchMediaMock
+
+Stubs `globalThis.matchMedia` with a `MediaQueryList`-shaped object and captures the `change` callback. Returns `{ matchMediaSpy, matchesMock, triggerChangeEvent }`:
+
+```ts
+import { matchMediaMock } from '@/test/matchMediaMock';
+
+const { matchesMock, triggerChangeEvent } = matchMediaMock();
+
+// Drive the matches value read by useDropdownSubmenu / resolveDarkTheme
+matchesMock.value = true;
+
+// Fire the change listener registered by plugins/settings.client.ts
+triggerChangeEvent();
+```
+
+The mock object includes `addEventListener`/`removeEventListener`. This is required because the real `plugins/settings.client.ts` runs during app initialization in every spec and calls `matchMedia(...).addEventListener(...)` — a shallow `{ matches }` stub throws at app init and logs `[NUXT_E1005]` to stderr (see "NUXT_E1005 — app initialization errors").
+
 ### fixtures
 
 Static mock data objects used as building blocks for tests. Import from `@/test/fixtures`. Each fixture represents a real entity shape used across the project:
@@ -1336,7 +1484,7 @@ import { refElementMock } from '@/test/refElementMock';
 const dropdownMenuRef = refElementMock();
 const dropdownListRef = refElementMock();
 
-result = withSetup(() =>
+result = await withSetup(() =>
   useDropdownMenu({
     dropdownListRef: dropdownListRef.refMock,
     dropdownMenuRef: dropdownMenuRef.refMock,
@@ -1398,6 +1546,26 @@ Provides mocks for every return value of `useQueue`: `addTracksMock`, `closeQueu
 
 Pre-populated defaults: `queueListMock.value` starts with 5 formatted queue tracks, `currentTrackMock.value` is the first item, `addTracksMock` pushes into `queueListMock`, and `resetQueueMock` empties the list and resets the index. Override any mock in `beforeEach` as needed.
 
+### useRouterMock
+
+Globally mocks `useRouter` for component specs via `mockNuxtImport`. Call at module scope; returns the composed `routerMock` plus one mock per router method:
+
+```ts
+import { useRouterMock } from '@/test/useRouterMock';
+
+const { routerMock } = useRouterMock();
+
+mockNuxtImport('useNuxtApp', (original) => () => ({
+  ...original(),
+  $router: routerMock,
+  ...
+}));
+```
+
+`routerMock` is a complete router object — every method (`addRoute`, `afterEach`, `back`, `beforeEach`, `beforeResolve`, `currentRoute`, `forward`, `getRoutes`, `go`, `hasRoute`, `install`, `isReady`, `onError`, `push`, `removeRoute`, `replace`, `resolve`) is a `vi.fn()`. A shallow `{ afterEach, beforeResolve }` stub is not enough: Nuxt client plugins call `router.beforeEach`/`onError`/`replace`/`resolve` during app initialization, so an incomplete mock throws and logs `[NUXT_E1005]` (see "NUXT_E1005 — app initialization errors").
+
+Also assign `routerMock` to `$router` on a mocked `useNuxtApp`. `navigateTo` calls `useRouter().resolve(...)` internally, and `$router` is a non-enumerable getter on the real nuxtApp that the `...original()` spread drops.
+
 ## Partial match assertions
 
 Use `expect.arrayContaining`, `expect.objectContaining`, and `expect.any` when only part of the structure matters:
@@ -1455,7 +1623,8 @@ Declare mock reactive values at module scope using `ref()`. Mutate them in `befo
 ```ts
 const playlistsMock = ref<Playlist[]>([]);
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   getPlaylists: getPlaylistsMock,
   playlists: playlistsMock,
 }));
@@ -1504,7 +1673,8 @@ Use `reactive()` for plain object mocks (e.g. `$pwa`) where the whole object mus
 ```ts
 const needRefreshMock = ref(false);
 
-mockNuxtImport('useNuxtApp', () => () => ({
+mockNuxtImport('useNuxtApp', (original) => () => ({
+  ...original(),
   $pwa: reactive({
     cancelPrompt: cancelPromptMock,
     needRefresh: needRefreshMock,

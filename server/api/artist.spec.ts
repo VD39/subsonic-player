@@ -4,7 +4,11 @@ import { artistDataMock, artistInfo2Mock, cookieMock } from '@/test/fixtures';
 
 import artistApi from './artist';
 
-const $fetchMock = vi.hoisted(() => vi.fn());
+const $fetchMock = vi.hoisted(() =>
+  Object.assign(vi.fn(), {
+    create: vi.fn(),
+  }),
+);
 
 mockNuxtImport('$fetch', () => $fetchMock);
 

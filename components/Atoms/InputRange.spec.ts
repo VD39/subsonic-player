@@ -10,6 +10,8 @@ import {
 
 import InputRange from './InputRange.vue';
 
+vi.useFakeTimers();
+
 const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
   windowEventListenerMock();
 const { documentAddEventListenerSpy } = documentEventListenerMock();
@@ -54,7 +56,7 @@ describe('InputRange', () => {
     );
   });
 
-  describe('when model value updates', () => {
+  describe('when the model value updates', () => {
     beforeEach(async () => {
       await wrapper.setProps({ modelValue: 5 });
     });
@@ -204,8 +206,8 @@ describe('InputRange', () => {
     });
 
     describe('when the mousedown on slider is called', () => {
-      beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
           pageX: 50,
         });
       });
@@ -290,8 +292,8 @@ describe('InputRange', () => {
     });
 
     describe('when the mousedown on slider is called', () => {
-      beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
           pageX: 60,
         });
       });
@@ -368,8 +370,8 @@ describe('InputRange', () => {
 
       describe('when the mousemove on slider is called', () => {
         describe('when the mouseover on slider is not called before', () => {
-          beforeEach(() => {
-            wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+          beforeEach(async () => {
+            await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
               pageX: 80,
             });
           });
@@ -386,10 +388,11 @@ describe('InputRange', () => {
         });
 
         describe('when the mouseover on slider is called before', () => {
-          beforeEach(() => {
+          beforeEach(async () => {
             const slider = wrapper.find({ ref: 'sliderRef' });
-            slider.trigger('mouseover');
-            slider.trigger('mousemove', {
+
+            await slider.trigger('mouseover');
+            await slider.trigger('mousemove', {
               pageX: 80,
             });
           });
@@ -409,8 +412,8 @@ describe('InputRange', () => {
   });
 
   describe('when the mousedown on slider is called', () => {
-    beforeEach(() => {
-      wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
+    beforeEach(async () => {
+      await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
         pageX: 60,
       });
     });
@@ -470,8 +473,8 @@ describe('InputRange', () => {
     });
 
     describe('when slider mousemove is called', () => {
-      beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
           pageX: 30,
         });
       });
@@ -522,30 +525,30 @@ describe('InputRange', () => {
     });
 
     describe('when the commitOnRelease prop is set to true', () => {
-      beforeEach(() => {
+      beforeEach(async () => {
         wrapper = factory({
           commitOnRelease: true,
         });
 
-        wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
           pageX: 60,
         });
       });
 
       it('does not emit the update:modelValue value', () => {
-        expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+        expect(wrapper.emitted('update:modelValue')).toBeUndefined();
       });
 
       it('does not emit the change value', () => {
-        expect(wrapper.emitted('change')).toBe(undefined);
+        expect(wrapper.emitted('change')).toBeUndefined();
       });
     });
   });
 
   describe('when the touchstart on slider is called', () => {
     describe('when touches is not an empty array', () => {
-      beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
           touches: [{ pageX: 60 } as Touch],
         });
       });
@@ -605,8 +608,8 @@ describe('InputRange', () => {
       });
 
       describe('when slider mousemove is called', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
             pageX: 30,
           });
         });
@@ -657,29 +660,29 @@ describe('InputRange', () => {
       });
 
       describe('when the commitOnRelease prop is set to true', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper = factory({
             commitOnRelease: true,
           });
 
-          wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+          await wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
             touches: [{ pageX: 60 } as Touch],
           });
         });
 
         it('does not emit the update:modelValue value', () => {
-          expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+          expect(wrapper.emitted('update:modelValue')).toBeUndefined();
         });
 
         it('does not emit the change value', () => {
-          expect(wrapper.emitted('change')).toBe(undefined);
+          expect(wrapper.emitted('change')).toBeUndefined();
         });
       });
     });
 
     describe('when touches is an empty array and changedTouches is not an empty array', () => {
-      beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
           changedTouches: [{ pageX: 60 } as Touch],
           touches: [],
         });
@@ -740,8 +743,8 @@ describe('InputRange', () => {
       });
 
       describe('when slider mousemove is called', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
             pageX: 30,
           });
         });
@@ -792,41 +795,41 @@ describe('InputRange', () => {
       });
 
       describe('when the commitOnRelease prop is set to true', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
           wrapper = factory({
             commitOnRelease: true,
           });
 
-          wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+          await wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
             changedTouches: [{ pageX: 60 } as Touch],
             touches: [],
           });
         });
 
         it('does not emit the update:modelValue value', () => {
-          expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+          expect(wrapper.emitted('update:modelValue')).toBeUndefined();
         });
 
         it('does not emit the change value', () => {
-          expect(wrapper.emitted('change')).toBe(undefined);
+          expect(wrapper.emitted('change')).toBeUndefined();
         });
       });
     });
 
     describe('when touches and changedTouches are empty arrays', () => {
-      beforeEach(() => {
-        wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
+      beforeEach(async () => {
+        await wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
           changedTouches: [],
           touches: [],
         });
       });
 
       it('does not emit the update:modelValue value', () => {
-        expect(wrapper.emitted('update:modelValue')).toBe(undefined);
+        expect(wrapper.emitted('update:modelValue')).toBeUndefined();
       });
 
       it('does not emit the change value', () => {
-        expect(wrapper.emitted('change')).toBe(undefined);
+        expect(wrapper.emitted('change')).toBeUndefined();
       });
     });
   });

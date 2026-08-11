@@ -5,7 +5,7 @@ vi.unmock('./getPointerEventPosition');
 describe('getPointerEventPosition', () => {
   describe('when event is not defined', () => {
     it('returns the correct response', () => {
-      expect(getPointerEventPosition()).toBe(undefined);
+      expect(getPointerEventPosition()).toBeUndefined();
     });
   });
 
@@ -58,7 +58,7 @@ describe('getPointerEventPosition', () => {
             changedTouches: [],
             touches: [],
           } as unknown as TouchEvent),
-        ).toBe(undefined);
+        ).toBeUndefined();
       });
     });
   });

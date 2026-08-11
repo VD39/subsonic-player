@@ -11,44 +11,58 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import BookmarksPage from './bookmarks.vue';
 
-const addToPlaylistModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('usePlaylist', () => () => ({
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const deleteBookmarkMock = vi.fn();
-const getBookmarksMock = vi.fn();
+const { deleteBookmarkMock, getBookmarksMock } = vi.hoisted(() => ({
+  deleteBookmarkMock: vi.fn(),
+  getBookmarksMock: vi.fn(),
+}));
 const bookmarksMock = ref<Bookmark[]>([]);
 
-mockNuxtImport('useBookmark', () => () => ({
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
   bookmarks: bookmarksMock,
   deleteBookmark: deleteBookmarkMock,
   getBookmarks: getBookmarksMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 

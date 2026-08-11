@@ -1,7 +1,5 @@
 import { debounce } from './debounce';
 
-vi.unmock('./debounce');
-
 vi.useFakeTimers();
 
 const callbackMock = vi.fn();

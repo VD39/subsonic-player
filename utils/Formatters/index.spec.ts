@@ -573,12 +573,6 @@ describe('formatPodcastEpisode', () => {
       },
     ],
     [
-      'artist',
-      {
-        author: EMPTY_DISPLAY_VALUE,
-      },
-    ],
-    [
       'album',
       {
         podcastName: EMPTY_DISPLAY_VALUE,

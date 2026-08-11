@@ -7,11 +7,14 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 import FavouriteButton from './FavouriteButton.vue';
 
-const toggleFavouriteMock = vi.fn();
-const setFavouriteIdMock = vi.fn();
+const { setFavouriteIdMock, toggleFavouriteMock } = vi.hoisted(() => ({
+  setFavouriteIdMock: vi.fn(),
+  toggleFavouriteMock: vi.fn(),
+}));
 const favouriteIdsMock = ref<Record<string, boolean>>({});
 
-mockNuxtImport('useFavourite', () => () => ({
+mockNuxtImport('useFavourite', (original) => () => ({
+  ...original(),
   favouriteIds: favouriteIdsMock,
   setFavouriteId: setFavouriteIdMock,
   toggleFavourite: toggleFavouriteMock,
@@ -88,7 +91,7 @@ describe('FavouriteButton', () => {
       });
 
       it('calls the setFavouriteId function', () => {
-        expect(setFavouriteIdMock).toHaveBeenCalled();
+        expect(setFavouriteIdMock).toHaveBeenCalledWith('id');
       });
     });
   });

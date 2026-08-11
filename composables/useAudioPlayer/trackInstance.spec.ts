@@ -28,8 +28,9 @@ const audioContextMock = {
   destination: {},
 } as unknown as AudioContext;
 
-vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {});
-vi.spyOn(Element.prototype, 'removeAttribute').mockImplementation(() => {});
+vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => ({}));
+
+vi.spyOn(Element.prototype, 'removeAttribute').mockImplementation(() => ({}));
 
 describe('TrackInstance', () => {
   let trackInstance: TrackInstance;

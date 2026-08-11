@@ -13,6 +13,7 @@ export function useErrorHandler() {
 
   function handleError(error: unknown, source?: string) {
     logError(error, source);
+
     addErrorSnack(getFriendlyErrorMessage(error));
   }
 

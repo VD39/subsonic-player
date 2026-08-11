@@ -15,23 +15,26 @@ mockNuxtImport('navigateTo', () => navigateToMock);
 
 const isAuthenticatedMock = ref(false);
 
-mockNuxtImport('useAuth', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
   autoLogin: vi.fn(),
   isAuthenticated: isAuthenticatedMock,
 }));
 
 const playlistsMock = ref<Playlist[]>([]);
-const getPlaylistsMock = vi.fn();
+const getPlaylistsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   getPlaylists: getPlaylistsMock,
   playlists: playlistsMock,
 }));
 
 const bookmarksMock = ref<Bookmark[]>([]);
-const getBookmarksMock = vi.fn();
+const getBookmarksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useBookmark', () => () => ({
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
   bookmarks: bookmarksMock,
   getBookmarks: getBookmarksMock,
 }));
@@ -44,7 +47,7 @@ describe('app-global-middleware', () => {
     vi.clearAllMocks();
   });
 
-  describe('when isAuthenticated is false', () => {
+  describe('when the isAuthenticated value is false', () => {
     beforeEach(async () => {
       isAuthenticatedMock.value = false;
 
@@ -114,7 +117,7 @@ describe('app-global-middleware', () => {
     });
   });
 
-  describe('when isAuthenticated is true', () => {
+  describe('when the isAuthenticated value is true', () => {
     beforeEach(() => {
       isAuthenticatedMock.value = true;
     });

@@ -14,9 +14,10 @@ import { useSortableList } from './index';
 vi.useFakeTimers();
 
 const isDraggingMock = ref(false);
-const setDraggingStateMock = vi.fn();
+const setDraggingStateMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSortableListState', () => () => ({
+mockNuxtImport('useSortableListState', (original) => () => ({
+  ...original(),
   isDragging: isDraggingMock,
   setDraggingState: setDraggingStateMock,
 }));
@@ -57,7 +58,7 @@ Object.defineProperty(globalThis.navigator, 'vibrate', {
   writable: true,
 });
 
-// Assigns a container element to the ref and waits two ticks for the watcher to initialize.
+// Assigns a container element to the ref and waits two ticks for the watcher to initialise.
 async function bindContainer(
   listContainerRef: ReturnType<typeof ref<HTMLElement | null>>,
   container: HTMLElement,
@@ -65,6 +66,7 @@ async function bindContainer(
   listContainerRef.value = container;
 
   await nextTick();
+
   await nextTick();
 }
 
@@ -151,9 +153,9 @@ function createSortableItem(index: number) {
 }
 
 // Mounts the composable inside a Vue app and returns the app instance, container ref and reorder callback.
-function createSortableSetup(onReorder = vi.fn()) {
+async function createSortableSetup(onReorder = vi.fn()) {
   const listContainerRef = ref<HTMLElement | null>(null);
-  const { app } = withSetup(() =>
+  const { app } = await withSetup(() =>
     useSortableList({
       listContainerRef: listContainerRef as never,
       onReorder,
@@ -186,10 +188,12 @@ function createTouchEvent(
     configurable: true,
     value: [touch],
   });
+
   Object.defineProperty(event, 'target', {
     configurable: true,
     value: target,
   });
+
   Object.defineProperty(event, 'touches', {
     configurable: true,
     value: type === 'touchend' || type === 'touchcancel' ? [] : [touch],
@@ -200,7 +204,7 @@ function createTouchEvent(
 
 describe('useSortableList', () => {
   let fixture: ReturnType<typeof createSortableFixture>;
-  let sortableSetup: ReturnType<typeof createSortableSetup>;
+  let sortableSetup: Awaited<ReturnType<typeof createSortableSetup>>;
 
   afterEach(() => {
     isDraggingMock.value = false;
@@ -210,7 +214,7 @@ describe('useSortableList', () => {
   describe('when sortable interactions are initialized', () => {
     beforeEach(async () => {
       fixture = createSortableFixture();
-      sortableSetup = createSortableSetup();
+      sortableSetup = await createSortableSetup();
       abortControllerConstructorMock.mockClear();
 
       await bindContainer(sortableSetup.listContainerRef, fixture.container);
@@ -340,6 +344,7 @@ describe('useSortableList', () => {
           } as never;
 
           await nextTick();
+
           await nextTick();
         });
 
@@ -354,7 +359,6 @@ describe('useSortableList', () => {
 
       beforeEach(() => {
         idleItem = createSortableItem(3).item;
-
         fixture.container.appendChild(idleItem);
         triggerMutationObserver();
         triggerAnimationFrame();
@@ -396,7 +400,7 @@ describe('useSortableList', () => {
 
     beforeEach(async () => {
       fixture = createSortableFixture();
-      sortableSetup = createSortableSetup();
+      sortableSetup = await createSortableSetup();
 
       await bindContainer(sortableSetup.listContainerRef, fixture.container);
 
@@ -481,6 +485,7 @@ describe('useSortableList', () => {
         beforeEach(async () => {
           documentEvents.mouseup();
           vi.runOnlyPendingTimers();
+
           await nextTick();
         });
 
@@ -577,7 +582,7 @@ describe('useSortableList', () => {
 
     beforeEach(async () => {
       fixture = createSortableFixture();
-      sortableSetup = createSortableSetup();
+      sortableSetup = await createSortableSetup();
 
       await bindContainer(sortableSetup.listContainerRef, fixture.container);
     });
@@ -679,6 +684,7 @@ describe('useSortableList', () => {
         beforeEach(async () => {
           documentEvents.touchend();
           vi.runOnlyPendingTimers();
+
           await nextTick();
         });
 
@@ -695,6 +701,7 @@ describe('useSortableList', () => {
         beforeEach(async () => {
           documentEvents.touchcancel();
           vi.runOnlyPendingTimers();
+
           await nextTick();
         });
 
@@ -712,7 +719,7 @@ describe('useSortableList', () => {
   describe('when the composable is unmounted during a drag', () => {
     beforeEach(async () => {
       fixture = createSortableFixture();
-      sortableSetup = createSortableSetup();
+      sortableSetup = await createSortableSetup();
 
       await bindContainer(sortableSetup.listContainerRef, fixture.container);
 

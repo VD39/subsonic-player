@@ -165,6 +165,7 @@ async function setLayoutViaSettings(
   layout: 'gridLayout' | 'listLayout',
 ) {
   await page.goto('/settings', { waitUntil: 'load' });
+
   await page.waitForTimeout(5000);
   await page
     .getByRole('button', {

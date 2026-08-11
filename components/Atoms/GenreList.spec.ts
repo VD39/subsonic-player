@@ -32,6 +32,6 @@ describe('GenreList', () => {
   });
 
   it('shows the correct number of genre content', () => {
-    expect(wrapper.findAll('[data-test-id="genre-list-item"]').length).toBe(2);
+    expect(wrapper.findAll('[data-test-id="genre-list-item"]')).toHaveLength(2);
   });
 });

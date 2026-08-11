@@ -6,11 +6,14 @@ import { serverInformationMock } from '@/test/fixtures';
 
 import { useServerInfo } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
@@ -18,7 +21,8 @@ const userMock = ref<null | Partial<User>>({
   server: null,
 });
 
-mockNuxtImport('useUser', () => () => ({
+mockNuxtImport('useUser', (original) => () => ({
+  ...original(),
   user: userMock,
 }));
 
@@ -30,17 +34,20 @@ const config = vi.hoisted(() => ({
   },
 }));
 
-mockNuxtImport('useRuntimeConfig', () => () => config);
-
-const { aboutInformation, fetchInformation } = useServerInfo();
+mockNuxtImport('useRuntimeConfig', (original) => () => ({
+  ...original(),
+  ...config,
+}));
 
 describe('useServerInfo', () => {
-  afterEach(() => {
-    vi.clearAllMocks();
+  let composable: ReturnType<typeof useServerInfo>;
+
+  beforeAll(() => {
+    composable = useServerInfo();
   });
 
   it('sets the default aboutInformation value', () => {
-    expect(aboutInformation.value).toBeNull();
+    expect(composable.aboutInformation.value).toBeNull();
   });
 
   describe('when the fetchInformation function is called', () => {
@@ -49,7 +56,8 @@ describe('useServerInfo', () => {
         fetchDataMock.mockResolvedValue({
           data: null,
         });
-        await fetchInformation();
+
+        await composable.fetchInformation();
       });
 
       it('calls the fetchData function with the correct parameters', () => {
@@ -59,7 +67,7 @@ describe('useServerInfo', () => {
       });
 
       it('sets the correct aboutInformation value', () => {
-        expect(aboutInformation.value).toEqual({
+        expect(composable.aboutInformation.value).toEqual({
           appInformation: {
             bugReportUrl: 'https://github.com/url/issues/new',
             githubReleaseUrl: 'https://github.com/url/releases',
@@ -80,11 +88,12 @@ describe('useServerInfo', () => {
         fetchDataMock.mockResolvedValue({
           data: serverInformationMock,
         });
-        await fetchInformation();
+
+        await composable.fetchInformation();
       });
 
       it('sets the correct aboutInformation value', () => {
-        expect(aboutInformation.value).toEqual({
+        expect(composable.aboutInformation.value).toEqual({
           appInformation: {
             bugReportUrl: 'https://github.com/url/issues/new',
             githubReleaseUrl: 'https://github.com/url/releases',
@@ -103,11 +112,11 @@ describe('useServerInfo', () => {
       describe('when the user server is set', () => {
         beforeEach(async () => {
           userMock.value = { server: 'https://www.server.com' };
-          await fetchInformation();
+          await composable.fetchInformation();
         });
 
         it('sets the correct serverInformation url value', () => {
-          expect(aboutInformation.value?.serverInformation.url).toBe(
+          expect(composable.aboutInformation.value?.serverInformation.url).toBe(
             'https://www.server.com',
           );
         });

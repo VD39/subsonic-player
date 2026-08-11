@@ -11,60 +11,79 @@ const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 const anotherPodcastEpisodes = getFormattedPodcastEpisodesMock(1, {
   id: 'another-id',
 });
+
 const podcastQueueTracks = getFormattedPodcastEpisodesMock(2, {
   podcastId: 'queue-id',
 });
+
 const queueTrack = getFormattedQueueTracksMock()[0];
 
-const deleteBookmarkMock = vi.fn();
-const getBookmarksMock = vi.fn();
+const { deleteBookmarkMock, getBookmarksMock } = vi.hoisted(() => ({
+  deleteBookmarkMock: vi.fn(),
+  getBookmarksMock: vi.fn(),
+}));
 
-mockNuxtImport('useBookmark', () => () => ({
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
   deleteBookmark: deleteBookmarkMock,
   getBookmarks: getBookmarksMock,
 }));
 
 const currentTrackMock = ref<PlayableTrack>(podcastEpisode);
 const queueListMock = ref<PlayableTrack[]>([]);
-const removeAllByTrackIdMock = vi.fn();
+const removeAllByTrackIdMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useQueue', () => () => ({
+mockNuxtImport('useQueue', (original) => () => ({
+  ...original(),
   currentTrack: currentTrackMock,
   queueList: queueListMock,
   removeAllByTrackId: removeAllByTrackIdMock,
 }));
 
 const isPlayingMock = ref(false);
-const playCurrentTrackFromQueueMock = vi.fn(() => Promise.resolve());
-const resetPlayerSessionMock = vi.fn();
-const togglePlayMock = vi.fn(() => Promise.resolve());
+const {
+  playCurrentTrackFromQueueMock,
+  resetPlayerSessionMock,
+  togglePlayMock,
+} = vi.hoisted(() => ({
+  playCurrentTrackFromQueueMock: vi.fn(() => Promise.resolve()),
+  resetPlayerSessionMock: vi.fn(),
+  togglePlayMock: vi.fn(() => Promise.resolve()),
+}));
 
-mockNuxtImport('useAudioPlayer', () => () => ({
+mockNuxtImport('useAudioPlayer', (original) => () => ({
+  ...original(),
   isPlaying: isPlayingMock,
   playCurrentTrackFromQueue: playCurrentTrackFromQueueMock,
   resetPlayerSession: resetPlayerSessionMock,
   togglePlay: togglePlayMock,
 }));
 
-const deletePodcastMock = vi.fn();
-const deletePodcastEpisodeMock = vi.fn();
+const { deletePodcastEpisodeMock, deletePodcastMock } = vi.hoisted(() => ({
+  deletePodcastEpisodeMock: vi.fn(),
+  deletePodcastMock: vi.fn(),
+}));
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   deletePodcast: deletePodcastMock,
   deletePodcastEpisode: deletePodcastEpisodeMock,
 }));
 
-const { deletePodcastEpisodeGlobally, deletePodcastGlobally } =
-  usePodcastCleanup();
-
 describe('usePodcastCleanup', () => {
+  let composable: ReturnType<typeof usePodcastCleanup>;
+
+  beforeAll(() => {
+    composable = usePodcastCleanup();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   describe('when the deletePodcastEpisodeGlobally function is called', () => {
     beforeEach(async () => {
-      await deletePodcastEpisodeGlobally(podcastEpisode);
+      await composable.deletePodcastEpisodeGlobally(podcastEpisode);
     });
 
     it('calls the removeAllByTrackId function with the correct parameters', () => {
@@ -83,7 +102,7 @@ describe('usePodcastCleanup', () => {
       beforeEach(async () => {
         vi.clearAllMocks();
         queueListMock.value = [];
-        await deletePodcastEpisodeGlobally(podcastEpisode);
+        await composable.deletePodcastEpisodeGlobally(podcastEpisode);
       });
 
       it('calls the resetPlayerSession function', () => {
@@ -100,7 +119,7 @@ describe('usePodcastCleanup', () => {
         beforeEach(async () => {
           vi.clearAllMocks();
           queueListMock.value = [podcastEpisode];
-          await deletePodcastEpisodeGlobally(podcastEpisode);
+          await composable.deletePodcastEpisodeGlobally(podcastEpisode);
         });
 
         it('calls the playCurrentTrackFromQueue function', () => {
@@ -121,7 +140,7 @@ describe('usePodcastCleanup', () => {
           vi.clearAllMocks();
           queueListMock.value = [podcastEpisode];
           isPlayingMock.value = true;
-          await deletePodcastEpisodeGlobally(podcastEpisode);
+          await composable.deletePodcastEpisodeGlobally(podcastEpisode);
         });
 
         afterAll(() => {
@@ -148,7 +167,7 @@ describe('usePodcastCleanup', () => {
         queueListMock.value = anotherPodcastEpisodes;
         currentTrackMock.value = queueListMock.value[0];
 
-        await deletePodcastEpisodeGlobally(podcastEpisode);
+        await composable.deletePodcastEpisodeGlobally(podcastEpisode);
       });
 
       it('does not call the playCurrentTrackFromQueue function', () => {
@@ -163,7 +182,7 @@ describe('usePodcastCleanup', () => {
 
   describe('when the deletePodcastGlobally function is called', () => {
     beforeEach(async () => {
-      await deletePodcastGlobally('queue-id');
+      await composable.deletePodcastGlobally('queue-id');
     });
 
     it('calls the deletePodcast function with the correct parameters', () => {
@@ -178,7 +197,7 @@ describe('usePodcastCleanup', () => {
       beforeEach(async () => {
         vi.clearAllMocks();
         queueListMock.value = [];
-        await deletePodcastGlobally('queue-id');
+        await composable.deletePodcastGlobally('queue-id');
       });
 
       it('calls the resetPlayerSession function', () => {
@@ -199,7 +218,7 @@ describe('usePodcastCleanup', () => {
         vi.clearAllMocks();
         queueListMock.value = [...podcastQueueTracks, queueTrack];
         currentTrackMock.value = podcastEpisode;
-        await deletePodcastGlobally('queue-id');
+        await composable.deletePodcastGlobally('queue-id');
       });
 
       it('calls the removeAllByTrackId function with the correct parameters', () => {
@@ -231,7 +250,7 @@ describe('usePodcastCleanup', () => {
             vi.clearAllMocks();
             queueListMock.value = [...podcastQueueTracks, queueTrack];
             currentTrackMock.value = podcastQueueTracks[0];
-            await deletePodcastGlobally('queue-id');
+            await composable.deletePodcastGlobally('queue-id');
           });
 
           it('calls the playCurrentTrackFromQueue function', () => {
@@ -249,7 +268,7 @@ describe('usePodcastCleanup', () => {
             queueListMock.value = [...podcastQueueTracks, queueTrack];
             currentTrackMock.value = podcastQueueTracks[0];
             isPlayingMock.value = true;
-            await deletePodcastGlobally('queue-id');
+            await composable.deletePodcastGlobally('queue-id');
           });
 
           afterAll(() => {
@@ -267,12 +286,12 @@ describe('usePodcastCleanup', () => {
       });
     });
 
-    describe.skip('when the current track is not from the podcast', () => {
+    describe('when the current track is not from the podcast', () => {
       beforeEach(async () => {
         vi.clearAllMocks();
         queueListMock.value = [queueTrack];
         currentTrackMock.value = queueTrack;
-        await deletePodcastGlobally('queue-id');
+        await composable.deletePodcastGlobally('queue-id');
       });
 
       it('does not call the playCurrentTrackFromQueue function', () => {

@@ -4,12 +4,16 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
+import { useRouterMock } from '@/test/useRouterMock';
 
 import LazyLoadContent from './LazyLoadContent.vue';
 
 const isHydrating = ref(true);
+const { routerMock } = useRouterMock();
 
-mockNuxtImport('useNuxtApp', () => () => ({
+mockNuxtImport('useNuxtApp', (original) => () => ({
+  ...original(),
+  $router: routerMock,
   isHydrating: isHydrating.value,
 }));
 
@@ -64,7 +68,9 @@ describe('LazyLoadContent', () => {
     });
 
     it('adds the IntersectionObserver function', () => {
-      expect(iOMock.observeMock).toHaveBeenCalled();
+      expect(iOMock.observeMock).toHaveBeenCalledWith(
+        wrapper.find({ ref: 'rootRef' }).element,
+      );
     });
 
     describe('when intersectionObserver is not intersecting', () => {

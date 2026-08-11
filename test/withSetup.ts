@@ -1,26 +1,27 @@
-import type { App } from 'vue';
-
-import { createApp } from 'vue';
+import { mountSuspended } from '@nuxt/test-utils/runtime';
+import { defineComponent } from 'vue';
 
 interface WithSetup<T> {
-  app: App<Element>;
+  app: Awaited<ReturnType<typeof mountSuspended>>;
   composable: T;
 }
 
-export function withSetup<T>(composable: () => T): WithSetup<T> {
+export async function withSetup<T>(
+  composable: () => Promise<T> | T,
+): Promise<WithSetup<T>> {
   let result!: T;
 
-  const app = createApp({
-    setup() {
-      result = composable();
-      return () => {};
+  const SetupComponent = defineComponent({
+    async setup() {
+      result = await composable();
+      return () => ({});
     },
   });
 
-  app.mount(document.createElement('div'));
+  const wrapper = await mountSuspended(SetupComponent);
 
   return {
-    app,
+    app: wrapper,
     composable: result,
   };
 }

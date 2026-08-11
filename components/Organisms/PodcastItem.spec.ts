@@ -8,6 +8,11 @@ import { formattedPodcastMock } from '@/test/fixtures';
 
 import PodcastItem from './PodcastItem.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
@@ -48,6 +53,20 @@ describe('PodcastItem', () => {
 
   describe.each([
     ['play podcast ButtonLink', 'playPodcastButtonLink', 'playPodcast'],
+  ])(
+    'when the %s component emits the click event',
+    (_text, ref, emitEventName) => {
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref }).trigger('click');
+      });
+
+      it(`emits the ${emitEventName} event`, () => {
+        expect(wrapper.emitted(emitEventName)).toEqual([[podcast]]);
+      });
+    },
+  );
+
+  describe.each([
     ['play podcast DropdownItem', 'playPodcast', 'playPodcast'],
     ['add to queue DropdownItem', 'addPodcastToQueue', 'addPodcastToQueue'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],

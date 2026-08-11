@@ -24,7 +24,7 @@ exports[`EntryHeader > when the onDragStart event is attached > matches the snap
   <div class="blur"></div>
 </div>
 <section class="mBXL content">
-  <figure class="figure" draggable="false">
+  <figure class="figure" draggable="true">
     <div class="centerAll preloadImage preloadImage" data-test-id="image"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="title" class="image" draggable="false" src="image"></div>
   </figure>
   <div class="mBAllM detailsWrapper">

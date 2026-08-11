@@ -7,6 +7,11 @@ import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
 
 import SortControls from './SortControls.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 mockNuxtImport('useDropdownMenu', () => () => ({
   closeDropdownMenu: vi.fn(),
   isOpen: ref(true),
@@ -52,7 +57,7 @@ describe('SortControls', () => {
   });
 
   it('shows the correct number of DropdownItem components', () => {
-    expect(wrapper.findAllComponents(DropdownItem).length).toBe(2);
+    expect(wrapper.findAllComponents(DropdownItem)).toHaveLength(2);
   });
 
   describe('when activeSort matches the option key', () => {
@@ -148,7 +153,8 @@ describe('SortControls', () => {
   describe('when the DropdownItem component emits the click event', () => {
     beforeEach(async () => {
       wrapper.findAllComponents(DropdownItem)[0].vm.$emit('click');
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('emits the selectSort event', () => {
