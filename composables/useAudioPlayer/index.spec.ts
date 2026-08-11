@@ -21,29 +21,55 @@ let onStalledCb: CB;
 let onTimeupdateCb: CB;
 let onWaitingCb: CB;
 
-const changePlaybackRateMock = vi.fn();
-const crossfadeToElementMock = vi.fn();
-const crossfadeToMock = vi.fn();
-const loadFromElementMock = vi.fn();
-const setVolumeMock = vi.fn();
-const loadMock = vi.fn();
-const onBufferedMock = vi.fn((cb) => (onBufferedCb = cb));
-const onCanPlayMock = vi.fn((cb) => (onCanPlayCb = cb));
-const onCrossfadeTriggerMock = vi.fn((cb) => (onCrossfadeTriggerCb = cb));
-const onEndedMock = vi.fn((cb) => (onEndedCb = cb));
-const onErrorMock = vi.fn((cb) => (onErrorCb = cb));
-const onPauseMock = vi.fn((cb) => (onPauseCb = cb));
-const onPlayMock = vi.fn((cb) => (onPlayCb = cb));
-const onStalledMock = vi.fn((cb) => (onStalledCb = cb));
-const onTimeupdateMock = vi.fn((cb) => (onTimeupdateCb = cb));
-const onWaitingMock = vi.fn((cb) => (onWaitingCb = cb));
-const pauseMock = vi.fn();
-const applyReplayGainMock = vi.fn();
-const destroyMock = vi.fn();
-const playMock = vi.fn(() => Promise.resolve());
-const setCrossfadeDurationMock = vi.fn();
-const setCurrentTimeMock = vi.fn();
-const unloadMock = vi.fn();
+const {
+  applyReplayGainMock,
+  changePlaybackRateMock,
+  crossfadeToElementMock,
+  crossfadeToMock,
+  destroyMock,
+  loadFromElementMock,
+  loadMock,
+  onBufferedMock,
+  onCanPlayMock,
+  onCrossfadeTriggerMock,
+  onEndedMock,
+  onErrorMock,
+  onPauseMock,
+  onPlayMock,
+  onStalledMock,
+  onTimeupdateMock,
+  onWaitingMock,
+  pauseMock,
+  playMock,
+  setCrossfadeDurationMock,
+  setCurrentTimeMock,
+  setVolumeMock,
+  unloadMock,
+} = vi.hoisted(() => ({
+  applyReplayGainMock: vi.fn(),
+  changePlaybackRateMock: vi.fn(),
+  crossfadeToElementMock: vi.fn(),
+  crossfadeToMock: vi.fn(),
+  destroyMock: vi.fn(),
+  loadFromElementMock: vi.fn(),
+  loadMock: vi.fn(),
+  onBufferedMock: vi.fn((cb) => (onBufferedCb = cb)),
+  onCanPlayMock: vi.fn((cb) => (onCanPlayCb = cb)),
+  onCrossfadeTriggerMock: vi.fn((cb) => (onCrossfadeTriggerCb = cb)),
+  onEndedMock: vi.fn((cb) => (onEndedCb = cb)),
+  onErrorMock: vi.fn((cb) => (onErrorCb = cb)),
+  onPauseMock: vi.fn((cb) => (onPauseCb = cb)),
+  onPlayMock: vi.fn((cb) => (onPlayCb = cb)),
+  onStalledMock: vi.fn((cb) => (onStalledCb = cb)),
+  onTimeupdateMock: vi.fn((cb) => (onTimeupdateCb = cb)),
+  onWaitingMock: vi.fn((cb) => (onWaitingCb = cb)),
+  pauseMock: vi.fn(),
+  playMock: vi.fn(() => Promise.resolve()),
+  setCrossfadeDurationMock: vi.fn(),
+  setCurrentTimeMock: vi.fn(),
+  setVolumeMock: vi.fn(),
+  unloadMock: vi.fn(),
+}));
 
 mockNuxtImport('AudioPlayer', () =>
   vi.fn(function () {
@@ -75,10 +101,14 @@ mockNuxtImport('AudioPlayer', () =>
   }),
 );
 
-const preloadMock = vi.fn();
-const consumeMock = vi.fn();
-const pruneMock = vi.fn();
-const clearPreloaderMock = vi.fn();
+const { clearPreloaderMock, consumeMock, preloadMock, pruneMock } = vi.hoisted(
+  () => ({
+    clearPreloaderMock: vi.fn(),
+    consumeMock: vi.fn(),
+    preloadMock: vi.fn(),
+    pruneMock: vi.fn(),
+  }),
+);
 
 mockNuxtImport('AudioPreloader', () =>
   vi.fn(function () {
@@ -93,43 +123,58 @@ mockNuxtImport('AudioPreloader', () =>
   }),
 );
 
-const scrobbleMock = vi.fn();
+const scrobbleMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   scrobble: scrobbleMock,
 }));
 
-const setMediaSessionMetadataMock = vi.fn();
-const setMediaSessionPlaybackStateMock = vi.fn();
-const setMediaSessionPositionStateMock = vi.fn();
-const setupMediaSessionHandlersMock = vi.fn();
+const {
+  setMediaSessionMetadataMock,
+  setMediaSessionPlaybackStateMock,
+  setMediaSessionPositionStateMock,
+  setupMediaSessionHandlersMock,
+} = vi.hoisted(() => ({
+  setMediaSessionMetadataMock: vi.fn(),
+  setMediaSessionPlaybackStateMock: vi.fn(),
+  setMediaSessionPositionStateMock: vi.fn(),
+  setupMediaSessionHandlersMock: vi.fn(),
+}));
 
-mockNuxtImport('useMediaSession', () => () => ({
+mockNuxtImport('useMediaSession', (original) => () => ({
+  ...original(),
   setMediaSessionMetadata: setMediaSessionMetadataMock,
   setMediaSessionPlaybackState: setMediaSessionPlaybackStateMock,
   setMediaSessionPositionState: setMediaSessionPositionStateMock,
   setupMediaSessionHandlers: setupMediaSessionHandlersMock,
 }));
 
-const createBookmarkMock = vi.fn();
-const deleteBookmarkMock = vi.fn();
-const getBookmarkPositionMock = vi.fn();
+const { createBookmarkMock, deleteBookmarkMock, getBookmarkPositionMock } =
+  vi.hoisted(() => ({
+    createBookmarkMock: vi.fn(),
+    deleteBookmarkMock: vi.fn(),
+    getBookmarkPositionMock: vi.fn(),
+  }));
 
-mockNuxtImport('useBookmark', () => () => ({
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
   createBookmark: createBookmarkMock,
   deleteBookmark: deleteBookmarkMock,
   getBookmarkPosition: getBookmarkPositionMock,
 }));
 
-const loadDashboardAlbumsMock = vi.fn();
+const loadDashboardAlbumsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   loadDashboardAlbums: loadDashboardAlbumsMock,
 }));
 
-const deletePodcastEpisodeGloballyMock = vi.fn();
+const deletePodcastEpisodeGloballyMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePodcastCleanup', () => () => ({
+mockNuxtImport('usePodcastCleanup', (original) => () => ({
+  ...original(),
   deletePodcastEpisodeGlobally: deletePodcastEpisodeGloballyMock,
 }));
 
@@ -138,9 +183,10 @@ const crossfadeEnabledMock = ref(false);
 const deletePodcastOnEndMock = ref(false);
 const scrobbleEnabledMock = ref(true);
 const replayGainModeMock = ref<ReplayGainMode>('off');
-const setReplayGainModeMock = vi.fn();
+const setReplayGainModeMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   crossfadeDuration: crossfadeDurationMock,
   crossfadeEnabled: crossfadeEnabledMock,
   deletePodcastOnEnd: deletePodcastOnEndMock,
@@ -149,9 +195,10 @@ mockNuxtImport('useSettings', () => () => ({
   setReplayGainMode: setReplayGainModeMock,
 }));
 
-const handleErrorMock = vi.fn();
+const handleErrorMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useErrorHandler', () => () => ({
+mockNuxtImport('useErrorHandler', (original) => () => ({
+  ...original(),
   handleError: handleErrorMock,
 }));
 
@@ -168,6 +215,11 @@ const getLocalStorageMock = vi.hoisted(() =>
 );
 
 mockNuxtImport('getLocalStorage', () => getLocalStorageMock);
+
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
+  getStreamUrl: vi.fn((path) => path),
+}));
 
 const {
   addTracksMock,
@@ -190,11 +242,13 @@ const queueTracks = getFormattedQueueTracksMock(6);
 const queueTrack = getFormattedQueueTracksMock()[0];
 
 describe('useAudioPlayer', () => {
-  let result: ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>;
+  let result: Awaited<
+    ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>
+  >;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     navigateQueueMock.mockReturnValue(queueTrack);
-    result = withSetup(useAudioPlayer);
+    result = await withSetup(useAudioPlayer);
   });
 
   it('sets the default isBuffering value', () => {
@@ -265,40 +319,40 @@ describe('useAudioPlayer', () => {
 
       beforeAll(async () => {
         getLocalStorageMock.mockReturnValue(AUDIO_PLAYER_DEFAULT_STATES);
-        result = withSetup(useAudioPlayer);
-        await result.composable.restoreAudioPlayerState();
+        result = await withSetup(useAudioPlayer);
+        result.composable.restoreAudioPlayerState();
       });
 
       it('calls the onTimeupdate function', () => {
-        expect(onTimeupdateMock).toHaveBeenCalled();
+        expect(onTimeupdateMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onCanPlay function', () => {
-        expect(onCanPlayMock).toHaveBeenCalled();
+        expect(onCanPlayMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onBuffered function', () => {
-        expect(onBufferedMock).toHaveBeenCalled();
+        expect(onBufferedMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onStalled function', () => {
-        expect(onStalledMock).toHaveBeenCalled();
+        expect(onStalledMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onWaiting function', () => {
-        expect(onWaitingMock).toHaveBeenCalled();
+        expect(onWaitingMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onEnded function', () => {
-        expect(onEndedMock).toHaveBeenCalled();
+        expect(onEndedMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onPause function', () => {
-        expect(onPauseMock).toHaveBeenCalled();
+        expect(onPauseMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       it('calls the onPlay function', () => {
-        expect(onPlayMock).toHaveBeenCalled();
+        expect(onPlayMock).toHaveBeenCalledWith(expect.any(Function));
       });
 
       describe('when the getLocalStorage function returns the default state', () => {
@@ -360,8 +414,8 @@ describe('useAudioPlayer', () => {
             volume: 0.5,
           });
 
-          result = withSetup(useAudioPlayer);
-          await result.composable.restoreAudioPlayerState();
+          result = await withSetup(useAudioPlayer);
+          result.composable.restoreAudioPlayerState();
         });
 
         it('sets the correct repeat value', () => {
@@ -394,8 +448,8 @@ describe('useAudioPlayer', () => {
           beforeAll(async () => {
             hasCurrentTrackMock.value = true;
 
-            result = withSetup(useAudioPlayer);
-            await result.composable.restoreAudioPlayerState();
+            result = await withSetup(useAudioPlayer);
+            result.composable.restoreAudioPlayerState();
           });
 
           it('calls the audio load function with the correct parameters', () => {
@@ -422,10 +476,11 @@ describe('useAudioPlayer', () => {
                 shuffle: false,
                 volume: 0.5,
               });
+
               currentTrackMock.value.position = 7;
 
-              result = withSetup(useAudioPlayer);
-              await result.composable.restoreAudioPlayerState();
+              result = await withSetup(useAudioPlayer);
+              result.composable.restoreAudioPlayerState();
             });
 
             it('calls the setCurrentTime function with the correct parameters', () => {
@@ -435,8 +490,8 @@ describe('useAudioPlayer', () => {
             describe('when the currentTrack value has a position', () => {
               beforeAll(async () => {
                 currentTrackMock.value.position = 7;
-                result = withSetup(useAudioPlayer);
-                await result.composable.restoreAudioPlayerState();
+                result = await withSetup(useAudioPlayer);
+                result.composable.restoreAudioPlayerState();
               });
 
               it('calls the setCurrentTime function with the correct parameters', () => {
@@ -447,8 +502,8 @@ describe('useAudioPlayer', () => {
             describe('when the currentTrack value does not have a position', () => {
               beforeAll(async () => {
                 currentTrackMock.value.position = undefined;
-                result = withSetup(useAudioPlayer);
-                await result.composable.restoreAudioPlayerState();
+                result = await withSetup(useAudioPlayer);
+                result.composable.restoreAudioPlayerState();
               });
 
               it('calls the setCurrentTime function with the correct parameters', () => {
@@ -458,6 +513,11 @@ describe('useAudioPlayer', () => {
           });
 
           describe('when the queueList value is not an empty array', () => {
+            beforeEach(() => {
+              queueListMock.value = getFormattedQueueTracksMock(5);
+              result.composable.restoreAudioPlayerState();
+            });
+
             it('calls the audio preloader preload function with the correct parameters', () => {
               expect(preloadMock).toHaveBeenCalledWith(
                 queueListMock.value[1].streamUrlId,
@@ -485,8 +545,8 @@ describe('useAudioPlayer', () => {
             beforeAll(async () => {
               vi.clearAllMocks();
               queueListMock.value = [];
-              result = withSetup(useAudioPlayer);
-              await result.composable.restoreAudioPlayerState();
+              result = await withSetup(useAudioPlayer);
+              result.composable.restoreAudioPlayerState();
             });
 
             it('does not call the audio preloader preload function', () => {
@@ -498,10 +558,10 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when the playerStateRestored value is true', () => {
-      beforeAll(async () => {
+      beforeAll(() => {
         vi.clearAllMocks();
         useState(STATE_KEYS.playerStateRestored).value = true;
-        await result.composable.restoreAudioPlayerState();
+        result.composable.restoreAudioPlayerState();
       });
 
       it('does not call the onTimeupdate function', () => {
@@ -608,7 +668,7 @@ describe('useAudioPlayer', () => {
 
     describe('when the audio element is externally paused', () => {
       describe('when the isPlaying value is true', () => {
-        beforeAll(async () => {
+        beforeAll(() => {
           result.composable.isPlaying.value = true;
           onPauseCb();
         });
@@ -685,12 +745,10 @@ describe('useAudioPlayer', () => {
 
           resumePromise = Promise.resolve(onPlayCb());
 
-          // Simulate the pause event emitted by our own pause() call inside
-          // the onPlay handler firing before the pending play() resolves.
           onPauseCb();
         });
 
-        it('does not call the pause function', () => {
+        it('calls the pause function 2 times', () => {
           expect(pauseMock).toHaveBeenCalledTimes(2);
         });
 
@@ -911,9 +969,9 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when the isTrack value is false', () => {
-      beforeAll(async () => {
+      beforeAll(() => {
         isTrackMock.value = false;
-        await onCrossfadeTriggerCb();
+        onCrossfadeTriggerCb();
       });
 
       it('does not call the navigateQueue function', () => {
@@ -922,10 +980,10 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when the repeat value is one', () => {
-      beforeAll(async () => {
+      beforeAll(() => {
         isTrackMock.value = true;
         result.composable.repeat.value = REPEAT_MODE.one;
-        await onCrossfadeTriggerCb();
+        onCrossfadeTriggerCb();
       });
 
       it('does not call the navigateQueue function', () => {
@@ -934,10 +992,10 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when the isLastTrack value is true and repeat is not all', () => {
-      beforeAll(async () => {
+      beforeAll(() => {
         result.composable.repeat.value = REPEAT_MODE.off;
         isLastTrackMock.value = true;
-        await onCrossfadeTriggerCb();
+        onCrossfadeTriggerCb();
       });
 
       it('does not call the navigateQueue function', () => {
@@ -946,13 +1004,13 @@ describe('useAudioPlayer', () => {
     });
 
     describe('when all guards pass', () => {
-      beforeAll(async () => {
+      beforeAll(() => {
         isLastTrackMock.value = false;
         result.composable.repeat.value = REPEAT_MODE.all;
         result.composable.currentTime.value = 100;
         vi.clearAllMocks();
         navigateQueueMock.mockReturnValueOnce(queueTrack);
-        await onCrossfadeTriggerCb();
+        onCrossfadeTriggerCb();
       });
 
       it('calls the loadDashboardAlbums function', () => {
@@ -972,12 +1030,12 @@ describe('useAudioPlayer', () => {
       });
 
       describe('when the scrobble conditions are met', () => {
-        beforeAll(async () => {
+        beforeAll(() => {
           result.composable.repeat.value = REPEAT_MODE.all;
           result.composable.currentTime.value = 100;
           vi.clearAllMocks();
           navigateQueueMock.mockReturnValueOnce(queueTrack);
-          await onCrossfadeTriggerCb();
+          onCrossfadeTriggerCb();
         });
 
         it('calls the scrobble function with the correct parameters', () => {
@@ -1001,7 +1059,10 @@ describe('useAudioPlayer', () => {
     });
 
     it('calls the setLocalStorage function', () => {
-      expect(setLocalStorageMock).toHaveBeenCalled();
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.player,
+        expect.any(Object),
+      );
     });
 
     describe('when the queueList value length is 0', () => {
@@ -1065,7 +1126,10 @@ describe('useAudioPlayer', () => {
     });
 
     it('calls the setLocalStorage function', () => {
-      expect(setLocalStorageMock).toHaveBeenCalled();
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.player,
+        expect.any(Object),
+      );
     });
   });
 
@@ -1141,7 +1205,10 @@ describe('useAudioPlayer', () => {
     });
 
     it('calls the setLocalStorage function', () => {
-      expect(setLocalStorageMock).toHaveBeenCalled();
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.player,
+        expect.any(Object),
+      );
     });
 
     describe(`when the track is a ${MEDIA_TYPE.podcastEpisode}`, () => {
@@ -1279,7 +1346,7 @@ describe('useAudioPlayer', () => {
     );
 
     describe('when the isTrack value is false', () => {
-      beforeAll(async () => {
+      beforeAll(() => {
         vi.advanceTimersByTime(SAVE_INTERVAL * 2);
       });
 
@@ -1290,7 +1357,7 @@ describe('useAudioPlayer', () => {
 
     describe('when the isTrack value is true', () => {
       describe('when currentTime is less than or equal to 80% of track duration', () => {
-        beforeAll(async () => {
+        beforeAll(() => {
           isTrackMock.value = true;
           result.composable.currentTime.value = 80;
 
@@ -1304,7 +1371,7 @@ describe('useAudioPlayer', () => {
 
       describe('when currentTime is greater than 80% of track duration', () => {
         describe('when the scrobbleEnabled value is false', () => {
-          beforeAll(async () => {
+          beforeAll(() => {
             scrobbleEnabledMock.value = false;
             result.composable.currentTime.value = 100;
             vi.advanceTimersByTime(SAVE_INTERVAL);
@@ -1320,7 +1387,7 @@ describe('useAudioPlayer', () => {
         });
 
         describe('when the scrobbleEnabled value is true', () => {
-          beforeAll(async () => {
+          beforeAll(() => {
             result.composable.currentTime.value = 100;
             vi.advanceTimersByTime(SAVE_INTERVAL);
           });
@@ -1622,7 +1689,10 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the setLocalStorage function', () => {
-        expect(setLocalStorageMock).toHaveBeenCalled();
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.player,
+          expect.any(Object),
+        );
       });
 
       it('calls the createBookmark function with the correct parameters', () => {
@@ -1649,7 +1719,10 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the setLocalStorage function', () => {
-        expect(setLocalStorageMock).toHaveBeenCalled();
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.player,
+          expect.any(Object),
+        );
       });
 
       it('does not call the createBookmark function', () => {
@@ -1853,7 +1926,10 @@ describe('useAudioPlayer', () => {
     });
 
     it('calls the setLocalStorage function', () => {
-      expect(setLocalStorageMock).toHaveBeenCalled();
+      expect(setLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.player,
+        expect.any(Object),
+      );
     });
   });
 
@@ -2245,7 +2321,10 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the setLocalStorage function', () => {
-        expect(setLocalStorageMock).toHaveBeenCalled();
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.player,
+          expect.any(Object),
+        );
       });
     });
 
@@ -2325,7 +2404,10 @@ describe('useAudioPlayer', () => {
       });
 
       it('calls the setLocalStorage function', () => {
-        expect(setLocalStorageMock).toHaveBeenCalled();
+        expect(setLocalStorageMock).toHaveBeenCalledWith(
+          LOCAL_STORAGE_KEYS.player,
+          expect.any(Object),
+        );
       });
     });
 

@@ -35,21 +35,21 @@ const sortOptionsMock: SortOption<Album>[] = [
 ];
 
 describe('useLocalSort', () => {
-  let result: ReturnType<
-    typeof withSetup<ReturnType<typeof useLocalSort<Album>>>
+  let result: Awaited<
+    ReturnType<typeof withSetup<ReturnType<typeof useLocalSort<Album>>>>
   >;
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
-  beforeEach(() => {
-    result = withSetup(() =>
+  beforeEach(async () => {
+    result = await withSetup(() =>
       useLocalSort<Album>({
         items: ref([...albumsMock]),
         options: sortOptionsMock,
       }),
     );
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   it('sets the default activeSort value', () => {
@@ -81,8 +81,8 @@ describe('useLocalSort', () => {
   });
 
   describe('when items is an empty array', () => {
-    beforeEach(() => {
-      result = withSetup(() =>
+    beforeEach(async () => {
+      result = await withSetup(() =>
         useLocalSort<Album>({
           items: ref([]),
         }),
@@ -95,7 +95,16 @@ describe('useLocalSort', () => {
   });
 
   describe('when sortProps functions are called', () => {
-    describe('when onToggleDirection is called', () => {
+    beforeEach(async () => {
+      result = await withSetup(() =>
+        useLocalSort<Album>({
+          items: ref([...albumsMock]),
+          options: sortOptionsMock,
+        }),
+      );
+    });
+
+    describe('when the onToggleDirection function is called', () => {
       beforeEach(() => {
         result.composable.sortProps.value.onToggleDirection();
       });
@@ -112,7 +121,7 @@ describe('useLocalSort', () => {
         ]);
       });
 
-      describe('when onToggleDirection is called again', () => {
+      describe('when the onToggleDirection function is called again', () => {
         beforeEach(() => {
           result.composable.sortProps.value.onToggleDirection();
         });
@@ -136,7 +145,7 @@ describe('useLocalSort', () => {
         ]);
       });
 
-      describe('when onToggleDirection is called', () => {
+      describe('when the onToggleDirection function is called', () => {
         beforeEach(() => {
           result.composable.sortProps.value.onToggleDirection();
         });
@@ -149,7 +158,7 @@ describe('useLocalSort', () => {
           ]);
         });
 
-        describe('when onToggleDirection is called again', () => {
+        describe('when the onToggleDirection function is called again', () => {
           beforeEach(() => {
             result.composable.sortProps.value.onToggleDirection();
           });
@@ -182,7 +191,7 @@ describe('useLocalSort', () => {
         ]);
       });
 
-      describe('when onToggleDirection is called after selecting created', () => {
+      describe('when the onToggleDirection function is called after selecting created', () => {
         beforeEach(() => {
           result.composable.sortProps.value.onToggleDirection();
         });
@@ -258,7 +267,7 @@ describe('useLocalSort', () => {
         });
       });
 
-      describe('when onToggleDirection is called', () => {
+      describe('when the onToggleDirection function is called', () => {
         let previousSortedItems: Album[];
 
         beforeEach(() => {

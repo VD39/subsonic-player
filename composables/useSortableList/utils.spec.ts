@@ -116,15 +116,15 @@ describe('findScrollableParentElement', () => {
     parent.remove();
   });
 
-  describe('when the startElement is null', () => {
+  describe('when startElement is null', () => {
     it('returns the correct response', () => {
-      expect(findScrollableParentElement(null)).toBe(null);
+      expect(findScrollableParentElement(null)).toBeNull();
     });
   });
 
   describe('when no parent has a scrollable overflow style', () => {
     it('returns the correct response', () => {
-      expect(findScrollableParentElement(child)).toBe(null);
+      expect(findScrollableParentElement(child)).toBeNull();
     });
   });
 
@@ -145,7 +145,7 @@ describe('findScrollableParentElement', () => {
 });
 
 describe('getAutoScrollSpeed', () => {
-  describe('when the container is null', () => {
+  describe('when container is null', () => {
     it('returns the correct response', () => {
       expect(getAutoScrollSpeed(100, null)).toBe(0);
     });
@@ -193,7 +193,7 @@ describe('getCurrentScrollTop', () => {
     });
   });
 
-  describe('when the scrollableAncestor is null', () => {
+  describe('when scrollableAncestor is null', () => {
     it('returns the correct response', () => {
       expect(getCurrentScrollTop(null)).toBe(globalThis.scrollY);
     });
@@ -232,7 +232,7 @@ describe('getDragBounds', () => {
     );
   });
 
-  describe('when the scrollableAncestor is null', () => {
+  describe('when scrollableAncestor is null', () => {
     it('returns the correct top bound', () => {
       expect(getDragBounds(null).top).toBe(0);
     });
@@ -248,9 +248,9 @@ describe('getListContainerElement', () => {
   let instance: ComponentPublicInstance;
   let sibling: HTMLSpanElement;
 
-  describe('when the listContainer is null', () => {
+  describe('when listContainer is null', () => {
     it('returns the correct response', () => {
-      expect(getListContainerElement(null)).toBe(null);
+      expect(getListContainerElement(null)).toBeNull();
     });
   });
 
@@ -302,7 +302,7 @@ describe('getListContainerElement', () => {
       });
 
       it('returns the correct response', () => {
-        expect(getListContainerElement(instance)).toBe(null);
+        expect(getListContainerElement(instance)).toBeNull();
       });
     });
   });
@@ -331,7 +331,7 @@ describe('scrollContainerBy', () => {
     });
   });
 
-  describe('when the scrollableAncestor is null', () => {
+  describe('when scrollableAncestor is null', () => {
     let scrollBySpy: ReturnType<typeof vi.spyOn>;
 
     beforeEach(() => {

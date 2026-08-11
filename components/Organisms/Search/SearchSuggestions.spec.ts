@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import SpinningLoader from '@/components/Atoms/SpinningLoader.vue';
@@ -8,6 +9,11 @@ import { searchSuggestionsMock } from '@/test/fixtures';
 import SearchSuggestionItem from './SearchSuggestionItem.vue';
 import SearchSuggestions from './SearchSuggestions.vue';
 import SearchSuggestionTrackItem from './SearchSuggestionTrackItem.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const track = searchSuggestionsMock[1].items[0].track;
 
@@ -118,7 +124,7 @@ describe('SearchSuggestions', () => {
         });
 
         it('shows the correct number of SearchSuggestionItem components', () => {
-          expect(wrapper.findAllComponents(SearchSuggestionItem).length).toBe(
+          expect(wrapper.findAllComponents(SearchSuggestionItem)).toHaveLength(
             2,
           );
         });
@@ -178,7 +184,7 @@ describe('SearchSuggestions', () => {
         });
 
         describe('when the SearchSuggestionItem component emits the close event', () => {
-          beforeEach(async () => {
+          beforeEach(() => {
             wrapper.findComponent(SearchSuggestionItem).vm.$emit('close');
           });
 
@@ -188,7 +194,7 @@ describe('SearchSuggestions', () => {
         });
 
         describe('when the SearchSuggestionTrackItem component emits the close event', () => {
-          beforeEach(async () => {
+          beforeEach(() => {
             wrapper.findComponent(SearchSuggestionTrackItem).vm.$emit('close');
           });
 
@@ -198,7 +204,7 @@ describe('SearchSuggestions', () => {
         });
 
         describe('when the SearchSuggestionTrackItem component emits the addToQueue event', () => {
-          beforeEach(async () => {
+          beforeEach(() => {
             wrapper
               .findComponent(SearchSuggestionTrackItem)
               .vm.$emit('addToQueue', track);
@@ -211,7 +217,7 @@ describe('SearchSuggestions', () => {
         });
 
         describe('when the SearchSuggestionTrackItem component emits the playTrack event', () => {
-          beforeEach(async () => {
+          beforeEach(() => {
             wrapper
               .findComponent(SearchSuggestionTrackItem)
               .vm.$emit('playTrack', track);

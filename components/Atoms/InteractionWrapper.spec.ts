@@ -1,39 +1,23 @@
 import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import { classListMock } from '@/test/classListMock';
 
 import InteractionWrapper from './InteractionWrapper.vue';
 
-let onDragStartMock: typeof vi.fn | undefined = undefined;
-
-vi.mock('vue', async () => {
-  const vue = await vi.importActual<typeof import('vue')>('vue');
-
-  return {
-    ...vue,
-    getCurrentInstance: vi.fn(() => ({
-      ...vue.getCurrentInstance(),
-      vnode: {
-        props: {
-          onDragStart: onDragStartMock,
-        },
-      },
-    })),
-  };
-});
-
 const isAnyOpenMock = ref(false);
 
-mockNuxtImport('useDropdownMenuState', () => () => ({
+mockNuxtImport('useDropdownMenuState', (original) => () => ({
+  ...original(),
   isAnyOpen: isAnyOpenMock,
 }));
 
 const isDraggingMock = ref(false);
 
-mockNuxtImport('useSortableListState', () => () => ({
+mockNuxtImport('useSortableListState', (original) => () => ({
+  ...original(),
   isDragging: isDraggingMock,
 }));
 
@@ -41,9 +25,12 @@ const closestSpy = vi.spyOn(HTMLElement.prototype, 'closest');
 
 const { containsClassMock } = classListMock();
 
+let onDragStartMock: ((event: DragEvent) => unknown) | undefined;
+
 function factory(props = {}) {
-  return shallowMount(InteractionWrapper, {
+  return mount(InteractionWrapper, {
     props: {
+      onDragStart: onDragStartMock,
       ...props,
     },
     slots: {
@@ -176,7 +163,7 @@ describe('InteractionWrapper', () => {
       });
     });
 
-    describe('when isDragging is true', () => {
+    describe('when the isDragging value is true', () => {
       beforeEach(async () => {
         isDraggingMock.value = true;
         await wrapper.trigger('contextmenu');
@@ -267,6 +254,7 @@ describe('InteractionWrapper', () => {
     describe('when the draggable prop is set to false', () => {
       beforeEach(async () => {
         wrapper = factory({ draggable: false });
+
         await wrapper.trigger('mouseenter');
       });
 

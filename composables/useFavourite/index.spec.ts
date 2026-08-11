@@ -6,39 +6,37 @@ import { useQueueMock } from '@/test/useQueueMock';
 
 import { useFavourite } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
 const { updateTrackFavouriteMock: updateQueueTrackFavouriteMock } =
   useQueueMock();
 
-const {
-  addFavourite,
-  favouriteIds,
-  favourites,
-  getFavourites,
-  removeFavourite,
-  resetFavourites,
-  setFavouriteId,
-  toggleFavourite,
-} = useFavourite();
-
 describe('useFavourite', () => {
+  let composable: ReturnType<typeof useFavourite>;
+
+  beforeAll(() => {
+    composable = useFavourite();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default favourites value', () => {
-    expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
+    expect(composable.favourites.value).toEqual(DEFAULT_ALL_MEDIA);
   });
 
   it('sets the default favouriteIds value', () => {
-    expect(favouriteIds.value).toEqual({});
+    expect(composable.favouriteIds.value).toEqual({});
   });
 
   describe('when the getFavourites function is called', () => {
@@ -48,11 +46,11 @@ describe('useFavourite', () => {
           data: null,
         });
 
-        await getFavourites();
+        await composable.getFavourites();
       });
 
       it('sets the correct favourites value', () => {
-        expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
+        expect(composable.favourites.value).toEqual(DEFAULT_ALL_MEDIA);
       });
     });
 
@@ -78,11 +76,11 @@ describe('useFavourite', () => {
           },
         });
 
-        await getFavourites();
+        await composable.getFavourites();
       });
 
       it('sets the correct favourites value', () => {
-        expect(favourites.value).toEqual({
+        expect(composable.favourites.value).toEqual({
           album: [
             {
               id: 'album',
@@ -105,22 +103,22 @@ describe('useFavourite', () => {
 
   describe('when the setFavouriteId function is called', () => {
     beforeEach(() => {
-      setFavouriteId('id', false);
+      composable.setFavouriteId('id', false);
     });
 
     it('updates the favouriteIds value', () => {
-      expect(favouriteIds.value).toEqual({
+      expect(composable.favouriteIds.value).toEqual({
         id: false,
       });
     });
 
     describe('when called without a isFavourite parameter', () => {
       beforeEach(() => {
-        setFavouriteId('id');
+        composable.setFavouriteId('id');
       });
 
       it('updates the favouriteIds value', () => {
-        expect(favouriteIds.value).toEqual({
+        expect(composable.favouriteIds.value).toEqual({
           id: true,
         });
       });
@@ -130,7 +128,7 @@ describe('useFavourite', () => {
   describe('when the addFavourite function is called', () => {
     describe('when id parameter is defined', () => {
       beforeEach(async () => {
-        await addFavourite({
+        await composable.addFavourite({
           id: 'track-id',
           type: MEDIA_TYPE.track,
         });
@@ -146,35 +144,37 @@ describe('useFavourite', () => {
           },
         });
       });
-    });
 
-    describe('when fetchData response returns an error', () => {
-      beforeEach(async () => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-          error: new Error('Error message.'),
+      describe('when fetchData response returns an error', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+            error: new Error('Error message.'),
+          });
+
+          await composable.addFavourite({
+            id: 'error-test-id',
+            type: MEDIA_TYPE.track,
+          });
         });
 
-        await addFavourite({
-          id: 'error-test-id',
-          type: MEDIA_TYPE.track,
+        it('does not add to favouriteIds', () => {
+          expect(
+            composable.favouriteIds.value['error-test-id'],
+          ).toBeUndefined();
         });
-      });
 
-      it('does not add to favouriteIds', () => {
-        expect(favouriteIds.value['error-test-id']).toBeUndefined();
-      });
-
-      it('does not call the getFavourites function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith('/getStarred2', {
-          transform: expect.any(Function),
+        it('does not call the getFavourites function', () => {
+          expect(fetchDataMock).not.toHaveBeenCalledWith('/getStarred2', {
+            transform: expect.any(Function),
+          });
         });
       });
     });
 
     describe('when id parameter is not defined', () => {
       beforeEach(async () => {
-        await addFavourite({
+        await composable.addFavourite({
           type: MEDIA_TYPE.track,
         });
       });
@@ -188,7 +188,7 @@ describe('useFavourite', () => {
   describe('when the removeFavourite function is called', () => {
     describe('when id parameter is defined', () => {
       beforeEach(async () => {
-        await removeFavourite({
+        await composable.removeFavourite({
           id: 'track-id',
           type: MEDIA_TYPE.track,
         });
@@ -204,35 +204,35 @@ describe('useFavourite', () => {
           },
         });
       });
-    });
 
-    describe('when fetchData response returns an error', () => {
-      beforeEach(async () => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-          error: new Error('Error message.'),
+      describe('when fetchData response returns an error', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+            error: new Error('Error message.'),
+          });
+
+          await composable.removeFavourite({
+            id: 'track-id',
+            type: MEDIA_TYPE.track,
+          });
         });
 
-        await removeFavourite({
-          id: 'track-id',
-          type: MEDIA_TYPE.track,
+        it('does not modify favouriteIds', () => {
+          expect(composable.favouriteIds.value['track-id']).toBe(true);
         });
-      });
 
-      it('does not modify favouriteIds', () => {
-        expect(favouriteIds.value['track-id']).toBe(true);
-      });
-
-      it('does not call the getFavourites function', () => {
-        expect(fetchDataMock).not.toHaveBeenCalledWith('/getStarred2', {
-          transform: expect.any(Function),
+        it('does not call the getFavourites function', () => {
+          expect(fetchDataMock).not.toHaveBeenCalledWith('/getStarred2', {
+            transform: expect.any(Function),
+          });
         });
       });
     });
 
     describe('when id parameter is not defined', () => {
       beforeEach(async () => {
-        await removeFavourite({
+        await composable.removeFavourite({
           type: MEDIA_TYPE.track,
         });
       });
@@ -248,9 +248,9 @@ describe('useFavourite', () => {
       describe.each([
         [true, '/unstar'],
         [false, '/star'],
-      ])('when isFavourite is %s', (isFavourite, fetchUrl) => {
-        beforeEach(async () => {
-          await toggleFavourite(
+      ])('when the isFavourite value is %s', (isFavourite, fetchUrl) => {
+        beforeEach(() => {
+          composable.toggleFavourite(
             {
               id: 'track-id',
               type: MEDIA_TYPE.track,
@@ -280,8 +280,8 @@ describe('useFavourite', () => {
     });
 
     describe('when id parameter is not defined', () => {
-      beforeEach(async () => {
-        await toggleFavourite(
+      beforeEach(() => {
+        composable.toggleFavourite(
           {
             type: MEDIA_TYPE.track,
           },
@@ -301,15 +301,15 @@ describe('useFavourite', () => {
 
   describe('when the resetFavourites function is called', () => {
     beforeEach(() => {
-      resetFavourites();
+      composable.resetFavourites();
     });
 
     it('sets the favourites value to the default value', () => {
-      expect(favourites.value).toEqual(DEFAULT_ALL_MEDIA);
+      expect(composable.favourites.value).toEqual(DEFAULT_ALL_MEDIA);
     });
 
     it('sets the favouriteIds value to the default value', () => {
-      expect(favouriteIds.value).toEqual({});
+      expect(composable.favouriteIds.value).toEqual({});
     });
   });
 });

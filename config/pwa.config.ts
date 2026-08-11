@@ -129,6 +129,7 @@ export function createPWAConfig(
               },
               plugins: [
                 {
+                  // eslint-disable-next-line @typescript-eslint/require-await
                   cacheWillUpdate: async ({ response }) => {
                     if (
                       response?.headers?.get('content-type')?.includes('audio')
@@ -158,6 +159,7 @@ export function createPWAConfig(
               },
               plugins: [
                 {
+                  // eslint-disable-next-line @typescript-eslint/require-await
                   cacheKeyWillBeUsed: async ({ request }) => {
                     const url = new URL(request.url);
 

@@ -285,14 +285,14 @@ describe('getTotalTracks', () => {
 describe('getLatestDate', () => {
   describe('when podcast episodes is undefined', () => {
     it('returns the correct values', () => {
-      expect(getLatestDate()).toEqual(undefined);
+      expect(getLatestDate()).toBeUndefined();
     });
   });
 
   describe('when podcast episodes is defined', () => {
     describe('when podcast episodes is an empty array', () => {
       it('returns the correct values', () => {
-        expect(getLatestDate([])).toEqual(undefined);
+        expect(getLatestDate([])).toBeUndefined();
       });
     });
 
@@ -305,7 +305,7 @@ describe('getLatestDate', () => {
                 publishDate: undefined,
               }),
             ]),
-          ).toEqual(undefined);
+          ).toBeUndefined();
         });
       });
 

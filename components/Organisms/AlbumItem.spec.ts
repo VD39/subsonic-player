@@ -11,6 +11,11 @@ import { getFormattedAlbumsMock } from '@/test/helpers';
 
 import AlbumItem from './AlbumItem.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
@@ -117,6 +122,20 @@ describe('AlbumItem', () => {
   describe.each([
     ['play album ButtonLink', 'playAlbumButtonLink', 'playAlbum'],
     ['add to queue ButtonLink', 'addToQueueButtonLink', 'addToQueue'],
+  ])(
+    'when the %s component emits the click event',
+    (_text, ref, emitEventName) => {
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref }).trigger('click');
+      });
+
+      it(`emits the ${emitEventName} event`, () => {
+        expect(wrapper.emitted(emitEventName)).toEqual([[album]]);
+      });
+    },
+  );
+
+  describe.each([
     ['play album DropdownItem', 'playAlbum', 'playAlbum'],
     ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],

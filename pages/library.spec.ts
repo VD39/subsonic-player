@@ -19,47 +19,59 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import LibraryPage from './library.vue';
 
-const dragStartMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+const dragStartMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const getRandomAlbumsMock = vi.fn();
+const getRandomAlbumsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   getRandomAlbums: getRandomAlbumsMock,
 }));
 
-const getArtistsMock = vi.fn();
+const getArtistsMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useArtist', () => () => ({
+mockNuxtImport('useArtist', (original) => () => ({
+  ...original(),
   getArtists: getArtistsMock,
 }));
 
-const getGenresMock = vi.fn();
+const getGenresMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useGenre', () => () => ({
+mockNuxtImport('useGenre', (original) => () => ({
+  ...original(),
   getGenres: getGenresMock,
 }));
 
-const getPlaylistsMock = vi.fn();
+const getPlaylistsMock = vi.hoisted(() => vi.fn());
 const playlistsMock = ref<Playlist[]>([]);
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   getPlaylists: getPlaylistsMock,
   playlists: playlistsMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
+const openAlbumInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
@@ -75,6 +87,8 @@ const libraryDataMock = ref<{
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: libraryDataMock,
+  error: ref(null),
+  pending: ref(false),
   status: ref('success'),
 }));
 
@@ -142,6 +156,10 @@ describe('library', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
+    it('shows the HeaderSeeAllLink component', () => {
+      expect(wrapper.findComponent(HeaderSeeAllLink).exists()).toBe(true);
+    });
+
     it('does not show the NoMediaMessage component', () => {
       expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
     });
@@ -175,20 +193,6 @@ describe('library', () => {
       });
 
       describe('when the AlbumItem component emits the addToQueue event', () => {
-        describe('when getMediaTracks returns tracks', () => {
-          beforeEach(() => {
-            getMediaTracksMock.mockResolvedValue(tracks);
-            wrapper
-              .findComponent({ ref: 'randomAlbumCarouselSwiper' })
-              .findComponent(AlbumItem)
-              .vm.$emit('addToQueue', album);
-          });
-
-          it('calls the addTracksToQueue function with the correct parameters', () => {
-            expect(addTracksToQueueMock).toHaveBeenCalledWith(tracks);
-          });
-        });
-
         describe('when getMediaTracks returns null', () => {
           beforeEach(() => {
             getMediaTracksMock.mockResolvedValue(null);
@@ -200,6 +204,20 @@ describe('library', () => {
 
           it('does not call the addTracksToQueue function', () => {
             expect(addTracksToQueueMock).not.toHaveBeenCalled();
+          });
+        });
+
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'randomAlbumCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('addToQueue', album);
+          });
+
+          it('calls the addTracksToQueue function with the correct parameters', () => {
+            expect(addTracksToQueueMock).toHaveBeenCalledWith(tracks);
           });
         });
       });
@@ -218,20 +236,6 @@ describe('library', () => {
       });
 
       describe('when the AlbumItem component emits the playAlbum event', () => {
-        describe('when getMediaTracks returns tracks', () => {
-          beforeEach(() => {
-            getMediaTracksMock.mockResolvedValue(tracks);
-            wrapper
-              .findComponent({ ref: 'randomAlbumCarouselSwiper' })
-              .findComponent(AlbumItem)
-              .vm.$emit('playAlbum', album);
-          });
-
-          it('calls the playTracks function with the correct parameters', () => {
-            expect(playTracksMock).toHaveBeenCalledWith(tracks);
-          });
-        });
-
         describe('when getMediaTracks returns null', () => {
           beforeEach(() => {
             getMediaTracksMock.mockResolvedValue(null);
@@ -245,23 +249,20 @@ describe('library', () => {
             expect(playTracksMock).not.toHaveBeenCalled();
           });
         });
-      });
-    });
 
-    describe('when randomAlbums is an empty array', () => {
-      beforeEach(() => {
-        libraryDataMock.value.randomAlbums = [];
-        wrapper = factory();
-      });
+        describe('when getMediaTracks returns tracks', () => {
+          beforeEach(() => {
+            getMediaTracksMock.mockResolvedValue(tracks);
+            wrapper
+              .findComponent({ ref: 'randomAlbumCarouselSwiper' })
+              .findComponent(AlbumItem)
+              .vm.$emit('playAlbum', album);
+          });
 
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the album CarouselSwiper component', () => {
-        expect(
-          wrapper.findComponent({ ref: 'randomAlbumCarouselSwiper' }).exists(),
-        ).toBe(false);
+          it('calls the playTracks function with the correct parameters', () => {
+            expect(playTracksMock).toHaveBeenCalledWith(tracks);
+          });
+        });
       });
     });
 
@@ -307,23 +308,6 @@ describe('library', () => {
       });
     });
 
-    describe('when artists is an empty array', () => {
-      beforeEach(() => {
-        libraryDataMock.value.artists = [];
-        wrapper = factory();
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the artist CarouselSwiper component', () => {
-        expect(
-          wrapper.findComponent({ ref: 'artistCarouselSwiper' }).exists(),
-        ).toBe(false);
-      });
-    });
-
     describe('when genres is not an empty array', () => {
       describe(`when genres length is less than or equal to ${PREVIEW_GENRES_COUNT}`, () => {
         it('shows the genre CarouselSwiper component', () => {
@@ -366,23 +350,6 @@ describe('library', () => {
       });
     });
 
-    describe('when genres is an empty array', () => {
-      beforeEach(() => {
-        libraryDataMock.value.genres = [];
-        wrapper = factory();
-      });
-
-      it('matches the snapshot', () => {
-        expect(wrapper.html()).toMatchSnapshot();
-      });
-
-      it('does not show the genre CarouselSwiper component', () => {
-        expect(
-          wrapper.findComponent({ ref: 'genreCarouselSwiper' }).exists(),
-        ).toBe(false);
-      });
-    });
-
     describe('when playlists is not an empty array', () => {
       it('shows the PlaylistsList component', () => {
         expect(wrapper.findComponent(PlaylistsList).exists()).toBe(true);
@@ -414,6 +381,57 @@ describe('library', () => {
             wrapper.findComponent(PlaylistsList).props('playlists').length,
           ).toEqual(PREVIEW_PLAYLIST_COUNT);
         });
+      });
+    });
+
+    describe('when randomAlbums is an empty array', () => {
+      beforeEach(() => {
+        libraryDataMock.value.randomAlbums = [];
+        wrapper = factory();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the album CarouselSwiper component', () => {
+        expect(
+          wrapper.findComponent({ ref: 'randomAlbumCarouselSwiper' }).exists(),
+        ).toBe(false);
+      });
+    });
+
+    describe('when artists is an empty array', () => {
+      beforeEach(() => {
+        libraryDataMock.value.artists = [];
+        wrapper = factory();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the artist CarouselSwiper component', () => {
+        expect(
+          wrapper.findComponent({ ref: 'artistCarouselSwiper' }).exists(),
+        ).toBe(false);
+      });
+    });
+
+    describe('when genres is an empty array', () => {
+      beforeEach(() => {
+        libraryDataMock.value.genres = [];
+        wrapper = factory();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the genre CarouselSwiper component', () => {
+        expect(
+          wrapper.findComponent({ ref: 'genreCarouselSwiper' }).exists(),
+        ).toBe(false);
       });
     });
 

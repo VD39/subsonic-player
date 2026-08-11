@@ -1,11 +1,8 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
 import { getFormattedPlaylistsMock } from '@/test/helpers';
@@ -14,27 +11,48 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import PlaylistPage from './[[id]].vue';
 
-const downloadTrackMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useDropdownMenu', () => () => ({
+  isOpen: ref(true),
+}));
+
+const downloadTrackMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
-const deletePlaylistMock = vi.fn();
-const loadPlaylistTracksByIdMock = vi.fn();
+const {
+  addToPlaylistModalMock,
+  deletePlaylistMock,
+  loadPlaylistTracksByIdMock,
+  removeFromPlaylistMock,
+  reorderPlaylistTracksMock,
+  updatePlaylistModalMock,
+} = vi.hoisted(() => ({
+  addToPlaylistModalMock: vi.fn(),
+  deletePlaylistMock: vi.fn(),
+  loadPlaylistTracksByIdMock: vi.fn(),
+  removeFromPlaylistMock: vi.fn(),
+  reorderPlaylistTracksMock: vi.fn(),
+  updatePlaylistModalMock: vi.fn(),
+}));
 const playlistMock = ref<null | Playlist>(null);
-const removeFromPlaylistMock = vi.fn();
-const reorderPlaylistTracksMock = vi.fn();
-const updatePlaylistModalMock = vi.fn();
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
   deletePlaylist: deletePlaylistMock,
   loadPlaylistTracksById: loadPlaylistTracksByIdMock,
@@ -44,29 +62,22 @@ mockNuxtImport('usePlaylist', () => () => ({
   updatePlaylistModal: updatePlaylistModalMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  data: ref([]),
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/playlist/0',
-    params: {
-      id: 0,
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const navigateToMock = vi.hoisted(() => vi.fn());
 
@@ -82,8 +93,8 @@ const {
 
 const track = getFormattedPlaylistsMock()[0].tracks[0];
 
-async function factory(props = {}) {
-  const wrapper = mount(PlaylistPage, {
+async function factory(props = {}, route = '/playlist/0') {
+  return mountSuspended(PlaylistPage, {
     global: {
       stubs: {
         MixedTracksList: true,
@@ -92,17 +103,8 @@ async function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
-
-  await wrapper.vm.$nextTick();
-
-  const dropdownMenu = wrapper.findComponent(DropdownMenu);
-
-  if (dropdownMenu.exists()) {
-    await dropdownMenu.findComponent(ButtonLink).trigger('click');
-  }
-
-  return wrapper;
 }
 
 describe('[[id]]', () => {
@@ -207,7 +209,7 @@ describe('[[id]]', () => {
       });
 
       it('calls the deletePlaylist function with correct parameters', () => {
-        expect(deletePlaylistMock).toHaveBeenCalledWith(0);
+        expect(deletePlaylistMock).toHaveBeenCalledWith('0');
       });
 
       it('calls the navigateTo function with correct parameters', () => {
@@ -285,8 +287,10 @@ describe('[[id]]', () => {
       });
 
       describe('when the play tracks ButtonLink component emits a click event', () => {
-        beforeEach(() => {
-          wrapper.findComponent({ ref: 'playTracksButton' }).vm.$emit('click');
+        beforeEach(async () => {
+          await wrapper
+            .findComponent({ ref: 'playTracksButton' })
+            .trigger('click');
         });
 
         it('calls the playTracks function with correct parameters', () => {
@@ -297,10 +301,10 @@ describe('[[id]]', () => {
       });
 
       describe('when the shuffle tracks ButtonLink component emits a click event', () => {
-        beforeEach(() => {
-          wrapper
+        beforeEach(async () => {
+          await wrapper
             .findComponent({ ref: 'shuffleTracksButton' })
-            .vm.$emit('click');
+            .trigger('click');
         });
 
         it('calls the playTracksShuffled function with correct parameters', () => {
@@ -438,7 +442,7 @@ describe('[[id]]', () => {
 
         it('calls the removeFromPlaylist function with correct parameters', () => {
           expect(removeFromPlaylistMock).toHaveBeenCalledWith({
-            playlistId: 0,
+            playlistId: '0',
             songIndexToRemove: 1,
           });
         });
@@ -452,7 +456,7 @@ describe('[[id]]', () => {
         });
 
         it('calls the reorderPlaylistTracks function with correct parameters', () => {
-          expect(reorderPlaylistTracksMock).toHaveBeenCalledWith(0, 1, 2);
+          expect(reorderPlaylistTracksMock).toHaveBeenCalledWith('0', 1, 2);
         });
       });
     });

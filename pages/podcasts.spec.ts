@@ -18,51 +18,72 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import PodcastsPage from './podcasts.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const viewLayoutMock = ref<Layout>('gridLayout');
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   viewLayout: viewLayoutMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const openPodcastInformationModalMock = vi.fn();
-const openTrackInformationModalMock = vi.fn();
+const { openPodcastInformationModalMock, openTrackInformationModalMock } =
+  vi.hoisted(() => ({
+    openPodcastInformationModalMock: vi.fn(),
+    openTrackInformationModalMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openPodcastInformationModal: openPodcastInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const addPodcastModalMock = vi.fn();
-const downloadPodcastEpisodeMock = vi.fn();
-const getPodcastsAndNewestPodcastEpisodesMock = vi.fn();
+const {
+  addPodcastModalMock,
+  downloadPodcastEpisodeMock,
+  getPodcastsAndNewestPodcastEpisodesMock,
+} = vi.hoisted(() => ({
+  addPodcastModalMock: vi.fn(),
+  downloadPodcastEpisodeMock: vi.fn(),
+  getPodcastsAndNewestPodcastEpisodesMock: vi.fn(),
+}));
 const newestPodcastEpisodes = ref<PodcastEpisode[]>([]);
 const podcasts = ref<Podcast[]>([]);
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   addPodcastModal: addPodcastModalMock,
   downloadPodcastEpisode: downloadPodcastEpisodeMock,
   getPodcastsAndNewestPodcastEpisodes: getPodcastsAndNewestPodcastEpisodesMock,
@@ -70,17 +91,23 @@ mockNuxtImport('usePodcast', () => () => ({
   podcasts,
 }));
 
-const deletePodcastEpisodeGloballyMock = vi.fn();
-const deletePodcastGloballyMock = vi.fn();
+const { deletePodcastEpisodeGloballyMock, deletePodcastGloballyMock } =
+  vi.hoisted(() => ({
+    deletePodcastEpisodeGloballyMock: vi.fn(),
+    deletePodcastGloballyMock: vi.fn(),
+  }));
 
-mockNuxtImport('usePodcastCleanup', () => () => ({
+mockNuxtImport('usePodcastCleanup', (original) => () => ({
+  ...original(),
   deletePodcastEpisodeGlobally: deletePodcastEpisodeGloballyMock,
   deletePodcastGlobally: deletePodcastGloballyMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
@@ -137,8 +164,8 @@ describe('podcasts', () => {
   });
 
   describe('when the ButtonLink is clicked', () => {
-    beforeEach(() => {
-      wrapper.findComponent({ ref: 'addPodcastButton' }).vm.$emit('click');
+    beforeEach(async () => {
+      await wrapper.findComponent({ ref: 'addPodcastButton' }).trigger('click');
     });
 
     it('calls the addPodcastModal function', () => {
@@ -183,7 +210,7 @@ describe('podcasts', () => {
     });
 
     it('shows the correct number of PodcastItem components', () => {
-      expect(wrapper.findAllComponents(PodcastItem).length).toBe(2);
+      expect(wrapper.findAllComponents(PodcastItem)).toHaveLength(2);
     });
 
     it('shows the PodcastEpisodesList component', () => {

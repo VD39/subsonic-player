@@ -1,13 +1,16 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 
 import PlaybackRateButton from './PlaybackRateButton.vue';
+
+mockNuxtImport('useDropdownMenu', () => () => ({
+  isOpen: ref(true),
+}));
 
 const { playbackRateMock, setPlaybackRateMock } = useAudioPlayerMock();
 
@@ -22,13 +25,8 @@ function factory(props = {}) {
 describe('PlaybackRateButton', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(async () => {
+  beforeEach(() => {
     wrapper = factory();
-    wrapper
-      .findComponent(DropdownMenu)
-      .findComponent(ButtonLink)
-      .vm.$emit('click');
-    await wrapper.vm.$nextTick();
   });
 
   it('matches the snapshot', () => {
@@ -36,7 +34,7 @@ describe('PlaybackRateButton', () => {
   });
 
   it('shows the correct number of the DropdownItem component', () => {
-    expect(wrapper.findAllComponents(DropdownItem).length).toBe(
+    expect(wrapper.findAllComponents(DropdownItem)).toHaveLength(
       PLAYBACK_RATES.length,
     );
   });

@@ -11,23 +11,30 @@ import { withSetup } from '@/test/withSetup';
 
 import { useDropdownMenu } from './index';
 
-const lockScrollMock = vi.fn();
-const unlockScrollMock = vi.fn();
+const { lockScrollMock, unlockScrollMock } = vi.hoisted(() => ({
+  lockScrollMock: vi.fn(),
+  unlockScrollMock: vi.fn(),
+}));
 
-mockNuxtImport('useScrollLock', () => () => ({
+mockNuxtImport('useScrollLock', (original) => () => ({
+  ...original(),
   lockScroll: lockScrollMock,
   unlockScroll: unlockScrollMock,
 }));
 
-const activeMenuId = useState(STATE_KEYS.dropdownActiveMenuId);
-const setActiveMenuIdMock = vi.fn((id: string) => {
-  activeMenuId.value = id;
-});
-const clearActiveMenuIdMock = vi.fn(() => {
-  activeMenuId.value = null;
-});
+let activeMenuId: ReturnType<typeof useState>;
 
-mockNuxtImport('useDropdownMenuState', () => () => ({
+const { clearActiveMenuIdMock, setActiveMenuIdMock } = vi.hoisted(() => ({
+  clearActiveMenuIdMock: vi.fn(() => {
+    activeMenuId.value = null;
+  }),
+  setActiveMenuIdMock: vi.fn((id: string) => {
+    activeMenuId.value = id;
+  }),
+}));
+
+mockNuxtImport('useDropdownMenuState', (original) => () => ({
+  ...original(),
   activeMenuId,
   clearActiveMenuId: clearActiveMenuIdMock,
   setActiveMenuId: setActiveMenuIdMock,
@@ -43,19 +50,23 @@ const dropdownMenuRef = refElementMock();
 const dropdownListRef = refElementMock();
 
 describe('useDropdownMenu', () => {
-  let result: ReturnType<typeof withSetup<ReturnType<typeof useDropdownMenu>>>;
+  let result: Awaited<
+    ReturnType<typeof withSetup<ReturnType<typeof useDropdownMenu>>>
+  >;
 
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
+  beforeEach(async () => {
+    activeMenuId = useState(STATE_KEYS.dropdownActiveMenuId);
 
-  beforeEach(() => {
-    result = withSetup(() =>
+    result = await withSetup(() =>
       useDropdownMenu({
         dropdownListRef: dropdownListRef.refMock,
         dropdownMenuRef: dropdownMenuRef.refMock,
       }),
     );
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
 
   describe('when the openDropdownMenu function is called', () => {
@@ -68,7 +79,7 @@ describe('useDropdownMenu', () => {
     });
 
     it('calls the setActiveMenuId function', () => {
-      expect(setActiveMenuIdMock).toHaveBeenCalled();
+      expect(setActiveMenuIdMock).toHaveBeenCalledWith(expect.any(String));
     });
 
     it('calls the lockScroll function', () => {
@@ -111,7 +122,7 @@ describe('useDropdownMenu', () => {
 
     describe('when the dropdown list element is not available', () => {
       beforeEach(async () => {
-        result = withSetup(() =>
+        result = await withSetup(() =>
           useDropdownMenu({
             dropdownListRef: ref(null),
             dropdownMenuRef: dropdownMenuRef.refMock,
@@ -128,7 +139,7 @@ describe('useDropdownMenu', () => {
 
     describe('when the dropdown menu element is not available', () => {
       beforeEach(async () => {
-        result = withSetup(() =>
+        result = await withSetup(() =>
           useDropdownMenu({
             dropdownListRef: dropdownListRef.refMock,
             dropdownMenuRef: ref(null),
@@ -902,7 +913,7 @@ describe('useDropdownMenu', () => {
     describe('when the click event is called', () => {
       describe('when the dropdown menu element is not available', () => {
         beforeEach(async () => {
-          result = withSetup(() =>
+          result = await withSetup(() =>
             useDropdownMenu({
               dropdownListRef: dropdownListRef.refMock,
               dropdownMenuRef: ref(null),
@@ -922,13 +933,12 @@ describe('useDropdownMenu', () => {
 
       describe('when the dropdown list element is not available', () => {
         beforeEach(async () => {
-          result = withSetup(() =>
+          result = await withSetup(() =>
             useDropdownMenu({
               dropdownListRef: ref(null),
               dropdownMenuRef: dropdownMenuRef.refMock,
             }),
           );
-
           await result.composable.openDropdownMenu();
           vi.clearAllMocks();
 

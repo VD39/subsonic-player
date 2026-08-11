@@ -9,42 +9,36 @@ import { getFormattedTracksMock } from '@/test/helpers';
 
 import MixedTracksList from './MixedTracksList.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 let onReorderMock: SortableListOptions['onReorder'];
 
 mockNuxtImport('useSortableList', () => (options: SortableListOptions) => {
   onReorderMock = options.onReorder;
 });
 
-let onAddToQueueMock: typeof vi.fn | undefined = undefined;
-let onDragStartMock: typeof vi.fn | undefined = undefined;
-let onRemoveMock: typeof vi.fn | undefined = undefined;
-let onSortListMock: typeof vi.fn | undefined = undefined;
-
-vi.mock('vue', async () => {
-  const vue = await vi.importActual<typeof import('vue')>('vue');
-
-  return {
-    ...vue,
-    getCurrentInstance: vi.fn(() => ({
-      ...vue.getCurrentInstance(),
-      vnode: {
-        props: {
-          onAddToQueue: onAddToQueueMock,
-          onDragStart: onDragStartMock,
-          onRemove: onRemoveMock,
-          onSortList: onSortListMock,
-        },
-      },
-    })),
-  };
-});
-
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
+
+let onAddToQueueMock:
+  ((track: globalThis.PlayableTrack) => unknown) | undefined;
+let onDragStartMock:
+  ((track: globalThis.PlayableTrack, event: DragEvent) => unknown) | undefined;
+let onRemoveMock:
+  ((removeArgs: { id: string; index: number }) => unknown) | undefined;
+let onSortListMock:
+  ((fromIndex: number, toIndex: number) => unknown) | undefined;
 
 function factory(props = {}) {
   return mount(MixedTracksList, {
     props: {
+      onAddToQueue: onAddToQueueMock,
+      onDragStart: onDragStartMock,
+      onRemove: onRemoveMock,
+      onSortList: onSortListMock,
       tracks,
       ...props,
     },
@@ -88,7 +82,7 @@ describe('MixedTracksList', () => {
     });
 
     it('shows the correct number of track items', () => {
-      expect(wrapper.findAllComponents(MixedTracksListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(MixedTracksListItem)).toHaveLength(5);
     });
 
     it('does not show the NoMediaMessage component', () => {
@@ -104,7 +98,7 @@ describe('MixedTracksList', () => {
     ])(
       'when the MixedTracksListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(MixedTracksListItem).vm.$emit(eventName);
         });
 

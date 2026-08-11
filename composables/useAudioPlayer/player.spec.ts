@@ -36,7 +36,7 @@ describe('AudioPlayer', () => {
     vi.clearAllMocks();
   });
 
-  describe('when setVolume is called before the audio context exists', () => {
+  describe('when the setVolume function is called before the audio context exists', () => {
     beforeAll(() => {
       player.setVolume(0.5);
     });
@@ -46,7 +46,7 @@ describe('AudioPlayer', () => {
     });
   });
 
-  describe('when applyReplayGain is called before the audio context exists', () => {
+  describe('when the applyReplayGain function is called before the audio context exists', () => {
     beforeAll(() => {
       player.applyReplayGain('track', -6);
     });
@@ -502,7 +502,7 @@ describe('AudioPlayer', () => {
     });
   });
 
-  describe('when load is called again', () => {
+  describe('when the load function is called again', () => {
     beforeAll(() => {
       createMediaElementSourceMock.mockClear();
       sourceNodeMock.disconnect.mockClear();
@@ -519,7 +519,7 @@ describe('AudioPlayer', () => {
     });
 
     it('calls the createMediaElementSource function', () => {
-      expect(createMediaElementSourceMock).toHaveBeenCalled();
+      expect(createMediaElementSourceMock).toHaveBeenCalledWith(audioMock);
     });
   });
 
@@ -529,6 +529,7 @@ describe('AudioPlayer', () => {
       createMediaElementSourceMock.mockImplementationOnce(() => {
         throw new Error('CORS');
       });
+
       masterVolumeNodeMock.gain.value = 1;
       replayGainNodeMock.gain.value = 1;
       player.loadFromElement(newAudioMock as unknown as HTMLAudioElement);
@@ -731,7 +732,7 @@ describe('AudioPlayer', () => {
       });
     });
 
-    describe('when destroy is called with a fadingTrack', () => {
+    describe('when the destroy function is called with a fadingTrack', () => {
       beforeAll(() => {
         vi.clearAllMocks();
 
@@ -765,7 +766,7 @@ describe('AudioPlayer', () => {
   });
 
   describe('when the crossfadeToElement function is called', () => {
-    beforeAll(async () => {
+    beforeAll(() => {
       player.setCrossfadeDuration(() => 4);
       vi.clearAllMocks();
 

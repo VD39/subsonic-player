@@ -18,35 +18,48 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import IndexPage from './index.vue';
 
-const addToPlaylistModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('usePlaylist', () => () => ({
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
-const openTrackInformationModalMock = vi.fn();
+const { openAlbumInformationModalMock, openTrackInformationModalMock } =
+  vi.hoisted(() => ({
+    openAlbumInformationModalMock: vi.fn(),
+    openTrackInformationModalMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
@@ -55,12 +68,17 @@ const favouritesMock = ref<AllMedia>({
   artists: [],
   tracks: [],
 });
-const getFavouritesMock = vi.fn();
-const setFavouriteIdMock = vi.fn();
-const toggleFavouriteMock = vi.fn();
+
+const { getFavouritesMock, setFavouriteIdMock, toggleFavouriteMock } =
+  vi.hoisted(() => ({
+    getFavouritesMock: vi.fn(),
+    setFavouriteIdMock: vi.fn(),
+    toggleFavouriteMock: vi.fn(),
+  }));
 const favouriteIdsMock = ref<Record<string, boolean>>({});
 
-mockNuxtImport('useFavourite', () => () => ({
+mockNuxtImport('useFavourite', (original) => () => ({
+  ...original(),
   favouriteIds: favouriteIdsMock,
   favourites: favouritesMock,
   getFavourites: getFavouritesMock,
@@ -68,21 +86,24 @@ mockNuxtImport('useFavourite', () => () => ({
   toggleFavourite: toggleFavouriteMock,
 }));
 
-const loadDashboardAlbumsMock = vi.fn();
+const loadDashboardAlbumsMock = vi.hoisted(() => vi.fn());
 const frequentAlbumsMock = ref<Album[]>([]);
 const newestAlbumsMock = ref<Album[]>([]);
 const recentAlbumsMock = ref<Album[]>([]);
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   frequentAlbums: frequentAlbumsMock,
   loadDashboardAlbums: loadDashboardAlbumsMock,
   newestAlbums: newestAlbumsMock,
   recentAlbums: recentAlbumsMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));

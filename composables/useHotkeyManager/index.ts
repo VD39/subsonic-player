@@ -92,7 +92,7 @@ export function useHotkeyManager() {
     }
   }
 
-  async function onKeydown(event: KeyboardEvent) {
+  function onKeydown(event: KeyboardEvent) {
     const searchInput = document.getElementById(HOTKEY_ELEMENT_IDS.searchInput);
 
     // Ignore all key events if focus is on search input or if a modal is visible.
@@ -115,7 +115,7 @@ export function useHotkeyManager() {
     }
   }
 
-  async function callOnlyWhenPodcastEpisode(fn: () => Promise<void> | void) {
+  function callOnlyWhenPodcastEpisode(fn: () => Promise<void> | void) {
     if (!isPodcastEpisode.value) {
       return;
     }
@@ -397,9 +397,9 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          callOnlyWithCurrentTrack(async () => {
+          callOnlyWithCurrentTrack(() => {
             if (isTrack.value) {
-              await toggleFavourite(
+              toggleFavourite(
                 currentTrack.value,
                 (currentTrack.value as Track).favourite,
               );

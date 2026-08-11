@@ -8,9 +8,10 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import ThemeSwitcher from './ThemeSwitcher.vue';
 
 const isDarkThemeMock = ref(false);
-const toggleThemeMock = vi.fn();
+const toggleThemeMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   isDarkTheme: isDarkThemeMock,
   toggleTheme: toggleThemeMock,
 }));

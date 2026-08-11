@@ -1,21 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PlayPauseButton > when isBuffering value is false > matches the snapshot 1`] = `
+exports[`PlayPauseButton > when the isBuffering value is false > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button" title="Play current track">
   <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
 </button>"
 `;
 
-exports[`PlayPauseButton > when isBuffering value is false > when shuffle value is set to false > matches the snapshot 1`] = `
+exports[`PlayPauseButton > when the isBuffering value is false > when the shuffle value is set to false > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button" title="Play current track">
   <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
 </button>"
 `;
 
-exports[`PlayPauseButton > when isBuffering value is false > when shuffle value is set to true > matches the snapshot 1`] = `
+exports[`PlayPauseButton > when the isBuffering value is false > when the shuffle value is set to true > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button" title="Pause current track">
   <phpause aria-hidden="true" class="icon" size="24" weight="regular"></phpause><span class="clamp text visuallyHidden">Pause current track</span>
 </button>"
 `;
 
-exports[`PlayPauseButton > when isBuffering value is true > matches the snapshot 1`] = `"<span class="centerItems spinningLoader spinningLoader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;
+exports[`PlayPauseButton > when the isBuffering value is true > matches the snapshot 1`] = `"<span class="centerItems spinningLoader spinningLoader"><phcirclenotch class="icon" size="24"></phcirclenotch><span class="visuallyHidden">Loading...</span></span>"`;

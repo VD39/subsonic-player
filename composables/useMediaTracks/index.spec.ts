@@ -10,15 +10,17 @@ import {
 
 import { useMediaTracks } from './index';
 
-const getAlbumMock = vi.fn();
+const getAlbumMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAlbum', () => () => ({
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
   getAlbum: getAlbumMock,
 }));
 
-const getPodcastMock = vi.fn();
+const getPodcastMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   getPodcast: getPodcastMock,
 }));
 
@@ -31,20 +33,24 @@ const podcast = getFormattedPodcastsMock()[0];
 const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 const track = getFormattedTracksMock()[0];
 
-const { getMediaTracks } = useMediaTracks();
-
 describe('useMediaTracks', () => {
-  let result: Awaited<ReturnType<typeof getMediaTracks>>;
+  let composable: ReturnType<typeof useMediaTracks>;
+
+  beforeAll(() => {
+    composable = useMediaTracks();
+  });
 
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   describe('when the getMediaTracks function is called', () => {
+    let result: Awaited<ReturnType<typeof composable.getMediaTracks>>;
+
     describe(`when media type is ${MEDIA_TYPE.album}`, () => {
       describe('when album has tracks', () => {
         beforeEach(async () => {
-          result = await getMediaTracks(album);
+          result = await composable.getMediaTracks(album);
         });
 
         it('does not call the getAlbum function', () => {
@@ -59,7 +65,7 @@ describe('useMediaTracks', () => {
       describe('when album does not have tracks', () => {
         beforeEach(async () => {
           getAlbumMock.mockResolvedValue(album);
-          result = await getMediaTracks(albumWithoutTracks);
+          result = await composable.getMediaTracks(albumWithoutTracks);
         });
 
         it('calls the getAlbum function with the correct id', () => {
@@ -75,11 +81,11 @@ describe('useMediaTracks', () => {
         describe('when getAlbum returns null', () => {
           beforeEach(async () => {
             getAlbumMock.mockResolvedValue(null);
-            result = await getMediaTracks(albumWithoutTracks);
+            result = await composable.getMediaTracks(albumWithoutTracks);
           });
 
           it('returns the correct response', () => {
-            expect(result).toEqual(null);
+            expect(result).toBeNull();
           });
         });
       });
@@ -87,14 +93,16 @@ describe('useMediaTracks', () => {
 
     describe(`when media type is ${MEDIA_TYPE.playlist}`, () => {
       it('returns the correct response', async () => {
-        expect(await getMediaTracks(playlist)).toEqual(playlist.tracks);
+        expect(await composable.getMediaTracks(playlist)).toEqual(
+          playlist.tracks,
+        );
       });
     });
 
     describe(`when media type is ${MEDIA_TYPE.podcast}`, () => {
       beforeEach(async () => {
         getPodcastMock.mockResolvedValue(podcast);
-        result = await getMediaTracks(podcast);
+        result = await composable.getMediaTracks(podcast);
       });
 
       it('calls the getPodcast function with the correct id', () => {
@@ -110,30 +118,32 @@ describe('useMediaTracks', () => {
       describe('when getPodcast returns null', () => {
         beforeEach(async () => {
           getPodcastMock.mockResolvedValue(null);
-          result = await getMediaTracks(podcast);
+          result = await composable.getMediaTracks(podcast);
         });
 
         it('returns the correct response', () => {
-          expect(result).toEqual(null);
+          expect(result).toBeNull();
         });
       });
     });
 
     describe(`when media type is ${MEDIA_TYPE.podcastEpisode}`, () => {
       it('returns the correct response', async () => {
-        expect(await getMediaTracks(podcastEpisode)).toEqual([podcastEpisode]);
+        expect(await composable.getMediaTracks(podcastEpisode)).toEqual([
+          podcastEpisode,
+        ]);
       });
     });
 
     describe(`when media type is ${MEDIA_TYPE.track}`, () => {
       it('returns the correct response', async () => {
-        expect(await getMediaTracks(track)).toEqual([track]);
+        expect(await composable.getMediaTracks(track)).toEqual([track]);
       });
     });
 
     describe('when media type is unknown', () => {
       it('returns the correct response', async () => {
-        expect(await getMediaTracks({} as never)).toEqual(null);
+        expect(await composable.getMediaTracks({} as never)).toBeNull();
       });
     });
   });

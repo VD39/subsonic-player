@@ -14,11 +14,19 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import SearchForm from './SearchForm.vue';
 import SearchSuggestions from './SearchSuggestions.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const blurSpy = vi.spyOn(HTMLElement.prototype, 'blur');
 
-const fetchSearchSuggestionsMock = vi.fn().mockResolvedValue([]);
+const fetchSearchSuggestionsMock = vi.hoisted(() =>
+  vi.fn().mockResolvedValue([]),
+);
 
-mockNuxtImport('useSearch', () => () => ({
+mockNuxtImport('useSearch', (original) => () => ({
+  ...original(),
   fetchSearchSuggestions: fetchSearchSuggestionsMock,
 }));
 
@@ -26,7 +34,7 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
-const debouncedCancelMock = vi.fn();
+const debouncedCancelMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('debounce', () => {
   return <T extends (...args: unknown[]) => unknown>(cb: T) => {
@@ -36,10 +44,13 @@ mockNuxtImport('debounce', () => {
   };
 });
 
-const lockScrollMock = vi.fn();
-const unlockScrollMock = vi.fn();
+const { lockScrollMock, unlockScrollMock } = vi.hoisted(() => ({
+  lockScrollMock: vi.fn(),
+  unlockScrollMock: vi.fn(),
+}));
 
-mockNuxtImport('useScrollLock', () => () => ({
+mockNuxtImport('useScrollLock', (original) => () => ({
+  ...original(),
   lockScroll: lockScrollMock,
   unlockScroll: unlockScrollMock,
 }));
@@ -317,7 +328,9 @@ describe('SearchForm', () => {
           wrapper
             .findComponent(InputField)
             .vm.$emit('update:modelValue', 'abcd');
-          await wrapper.vm.$nextTick();
+
+          await nextTick();
+
           wrapper
             .findComponent(InputField)
             .vm.$emit('update:modelValue', 'abcde');
@@ -335,7 +348,7 @@ describe('SearchForm', () => {
 
   describe('when fetchSearchSuggestions is pending', () => {
     beforeEach(() => {
-      fetchSearchSuggestionsMock.mockReturnValue(new Promise(() => {}));
+      fetchSearchSuggestionsMock.mockReturnValue(new Promise(() => ({})));
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'abc');
     });
 
@@ -355,7 +368,9 @@ describe('SearchForm', () => {
   describe('when the esc key is pressed', () => {
     beforeEach(async () => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
+
       documentEvents.keydown({ key: 'Escape' });
     });
 
@@ -375,7 +390,7 @@ describe('SearchForm', () => {
   });
 
   describe('when a non esc key is pressed', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
       documentEvents.keydown({ key: 'Shift' });
     });
@@ -391,11 +406,13 @@ describe('SearchForm', () => {
     });
   });
 
-  describe('when the InputField component emits the focus event', () => {
+  describe('when the focus is triggered on the input', () => {
     describe('when the query has at least 2 characters', () => {
       beforeEach(async () => {
         wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
+
         await wrapper.findComponent(InputField).find('input').trigger('focus');
       });
 
@@ -423,7 +440,9 @@ describe('SearchForm', () => {
   describe('when the SearchSuggestions component emits the close event', () => {
     beforeEach(async () => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
+
       wrapper.findComponent(SearchSuggestions).vm.$emit('close');
     });
 
@@ -457,7 +476,9 @@ describe('SearchForm', () => {
   describe('when the backdrop is clicked', () => {
     beforeEach(async () => {
       wrapper.findComponent(InputField).vm.$emit('update:modelValue', 'ab');
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
+
       await wrapper.find({ ref: 'backdrop' }).trigger('click');
     });
 

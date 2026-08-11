@@ -29,7 +29,7 @@ describe('PlayerControls', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when isRadioStation value is false', () => {
+  describe('when the isRadioStation value is false', () => {
     it('shows the RepeatButton component', () => {
       expect(wrapper.findComponent(RepeatButton).exists()).toBe(true);
     });
@@ -39,7 +39,7 @@ describe('PlayerControls', () => {
     });
   });
 
-  describe('when isRadioStation value is true', () => {
+  describe('when the isRadioStation value is true', () => {
     beforeEach(() => {
       isRadioStationMock.value = true;
     });

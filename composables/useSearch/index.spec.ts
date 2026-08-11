@@ -10,11 +10,14 @@ import {
 
 import { useSearch } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
@@ -22,9 +25,13 @@ const albums = getFormattedAlbumsMock();
 const artists = getFormattedArtistsMock();
 const tracks = getFormattedTracksMock();
 
-const { fetchSearchResult, fetchSearchSuggestions } = useSearch();
-
 describe('useSearch', () => {
+  let composable: ReturnType<typeof useSearch>;
+
+  beforeAll(() => {
+    composable = useSearch();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -32,7 +39,7 @@ describe('useSearch', () => {
   describe('when the fetchSearchResult function is called', () => {
     describe('when offset is not set', () => {
       beforeEach(async () => {
-        await fetchSearchResult({
+        await composable.fetchSearchResult({
           mediaType: 'albums',
           query: 'query',
         } as SearchParams);
@@ -57,7 +64,7 @@ describe('useSearch', () => {
     describe('when offset is set', () => {
       describe('when offset is 1', () => {
         beforeEach(async () => {
-          await fetchSearchResult({
+          await composable.fetchSearchResult({
             mediaType: 'albums',
             offset: 1,
             query: 'query',
@@ -110,7 +117,7 @@ describe('useSearch', () => {
 
         it('returns the correct response', async () => {
           expect(
-            await fetchSearchResult({
+            await composable.fetchSearchResult({
               mediaType,
               query: 'query',
             } as SearchParams),
@@ -143,7 +150,7 @@ describe('useSearch', () => {
 
         it('returns the correct response', async () => {
           expect(
-            await fetchSearchResult({
+            await composable.fetchSearchResult({
               mediaType,
               query: 'query',
             } as SearchParams),
@@ -155,7 +162,7 @@ describe('useSearch', () => {
     describe('when mediaType is not defined', () => {
       it('returns the correct response', async () => {
         expect(
-          await fetchSearchResult({
+          await composable.fetchSearchResult({
             query: 'query',
           } as SearchParams),
         ).toEqual([]);
@@ -166,7 +173,7 @@ describe('useSearch', () => {
   describe('when the fetchSearchSuggestions function is called', () => {
     describe('when offset is not set', () => {
       beforeEach(async () => {
-        await fetchSearchSuggestions('query');
+        await composable.fetchSearchSuggestions('query');
       });
 
       it('calls the fetchData function with the correct parameters', () => {
@@ -193,7 +200,7 @@ describe('useSearch', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await fetchSearchSuggestions('query')).toEqual([]);
+        expect(await composable.fetchSearchSuggestions('query')).toEqual([]);
       });
     });
 
@@ -209,7 +216,7 @@ describe('useSearch', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await fetchSearchSuggestions('query')).toEqual([]);
+        expect(await composable.fetchSearchSuggestions('query')).toEqual([]);
       });
     });
 
@@ -225,7 +232,7 @@ describe('useSearch', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await fetchSearchSuggestions('query')).toEqual([
+        expect(await composable.fetchSearchSuggestions('query')).toEqual([
           {
             items: [
               {
@@ -261,7 +268,7 @@ describe('useSearch', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await fetchSearchSuggestions('query')).toEqual([
+        expect(await composable.fetchSearchSuggestions('query')).toEqual([
           {
             items: [
               {
@@ -297,7 +304,7 @@ describe('useSearch', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await fetchSearchSuggestions('query')).toEqual([
+        expect(await composable.fetchSearchSuggestions('query')).toEqual([
           {
             items: [
               {
@@ -336,7 +343,7 @@ describe('useSearch', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await fetchSearchSuggestions('query')).toEqual([
+        expect(await composable.fetchSearchSuggestions('query')).toEqual([
           {
             items: [
               {

@@ -4,32 +4,29 @@ import { useSnack } from './index';
 
 vi.useFakeTimers();
 
-const randomStringMock = ref('randomString');
+const generateRandomStringMock = vi.hoisted(() => vi.fn(() => 'randomString'));
 
-mockNuxtImport('generateRandomString', () => () => randomStringMock.value);
-
-const {
-  addErrorSnack,
-  addInfoSnack,
-  addSuccessSnack,
-  clearAllSnacks,
-  removeSnack,
-  snacks,
-} = useSnack();
+mockNuxtImport('generateRandomString', () => generateRandomStringMock);
 
 describe('useSnack', () => {
+  let composable: ReturnType<typeof useSnack>;
+
+  beforeAll(() => {
+    composable = useSnack();
+  });
+
   it('sets the default snacks value', () => {
-    expect(snacks.value).toEqual([]);
+    expect(composable.snacks.value).toEqual([]);
   });
 
   describe('when addErrorSnack function is called', () => {
     describe('when message is not set', () => {
       beforeAll(() => {
-        addErrorSnack();
+        composable.addErrorSnack();
       });
 
       it('adds to the snacks value with correct values', () => {
-        expect(snacks.value).toEqual(
+        expect(composable.snacks.value).toEqual(
           expect.arrayContaining([
             {
               content: DEFAULT_ERROR_MESSAGE,
@@ -44,11 +41,11 @@ describe('useSnack', () => {
 
     describe('when message is set', () => {
       beforeAll(() => {
-        addErrorSnack('Content');
+        composable.addErrorSnack('Content');
       });
 
       it('adds to the snacks value with correct values', () => {
-        expect(snacks.value).toEqual(
+        expect(composable.snacks.value).toEqual(
           expect.arrayContaining([
             {
               content: 'Content',
@@ -64,12 +61,12 @@ describe('useSnack', () => {
 
   describe('when addInfoSnack function is called', () => {
     beforeAll(() => {
-      randomStringMock.value = 'randomString1';
-      addInfoSnack('Content');
+      generateRandomStringMock.mockReturnValue('randomString1');
+      composable.addInfoSnack('Content');
     });
 
     it('adds to the snacks value', () => {
-      expect(snacks.value).toEqual(
+      expect(composable.snacks.value).toEqual(
         expect.arrayContaining([
           {
             content: 'Content',
@@ -84,12 +81,12 @@ describe('useSnack', () => {
 
   describe('when addSuccessSnack function is called', () => {
     beforeAll(() => {
-      randomStringMock.value = 'randomString2';
-      addSuccessSnack('Content');
+      generateRandomStringMock.mockReturnValue('randomString2');
+      composable.addSuccessSnack('Content');
     });
 
     it('adds to the snacks value', () => {
-      expect(snacks.value).toEqual(
+      expect(composable.snacks.value).toEqual(
         expect.arrayContaining([
           {
             content: 'Content',
@@ -104,11 +101,11 @@ describe('useSnack', () => {
 
   describe('when removeSnack function is called', () => {
     beforeEach(() => {
-      removeSnack('randomString1');
+      composable.removeSnack('randomString1');
     });
 
     it('removes from snack from the snacks value', () => {
-      expect(snacks.value).toEqual([
+      expect(composable.snacks.value).toEqual([
         {
           content: DEFAULT_ERROR_MESSAGE,
           id: 'randomString',
@@ -133,21 +130,21 @@ describe('useSnack', () => {
 
   describe('when clearAllSnacks function is called', () => {
     beforeEach(() => {
-      clearAllSnacks();
+      composable.clearAllSnacks();
     });
 
     it('clears the snacks value', () => {
-      expect(snacks.value).toEqual([]);
+      expect(composable.snacks.value).toEqual([]);
     });
   });
 
   describe('when auto is set to true on a add snack functions', () => {
     beforeAll(() => {
-      addErrorSnack('Content', true);
+      composable.addErrorSnack('Content', true);
     });
 
     it('adds to the snacks value', () => {
-      expect(snacks.value).toEqual([
+      expect(composable.snacks.value).toEqual([
         {
           content: 'Content',
           id: 'randomString2',
@@ -163,18 +160,18 @@ describe('useSnack', () => {
       });
 
       it('clears the snacks value', () => {
-        expect(snacks.value).toEqual([]);
+        expect(composable.snacks.value).toEqual([]);
       });
     });
   });
 
   describe('when auto is set to false on a add snack functions', () => {
     beforeAll(() => {
-      addErrorSnack('Content', false);
+      composable.addErrorSnack('Content', false);
     });
 
     it('adds to the snacks value', () => {
-      expect(snacks.value).toEqual([
+      expect(composable.snacks.value).toEqual([
         {
           content: 'Content',
           id: 'randomString2',
@@ -190,7 +187,7 @@ describe('useSnack', () => {
       });
 
       it('does not clears the snacks value', () => {
-        expect(snacks.value).toEqual([
+        expect(composable.snacks.value).toEqual([
           {
             content: 'Content',
             id: 'randomString2',
@@ -204,12 +201,12 @@ describe('useSnack', () => {
 
   describe('when a snack with the same content and type is added', () => {
     beforeAll(() => {
-      randomStringMock.value = 'deduplicated';
-      addErrorSnack('Content');
+      generateRandomStringMock.mockReturnValue('deduplicated');
+      composable.addErrorSnack('Content');
     });
 
     it('replaces the existing snack', () => {
-      expect(snacks.value).toEqual([
+      expect(composable.snacks.value).toEqual([
         {
           content: 'Content',
           id: 'deduplicated',
@@ -222,12 +219,12 @@ describe('useSnack', () => {
 
   describe('when a snack with the same content but a different type is added', () => {
     beforeAll(() => {
-      randomStringMock.value = 'differentType';
-      addInfoSnack('Content');
+      generateRandomStringMock.mockReturnValue('differentType');
+      composable.addInfoSnack('Content');
     });
 
     it('adds the snack to the snacks value', () => {
-      expect(snacks.value).toEqual([
+      expect(composable.snacks.value).toEqual([
         {
           content: 'Content',
           id: 'deduplicated',

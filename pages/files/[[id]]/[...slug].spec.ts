@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import FilesList from '@/components/Organisms/FilesList.vue';
@@ -11,65 +10,60 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import FilesPage from './[...slug].vue';
 
-const addToPlaylistModalMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('usePlaylist', () => () => ({
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
-const getMediaLibraryContentMock = vi.fn();
+const { downloadTrackMock, getMediaLibraryContentMock } = vi.hoisted(() => ({
+  downloadTrackMock: vi.fn(),
+  getMediaLibraryContentMock: vi.fn(),
+}));
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
   getMediaLibraryContent: getMediaLibraryContentMock,
 }));
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const musicDirectoryDataMock = ref<{
-  musicDirectory: {
-    folders: FormattedMusicFolder[];
-    tracks: Track[];
-  };
-}>({
+const musicDirectoryDataMock = ref({
   musicDirectory: {
     folders: [],
     tracks: getFormattedTracksMock(2),
   },
 });
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: musicDirectoryDataMock,
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/files/folder1/subfolder',
-    params: {
-      id: 'folder1',
-      slug: ['subfolder'],
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const { useHeadTitleMock } = useHeadMock();
 const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
 
 const track = getFormattedTracksMock()[0];
 
-function factory(props = {}) {
-  return mount(FilesPage, {
+async function factory(props = {}, route = '/files/folder1/subfolder') {
+  return mountSuspended(FilesPage, {
     global: {
       stubs: {
         FilesList: true,
@@ -78,14 +72,15 @@ function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
 }
 
 describe('[...slug]', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   afterEach(() => {

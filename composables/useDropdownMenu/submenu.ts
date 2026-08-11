@@ -71,6 +71,7 @@ export function useDropdownSubmenu(options: DropdownSubmenuOptions) {
     isOpen.value = true;
 
     await nextTick();
+
     requestAnimationFrame(() => positionSubmenu());
 
     const parentList = dropdownSubmenuRef.value?.parentElement;

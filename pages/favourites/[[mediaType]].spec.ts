@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
@@ -13,15 +12,30 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import FavouritesPage from './[[mediaType]].vue';
 
-const downloadTrackMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
+  autoLogin: vi.fn(),
+  isAuthenticated: ref(true),
+}));
+
+// mockNuxtImport('navigateTo', () => vi.fn());
+
+const downloadTrackMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
@@ -30,50 +44,49 @@ const favouritesMock = ref({
   artists: [],
   tracks: getFormattedTracksMock(2),
 });
-const getFavouritesMock = vi.fn();
 
-mockNuxtImport('useFavourite', () => () => ({
+const getFavouritesMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useFavourite', (original) => () => ({
+  ...original(),
   favourites: favouritesMock,
   getFavourites: getFavouritesMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
-const openTrackInformationModalMock = vi.fn();
+const { openAlbumInformationModalMock, openTrackInformationModalMock } =
+  vi.hoisted(() => ({
+    openAlbumInformationModalMock: vi.fn(),
+    openTrackInformationModalMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/favourites/albums',
-    params: {
-      mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums as string,
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const { useHeadTitleMock } = useHeadMock();
 const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
@@ -83,8 +96,8 @@ const album = getFormattedAlbumsMock()[0];
 const tracks = getFormattedTracksMock(3);
 const track = getFormattedTracksMock()[0];
 
-function factory(props = {}) {
-  return mount(FavouritesPage, {
+async function factory(props = {}, route = '/favourites/albums') {
+  return mountSuspended(FavouritesPage, {
     global: {
       stubs: {
         AlbumsList: true,
@@ -95,14 +108,15 @@ function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
 }
 
 describe('[[mediaType]]', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   afterEach(() => {
@@ -128,8 +142,8 @@ describe('[[mediaType]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
-    beforeEach(() => {
-      wrapper = factory();
+    beforeEach(async () => {
+      wrapper = await factory();
     });
 
     it('sets the useHead function with correct title', () => {
@@ -218,15 +232,8 @@ describe('[[mediaType]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Artists}`, () => {
-    beforeEach(() => {
-      routeMock.mockReturnValue({
-        fullPath: '/favourites/artists',
-        params: {
-          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Artists,
-        },
-      });
-
-      wrapper = factory();
+    beforeEach(async () => {
+      wrapper = await factory({}, '/favourites/artists');
     });
 
     it('matches the snapshot', () => {
@@ -251,15 +258,8 @@ describe('[[mediaType]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
-    beforeEach(() => {
-      routeMock.mockReturnValue({
-        fullPath: '/favourites/tracks',
-        params: {
-          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-        },
-      });
-
-      wrapper = factory();
+    beforeEach(async () => {
+      wrapper = await factory({}, '/favourites/tracks');
     });
 
     it('matches the snapshot', () => {

@@ -1,3 +1,5 @@
+import { matchMediaMock } from '@/test/matchMediaMock';
+
 import {
   resolveDarkTheme,
   toBitrate,
@@ -7,14 +9,7 @@ import {
   toTheme,
 } from './utils';
 
-const matchesMock = ref(false);
-
-Object.defineProperty(globalThis, 'matchMedia', {
-  value: vi.fn(() => ({
-    matches: matchesMock.value,
-  })),
-  writable: true,
-});
+const { matchesMock } = matchMediaMock();
 
 describe('loadThemePreference', () => {
   describe.each([
@@ -56,7 +51,6 @@ describe('toBitrate', () => {
     [128, 128],
     [999, 0],
     ['320', 320],
-    [999, 0],
     ['999', 0],
     ['invalid', 0],
     [undefined, 0],

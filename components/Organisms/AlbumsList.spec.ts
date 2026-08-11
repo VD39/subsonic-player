@@ -11,9 +11,15 @@ import { getFormattedAlbumsMock } from '@/test/helpers';
 
 import AlbumsList from './AlbumsList.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const viewLayoutMock = ref<Layout>('gridLayout');
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   viewLayout: viewLayoutMock,
 }));
 
@@ -66,7 +72,7 @@ describe('AlbumsList', () => {
     });
 
     it('shows the correct number of the AlbumItem component', () => {
-      expect(wrapper.findAllComponents(AlbumItem).length).toBe(5);
+      expect(wrapper.findAllComponents(AlbumItem)).toHaveLength(5);
     });
 
     it('does not show the NoMediaMessage component', () => {

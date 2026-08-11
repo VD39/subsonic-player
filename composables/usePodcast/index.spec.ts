@@ -8,48 +8,45 @@ const runTaskOnScheduleMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('runTaskOnSchedule', () => runTaskOnScheduleMock);
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
-const addSuccessSnackMock = vi.fn();
+const addSuccessSnackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSnack', () => () => ({
+mockNuxtImport('useSnack', (original) => () => ({
+  ...original(),
   addSuccessSnack: addSuccessSnackMock,
 }));
 
-const {
-  addPodcast,
-  deletePodcast,
-  deletePodcastEpisode,
-  downloadPodcastEpisode,
-  getPodcast,
-  getPodcastsAndNewestPodcastEpisodes,
-  newestPodcastEpisodes,
-  podcast,
-  podcasts,
-  resetPodcasts,
-} = usePodcast();
-
 describe('usePodcast', () => {
+  let composable: ReturnType<typeof usePodcast>;
+
+  beforeAll(() => {
+    composable = usePodcast();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default podcasts value', () => {
-    expect(podcasts.value).toEqual([]);
+    expect(composable.podcasts.value).toEqual([]);
   });
 
   it('sets the default podcast value', () => {
-    expect(podcast.value).toEqual({});
+    expect(composable.podcast.value).toEqual({});
   });
 
   it('sets the default newestPodcastEpisodes value', () => {
-    expect(newestPodcastEpisodes.value).toEqual([]);
+    expect(composable.newestPodcastEpisodes.value).toEqual([]);
   });
 
   describe('when the getPodcastsAndNewestPodcastEpisodes function is called', () => {
@@ -63,15 +60,15 @@ describe('usePodcast', () => {
             data: null,
           });
 
-        await getPodcastsAndNewestPodcastEpisodes();
+        await composable.getPodcastsAndNewestPodcastEpisodes();
       });
 
       it('sets the correct podcasts value', () => {
-        expect(podcasts.value).toEqual([]);
+        expect(composable.podcasts.value).toEqual([]);
       });
 
       it('sets the correct newestPodcastEpisodes value', () => {
-        expect(newestPodcastEpisodes.value).toEqual([]);
+        expect(composable.newestPodcastEpisodes.value).toEqual([]);
       });
     });
 
@@ -93,11 +90,11 @@ describe('usePodcast', () => {
             ],
           });
 
-        await getPodcastsAndNewestPodcastEpisodes();
+        await composable.getPodcastsAndNewestPodcastEpisodes();
       });
 
       it('sets the correct podcasts value', () => {
-        expect(podcasts.value).toEqual([
+        expect(composable.podcasts.value).toEqual([
           {
             name: 'name',
           },
@@ -105,7 +102,7 @@ describe('usePodcast', () => {
       });
 
       it('sets the correct newestPodcastEpisodes value', () => {
-        expect(newestPodcastEpisodes.value).toEqual([
+        expect(composable.newestPodcastEpisodes.value).toEqual([
           {
             name: 'name1',
           },
@@ -121,11 +118,11 @@ describe('usePodcast', () => {
           data: null,
         });
 
-        await getPodcast('id');
+        await composable.getPodcast('id');
       });
 
       it('sets the correct podcast value', () => {
-        expect(podcast.value).toEqual({
+        expect(composable.podcast.value).toEqual({
           id: null,
         });
       });
@@ -141,11 +138,11 @@ describe('usePodcast', () => {
           ],
         });
 
-        await getPodcast('id');
+        await composable.getPodcast('id');
       });
 
       it('sets the correct podcast value', () => {
-        expect(podcast.value).toEqual({
+        expect(composable.podcast.value).toEqual({
           id: {
             name: 'name',
           },
@@ -153,7 +150,7 @@ describe('usePodcast', () => {
       });
     });
 
-    describe('when getPodcast is called again with a different id', () => {
+    describe('when the getPodcast function is called again with a different id', () => {
       beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: [
@@ -163,11 +160,11 @@ describe('usePodcast', () => {
           ],
         });
 
-        await getPodcast('id1');
+        await composable.getPodcast('id1');
       });
 
       it('sets the correct podcast value', () => {
-        expect(podcast.value).toEqual({
+        expect(composable.podcast.value).toEqual({
           id: {
             name: 'name',
           },
@@ -185,7 +182,7 @@ describe('usePodcast', () => {
         data: null,
       });
 
-      await addPodcast('url');
+      await composable.addPodcast('url');
     });
 
     it('calls the getPodcasts function with the correct parameters', () => {
@@ -216,7 +213,7 @@ describe('usePodcast', () => {
           },
         });
 
-        await addPodcast('url');
+        await composable.addPodcast('url');
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -233,7 +230,7 @@ describe('usePodcast', () => {
         data: null,
       });
 
-      await deletePodcast('id');
+      await composable.deletePodcast('id');
     });
 
     it('calls the getPodcasts function with the correct parameters', () => {
@@ -264,7 +261,7 @@ describe('usePodcast', () => {
           },
         });
 
-        await deletePodcast('id');
+        await composable.deletePodcast('id');
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -281,7 +278,7 @@ describe('usePodcast', () => {
         data: null,
       });
 
-      await deletePodcastEpisode({
+      await composable.deletePodcastEpisode({
         id: 'id',
         podcastId: 'podcastId',
       } as PodcastEpisode);
@@ -301,7 +298,7 @@ describe('usePodcast', () => {
           },
         });
 
-        await deletePodcastEpisode({
+        await composable.deletePodcastEpisode({
           id: 'id',
           podcastId: 'podcastId',
         } as PodcastEpisode);
@@ -332,7 +329,7 @@ describe('usePodcast', () => {
           data: null,
         });
 
-        await deletePodcastEpisode({
+        await composable.deletePodcastEpisode({
           id: 'id',
         } as PodcastEpisode);
       });
@@ -350,12 +347,12 @@ describe('usePodcast', () => {
           data: null,
         });
 
-        await deletePodcastEpisode({
+        await composable.deletePodcastEpisode({
           id: 'id',
           podcastId: 'podcastId',
         } as PodcastEpisode);
 
-        await deletePodcastEpisode({
+        await composable.deletePodcastEpisode({
           id: 'id1',
           podcastId: 'podcastId',
         } as PodcastEpisode);
@@ -373,7 +370,7 @@ describe('usePodcast', () => {
         data: null,
       });
 
-      await downloadPodcastEpisode({
+      await composable.downloadPodcastEpisode({
         id: 'id',
         podcastId: 'podcastId',
       } as PodcastEpisode);
@@ -393,7 +390,7 @@ describe('usePodcast', () => {
           },
         });
 
-        await downloadPodcastEpisode({
+        await composable.downloadPodcastEpisode({
           id: 'id',
           podcastId: 'podcastId',
         } as PodcastEpisode);
@@ -424,7 +421,7 @@ describe('usePodcast', () => {
           data: null,
         });
 
-        await downloadPodcastEpisode({
+        await composable.downloadPodcastEpisode({
           id: 'id',
         } as PodcastEpisode);
       });
@@ -437,19 +434,19 @@ describe('usePodcast', () => {
 
   describe('when the resetPodcasts function is called', () => {
     beforeEach(() => {
-      resetPodcasts();
+      composable.resetPodcasts();
     });
 
     it('sets the podcast value to the default value', () => {
-      expect(podcast.value).toEqual({});
+      expect(composable.podcast.value).toEqual({});
     });
 
     it('sets the podcasts value to the default value', () => {
-      expect(podcasts.value).toEqual([]);
+      expect(composable.podcasts.value).toEqual([]);
     });
 
     it('sets the newestPodcastEpisodes value to the default value', () => {
-      expect(newestPodcastEpisodes.value).toEqual([]);
+      expect(composable.newestPodcastEpisodes.value).toEqual([]);
     });
   });
 });

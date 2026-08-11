@@ -6,6 +6,8 @@ import { windowEventListenerMock } from '@/test/eventListenersMock';
 
 import OverflowShadow from './OverflowShadow.vue';
 
+vi.useFakeTimers();
+
 const { windowAddEventListenerSpy, windowRemoveEventListenerSpy } =
   windowEventListenerMock();
 
@@ -59,6 +61,8 @@ describe('OverflowShadow', () => {
       });
 
       globalThis.dispatchEvent(new CustomEvent('resize'));
+
+      vi.runAllTimers();
     });
 
     it('matches the snapshot', () => {

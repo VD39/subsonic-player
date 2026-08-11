@@ -1,4 +1,11 @@
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
 import { getFormattedQueueTracksMock } from '@/test/helpers';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const setActionHandlerMock = vi.fn();
 const setPositionStateMock = vi.fn();
@@ -43,14 +50,13 @@ const mediaSessionActionsMock: MediaSessionActions = {
   playbackRate: computed(() => playbackRateMock.value),
 };
 
-const {
-  setMediaSessionMetadata,
-  setMediaSessionPlaybackState,
-  setMediaSessionPositionState,
-  setupMediaSessionHandlers,
-} = useMediaSession(mediaSessionActionsMock);
-
 describe('useMediaSession', () => {
+  let composable: ReturnType<typeof useMediaSession>;
+
+  beforeEach(() => {
+    composable = useMediaSession(mediaSessionActionsMock);
+  });
+
   afterEach(() => {
     (globalThis.navigator as unknown) = {};
 
@@ -69,11 +75,9 @@ describe('useMediaSession', () => {
       beforeEach(() => {
         (globalThis.navigator as unknown) = undefined;
 
-        const { setMediaSessionMetadata } = useMediaSession(
-          mediaSessionActionsMock,
-        );
+        composable = useMediaSession(mediaSessionActionsMock);
 
-        setMediaSessionMetadata();
+        composable.setMediaSessionMetadata();
       });
 
       it('does not call the MediaMetadata function', () => {
@@ -84,7 +88,7 @@ describe('useMediaSession', () => {
     describe('when there is no current track', () => {
       beforeEach(() => {
         hasCurrentTrackMock.value = false;
-        setMediaSessionMetadata();
+        composable.setMediaSessionMetadata();
       });
 
       it('does not call the MediaMetadata function', () => {
@@ -95,7 +99,7 @@ describe('useMediaSession', () => {
     describe('when mediaSession and current track are available', () => {
       beforeEach(() => {
         hasCurrentTrackMock.value = true;
-        setMediaSessionMetadata();
+        composable.setMediaSessionMetadata();
       });
 
       it('sets the metadata title', () => {
@@ -172,7 +176,7 @@ describe('useMediaSession', () => {
 
     describe('when mediaSession is available', () => {
       beforeEach(() => {
-        setMediaSessionPlaybackState('none');
+        composable.setMediaSessionPlaybackState('none');
       });
 
       it('sets the navigator.mediaSession.playbackState', () => {
@@ -193,10 +197,10 @@ describe('useMediaSession', () => {
     });
 
     describe('when mediaSession is available', () => {
-      describe('when hasCurrentTrack value is false', () => {
+      describe('when the hasCurrentTrack value is false', () => {
         beforeEach(() => {
           hasCurrentTrackMock.value = false;
-          setMediaSessionPositionState();
+          composable.setMediaSessionPositionState();
         });
 
         it('does not call the setPositionState function', () => {
@@ -204,12 +208,12 @@ describe('useMediaSession', () => {
         });
       });
 
-      describe('when hasCurrentTrack value is true', () => {
-        describe('when isRadioStation value is true', () => {
+      describe('when the hasCurrentTrack value is true', () => {
+        describe('when the isRadioStation value is true', () => {
           beforeEach(() => {
             hasCurrentTrackMock.value = true;
             isRadioStationMock.value = true;
-            setMediaSessionPositionState();
+            composable.setMediaSessionPositionState();
           });
 
           it('does not call the setPositionState function', () => {
@@ -217,11 +221,11 @@ describe('useMediaSession', () => {
           });
         });
 
-        describe('when isRadioStation value is false', () => {
+        describe('when the isRadioStation value is false', () => {
           beforeEach(() => {
             hasCurrentTrackMock.value = true;
             isRadioStationMock.value = false;
-            setMediaSessionPositionState();
+            composable.setMediaSessionPositionState();
           });
 
           it('calls the setPositionState function with the current track position and duration', () => {
@@ -241,11 +245,9 @@ describe('useMediaSession', () => {
       beforeEach(() => {
         (globalThis.navigator as unknown) = undefined;
 
-        const { setupMediaSessionHandlers } = useMediaSession(
-          mediaSessionActionsMock,
-        );
+        composable = useMediaSession(mediaSessionActionsMock);
 
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('does not call the setActionHandler function', () => {
@@ -255,7 +257,7 @@ describe('useMediaSession', () => {
 
     describe('when mediaSession is available', () => {
       beforeEach(() => {
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the play action handler', () => {
@@ -280,10 +282,10 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when canPlayNext value is true', () => {
+    describe('when the canPlayNext value is true', () => {
       beforeEach(() => {
         hasNextTrackMock.value = true;
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the nextTrack action handler', () => {
@@ -294,10 +296,10 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when canPlayNext value is false', () => {
+    describe('when the canPlayNext value is false', () => {
       beforeEach(() => {
         hasNextTrackMock.value = false;
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the nextTrack action handler to null', () => {
@@ -308,10 +310,10 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when canPlayPrevious value is true', () => {
+    describe('when the canPlayPrevious value is true', () => {
       beforeEach(() => {
         hasPreviousTrackMock.value = true;
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the previousTrack action handler', () => {
@@ -322,10 +324,10 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when canPlayPrevious value is false', () => {
+    describe('when the canPlayPrevious value is false', () => {
       beforeEach(() => {
         hasPreviousTrackMock.value = false;
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the previousTrack action handler to null', () => {
@@ -336,10 +338,10 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when isPodcastEpisode value is true', () => {
+    describe('when the isPodcastEpisode value is true', () => {
       beforeEach(() => {
         isPodcastEpisodeMock.value = true;
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the seekBackward action handler', () => {
@@ -357,10 +359,10 @@ describe('useMediaSession', () => {
       });
     });
 
-    describe('when isPodcastEpisode value is false', () => {
+    describe('when the isPodcastEpisode value is false', () => {
       beforeEach(() => {
         isPodcastEpisodeMock.value = false;
-        setupMediaSessionHandlers();
+        composable.setupMediaSessionHandlers();
       });
 
       it('sets the seekBackward action handler to null', () => {

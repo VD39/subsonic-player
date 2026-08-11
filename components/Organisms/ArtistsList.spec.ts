@@ -11,9 +11,15 @@ import { getFormattedArtistsMock } from '@/test/helpers';
 
 import ArtistsList from './ArtistsList.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const viewLayoutMock = ref<Layout>('gridLayout');
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   viewLayout: viewLayoutMock,
 }));
 
@@ -63,7 +69,7 @@ describe('ArtistsList', () => {
     });
 
     it('shows the correct number of the ArtistItem component', () => {
-      expect(wrapper.findAllComponents(ArtistItem).length).toBe(5);
+      expect(wrapper.findAllComponents(ArtistItem)).toHaveLength(5);
     });
 
     it('does not show the NoMediaMessage component', () => {

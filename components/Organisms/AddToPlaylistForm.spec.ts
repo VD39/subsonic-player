@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import InputField from '@/components/Atoms/InputField.vue';
@@ -9,24 +8,28 @@ import { getFormattedPlaylistsMock } from '@/test/helpers';
 
 import AddToPlaylistForm from './AddToPlaylistForm.vue';
 
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn().mockReturnValue({
-    params: {},
-  }),
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
 }));
 
-mockNuxtImport('useRoute', () => routeMock);
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
+  autoLogin: vi.fn(),
+  isAuthenticated: ref(true),
+}));
 
 const playlists = getFormattedPlaylistsMock(5);
 
-function factory(props = {}) {
-  return mount(AddToPlaylistForm, {
+async function factory(props = {}, route = '/') {
+  return mountSuspended(AddToPlaylistForm, {
     props: {
       loading: false,
       newlyCreatedPlaylistId: 'newlyCreatedPlaylistId',
       playlists,
       ...props,
     },
+    route,
   });
 }
 
@@ -45,12 +48,12 @@ describe('AddToPlaylistForm', () => {
   let wrapper: VueWrapper;
 
   beforeEach(async () => {
-    wrapper = factory();
+    wrapper = await factory();
   });
 
   describe('when the playlists prop is an empty array', () => {
-    beforeEach(() => {
-      wrapper = factory({
+    beforeEach(async () => {
+      wrapper = await factory({
         playlists: [],
       });
     });
@@ -74,7 +77,7 @@ describe('AddToPlaylistForm', () => {
     });
 
     it('shows the correct number of playlist items', () => {
-      expect(wrapper.findAll('[data-test-id="playlist"]').length).toBe(5);
+      expect(wrapper.findAll('[data-test-id="playlist"]')).toHaveLength(5);
     });
 
     describe('when playlist id is not random', () => {
@@ -173,8 +176,8 @@ describe('AddToPlaylistForm', () => {
     });
 
     describe('when playlist id is random', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           playlists: [
             {
               ...getFormattedPlaylistsMock()[0],
@@ -199,8 +202,8 @@ describe('AddToPlaylistForm', () => {
     });
 
     describe('when the newlyCreatedPlaylistId prop is the same as the playlist id', () => {
-      beforeEach(() => {
-        wrapper = factory({
+      beforeEach(async () => {
+        wrapper = await factory({
           newlyCreatedPlaylistId: playlists[0].id,
         });
       });
@@ -229,12 +232,8 @@ describe('AddToPlaylistForm', () => {
     });
 
     describe('when router params has an id that matches the playlist id', () => {
-      beforeEach(() => {
-        routeMock.mockReturnValue({
-          params: {
-            [ROUTE_PARAM_KEYS.playlist.id]: playlists[0].id,
-          },
-        });
+      beforeEach(async () => {
+        wrapper = await factory({}, `/playlist/${playlists[0].id}`);
       });
 
       it('matches the snapshot', () => {
@@ -267,7 +266,7 @@ describe('AddToPlaylistForm', () => {
     });
 
     it('does not emit submit event', () => {
-      expect(wrapper.emitted('submit')).toBe(undefined);
+      expect(wrapper.emitted('submit')).toBeUndefined();
     });
   });
 

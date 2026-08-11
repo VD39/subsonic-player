@@ -27,7 +27,7 @@ describe('MobileNavigation', () => {
   });
 
   it('shows the correct number of navigation items', () => {
-    expect(wrapper.findAllComponents(ButtonLink).length).toBe(
+    expect(wrapper.findAllComponents(ButtonLink)).toHaveLength(
       MOBILE_NAVIGATION.length,
     );
   });

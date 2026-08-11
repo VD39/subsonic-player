@@ -4,13 +4,14 @@ import { mount } from '@vue/test-utils';
 
 import ButtonLink from './ButtonLink.vue';
 
-function factory(props = {}) {
+function factory(props = {}, slots = {}) {
   return mount(ButtonLink, {
     props: {
       ...props,
     },
     slots: {
       default: 'Default slot content.',
+      ...slots,
     },
   });
 }
@@ -119,12 +120,12 @@ describe('ButtonLink', () => {
 
   describe('when the icon slot is provided', () => {
     beforeEach(() => {
-      wrapper = mount(ButtonLink, {
-        slots: {
-          default: 'Default slot content.',
+      wrapper = factory(
+        {},
+        {
           icon: '<span>Custom icon</span>',
         },
-      });
+      );
     });
 
     it('matches the snapshot', () => {
@@ -143,15 +144,14 @@ describe('ButtonLink', () => {
 
     describe('when the iconPosition prop is set to right', () => {
       beforeEach(() => {
-        wrapper = mount(ButtonLink, {
-          props: {
+        wrapper = factory(
+          {
             iconPosition: 'right',
           },
-          slots: {
-            default: 'Default slot content.',
+          {
             icon: '<span>Custom icon</span>',
           },
-        });
+        );
       });
 
       it('matches the snapshot', () => {
@@ -221,22 +221,36 @@ describe('ButtonLink', () => {
   });
 
   describe('when component is clicked', () => {
-    beforeEach(() => {
-      wrapper.vm.$emit('click');
+    const clickMock = vi.fn();
+
+    beforeEach(async () => {
+      wrapper = factory({
+        onClick: clickMock,
+      });
+
+      await wrapper.trigger('click');
     });
 
-    it('emits the click event', () => {
-      expect(wrapper.emitted('click')).toEqual([[]]);
+    it('calls the click listener', () => {
+      expect(clickMock).toHaveBeenCalledWith(expect.any(MouseEvent));
     });
   });
 
-  describe('when component emits a keydown.down event', () => {
-    beforeEach(() => {
-      wrapper.vm.$emit('keydown.down');
+  describe('when component receives a keydown event', () => {
+    const keydownMock = vi.fn();
+
+    beforeEach(async () => {
+      wrapper = factory({
+        onKeydown: keydownMock,
+      });
+
+      await wrapper.trigger('keydown', {
+        key: 'ArrowDown',
+      });
     });
 
-    it('emits the keypress event', () => {
-      expect(wrapper.emitted('keydown.down')).toEqual([[]]);
+    it('calls the keydown listener', () => {
+      expect(keydownMock).toHaveBeenCalledWith(expect.any(KeyboardEvent));
     });
   });
 });

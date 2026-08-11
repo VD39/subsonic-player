@@ -4,13 +4,18 @@ import { getPlaylistsMock } from '@/test/helpers';
 
 import { useInfinityLoading } from './index';
 
-const config = vi.hoisted(() => ({
-  public: {
-    LOAD_SIZE: 35,
+const { configMock } = vi.hoisted(() => ({
+  configMock: {
+    public: {
+      LOAD_SIZE: 35,
+    },
   },
 }));
 
-mockNuxtImport('useRuntimeConfig', () => () => config);
+mockNuxtImport('useRuntimeConfig', (original) => () => ({
+  ...original(),
+  ...configMock,
+}));
 
 const mockData = {
   playlist25: getPlaylistsMock(25),
@@ -18,79 +23,82 @@ const mockData = {
   playlist55: getPlaylistsMock(55),
 };
 
-const { fetchMoreData, hasMore, items, LOAD_SIZE, resetInfinityLoading } =
-  useInfinityLoading('id');
-
 describe('useInfinityLoading', () => {
+  let composable: ReturnType<typeof useInfinityLoading>;
+
+  beforeAll(() => {
+    composable = useInfinityLoading('id');
+  });
+
   it('sets the default hasMore value', () => {
-    expect(hasMore.value).toBe(true);
+    expect(composable.hasMore.value).toBe(true);
   });
 
   it('sets the default items value', () => {
-    expect(items.value).toEqual([]);
+    expect(composable.items.value).toEqual([]);
   });
 
   it('sets the LOAD_SIZE value based on environment variable', () => {
-    expect(LOAD_SIZE).toBe(35);
+    expect(composable.LOAD_SIZE).toBe(35);
   });
 
   describe('when fetchMoreData function is called', () => {
     describe('when fetchFn function returns no value', () => {
       beforeAll(() => {
-        fetchMoreData(() => Promise.resolve(null));
+        composable.fetchMoreData(() => Promise.resolve(null));
       });
 
       it('sets the correct hasMore value', () => {
-        expect(hasMore.value).toBe(false);
+        expect(composable.hasMore.value).toBe(false);
       });
 
       it('does not update items value', () => {
-        expect(items.value).toEqual([]);
+        expect(composable.items.value).toEqual([]);
       });
     });
 
-    describe(`when fetchFn function returns more than the ${LOAD_SIZE}`, () => {
+    describe(`when fetchFn function returns more than the ${configMock.public.LOAD_SIZE}`, () => {
       beforeAll(() => {
-        fetchMoreData(() => Promise.resolve(mockData.playlist55));
+        composable.fetchMoreData(() => Promise.resolve(mockData.playlist55));
       });
 
       it('sets the correct hasMore value', () => {
-        expect(hasMore.value).toBe(true);
+        expect(composable.hasMore.value).toBe(true);
       });
 
       it('sets the correct items value', () => {
-        expect(items.value).toEqual(mockData.playlist55);
+        expect(composable.items.value).toEqual(mockData.playlist55);
       });
     });
 
-    describe(`when fetchFn function returns the same as the ${LOAD_SIZE}`, () => {
+    describe(`when fetchFn function returns the same as the ${configMock.public.LOAD_SIZE}`, () => {
       beforeAll(() => {
-        fetchMoreData(() => Promise.resolve(mockData.playlist50));
+        composable.fetchMoreData(() => Promise.resolve(mockData.playlist50));
       });
 
       it('sets the correct hasMore value', () => {
-        expect(hasMore.value).toBe(true);
+        expect(composable.hasMore.value).toBe(true);
       });
 
       it('sets the correct items value', () => {
-        expect(items.value).toEqual([
+        expect(composable.items.value).toEqual([
           ...mockData.playlist55,
           ...mockData.playlist50,
         ]);
       });
     });
 
-    describe(`when fetchFn function returns the less than the ${LOAD_SIZE}`, () => {
+    describe(`when fetchFn function returns the less than the ${configMock.public.LOAD_SIZE}`, () => {
       beforeAll(() => {
-        fetchMoreData(() => Promise.resolve(mockData.playlist25));
+        composable.fetchMoreData(() => Promise.resolve(mockData.playlist25));
       });
 
       it('sets the correct hasMore value', () => {
-        expect(hasMore.value).toBe(false);
+        expect(composable.hasMore.value).toBe(false);
       });
 
       it('sets the correct items value', () => {
-        expect(items.value).toEqual([
+        expect(composable.items.value).toEqual([
           ...mockData.playlist55,
           ...mockData.playlist50,
           ...mockData.playlist25,
@@ -101,15 +109,15 @@ describe('useInfinityLoading', () => {
 
   describe('when resetInfinityLoading function is called', () => {
     beforeEach(() => {
-      resetInfinityLoading();
+      composable.resetInfinityLoading();
     });
 
     it('clears the hasMore value', () => {
-      expect(hasMore.value).toBe(true);
+      expect(composable.hasMore.value).toBe(true);
     });
 
     it('clears the items value', () => {
-      expect(items.value).toEqual([]);
+      expect(composable.items.value).toEqual([]);
     });
   });
 });

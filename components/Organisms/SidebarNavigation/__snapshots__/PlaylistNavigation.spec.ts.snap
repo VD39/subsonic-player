@@ -35,7 +35,7 @@ exports[`PlaylistItems > when playlist id is random > matches the snapshot 1`] =
 </ul>"
 `;
 
-exports[`PlaylistItems > when playlist value is an empty array > matches the snapshot 1`] = `
+exports[`PlaylistItems > when the playlist value is an empty array > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
     <h4 class="strong mBM sidebarTitle">Playlist</h4>
@@ -47,7 +47,7 @@ exports[`PlaylistItems > when playlist value is an empty array > matches the sna
 </ul>"
 `;
 
-exports[`PlaylistItems > when playlist value returns playlists > when playlist value returned is more than 8 > matches the snapshot 1`] = `
+exports[`PlaylistItems > when the playlist value returns playlists > when the playlist value returned is more than 8 > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
     <h4 class="strong mBM sidebarTitle">Playlist</h4>

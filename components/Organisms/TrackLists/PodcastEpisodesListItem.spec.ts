@@ -13,9 +13,15 @@ import { useQueueMock } from '@/test/useQueueMock';
 
 import PodcastEpisodesListItem from './PodcastEpisodesListItem.vue';
 
-const getBookmarkPositionMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useBookmark', () => () => ({
+const getBookmarkPositionMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
   getBookmarkPosition: getBookmarkPositionMock,
 }));
 
@@ -182,6 +188,21 @@ describe('PodcastEpisodesListItem', () => {
     });
 
     describe.each([
+      ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName) => {
+        beforeEach(async () => {
+          await wrapper.findComponent({ ref }).trigger('click');
+        });
+
+        it(`emits the ${emitEventName} event`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([[]]);
+        });
+      },
+    );
+
+    describe.each([
       [
         'delete podcast episode DropdownItem',
         'deletePodcastEpisode',
@@ -190,7 +211,6 @@ describe('PodcastEpisodesListItem', () => {
       ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
       ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
       ['add to queue DropdownItem', 'addToQueue', 'addToQueue'],
-      ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
     ])(
       'when the %s component emits the click event',
       (_text, ref, emitEventName) => {
@@ -302,6 +322,20 @@ describe('PodcastEpisodesListItem', () => {
         'downloadPodcastEpisodeButton',
         'downloadPodcastEpisode',
       ],
+    ])(
+      'when the %s component emits the click event',
+      (_text, ref, emitEventName) => {
+        beforeEach(async () => {
+          await wrapper.findComponent({ ref }).trigger('click');
+        });
+
+        it(`emits the ${emitEventName} event`, () => {
+          expect(wrapper.emitted(emitEventName)).toEqual([[]]);
+        });
+      },
+    );
+
+    describe.each([
       [
         'download podcast episode DropdownItem',
         'downloadPodcastEpisodeDropdownItem',
@@ -429,7 +463,8 @@ describe('PodcastEpisodesListItem', () => {
       describe('when the currentTime value changes', () => {
         beforeEach(async () => {
           currentTimeMock.value = 10;
-          await wrapper.vm.$nextTick();
+
+          await nextTick();
         });
 
         it('matches the snapshot', () => {
@@ -455,6 +490,20 @@ describe('PodcastEpisodesListItem', () => {
       'podcastEpisodeInformationButton',
       'podcastEpisodeInformation',
     ],
+  ])(
+    'when the %s component emits the click event',
+    (_text, ref, emitEventName) => {
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref }).trigger('click');
+      });
+
+      it(`emits the ${emitEventName} event`, () => {
+        expect(wrapper.emitted(emitEventName)).toEqual([[]]);
+      });
+    },
+  );
+
+  describe.each([
     [
       'podcast episode information DropdownItem',
       'podcastEpisodeInformationDropdownItem',
@@ -498,7 +547,7 @@ describe('PodcastEpisodesListItem', () => {
   });
 
   describe('when the InteractionWrapper component emits the click event', () => {
-    describe('when isCurrentTrack is true', () => {
+    describe('when the isCurrentTrack value is true', () => {
       beforeEach(() => {
         isCurrentTrackMock.mockReturnValue(true);
         wrapper.findComponent(InteractionWrapper).vm.$emit('click');
@@ -515,7 +564,7 @@ describe('PodcastEpisodesListItem', () => {
           podcastEpisode: noneDownloadedPodcastEpisode,
         });
 
-        await wrapper.vm.$nextTick();
+        await nextTick();
 
         wrapper.findComponent(InteractionWrapper).vm.$emit('click');
       });
@@ -529,7 +578,7 @@ describe('PodcastEpisodesListItem', () => {
       });
     });
 
-    describe('when isCurrentTrack is false and the podcast episode is downloaded', () => {
+    describe('when the isCurrentTrack value is false and the podcast episode is downloaded', () => {
       beforeEach(() => {
         isCurrentTrackMock.mockReturnValue(false);
 

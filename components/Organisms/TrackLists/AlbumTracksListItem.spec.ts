@@ -101,6 +101,20 @@ describe('AlbumTracksListItem', () => {
 
   describe.each([
     ['add to queue ButtonLink', 'addToQueueButton', 'addToQueue'],
+  ])(
+    'when the %s component emits the click event',
+    (_text, ref, emitEventName) => {
+      beforeEach(async () => {
+        await wrapper.findComponent({ ref }).trigger('click');
+      });
+
+      it(`emits the ${emitEventName} event`, () => {
+        expect(wrapper.emitted(emitEventName)).toEqual([[]]);
+      });
+    },
+  );
+
+  describe.each([
     ['add to playlist DropdownItem', 'addToPlaylist', 'addToPlaylist'],
     ['media information DropdownItem', 'mediaInformation', 'mediaInformation'],
     ['download media DropdownItem', 'downloadMedia', 'downloadMedia'],
@@ -129,7 +143,7 @@ describe('AlbumTracksListItem', () => {
   });
 
   describe('when the TrackPlayPause component emits the playTrack event', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       wrapper.findComponent(TrackPlayPause).vm.$emit('playTrack');
     });
 
@@ -139,7 +153,7 @@ describe('AlbumTracksListItem', () => {
   });
 
   describe('when the InteractionWrapper component emits the click event', () => {
-    describe('when isCurrentTrack is true', () => {
+    describe('when the isCurrentTrack value is true', () => {
       beforeEach(() => {
         isCurrentTrackMock.mockReturnValue(true);
         wrapper.findComponent(InteractionWrapper).vm.$emit('click');
@@ -150,7 +164,7 @@ describe('AlbumTracksListItem', () => {
       });
     });
 
-    describe('when isCurrentTrack is false', () => {
+    describe('when the isCurrentTrack value is false', () => {
       beforeEach(() => {
         isCurrentTrackMock.mockReturnValue(false);
 

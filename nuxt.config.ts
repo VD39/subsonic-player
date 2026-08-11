@@ -48,7 +48,12 @@ export default defineNuxtConfig({
   imports: {
     dirs: IMPORT_DIRECTORIES,
   },
-  modules: ['@nuxt/eslint', '@vite-pwa/nuxt', 'nuxt-swiper'],
+  modules: [
+    '@nuxt/eslint',
+    '@vite-pwa/nuxt',
+    'nuxt-swiper',
+    '@nuxt/test-utils/module',
+  ],
   nitro: {
     imports: {
       dirs: IMPORT_DIRECTORIES,

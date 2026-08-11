@@ -4,47 +4,46 @@ import type { DataMock } from '@/test/types';
 
 import { useAlbum } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: {
-    name: 'name',
-  },
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: {
+      name: 'name',
+    },
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
-const {
-  frequentAlbums,
-  getAlbum,
-  getAlbums,
-  loadDashboardAlbums,
-  newestAlbums,
-  recentAlbums,
-  resetAlbums,
-} = useAlbum();
-
 describe('useAlbum', () => {
+  let composable: ReturnType<typeof useAlbum>;
+
+  beforeAll(() => {
+    composable = useAlbum();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default frequentAlbums value', () => {
-    expect(frequentAlbums.value).toEqual([]);
+    expect(composable.frequentAlbums.value).toEqual([]);
   });
 
   it('sets the default newestAlbums value', () => {
-    expect(newestAlbums.value).toEqual([]);
+    expect(composable.newestAlbums.value).toEqual([]);
   });
 
   it('sets the default recentAlbums value', () => {
-    expect(recentAlbums.value).toEqual([]);
+    expect(composable.recentAlbums.value).toEqual([]);
   });
 
   describe('when the getAlbums function is called', () => {
     describe('when offset is not set', () => {
       beforeEach(() => {
-        getAlbums({} as AlbumsParams);
+        composable.getAlbums({} as AlbumsParams);
       });
 
       it('calls the fetchData function with the correct parameters', () => {
@@ -62,7 +61,7 @@ describe('useAlbum', () => {
     describe('when offset is set', () => {
       describe('when offset is 1', () => {
         beforeEach(() => {
-          getAlbums({
+          composable.getAlbums({
             offset: 1,
           } as AlbumsParams);
         });
@@ -82,7 +81,7 @@ describe('useAlbum', () => {
 
     describe('when size is not set', () => {
       beforeEach(() => {
-        getAlbums({} as AlbumsParams);
+        composable.getAlbums({} as AlbumsParams);
       });
 
       it('calls the fetchData function with the correct parameters', () => {
@@ -100,7 +99,7 @@ describe('useAlbum', () => {
     describe('when size is set', () => {
       describe('when size is 21', () => {
         beforeEach(() => {
-          getAlbums({
+          composable.getAlbums({
             size: 21,
           } as AlbumsParams);
         });
@@ -120,7 +119,7 @@ describe('useAlbum', () => {
 
     describe('when type is not set', () => {
       beforeEach(() => {
-        getAlbums({} as AlbumsParams);
+        composable.getAlbums({} as AlbumsParams);
       });
 
       it('calls the fetchData function with the correct parameters', () => {
@@ -141,7 +140,7 @@ describe('useAlbum', () => {
         ['sort-type-value', 'sort-type-value'],
       ])('when type is %s', (type, paramType) => {
         beforeEach(() => {
-          getAlbums({
+          composable.getAlbums({
             type,
           } as AlbumsParams);
         });
@@ -167,7 +166,7 @@ describe('useAlbum', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getAlbums({} as AlbumsParams)).toEqual([]);
+        expect(await composable.getAlbums({} as AlbumsParams)).toEqual([]);
       });
     });
 
@@ -181,7 +180,7 @@ describe('useAlbum', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getAlbums({} as AlbumsParams)).toEqual({
+        expect(await composable.getAlbums({} as AlbumsParams)).toEqual({
           name: 'name',
         });
       });
@@ -197,7 +196,7 @@ describe('useAlbum', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getAlbum('id')).toEqual(null);
+        expect(await composable.getAlbum('id')).toBeNull();
       });
     });
 
@@ -211,7 +210,7 @@ describe('useAlbum', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getAlbum('id')).toEqual({
+        expect(await composable.getAlbum('id')).toEqual({
           name: 'name',
         });
       });
@@ -246,7 +245,7 @@ describe('useAlbum', () => {
           ],
         });
 
-      await loadDashboardAlbums();
+      await composable.loadDashboardAlbums();
     });
 
     it('calls fetchData for frequent albums with correct parameters', () => {
@@ -283,7 +282,7 @@ describe('useAlbum', () => {
     });
 
     it('sets frequentAlbums value correctly', () => {
-      expect(frequentAlbums.value).toEqual([
+      expect(composable.frequentAlbums.value).toEqual([
         {
           id: 'frequent-1',
           name: 'Frequent Album',
@@ -292,7 +291,7 @@ describe('useAlbum', () => {
     });
 
     it('sets newestAlbums value correctly', () => {
-      expect(newestAlbums.value).toEqual([
+      expect(composable.newestAlbums.value).toEqual([
         {
           id: 'newest-1',
           name: 'Newest Album',
@@ -301,7 +300,7 @@ describe('useAlbum', () => {
     });
 
     it('sets recentAlbums value correctly', () => {
-      expect(recentAlbums.value).toEqual([
+      expect(composable.recentAlbums.value).toEqual([
         {
           id: 'recent-1',
           name: 'Recent Album',
@@ -312,19 +311,19 @@ describe('useAlbum', () => {
 
   describe('when the resetAlbums function is called', () => {
     beforeEach(() => {
-      resetAlbums();
+      composable.resetAlbums();
     });
 
     it('sets the frequentAlbums value to the default value', () => {
-      expect(frequentAlbums.value).toEqual([]);
+      expect(composable.frequentAlbums.value).toEqual([]);
     });
 
     it('sets the newestAlbums value to the default value', () => {
-      expect(newestAlbums.value).toEqual([]);
+      expect(composable.newestAlbums.value).toEqual([]);
     });
 
     it('sets the recentAlbums value to the default value', () => {
-      expect(recentAlbums.value).toEqual([]);
+      expect(composable.recentAlbums.value).toEqual([]);
     });
   });
 });

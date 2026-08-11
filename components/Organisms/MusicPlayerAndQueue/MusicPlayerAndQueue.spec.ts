@@ -35,7 +35,7 @@ describe('MusicPlayerAndQueue', () => {
     wrapper = factory();
   });
 
-  describe('when showMediaPlayer value is false', () => {
+  describe('when the showMediaPlayer value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -45,7 +45,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when showMediaPlayer value is true', () => {
+  describe('when the showMediaPlayer value is true', () => {
     beforeEach(() => {
       hasQueueTracksMock.value = true;
     });
@@ -59,7 +59,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when isQueuePlayerOpened is false', () => {
+  describe('when the isQueuePlayerOpened value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -69,7 +69,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when isQueuePlayerOpened is true', () => {
+  describe('when the isQueuePlayerOpened value is true', () => {
     beforeEach(() => {
       isQueuePlayerOpenedMock.value = true;
     });
@@ -83,7 +83,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when isQueueListOpened is false', () => {
+  describe('when the isQueueListOpened value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -93,7 +93,7 @@ describe('MusicPlayerAndQueue', () => {
     });
   });
 
-  describe('when isQueueListOpened is true', () => {
+  describe('when the isQueueListOpened value is true', () => {
     beforeEach(() => {
       isQueueListOpenedMock.value = true;
     });

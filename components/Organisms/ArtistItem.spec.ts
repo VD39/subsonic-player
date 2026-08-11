@@ -9,6 +9,11 @@ import { getFormattedArtistsMock } from '@/test/helpers';
 
 import ArtistItem from './ArtistItem.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);

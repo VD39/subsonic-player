@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -7,6 +8,11 @@ import RadioStationsListItem from '@/components/Organisms/TrackLists/RadioStatio
 import { getFormattedRadioStationMock } from '@/test/helpers';
 
 import RadioStationsList from './RadioStationsList.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const radioStations = getFormattedRadioStationMock(5);
 const radioStation = radioStations[0];
@@ -57,7 +63,7 @@ describe('RadioStationsList', () => {
     });
 
     it('shows the correct number of radio station items', () => {
-      expect(wrapper.findAllComponents(RadioStationsListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(RadioStationsListItem)).toHaveLength(5);
     });
 
     it('does not show the NoMediaMessage component', () => {
@@ -72,7 +78,7 @@ describe('RadioStationsList', () => {
     ])(
       'when the RadioStationsListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(RadioStationsListItem).vm.$emit(eventName);
         });
 

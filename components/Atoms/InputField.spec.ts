@@ -121,6 +121,7 @@ describe('InputField', () => {
   describe('when input is triggered', () => {
     beforeEach(async () => {
       const input = wrapper.find({ ref: 'input' });
+
       (input.element as HTMLInputElement).value = 'Input value.';
       await input.trigger('input');
     });

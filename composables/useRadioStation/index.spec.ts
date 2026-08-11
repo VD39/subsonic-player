@@ -4,36 +4,37 @@ import type { DataMock } from '@/test/types';
 
 import { useRadioStation } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   fetchData: fetchDataMock,
 }));
 
-const addSuccessSnackMock = vi.fn();
+const addSuccessSnackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useSnack', () => () => ({
+mockNuxtImport('useSnack', (original) => () => ({
+  ...original(),
   addSuccessSnack: addSuccessSnackMock,
 }));
 
-const {
-  addRadioStation,
-  deleteRadioStation,
-  getRadioStations,
-  radioStations,
-  resetRadioStations,
-  updateRadioStation,
-} = useRadioStation();
-
 describe('useRadioStation', () => {
+  let composable: ReturnType<typeof useRadioStation>;
+
+  beforeAll(() => {
+    composable = useRadioStation();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default radioStations value', () => {
-    expect(radioStations.value).toEqual([]);
+    expect(composable.radioStations.value).toEqual([]);
   });
 
   describe('when the getRadioStations function is called', () => {
@@ -43,11 +44,11 @@ describe('useRadioStation', () => {
           data: null,
         });
 
-        getRadioStations();
+        composable.getRadioStations();
       });
 
       it('sets the correct radioStations value', () => {
-        expect(radioStations.value).toEqual([]);
+        expect(composable.radioStations.value).toEqual([]);
       });
     });
 
@@ -61,11 +62,11 @@ describe('useRadioStation', () => {
           ],
         });
 
-        getRadioStations();
+        composable.getRadioStations();
       });
 
       it('sets the correct radioStations value', () => {
-        expect(radioStations.value).toEqual([
+        expect(composable.radioStations.value).toEqual([
           {
             name: 'name',
           },
@@ -80,7 +81,7 @@ describe('useRadioStation', () => {
         data: null,
       });
 
-      addRadioStation({} as RadioStationParams);
+      composable.addRadioStation({} as RadioStationParams);
     });
 
     it('calls the getRadioStations function with the correct parameters', () => {
@@ -88,12 +89,6 @@ describe('useRadioStation', () => {
         '/getInternetRadioStations',
         expect.any(Object),
       );
-    });
-
-    describe('when fetchData response returns null', () => {
-      it('does not call the addSuccessSnack function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -104,7 +99,7 @@ describe('useRadioStation', () => {
           },
         });
 
-        addRadioStation({
+        composable.addRadioStation({
           name: 'radio-station-name',
         } as RadioStationParams);
       });
@@ -115,11 +110,17 @@ describe('useRadioStation', () => {
         );
       });
     });
+
+    describe('when fetchData response returns null', () => {
+      it('does not call the addSuccessSnack function', () => {
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when the updateRadioStation function is called', () => {
     beforeEach(() => {
-      updateRadioStation({ homepageUrl: '' } as RadioStationParams);
+      composable.updateRadioStation({ homepageUrl: '' } as RadioStationParams);
     });
 
     it('calls the getRadioStations function with the correct parameters', () => {
@@ -142,7 +143,7 @@ describe('useRadioStation', () => {
 
     describe('when the homepageUrl param is not falsy', () => {
       beforeEach(() => {
-        updateRadioStation({
+        composable.updateRadioStation({
           homepageUrl: 'homepageUrl',
         } as RadioStationParams);
       });
@@ -165,7 +166,7 @@ describe('useRadioStation', () => {
           data: null,
         });
 
-        updateRadioStation({} as RadioStationParams);
+        composable.updateRadioStation({} as RadioStationParams);
       });
 
       it('does not call the addSuccessSnack function', () => {
@@ -181,7 +182,7 @@ describe('useRadioStation', () => {
           },
         });
 
-        updateRadioStation({
+        composable.updateRadioStation({
           name: 'radio-station-update-name',
         } as RadioStationParams);
       });
@@ -200,7 +201,7 @@ describe('useRadioStation', () => {
         data: null,
       });
 
-      deleteRadioStation('id');
+      composable.deleteRadioStation('id');
     });
 
     it('calls the getRadioStations function with the correct parameters', () => {
@@ -208,12 +209,6 @@ describe('useRadioStation', () => {
         '/getInternetRadioStations',
         expect.any(Object),
       );
-    });
-
-    describe('when fetchData response returns null', () => {
-      it('does not call the addSuccessSnack function', () => {
-        expect(addSuccessSnackMock).not.toHaveBeenCalled();
-      });
     });
 
     describe('when fetchData response returns a value', () => {
@@ -224,7 +219,7 @@ describe('useRadioStation', () => {
           },
         });
 
-        deleteRadioStation('id');
+        composable.deleteRadioStation('id');
       });
 
       it('calls the addSuccessSnack function with the correct parameters', () => {
@@ -233,15 +228,21 @@ describe('useRadioStation', () => {
         );
       });
     });
+
+    describe('when fetchData response returns null', () => {
+      it('does not call the addSuccessSnack function', () => {
+        expect(addSuccessSnackMock).not.toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when the resetRadioStations function is called', () => {
     beforeEach(() => {
-      resetRadioStations();
+      composable.resetRadioStations();
     });
 
     it('sets the radioStations value to the default value', () => {
-      expect(radioStations.value).toEqual([]);
+      expect(composable.radioStations.value).toEqual([]);
     });
   });
 });

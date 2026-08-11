@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -7,6 +8,11 @@ import TracksListItem from '@/components/Organisms/TrackLists/TracksListItem.vue
 import { getFormattedTracksMock } from '@/test/helpers';
 
 import TracksList from './TracksList.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const tracks = getFormattedTracksMock(5);
 const track = tracks[0];
@@ -57,7 +63,7 @@ describe('TracksList', () => {
     });
 
     it('shows the correct number of track items', () => {
-      expect(wrapper.findAllComponents(TracksListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(TracksListItem)).toHaveLength(5);
     });
 
     it('does not show the NoMediaMessage component', () => {
@@ -73,7 +79,7 @@ describe('TracksList', () => {
     ])(
       'when the TracksListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(TracksListItem).vm.$emit(eventName);
         });
 
@@ -84,7 +90,7 @@ describe('TracksList', () => {
     );
 
     describe('when the TracksListItem component emits the dragStart event', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         wrapper.findComponent(TracksListItem).vm.$emit('dragStart', DragEvent);
       });
 

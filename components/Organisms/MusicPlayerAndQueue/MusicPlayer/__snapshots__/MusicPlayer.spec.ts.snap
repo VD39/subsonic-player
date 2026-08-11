@@ -82,7 +82,7 @@ exports[`MusicPlayer > matches the snapshot 1`] = `
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value contain artists > when currentTrack.artists is an empty array > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value contain artists > when currentTrack.artists is an empty array > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -155,7 +155,7 @@ exports[`MusicPlayer > when currentTrack value contain artists > when currentTra
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value contain author > when currentTrack.author is undefined > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value contain author > when currentTrack.author is undefined > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -237,7 +237,7 @@ exports[`MusicPlayer > when currentTrack value contain author > when currentTrac
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does have an albumId key > when currentTrack.albumId is undefined > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does have an albumId key > when currentTrack.albumId is undefined > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -317,7 +317,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does have an albumId key > when currentTrack.albumId is undefined > when currentTrack value does have an podcastId key > when currentTrack.podcastId is defined > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does have an albumId key > when currentTrack.albumId is undefined > when the currentTrack value does have an podcastId key > when currentTrack.podcastId is defined > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -399,7 +399,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does have an albumId key > when currentTrack.albumId is undefined > when currentTrack value does have an podcastId key > when currentTrack.podcastId is undefined > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does have an albumId key > when currentTrack.albumId is undefined > when the currentTrack value does have an podcastId key > when currentTrack.podcastId is undefined > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -479,7 +479,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does have an albumId key > when currentTrack.albumId is undefined > when currentTrack value does not have an podcastId key > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does have an albumId key > when currentTrack.albumId is undefined > when the currentTrack value does not have an podcastId key > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -559,7 +559,7 @@ exports[`MusicPlayer > when currentTrack value does have an albumId key > when c
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does not have an albumId key > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does not have an albumId key > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -639,7 +639,7 @@ exports[`MusicPlayer > when currentTrack value does not have an albumId key > ma
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does not have an artists key > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does not have an artists key > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">
@@ -712,7 +712,7 @@ exports[`MusicPlayer > when currentTrack value does not have an artists key > ma
 </div>"
 `;
 
-exports[`MusicPlayer > when currentTrack value does not have an author key > matches the snapshot 1`] = `
+exports[`MusicPlayer > when the currentTrack value does not have an author key > matches the snapshot 1`] = `
 "<div class="musicPlayer">
   <track-seeker-stub class="desktopOnly trackSeeker"></track-seeker-stub>
   <div class="spaceBetween centerItems inner">

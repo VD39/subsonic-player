@@ -7,9 +7,13 @@ import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 
 import DropdownSubmenu from './DropdownSubmenu.vue';
 
-const closeSubmenuMock = vi.fn();
-const openSubmenuMock = vi.fn();
-const toggleInlineMock = vi.fn();
+const { closeSubmenuMock, openSubmenuMock, toggleInlineMock } = vi.hoisted(
+  () => ({
+    closeSubmenuMock: vi.fn(),
+    openSubmenuMock: vi.fn(),
+    toggleInlineMock: vi.fn(),
+  }),
+);
 const isHoverDeviceMock = ref(false);
 const isOpenMock = ref(false);
 const openedLeftMock = ref(false);
@@ -62,7 +66,8 @@ describe('DropdownSubmenu', () => {
   describe('when the isOpen value changes to true', () => {
     beforeEach(async () => {
       isOpenMock.value = true;
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -76,7 +81,8 @@ describe('DropdownSubmenu', () => {
     describe('when the isOpen value changes to false', () => {
       beforeEach(async () => {
         isOpenMock.value = false;
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
       });
 
       it('matches the snapshot', () => {
@@ -95,7 +101,8 @@ describe('DropdownSubmenu', () => {
     beforeEach(async () => {
       isOpenMock.value = true;
       submenuStyleMock.value = {};
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('does not add any style on the sub list element', () => {
@@ -112,7 +119,7 @@ describe('DropdownSubmenu', () => {
         top: '10px',
       };
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
     });
 
     it('adds the correct style on the sub list element', () => {
@@ -127,7 +134,8 @@ describe('DropdownSubmenu', () => {
     beforeEach(async () => {
       isOpenMock.value = true;
       isHoverDeviceMock.value = false;
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -161,7 +169,8 @@ describe('DropdownSubmenu', () => {
     describe('when the isOpen value is true', () => {
       beforeEach(async () => {
         isOpenMock.value = true;
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
       });
 
       it('matches the snapshot', () => {
@@ -177,7 +186,8 @@ describe('DropdownSubmenu', () => {
       describe('when the isOpen value changes to false', () => {
         beforeEach(async () => {
           isOpenMock.value = false;
-          await wrapper.vm.$nextTick();
+
+          await nextTick();
         });
 
         it('shows the dropdownSubmenuDown icon', () => {
@@ -193,7 +203,8 @@ describe('DropdownSubmenu', () => {
     beforeEach(async () => {
       isOpenMock.value = true;
       isHoverDeviceMock.value = true;
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('matches the snapshot', () => {
@@ -235,7 +246,8 @@ describe('DropdownSubmenu', () => {
     describe('when the openedLeft value is true', () => {
       beforeEach(async () => {
         openedLeftMock.value = true;
-        await wrapper.vm.$nextTick();
+
+        await nextTick();
       });
 
       it('adds the transition name to slide-in-left', () => {
@@ -247,7 +259,8 @@ describe('DropdownSubmenu', () => {
       describe('when the openedLeft value changes to false', () => {
         beforeEach(async () => {
           openedLeftMock.value = false;
-          await wrapper.vm.$nextTick();
+
+          await nextTick();
         });
 
         it('adds the transition name to slide-in-right', () => {

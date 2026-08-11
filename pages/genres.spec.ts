@@ -10,18 +10,28 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import GenresPage from './genres.vue';
 
-const getGenresMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useGenre', () => () => ({
+const getGenresMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useGenre', (original) => () => ({
+  ...original(),
   getGenres: getGenresMock,
 }));
 
-const genresDataMock = ref<{ genres: Genre[] }>({
+const genresDataMock = ref<{
+  genres: Genre[];
+}>({
   genres: [],
 });
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: genresDataMock,
+  error: ref(null),
+  pending: ref(false),
   status: ref('success'),
 }));
 

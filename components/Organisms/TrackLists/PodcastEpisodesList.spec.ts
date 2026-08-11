@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
@@ -7,6 +8,11 @@ import PodcastEpisodesListItem from '@/components/Organisms/TrackLists/PodcastEp
 import { getFormattedPodcastEpisodesMock } from '@/test/helpers';
 
 import PodcastEpisodesList from './PodcastEpisodesList.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const podcastEpisodes = getFormattedPodcastEpisodesMock(5);
 const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
@@ -57,7 +63,9 @@ describe('PodcastEpisodesList', () => {
     });
 
     it('shows the correct number of podcast episode items', () => {
-      expect(wrapper.findAllComponents(PodcastEpisodesListItem).length).toBe(5);
+      expect(wrapper.findAllComponents(PodcastEpisodesListItem)).toHaveLength(
+        5,
+      );
     });
 
     it('does not show the NoMediaMessage component', () => {
@@ -89,7 +97,7 @@ describe('PodcastEpisodesList', () => {
     ])(
       'when the PodcastEpisodesListItem component emits the %s event',
       (eventName, expectedArgs) => {
-        beforeEach(async () => {
+        beforeEach(() => {
           wrapper.findComponent(PodcastEpisodesListItem).vm.$emit(eventName);
         });
 
@@ -100,7 +108,7 @@ describe('PodcastEpisodesList', () => {
     );
 
     describe('when the PodcastEpisodesListItem component emits the dragStart event', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         wrapper
           .findComponent(PodcastEpisodesListItem)
           .vm.$emit('dragStart', DragEvent);

@@ -4,10 +4,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import GenreList from '@/components/Atoms/GenreList.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
 import AlbumTracksList from '@/components/Organisms/TrackLists/AlbumTracksList.vue';
 import { getFormattedAlbumsMock, getFormattedTracksMock } from '@/test/helpers';
@@ -16,27 +14,40 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import AlbumPage from './[[id]].vue';
 
-const downloadTrackMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useDropdownMenu', () => () => ({
+  isOpen: ref(true),
+}));
+
+const downloadTrackMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
@@ -48,6 +59,8 @@ const albumDataMock = ref<{
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: albumDataMock,
+  error: ref(null),
+  pending: ref(false),
   status: ref('success'),
 }));
 
@@ -62,8 +75,8 @@ const {
 const track = getFormattedTracksMock()[0];
 const album = getFormattedAlbumsMock()[0];
 
-async function factory(props = {}) {
-  const wrapper = mount(AlbumPage, {
+function factory(props = {}) {
+  return mount(AlbumPage, {
     global: {
       stubs: {
         AlbumTracksList: true,
@@ -76,23 +89,13 @@ async function factory(props = {}) {
       ...props,
     },
   });
-
-  await wrapper.vm.$nextTick();
-
-  const dropdownMenu = wrapper.findComponent(DropdownMenu);
-
-  if (dropdownMenu.exists()) {
-    await dropdownMenu.findComponent(ButtonLink).trigger('click');
-  }
-
-  return wrapper;
 }
 
 describe('[[id]]', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(async () => {
-    wrapper = await factory();
+  beforeEach(() => {
+    wrapper = factory();
   });
 
   afterEach(() => {
@@ -118,12 +121,12 @@ describe('[[id]]', () => {
   });
 
   describe('when getAlbum does return data', () => {
-    beforeEach(async () => {
+    beforeEach(() => {
       albumDataMock.value = {
         album: getFormattedAlbumsMock()[0],
       };
 
-      wrapper = await factory();
+      wrapper = factory();
     });
 
     it('matches the snapshot', () => {
@@ -143,14 +146,14 @@ describe('[[id]]', () => {
     });
 
     describe('when album.artists is an empty array', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         albumDataMock.value = {
           album: getFormattedAlbumsMock(1, {
             artists: [],
           })[0],
         };
 
-        wrapper = await factory();
+        wrapper = factory();
       });
 
       it('does not show the ArtistLinks component', () => {
@@ -165,14 +168,14 @@ describe('[[id]]', () => {
     });
 
     describe('when album.genres is an empty array', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         albumDataMock.value = {
           album: getFormattedAlbumsMock(1, {
             genres: [],
           })[0],
         };
 
-        wrapper = await factory();
+        wrapper = factory();
       });
 
       it('matches the snapshot', () => {
@@ -191,14 +194,14 @@ describe('[[id]]', () => {
     });
 
     describe('when album.trackCount is 1', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         albumDataMock.value = {
           album: getFormattedAlbumsMock(1, {
             trackCount: 1,
           })[0],
         };
 
-        wrapper = await factory();
+        wrapper = factory();
       });
 
       it('matches the snapshot', () => {
@@ -227,7 +230,7 @@ describe('[[id]]', () => {
     });
 
     describe('when album.totalDiscNumber is greater than 1', () => {
-      beforeEach(async () => {
+      beforeEach(() => {
         albumDataMock.value = {
           album: getFormattedAlbumsMock(1, {
             totalDiscNumber: 5,
@@ -241,7 +244,7 @@ describe('[[id]]', () => {
           })[0],
         };
 
-        wrapper = await factory();
+        wrapper = factory();
       });
 
       it('matches the snapshot', () => {
@@ -270,8 +273,10 @@ describe('[[id]]', () => {
     });
 
     describe('when the play tracks ButtonLink component emits a click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'playTracksButton' }).vm.$emit('click');
+      beforeEach(async () => {
+        await wrapper
+          .findComponent({ ref: 'playTracksButton' })
+          .trigger('click');
       });
 
       it('calls the playTracks function with correct parameters', () => {
@@ -280,8 +285,10 @@ describe('[[id]]', () => {
     });
 
     describe('when the shuffle tracks ButtonLink component emits a click event', () => {
-      beforeEach(() => {
-        wrapper.findComponent({ ref: 'shuffleTracksButton' }).vm.$emit('click');
+      beforeEach(async () => {
+        await wrapper
+          .findComponent({ ref: 'shuffleTracksButton' })
+          .trigger('click');
       });
 
       it('calls the playTracksShuffled function with correct parameters', () => {

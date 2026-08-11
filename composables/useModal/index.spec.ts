@@ -15,10 +15,13 @@ import { documentEventListenerMock } from '@/test/eventListenersMock';
 
 import { useModal } from './index';
 
-const lockScrollMock = vi.fn();
-const unlockScrollMock = vi.fn();
+const { lockScrollMock, unlockScrollMock } = vi.hoisted(() => ({
+  lockScrollMock: vi.fn(),
+  unlockScrollMock: vi.fn(),
+}));
 
-mockNuxtImport('useScrollLock', () => () => ({
+mockNuxtImport('useScrollLock', (original) => () => ({
+  ...original(),
   lockScroll: lockScrollMock,
   unlockScroll: unlockScrollMock,
 }));
@@ -31,11 +34,15 @@ const {
   documentRemoveEventListenerSpy,
 } = documentEventListenerMock();
 
-const { closeModal, modal, openModal } = useModal();
-
 describe('useModal', () => {
+  let composable: ReturnType<typeof useModal>;
+
+  beforeAll(() => {
+    composable = useModal();
+  });
+
   it('sets the default modal value', () => {
-    expect(modal.value).toEqual(DEFAULT_STATE);
+    expect(composable.modal.value).toEqual(DEFAULT_STATE);
   });
 
   describe('when the openModal function is called', () => {
@@ -146,11 +153,8 @@ describe('useModal', () => {
       ],
     ])('when the modalType is %s', (modalType, component, title, attrs) => {
       beforeAll(() => {
-        openModal(modalType);
-      });
-
-      afterAll(() => {
         vi.clearAllMocks();
+        composable.openModal(modalType);
       });
 
       it('adds the keydown event listener function', () => {
@@ -166,7 +170,7 @@ describe('useModal', () => {
 
       describe('when the attrs are not set', () => {
         it('sets the correct modal value', () => {
-          expect(modal.value).toEqual({
+          expect(composable.modal.value).toEqual({
             attrs: {},
             component: markRaw(component),
             title,
@@ -176,11 +180,11 @@ describe('useModal', () => {
 
       describe('when the attrs are set', () => {
         beforeAll(() => {
-          openModal(modalType, attrs);
+          composable.openModal(modalType, attrs);
         });
 
         it('sets the correct modal value', () => {
-          expect(modal.value).toEqual({
+          expect(composable.modal.value).toEqual({
             attrs,
             component: markRaw(component),
             title,
@@ -198,7 +202,7 @@ describe('useModal', () => {
         });
 
         it('does not reset the modal value', () => {
-          expect(modal.value).toEqual({
+          expect(composable.modal.value).toEqual({
             attrs,
             component: markRaw(component),
             title,
@@ -223,7 +227,7 @@ describe('useModal', () => {
         });
 
         it('resets modal value to default state', () => {
-          expect(modal.value).toEqual(DEFAULT_STATE);
+          expect(composable.modal.value).toEqual(DEFAULT_STATE);
         });
 
         it('calls the unlockScroll function', () => {
@@ -235,18 +239,18 @@ describe('useModal', () => {
 
   describe('when the openModal function is called with an model type undefined', () => {
     beforeEach(() => {
-      openModal('unKnown' as ModalType);
+      composable.openModal('unKnown' as ModalType);
     });
 
     it('does not set the modal value', () => {
-      expect(modal.value).toEqual(DEFAULT_STATE);
+      expect(composable.modal.value).toEqual(DEFAULT_STATE);
     });
   });
 
   describe('when the closeModal function is called', () => {
     beforeEach(() => {
-      openModal(MODAL_TYPE.updatePlaylistModal);
-      closeModal();
+      composable.openModal(MODAL_TYPE.updatePlaylistModal);
+      composable.closeModal();
     });
 
     it('removes the keydown event listener function', () => {
@@ -257,7 +261,7 @@ describe('useModal', () => {
     });
 
     it('resets modal value to default state', () => {
-      expect(modal.value).toEqual(DEFAULT_STATE);
+      expect(composable.modal.value).toEqual(DEFAULT_STATE);
     });
 
     it('calls the unlockScroll function', () => {
@@ -266,10 +270,11 @@ describe('useModal', () => {
 
     describe('when the onModalClose attr is set', () => {
       beforeEach(() => {
-        openModal(MODAL_TYPE.updatePlaylistModal, {
+        composable.openModal(MODAL_TYPE.updatePlaylistModal, {
           onModalClose: onModalCloseMock,
         });
-        closeModal();
+
+        composable.closeModal();
       });
 
       it('calls the onModalClose function', () => {

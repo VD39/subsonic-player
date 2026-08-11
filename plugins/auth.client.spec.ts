@@ -4,12 +4,14 @@ import { windowEventListenerMock } from '@/test/eventListenersMock';
 
 import authPlugin from './auth.client';
 
-const logoutAndRedirectMock = vi.fn();
-const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
+const logoutAndRedirectMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useAuth', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
   logoutAndRedirect: logoutAndRedirectMock,
 }));
+
+const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
 
@@ -17,7 +19,9 @@ const reloadMock = vi.fn();
 
 beforeAll(() => {
   Object.defineProperty(globalThis, 'location', {
-    value: { reload: reloadMock },
+    value: {
+      reload: reloadMock,
+    },
     writable: true,
   });
 });

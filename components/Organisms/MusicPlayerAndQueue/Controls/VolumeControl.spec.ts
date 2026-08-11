@@ -46,11 +46,11 @@ describe('VolumeControl', () => {
     });
 
     it('calls the setVolume function', () => {
-      expect(setVolumeMock).toHaveBeenCalled();
+      expect(setVolumeMock).toHaveBeenCalledWith(volumeMock.value);
     });
   });
 
-  describe('when isMuted value is false', () => {
+  describe('when the isMuted value is false', () => {
     it('sets the correct title attribute on the ButtonLink component', () => {
       expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
         'Mute',
@@ -62,7 +62,7 @@ describe('VolumeControl', () => {
     });
   });
 
-  describe('when isMuted value is true', () => {
+  describe('when the isMuted value is true', () => {
     beforeEach(() => {
       isMutedMock.value = true;
     });
@@ -87,7 +87,7 @@ describe('VolumeControl', () => {
     [0.1, ICONS.volume0],
     [0.3, ICONS.volume02],
     [0.6, ICONS.volume05],
-  ])('when volume value is %f', (volume, icon) => {
+  ])('when the volume value is %f', (volume, icon) => {
     beforeEach(() => {
       volumeMock.value = volume;
     });

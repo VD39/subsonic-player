@@ -8,14 +8,22 @@ import PreloadImage from '@/components/Molecules/PreloadImage.vue';
 
 import UserMenu from './UserMenu.vue';
 
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
 mockNuxtImport('useDropdownMenu', () => () => ({
   isOpen: ref(true),
 }));
 
-const resolveAvatarUrlMock = vi.fn().mockResolvedValue('avatar-url');
+const resolveAvatarUrlMock = vi.hoisted(() =>
+  vi.fn().mockResolvedValue('avatar-url'),
+);
 const userName = ref<string | undefined>(undefined);
 
-mockNuxtImport('useUser', () => () => ({
+mockNuxtImport('useUser', (original) => () => ({
+  ...original(),
   resolveAvatarUrl: resolveAvatarUrlMock,
   user: ref({
     salt: 'salt',
@@ -25,19 +33,23 @@ mockNuxtImport('useUser', () => () => ({
   }),
 }));
 
-const logoutAndRedirectMock = vi.fn();
-
-const setLocalStorageMock = vi.hoisted(() => vi.fn());
+const { logoutAndRedirectMock, setLocalStorageMock } = vi.hoisted(() => ({
+  logoutAndRedirectMock: vi.fn(),
+  setLocalStorageMock: vi.fn(),
+}));
 
 mockNuxtImport('setLocalStorage', () => setLocalStorageMock);
 
-mockNuxtImport('useAuth', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
+  autoLogin: vi.fn(),
   logoutAndRedirect: logoutAndRedirectMock,
 }));
 
-const startScanMock = vi.fn();
+const startScanMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   startScan: startScanMock,
 }));
 
@@ -106,7 +118,8 @@ describe('UserMenu', () => {
   describe('when the scan DropdownItem component emits the click event', () => {
     beforeEach(async () => {
       wrapper.findComponent({ ref: 'scanDropdownItem' }).vm.$emit('click');
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('calls the startScan function', () => {
@@ -117,7 +130,8 @@ describe('UserMenu', () => {
   describe('when the logout DropdownItem component emits the click event', () => {
     beforeEach(async () => {
       wrapper.findComponent({ ref: 'logoutDropdownItem' }).vm.$emit('click');
-      await wrapper.vm.$nextTick();
+
+      await nextTick();
     });
 
     it('calls the logoutAndRedirect function', () => {

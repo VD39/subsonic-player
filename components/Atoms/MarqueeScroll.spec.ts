@@ -8,6 +8,8 @@ import { mutationObserverMock } from '@/test/mutationObserverMock';
 
 import MarqueeScroll from './MarqueeScroll.vue';
 
+vi.useFakeTimers();
+
 const { disconnectMock, observeMock, triggerMutationObserver } =
   mutationObserverMock();
 
@@ -40,11 +42,19 @@ describe('MarqueeScroll', () => {
   });
 
   it('adds the IntersectionObserver function', () => {
-    expect(iOMock.observeMock).toHaveBeenCalled();
+    expect(iOMock.observeMock).toHaveBeenCalledWith(
+      wrapper.find({ ref: 'marqueeScrollRef' }).element,
+    );
   });
 
   it('adds the MutationObserver function', () => {
-    expect(observeMock).toHaveBeenCalled();
+    expect(observeMock).toHaveBeenCalledWith(
+      wrapper.find({ ref: 'marqueeContentRef' }).element,
+      {
+        childList: true,
+        subtree: true,
+      },
+    );
   });
 
   describe('when intersectionObserver is not intersecting', () => {
@@ -79,6 +89,7 @@ describe('MarqueeScroll', () => {
       wrapper = factory();
 
       const marqueeScroll = wrapper.find({ ref: 'marqueeScrollRef' });
+
       const marqueeContent = wrapper.find({ ref: 'marqueeContentRef' });
 
       Object.defineProperty(marqueeScroll.element, 'clientWidth', {
@@ -155,7 +166,7 @@ describe('MarqueeScroll', () => {
       it('sets the correct style attribute on the wrapper element', () => {
         expect(
           wrapper.find({ ref: 'marqueeScrollRef' }).attributes('style'),
-        ).toBe(undefined);
+        ).toBeUndefined();
       });
     });
 
@@ -168,6 +179,7 @@ describe('MarqueeScroll', () => {
       (_text, contentClientWidth, clonesSlot, style) => {
         beforeEach(() => {
           const marqueeScroll = wrapper.find({ ref: 'marqueeScrollRef' });
+
           const marqueeContent = wrapper.find({ ref: 'marqueeContentRef' });
 
           Object.defineProperty(marqueeScroll.element, 'clientWidth', {
@@ -179,6 +191,8 @@ describe('MarqueeScroll', () => {
           });
 
           windowEvents.resize();
+
+          vi.runAllTimers();
         });
 
         it('matches the snapshot', () => {
@@ -206,6 +220,7 @@ describe('MarqueeScroll', () => {
     describe('when events are triggered on wrapper', () => {
       beforeEach(() => {
         const marqueeScroll = wrapper.find({ ref: 'marqueeScrollRef' });
+
         const marqueeContent = wrapper.find({ ref: 'marqueeContentRef' });
 
         Object.defineProperty(marqueeScroll.element, 'clientWidth', {
@@ -217,11 +232,13 @@ describe('MarqueeScroll', () => {
         });
 
         windowEvents.resize();
+
+        vi.runAllTimers();
       });
 
       describe('when the mouseover is triggered on wrapper', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'marqueeScrollRef' }).trigger('mouseover');
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'marqueeScrollRef' }).trigger('mouseover');
         });
 
         it('matches the snapshot', () => {
@@ -236,8 +253,8 @@ describe('MarqueeScroll', () => {
       });
 
       describe('when the touchstart is triggered on wrapper', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'marqueeScrollRef' }).trigger('touchstart');
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'marqueeScrollRef' }).trigger('touchstart');
         });
 
         it('matches the snapshot', () => {
@@ -252,8 +269,8 @@ describe('MarqueeScroll', () => {
       });
 
       describe('when the mouseout is triggered on wrapper', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'marqueeScrollRef' }).trigger('mouseout');
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'marqueeScrollRef' }).trigger('mouseout');
         });
 
         it('matches the snapshot', () => {
@@ -268,8 +285,8 @@ describe('MarqueeScroll', () => {
       });
 
       describe('when the touchend is triggered on wrapper', () => {
-        beforeEach(() => {
-          wrapper.find({ ref: 'marqueeScrollRef' }).trigger('touchend');
+        beforeEach(async () => {
+          await wrapper.find({ ref: 'marqueeScrollRef' }).trigger('touchend');
         });
 
         it('matches the snapshot', () => {

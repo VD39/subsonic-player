@@ -11,34 +11,41 @@ import { withSetup } from '@/test/withSetup';
 
 import { useHotkeyManager } from './index';
 
-const toggleFavouriteMock = vi.fn();
+const toggleFavouriteMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useFavourite', () => () => ({
+mockNuxtImport('useFavourite', (original) => () => ({
+  ...original(),
   toggleFavourite: toggleFavouriteMock,
 }));
 
-const addPlaylistModalMock = vi.fn();
+const addPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addPlaylistModal: addPlaylistModalMock,
 }));
 
-const addPodcastModalMock = vi.fn();
+const addPodcastModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   addPodcastModal: addPodcastModalMock,
 }));
 
-const addRadioStationModalMock = vi.fn();
+const addRadioStationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useRadioStation', () => () => ({
+mockNuxtImport('useRadioStation', (original) => () => ({
+  ...original(),
   addRadioStationModal: addRadioStationModalMock,
 }));
 
-const cycleLayoutMock = vi.fn();
-const toggleThemeMock = vi.fn();
+const { cycleLayoutMock, toggleThemeMock } = vi.hoisted(() => ({
+  cycleLayoutMock: vi.fn(),
+  toggleThemeMock: vi.fn(),
+}));
 
-mockNuxtImport('useSettings', () => () => ({
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
   cycleLayout: cycleLayoutMock,
   toggleTheme: toggleThemeMock,
 }));
@@ -47,14 +54,18 @@ const modalMock = ref<ModalProps>({
   component: null,
 });
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   modal: modalMock,
 }));
 
-const lockScrollMock = vi.fn();
-const unlockScrollMock = vi.fn();
+const { lockScrollMock, unlockScrollMock } = vi.hoisted(() => ({
+  lockScrollMock: vi.fn(),
+  unlockScrollMock: vi.fn(),
+}));
 
-mockNuxtImport('useScrollLock', () => () => ({
+mockNuxtImport('useScrollLock', (original) => () => ({
+  ...original(),
   lockScroll: lockScrollMock,
   unlockScroll: unlockScrollMock,
 }));
@@ -118,7 +129,9 @@ const ALL_MOCKS = {
 };
 
 describe('useHotkeyManager', () => {
-  let result: ReturnType<typeof withSetup<ReturnType<typeof useHotkeyManager>>>;
+  let result: Awaited<
+    ReturnType<typeof withSetup<ReturnType<typeof useHotkeyManager>>>
+  >;
 
   function setEvents(keys: string[]) {
     beforeAll(() => {
@@ -274,8 +287,8 @@ describe('useHotkeyManager', () => {
     }
   }
 
-  beforeAll(() => {
-    result = withSetup(useHotkeyManager);
+  beforeAll(async () => {
+    result = await withSetup(useHotkeyManager);
   });
 
   it('sets the default isHotkeyListOpened value', () => {
@@ -462,7 +475,7 @@ describe('useHotkeyManager', () => {
     });
 
     describe('when L key is pressed', () => {
-      describe('when hasCurrentTrack value is false', () => {
+      describe('when the hasCurrentTrack value is false', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = false;
         });
@@ -473,12 +486,12 @@ describe('useHotkeyManager', () => {
         expectMockToBeOrNotToBeCalled();
       });
 
-      describe('when hasCurrentTrack value is true', () => {
+      describe('when the hasCurrentTrack value is true', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = true;
         });
 
-        describe('when isTrack value is false', () => {
+        describe('when the isTrack value is false', () => {
           beforeAll(() => {
             isTrackMock.value = false;
           });
@@ -489,7 +502,7 @@ describe('useHotkeyManager', () => {
           expectMockToBeOrNotToBeCalled();
         });
 
-        describe('when isTrack value is true', () => {
+        describe('when the isTrack value is true', () => {
           beforeAll(() => {
             isTrackMock.value = true;
           });
@@ -506,7 +519,7 @@ describe('useHotkeyManager', () => {
       [['Alt', 'ArrowDown'], -1],
       [['Alt', 'ArrowUp'], 1],
     ])('when %s key is pressed', (keys, arg) => {
-      describe('when hasCurrentTrack value is false', () => {
+      describe('when the hasCurrentTrack value is false', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = false;
         });
@@ -517,12 +530,12 @@ describe('useHotkeyManager', () => {
         expectMockToBeOrNotToBeCalled();
       });
 
-      describe('when hasCurrentTrack value is true', () => {
+      describe('when the hasCurrentTrack value is true', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = true;
         });
 
-        describe('when isPodcastEpisode value is false', () => {
+        describe('when the isPodcastEpisode value is false', () => {
           beforeAll(() => {
             isPodcastEpisodeMock.value = false;
           });
@@ -533,7 +546,7 @@ describe('useHotkeyManager', () => {
           expectMockToBeOrNotToBeCalled();
         });
 
-        describe('when isPodcastEpisode value is true', () => {
+        describe('when the isPodcastEpisode value is true', () => {
           beforeAll(() => {
             isPodcastEpisodeMock.value = true;
           });
@@ -559,7 +572,7 @@ describe('useHotkeyManager', () => {
       [['R'], 'cycleRepeat'],
       [['S'], 'toggleShuffle'],
     ])('when %s key is pressed', (keys, event, arg = undefined) => {
-      describe('when hasCurrentTrack value is false', () => {
+      describe('when the hasCurrentTrack value is false', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = false;
         });
@@ -570,7 +583,7 @@ describe('useHotkeyManager', () => {
         expectGetElementByIdMock();
       });
 
-      describe('when hasCurrentTrack value is true', () => {
+      describe('when the hasCurrentTrack value is true', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = true;
         });
@@ -594,7 +607,7 @@ describe('useHotkeyManager', () => {
       [['8'], 96],
       [['9'], 108],
     ])('when %s key is pressed', (keys, time) => {
-      describe('when isRadioStation value is true', () => {
+      describe('when the isRadioStation value is true', () => {
         beforeAll(() => {
           isRadioStationMock.value = true;
         });
@@ -605,7 +618,7 @@ describe('useHotkeyManager', () => {
         expectGetElementByIdMock();
       });
 
-      describe('when isRadioStation value is false', () => {
+      describe('when the isRadioStation value is false', () => {
         beforeAll(() => {
           isRadioStationMock.value = false;
         });
@@ -618,7 +631,7 @@ describe('useHotkeyManager', () => {
     });
 
     describe('when a mapping that is not defined is pressed', () => {
-      describe('when hasCurrentTrack value is false', () => {
+      describe('when the hasCurrentTrack value is false', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = false;
         });
@@ -629,7 +642,7 @@ describe('useHotkeyManager', () => {
         expectGetElementByIdMock();
       });
 
-      describe('when hasCurrentTrack value is true', () => {
+      describe('when the hasCurrentTrack value is true', () => {
         beforeAll(() => {
           hasCurrentTrackMock.value = true;
         });

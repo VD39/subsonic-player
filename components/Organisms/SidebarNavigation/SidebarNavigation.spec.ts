@@ -6,17 +6,19 @@ import { mount } from '@vue/test-utils';
 import PlaylistNavigation from './PlaylistNavigation.vue';
 import SidebarNavigation from './SidebarNavigation.vue';
 
-const toggleMock = vi.fn();
+const toggleMock = vi.hoisted(() => vi.fn());
 const collapsedMock = ref(false);
 
-mockNuxtImport('useSidebar', () => () => ({
+mockNuxtImport('useSidebar', (original) => () => ({
+  ...original(),
   collapsed: collapsedMock,
   toggleCollapsed: toggleMock,
 }));
 
-const addPlaylistModalMock = vi.fn();
+const addPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addPlaylistModal: addPlaylistModalMock,
   playlists: [],
 }));

@@ -1,7 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
 import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
 import AlbumsList from '@/components/Organisms/AlbumsList.vue';
@@ -12,48 +11,69 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import GenrePage from './[[genre]].vue';
 
-const getMediaByGenreMock = vi.fn();
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
-mockNuxtImport('useGenre', () => () => ({
+mockNuxtImport('useAuth', (original) => () => ({
+  ...original(),
+  autoLogin: vi.fn(),
+  isAuthenticated: ref(true),
+}));
+
+const getMediaByGenreMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useGenre', (original) => () => ({
+  ...original(),
   getMediaByGenre: getMediaByGenreMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const openAlbumInformationModalMock = vi.fn();
-const openTrackInformationModalMock = vi.fn();
+const { openAlbumInformationModalMock, openTrackInformationModalMock } =
+  vi.hoisted(() => ({
+    openAlbumInformationModalMock: vi.fn(),
+    openTrackInformationModalMock: vi.fn(),
+  }));
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openAlbumInformationModal: openAlbumInformationModalMock,
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const fetchMoreDataMock = vi.fn();
+const fetchMoreDataMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useInfinityLoading', () => () => ({
+mockNuxtImport('useInfinityLoading', (original) => () => ({
+  ...original(),
   fetchMoreData: fetchMoreDataMock,
   hasMore: ref(true),
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
@@ -62,26 +82,17 @@ const genreDataMock = ref<{
 }>({
   genreMedia: [],
 });
-const refreshMock = vi.fn();
+
+const refreshMock = vi.hoisted(() => vi.fn());
 const statusMock = ref('success');
 
 mockNuxtImport('useAsyncData', () => () => ({
   data: genreDataMock,
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: statusMock,
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/genre/albums/rock',
-    params: {
-      genre: 'rock',
-      mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums as string,
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const { useHeadTitleMock } = useHeadMock();
 const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
@@ -91,8 +102,8 @@ const album = getFormattedAlbumsMock()[0];
 const albumTracks = getFormattedTracksMock(3);
 const track = getFormattedTracksMock()[0];
 
-function factory(props = {}) {
-  return mount(GenrePage, {
+async function factory(props = {}, route = '/genre/albums/rock') {
+  return mountSuspended(GenrePage, {
     global: {
       stubs: {
         AlbumsList: true,
@@ -102,14 +113,15 @@ function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
 }
 
 describe('[[genre]]', () => {
   let wrapper: VueWrapper;
 
-  beforeEach(() => {
-    wrapper = factory();
+  beforeEach(async () => {
+    wrapper = await factory();
   });
 
   afterEach(() => {
@@ -129,9 +141,9 @@ describe('[[genre]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       genreDataMock.value.genreMedia = getFormattedAlbumsMock();
-      wrapper = factory();
+      wrapper = await factory();
     });
 
     it('sets the useHead function with correct title', () => {
@@ -216,18 +228,10 @@ describe('[[genre]]', () => {
   });
 
   describe(`when route params equals ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
-    beforeEach(() => {
-      routeMock.mockReturnValue({
-        fullPath: '/genre/tracks/rock',
-        params: {
-          genre: 'rock',
-          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
-        },
-      });
-
+    beforeEach(async () => {
       genreDataMock.value.genreMedia = getFormattedTracksMock();
 
-      wrapper = factory();
+      wrapper = await factory({}, '/genre/tracks/rock');
     });
 
     it('matches the snapshot', () => {
@@ -318,9 +322,9 @@ describe('[[genre]]', () => {
   });
 
   describe('when status is pending', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       statusMock.value = 'pending';
-      wrapper = factory();
+      wrapper = await factory();
     });
 
     it('matches the snapshot', () => {

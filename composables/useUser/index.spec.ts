@@ -4,9 +4,10 @@ import { cookieMock } from '@/test/fixtures';
 
 import { useUser } from './index';
 
-const getAvatarUrlMock = vi.fn(() => 'http://server/avatar');
+const getAvatarUrlMock = vi.hoisted(() => vi.fn(() => 'http://server/avatar'));
 
-mockNuxtImport('useAPI', () => () => ({
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
   getAvatarUrl: getAvatarUrlMock,
 }));
 
@@ -14,15 +15,19 @@ const fetchMock = vi.fn();
 
 globalThis.fetch = fetchMock;
 
-const { clearUser, resolveAvatarUrl, setUser, user } = useUser();
-
 describe('useUser', () => {
+  let composable: ReturnType<typeof useUser>;
+
+  beforeAll(() => {
+    composable = useUser();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
 
   it('sets the default user value', () => {
-    expect(user.value).toBe(null);
+    expect(composable.user.value).toBeNull();
   });
 
   describe('when the resolveAvatarUrl function is called', () => {
@@ -34,7 +39,7 @@ describe('useUser', () => {
         ok: true,
       });
 
-      await resolveAvatarUrl('username');
+      await composable.resolveAvatarUrl('username');
     });
 
     it('calls the fetch function with the correct parameters', () => {
@@ -49,7 +54,9 @@ describe('useUser', () => {
 
     describe('when the response is ok and the content type is an image', () => {
       it('returns the correct response', async () => {
-        expect(await resolveAvatarUrl('username')).toBe('http://server/avatar');
+        expect(await composable.resolveAvatarUrl('username')).toBe(
+          'http://server/avatar',
+        );
       });
     });
 
@@ -64,7 +71,7 @@ describe('useUser', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await resolveAvatarUrl('username')).toBe(
+        expect(await composable.resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
       });
@@ -81,7 +88,7 @@ describe('useUser', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await resolveAvatarUrl('username')).toBe(
+        expect(await composable.resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
       });
@@ -98,7 +105,7 @@ describe('useUser', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await resolveAvatarUrl('username')).toBe(
+        expect(await composable.resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
       });
@@ -110,7 +117,7 @@ describe('useUser', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await resolveAvatarUrl('username')).toBe(
+        expect(await composable.resolveAvatarUrl('username')).toBe(
           FALLBACK_ICON_BY_TYPE.user,
         );
       });
@@ -119,11 +126,11 @@ describe('useUser', () => {
 
   describe('when the setUser function is called', () => {
     beforeEach(() => {
-      setUser(cookieMock);
+      composable.setUser(cookieMock);
     });
 
     it('sets the correct user value', () => {
-      expect(user.value).toEqual({
+      expect(composable.user.value).toEqual({
         salt: 'salt',
         server: 'https://www.server.com',
         token: 'token',
@@ -134,11 +141,11 @@ describe('useUser', () => {
 
   describe('when the clearUser function is called', () => {
     beforeEach(() => {
-      clearUser();
+      composable.clearUser();
     });
 
     it('sets the correct user value', () => {
-      expect(user.value).toBe(null);
+      expect(composable.user.value).toBeNull();
     });
   });
 });

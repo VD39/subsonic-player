@@ -4,10 +4,15 @@ import { cachesMock, navigatorStorageMock } from '@/test/browserMocks';
 
 import { useMaintenance } from './index';
 
-const clearServerQueueMock = vi.hoisted(() => vi.fn());
-const restoreQueueStateFromLocalMock = vi.hoisted(() => vi.fn());
+const { clearServerQueueMock, restoreQueueStateFromLocalMock } = vi.hoisted(
+  () => ({
+    clearServerQueueMock: vi.fn(),
+    restoreQueueStateFromLocalMock: vi.fn(),
+  }),
+);
 
-mockNuxtImport('useQueue', () => () => ({
+mockNuxtImport('useQueue', (original) => () => ({
+  ...original(),
   clearServerQueue: clearServerQueueMock,
   restoreQueueStateFromLocal: restoreQueueStateFromLocalMock,
 }));
@@ -18,21 +23,21 @@ mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
 
 const logErrorMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useErrorHandler', () => () => ({
+mockNuxtImport('useErrorHandler', (original) => () => ({
+  ...original(),
   logError: logErrorMock,
 }));
 
 const { deleteMock, keysMock, restore: restoreCachesMock } = cachesMock();
 const { estimateMock, restore: restoreStorageMock } = navigatorStorageMock();
 
-const {
-  cacheEstimate,
-  clearAllAppStorage,
-  clearPwaCaches,
-  fetchCacheEstimate,
-} = useMaintenance();
-
 describe('useMaintenance', () => {
+  let composable: ReturnType<typeof useMaintenance>;
+
+  beforeAll(() => {
+    composable = useMaintenance();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
     restoreCachesMock();
@@ -40,7 +45,7 @@ describe('useMaintenance', () => {
   });
 
   it('sets the default cacheEstimate value', () => {
-    expect(cacheEstimate.value).toBe('');
+    expect(composable.cacheEstimate.value).toBe('');
   });
 
   describe('when the fetchCacheEstimate function is called', () => {
@@ -51,11 +56,13 @@ describe('useMaintenance', () => {
           usage: 5242880,
         });
 
-        await fetchCacheEstimate();
+        await composable.fetchCacheEstimate();
       });
 
       it('sets the correct cacheEstimate value', () => {
-        expect(cacheEstimate.value).toBe('5.0 MB used of 1024.0 MB available');
+        expect(composable.cacheEstimate.value).toBe(
+          '5.0 MB used of 1024.0 MB available',
+        );
       });
     });
 
@@ -63,11 +70,13 @@ describe('useMaintenance', () => {
       beforeEach(async () => {
         estimateMock.mockResolvedValue({});
 
-        await fetchCacheEstimate();
+        await composable.fetchCacheEstimate();
       });
 
       it('sets the correct cacheEstimate value', () => {
-        expect(cacheEstimate.value).toBe('0.0 MB used of 0.0 MB available');
+        expect(composable.cacheEstimate.value).toBe(
+          '0.0 MB used of 0.0 MB available',
+        );
       });
     });
 
@@ -75,11 +84,11 @@ describe('useMaintenance', () => {
       beforeEach(async () => {
         estimateMock.mockRejectedValue(new Error('error'));
 
-        await fetchCacheEstimate();
+        await composable.fetchCacheEstimate();
       });
 
       it('sets the correct cacheEstimate value', () => {
-        expect(cacheEstimate.value).toBe('Unavailable');
+        expect(composable.cacheEstimate.value).toBe('Unavailable');
       });
     });
 
@@ -87,11 +96,11 @@ describe('useMaintenance', () => {
       beforeEach(async () => {
         delete (globalThis.navigator as unknown as Record<string, unknown>)
           .storage;
-        await fetchCacheEstimate();
+        await composable.fetchCacheEstimate();
       });
 
       it('sets the correct cacheEstimate value', () => {
-        expect(cacheEstimate.value).toBe('Unavailable');
+        expect(composable.cacheEstimate.value).toBe('Unavailable');
       });
     });
   });
@@ -99,7 +108,7 @@ describe('useMaintenance', () => {
   describe('when the clearAllAppStorage function is called', () => {
     beforeEach(async () => {
       clearServerQueueMock.mockResolvedValue(undefined);
-      await clearAllAppStorage();
+      await composable.clearAllAppStorage();
     });
 
     it('calls the deleteLocalStorage function with the correct parameters', () => {
@@ -129,13 +138,14 @@ describe('useMaintenance', () => {
           'other-cache',
         ]);
 
-        await clearPwaCaches();
+        await composable.clearPwaCaches();
       });
 
       it('calls the caches.delete function with the correct parameters', () => {
         CACHE_NAMES.forEach((name) => {
           expect(deleteMock).toHaveBeenCalledWith(name);
         });
+
         expect(deleteMock).toHaveBeenCalledWith('workbox-precache-v2');
         expect(deleteMock).not.toHaveBeenCalledWith('other-cache');
       });
@@ -152,7 +162,7 @@ describe('useMaintenance', () => {
     describe('when the caches API is not available', () => {
       beforeEach(async () => {
         delete (globalThis as Record<string, unknown>).caches;
-        await clearPwaCaches();
+        await composable.clearPwaCaches();
       });
 
       it('does not attempt to fetch cache keys', () => {
@@ -162,8 +172,10 @@ describe('useMaintenance', () => {
 
     describe('when caches.keys rejects', () => {
       beforeEach(async () => {
+        restoreCachesMock();
+        restoreStorageMock();
         keysMock.mockRejectedValue(new Error('error'));
-        await clearPwaCaches();
+        await composable.clearPwaCaches();
       });
 
       it('does not call the caches.delete function', () => {

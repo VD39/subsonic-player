@@ -34,6 +34,8 @@ describe('ArtistLinks', () => {
   });
 
   it('shows the correct number of artist content', () => {
-    expect(wrapper.findAll('[data-test-id="artist-list-item"]').length).toBe(2);
+    expect(wrapper.findAll('[data-test-id="artist-list-item"]')).toHaveLength(
+      2,
+    );
   });
 });

@@ -1,12 +1,9 @@
 import type { VueWrapper } from '@vue/test-utils';
 
-import { mockNuxtImport } from '@nuxt/test-utils/runtime';
-import { mount } from '@vue/test-utils';
+import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
 import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
 import TextClamp from '@/components/Atoms/TextClamp.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
 import RefreshButton from '@/components/Molecules/RefreshButton.vue';
 import EntryHeader from '@/components/Organisms/EntryHeader.vue';
 import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
@@ -19,72 +16,86 @@ import { useHeadMock } from '@/test/useHeadMock';
 
 import PodcastPage from './[[id]].vue';
 
-const openModalMock = vi.fn();
+vi.useFakeTimers();
 
-mockNuxtImport('useModal', () => () => ({
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
+mockNuxtImport('useDropdownMenu', () => () => ({
+  isOpen: ref(true),
+}));
+
+const openModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useModal', (original) => () => ({
+  ...original(),
   openModal: openModalMock,
 }));
 
-const downloadTrackMock = vi.fn();
+const downloadTrackMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaLibrary', () => () => ({
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
   downloadTrack: downloadTrackMock,
 }));
 
-const addToPlaylistModalMock = vi.fn();
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const openTrackInformationModalMock = vi.fn();
+const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaInformation', () => () => ({
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
   openTrackInformationModal: openTrackInformationModalMock,
 }));
 
-const dragStartMock = vi.fn();
+const dragStartMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   dragStart: dragStartMock,
 }));
 
-const downloadPodcastEpisodeMock = vi.fn();
-const getPodcastMock = vi.fn();
+const { downloadPodcastEpisodeMock, getPodcastMock } = vi.hoisted(() => ({
+  downloadPodcastEpisodeMock: vi.fn(),
+  getPodcastMock: vi.fn(),
+}));
 const podcastMock = ref<PodcastState>({});
 
-mockNuxtImport('usePodcast', () => () => ({
+mockNuxtImport('usePodcast', (original) => () => ({
+  ...original(),
   downloadPodcastEpisode: downloadPodcastEpisodeMock,
   getPodcast: getPodcastMock,
   podcast: podcastMock,
 }));
 
-const deletePodcastEpisodeGloballyMock = vi.fn();
-const deletePodcastGloballyMock = vi.fn();
+const { deletePodcastEpisodeGloballyMock, deletePodcastGloballyMock } =
+  vi.hoisted(() => ({
+    deletePodcastEpisodeGloballyMock: vi.fn(),
+    deletePodcastGloballyMock: vi.fn(),
+  }));
 
-mockNuxtImport('usePodcastCleanup', () => () => ({
+mockNuxtImport('usePodcastCleanup', (original) => () => ({
+  ...original(),
   deletePodcastEpisodeGlobally: deletePodcastEpisodeGloballyMock,
   deletePodcastGlobally: deletePodcastGloballyMock,
 }));
 
-const refreshMock = vi.fn();
+const refreshMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useAsyncData', () => () => ({
+  data: ref([]),
+  error: ref(null),
+  pending: ref(false),
   refresh: refreshMock,
   status: ref('success'),
 }));
-
-const { routeMock } = vi.hoisted(() => ({
-  routeMock: vi.fn(() => ({
-    fullPath: '/podcast/all/0',
-    params: {
-      id: 'id',
-      sortBy: 'all',
-    },
-  })),
-}));
-
-mockNuxtImport('useRoute', () => routeMock);
 
 const navigateToMock = vi.hoisted(() => vi.fn());
 
@@ -96,8 +107,8 @@ const { addTracksToQueueMock, addTrackToQueueMock, playTracksMock } =
 
 const podcastEpisode = getFormattedPodcastEpisodesMock()[0];
 
-async function factory(props = {}) {
-  const wrapper = mount(PodcastPage, {
+async function factory(props = {}, route = '/podcast/all/id') {
+  return mountSuspended(PodcastPage, {
     global: {
       stubs: {
         PodcastEpisodesList: true,
@@ -106,17 +117,8 @@ async function factory(props = {}) {
     props: {
       ...props,
     },
+    route,
   });
-
-  await wrapper.vm.$nextTick();
-
-  const dropdownMenu = wrapper.findComponent(DropdownMenu);
-
-  if (dropdownMenu.exists()) {
-    await dropdownMenu.findComponent(ButtonLink).trigger('click');
-  }
-
-  return wrapper;
 }
 
 describe('[[id]]', () => {
@@ -352,10 +354,10 @@ describe('[[id]]', () => {
         });
 
         describe('when the play all podcast episodes ButtonLink component emits a click event', () => {
-          beforeEach(() => {
-            wrapper
+          beforeEach(async () => {
+            await wrapper
               .findComponent({ ref: 'playAllPodcastEpisodesButton' })
-              .vm.$emit('click');
+              .trigger('click');
           });
 
           it('calls the playTracks function with correct parameters', () => {
@@ -516,15 +518,7 @@ describe('[[id]]', () => {
         'when the sortBy route param is %s',
         (sortBy) => {
           beforeEach(async () => {
-            routeMock.mockReturnValueOnce({
-              fullPath: `/podcast/${sortBy}/0`,
-              params: {
-                id: 'id',
-                sortBy,
-              },
-            });
-
-            wrapper = await factory();
+            wrapper = await factory({}, `/podcast/${sortBy}/id`);
           });
 
           it('sets the useHead function with correct title', () => {

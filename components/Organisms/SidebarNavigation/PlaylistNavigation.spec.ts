@@ -8,9 +8,10 @@ import { getFormattedPlaylistsMock } from '@/test/helpers';
 import SubNavigationItem from './Items/SubNavigationItem.vue';
 import PlaylistItems from './PlaylistNavigation.vue';
 
-const dropMock = vi.fn();
+const dropMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useDragAndDrop', () => () => ({
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
   drop: dropMock,
 }));
 
@@ -37,7 +38,7 @@ describe('PlaylistItems', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when playlist value is an empty array', () => {
+  describe('when the playlist value is an empty array', () => {
     beforeEach(() => {
       wrapper = factory({
         playlists: [],
@@ -53,14 +54,14 @@ describe('PlaylistItems', () => {
     });
   });
 
-  describe('when playlist value returns playlists', () => {
-    describe(`when playlist value returned is less than ${PREVIEW_PLAYLIST_COUNT}`, () => {
+  describe('when the playlist value returns playlists', () => {
+    describe(`when the playlist value returned is less than ${PREVIEW_PLAYLIST_COUNT}`, () => {
       it('shows the correct number of the SubNavigationItem component', () => {
-        expect(wrapper.findAllComponents(SubNavigationItem).length).toBe(2);
+        expect(wrapper.findAllComponents(SubNavigationItem)).toHaveLength(2);
       });
     });
 
-    describe(`when playlist value returned is more than ${PREVIEW_PLAYLIST_COUNT}`, () => {
+    describe(`when the playlist value returned is more than ${PREVIEW_PLAYLIST_COUNT}`, () => {
       beforeEach(() => {
         wrapper = factory({
           playlists: getFormattedPlaylistsMock(PREVIEW_PLAYLIST_COUNT + 1),
@@ -72,7 +73,7 @@ describe('PlaylistItems', () => {
       });
 
       it('shows the correct number of the SubNavigationItem component', () => {
-        expect(wrapper.findAllComponents(SubNavigationItem).length).toBe(
+        expect(wrapper.findAllComponents(SubNavigationItem)).toHaveLength(
           PREVIEW_PLAYLIST_COUNT,
         );
       });

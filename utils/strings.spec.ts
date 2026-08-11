@@ -11,13 +11,13 @@ import {
 describe('generateRandomString', () => {
   describe('when length is not defined', () => {
     it('returns the correct response', () => {
-      expect(generateRandomString().length).toBe(15);
+      expect(generateRandomString()).toHaveLength(15);
     });
   });
 
   describe('when length is defined', () => {
     it('returns the correct response', () => {
-      expect(generateRandomString(20).length).toBe(20);
+      expect(generateRandomString(20)).toHaveLength(20);
     });
   });
 });

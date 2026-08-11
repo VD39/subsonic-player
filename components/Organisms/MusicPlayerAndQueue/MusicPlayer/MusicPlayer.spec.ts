@@ -1,5 +1,6 @@
 import type { VueWrapper } from '@vue/test-utils';
 
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
 import PreloadImage from '@/components/Molecules/PreloadImage.vue';
@@ -7,6 +8,11 @@ import { getFormattedQueueTracksMock } from '@/test/helpers';
 import { useQueueMock } from '@/test/useQueueMock';
 
 import MusicPlayer from './MusicPlayer.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
 
 const { currentTrackMock } = useQueueMock();
 
@@ -34,7 +40,7 @@ describe('MusicPlayer', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  describe('when currentTrack value does not have an albumId key', () => {
+  describe('when the currentTrack value does not have an albumId key', () => {
     beforeEach(() => {
       delete (currentTrackMock.value as Track).albumId;
     });
@@ -50,7 +56,7 @@ describe('MusicPlayer', () => {
     });
   });
 
-  describe('when currentTrack value does have an albumId key', () => {
+  describe('when the currentTrack value does have an albumId key', () => {
     describe('when currentTrack.albumId is defined', () => {
       beforeEach(() => {
         currentTrackMock.value = getFormattedQueueTracksMock()[0];
@@ -90,7 +96,7 @@ describe('MusicPlayer', () => {
         );
       });
 
-      describe('when currentTrack value does not have an podcastId key', () => {
+      describe('when the currentTrack value does not have an podcastId key', () => {
         beforeEach(() => {
           delete (currentTrackMock.value as PodcastEpisode).podcastId;
         });
@@ -116,7 +122,7 @@ describe('MusicPlayer', () => {
         });
       });
 
-      describe('when currentTrack value does have an podcastId key', () => {
+      describe('when the currentTrack value does have an podcastId key', () => {
         describe('when currentTrack.podcastId is undefined', () => {
           beforeEach(() => {
             currentTrackMock.value = getFormattedQueueTracksMock(1, {
@@ -178,7 +184,7 @@ describe('MusicPlayer', () => {
     });
   });
 
-  describe('when currentTrack value does not have an artists key', () => {
+  describe('when the currentTrack value does not have an artists key', () => {
     beforeEach(() => {
       delete (currentTrackMock.value as Partial<Track>).artists;
     });
@@ -194,7 +200,7 @@ describe('MusicPlayer', () => {
     });
   });
 
-  describe('when currentTrack value contain artists', () => {
+  describe('when the currentTrack value contain artists', () => {
     describe('when currentTrack.artists is an empty array', () => {
       beforeEach(() => {
         currentTrackMock.value = getFormattedQueueTracksMock(1, {
@@ -226,7 +232,7 @@ describe('MusicPlayer', () => {
     });
   });
 
-  describe('when currentTrack value does not have an author key', () => {
+  describe('when the currentTrack value does not have an author key', () => {
     beforeEach(() => {
       delete (currentTrackMock.value as Partial<PodcastEpisode>).author;
     });
@@ -242,7 +248,7 @@ describe('MusicPlayer', () => {
     });
   });
 
-  describe('when currentTrack value contain author', () => {
+  describe('when the currentTrack value contain author', () => {
     describe('when currentTrack.author is undefined', () => {
       beforeEach(() => {
         currentTrackMock.value = getFormattedQueueTracksMock(1, {

@@ -4,29 +4,42 @@ import type { DataMock } from '@/test/types';
 
 import { useArtist } from './index';
 
-const fetchDataMock = vi.fn<() => DataMock>(() => ({
-  data: null,
-}));
-
-mockNuxtImport('useAPI', () => () => ({
-  fetchData: fetchDataMock,
-}));
-
-const config = vi.hoisted(() => ({
-  public: {
-    SPA_MODE: false,
+const { configMock } = vi.hoisted(() => ({
+  configMock: {
+    public: {
+      LOAD_SIZE: 35,
+      SPA_MODE: false,
+    },
   },
 }));
 
-mockNuxtImport('useRuntimeConfig', () => () => config);
+mockNuxtImport('useRuntimeConfig', (original) => () => ({
+  ...original(),
+  ...configMock,
+}));
+
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
+
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
+  fetchData: fetchDataMock,
+}));
 
 mockNuxtImport('useAsyncData', () => vi.fn().mockReturnValue('useAsyncData'));
 
 mockNuxtImport('useFetch', () => vi.fn().mockReturnValue('useFetch'));
 
-const { getArtist, getArtists } = useArtist();
-
 describe('useArtist', () => {
+  let composable: ReturnType<typeof useArtist>;
+
+  beforeAll(() => {
+    composable = useArtist();
+  });
+
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -40,7 +53,7 @@ describe('useArtist', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getArtists()).toEqual([]);
+        expect(await composable.getArtists()).toEqual([]);
       });
     });
 
@@ -56,7 +69,7 @@ describe('useArtist', () => {
       });
 
       it('returns the correct response', async () => {
-        expect(await getArtists()).toEqual([
+        expect(await composable.getArtists()).toEqual([
           {
             name: 'name',
           },
@@ -68,21 +81,21 @@ describe('useArtist', () => {
   describe('when the getArtist function is called', () => {
     describe('when SPA_MODE is true', () => {
       beforeEach(() => {
-        config.public.SPA_MODE = true;
+        configMock.public.SPA_MODE = true;
       });
 
       it('returns the useAsyncData response', () => {
-        expect(getArtist('id')).toBe('useAsyncData');
+        expect(composable.getArtist('id')).toBe('useAsyncData');
       });
     });
 
     describe('when SPA_MODE is false', () => {
       beforeEach(() => {
-        config.public.SPA_MODE = false;
+        configMock.public.SPA_MODE = false;
       });
 
       it('returns the useFetch response', () => {
-        expect(getArtist('id')).toBe('useFetch');
+        expect(composable.getArtist('id')).toBe('useFetch');
       });
     });
   });

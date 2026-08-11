@@ -71,15 +71,17 @@ function createDropDragEvent(
   } as unknown as DragEvent;
 }
 
-const getMediaTracksMock = vi.fn();
+const getMediaTracksMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('useMediaTracks', () => () => ({
+mockNuxtImport('useMediaTracks', (original) => () => ({
+  ...original(),
   getMediaTracks: getMediaTracksMock,
 }));
 
-const addToPlaylistMock = vi.fn();
+const addToPlaylistMock = vi.hoisted(() => vi.fn());
 
-mockNuxtImport('usePlaylist', () => () => ({
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
   addToPlaylist: addToPlaylistMock,
 }));
 
@@ -91,16 +93,20 @@ const { addTracksToQueueMock } = useAudioPlayerMock();
 
 const mediaMock = getFormattedQueueTracksMock()[0];
 
-const { dragStart, drop } = useDragAndDrop();
-
 describe('useDragAndDrop', () => {
+  let composable: ReturnType<typeof useDragAndDrop>;
+
+  beforeAll(() => {
+    composable = useDragAndDrop();
+  });
+
   describe('when the drop function is called', () => {
-    afterEach(() => {
-      vi.clearAllMocks();
+    beforeEach(() => {
+      composable.drop('drop-id', createDropDragEvent(false));
     });
 
-    beforeEach(() => {
-      drop('drop-id', createDropDragEvent(false));
+    afterEach(() => {
+      vi.clearAllMocks();
     });
 
     it('calls the target.classList.remove function', () => {
@@ -118,7 +124,7 @@ describe('useDragAndDrop', () => {
     describe(`when element does have a ${DRAG_AND_DROP_CLASS_NAMES.isDroppable} class`, () => {
       describe('when event.dataTransfer.getData does not return any data', () => {
         beforeEach(() => {
-          drop('drop-id', createDropDragEvent());
+          composable.drop('drop-id', createDropDragEvent());
         });
 
         it('does not call the JSON.parse function', () => {
@@ -129,7 +135,7 @@ describe('useDragAndDrop', () => {
       describe('when event.dataTransfer.getData does return data', () => {
         describe('when safeJsonParse returns null', () => {
           beforeEach(() => {
-            drop('drop-id', createDropDragEvent(true, 'not-json'));
+            composable.drop('drop-id', createDropDragEvent(true, 'not-json'));
           });
 
           it('does not call the getMediaTracks function', () => {
@@ -147,7 +153,7 @@ describe('useDragAndDrop', () => {
 
         describe('when the parsed media does not have a type property', () => {
           beforeEach(() => {
-            drop(
+            composable.drop(
               'drop-id',
               createDropDragEvent(
                 true,
@@ -192,7 +198,7 @@ describe('useDragAndDrop', () => {
               beforeEach(() => {
                 getMediaTracksMock.mockResolvedValue([{}, {}]);
 
-                drop(
+                composable.drop(
                   dropId,
                   createDropDragEvent(
                     true,
@@ -225,7 +231,7 @@ describe('useDragAndDrop', () => {
               beforeEach(() => {
                 getMediaTracksMock.mockResolvedValue([]);
 
-                drop(
+                composable.drop(
                   dropId,
                   createDropDragEvent(
                     true,
@@ -251,11 +257,11 @@ describe('useDragAndDrop', () => {
             });
           });
 
-          describe('when drop is called multiple times', () => {
+          describe('when the drop function is called multiple times', () => {
             beforeEach(() => {
               getMediaTracksMock.mockResolvedValue([{}, {}]);
 
-              drop(
+              composable.drop(
                 'drop-id',
                 createDropDragEvent(
                   true,
@@ -266,7 +272,7 @@ describe('useDragAndDrop', () => {
                 ),
               );
 
-              drop(
+              composable.drop(
                 'drop-id',
                 createDropDragEvent(
                   true,
@@ -277,7 +283,7 @@ describe('useDragAndDrop', () => {
                 ),
               );
 
-              drop(
+              composable.drop(
                 'drop-id',
                 createDropDragEvent(
                   true,
@@ -309,8 +315,7 @@ describe('useDragAndDrop', () => {
   describe('when the dragStart function is called', () => {
     describe('when dataTransfer is not defined', () => {
       beforeEach(() => {
-        const { dragStart } = useDragAndDrop();
-        dragStart(mediaMock, createDragStartDragEvent(false));
+        composable.dragStart(mediaMock, createDragStartDragEvent(false));
       });
 
       it('does not call the querySelector function', () => {
@@ -320,8 +325,7 @@ describe('useDragAndDrop', () => {
 
     describe('when media is not valid', () => {
       beforeEach(() => {
-        const { dragStart } = useDragAndDrop();
-        dragStart({} as never, createDragStartDragEvent());
+        composable.dragStart({} as never, createDragStartDragEvent());
       });
 
       it('does not call the querySelector function', () => {
@@ -331,8 +335,7 @@ describe('useDragAndDrop', () => {
 
     describe('when dataTransfer is defined and media is valid', () => {
       beforeEach(() => {
-        const { dragStart } = useDragAndDrop();
-        dragStart(mediaMock, createDragStartDragEvent(true, null));
+        composable.dragStart(mediaMock, createDragStartDragEvent(true, null));
       });
 
       it('calls the querySelector function', () => {
@@ -347,8 +350,7 @@ describe('useDragAndDrop', () => {
 
       describe('when querySelector does return a value', () => {
         beforeEach(() => {
-          const { dragStart } = useDragAndDrop();
-          dragStart(mediaMock, createDragStartDragEvent(true));
+          composable.dragStart(mediaMock, createDragStartDragEvent(true));
         });
 
         it('calls the clonedEl.classList.add function', () => {
@@ -405,10 +407,9 @@ describe('useDragAndDrop', () => {
 
     describe('when the dragStart function is called multiple times', () => {
       beforeEach(() => {
-        const { dragStart } = useDragAndDrop();
-        dragStart(mediaMock, createDragStartDragEvent(false));
+        composable.dragStart(mediaMock, createDragStartDragEvent(false));
         vi.clearAllMocks();
-        dragStart(mediaMock, createDragStartDragEvent(false));
+        composable.dragStart(mediaMock, createDragStartDragEvent(false));
       });
 
       it('does not call the clonedEl.classList.add function', () => {
@@ -590,8 +591,8 @@ describe('useDragAndDrop', () => {
     });
 
     describe('when the dragend event is called', () => {
-      beforeEach(async () => {
-        await documentEvents.dragend();
+      beforeEach(() => {
+        documentEvents.dragend();
       });
 
       it('removes the dragover event listener function', () => {
@@ -623,12 +624,13 @@ describe('useDragAndDrop', () => {
 
       describe('when animationFrameId is defined', () => {
         beforeEach(() => {
-          dragStart(mediaMock, createDragStartDragEvent(true));
+          composable.dragStart(mediaMock, createDragStartDragEvent(true));
           documentEvents.dragover({
             clientX: 20,
             clientY: 10,
             preventDefault: vi.fn(),
           });
+
           documentEvents.dragend();
         });
 
