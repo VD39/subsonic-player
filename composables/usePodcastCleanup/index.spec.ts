@@ -100,7 +100,6 @@ describe('usePodcastCleanup', () => {
 
     describe('when the queueList value is an empty array', () => {
       beforeEach(async () => {
-        vi.clearAllMocks();
         queueListMock.value = [];
         await composable.deletePodcastEpisodeGlobally(podcastEpisode);
       });
@@ -117,7 +116,6 @@ describe('usePodcastCleanup', () => {
     describe('when the podcast episode is the current track', () => {
       describe('when the podcast episode is paused', () => {
         beforeEach(async () => {
-          vi.clearAllMocks();
           queueListMock.value = [podcastEpisode];
           await composable.deletePodcastEpisodeGlobally(podcastEpisode);
         });
@@ -137,7 +135,6 @@ describe('usePodcastCleanup', () => {
 
       describe('when the podcast episode is playing', () => {
         beforeEach(async () => {
-          vi.clearAllMocks();
           queueListMock.value = [podcastEpisode];
           isPlayingMock.value = true;
           await composable.deletePodcastEpisodeGlobally(podcastEpisode);
@@ -178,6 +175,37 @@ describe('usePodcastCleanup', () => {
         expect(resetPlayerSessionMock).not.toHaveBeenCalled();
       });
     });
+
+    describe('when the playNextTrack parameter is true', () => {
+      beforeEach(async () => {
+        vi.clearAllMocks();
+        queueListMock.value = [podcastEpisode];
+        currentTrackMock.value = podcastEpisode;
+        await composable.deletePodcastEpisodeGlobally(podcastEpisode, true);
+      });
+
+      it('calls the playCurrentTrackFromQueue function', () => {
+        expect(playCurrentTrackFromQueueMock).toHaveBeenCalled();
+      });
+
+      it('does not call the togglePlay function', () => {
+        expect(togglePlayMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the playNextTrack parameter is false', () => {
+      beforeEach(async () => {
+        await composable.deletePodcastEpisodeGlobally(podcastEpisode, false);
+      });
+
+      it('calls the playCurrentTrackFromQueue function', () => {
+        expect(playCurrentTrackFromQueueMock).toHaveBeenCalled();
+      });
+
+      it('calls the togglePlay function', () => {
+        expect(togglePlayMock).toHaveBeenCalled();
+      });
+    });
   });
 
   describe('when the deletePodcastGlobally function is called', () => {
@@ -195,7 +223,6 @@ describe('usePodcastCleanup', () => {
 
     describe('when the queueList value is an empty array', () => {
       beforeEach(async () => {
-        vi.clearAllMocks();
         queueListMock.value = [];
         await composable.deletePodcastGlobally('queue-id');
       });
@@ -215,9 +242,7 @@ describe('usePodcastCleanup', () => {
 
     describe('when the queueList value contains tracks for the podcast', () => {
       beforeEach(async () => {
-        vi.clearAllMocks();
         queueListMock.value = [...podcastQueueTracks, queueTrack];
-        currentTrackMock.value = podcastEpisode;
         await composable.deletePodcastGlobally('queue-id');
       });
 
@@ -247,7 +272,6 @@ describe('usePodcastCleanup', () => {
       describe('when the podcast episode is the current track', () => {
         describe('when the podcast episode is paused', () => {
           beforeEach(async () => {
-            vi.clearAllMocks();
             queueListMock.value = [...podcastQueueTracks, queueTrack];
             currentTrackMock.value = podcastQueueTracks[0];
             await composable.deletePodcastGlobally('queue-id');
@@ -264,7 +288,6 @@ describe('usePodcastCleanup', () => {
 
         describe('when the podcast episode is playing', () => {
           beforeEach(async () => {
-            vi.clearAllMocks();
             queueListMock.value = [...podcastQueueTracks, queueTrack];
             currentTrackMock.value = podcastQueueTracks[0];
             isPlayingMock.value = true;

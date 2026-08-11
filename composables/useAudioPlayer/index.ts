@@ -622,7 +622,7 @@ export function useAudioPlayer() {
   ) {
     const wasLastTrack = isLastTrack.value;
 
-    await deletePodcastEpisodeGlobally(podcastEpisode);
+    await deletePodcastEpisodeGlobally(podcastEpisode, true);
 
     // Nothing left to play so clear the session.
     if (!queueList.value.length) {

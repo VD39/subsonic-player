@@ -819,6 +819,7 @@ describe('useAudioPlayer', () => {
         it('calls the deletePodcastEpisodeGlobally function with the correct parameters', () => {
           expect(deletePodcastEpisodeGloballyMock).toHaveBeenCalledWith(
             currentTrackMock.value,
+            true,
           );
         });
 

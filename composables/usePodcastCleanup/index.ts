@@ -3,7 +3,10 @@ export function usePodcastCleanup() {
   const { currentTrack, queueList, removeAllByTrackId } = useQueue();
   const { deletePodcast, deletePodcastEpisode } = usePodcast();
 
-  async function handlePlaybackAfterRemoval(currentTrackWasDeleted: boolean) {
+  async function handlePlaybackAfterRemoval(
+    currentTrackWasDeleted: boolean,
+    playNextTrack = false,
+  ) {
     const {
       isPlaying,
       playCurrentTrackFromQueue,
@@ -23,19 +26,22 @@ export function usePodcastCleanup() {
 
       await playCurrentTrackFromQueue();
 
-      if (!currentTrackWasPlaying) {
+      if (!currentTrackWasPlaying && !playNextTrack) {
         await togglePlay();
       }
     }
   }
 
-  async function deletePodcastEpisodeGlobally(podcastEpisode: PodcastEpisode) {
+  async function deletePodcastEpisodeGlobally(
+    podcastEpisode: PodcastEpisode,
+    playNextTrack = false,
+  ) {
     const currentTrackWasDeleted = currentTrack.value.id === podcastEpisode.id;
 
     removeAllByTrackId(podcastEpisode.id);
     await deletePodcastEpisode(podcastEpisode);
     await deleteBookmark(podcastEpisode.id, false);
-    await handlePlaybackAfterRemoval(currentTrackWasDeleted);
+    await handlePlaybackAfterRemoval(currentTrackWasDeleted, playNextTrack);
   }
 
   async function deletePodcastGlobally(podcastId: string) {
