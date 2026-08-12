@@ -23,8 +23,8 @@ ENV APP_RELEASE_DATE=${APP_RELEASE_DATE}
 COPY ./package.json .
 COPY ./package-lock.json .
 
-# Install dependencies.
-RUN npm ci
+# Install all dependencies (including dev) for the build, despite NODE_ENV=production.
+RUN npm ci --include=dev
 
 # Copy the rest of the application files to the working directory.
 COPY . .
