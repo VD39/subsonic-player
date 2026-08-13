@@ -54,32 +54,34 @@ function onChange() {
 .volumeControl {
   position: relative;
 
-  @media (hover: hover) {
-    &:hover {
-      .volumeInputWrapper {
-        --volume-input-visibility: visible;
-      }
+  &:hover,
+  &:focus-within {
+    .volumeInputWrapper {
+      --volume-input-opacity: 1;
+
+      pointer-events: auto;
     }
   }
 }
 
 .volumeInputWrapper {
-  --volume-input-visibility: hidden;
+  --volume-input-opacity: 0;
 
   position: absolute;
   top: calc(var(--default-space) * -4);
   left: 50%;
   z-index: 10;
-  visibility: var(--volume-input-visibility);
   gap: var(--default-space);
   width: 200px;
   padding: var(--default-space);
+  pointer-events: none;
   background: var(--secondary-background-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-large);
+  opacity: var(--volume-input-opacity);
   transform: translateX(-50%);
-  transition: visibility var(--transition);
+  transition: opacity var(--transition);
 }
 
 .currentVolume {

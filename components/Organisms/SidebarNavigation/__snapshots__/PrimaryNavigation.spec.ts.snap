@@ -3,7 +3,7 @@
 exports[`PrimaryNavigation > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li class="mBM">
-    <h4 class="strong mBM sidebarTitle">Browse</h4>
+    <p class="strong mBM sidebarTitle">Browse</p>
     <ul>
       <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
           <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
@@ -23,7 +23,7 @@ exports[`PrimaryNavigation > matches the snapshot 1`] = `
     </ul>
   </li>
   <li class="mBM">
-    <h4 class="strong mBM sidebarTitle">Your library</h4>
+    <p class="strong mBM sidebarTitle">Your library</p>
     <ul>
       <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
           <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>

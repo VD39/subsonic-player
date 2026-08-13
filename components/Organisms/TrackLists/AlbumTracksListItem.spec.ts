@@ -71,9 +71,8 @@ describe('AlbumTracksListItem', () => {
 
     it('shows the correct number of DropdownItem components inside the DropdownSubmenu', () => {
       expect(
-        wrapper.findComponent(DropdownSubmenu).findAllComponents(DropdownItem)
-          .length,
-      ).toBe(track.artists.length);
+        wrapper.findComponent(DropdownSubmenu).findAllComponents(DropdownItem),
+      ).toHaveLength(track.artists.length);
     });
   });
 

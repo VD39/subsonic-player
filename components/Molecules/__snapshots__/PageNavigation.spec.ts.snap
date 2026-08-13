@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`PageNavigation > matches the snapshot 1`] = `
-"<nav class="pageNavigation">
+"<nav aria-label="Page" class="pageNavigation">
   <div class="overflowShadow">
     <div class="content">
       <ul class="centerItems navigation">

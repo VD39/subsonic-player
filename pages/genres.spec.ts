@@ -103,8 +103,8 @@ describe('genres', () => {
       expect(
         wrapper
           .findComponent(GridWrapper)
-          .findAll('[data-test-id="genre-item"]').length,
-      ).toBe(3);
+          .findAll('[data-test-id="genre-item"]'),
+      ).toHaveLength(3);
     });
 
     it('does not show the NoMediaMessage component', () => {

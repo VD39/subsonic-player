@@ -71,7 +71,8 @@ const swiper = useSwiper(swiperRef, {
   transition: all var(--transition);
 
   @media (hover: hover) {
-    &:hover {
+    &:hover,
+    &:focus-within {
       .next,
       .previous {
         --carousel-swiper-button-opacity: 1;

@@ -119,8 +119,8 @@ describe('SearchSuggestions', () => {
 
         it('shows the group suggestions element', () => {
           expect(
-            wrapper.findAll('[data-test-id="search-suggestion-group"]').length,
-          ).toBe(2);
+            wrapper.findAll('[data-test-id="search-suggestion-group"]'),
+          ).toHaveLength(2);
         });
 
         it('shows the correct number of SearchSuggestionItem components', () => {
@@ -131,8 +131,8 @@ describe('SearchSuggestions', () => {
 
         it('shows the correct number of SearchSuggestionTrackItem components', () => {
           expect(
-            wrapper.findAllComponents(SearchSuggestionTrackItem).length,
-          ).toBe(1);
+            wrapper.findAllComponents(SearchSuggestionTrackItem),
+          ).toHaveLength(1);
         });
 
         it('sets the correct to prop on the RouterLink component', () => {

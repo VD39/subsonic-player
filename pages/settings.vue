@@ -187,6 +187,7 @@ onMounted(() => {
             <InputRange
               ref="crossfadeInputRange"
               v-model="crossfadeDuration"
+              aria-label="Crossfade duration"
               :disabled="!crossfadeEnabled"
               :max="CROSSFADE_DURATION_MAX"
               :min="CROSSFADE_DURATION_MIN"

@@ -1,5 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SelectableBadge > matches the snapshot 1`] = `"<button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">label</span></button>"`;
+exports[`SelectableBadge > matches the snapshot 1`] = `"<button aria-checked="false" class="selectableBadge" role="radio" type="button"><span class="smallFont strong label">label</span></button>"`;
 
-exports[`SelectableBadge > when the selected prop is true > matches the snapshot 1`] = `"<button aria-pressed="true" class="selectableBadge selected" type="button"><span class="smallFont strong label">label</span></button>"`;
+exports[`SelectableBadge > when the selected prop is true > matches the snapshot 1`] = `"<button aria-checked="true" class="selectableBadge selected" role="radio" type="button"><span class="smallFont strong label">label</span></button>"`;

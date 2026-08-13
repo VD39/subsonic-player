@@ -11,14 +11,14 @@ exports[`settings > matches the snapshot 1`] = `
           <div class="smallFont strong mBXS title">Theme</div>
           <div class="smallFont description">Switch between dark, light, or system-preferred appearance</div>
         </div>
-        <div class="badge"><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Dark</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Light</span></button><button aria-pressed="true" class="selectableBadge selected" type="button"><span class="smallFont strong label">Auto</span></button></div>
+        <div class="badge"><button aria-checked="false" class="selectableBadge" role="radio" type="button"><span class="smallFont strong label">Dark</span></button><button aria-checked="false" class="selectableBadge" role="radio" type="button"><span class="smallFont strong label">Light</span></button><button aria-checked="true" class="selectableBadge selected" role="radio" type="button"><span class="smallFont strong label">Auto</span></button></div>
       </div>
       <div>
         <div class="mBS">
           <div class="smallFont strong mBXS title">Layout</div>
           <div class="smallFont description">Choose between a compact grid or a detailed list</div>
         </div>
-        <div class="list"><button aria-pressed="true" class="selectableOption selected" type="button">
+        <div class="list"><button aria-checked="true" class="selectableOption selected" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -28,7 +28,7 @@ exports[`settings > matches the snapshot 1`] = `
               </div>
               <div class="smallFont description">Compact grid of items</div>
             </div>
-          </button><button aria-pressed="false" class="selectableOption" type="button">
+          </button><button aria-checked="false" class="selectableOption" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -50,7 +50,7 @@ exports[`settings > matches the snapshot 1`] = `
           <div class="smallFont strong mBXS title">Streaming</div>
           <div class="smallFont description">Adjusting audio quality enables server-side transcoding, converting to a compatible format with a lower bitrate for smoother streaming</div>
         </div>
-        <div class="list"><button aria-pressed="false" class="selectableOption" type="button">
+        <div class="list"><button aria-checked="false" class="selectableOption" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -60,7 +60,7 @@ exports[`settings > matches the snapshot 1`] = `
               </div>
               <div class="smallFont description">Direct playback of the original audio source without modifications</div>
             </div>
-          </button><button aria-pressed="false" class="selectableOption" type="button">
+          </button><button aria-checked="false" class="selectableOption" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -68,7 +68,7 @@ exports[`settings > matches the snapshot 1`] = `
               <div class="smallFont strong title">High <span class="badge">320 kbps</span></div>
               <div class="smallFont description">Superior sound quality, perfect for immersive listening with moderate data usage</div>
             </div>
-          </button><button aria-pressed="false" class="selectableOption" type="button">
+          </button><button aria-checked="false" class="selectableOption" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -76,7 +76,7 @@ exports[`settings > matches the snapshot 1`] = `
               <div class="smallFont strong title">Medium <span class="badge">256 kbps</span></div>
               <div class="smallFont description">Crisp audio with a balanced blend of quality and data efficiency</div>
             </div>
-          </button><button aria-pressed="true" class="selectableOption selected" type="button">
+          </button><button aria-checked="true" class="selectableOption selected" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -84,7 +84,7 @@ exports[`settings > matches the snapshot 1`] = `
               <div class="smallFont strong title">Low <span class="badge">192 kbps</span></div>
               <div class="smallFont description">Solid quality tailored for streaming with reduced bandwidth</div>
             </div>
-          </button><button aria-pressed="false" class="selectableOption" type="button">
+          </button><button aria-checked="false" class="selectableOption" role="radio" type="button">
             <div class="status">
               <phcheck size="14"></phcheck>
             </div>
@@ -99,7 +99,7 @@ exports[`settings > matches the snapshot 1`] = `
           <div class="smallFont strong mBXS title">ReplayGain</div>
           <div class="smallFont description">Adjust playback volume to a consistent level using metadata embedded in your audio files</div>
         </div>
-        <div class="badge"><button aria-pressed="true" class="selectableBadge selected" type="button"><span class="smallFont strong label">Off</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Track</span></button><button aria-pressed="false" class="selectableBadge" type="button"><span class="smallFont strong label">Album</span></button></div>
+        <div class="badge"><button aria-checked="true" class="selectableBadge selected" role="radio" type="button"><span class="smallFont strong label">Off</span></button><button aria-checked="false" class="selectableBadge" role="radio" type="button"><span class="smallFont strong label">Track</span></button><button aria-checked="false" class="selectableBadge" role="radio" type="button"><span class="smallFont strong label">Album</span></button></div>
       </div>
       <div>
         <div class="mBS">
@@ -121,7 +121,7 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
             <div class="control">
               <div class="centerAll spaceBetween crossfadeWrapper disabled"><span class="strong">3s</span>
-                <div aria-disabled="true" class="inputRange disabled" style="--input-slider-height: 6px;">
+                <div aria-disabled="true" class="inputRange disabled" style="--input-slider-height: 6px;" aria-label="Crossfade duration">
                   <div class="centerItems slider">
                     <div class="progressWrapper">
                       <div class="progress" style="width: 0px;"></div>

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`SelectableOption > matches the snapshot 1`] = `
-"<button aria-pressed="false" class="selectableOption" type="button">
+"<button aria-checked="false" class="selectableOption" role="radio" type="button">
   <div class="status">
     <phcheck size="14"></phcheck>
   </div>
@@ -15,7 +15,7 @@ exports[`SelectableOption > matches the snapshot 1`] = `
 `;
 
 exports[`SelectableOption > when the selected prop is true > matches the snapshot 1`] = `
-"<button aria-pressed="true" class="selectableOption selected" type="button">
+"<button aria-checked="true" class="selectableOption selected" role="radio" type="button">
   <div class="status">
     <phcheck size="14"></phcheck>
   </div>

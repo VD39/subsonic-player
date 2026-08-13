@@ -11,8 +11,8 @@ exports[`InputField > when an attribute is passed to the component > matches the
 exports[`InputField > when the error prop is set > matches the snapshot 1`] = `
 "<div class="column inputField error"><label class="mBXS sentenceCase smallFont label" for="id">label
     <!--v-if-->
-  </label><input id="id" autocomplete="off" class="interactionInput input" type="text">
-  <p class="smallFont sentenceCase">Error message.</p>
+  </label><input id="id" aria-describedby="id-error" aria-invalid="true" autocomplete="off" class="interactionInput input" type="text">
+  <p id="id-error" class="smallFont sentenceCase">Error message.</p>
 </div>"
 `;
 

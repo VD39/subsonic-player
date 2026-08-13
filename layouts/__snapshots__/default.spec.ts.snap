@@ -26,17 +26,17 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
       </div>
     </div>
   </header>
-  <aside>
+  <aside aria-label="Sidebar">
     <div class="centerItems column sidebarNavigation desktopOnly">
       <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
         </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
-      <nav class="fullWidth">
+      <nav aria-label="Primary" class="fullWidth">
         <ul class="mBM">
           <li class="mBM">
-            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <p class="strong mBM sidebarTitle">Browse</p>
             <ul>
               <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
@@ -56,7 +56,7 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
             </ul>
           </li>
           <li class="mBM">
-            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <p class="strong mBM sidebarTitle">Your library</p>
             <ul>
               <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
@@ -78,7 +78,7 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
         </ul>
         <ul class="mBM">
           <li>
-            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <p class="strong mBM sidebarTitle">Playlist</p>
             <ul></ul>
           </li>
           <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
@@ -87,7 +87,7 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
         </ul>
       </nav>
     </div>
-    <nav class="mobileOnly">
+    <nav aria-label="Mobile" class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
@@ -104,17 +104,17 @@ exports[`DefaultLayout > matches the snapshot 1`] = `
       </ul>
     </nav>
   </aside>
-  <main class="main mainContent">
+  <main class="main mainContent" tabindex="-1">
     <div class="column mainContentInner">
       <!--v-if-->
       <div class="column inner mBAllL">Default slot content.</div>
     </div>
   </main>
-  <footer>
+  <div>
     <music-player-and-queue-stub></music-player-and-queue-stub>
     <!--v-if-->
     <!--v-if-->
-  </footer>
+  </div>
 </div>"
 `;
 
@@ -144,17 +144,17 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
       </div>
     </div>
   </header>
-  <aside>
+  <aside aria-label="Sidebar">
     <div class="centerItems column sidebarNavigation desktopOnly">
       <div class="mBM centerAll spaceBetween header"><a class="centerItems buttonLink musicLogo musicLogo" draggable="false" title="Home">
           <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
         </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
           <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
         </button></div>
-      <nav class="fullWidth">
+      <nav aria-label="Primary" class="fullWidth">
         <ul class="mBM">
           <li class="mBM">
-            <h4 class="strong mBM sidebarTitle">Browse</h4>
+            <p class="strong mBM sidebarTitle">Browse</p>
             <ul>
               <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
                   <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
@@ -174,7 +174,7 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
             </ul>
           </li>
           <li class="mBM">
-            <h4 class="strong mBM sidebarTitle">Your library</h4>
+            <p class="strong mBM sidebarTitle">Your library</p>
             <ul>
               <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
                   <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
@@ -196,7 +196,7 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
         </ul>
         <ul class="mBM">
           <li>
-            <h4 class="strong mBM sidebarTitle">Playlist</h4>
+            <p class="strong mBM sidebarTitle">Playlist</p>
             <ul></ul>
           </li>
           <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
@@ -205,7 +205,7 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
         </ul>
       </nav>
     </div>
-    <nav class="mobileOnly">
+    <nav aria-label="Mobile" class="mobileOnly">
       <ul class="inner centerAll spaceBetween mobileNavigation">
         <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
             <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>
@@ -222,9 +222,9 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
       </ul>
     </nav>
   </aside>
-  <main class="main mainContent">
+  <main class="main mainContent" tabindex="-1">
     <div class="column mainContentInner noPaddingTop">
-      <nav class="pageNavigation mobileOnly mBL">
+      <nav aria-label="Page" class="pageNavigation mobileOnly mBL">
         <div class="overflowShadow">
           <div class="content">
             <ul class="centerItems navigation">
@@ -244,10 +244,10 @@ exports[`DefaultLayout > when the showPageNavigation value is true > matches the
       <div class="column inner mBAllL">Default slot content.</div>
     </div>
   </main>
-  <footer>
+  <div>
     <music-player-and-queue-stub></music-player-and-queue-stub>
     <!--v-if-->
     <!--v-if-->
-  </footer>
+  </div>
 </div>"
 `;

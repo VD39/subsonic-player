@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <li>
-    <h4
+    <p
       ref="title"
       :class="[
         'strong',
@@ -19,7 +19,7 @@ defineProps<{
       ]"
     >
       {{ title }}
-    </h4>
+    </p>
 
     <ul v-if="$slots.default" ref="navigation">
       <slot />

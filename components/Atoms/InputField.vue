@@ -1,5 +1,5 @@
 <script setup lang="ts">
-withDefaults(
+const props = withDefaults(
   defineProps<{
     error?: string;
     hideLabel?: boolean;
@@ -17,6 +17,11 @@ withDefaults(
 );
 
 const internalValue = defineModel<string | string[]>();
+
+const inputAttributes = computed(() => ({
+  ariaDescribedby: props.error ? `${props.id}-error` : undefined,
+  ariaInvalid: props.error ? true : undefined,
+}));
 </script>
 
 <template>
@@ -50,6 +55,8 @@ const internalValue = defineModel<string | string[]>();
       :id
       ref="input"
       v-model="internalValue"
+      :aria-describedby="inputAttributes.ariaDescribedby"
+      :aria-invalid="inputAttributes.ariaInvalid"
       autocomplete="off"
       :class="[INTERACTION_INPUT_CLASS, $style.input]"
       :placeholder
@@ -58,7 +65,12 @@ const internalValue = defineModel<string | string[]>();
       v-bind="$attrs"
     />
 
-    <p v-if="error" ref="error" class="smallFont sentenceCase">
+    <p
+      v-if="error"
+      :id="`${id}-error`"
+      ref="error"
+      class="smallFont sentenceCase"
+    >
       {{ error }}
     </p>
   </div>

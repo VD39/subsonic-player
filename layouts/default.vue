@@ -32,13 +32,13 @@ const {
       </div>
     </header>
 
-    <aside>
+    <aside aria-label="Sidebar">
       <SidebarNavigation class="desktopOnly" :navigation="sidebarNavigation" />
 
       <MobileNavigation class="mobileOnly" :navigation="mobileNavigation" />
     </aside>
 
-    <main :class="['main', $style.mainContent]">
+    <main :class="['main', $style.mainContent]" tabindex="-1">
       <div
         :class="[
           'column',
@@ -60,12 +60,12 @@ const {
       </div>
     </main>
 
-    <footer>
+    <div>
       <ClientOnly>
         <MusicPlayerAndQueue />
       </ClientOnly>
       <HotkeyMappings />
-    </footer>
+    </div>
   </div>
 </template>
 

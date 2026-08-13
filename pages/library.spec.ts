@@ -175,8 +175,8 @@ describe('library', () => {
         expect(
           wrapper
             .findComponent({ ref: 'randomAlbumCarouselSwiper' })
-            .findAll('[data-test-id="random-album-item"]').length,
-        ).toBe(2);
+            .findAll('[data-test-id="random-album-item"]'),
+        ).toHaveLength(2);
       });
 
       describe('when the AlbumItem component emits the dragStart event', () => {
@@ -278,8 +278,8 @@ describe('library', () => {
           expect(
             wrapper
               .findComponent({ ref: 'artistCarouselSwiper' })
-              .findAll('[data-test-id="random-artist-item"]').length,
-          ).toBe(3);
+              .findAll('[data-test-id="random-artist-item"]'),
+          ).toHaveLength(3);
         });
       });
 
@@ -302,8 +302,8 @@ describe('library', () => {
           expect(
             wrapper
               .findComponent({ ref: 'artistCarouselSwiper' })
-              .findAll('[data-test-id="random-artist-item"]').length,
-          ).toBe(PREVIEW_ARTIST_COUNT);
+              .findAll('[data-test-id="random-artist-item"]'),
+          ).toHaveLength(PREVIEW_ARTIST_COUNT);
         });
       });
     });
@@ -320,8 +320,8 @@ describe('library', () => {
           expect(
             wrapper
               .findComponent({ ref: 'genreCarouselSwiper' })
-              .findAll('[data-test-id="random-genre-item"]').length,
-          ).toBe(2);
+              .findAll('[data-test-id="random-genre-item"]'),
+          ).toHaveLength(2);
         });
       });
 
@@ -344,8 +344,8 @@ describe('library', () => {
           expect(
             wrapper
               .findComponent({ ref: 'genreCarouselSwiper' })
-              .findAll('[data-test-id="random-genre-item"]').length,
-          ).toBe(PREVIEW_GENRES_COUNT);
+              .findAll('[data-test-id="random-genre-item"]'),
+          ).toHaveLength(PREVIEW_GENRES_COUNT);
         });
       });
     });
@@ -358,8 +358,8 @@ describe('library', () => {
       describe(`when playlists has less than ${PREVIEW_PLAYLIST_COUNT} items`, () => {
         it('shows the correct number of playlist item', () => {
           expect(
-            wrapper.findComponent(PlaylistsList).props('playlists').length,
-          ).toEqual(2);
+            wrapper.findComponent(PlaylistsList).props('playlists'),
+          ).toHaveLength(2);
         });
       });
 
@@ -378,8 +378,8 @@ describe('library', () => {
 
         it('shows the correct number of playlist item', () => {
           expect(
-            wrapper.findComponent(PlaylistsList).props('playlists').length,
-          ).toEqual(PREVIEW_PLAYLIST_COUNT);
+            wrapper.findComponent(PlaylistsList).props('playlists'),
+          ).toHaveLength(PREVIEW_PLAYLIST_COUNT);
         });
       });
     });

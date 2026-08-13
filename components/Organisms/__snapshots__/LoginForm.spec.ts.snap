@@ -51,7 +51,7 @@ exports[`LoginForm > when form is valid > when the error prop is set > matches t
       <!--v-if-->
     </div>
   </div>
-  <div class="strong smallFont centerItems spaceBetween error messageBar mBM">
+  <div class="strong smallFont centerItems spaceBetween error messageBar mBM" role="alert">
     <p class="sentenceCase">Error message</p>
   </div><button class="centerItems buttonLink centerAll fullWidth actionButton formButton actionButton formButton" draggable="false" type="submit">
     <!--v-if--><span class="clamp text"> Login </span>

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MobileNavigation > matches the snapshot 1`] = `
-"<nav>
+"<nav aria-label="Mobile">
   <ul class="inner centerAll spaceBetween mobileNavigation">
     <li class="item"><a class="centerItems buttonLink link smallFont column centerAll link smallFont column centerAll" draggable="false" title="Browse">
         <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Browse</span>

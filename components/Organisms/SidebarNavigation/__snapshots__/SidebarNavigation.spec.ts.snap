@@ -7,10 +7,10 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
     </a><button class="centerItems buttonLink" draggable="false" type="button" title="Close Navigation">
       <phtextoutdent aria-hidden="true" class="icon" size="24" weight="regular"></phtextoutdent><span class="clamp text visuallyHidden">Close Navigation</span>
     </button></div>
-  <nav class="fullWidth">
+  <nav aria-label="Primary" class="fullWidth">
     <ul class="mBM">
       <li class="mBM">
-        <h4 class="strong mBM sidebarTitle">Browse</h4>
+        <p class="strong mBM sidebarTitle">Browse</p>
         <ul>
           <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
               <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text">Discover</span>
@@ -30,7 +30,7 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
         </ul>
       </li>
       <li class="mBM">
-        <h4 class="strong mBM sidebarTitle">Your library</h4>
+        <p class="strong mBM sidebarTitle">Your library</p>
         <ul>
           <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
               <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text">Albums</span>
@@ -52,7 +52,7 @@ exports[`SidebarNavigation > matches the snapshot 1`] = `
     </ul>
     <ul class="mBM">
       <li>
-        <h4 class="strong mBM sidebarTitle">Playlist</h4>
+        <p class="strong mBM sidebarTitle">Playlist</p>
         <ul></ul>
       </li>
       <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
@@ -70,10 +70,10 @@ exports[`SidebarNavigation > when collapsed is true > matches the snapshot 1`] =
     </a><button class="centerItems buttonLink" draggable="false" type="button" title="Open Navigation">
       <phtextindent aria-hidden="true" class="icon" size="24" weight="regular"></phtextindent><span class="clamp text visuallyHidden">Open Navigation</span>
     </button></div>
-  <nav class="fullWidth">
+  <nav aria-label="Primary" class="fullWidth">
     <ul class="mBM">
       <li class="mBM">
-        <h4 class="strong mBM sidebarTitle visuallyHidden">Browse</h4>
+        <p class="strong mBM sidebarTitle visuallyHidden">Browse</p>
         <ul>
           <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Discover">
               <phcompass aria-hidden="true" class="icon" size="24" weight="regular"></phcompass><span class="clamp text visuallyHidden">Discover</span>
@@ -93,7 +93,7 @@ exports[`SidebarNavigation > when collapsed is true > matches the snapshot 1`] =
         </ul>
       </li>
       <li class="mBM">
-        <h4 class="strong mBM sidebarTitle visuallyHidden">Your library</h4>
+        <p class="strong mBM sidebarTitle visuallyHidden">Your library</p>
         <ul>
           <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="Albums">
               <phvinylrecord aria-hidden="true" class="icon" size="24" weight="regular"></phvinylrecord><span class="clamp text visuallyHidden">Albums</span>
@@ -115,7 +115,7 @@ exports[`SidebarNavigation > when collapsed is true > matches the snapshot 1`] =
     </ul>
     <ul class="mBM">
       <li>
-        <h4 class="strong mBM sidebarTitle visuallyHidden">Playlist</h4>
+        <p class="strong mBM sidebarTitle visuallyHidden">Playlist</p>
         <ul></ul>
       </li>
       <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">

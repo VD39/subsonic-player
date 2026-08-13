@@ -11,13 +11,14 @@ defineEmits<{
 
 <template>
   <button
-    :aria-pressed="selected"
+    :aria-checked="selected"
     :class="[
       $style.selectableBadge,
       {
         [$style.selected]: selected,
       },
     ]"
+    role="radio"
     type="button"
     @click="$emit('click')"
   >

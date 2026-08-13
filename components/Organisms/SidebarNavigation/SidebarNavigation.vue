@@ -42,7 +42,7 @@ const buttonProps = computed(() => ({
       </ButtonLink>
     </div>
 
-    <nav class="fullWidth">
+    <nav aria-label="Primary" class="fullWidth">
       <PrimaryNavigation :collapsed :navigation />
 
       <PlaylistNavigation

@@ -43,7 +43,7 @@ useHead({
 <template>
   <div :class="['mBAllM', 'inner', $style.login]">
     <HeaderWithAction>
-      <h3>Login</h3>
+      <h1>Login</h1>
 
       <template #actions>
         <ThemeSwitcher />

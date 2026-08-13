@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`UserMenu > matches the snapshot 1`] = `
-"<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View details">
+"<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu" title="View details">
     <div class="centerAll preloadImage avatar">
       <div class="iconImage">
         <phusercircle class="icon"></phusercircle>
@@ -35,7 +35,7 @@ exports[`UserMenu > matches the snapshot 1`] = `
 `;
 
 exports[`UserMenu > when the user username value is defined > matches the snapshot 1`] = `
-"<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="View details">
+"<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu" title="View details">
     <div class="centerAll preloadImage avatar"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="avatar-url"></div><span class="clamp text visuallyHidden"> More</span>
   </button>
   <teleport-stub disabled="false" to="#teleports">

@@ -19,9 +19,9 @@ function factory(props = {}) {
 describe('MessageBar', () => {
   let wrapper: VueWrapper;
 
-  describe.each(['success', 'error', 'info'])(
+  describe.each([['success'], ['error', 'alert'], ['info']])(
     'when type prop is %s',
-    (type) => {
+    (type, roleType = 'status') => {
       beforeEach(() => {
         wrapper = factory({
           type,
@@ -34,6 +34,10 @@ describe('MessageBar', () => {
 
       it('adds the correct class', () => {
         expect(wrapper.classes()).toContain(type);
+      });
+
+      it('sets the correct role attribute on the wrapper element', () => {
+        expect(wrapper.attributes('role')).toBe(roleType);
       });
     },
   );

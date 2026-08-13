@@ -74,9 +74,10 @@ describe('AlbumItem', () => {
 
       it('shows the correct number of DropdownItem components inside the DropdownSubmenu', () => {
         expect(
-          wrapper.findComponent(DropdownSubmenu).findAllComponents(DropdownItem)
-            .length,
-        ).toBe(album.artists.length);
+          wrapper
+            .findComponent(DropdownSubmenu)
+            .findAllComponents(DropdownItem),
+        ).toHaveLength(album.artists.length);
       });
     });
 

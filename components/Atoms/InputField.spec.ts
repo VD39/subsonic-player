@@ -56,6 +56,18 @@ describe('InputField', () => {
     it('does not show the error element', () => {
       expect(wrapper.find({ ref: 'error' }).exists()).toBe(false);
     });
+
+    it('does not add the aria-describedby attribute to the input element', () => {
+      expect(
+        wrapper.find({ ref: 'input' }).attributes('aria-describedby'),
+      ).toBeUndefined();
+    });
+
+    it('does not set the aria-invalid attribute on the input element', () => {
+      expect(
+        wrapper.find({ ref: 'input' }).attributes('aria-invalid'),
+      ).toBeUndefined();
+    });
   });
 
   describe('when the error prop is set', () => {
@@ -69,12 +81,28 @@ describe('InputField', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('adds  the error class to wrapper element', () => {
+    it('adds the error class to the wrapper element', () => {
       expect(wrapper.classes()).toContain('error');
     });
 
     it('shows the error element', () => {
       expect(wrapper.find({ ref: 'error' }).exists()).toBe(true);
+    });
+
+    it('sets the correct id attribute on the error element', () => {
+      expect(wrapper.find({ ref: 'error' }).attributes('id')).toBe('id-error');
+    });
+
+    it('sets the correct aria-describedby attribute on the input element', () => {
+      expect(
+        wrapper.find({ ref: 'input' }).attributes('aria-describedby'),
+      ).toBe('id-error');
+    });
+
+    it('sets the correct aria-invalid attribute on the input element', () => {
+      expect(wrapper.find({ ref: 'input' }).attributes('aria-invalid')).toBe(
+        'true',
+      );
     });
   });
 

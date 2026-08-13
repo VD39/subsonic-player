@@ -2,21 +2,21 @@
 
 exports[`NavigationItem > matches the snapshot 1`] = `
 "<li>
-  <h4 class="strong mBM sidebarTitle">title</h4>
+  <p class="strong mBM sidebarTitle">title</p>
   <!--v-if-->
 </li>"
 `;
 
 exports[`NavigationItem > when the collapsed prop is true > matches the snapshot 1`] = `
 "<li>
-  <h4 class="strong mBM sidebarTitle visuallyHidden">title</h4>
+  <p class="strong mBM sidebarTitle visuallyHidden">title</p>
   <!--v-if-->
 </li>"
 `;
 
 exports[`NavigationItem > when the default slot is set > matches the snapshot 1`] = `
 "<li>
-  <h4 class="strong mBM sidebarTitle">title</h4>
+  <p class="strong mBM sidebarTitle">title</p>
   <ul>Default slot content.</ul>
 </li>"
 `;

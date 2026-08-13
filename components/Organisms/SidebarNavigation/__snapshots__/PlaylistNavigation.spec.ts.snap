@@ -3,7 +3,7 @@
 exports[`PlaylistItems > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
-    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <p class="strong mBM sidebarTitle">Playlist</p>
     <ul>
       <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-0">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
@@ -22,7 +22,7 @@ exports[`PlaylistItems > matches the snapshot 1`] = `
 exports[`PlaylistItems > when playlist id is random > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
-    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <p class="strong mBM sidebarTitle">Playlist</p>
     <ul>
       <li class=""><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-0">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>
@@ -38,7 +38,7 @@ exports[`PlaylistItems > when playlist id is random > matches the snapshot 1`] =
 exports[`PlaylistItems > when the playlist value is an empty array > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
-    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <p class="strong mBM sidebarTitle">Playlist</p>
     <ul></ul>
   </li>
   <li><button class="centerItems buttonLink centerAll fullWidth sidebarLink sidebarLink" draggable="false" type="button" title="Add playlist">
@@ -50,7 +50,7 @@ exports[`PlaylistItems > when the playlist value is an empty array > matches the
 exports[`PlaylistItems > when the playlist value returns playlists > when the playlist value returned is more than 8 > matches the snapshot 1`] = `
 "<ul class="mBM">
   <li>
-    <h4 class="strong mBM sidebarTitle">Playlist</h4>
+    <p class="strong mBM sidebarTitle">Playlist</p>
     <ul>
       <li class="isDroppable"><a exactactiveclass="sidebarCurrentLink" class="centerItems buttonLink sidebarLink sidebarLink" draggable="false" title="playlist-0">
           <phplaylist aria-hidden="true" class="icon" size="24" weight="regular"></phplaylist><span class="clamp text">playlist-0</span>

@@ -302,9 +302,9 @@ describe('useDragAndDrop', () => {
             it('calls the target.classList.remove 3 times', () => {
               const removeCalls = removeClassMock.mock.calls.filter(
                 (args) => args[0] === DRAG_AND_DROP_CLASS_NAMES.droppedInZone,
-              ).length;
+              );
 
-              expect(removeCalls).toBe(3);
+              expect(removeCalls).toHaveLength(3);
             });
           });
         });

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   type: SnackType;
 }>();
+
+const roleType = computed(() => (props.type === 'error' ? 'alert' : 'status'));
 </script>
 
 <template>
@@ -14,6 +16,7 @@ defineProps<{
       type,
       $style.messageBar,
     ]"
+    :role="roleType"
   >
     <slot />
   </div>

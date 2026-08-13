@@ -25,7 +25,13 @@ const {
 </script>
 
 <template>
-  <div class="queueWrapper column">
+  <div
+    aria-label="Queue player"
+    aria-modal="true"
+    class="queueWrapper column"
+    role="dialog"
+    tabindex="-1"
+  >
     <div
       ref="backgroundImage"
       aria-hidden="true"
@@ -64,6 +70,7 @@ const {
                 <button
                   ref="rewindButton"
                   :class="[$style.rewindFastForwardButton, $style.rewindButton]"
+                  type="button"
                   @click="doubleClick(rewindTrack)"
                 >
                   <span class="visuallyHidden">
@@ -76,6 +83,7 @@ const {
                     $style.rewindFastForwardButton,
                     $style.fastForwardButton,
                   ]"
+                  type="button"
                   @click="doubleClick(fastForwardTrack)"
                 >
                   <span class="visuallyHidden">

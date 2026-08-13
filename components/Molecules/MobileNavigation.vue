@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <nav>
+  <nav aria-label="Mobile">
     <ul
       :class="['inner', 'centerAll', 'spaceBetween', $style.mobileNavigation]"
     >

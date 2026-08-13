@@ -20,7 +20,13 @@ function clearQueue() {
 </script>
 
 <template>
-  <div class="queueWrapper">
+  <div
+    aria-label="Queue list"
+    aria-modal="true"
+    class="queueWrapper"
+    role="dialog"
+    tabindex="-1"
+  >
     <div class="centerAll">
       <ButtonLink
         ref="closeQueueList"

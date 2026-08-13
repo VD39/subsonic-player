@@ -193,8 +193,8 @@ describe('index', () => {
         expect(
           wrapper
             .findComponent({ ref: 'newestAlbumsCarouselSwiper' })
-            .findAll('[data-test-id="newest-album-item"]').length,
-        ).toBe(2);
+            .findAll('[data-test-id="newest-album-item"]'),
+        ).toHaveLength(2);
       });
 
       describe('when the AlbumItem component emits the dragStart event', () => {
@@ -312,8 +312,8 @@ describe('index', () => {
         expect(
           wrapper
             .findComponent({ ref: 'recentAlbumsCarouselSwiper' })
-            .findAll('[data-test-id="recent-album-item"]').length,
-        ).toBe(3);
+            .findAll('[data-test-id="recent-album-item"]'),
+        ).toHaveLength(3);
       });
 
       describe('when the AlbumItem component emits the dragStart event', () => {
@@ -433,8 +433,8 @@ describe('index', () => {
         expect(
           wrapper
             .findComponent({ ref: 'frequentAlbumsCarouselSwiper' })
-            .findAll('[data-test-id="frequent-album-item"]').length,
-        ).toBe(1);
+            .findAll('[data-test-id="frequent-album-item"]'),
+        ).toHaveLength(1);
       });
 
       describe('when the AlbumItem component emits the dragStart event', () => {
@@ -551,8 +551,8 @@ describe('index', () => {
       describe(`when favourites tracks has less than ${PREVIEW_TRACK_COUNT} items`, () => {
         it('shows the correct number of the TracksList component', () => {
           expect(
-            wrapper.findComponent(TracksList).props('tracks').length,
-          ).toEqual(4);
+            wrapper.findComponent(TracksList).props('tracks'),
+          ).toHaveLength(4);
         });
       });
 
@@ -571,8 +571,8 @@ describe('index', () => {
 
         it('sets the correct tracks prop on the TracksList component', () => {
           expect(
-            wrapper.findComponent(TracksList).props('tracks').length,
-          ).toEqual(PREVIEW_TRACK_COUNT);
+            wrapper.findComponent(TracksList).props('tracks'),
+          ).toHaveLength(PREVIEW_TRACK_COUNT);
         });
       });
 
@@ -671,8 +671,8 @@ describe('index', () => {
           expect(
             wrapper
               .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
-              .findAll('[data-test-id="favourite-album-item"]').length,
-          ).toEqual(2);
+              .findAll('[data-test-id="favourite-album-item"]'),
+          ).toHaveLength(2);
         });
       });
 
@@ -693,8 +693,8 @@ describe('index', () => {
           expect(
             wrapper
               .findComponent({ ref: 'favouriteAlbumsCarouselSwiper' })
-              .findAll('[data-test-id="favourite-album-item"]').length,
-          ).toEqual(PREVIEW_ALBUM_COUNT);
+              .findAll('[data-test-id="favourite-album-item"]'),
+          ).toHaveLength(PREVIEW_ALBUM_COUNT);
         });
       });
 
@@ -817,8 +817,8 @@ describe('index', () => {
         expect(
           wrapper
             .findComponent({ ref: 'favouriteArtistsCarouselSwiper' })
-            .findAll('[data-test-id="favourite-artist-item"]').length,
-        ).toBe(3);
+            .findAll('[data-test-id="favourite-artist-item"]'),
+        ).toHaveLength(3);
       });
 
       describe(`when favourites artists has less than ${PREVIEW_ARTIST_COUNT} items`, () => {
@@ -826,8 +826,8 @@ describe('index', () => {
           expect(
             wrapper
               .findComponent({ ref: 'favouriteArtistsCarouselSwiper' })
-              .findAll('[data-test-id="favourite-artist-item"]').length,
-          ).toEqual(3);
+              .findAll('[data-test-id="favourite-artist-item"]'),
+          ).toHaveLength(3);
         });
       });
 
@@ -848,8 +848,8 @@ describe('index', () => {
           expect(
             wrapper
               .findComponent({ ref: 'favouriteArtistsCarouselSwiper' })
-              .findAll('[data-test-id="favourite-artist-item"]').length,
-          ).toEqual(PREVIEW_ARTIST_COUNT);
+              .findAll('[data-test-id="favourite-artist-item"]'),
+          ).toHaveLength(PREVIEW_ARTIST_COUNT);
         });
       });
     });

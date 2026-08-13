@@ -61,6 +61,18 @@ describe('DropdownSubmenu', () => {
     it('does not show the dropdown sub list element', () => {
       expect(wrapper.find({ ref: 'dropdownSubListRef' }).exists()).toBe(false);
     });
+
+    it('sets the correct aria-haspopup attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-haspopup'),
+      ).toBe('menu');
+    });
+
+    it('sets the correct aria-expanded attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-expanded'),
+      ).toBe('false');
+    });
   });
 
   describe('when the isOpen value changes to true', () => {
@@ -76,6 +88,12 @@ describe('DropdownSubmenu', () => {
 
     it('shows the dropdown sub list element', () => {
       expect(wrapper.find({ ref: 'dropdownSubListRef' }).exists()).toBe(true);
+    });
+
+    it('sets the correct aria-expanded attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-expanded'),
+      ).toBe('true');
     });
 
     describe('when the isOpen value changes to false', () => {

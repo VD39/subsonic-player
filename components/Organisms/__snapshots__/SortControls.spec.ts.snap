@@ -2,7 +2,7 @@
 
 exports[`SortControls > matches the snapshot 1`] = `
 "<div class="centerItems mBL sortControls">
-  <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="Sort options">
+  <div class="centerItems dropdownWrapper dropdownMenu"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu" title="Sort options">
       <phfadershorizontal aria-hidden="true" class="icon" size="24" weight="regular"></phfadershorizontal><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub disabled="true" to="#teleports">

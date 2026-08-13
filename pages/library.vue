@@ -77,6 +77,8 @@ useHead({
 <template>
   <LoadingData :status>
     <template v-if="hasData">
+      <h1 class="visuallyHidden">Library</h1>
+
       <template v-if="libraryData.randomAlbums.length">
         <HeaderSeeAllLink
           :to="{

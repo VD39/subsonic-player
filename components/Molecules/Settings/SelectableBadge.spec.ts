@@ -26,8 +26,12 @@ describe('SelectableBadge', () => {
   });
 
   describe('when the selected prop is false', () => {
-    it('sets the correct aria-pressed attribute on the button element', () => {
-      expect(wrapper.attributes('aria-pressed')).toBe('false');
+    it('sets the correct role attribute on the button element', () => {
+      expect(wrapper.attributes('role')).toBe('radio');
+    });
+
+    it('sets the correct aria-checked attribute on the button element', () => {
+      expect(wrapper.attributes('aria-checked')).toBe('false');
     });
 
     it('does not add the selected class to the wrapper element', () => {
@@ -46,8 +50,8 @@ describe('SelectableBadge', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct aria-pressed attribute on the button element', () => {
-      expect(wrapper.attributes('aria-pressed')).toBe('true');
+    it('sets the correct aria-checked attribute on the button element', () => {
+      expect(wrapper.attributes('aria-checked')).toBe('true');
     });
 
     it('adds the selected class to the wrapper element', () => {

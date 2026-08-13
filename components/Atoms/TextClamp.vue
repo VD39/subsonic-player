@@ -76,6 +76,7 @@ onUnmounted(() => {
         v-if="showButton"
         ref="readMore"
         :class="$style.button"
+        type="button"
         @click="$emit('expand')"
       >
         More

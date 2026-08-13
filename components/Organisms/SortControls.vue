@@ -85,7 +85,7 @@ const emit = defineEmits<{
 }
 
 .sortIcon {
-  opacity: 0.3;
+  opacity: 0.5;
   transition: opacity var(--transition);
 
   &:nth-child(2) {

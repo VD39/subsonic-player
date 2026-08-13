@@ -22,7 +22,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -44,7 +44,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -66,7 +66,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -88,7 +88,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -110,7 +110,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > matches the
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -137,7 +137,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -159,7 +159,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -181,7 +181,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -203,7 +203,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -225,7 +225,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -252,7 +252,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-0" class="layoutLink" draggable="false">artist-0</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -274,7 +274,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-1" class="layoutLink" draggable="false">artist-1</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -296,7 +296,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-2" class="layoutLink" draggable="false">artist-2</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -318,7 +318,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-3" class="layoutLink" draggable="false">artist-3</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
@@ -340,7 +340,7 @@ exports[`ArtistsList > when the artists prop is not an empty array > when viewLa
       <p class="strong smallFont clamp2"><a aria-label="Go to artist artist-4" class="layoutLink" draggable="false">artist-4</a></p>
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
-      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+      <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
           <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">

@@ -41,6 +41,8 @@ defineExpose({
 <template>
   <div ref="dropdownMenuRef" class="centerItems dropdownWrapper">
     <ButtonLink
+      :aria-expanded="isOpen"
+      aria-haspopup="menu"
       :class="$style.buttonLink"
       :icon
       iconPosition="right"

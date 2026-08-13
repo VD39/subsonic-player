@@ -10,6 +10,6 @@ exports[`TextClamp > matches the snapshot 1`] = `
 
 exports[`TextClamp > when text does not fit within the maxLines > matches the snapshot 1`] = `
 "<div class="textClamp">
-  <div class="clamp lineClamp" style="--truncate-line-clamp: 2;"><span>This is a long test text that will definitely exceed the max lines...  </span><button class="button"> More </button></div>
+  <div class="clamp lineClamp" style="--truncate-line-clamp: 2;"><span>This is a long test text that will definitely exceed the max lines...  </span><button class="button" type="button"> More </button></div>
 </div>"
 `;

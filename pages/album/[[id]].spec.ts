@@ -257,8 +257,8 @@ describe('[[id]]', () => {
 
       it('shows the correct disc number of disc number title', () => {
         expect(
-          wrapper.findAll('[data-test-id="disc-number-title"]').length,
-        ).toBe(5);
+          wrapper.findAll('[data-test-id="disc-number-title"]'),
+        ).toHaveLength(5);
       });
     });
 

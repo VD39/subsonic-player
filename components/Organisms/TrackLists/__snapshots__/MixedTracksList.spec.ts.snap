@@ -76,7 +76,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -151,7 +151,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -226,7 +226,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -301,7 +301,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -376,7 +376,7 @@ exports[`MixedTracksList > matches the snapshot 1`] = `
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -468,7 +468,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -543,7 +543,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -618,7 +618,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -693,7 +693,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -768,7 +768,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > matches 
         </div><time class="trackCell trackTime">02:00</time>
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -862,7 +862,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -939,7 +939,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1016,7 +1016,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1093,7 +1093,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1170,7 +1170,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1264,7 +1264,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1343,7 +1343,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1422,7 +1422,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1501,7 +1501,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1580,7 +1580,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1676,7 +1676,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1757,7 +1757,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1838,7 +1838,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -1919,7 +1919,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
@@ -2000,7 +2000,7 @@ exports[`MixedTracksList > when the tracks prop is not an empty array > when the
             <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
           </button></div>
         <div class="trackCell trackOptions desktopOnly">
-          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" title="More">
+          <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
               <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">

@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <nav :class="$style.pageNavigation">
+  <nav aria-label="Page" :class="$style.pageNavigation">
     <OverflowShadow>
       <ul :class="['centerItems', $style.navigation]">
         <template v-for="(path, name) in navigation" :key="name">

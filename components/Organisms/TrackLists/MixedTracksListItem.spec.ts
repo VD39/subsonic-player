@@ -294,9 +294,10 @@ describe('MixedTracksListItem', () => {
 
       it('shows the correct number of DropdownItem components inside the DropdownSubmenu', () => {
         expect(
-          wrapper.findComponent(DropdownSubmenu).findAllComponents(DropdownItem)
-            .length,
-        ).toBe((track as Track).artists.length);
+          wrapper
+            .findComponent(DropdownSubmenu)
+            .findAllComponents(DropdownItem),
+        ).toHaveLength((track as Track).artists.length);
       });
     });
 

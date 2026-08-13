@@ -58,6 +58,18 @@ describe('DropdownMenu', () => {
     it('does not show the dropdown list element', () => {
       expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
     });
+
+    it('sets the correct aria-haspopup attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-haspopup'),
+      ).toBe('menu');
+    });
+
+    it('sets the correct aria-expanded attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-expanded'),
+      ).toBe('false');
+    });
   });
 
   describe('when the isOpen value changes to true', () => {
@@ -73,6 +85,12 @@ describe('DropdownMenu', () => {
 
     it('shows the dropdown list element', () => {
       expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(true);
+    });
+
+    it('sets the correct aria-expanded attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-expanded'),
+      ).toBe('true');
     });
 
     describe('when the isOpen value changes to false', () => {

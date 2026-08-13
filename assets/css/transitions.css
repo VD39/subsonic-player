@@ -80,6 +80,14 @@
   .slide-down-leave-active {
     transition: none;
   }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 /* stylelint-enable selector-class-pattern */

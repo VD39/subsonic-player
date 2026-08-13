@@ -44,6 +44,8 @@ const transitionName = computed(() => {
     @mouseenter="openSubmenu"
   >
     <ButtonLink
+      :aria-expanded="isOpen"
+      aria-haspopup="menu"
       class="spaceBetween"
       fullWidth
       :icon="submenuToggleIcon"
