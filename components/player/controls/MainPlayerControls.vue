@@ -1,0 +1,69 @@
+<script setup lang="ts">
+import PlayPauseButton from '@/components/player/controls/PlayPauseButton.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+
+const {
+  canPlayNext,
+  canPlayPrevious,
+  fastForwardTrack,
+  playNextTrack,
+  playPreviousTrack,
+  rewindTrack,
+} = useAudioPlayer();
+const { isPodcastEpisode } = useQueue();
+</script>
+
+<template>
+  <div class="centerItems spaceBetween">
+    <ButtonLink
+      ref="previousTrack"
+      :disabled="!canPlayPrevious"
+      :icon="ICONS.skipBack"
+      iconWeight="fill"
+      title="Previous track"
+      @click="playPreviousTrack"
+    >
+      Previous track
+    </ButtonLink>
+
+    <ButtonLink
+      v-if="isPodcastEpisode"
+      ref="rewind"
+      :icon="ICONS.rewind"
+      :title="REWIND_FAST_FORWARD_TITLES.rewind"
+      @click="rewindTrack"
+    >
+      {{ REWIND_FAST_FORWARD_TITLES.rewind }}
+    </ButtonLink>
+
+    <PlayPauseButton :class="$style.playPauseButton" />
+
+    <ButtonLink
+      v-if="isPodcastEpisode"
+      ref="fastForward"
+      :icon="ICONS.fastForward"
+      :title="REWIND_FAST_FORWARD_TITLES.fastForward"
+      @click="fastForwardTrack"
+    >
+      {{ REWIND_FAST_FORWARD_TITLES.fastForward }}
+    </ButtonLink>
+
+    <ButtonLink
+      ref="nextTrack"
+      :disabled="!canPlayNext"
+      :icon="ICONS.skipForward"
+      iconWeight="fill"
+      title="Next track"
+      @click="playNextTrack"
+    >
+      Next track
+    </ButtonLink>
+  </div>
+</template>
+
+<style module>
+.playPauseButton {
+  margin: 0 var(--space-4);
+  transform: scale(1.5);
+}
+</style>

@@ -2,7 +2,7 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import LoginForm from '@/components/Organisms/LoginForm.vue';
+import LoginForm from '@/components/auth/LoginForm.vue';
 import { authDataMock } from '@/test/fixtures';
 import { useHeadMock } from '@/test/useHeadMock';
 

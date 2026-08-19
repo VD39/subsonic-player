@@ -1,0 +1,44 @@
+<script setup lang="ts">
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistRadioItem from '@/components/tracklist/TracklistRadioItem.vue';
+
+defineProps<{
+  radioStations: RadioStation[];
+}>();
+
+defineEmits<{
+  addToQueue: [radioStation: RadioStation];
+  deleteRadioStation: [radioStationId: string];
+  editRadioStation: [radioStation: RadioStation];
+  playRadioStation: [radioStation: RadioStation];
+}>();
+
+const trackHeaderNames = MEDIA_LIST_COLUMN_HEADERS.radioStations;
+</script>
+
+<template>
+  <div v-if="radioStations.length" ref="radioStationWrapper" class="trackTable">
+    <div class="trackHeader">
+      <div class="trackCell">{{ trackHeaderNames[0] }}</div>
+      <div class="trackCell trackOptions" />
+      <div class="trackCell trackOptions" />
+    </div>
+
+    <TracklistRadioItem
+      v-for="(radioStation, index) in radioStations"
+      :key="radioStation.id"
+      :index
+      :radioStation
+      @addToQueue="$emit('addToQueue', radioStation)"
+      @deleteRadioStation="$emit('deleteRadioStation', radioStation.id)"
+      @editRadioStation="$emit('editRadioStation', radioStation)"
+      @playRadioStation="$emit('playRadioStation', radioStation)"
+    />
+  </div>
+
+  <NoMediaMessage
+    v-else
+    :icon="FALLBACK_ICON_BY_TYPE.radioStation"
+    message="No radio stations found."
+  />
+</template>

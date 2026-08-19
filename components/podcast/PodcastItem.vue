@@ -1,0 +1,125 @@
+<script setup lang="ts">
+import DropdownDivider from '@/components/dropdown/DropdownDivider.vue';
+import DropdownItem from '@/components/dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
+import ImageLink from '@/components/media/ImageLink.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import InteractionWrapper from '@/components/ui/InteractionWrapper.vue';
+
+const props = defineProps<{
+  podcast: Podcast;
+}>();
+
+const emit = defineEmits<{
+  addPodcastToQueue: [podcast: Podcast];
+  deletePodcast: [podcastId: string];
+  dragStart: [podcast: Podcast, event: DragEvent];
+  mediaInformation: [podcast: Podcast];
+  playPodcast: [podcast: Podcast];
+}>();
+
+const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
+
+const podcastProps = computed(() => ({
+  title: `Go to podcast ${props.podcast.name}`,
+  toLink: {
+    name: ROUTE_NAMES.podcast,
+    params: {
+      [ROUTE_PARAM_KEYS.podcast.id]: props.podcast.id,
+      [ROUTE_PARAM_KEYS.podcast.sortBy]: ROUTE_PODCAST_FILTER_PARAMS.All,
+    },
+  },
+}));
+
+const buttonProps = computed(() => ({
+  icon: ICONS.play,
+  text: `Play podcast ${props.podcast.name}`,
+}));
+
+async function goToPodcast() {
+  await navigateTo(podcastProps.value.toLink);
+}
+
+function onDragStart(event: DragEvent) {
+  emit('dragStart', props.podcast, event);
+}
+
+function openDropdownMenu(event: MouseEvent | TouchEvent) {
+  dropdownMenuRef.value?.openDropdownMenu(event);
+}
+</script>
+
+<template>
+  <InteractionWrapper
+    is="article"
+    class="layoutItem"
+    @click="goToPodcast"
+    @contextMenu="openDropdownMenu"
+    @dragStart="onDragStart"
+  >
+    <div class="layoutImage layoutItemImageWrapper">
+      <ImageLink
+        :image="podcast.image"
+        :title="podcastProps.title"
+        :to="podcastProps.toLink"
+      />
+
+      <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
+        <ButtonLink
+          ref="playPodcastButtonLink"
+          class="themeHoverButton"
+          :icon="buttonProps.icon"
+          :title="buttonProps.text"
+          @click="$emit('playPodcast', podcast)"
+        >
+          {{ buttonProps.text }}
+        </ButtonLink>
+      </div>
+    </div>
+
+    <div class="layoutContent">
+      <p class="mBXS strong smallFont clamp2">
+        <NuxtLink
+          :aria-label="podcastProps.title"
+          class="layoutLink"
+          draggable="false"
+          :to="podcastProps.toLink"
+        >
+          {{ podcast.name }}
+        </NuxtLink>
+      </p>
+    </div>
+
+    <div class="layoutDropdownMenu layoutItemHoverActions">
+      <DropdownMenu ref="dropdownMenuRef">
+        <DropdownItem ref="playPodcast" @click="$emit('playPodcast', podcast)">
+          Play podcast
+        </DropdownItem>
+        <DropdownItem
+          ref="addPodcastToQueue"
+          @click="$emit('addPodcastToQueue', podcast)"
+        >
+          Add to queue
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem is="nuxt-link" :to="podcastProps.toLink">
+          Go to podcast
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem
+          ref="mediaInformation"
+          @click="$emit('mediaInformation', podcast)"
+        >
+          Media information
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem
+          ref="deletePodcast"
+          @click="$emit('deletePodcast', podcast.id)"
+        >
+          Delete podcast
+        </DropdownItem>
+      </DropdownMenu>
+    </div>
+  </InteractionWrapper>
+</template>

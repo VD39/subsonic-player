@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MainLoader from '@/components/Atoms/MainLoader.vue';
-import ModalWindow from '@/components/Molecules/ModalWindow.vue';
-import SnackBar from '@/components/Molecules/SnackBar.vue';
+import MainLoader from '@/components/notification/MainLoader.vue';
+import ModalWindow from '@/components/notification/ModalWindow.vue';
+import SnackBar from '@/components/notification/SnackBar.vue';
 
 const { $pwa, hook } = useNuxtApp();
 const { closeModal, openModal } = useModal();

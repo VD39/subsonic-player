@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import PageNavigation from '@/components/navigation/PageNavigation.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import InfiniteScroller from '@/components/ui/InfiniteScroller.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.albums],
@@ -13,7 +13,7 @@ const { getAlbums } = useAlbum();
 const { dragStart } = useDragAndDrop();
 const { viewLayout } = useSettings();
 const { addTracksToQueue, playTracks } = useAudioPlayer();
-const { openAlbumInformationModal } = useMediaInformation();
+const { openAlbumDetailsModal } = useMediaInformation();
 const { getMediaTracks } = useMediaTracks();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album>(
   route.params[ROUTE_PARAM_KEYS.albums.sortBy] as string,
@@ -84,11 +84,11 @@ useHead({
   <PageNavigation :navigation="ALBUMS_NAVIGATION" />
 
   <LoadingData :class="viewLayout" :status="loadingStatus">
-    <AlbumsList
+    <AlbumList
       :albums="albumsData.albums"
       @addToQueue="addAlbumToQueue"
       @dragStart="dragStart"
-      @mediaInformation="openAlbumInformationModal"
+      @mediaInformation="openAlbumDetailsModal"
       @playAlbum="onPlayAlbum"
     />
 

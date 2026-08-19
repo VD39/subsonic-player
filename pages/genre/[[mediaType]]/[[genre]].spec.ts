@@ -2,9 +2,9 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import InfiniteScroller from '@/components/ui/InfiniteScroller.vue';
 import { getFormattedAlbumsMock, getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -43,16 +43,17 @@ mockNuxtImport('usePlaylist', (original) => () => ({
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const { openAlbumInformationModalMock, openTrackInformationModalMock } =
-  vi.hoisted(() => ({
-    openAlbumInformationModalMock: vi.fn(),
-    openTrackInformationModalMock: vi.fn(),
-  }));
+const { openAlbumDetailsModalMock, openTrackDetailsModalMock } = vi.hoisted(
+  () => ({
+    openAlbumDetailsModalMock: vi.fn(),
+    openTrackDetailsModalMock: vi.fn(),
+  }),
+);
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openAlbumInformationModal: openAlbumInformationModalMock,
-  openTrackInformationModal: openTrackInformationModalMock,
+  openAlbumDetailsModal: openAlbumDetailsModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const getMediaTracksMock = vi.hoisted(() => vi.fn());
@@ -106,8 +107,8 @@ async function factory(props = {}, route = '/genre/albums/rock') {
   return mountSuspended(GenrePage, {
     global: {
       stubs: {
-        AlbumsList: true,
-        TracksList: true,
+        AlbumList: true,
+        TracklistGeneric: true,
       },
     },
     props: {
@@ -150,17 +151,17 @@ describe('[[genre]]', () => {
       expect(useHeadTitleMock.value).toBe('rock - albums - Genre');
     });
 
-    it('shows the AlbumsList component', () => {
-      expect(wrapper.findComponent(AlbumsList).exists()).toBe(true);
+    it('shows the AlbumList component', () => {
+      expect(wrapper.findComponent(AlbumList).exists()).toBe(true);
     });
 
-    it('does not show the TracksList component', () => {
-      expect(wrapper.findComponent(TracksList).exists()).toBe(false);
+    it('does not show the TracklistGeneric component', () => {
+      expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(false);
     });
 
-    describe('when the AlbumsList component emits the dragStart event', () => {
+    describe('when the AlbumList component emits the dragStart event', () => {
       beforeEach(() => {
-        wrapper.findComponent(AlbumsList).vm.$emit('dragStart', album);
+        wrapper.findComponent(AlbumList).vm.$emit('dragStart', album);
       });
 
       it('calls the dragStart function with the correct parameters', () => {
@@ -168,11 +169,11 @@ describe('[[genre]]', () => {
       });
     });
 
-    describe('when the AlbumsList component emits the addToQueue event', () => {
+    describe('when the AlbumList component emits the addToQueue event', () => {
       describe('when getMediaTracks returns tracks', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(albumTracks);
-          wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+          wrapper.findComponent(AlbumList).vm.$emit('addToQueue', album);
         });
 
         it('calls the addTracksToQueue function with the correct parameters', () => {
@@ -183,7 +184,7 @@ describe('[[genre]]', () => {
       describe('when getMediaTracks returns null', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(null);
-          wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+          wrapper.findComponent(AlbumList).vm.$emit('addToQueue', album);
         });
 
         it('does not call the addTracksToQueue function', () => {
@@ -192,21 +193,21 @@ describe('[[genre]]', () => {
       });
     });
 
-    describe('when the AlbumsList component emits the mediaInformation event', () => {
+    describe('when the AlbumList component emits the mediaInformation event', () => {
       beforeEach(() => {
-        wrapper.findComponent(AlbumsList).vm.$emit('mediaInformation', album);
+        wrapper.findComponent(AlbumList).vm.$emit('mediaInformation', album);
       });
 
-      it('calls the openAlbumInformationModal function with the correct parameters', () => {
-        expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+      it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+        expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
       });
     });
 
-    describe('when the AlbumsList component emits the playAlbum event', () => {
+    describe('when the AlbumList component emits the playAlbum event', () => {
       describe('when getMediaTracks returns tracks', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(albumTracks);
-          wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+          wrapper.findComponent(AlbumList).vm.$emit('playAlbum', album);
         });
 
         it('calls the playTracks function with the correct parameters', () => {
@@ -217,7 +218,7 @@ describe('[[genre]]', () => {
       describe('when getMediaTracks returns null', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(null);
-          wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+          wrapper.findComponent(AlbumList).vm.$emit('playAlbum', album);
         });
 
         it('does not call the playTracks function', () => {
@@ -242,17 +243,19 @@ describe('[[genre]]', () => {
       expect(useHeadTitleMock.value).toBe('rock - tracks - Genre');
     });
 
-    it('shows the TracksList component', () => {
-      expect(wrapper.findComponent(TracksList).exists()).toBe(true);
+    it('shows the TracklistGeneric component', () => {
+      expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(true);
     });
 
-    it('does not show the AlbumsList component', () => {
-      expect(wrapper.findComponent(AlbumsList).exists()).toBe(false);
+    it('does not show the AlbumList component', () => {
+      expect(wrapper.findComponent(AlbumList).exists()).toBe(false);
     });
 
-    describe('when the TracksList component emits the addToPlaylist event', () => {
+    describe('when the TracklistGeneric component emits the addToPlaylist event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('addToPlaylist', track);
+        wrapper
+          .findComponent(TracklistGeneric)
+          .vm.$emit('addToPlaylist', track);
       });
 
       it('calls the addToPlaylistModal function with the correct parameters', () => {
@@ -260,9 +263,9 @@ describe('[[genre]]', () => {
       });
     });
 
-    describe('when the TracksList component emits the addToQueue event', () => {
+    describe('when the TracklistGeneric component emits the addToQueue event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('addToQueue', track);
+        wrapper.findComponent(TracklistGeneric).vm.$emit('addToQueue', track);
       });
 
       it('calls the addTrackToQueue function with the correct parameters', () => {
@@ -270,9 +273,11 @@ describe('[[genre]]', () => {
       });
     });
 
-    describe('when the TracksList component emits the downloadMedia event', () => {
+    describe('when the TracklistGeneric component emits the downloadMedia event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('downloadMedia', track);
+        wrapper
+          .findComponent(TracklistGeneric)
+          .vm.$emit('downloadMedia', track);
       });
 
       it('calls the downloadTrack function with the correct parameters', () => {
@@ -280,9 +285,9 @@ describe('[[genre]]', () => {
       });
     });
 
-    describe('when the TracksList component emits the dragStart event', () => {
+    describe('when the TracklistGeneric component emits the dragStart event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('dragStart', track);
+        wrapper.findComponent(TracklistGeneric).vm.$emit('dragStart', track);
       });
 
       it('calls the dragStart function with the correct parameters', () => {
@@ -290,19 +295,21 @@ describe('[[genre]]', () => {
       });
     });
 
-    describe('when the TracksList component emits the mediaInformation event', () => {
+    describe('when the TracklistGeneric component emits the mediaInformation event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('mediaInformation', track);
+        wrapper
+          .findComponent(TracklistGeneric)
+          .vm.$emit('mediaInformation', track);
       });
 
-      it('calls the openTrackInformationModal function with the correct parameters', () => {
-        expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
+      it('calls the openTrackDetailsModal function with the correct parameters', () => {
+        expect(openTrackDetailsModalMock).toHaveBeenCalledWith(track);
       });
     });
 
-    describe('when the TracksList component emits the playTrack event', () => {
+    describe('when the TracklistGeneric component emits the playTrack event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('playTrack', 1);
+        wrapper.findComponent(TracklistGeneric).vm.$emit('playTrack', 1);
       });
 
       it('calls the playTracks function with the correct parameters', () => {

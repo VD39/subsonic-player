@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import ArtistLinks from '@/components/Atoms/ArtistLinks.vue';
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import GenreList from '@/components/Atoms/GenreList.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import AlbumTracksList from '@/components/Organisms/TrackLists/AlbumTracksList.vue';
+import ArtistLinkList from '@/components/artist/ArtistLinkList.vue';
+import GenreList from '@/components/artist/GenreList.vue';
+import DropdownItem from '@/components/dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
+import FavouriteButton from '@/components/favourite/FavouriteButton.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistAlbum from '@/components/tracklist/TracklistAlbum.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import EntryHeader from '@/components/ui/EntryHeader.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.album],
@@ -18,7 +18,7 @@ const route = useRoute();
 const { getAlbum } = useAlbum();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useMediaInformation();
+const { openTrackDetailsModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks, playTracksShuffled } =
   useAudioPlayer();
 const { dragStart } = useDragAndDrop();
@@ -66,7 +66,7 @@ useHead({
         :title="albumData.album.name"
         @dragStart="onDragStart"
       >
-        <ArtistLinks
+        <ArtistLinkList
           v-if="albumData.album.artists.length"
           :artists="albumData.album.artists"
         />
@@ -155,13 +155,13 @@ useHead({
           {{ disc }}
         </h3>
 
-        <AlbumTracksList
+        <TracklistAlbum
           :tracks
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
-          @mediaInformation="openTrackInformationModal"
+          @mediaInformation="openTrackDetailsModal"
           @playTrack="onPlayTrack"
         />
       </template>

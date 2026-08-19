@@ -2,9 +2,9 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import InfiniteScroller from '@/components/ui/InfiniteScroller.vue';
 import { getFormattedAlbumsMock, getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -31,11 +31,11 @@ mockNuxtImport('useDragAndDrop', (original) => () => ({
   dragStart: dragStartMock,
 }));
 
-const openAlbumInformationModalMock = vi.hoisted(() => vi.fn());
+const openAlbumDetailsModalMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openAlbumInformationModal: openAlbumInformationModalMock,
+  openAlbumDetailsModal: openAlbumDetailsModalMock,
 }));
 
 const getMediaTracksMock = vi.hoisted(() => vi.fn());
@@ -79,7 +79,7 @@ async function factory(props = {}, route = '/albums/newest') {
   return mountSuspended(AlbumsPage, {
     global: {
       stubs: {
-        AlbumsList: true,
+        AlbumList: true,
       },
     },
     props: {
@@ -108,9 +108,9 @@ describe('[[sortBy]]', () => {
     expect(useHeadTitleMock.value).toBe('newest - Albums');
   });
 
-  describe('when the AlbumsList component emits the dragStart event', () => {
+  describe('when the AlbumList component emits the dragStart event', () => {
     beforeEach(() => {
-      wrapper.findComponent(AlbumsList).vm.$emit('dragStart', album);
+      wrapper.findComponent(AlbumList).vm.$emit('dragStart', album);
     });
 
     it('calls the dragStart function with the correct parameters', () => {
@@ -118,11 +118,11 @@ describe('[[sortBy]]', () => {
     });
   });
 
-  describe('when the AlbumsList component emits the addToQueue event', () => {
+  describe('when the AlbumList component emits the addToQueue event', () => {
     describe('when getMediaTracks returns tracks', () => {
       beforeEach(() => {
         getMediaTracksMock.mockResolvedValue(tracks);
-        wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+        wrapper.findComponent(AlbumList).vm.$emit('addToQueue', album);
       });
 
       it('calls the addTracksToQueue function with the correct parameters', () => {
@@ -133,7 +133,7 @@ describe('[[sortBy]]', () => {
     describe('when getMediaTracks returns null', () => {
       beforeEach(() => {
         getMediaTracksMock.mockResolvedValue(null);
-        wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+        wrapper.findComponent(AlbumList).vm.$emit('addToQueue', album);
       });
 
       it('does not call the addTracksToQueue function', () => {
@@ -142,21 +142,21 @@ describe('[[sortBy]]', () => {
     });
   });
 
-  describe('when the AlbumsList component emits the mediaInformation event', () => {
+  describe('when the AlbumList component emits the mediaInformation event', () => {
     beforeEach(() => {
-      wrapper.findComponent(AlbumsList).vm.$emit('mediaInformation', album);
+      wrapper.findComponent(AlbumList).vm.$emit('mediaInformation', album);
     });
 
-    it('calls the openAlbumInformationModal function with the correct parameters', () => {
-      expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+    it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+      expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
     });
   });
 
-  describe('when the AlbumsList component emits the playAlbum event', () => {
+  describe('when the AlbumList component emits the playAlbum event', () => {
     describe('when getMediaTracks returns tracks', () => {
       beforeEach(() => {
         getMediaTracksMock.mockResolvedValue(tracks);
-        wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+        wrapper.findComponent(AlbumList).vm.$emit('playAlbum', album);
       });
 
       it('calls the playTracks function with the correct parameters', () => {
@@ -167,7 +167,7 @@ describe('[[sortBy]]', () => {
     describe('when getMediaTracks returns null', () => {
       beforeEach(() => {
         getMediaTracksMock.mockResolvedValue(null);
-        wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+        wrapper.findComponent(AlbumList).vm.$emit('playAlbum', album);
       });
 
       it('does not call the playTracks function', () => {

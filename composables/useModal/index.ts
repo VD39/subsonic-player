@@ -1,14 +1,14 @@
-import ReadMore from '@/components/Atoms/ReadMore.vue';
-import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
-import AppUpdate from '@/components/Molecules/AppUpdate.vue';
-import ConfirmDialog from '@/components/Molecules/ConfirmDialog.vue';
-import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
-import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
-import TrackInformation from '@/components/Molecules/TrackInformation.vue';
-import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
-import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
-import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
-import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
+import AlbumDetails from '@/components/album/AlbumDetails.vue';
+import ConfirmDialog from '@/components/notification/ConfirmDialog.vue';
+import AddToPlaylistForm from '@/components/playlist/AddToPlaylistForm.vue';
+import PlaylistForm from '@/components/playlist/PlaylistForm.vue';
+import AddPodcastForm from '@/components/podcast/AddPodcastForm.vue';
+import PodcastDetails from '@/components/podcast/PodcastDetails.vue';
+import PodcastEpisodeDetails from '@/components/podcast/PodcastEpisodeDetails.vue';
+import AddRadioStationForm from '@/components/radio/RadioStationForm.vue';
+import AppUpdate from '@/components/settings/AppUpdate.vue';
+import TrackDetails from '@/components/track-details/TrackDetails.vue';
+import ReadMore from '@/components/ui/ReadMore.vue';
 
 export function useModal() {
   const { lockScroll, unlockScroll } = useScrollLock('modal');
@@ -31,7 +31,7 @@ export function useModal() {
   ) {
     modal.value = {
       attrs,
-      component: markRaw(AddUpdatePlaylistForm),
+      component: markRaw(PlaylistForm),
       title: `${update ? 'Update' : 'Add'} playlist`,
     };
   }
@@ -55,18 +55,18 @@ export function useModal() {
     };
   }
 
-  function openPodcastEpisodeInformationModal(attrs: ModalProps['attrs']) {
+  function openPodcastEpisodeDetailsModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(PodcastEpisodeInformation),
+      component: markRaw(PodcastEpisodeDetails),
       title: 'Podcast episode information',
     };
   }
 
-  function openPodcastInformationModal(attrs: ModalProps['attrs']) {
+  function openPodcastDetailsModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(PodcastInformation),
+      component: markRaw(PodcastDetails),
       title: 'Podcast information',
     };
   }
@@ -82,7 +82,7 @@ export function useModal() {
   function openTrackDetailsModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(TrackInformation),
+      component: markRaw(TrackDetails),
       title: 'Track Details',
     };
   }
@@ -90,7 +90,7 @@ export function useModal() {
   function openAlbumDetailsModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
-      component: markRaw(AlbumInformation),
+      component: markRaw(AlbumDetails),
       title: 'Album Details',
     };
   }
@@ -143,10 +143,10 @@ export function useModal() {
         openConfirmDialog(attrs);
         break;
       case MODAL_TYPE.podcastEpisodeInformationModal:
-        openPodcastEpisodeInformationModal(attrs);
+        openPodcastEpisodeDetailsModal(attrs);
         break;
       case MODAL_TYPE.podcastInformationModal:
-        openPodcastInformationModal(attrs);
+        openPodcastDetailsModal(attrs);
         break;
       case MODAL_TYPE.readMoreModal:
         openReadMoreModal(attrs);

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import FilesList from '@/components/Organisms/FilesList.vue';
+import FileList from '@/components/file-browser/FileList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 
 const route = useRoute();
 
 const { addToPlaylistModal } = usePlaylist();
 const { downloadTrack, getMediaLibraryContent } = useMediaLibrary();
-const { openTrackInformationModal } = useMediaInformation();
+const { openTrackDetailsModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 
 /* istanbul ignore next -- @preserve */
@@ -60,13 +60,13 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status>
-    <FilesList
+    <FileList
       :folders="musicDirectoryData.musicDirectory.folders"
       :tracks="musicDirectoryData.musicDirectory.tracks"
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadTrack"
-      @mediaInformation="openTrackInformationModal"
+      @mediaInformation="openTrackDetailsModal"
       @playTrack="onPlayTrack"
     />
   </LoadingData>

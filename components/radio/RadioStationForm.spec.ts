@@ -1,0 +1,99 @@
+import type { VueWrapper } from '@vue/test-utils';
+
+import { mount } from '@vue/test-utils';
+
+import SubmitButton from '@/components/ui/SubmitButton.vue';
+import { formattedRadioStationMock } from '@/test/fixtures';
+
+import RadioStationForm from './RadioStationForm.vue';
+
+function factory(props = {}) {
+  return mount(RadioStationForm, {
+    props: {
+      ...props,
+    },
+  });
+}
+
+describe('RadioStationForm', () => {
+  let wrapper: VueWrapper;
+
+  beforeEach(() => {
+    wrapper = factory();
+  });
+
+  it('matches the snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  describe('when the radioStation prop is not set', () => {
+    it('sets the correct SubmitButton text', () => {
+      expect(wrapper.findComponent(SubmitButton).text()).toBe(
+        'Add radio station',
+      );
+    });
+  });
+
+  describe('when the radioStation prop is set', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        radioStation: formattedRadioStationMock,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct SubmitButton text', () => {
+      expect(wrapper.findComponent(SubmitButton).text()).toBe(
+        'Update radio station',
+      );
+    });
+  });
+
+  describe('when form is invalid', () => {
+    beforeEach(async () => {
+      wrapper
+        .findComponent({ ref: 'streamUrl' })
+        .vm.$emit('update:modelValue', 'test.com');
+      wrapper
+        .findComponent({ ref: 'homepageUrl' })
+        .vm.$emit('update:modelValue', 'https://www.test.com');
+      await wrapper.trigger('submit');
+    });
+
+    it('does not emit submit event', () => {
+      expect(wrapper.emitted('submit')).toBeUndefined();
+    });
+  });
+
+  describe('when form is valid', () => {
+    beforeEach(async () => {
+      wrapper = factory();
+      wrapper
+        .findComponent({ ref: 'name' })
+        .vm.$emit('update:modelValue', 'name');
+      wrapper
+        .findComponent({ ref: 'streamUrl' })
+        .vm.$emit('update:modelValue', 'https://www.test.com');
+      await wrapper.trigger('submit');
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('emits submit event with the form values', () => {
+      expect(wrapper.emitted('submit')).toEqual([
+        [
+          {
+            homepageUrl: '',
+            name: 'name',
+            streamUrl: 'https://www.test.com',
+          },
+        ],
+      ]);
+    });
+  });
+});

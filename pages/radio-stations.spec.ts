@@ -3,8 +3,8 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import RadioStationsList from '@/components/Organisms/TrackLists/RadioStationsList.vue';
+import TracklistRadio from '@/components/tracklist/TracklistRadio.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 import { getFormattedRadioStationMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -100,10 +100,10 @@ describe('radio-stations', () => {
     });
   });
 
-  describe('when the RadioStationsList component emits the addToQueue event', () => {
+  describe('when the TracklistRadio component emits the addToQueue event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(RadioStationsList)
+        .findComponent(TracklistRadio)
         .vm.$emit('addToQueue', radioStation);
     });
 
@@ -112,10 +112,10 @@ describe('radio-stations', () => {
     });
   });
 
-  describe('when the RadioStationsList component emits the deleteRadioStation event', () => {
+  describe('when the TracklistRadio component emits the deleteRadioStation event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(RadioStationsList)
+        .findComponent(TracklistRadio)
         .vm.$emit('deleteRadioStation', radioStation.id);
     });
 
@@ -124,10 +124,10 @@ describe('radio-stations', () => {
     });
   });
 
-  describe('when the RadioStationsList component emits the editRadioStation event', () => {
+  describe('when the TracklistRadio component emits the editRadioStation event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(RadioStationsList)
+        .findComponent(TracklistRadio)
         .vm.$emit('editRadioStation', radioStation);
     });
 
@@ -136,10 +136,10 @@ describe('radio-stations', () => {
     });
   });
 
-  describe('when the RadioStationsList component emits the playRadioStation event', () => {
+  describe('when the TracklistRadio component emits the playRadioStation event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(RadioStationsList)
+        .findComponent(TracklistRadio)
         .vm.$emit('playRadioStation', radioStation);
     });
 

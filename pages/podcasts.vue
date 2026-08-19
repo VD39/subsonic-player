@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import GridWrapper from '@/components/Atoms/GridWrapper.vue';
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import PodcastItem from '@/components/Organisms/PodcastItem.vue';
-import SortControls from '@/components/Organisms/SortControls.vue';
-import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import PodcastItem from '@/components/podcast/PodcastItem.vue';
+import TracklistPodcast from '@/components/tracklist/TracklistPodcast.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import GridWrapper from '@/components/ui/GridWrapper.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
+import SortControls from '@/components/ui/SortControls.vue';
 
 const { viewLayout } = useSettings();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { deletePodcastEpisodeGlobally, deletePodcastGlobally } =
   usePodcastCleanup();
-const { openPodcastInformationModal, openTrackInformationModal } =
+const { openPodcastDetailsModal, openTrackDetailsModal } =
   useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
@@ -123,14 +123,14 @@ useHead({
           @addPodcastToQueue="onAddPodcastToQueue"
           @deletePodcast="deletePodcastGlobally"
           @dragStart="dragStart"
-          @mediaInformation="openPodcastInformationModal"
+          @mediaInformation="openPodcastDetailsModal"
           @playPodcast="onPlayPodcast"
         />
       </GridWrapper>
 
       <h3>Latest Podcast Episodes</h3>
 
-      <PodcastEpisodesList
+      <TracklistPodcast
         isRecentList
         :podcastEpisodes="newestPodcastEpisodes"
         @addToPlaylist="addToPlaylistModal"
@@ -140,7 +140,7 @@ useHead({
         @downloadPodcastEpisode="downloadPodcastEpisode"
         @dragStart="dragStart"
         @playPodcastEpisode="onPlayPodcastEpisode"
-        @podcastEpisodeInformation="openTrackInformationModal"
+        @podcastEpisodeInformation="openTrackDetailsModal"
       />
     </div>
 

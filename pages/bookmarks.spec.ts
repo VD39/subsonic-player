@@ -3,8 +3,8 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import BookmarksTracksList from '@/components/Organisms/TrackLists/BookmarksTracksList.vue';
+import TracklistBookmark from '@/components/tracklist/TracklistBookmark.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 import { getFormattedBookmarksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -30,11 +30,11 @@ mockNuxtImport('useMediaLibrary', (original) => () => ({
   downloadTrack: downloadTrackMock,
 }));
 
-const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
+const openTrackDetailsModalMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openTrackInformationModal: openTrackInformationModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const { deleteBookmarkMock, getBookmarksMock } = vi.hoisted(() => ({
@@ -128,10 +128,10 @@ describe('bookmarks', () => {
     });
   });
 
-  describe('when the BookmarksTracksList component emits the addToPlaylist event', () => {
+  describe('when the TracklistBookmark component emits the addToPlaylist event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(BookmarksTracksList)
+        .findComponent(TracklistBookmark)
         .vm.$emit('addToPlaylist', bookmark.id, 1);
     });
 
@@ -140,11 +140,9 @@ describe('bookmarks', () => {
     });
   });
 
-  describe('when the BookmarksTracksList component emits the addToQueue event', () => {
+  describe('when the TracklistBookmark component emits the addToQueue event', () => {
     beforeEach(() => {
-      wrapper
-        .findComponent(BookmarksTracksList)
-        .vm.$emit('addToQueue', bookmark);
+      wrapper.findComponent(TracklistBookmark).vm.$emit('addToQueue', bookmark);
     });
 
     it('calls the addTrackToQueue function with the correct parameters', () => {
@@ -152,11 +150,9 @@ describe('bookmarks', () => {
     });
   });
 
-  describe('when the BookmarksTracksList component emits the dragStart event', () => {
+  describe('when the TracklistBookmark component emits the dragStart event', () => {
     beforeEach(() => {
-      wrapper
-        .findComponent(BookmarksTracksList)
-        .vm.$emit('dragStart', DragEvent);
+      wrapper.findComponent(TracklistBookmark).vm.$emit('dragStart', DragEvent);
     });
 
     it('calls the dragStart function with the correct parameters', () => {
@@ -164,10 +160,10 @@ describe('bookmarks', () => {
     });
   });
 
-  describe('when the BookmarksTracksList component emits the downloadMedia event', () => {
+  describe('when the TracklistBookmark component emits the downloadMedia event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(BookmarksTracksList)
+        .findComponent(TracklistBookmark)
         .vm.$emit('downloadMedia', bookmark);
     });
 
@@ -176,21 +172,21 @@ describe('bookmarks', () => {
     });
   });
 
-  describe('when the BookmarksTracksList component emits the mediaInformation event', () => {
+  describe('when the TracklistBookmark component emits the mediaInformation event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(BookmarksTracksList)
+        .findComponent(TracklistBookmark)
         .vm.$emit('mediaInformation', bookmark);
     });
 
-    it('calls the openTrackInformationModal function with the correct parameters', () => {
-      expect(openTrackInformationModalMock).toHaveBeenCalledWith(bookmark);
+    it('calls the openTrackDetailsModal function with the correct parameters', () => {
+      expect(openTrackDetailsModalMock).toHaveBeenCalledWith(bookmark);
     });
   });
 
-  describe('when the BookmarksTracksList component emits the playTrack event', () => {
+  describe('when the TracklistBookmark component emits the playTrack event', () => {
     beforeEach(() => {
-      wrapper.findComponent(BookmarksTracksList).vm.$emit('playTrack', 0);
+      wrapper.findComponent(TracklistBookmark).vm.$emit('playTrack', 0);
     });
 
     it('calls the playTracks function with correct bookmark', () => {
@@ -198,11 +194,9 @@ describe('bookmarks', () => {
     });
   });
 
-  describe('when the BookmarksTracksList component emits the remove event', () => {
+  describe('when the TracklistBookmark component emits the remove event', () => {
     beforeEach(() => {
-      wrapper
-        .findComponent(BookmarksTracksList)
-        .vm.$emit('remove', bookmark.id);
+      wrapper.findComponent(TracklistBookmark).vm.$emit('remove', bookmark.id);
     });
 
     it('calls the deleteBookmark function with the correct parameters', () => {

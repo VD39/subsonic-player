@@ -1,0 +1,245 @@
+import type { VueWrapper } from '@vue/test-utils';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { mount } from '@vue/test-utils';
+
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+
+import DropdownMenu from './DropdownMenu.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
+const { closeDropdownMenuMock, openDropdownMenuMock } = vi.hoisted(() => ({
+  closeDropdownMenuMock: vi.fn(),
+  openDropdownMenuMock: vi.fn(),
+}));
+const isOpenMock = ref(false);
+const menuStyleMock = ref<Record<string, string>>({});
+
+mockNuxtImport('useDropdownMenu', () => () => ({
+  closeDropdownMenu: closeDropdownMenuMock,
+  isOpen: isOpenMock,
+  menuStyle: menuStyleMock,
+  openDropdownMenu: openDropdownMenuMock,
+}));
+
+function factory(props = {}, slots = {}) {
+  return mount(DropdownMenu, {
+    attachTo: document.body,
+    props: {
+      ...props,
+    },
+    slots: {
+      default: 'Default slot content.',
+      ...slots,
+    },
+  });
+}
+
+describe('DropdownMenu', () => {
+  let wrapper: VueWrapper;
+
+  beforeAll(() => {
+    wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('matches the snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  describe('when the isOpen value is false', () => {
+    it('does not show the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
+    });
+
+    it('sets the correct aria-haspopup attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-haspopup'),
+      ).toBe('menu');
+    });
+
+    it('sets the correct aria-expanded attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-expanded'),
+      ).toBe('false');
+    });
+  });
+
+  describe('when the isOpen value changes to true', () => {
+    beforeAll(async () => {
+      isOpenMock.value = true;
+
+      await nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(true);
+    });
+
+    it('sets the correct aria-expanded attribute on the ButtonLink component', () => {
+      expect(
+        wrapper.findComponent(ButtonLink).attributes('aria-expanded'),
+      ).toBe('true');
+    });
+
+    describe('when the isOpen value changes to false', () => {
+      beforeAll(async () => {
+        isOpenMock.value = false;
+
+        await nextTick();
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('does not show the dropdown list element', () => {
+        expect(wrapper.find({ ref: 'dropdownListRef' }).exists()).toBe(false);
+      });
+    });
+  });
+
+  describe('when the menuStyle has no values', () => {
+    beforeAll(async () => {
+      isOpenMock.value = true;
+      menuStyleMock.value = {};
+
+      await nextTick();
+    });
+
+    it('does not add any style on the dropdown list element', () => {
+      expect(
+        wrapper.find({ ref: 'dropdownListRef' }).attributes('style'),
+      ).toBeUndefined();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+  });
+
+  describe('when the menuStyle has values', () => {
+    beforeAll(async () => {
+      isOpenMock.value = true;
+      menuStyleMock.value = {
+        left: '20px',
+        top: '10px',
+      };
+
+      await nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct style on the dropdown list element', () => {
+      const dropdownElement = wrapper.find({ ref: 'dropdownListRef' });
+
+      expect(dropdownElement.attributes('style')).toContain('top: 10px;');
+      expect(dropdownElement.attributes('style')).toContain('left: 20px;');
+    });
+  });
+
+  describe('when the openDropdownMenu function is called via expose', () => {
+    beforeEach(() => {
+      (
+        wrapper.vm as unknown as { openDropdownMenu: () => void }
+      ).openDropdownMenu();
+    });
+
+    it('calls the openDropdownMenu function from useDropdownMenu', () => {
+      expect(openDropdownMenuMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the ButtonLink component is clicked', () => {
+    describe('when the isOpen value is false', () => {
+      beforeEach(async () => {
+        isOpenMock.value = false;
+        await wrapper.findComponent(ButtonLink).trigger('click');
+      });
+
+      it('calls the openDropdownMenu function', () => {
+        expect(openDropdownMenuMock).toHaveBeenCalled();
+      });
+
+      it('does not call the closeDropdownMenu function', () => {
+        expect(closeDropdownMenuMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when the isOpen value is true', () => {
+      beforeEach(async () => {
+        isOpenMock.value = true;
+        await wrapper.findComponent(ButtonLink).trigger('click');
+      });
+
+      it('calls the closeDropdownMenu function', () => {
+        expect(closeDropdownMenuMock).toHaveBeenCalled();
+      });
+
+      it('does not call the openDropdownMenu function', () => {
+        expect(openDropdownMenuMock).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('when the icon slot is provided', () => {
+    beforeEach(() => {
+      wrapper = factory(
+        {},
+        {
+          icon: '<span data-test="custom-icon">Custom icon</span>',
+        },
+      );
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the icon slot content in the ButtonLink', () => {
+      expect(wrapper.findComponent(ButtonLink).html()).toContain('Custom icon');
+    });
+  });
+
+  describe('when the isStatic prop is false', () => {
+    it('adds the dropdown class to the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).classes()).toContain(
+        'dropdown',
+      );
+    });
+  });
+
+  describe('when the isStatic prop is true', () => {
+    beforeEach(async () => {
+      wrapper = factory({
+        isStatic: true,
+      });
+
+      await nextTick();
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('does not add the dropdown class to the dropdown list element', () => {
+      expect(wrapper.find({ ref: 'dropdownListRef' }).classes()).not.toContain(
+        'dropdown',
+      );
+    });
+  });
+});

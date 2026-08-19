@@ -12,7 +12,7 @@ export default defineVitestConfig({
         '**/docs/**',
         '**/navigations/**',
         '**/test/**',
-        'components/Molecules/CarouselSwiper.vue',
+        'components/ui/CarouselSwiper.vue',
         'error.vue',
         'nuxt.config.ts',
         ...coverageConfigDefaults.exclude,

@@ -4,7 +4,7 @@ export function useMediaInformation() {
   const { getAlbum } = useAlbum();
   const { handleError } = useErrorHandler();
 
-  async function openAlbumInformationModal(album: Album) {
+  async function openAlbumDetailsModal(album: Album) {
     const fullAlbum = await getAlbum(album.id);
 
     if (!fullAlbum) {
@@ -18,7 +18,7 @@ export function useMediaInformation() {
     });
   }
 
-  async function openPodcastInformationModal(podcast: Podcast) {
+  async function openPodcastDetailsModal(podcast: Podcast) {
     const fullPodcast = await getPodcast(podcast.id);
 
     if (!fullPodcast) {
@@ -34,7 +34,7 @@ export function useMediaInformation() {
     });
   }
 
-  function openTrackInformationModal(track: PlayableTrack) {
+  function openTrackDetailsModal(track: PlayableTrack) {
     switch (track.type) {
       case MEDIA_TYPE.podcastEpisode:
         openModal(MODAL_TYPE.podcastEpisodeInformationModal, {
@@ -50,8 +50,8 @@ export function useMediaInformation() {
   }
 
   return {
-    openAlbumInformationModal,
-    openPodcastInformationModal,
-    openTrackInformationModal,
+    openAlbumDetailsModal,
+    openPodcastDetailsModal,
+    openTrackDetailsModal,
   };
 }

@@ -132,7 +132,7 @@ export interface Track {
   id: string;
   image: string;
   index: number;
-  information: TrackInformation;
+  information: TrackDetails;
   name: string;
   peak?: number;
   peakAlbum?: number;
@@ -162,7 +162,7 @@ interface PlaylistInformation {
   public: boolean;
 }
 
-interface TrackInformation {
+interface TrackDetails {
   bitRate: string;
   contentType: string;
   created: string;

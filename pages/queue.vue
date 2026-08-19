@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
+import TracklistMixed from '@/components/tracklist/TracklistMixed.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
 
 const config = useRuntimeConfig();
 const { ENABLE_QUEUE_SYNC } = config.public;
@@ -15,7 +15,7 @@ const {
 const { queueList, resetQueue, restoreQueueStateFromServer } = useQueue();
 const { addToPlaylistModal } = usePlaylist();
 const { downloadTrack } = useMediaLibrary();
-const { openTrackInformationModal } = useMediaInformation();
+const { openTrackDetailsModal } = useMediaInformation();
 const { dragStart } = useDragAndDrop();
 
 /* istanbul ignore next -- @preserve */
@@ -64,12 +64,12 @@ useHead({
     </template>
   </HeaderWithAction>
 
-  <MixedTracksList
+  <TracklistMixed
     :tracks="queueList"
     @addToPlaylist="addToPlaylistModal"
     @downloadMedia="downloadTrack"
     @dragStart="dragStart"
-    @mediaInformation="openTrackInformationModal"
+    @mediaInformation="openTrackDetailsModal"
     @playTrack="playFromQueue"
     @remove="({ index }) => removeFromQueue(index)"
     @sortList="reorderQueueTrack"

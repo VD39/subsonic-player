@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`KeyboardShortcuts > when the isHotkeyListOpened value is false > matches the snapshot 1`] = `
+"<!--v-if-->
+<!--v-if-->"
+`;
+
+exports[`KeyboardShortcuts > when the isHotkeyListOpened value is true > matches the snapshot 1`] = `
+"<div class="hotkeyMappings slide-up-down-enter-from slide-up-down-enter-active">
+  <h2 class="mBM title">Application Hotkey Mappings</h2>
+  <div class="categories">
+    <div class="mBM category">
+      <h3 class="mBM categoryTitle">0</h3>
+      <ul class="list">
+        <li class="spaceBetween item">
+          <p></p>
+          <p class="visuallyHidden"></p>
+          <div class="keys"></div>
+        </li>
+        <li class="spaceBetween item">
+          <p></p>
+          <p class="visuallyHidden"></p>
+          <div class="keys"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<span class="fullscreen"></span>"
+`;

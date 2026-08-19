@@ -3,10 +3,10 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import HeaderSeeAllLink from '@/components/Molecules/HeaderSeeAllLink.vue';
-import AlbumItem from '@/components/Organisms/AlbumItem.vue';
-import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
+import AlbumItem from '@/components/album/AlbumItem.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import PlaylistList from '@/components/playlist/PlaylistList.vue';
+import HeaderSeeAllLink from '@/components/ui/HeaderSeeAllLink.vue';
 import {
   getFormattedAlbumsMock,
   getFormattedArtistsMock,
@@ -61,11 +61,11 @@ mockNuxtImport('usePlaylist', (original) => () => ({
   playlists: playlistsMock,
 }));
 
-const openAlbumInformationModalMock = vi.hoisted(() => vi.fn());
+const openAlbumDetailsModalMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openAlbumInformationModal: openAlbumInformationModalMock,
+  openAlbumDetailsModal: openAlbumDetailsModalMock,
 }));
 
 const getMediaTracksMock = vi.hoisted(() => vi.fn());
@@ -102,7 +102,7 @@ function factory(props = {}) {
   return mount(LibraryPage, {
     global: {
       stubs: {
-        PlaylistsList: true,
+        PlaylistList: true,
       },
     },
     props: {
@@ -230,8 +230,8 @@ describe('library', () => {
             .vm.$emit('mediaInformation', album);
         });
 
-        it('calls the openAlbumInformationModal function with the correct parameters', () => {
-          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+          expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
         });
       });
 
@@ -351,14 +351,14 @@ describe('library', () => {
     });
 
     describe('when playlists is not an empty array', () => {
-      it('shows the PlaylistsList component', () => {
-        expect(wrapper.findComponent(PlaylistsList).exists()).toBe(true);
+      it('shows the PlaylistList component', () => {
+        expect(wrapper.findComponent(PlaylistList).exists()).toBe(true);
       });
 
       describe(`when playlists has less than ${PREVIEW_PLAYLIST_COUNT} items`, () => {
         it('shows the correct number of playlist item', () => {
           expect(
-            wrapper.findComponent(PlaylistsList).props('playlists'),
+            wrapper.findComponent(PlaylistList).props('playlists'),
           ).toHaveLength(2);
         });
       });
@@ -378,7 +378,7 @@ describe('library', () => {
 
         it('shows the correct number of playlist item', () => {
           expect(
-            wrapper.findComponent(PlaylistsList).props('playlists'),
+            wrapper.findComponent(PlaylistList).props('playlists'),
           ).toHaveLength(PREVIEW_PLAYLIST_COUNT);
         });
       });
@@ -445,8 +445,8 @@ describe('library', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the PlaylistsList component', () => {
-        expect(wrapper.findComponent(PlaylistsList).exists()).toBe(false);
+      it('does not show the PlaylistList component', () => {
+        expect(wrapper.findComponent(PlaylistList).exists()).toBe(false);
       });
     });
   });

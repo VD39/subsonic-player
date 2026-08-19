@@ -3,7 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
+import TracklistMixed from '@/components/tracklist/TracklistMixed.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -30,11 +30,11 @@ mockNuxtImport('useMediaLibrary', (original) => () => ({
   downloadTrack: downloadTrackMock,
 }));
 
-const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
+const openTrackDetailsModalMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openTrackInformationModal: openTrackInformationModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const dragStartMock = vi.hoisted(() => vi.fn());
@@ -120,10 +120,10 @@ describe('queue', () => {
     });
   });
 
-  describe('when the MixedTracksList component emits the addToPlaylist event', () => {
+  describe('when the TracklistMixed component emits the addToPlaylist event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(MixedTracksList)
+        .findComponent(TracklistMixed)
         .vm.$emit('addToPlaylist', queueTrack.id, 1);
     });
 
@@ -132,10 +132,10 @@ describe('queue', () => {
     });
   });
 
-  describe('when the MixedTracksList component emits the downloadMedia event', () => {
+  describe('when the TracklistMixed component emits the downloadMedia event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(MixedTracksList)
+        .findComponent(TracklistMixed)
         .vm.$emit('downloadMedia', queueTrack);
     });
 
@@ -144,9 +144,9 @@ describe('queue', () => {
     });
   });
 
-  describe('when the MixedTracksList component emits the dragStart event', () => {
+  describe('when the TracklistMixed component emits the dragStart event', () => {
     beforeEach(() => {
-      wrapper.findComponent(MixedTracksList).vm.$emit('dragStart', queueTrack);
+      wrapper.findComponent(TracklistMixed).vm.$emit('dragStart', queueTrack);
     });
 
     it('calls the dragStart function with the correct parameters', () => {
@@ -154,21 +154,21 @@ describe('queue', () => {
     });
   });
 
-  describe('when the MixedTracksList component emits the mediaInformation event', () => {
+  describe('when the TracklistMixed component emits the mediaInformation event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(MixedTracksList)
+        .findComponent(TracklistMixed)
         .vm.$emit('mediaInformation', queueTrack);
     });
 
-    it('calls the openTrackInformationModal function with the correct parameters', () => {
-      expect(openTrackInformationModalMock).toHaveBeenCalledWith(queueTrack);
+    it('calls the openTrackDetailsModal function with the correct parameters', () => {
+      expect(openTrackDetailsModalMock).toHaveBeenCalledWith(queueTrack);
     });
   });
 
-  describe('when the MixedTracksList component emits the playTrack event', () => {
+  describe('when the TracklistMixed component emits the playTrack event', () => {
     beforeEach(() => {
-      wrapper.findComponent(MixedTracksList).vm.$emit('playTrack', queueTrack);
+      wrapper.findComponent(TracklistMixed).vm.$emit('playTrack', queueTrack);
     });
 
     it('calls the playFromQueue function with the correct parameters', () => {
@@ -176,9 +176,9 @@ describe('queue', () => {
     });
   });
 
-  describe('when the MixedTracksList component emits the remove event', () => {
+  describe('when the TracklistMixed component emits the remove event', () => {
     beforeEach(() => {
-      wrapper.findComponent(MixedTracksList).vm.$emit('remove', {
+      wrapper.findComponent(TracklistMixed).vm.$emit('remove', {
         index: 0,
       });
     });
@@ -188,9 +188,9 @@ describe('queue', () => {
     });
   });
 
-  describe('when the MixedTracksList component emits the sortList event', () => {
+  describe('when the TracklistMixed component emits the sortList event', () => {
     beforeEach(() => {
-      wrapper.findComponent(MixedTracksList).vm.$emit('sortList', 0, 2);
+      wrapper.findComponent(TracklistMixed).vm.$emit('sortList', 0, 2);
     });
 
     it('calls the reorderQueueTrack function with the correct parameters', () => {

@@ -3,8 +3,8 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import GridWrapper from '@/components/Atoms/GridWrapper.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import GridWrapper from '@/components/ui/GridWrapper.vue';
 import { getFormattedGenresMock } from '@/test/helpers';
 import { useHeadMock } from '@/test/useHeadMock';
 

@@ -2,11 +2,11 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import TextClamp from '@/components/Atoms/TextClamp.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistPodcast from '@/components/tracklist/TracklistPodcast.vue';
+import EntryHeader from '@/components/ui/EntryHeader.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
+import TextClamp from '@/components/ui/TextClamp.vue';
 import {
   getFormattedPodcastEpisodesMock,
   getFormattedPodcastsMock,
@@ -48,11 +48,11 @@ mockNuxtImport('usePlaylist', (original) => () => ({
   addToPlaylistModal: addToPlaylistModalMock,
 }));
 
-const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
+const openTrackDetailsModalMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openTrackInformationModal: openTrackInformationModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const dragStartMock = vi.hoisted(() => vi.fn());
@@ -111,7 +111,7 @@ async function factory(props = {}, route = '/podcast/all/id') {
   return mountSuspended(PodcastPage, {
     global: {
       stubs: {
-        PodcastEpisodesList: true,
+        TracklistPodcast: true,
       },
     },
     props: {
@@ -412,10 +412,10 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the addToPlaylist event', () => {
+      describe('when the TracklistPodcast component emits the addToPlaylist event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('addToPlaylist', podcastEpisode);
         });
 
@@ -424,10 +424,10 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the addToQueue event', () => {
+      describe('when the TracklistPodcast component emits the addToQueue event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('addToQueue', podcastEpisode);
         });
 
@@ -436,10 +436,10 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the deletePodcastEpisode event', () => {
+      describe('when the TracklistPodcast component emits the deletePodcastEpisode event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('deletePodcastEpisode', podcastEpisode);
         });
 
@@ -450,10 +450,10 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the downloadPodcastEpisode event', () => {
+      describe('when the TracklistPodcast component emits the downloadPodcastEpisode event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('downloadPodcastEpisode', podcastEpisode);
         });
 
@@ -464,10 +464,10 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the downloadMedia event', () => {
+      describe('when the TracklistPodcast component emits the downloadMedia event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('downloadMedia', podcastEpisode);
         });
 
@@ -476,10 +476,10 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the dragStart event', () => {
+      describe('when the TracklistPodcast component emits the dragStart event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('dragStart', podcastEpisode);
         });
 
@@ -488,24 +488,24 @@ describe('[[id]]', () => {
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the podcastEpisodeInformation event', () => {
+      describe('when the TracklistPodcast component emits the podcastEpisodeInformation event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('podcastEpisodeInformation', podcastEpisode);
         });
 
-        it('calls the openTrackInformationModal function with the correct parameters', () => {
-          expect(openTrackInformationModalMock).toHaveBeenCalledWith(
+        it('calls the openTrackDetailsModal function with the correct parameters', () => {
+          expect(openTrackDetailsModalMock).toHaveBeenCalledWith(
             podcastEpisode,
           );
         });
       });
 
-      describe('when the PodcastEpisodesList component emits the playPodcastEpisode event', () => {
+      describe('when the TracklistPodcast component emits the playPodcastEpisode event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(PodcastEpisodesList)
+            .findComponent(TracklistPodcast)
             .vm.$emit('playPodcastEpisode', podcastEpisode);
         });
 
@@ -525,11 +525,9 @@ describe('[[id]]', () => {
             expect(useHeadTitleMock.value).toBe(`title - ${sortBy} - Podcast`);
           });
 
-          it('sets the correct podcastEpisodes prop on the PodcastEpisodesList component', () => {
+          it('sets the correct podcastEpisodes prop on the TracklistPodcast component', () => {
             expect(
-              wrapper
-                .findComponent(PodcastEpisodesList)
-                .props('podcastEpisodes'),
+              wrapper.findComponent(TracklistPodcast).props('podcastEpisodes'),
             ).toEqual(
               podcastMock.value.id!.episodes[sortBy as PodcastSortByParam],
             );

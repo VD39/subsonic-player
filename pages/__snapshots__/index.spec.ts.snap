@@ -83,7 +83,7 @@ exports[`index > when data returns a value > matches the snapshot 1`] = `
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -193,7 +193,7 @@ exports[`index > when data returns a value > when favourites albums is an empty 
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <!--v-if-->
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
@@ -286,7 +286,7 @@ exports[`index > when data returns a value > when favourites albums is not an em
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -435,7 +435,7 @@ exports[`index > when data returns a value > when favourites artists is an empty
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -525,7 +525,7 @@ exports[`index > when data returns a value > when favourites artists is not an e
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -777,7 +777,7 @@ exports[`index > when data returns a value > when favourites tracks is not an em
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -873,7 +873,7 @@ exports[`index > when data returns a value > when frequentAlbums is an empty arr
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -966,7 +966,7 @@ exports[`index > when data returns a value > when newestAlbums is an empty array
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
@@ -1056,7 +1056,7 @@ exports[`index > when data returns a value > when recentAlbums is an empty array
     <h2 class="header"><a draggable="false"> Favourite Tracks <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
-  <tracks-list-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracks-list-stub>
+  <tracklist-generic-stub tracks="[object Object],[object Object],[object Object],[object Object]"></tracklist-generic-stub>
   <div class="centerItems spaceBetween">
     <h2 class="header"><a draggable="false"> Favourite Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import PageNavigation from '@/components/navigation/PageNavigation.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import InfiniteScroller from '@/components/ui/InfiniteScroller.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.genre],
@@ -14,8 +14,7 @@ const { viewLayout } = useSettings();
 const { getMediaByGenre } = useGenre();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openAlbumInformationModal, openTrackInformationModal } =
-  useMediaInformation();
+const { openAlbumDetailsModal, openTrackDetailsModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { fetchMoreData, hasMore } = useInfinityLoading<Album & Track>(
   `${route.params[ROUTE_PARAM_KEYS.genre.genre]}-${route.params[ROUTE_PARAM_KEYS.genre.mediaType]}`,
@@ -99,7 +98,7 @@ useHead({
   <PageNavigation :navigation="GENRE_NAVIGATION" />
 
   <LoadingData :class="viewLayout" :status="loadingStatus">
-    <AlbumsList
+    <AlbumList
       v-if="
         route.params[ROUTE_PARAM_KEYS.genre.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Albums
@@ -107,11 +106,11 @@ useHead({
       :albums="genreData.genreMedia"
       @addToQueue="addAlbumToQueue"
       @dragStart="dragStart"
-      @mediaInformation="openAlbumInformationModal"
+      @mediaInformation="openAlbumDetailsModal"
       @playAlbum="onPlayAlbum"
     />
 
-    <TracksList
+    <TracklistGeneric
       v-if="
         route.params[ROUTE_PARAM_KEYS.genre.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
@@ -121,7 +120,7 @@ useHead({
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadTrack"
       @dragStart="dragStart"
-      @mediaInformation="openTrackInformationModal"
+      @mediaInformation="openTrackDetailsModal"
       @playTrack="onPlayTrack"
     />
 

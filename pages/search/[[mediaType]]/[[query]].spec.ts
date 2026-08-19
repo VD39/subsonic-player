@@ -2,11 +2,11 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import InfiniteScroller from '@/components/Molecules/InfiniteScroller.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import ArtistsList from '@/components/Organisms/ArtistsList.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import InfiniteScroller from '@/components/ui/InfiniteScroller.vue';
 import {
   getFormattedAlbumsMock,
   getFormattedArtistsMock,
@@ -42,16 +42,17 @@ mockNuxtImport('useSearch', (original) => () => ({
   search: searchMock,
 }));
 
-const { openAlbumInformationModalMock, openTrackInformationModalMock } =
-  vi.hoisted(() => ({
-    openAlbumInformationModalMock: vi.fn(),
-    openTrackInformationModalMock: vi.fn(),
-  }));
+const { openAlbumDetailsModalMock, openTrackDetailsModalMock } = vi.hoisted(
+  () => ({
+    openAlbumDetailsModalMock: vi.fn(),
+    openTrackDetailsModalMock: vi.fn(),
+  }),
+);
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openAlbumInformationModal: openAlbumInformationModalMock,
-  openTrackInformationModal: openTrackInformationModalMock,
+  openAlbumDetailsModal: openAlbumDetailsModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const getMediaTracksMock = vi.hoisted(() => vi.fn());
@@ -103,9 +104,9 @@ async function factory(props = {}, route = '/search/albums/test-query') {
   return mountSuspended(SearchPage, {
     global: {
       stubs: {
-        AlbumsList: true,
-        ArtistsList: true,
-        TracksList: true,
+        AlbumList: true,
+        ArtistList: true,
+        TracklistGeneric: true,
       },
     },
     props: {
@@ -184,21 +185,21 @@ describe('[[query]]', () => {
       expect(useHeadTitleMock.value).toBe('test query - albums - Search');
     });
 
-    it('shows the AlbumsList component', () => {
-      expect(wrapper.findComponent(AlbumsList).exists()).toBe(true);
+    it('shows the AlbumList component', () => {
+      expect(wrapper.findComponent(AlbumList).exists()).toBe(true);
     });
 
-    it('does not show the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+    it('does not show the ArtistList component', () => {
+      expect(wrapper.findComponent(ArtistList).exists()).toBe(false);
     });
 
-    it('does not show the TracksList component', () => {
-      expect(wrapper.findComponent(TracksList).exists()).toBe(false);
+    it('does not show the TracklistGeneric component', () => {
+      expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(false);
     });
 
     describe('when the AlbumItem component emits the dragStart event', () => {
       beforeEach(() => {
-        wrapper.findComponent(AlbumsList).vm.$emit('dragStart', album);
+        wrapper.findComponent(AlbumList).vm.$emit('dragStart', album);
       });
 
       it('calls the dragStart function with the correct parameters', () => {
@@ -206,11 +207,11 @@ describe('[[query]]', () => {
       });
     });
 
-    describe('when the AlbumsList component emits the addToQueue event', () => {
+    describe('when the AlbumList component emits the addToQueue event', () => {
       describe('when getMediaTracks returns tracks', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(albumTracks);
-          wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+          wrapper.findComponent(AlbumList).vm.$emit('addToQueue', album);
         });
 
         it('calls the addTracksToQueue function with the correct parameters', () => {
@@ -221,7 +222,7 @@ describe('[[query]]', () => {
       describe('when getMediaTracks returns null', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(null);
-          wrapper.findComponent(AlbumsList).vm.$emit('addToQueue', album);
+          wrapper.findComponent(AlbumList).vm.$emit('addToQueue', album);
         });
 
         it('does not call the addTracksToQueue function', () => {
@@ -230,21 +231,21 @@ describe('[[query]]', () => {
       });
     });
 
-    describe('when the AlbumsList component emits the mediaInformation event', () => {
+    describe('when the AlbumList component emits the mediaInformation event', () => {
       beforeEach(() => {
-        wrapper.findComponent(AlbumsList).vm.$emit('mediaInformation', album);
+        wrapper.findComponent(AlbumList).vm.$emit('mediaInformation', album);
       });
 
-      it('calls the openAlbumInformationModal function with the correct parameters', () => {
-        expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+      it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+        expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
       });
     });
 
-    describe('when the AlbumsList component emits the playAlbum event', () => {
+    describe('when the AlbumList component emits the playAlbum event', () => {
       describe('when getMediaTracks returns tracks', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(albumTracks);
-          wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+          wrapper.findComponent(AlbumList).vm.$emit('playAlbum', album);
         });
 
         it('calls the playTracks function with the correct parameters', () => {
@@ -255,7 +256,7 @@ describe('[[query]]', () => {
       describe('when getMediaTracks returns null', () => {
         beforeEach(() => {
           getMediaTracksMock.mockResolvedValue(null);
-          wrapper.findComponent(AlbumsList).vm.$emit('playAlbum', album);
+          wrapper.findComponent(AlbumList).vm.$emit('playAlbum', album);
         });
 
         it('does not call the playTracks function', () => {
@@ -282,16 +283,16 @@ describe('[[query]]', () => {
       expect(useHeadTitleMock.value).toBe('test query - artists - Search');
     });
 
-    it('shows the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(true);
+    it('shows the ArtistList component', () => {
+      expect(wrapper.findComponent(ArtistList).exists()).toBe(true);
     });
 
-    it('does not show the AlbumsList component', () => {
-      expect(wrapper.findComponent(AlbumsList).exists()).toBe(false);
+    it('does not show the AlbumList component', () => {
+      expect(wrapper.findComponent(AlbumList).exists()).toBe(false);
     });
 
-    it('does not show the TracksList component', () => {
-      expect(wrapper.findComponent(TracksList).exists()).toBe(false);
+    it('does not show the TracklistGeneric component', () => {
+      expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(false);
     });
   });
 
@@ -312,21 +313,23 @@ describe('[[query]]', () => {
       expect(useHeadTitleMock.value).toBe('test query - tracks - Search');
     });
 
-    it('shows the TracksList component', () => {
-      expect(wrapper.findComponent(TracksList).exists()).toBe(true);
+    it('shows the TracklistGeneric component', () => {
+      expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(true);
     });
 
-    it('does not show the AlbumsList component', () => {
-      expect(wrapper.findComponent(AlbumsList).exists()).toBe(false);
+    it('does not show the AlbumList component', () => {
+      expect(wrapper.findComponent(AlbumList).exists()).toBe(false);
     });
 
-    it('does not show the ArtistsList component', () => {
-      expect(wrapper.findComponent(ArtistsList).exists()).toBe(false);
+    it('does not show the ArtistList component', () => {
+      expect(wrapper.findComponent(ArtistList).exists()).toBe(false);
     });
 
     describe('when the TrackItem component emits the addToPlaylist event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('addToPlaylist', track);
+        wrapper
+          .findComponent(TracklistGeneric)
+          .vm.$emit('addToPlaylist', track);
       });
 
       it('calls the addToPlaylistModal function with the correct parameters', () => {
@@ -336,7 +339,7 @@ describe('[[query]]', () => {
 
     describe('when the TrackItem component emits the addToQueue event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('addToQueue', track);
+        wrapper.findComponent(TracklistGeneric).vm.$emit('addToQueue', track);
       });
 
       it('calls the addTrackToQueue function with the correct parameters', () => {
@@ -346,7 +349,9 @@ describe('[[query]]', () => {
 
     describe('when the TrackItem component emits the downloadMedia event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('downloadMedia', track);
+        wrapper
+          .findComponent(TracklistGeneric)
+          .vm.$emit('downloadMedia', track);
       });
 
       it('calls the downloadTrack function with the correct parameters', () => {
@@ -356,7 +361,7 @@ describe('[[query]]', () => {
 
     describe('when the TrackItem component emits the dragStart event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('dragStart', track);
+        wrapper.findComponent(TracklistGeneric).vm.$emit('dragStart', track);
       });
 
       it('calls the dragStart function with the correct parameters', () => {
@@ -366,17 +371,19 @@ describe('[[query]]', () => {
 
     describe('when the TrackItem component emits the mediaInformation event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('mediaInformation', track);
+        wrapper
+          .findComponent(TracklistGeneric)
+          .vm.$emit('mediaInformation', track);
       });
 
-      it('calls the openTrackInformationModal function with the correct parameters', () => {
-        expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
+      it('calls the openTrackDetailsModal function with the correct parameters', () => {
+        expect(openTrackDetailsModalMock).toHaveBeenCalledWith(track);
       });
     });
 
     describe('when the TrackItem component emits the playTrack event', () => {
       beforeEach(() => {
-        wrapper.findComponent(TracksList).vm.$emit('playTrack', 1);
+        wrapper.findComponent(TracklistGeneric).vm.$emit('playTrack', 1);
       });
 
       it('calls the playTracks function with the correct parameters', () => {

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import RadioStationsList from '@/components/Organisms/TrackLists/RadioStationsList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import TracklistRadio from '@/components/tracklist/TracklistRadio.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 
 const {
   addRadioStationModal,
@@ -67,7 +67,7 @@ useHead({
   </HeaderWithAction>
 
   <LoadingData :status>
-    <RadioStationsList
+    <TracklistRadio
       :radioStations
       @addToQueue="addTrackToQueue"
       @deleteRadioStation="deleteRadioStation"

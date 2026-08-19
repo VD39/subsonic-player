@@ -27,7 +27,7 @@ exports[`[[id]] > when getAlbum does return data > matches the snapshot 1`] = `
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
+        <artist-link-list-stub artists="[object Object],[object Object]"></artist-link-list-stub>
         <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -62,7 +62,7 @@ exports[`[[id]] > when getAlbum does return data > matches the snapshot 1`] = `
       </div>
     </section>
     <!--v-if-->
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
   </div>
 </div>"
 `;
@@ -84,7 +84,7 @@ exports[`[[id]] > when getAlbum does return data > when album.genres is an empty
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
+        <artist-link-list-stub artists="[object Object],[object Object]"></artist-link-list-stub>
         <!--v-if-->
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -119,7 +119,7 @@ exports[`[[id]] > when getAlbum does return data > when album.genres is an empty
       </div>
     </section>
     <!--v-if-->
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
   </div>
 </div>"
 `;
@@ -141,7 +141,7 @@ exports[`[[id]] > when getAlbum does return data > when album.totalDiscNumber is
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
+        <artist-link-list-stub artists="[object Object],[object Object]"></artist-link-list-stub>
         <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -176,15 +176,15 @@ exports[`[[id]] > when getAlbum does return data > when album.totalDiscNumber is
       </div>
     </section>
     <h3 data-test-id="disc-number-title">1</h3>
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
     <h3 data-test-id="disc-number-title">2</h3>
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
     <h3 data-test-id="disc-number-title">3</h3>
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
     <h3 data-test-id="disc-number-title">4</h3>
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
     <h3 data-test-id="disc-number-title">5</h3>
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
   </div>
 </div>"
 `;
@@ -206,7 +206,7 @@ exports[`[[id]] > when getAlbum does return data > when album.trackCount is 1 > 
           <h1>album-0</h1>
           <div class="centerItems"></div>
         </div>
-        <artist-links-stub artists="[object Object],[object Object]"></artist-links-stub>
+        <artist-link-list-stub artists="[object Object],[object Object]"></artist-link-list-stub>
         <genre-list-stub genres="[object Object],[object Object]"></genre-list-stub>
         <ul class="bulletList">
           <li><span class="visuallyHidden">Year: </span> 2024</li>
@@ -241,7 +241,7 @@ exports[`[[id]] > when getAlbum does return data > when album.trackCount is 1 > 
       </div>
     </section>
     <!--v-if-->
-    <album-tracks-list-stub tracks="[object Object]"></album-tracks-list-stub>
+    <tracklist-album-stub tracks="[object Object]"></tracklist-album-stub>
   </div>
 </div>"
 `;

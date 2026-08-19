@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import GenreLink from '@/components/Atoms/GenreLink.vue';
-import GridWrapper from '@/components/Atoms/GridWrapper.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import SortControls from '@/components/Organisms/SortControls.vue';
+import GenreLink from '@/components/artist/GenreLink.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import GridWrapper from '@/components/ui/GridWrapper.vue';
+import SortControls from '@/components/ui/SortControls.vue';
 
 const { getGenres } = useGenre();
 

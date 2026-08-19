@@ -1,16 +1,16 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
-import ReadMore from '@/components/Atoms/ReadMore.vue';
-import AlbumInformation from '@/components/Molecules/AlbumInformation.vue';
-import AppUpdate from '@/components/Molecules/AppUpdate.vue';
-import ConfirmDialog from '@/components/Molecules/ConfirmDialog.vue';
-import PodcastEpisodeInformation from '@/components/Molecules/PodcastEpisodeInformation.vue';
-import PodcastInformation from '@/components/Molecules/PodcastInformation.vue';
-import TrackDetails from '@/components/Molecules/TrackInformation.vue';
-import AddPodcastForm from '@/components/Organisms/AddPodcastForm.vue';
-import AddToPlaylistForm from '@/components/Organisms/AddToPlaylistForm.vue';
-import AddUpdatePlaylistForm from '@/components/Organisms/AddUpdatePlaylistForm.vue';
-import AddRadioStationForm from '@/components/Organisms/AddUpdateRadioStationForm.vue';
+import AlbumDetails from '@/components/album/AlbumDetails.vue';
+import ConfirmDialog from '@/components/notification/ConfirmDialog.vue';
+import AddToPlaylistForm from '@/components/playlist/AddToPlaylistForm.vue';
+import PlaylistForm from '@/components/playlist/PlaylistForm.vue';
+import AddPodcastForm from '@/components/podcast/AddPodcastForm.vue';
+import PodcastDetails from '@/components/podcast/PodcastDetails.vue';
+import PodcastEpisodeDetails from '@/components/podcast/PodcastEpisodeDetails.vue';
+import AddRadioStationForm from '@/components/radio/RadioStationForm.vue';
+import AppUpdate from '@/components/settings/AppUpdate.vue';
+import TrackDetails from '@/components/track-details/TrackDetails.vue';
+import ReadMore from '@/components/ui/ReadMore.vue';
 import { documentEventListenerMock } from '@/test/eventListenersMock';
 
 import { useModal } from './index';
@@ -49,7 +49,7 @@ describe('useModal', () => {
     describe.each([
       [
         MODAL_TYPE.addPlaylistModal,
-        AddUpdatePlaylistForm,
+        PlaylistForm,
         'Add playlist',
         {
           attrs: 'attrs',
@@ -57,7 +57,7 @@ describe('useModal', () => {
       ],
       [
         MODAL_TYPE.updatePlaylistModal,
-        AddUpdatePlaylistForm,
+        PlaylistForm,
         'Update playlist',
         {
           attrs: 'attrs',
@@ -89,7 +89,7 @@ describe('useModal', () => {
       ],
       [
         MODAL_TYPE.albumDetailsModal,
-        AlbumInformation,
+        AlbumDetails,
         'Album Details',
         {
           attrs: 'attrs',
@@ -105,7 +105,7 @@ describe('useModal', () => {
       ],
       [
         MODAL_TYPE.podcastEpisodeInformationModal,
-        PodcastEpisodeInformation,
+        PodcastEpisodeDetails,
         'Podcast episode information',
         {
           attrs: 'attrs',
@@ -113,7 +113,7 @@ describe('useModal', () => {
       ],
       [
         MODAL_TYPE.podcastInformationModal,
-        PodcastInformation,
+        PodcastDetails,
         'Podcast information',
         {
           attrs: 'attrs',

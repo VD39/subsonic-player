@@ -44,7 +44,7 @@ exports[`podcasts > when getPodcastsAndNewestPodcastEpisodes does return data > 
       <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
     </section>
     <h3>Latest Podcast Episodes</h3>
-    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></podcast-episodes-list-stub>
+    <tracklist-podcast-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></tracklist-podcast-stub>
   </div>
 </div>"
 `;
@@ -75,7 +75,7 @@ exports[`podcasts > when getPodcastsAndNewestPodcastEpisodes does return data > 
       <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
     </section>
     <h3>Latest Podcast Episodes</h3>
-    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></podcast-episodes-list-stub>
+    <tracklist-podcast-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></tracklist-podcast-stub>
   </div>
 </div>"
 `;
@@ -106,7 +106,7 @@ exports[`podcasts > when getPodcastsAndNewestPodcastEpisodes does return data > 
       <podcast-item-stub podcast="[object Object]"></podcast-item-stub>
     </section>
     <h3>Latest Podcast Episodes</h3>
-    <podcast-episodes-list-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></podcast-episodes-list-stub>
+    <tracklist-podcast-stub podcastepisodes="[object Object],[object Object],[object Object]" isrecentlist="true"></tracklist-podcast-stub>
   </div>
 </div>"
 `;

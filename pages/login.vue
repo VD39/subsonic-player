@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import ThemeSwitcher from '@/components/Molecules/ThemeSwitcher.vue';
-import LoginForm from '@/components/Organisms/LoginForm.vue';
+import LoginForm from '@/components/auth/LoginForm.vue';
+import ThemeSwitcher from '@/components/settings/ThemeSwitcher.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
 
 definePageMeta({
   layout: 'login',

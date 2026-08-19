@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import BookmarksTracksList from '@/components/Organisms/TrackLists/BookmarksTracksList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import TracklistBookmark from '@/components/tracklist/TracklistBookmark.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 
 const { dragStart } = useDragAndDrop();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openTrackInformationModal } = useMediaInformation();
+const { openTrackDetailsModal } = useMediaInformation();
 const { addTrackToQueue, playTracks } = useAudioPlayer();
 const { bookmarks, deleteBookmark, getBookmarks } = useBookmark();
 
@@ -62,13 +62,13 @@ useHead({
   </p>
 
   <LoadingData :status>
-    <BookmarksTracksList
+    <TracklistBookmark
       :bookmarks
       @addToPlaylist="addToPlaylistModal"
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadTrack"
       @dragStart="dragStart"
-      @mediaInformation="openTrackInformationModal"
+      @mediaInformation="openTrackDetailsModal"
       @playTrack="playPodcastEpisodeFromBookmarks"
       @remove="deleteBookmark"
     />

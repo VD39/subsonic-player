@@ -1,0 +1,56 @@
+<script setup lang="ts">
+import MessageBar from '@/components/notification/MessageBar.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+
+const { removeSnack, snacks } = useSnack();
+</script>
+
+<template>
+  <Teleport to="#teleports">
+    <Transition name="slide-left-right">
+      <div v-if="snacks.length" ref="snackbarWrapper" :class="$style.wrapper">
+        <TransitionGroup name="slide-left-right">
+          <div
+            v-for="snack in snacks"
+            :key="snack.id"
+            class="mBM"
+            :class="$style.snackbar"
+          >
+            <MessageBar :type="snack.type">
+              <p ref="content" class="sentenceCase">
+                {{ snack.content }}
+              </p>
+
+              <ButtonLink
+                :icon="ICONS.close"
+                title="Clear snack"
+                @click="removeSnack(snack.id)"
+              >
+                Clear snack
+              </ButtonLink>
+            </MessageBar>
+          </div>
+        </TransitionGroup>
+      </div>
+    </Transition>
+  </Teleport>
+</template>
+
+<style module>
+.wrapper {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 15;
+  margin: var(--space-16) var(--space-16) 0;
+
+  @media (--tablet-up) {
+    left: auto;
+  }
+}
+
+.snackbar {
+  @media (--tablet-up) {
+    width: min(50vw, 350px);
+  }
+}
+</style>

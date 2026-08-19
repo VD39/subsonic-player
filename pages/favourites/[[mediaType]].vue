@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import ArtistsList from '@/components/Organisms/ArtistsList.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
+import PageNavigation from '@/components/navigation/PageNavigation.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.favourites],
@@ -16,8 +16,7 @@ const { viewLayout } = useSettings();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
-const { openAlbumInformationModal, openTrackInformationModal } =
-  useMediaInformation();
+const { openAlbumDetailsModal, openTrackDetailsModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 const { getMediaTracks } = useMediaTracks();
@@ -86,7 +85,7 @@ useHead({
   <PageNavigation :navigation="FAVOURITES_NAVIGATION" />
 
   <LoadingData :class="viewLayout" :status>
-    <AlbumsList
+    <AlbumList
       v-if="
         route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Albums
@@ -94,11 +93,11 @@ useHead({
       :albums="favourites.albums"
       @addToQueue="addAlbumToQueue"
       @dragStart="dragStart"
-      @mediaInformation="openAlbumInformationModal"
+      @mediaInformation="openAlbumDetailsModal"
       @playAlbum="onPlayAlbum"
     />
 
-    <ArtistsList
+    <ArtistList
       v-if="
         route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Artists
@@ -106,7 +105,7 @@ useHead({
       :artists="favourites.artists"
     />
 
-    <TracksList
+    <TracklistGeneric
       v-if="
         route.params[ROUTE_PARAM_KEYS.favourites.mediaType] ===
         ROUTE_MEDIA_TYPE_PARAMS.Tracks
@@ -116,7 +115,7 @@ useHead({
       @addToQueue="addTrackToQueue"
       @downloadMedia="downloadTrack"
       @dragStart="dragStart"
-      @mediaInformation="openTrackInformationModal"
+      @mediaInformation="openTrackDetailsModal"
       @playTrack="onPlayTrack"
     />
   </LoadingData>

@@ -1,0 +1,161 @@
+import type { VueWrapper } from '@vue/test-utils';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { mount } from '@vue/test-utils';
+
+import AlbumItem from '@/components/album/AlbumItem.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import GridWrapper from '@/components/ui/GridWrapper.vue';
+import { gridWrapperPropsMock } from '@/test/fixtures';
+import { getFormattedAlbumsMock } from '@/test/helpers';
+
+import AlbumList from './AlbumList.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
+const viewLayoutMock = ref<Layout>('gridLayout');
+
+mockNuxtImport('useSettings', (original) => () => ({
+  ...original(),
+  viewLayout: viewLayoutMock,
+}));
+
+const albums = getFormattedAlbumsMock(5);
+const album = albums[0];
+
+function factory(props = {}) {
+  return mount(AlbumList, {
+    props: {
+      albums: [],
+      ...props,
+    },
+  });
+}
+
+describe('AlbumList', () => {
+  let wrapper: VueWrapper;
+
+  beforeEach(() => {
+    wrapper = factory();
+  });
+
+  it('matches the snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  describe('when the albums prop is an empty array', () => {
+    it('does not show the GridWrapper component', () => {
+      expect(wrapper.findComponent(GridWrapper).exists()).toBe(false);
+    });
+
+    it('shows the NoMediaMessage component', () => {
+      expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(true);
+    });
+  });
+
+  describe('when the albums prop is not an empty array', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        albums,
+      });
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('shows the GridWrapper component', () => {
+      expect(wrapper.findComponent(GridWrapper).exists()).toBe(true);
+    });
+
+    it('shows the correct number of the AlbumItem component', () => {
+      expect(wrapper.findAllComponents(AlbumItem)).toHaveLength(5);
+    });
+
+    it('does not show the NoMediaMessage component', () => {
+      expect(wrapper.findComponent(NoMediaMessage).exists()).toBe(false);
+    });
+
+    describe.each([
+      ['gridLayout', gridWrapperPropsMock.gridView],
+      ['listLayout', gridWrapperPropsMock.listView],
+    ])('when viewLayout is %s', (layout, expectedProps) => {
+      beforeEach(() => {
+        viewLayoutMock.value = layout as Layout;
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it('sets the correct desktop prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('desktopColumns')).toBe(
+          expectedProps.desktop,
+        );
+      });
+
+      it('sets the correct mobile prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('mobileColumns')).toBe(
+          expectedProps.mobile,
+        );
+      });
+
+      it('sets the correct spacing prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('spacing')).toBe(
+          expectedProps.spacing,
+        );
+      });
+
+      it('sets the correct tablet prop on the GridWrapper component', () => {
+        expect(wrapper.findComponent(GridWrapper).props('tabletColumns')).toBe(
+          expectedProps.tablet,
+        );
+      });
+    });
+
+    describe('when the AlbumItem component emits the dragstart event', () => {
+      beforeEach(() => {
+        wrapper
+          .findComponent(AlbumItem)
+          .vm.$emit('dragStart', album, DragEvent);
+      });
+
+      it('emits the dragStart event', () => {
+        expect(wrapper.emitted('dragStart')).toEqual([[album, DragEvent]]);
+      });
+    });
+
+    describe('when the AlbumItem component emits the addToQueue event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumItem).vm.$emit('addToQueue', album);
+      });
+
+      it('emits the addToQueue event', () => {
+        expect(wrapper.emitted('addToQueue')).toEqual([[album]]);
+      });
+    });
+
+    describe('when the AlbumItem component emits the mediaInformation event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumItem).vm.$emit('mediaInformation', album);
+      });
+
+      it('emits the mediaInformation event', () => {
+        expect(wrapper.emitted('mediaInformation')).toEqual([[album]]);
+      });
+    });
+
+    describe('when the AlbumItem component emits the playAlbum event', () => {
+      beforeEach(() => {
+        wrapper.findComponent(AlbumItem).vm.$emit('playAlbum', album);
+      });
+
+      it('emits the playAlbum event', () => {
+        expect(wrapper.emitted('playAlbum')).toEqual([[album]]);
+      });
+    });
+  });
+});

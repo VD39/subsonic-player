@@ -2,8 +2,8 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mockNuxtImport, mountSuspended } from '@nuxt/test-utils/runtime';
 
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import FilesList from '@/components/Organisms/FilesList.vue';
+import FileList from '@/components/file-browser/FileList.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 import { getFormattedTracksMock } from '@/test/helpers';
 import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useHeadMock } from '@/test/useHeadMock';
@@ -33,11 +33,11 @@ mockNuxtImport('useMediaLibrary', (original) => () => ({
   getMediaLibraryContent: getMediaLibraryContentMock,
 }));
 
-const openTrackInformationModalMock = vi.hoisted(() => vi.fn());
+const openTrackDetailsModalMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openTrackInformationModal: openTrackInformationModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const musicDirectoryDataMock = ref({
@@ -66,7 +66,7 @@ async function factory(props = {}, route = '/files/folder1/subfolder') {
   return mountSuspended(FilesPage, {
     global: {
       stubs: {
-        FilesList: true,
+        FileList: true,
       },
     },
     props: {
@@ -105,9 +105,9 @@ describe('[...slug]', () => {
     });
   });
 
-  describe('when the FilesList component emits the addToPlaylist event', () => {
+  describe('when the FileList component emits the addToPlaylist event', () => {
     beforeEach(() => {
-      wrapper.findComponent(FilesList).vm.$emit('addToPlaylist', track);
+      wrapper.findComponent(FileList).vm.$emit('addToPlaylist', track);
     });
 
     it('calls the addToPlaylistModal function with the correct parameters', () => {
@@ -115,9 +115,9 @@ describe('[...slug]', () => {
     });
   });
 
-  describe('when the FilesList component emits the addToQueue event', () => {
+  describe('when the FileList component emits the addToQueue event', () => {
     beforeEach(() => {
-      wrapper.findComponent(FilesList).vm.$emit('addToQueue', track);
+      wrapper.findComponent(FileList).vm.$emit('addToQueue', track);
     });
 
     it('calls the addTrackToQueue function with the correct parameters', () => {
@@ -125,9 +125,9 @@ describe('[...slug]', () => {
     });
   });
 
-  describe('when the FilesList component emits the downloadMedia event', () => {
+  describe('when the FileList component emits the downloadMedia event', () => {
     beforeEach(() => {
-      wrapper.findComponent(FilesList).vm.$emit('downloadMedia', track);
+      wrapper.findComponent(FileList).vm.$emit('downloadMedia', track);
     });
 
     it('calls the downloadTrack function with the correct parameters', () => {
@@ -135,19 +135,19 @@ describe('[...slug]', () => {
     });
   });
 
-  describe('when the FilesList component emits the mediaInformation event', () => {
+  describe('when the FileList component emits the mediaInformation event', () => {
     beforeEach(() => {
-      wrapper.findComponent(FilesList).vm.$emit('mediaInformation', track);
+      wrapper.findComponent(FileList).vm.$emit('mediaInformation', track);
     });
 
-    it('calls the openTrackInformationModal function with the correct parameters', () => {
-      expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
+    it('calls the openTrackDetailsModal function with the correct parameters', () => {
+      expect(openTrackDetailsModalMock).toHaveBeenCalledWith(track);
     });
   });
 
-  describe('when the FilesList component emits the playTrack event', () => {
+  describe('when the FileList component emits the playTrack event', () => {
     beforeEach(() => {
-      wrapper.findComponent(FilesList).vm.$emit('playTrack', 1);
+      wrapper.findComponent(FileList).vm.$emit('playTrack', 1);
     });
 
     it('calls the playTracks function with the correct parameters', () => {

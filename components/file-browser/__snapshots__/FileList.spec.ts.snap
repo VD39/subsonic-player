@@ -1,0 +1,295 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FileList > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <!--v-if-->
+  <div class="trackRow">
+    <div class="trackCell">
+      <div>
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <phinfo class="icon"></phinfo>
+          </div>
+        </div>
+        <p>No folders/files found.</p>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`FileList > when route params does have an Id > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <div class="trackRow">
+    <div class="trackCell">
+      <div>
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <phinfo class="icon"></phinfo>
+          </div>
+        </div>
+        <p>No folders/files found.</p>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`FileList > when the folders prop is not an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="folder">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-0" class="image" draggable="false" src="image-0"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-0</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="folder">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-1" class="image" draggable="false" src="image-1"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-1</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="folder">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-2" class="image" draggable="false" src="image-2"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-2</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="folder">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-3" class="image" draggable="false" src="image-3"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-3</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <div class="lazyLoadContent trackRow" data-test-id="folder">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="track-4" class="image" draggable="false" src="image-4"></div>
+        <div class="marqueeScroll mBXS" inert="">
+          <div class="bulletList inner">
+            <div class="content">track-4</div>
+          </div>
+        </div>
+      </a></div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`FileList > when the tracks prop is not an empty array > matches the snapshot 1`] = `
+"<div class="trackTable">
+  <div class="trackRow">
+    <div class="trackCell"><a draggable="false">
+        <div class="centerAll preloadImage trackImage">
+          <div class="iconImage">
+            <pharrowurightup class="icon"></pharrowurightup>
+          </div>
+        </div> ... <p class="visuallyHidden">Go back</p>
+      </a></div>
+  </div>
+  <!--v-if-->
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
+    <div class="interactionWrapper" draggable="false">
+      <div class="trackCell">
+        <div>
+          <div class="overlapWrapper trackPlayPause withImage">
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0"></div>
+            <p class="overlap trackNumber visuallyHidden">1</p>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
+                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              </button></div>
+          </div>
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-0</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
+      <div class="trackCell trackOptions">
+        <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          </button>
+          <teleport-stub disabled="false" to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
+    <div class="interactionWrapper" draggable="false">
+      <div class="trackCell">
+        <div>
+          <div class="overlapWrapper trackPlayPause withImage">
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1"></div>
+            <p class="overlap trackNumber visuallyHidden">1</p>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
+                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              </button></div>
+          </div>
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-1</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
+      <div class="trackCell trackOptions">
+        <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          </button>
+          <teleport-stub disabled="false" to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
+    <div class="interactionWrapper" draggable="false">
+      <div class="trackCell">
+        <div>
+          <div class="overlapWrapper trackPlayPause withImage">
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2"></div>
+            <p class="overlap trackNumber visuallyHidden">1</p>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
+                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              </button></div>
+          </div>
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-2</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
+      <div class="trackCell trackOptions">
+        <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          </button>
+          <teleport-stub disabled="false" to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
+    <div class="interactionWrapper" draggable="false">
+      <div class="trackCell">
+        <div>
+          <div class="overlapWrapper trackPlayPause withImage">
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3"></div>
+            <p class="overlap trackNumber visuallyHidden">1</p>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
+                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              </button></div>
+          </div>
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-3</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
+      <div class="trackCell trackOptions">
+        <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          </button>
+          <teleport-stub disabled="false" to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lazyLoadContent trackRow trackPlayPauseHover">
+    <div class="interactionWrapper" draggable="false">
+      <div class="trackCell">
+        <div>
+          <div class="overlapWrapper trackPlayPause withImage">
+            <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4"></div>
+            <p class="overlap trackNumber visuallyHidden">1</p>
+            <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
+                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+              </button></div>
+          </div>
+          <div class="marqueeScroll mBXS" inert="">
+            <div class="bulletList inner">
+              <div class="content">
+                <h4>track-4</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
+          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        </button></div>
+      <div class="trackCell trackOptions">
+        <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
+            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          </button>
+          <teleport-stub disabled="false" to="#teleports">
+            <!--v-if-->
+          </teleport-stub>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

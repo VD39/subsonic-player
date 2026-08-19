@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import GenreLink from '@/components/Atoms/GenreLink.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import CarouselSwiper from '@/components/Molecules/CarouselSwiper.vue';
-import HeaderSeeAllLink from '@/components/Molecules/HeaderSeeAllLink.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import AlbumItem from '@/components/Organisms/AlbumItem.vue';
-import ArtistItem from '@/components/Organisms/ArtistItem.vue';
-import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
+import AlbumItem from '@/components/album/AlbumItem.vue';
+import ArtistItem from '@/components/artist/ArtistItem.vue';
+import GenreLink from '@/components/artist/GenreLink.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import PlaylistList from '@/components/playlist/PlaylistList.vue';
+import CarouselSwiper from '@/components/ui/CarouselSwiper.vue';
+import HeaderSeeAllLink from '@/components/ui/HeaderSeeAllLink.vue';
 
 const { getRandomAlbums } = useAlbum();
 const { getArtists } = useArtist();
@@ -14,7 +14,7 @@ const { getGenres } = useGenre();
 const { dragStart } = useDragAndDrop();
 const { getPlaylists, playlists } = usePlaylist();
 const { addTracksToQueue, playTracks } = useAudioPlayer();
-const { openAlbumInformationModal } = useMediaInformation();
+const { openAlbumDetailsModal } = useMediaInformation();
 const { getMediaTracks } = useMediaTracks();
 
 /* istanbul ignore next -- @preserve */
@@ -98,7 +98,7 @@ useHead({
               :album
               @addToQueue="addAlbumToQueue"
               @dragStart="dragStart"
-              @mediaInformation="openAlbumInformationModal"
+              @mediaInformation="openAlbumDetailsModal"
               @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
@@ -158,9 +158,7 @@ useHead({
           Playlist
         </HeaderSeeAllLink>
 
-        <PlaylistsList
-          :playlists="playlists.slice(0, PREVIEW_PLAYLIST_COUNT)"
-        />
+        <PlaylistList :playlists="playlists.slice(0, PREVIEW_PLAYLIST_COUNT)" />
       </template>
     </template>
 

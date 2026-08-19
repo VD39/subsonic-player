@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import InputRange from '@/components/Atoms/InputRange.vue';
-import ToggleSwitch from '@/components/Atoms/ToggleSwitch.vue';
-import AboutApp from '@/components/Molecules/AboutApp.vue';
-import SelectableBadge from '@/components/Molecules/Settings/SelectableBadge.vue';
-import SelectableOption from '@/components/Molecules/Settings/SelectableOption.vue';
-import SettingsField from '@/components/Molecules/Settings/SettingsField.vue';
-import SettingsGroup from '@/components/Molecules/Settings/SettingsGroup.vue';
-import SettingsSection from '@/components/Molecules/Settings/SettingsSection.vue';
+import AboutApp from '@/components/settings/AboutApp.vue';
+import SelectableBadge from '@/components/settings/SelectableBadge.vue';
+import SelectableOption from '@/components/settings/SelectableOption.vue';
+import SettingsField from '@/components/settings/SettingsField.vue';
+import SettingsGroup from '@/components/settings/SettingsGroup.vue';
+import SettingsSection from '@/components/settings/SettingsSection.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import InputRange from '@/components/ui/InputRange.vue';
+import ToggleSwitch from '@/components/ui/ToggleSwitch.vue';
 
 const {
   crossfadeDuration,

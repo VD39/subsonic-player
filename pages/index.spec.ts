@@ -3,11 +3,11 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import HeaderSeeAllLink from '@/components/Molecules/HeaderSeeAllLink.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import AlbumItem from '@/components/Organisms/AlbumItem.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumItem from '@/components/album/AlbumItem.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import HeaderSeeAllLink from '@/components/ui/HeaderSeeAllLink.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 import {
   getFormattedAlbumsMock,
   getFormattedArtistsMock,
@@ -37,16 +37,17 @@ mockNuxtImport('useMediaLibrary', (original) => () => ({
   downloadTrack: downloadTrackMock,
 }));
 
-const { openAlbumInformationModalMock, openTrackInformationModalMock } =
-  vi.hoisted(() => ({
-    openAlbumInformationModalMock: vi.fn(),
-    openTrackInformationModalMock: vi.fn(),
-  }));
+const { openAlbumDetailsModalMock, openTrackDetailsModalMock } = vi.hoisted(
+  () => ({
+    openAlbumDetailsModalMock: vi.fn(),
+    openTrackDetailsModalMock: vi.fn(),
+  }),
+);
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openAlbumInformationModal: openAlbumInformationModalMock,
-  openTrackInformationModal: openTrackInformationModalMock,
+  openAlbumDetailsModal: openAlbumDetailsModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const getMediaTracksMock = vi.hoisted(() => vi.fn());
@@ -122,7 +123,7 @@ function factory(props = {}) {
       stubs: {
         AlbumItem: true,
         ArtistItem: true,
-        TracksList: true,
+        TracklistGeneric: true,
       },
     },
     props: {
@@ -248,8 +249,8 @@ describe('index', () => {
             .vm.$emit('mediaInformation', album);
         });
 
-        it('calls the openAlbumInformationModal function with the correct parameters', () => {
-          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+          expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
         });
       });
 
@@ -367,8 +368,8 @@ describe('index', () => {
             .vm.$emit('mediaInformation', album);
         });
 
-        it('calls the openAlbumInformationModal function with the correct parameters', () => {
-          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+          expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
         });
       });
 
@@ -488,8 +489,8 @@ describe('index', () => {
             .vm.$emit('mediaInformation', album);
         });
 
-        it('calls the openAlbumInformationModal function with the correct parameters', () => {
-          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+          expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
         });
       });
 
@@ -544,14 +545,14 @@ describe('index', () => {
     });
 
     describe('when favourites tracks is not an empty array', () => {
-      it('shows the TracksList component', () => {
-        expect(wrapper.findComponent(TracksList).exists()).toBe(true);
+      it('shows the TracklistGeneric component', () => {
+        expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(true);
       });
 
       describe(`when favourites tracks has less than ${PREVIEW_TRACK_COUNT} items`, () => {
-        it('shows the correct number of the TracksList component', () => {
+        it('shows the correct number of the TracklistGeneric component', () => {
           expect(
-            wrapper.findComponent(TracksList).props('tracks'),
+            wrapper.findComponent(TracklistGeneric).props('tracks'),
           ).toHaveLength(4);
         });
       });
@@ -569,17 +570,17 @@ describe('index', () => {
           expect(wrapper.html()).toMatchSnapshot();
         });
 
-        it('sets the correct tracks prop on the TracksList component', () => {
+        it('sets the correct tracks prop on the TracklistGeneric component', () => {
           expect(
-            wrapper.findComponent(TracksList).props('tracks'),
+            wrapper.findComponent(TracklistGeneric).props('tracks'),
           ).toHaveLength(PREVIEW_TRACK_COUNT);
         });
       });
 
-      describe('when the TracksList component emits the addToPlaylist event', () => {
+      describe('when the TracklistGeneric component emits the addToPlaylist event', () => {
         beforeEach(() => {
           wrapper
-            .findComponent(TracksList)
+            .findComponent(TracklistGeneric)
             .vm.$emit('addToPlaylist', track.id, 1);
         });
 
@@ -588,9 +589,9 @@ describe('index', () => {
         });
       });
 
-      describe('when the TracksList component emits the addToQueue event', () => {
+      describe('when the TracklistGeneric component emits the addToQueue event', () => {
         beforeEach(() => {
-          wrapper.findComponent(TracksList).vm.$emit('addToQueue', track);
+          wrapper.findComponent(TracklistGeneric).vm.$emit('addToQueue', track);
         });
 
         it('calls the addTrackToQueue function with the correct parameters', () => {
@@ -598,9 +599,11 @@ describe('index', () => {
         });
       });
 
-      describe('when the TracksList component emits the downloadMedia event', () => {
+      describe('when the TracklistGeneric component emits the downloadMedia event', () => {
         beforeEach(() => {
-          wrapper.findComponent(TracksList).vm.$emit('downloadMedia', track);
+          wrapper
+            .findComponent(TracklistGeneric)
+            .vm.$emit('downloadMedia', track);
         });
 
         it('calls the downloadTrack function with the correct parameters', () => {
@@ -608,9 +611,9 @@ describe('index', () => {
         });
       });
 
-      describe('when the TracksList component emits the dragStart event', () => {
+      describe('when the TracklistGeneric component emits the dragStart event', () => {
         beforeEach(() => {
-          wrapper.findComponent(TracksList).vm.$emit('dragStart', track);
+          wrapper.findComponent(TracklistGeneric).vm.$emit('dragStart', track);
         });
 
         it('calls the dragStart function with the correct parameters', () => {
@@ -618,19 +621,21 @@ describe('index', () => {
         });
       });
 
-      describe('when the TracksList component emits the mediaInformation event', () => {
+      describe('when the TracklistGeneric component emits the mediaInformation event', () => {
         beforeEach(() => {
-          wrapper.findComponent(TracksList).vm.$emit('mediaInformation', track);
+          wrapper
+            .findComponent(TracklistGeneric)
+            .vm.$emit('mediaInformation', track);
         });
 
-        it('calls the openTrackInformationModal function with the correct parameters', () => {
-          expect(openTrackInformationModalMock).toHaveBeenCalledWith(track);
+        it('calls the openTrackDetailsModal function with the correct parameters', () => {
+          expect(openTrackDetailsModalMock).toHaveBeenCalledWith(track);
         });
       });
 
-      describe('when the TracksList component emits the playTrack event', () => {
+      describe('when the TracklistGeneric component emits the playTrack event', () => {
         beforeEach(() => {
-          wrapper.findComponent(TracksList).vm.$emit('playTrack', 1);
+          wrapper.findComponent(TracklistGeneric).vm.$emit('playTrack', 1);
         });
 
         it('calls the playTracks function with the correct parameters', () => {
@@ -652,8 +657,8 @@ describe('index', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('does not show the TracksList component', () => {
-        expect(wrapper.findComponent(TracksList).exists()).toBe(false);
+      it('does not show the TracklistGeneric component', () => {
+        expect(wrapper.findComponent(TracklistGeneric).exists()).toBe(false);
       });
     });
 
@@ -749,8 +754,8 @@ describe('index', () => {
             .vm.$emit('mediaInformation', album);
         });
 
-        it('calls the openAlbumInformationModal function with the correct parameters', () => {
-          expect(openAlbumInformationModalMock).toHaveBeenCalledWith(album);
+        it('calls the openAlbumDetailsModal function with the correct parameters', () => {
+          expect(openAlbumDetailsModalMock).toHaveBeenCalledWith(album);
         });
       });
 

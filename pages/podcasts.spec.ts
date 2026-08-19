@@ -3,11 +3,11 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import GridWrapper from '@/components/Atoms/GridWrapper.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import PodcastItem from '@/components/Organisms/PodcastItem.vue';
-import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import PodcastItem from '@/components/podcast/PodcastItem.vue';
+import TracklistPodcast from '@/components/tracklist/TracklistPodcast.vue';
+import GridWrapper from '@/components/ui/GridWrapper.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 import { gridWrapperPropsMock } from '@/test/fixtures';
 import {
   getFormattedPodcastEpisodesMock,
@@ -44,16 +44,17 @@ mockNuxtImport('useMediaLibrary', (original) => () => ({
   downloadTrack: downloadTrackMock,
 }));
 
-const { openPodcastInformationModalMock, openTrackInformationModalMock } =
-  vi.hoisted(() => ({
-    openPodcastInformationModalMock: vi.fn(),
-    openTrackInformationModalMock: vi.fn(),
-  }));
+const { openPodcastDetailsModalMock, openTrackDetailsModalMock } = vi.hoisted(
+  () => ({
+    openPodcastDetailsModalMock: vi.fn(),
+    openTrackDetailsModalMock: vi.fn(),
+  }),
+);
 
 mockNuxtImport('useMediaInformation', (original) => () => ({
   ...original(),
-  openPodcastInformationModal: openPodcastInformationModalMock,
-  openTrackInformationModal: openTrackInformationModalMock,
+  openPodcastDetailsModal: openPodcastDetailsModalMock,
+  openTrackDetailsModal: openTrackDetailsModalMock,
 }));
 
 const getMediaTracksMock = vi.hoisted(() => vi.fn());
@@ -124,8 +125,8 @@ function factory(props = {}) {
   return mount(PodcastsPage, {
     global: {
       stubs: {
-        PodcastEpisodesList: true,
         PodcastItem: true,
+        TracklistPodcast: true,
       },
     },
     props: {
@@ -213,8 +214,8 @@ describe('podcasts', () => {
       expect(wrapper.findAllComponents(PodcastItem)).toHaveLength(2);
     });
 
-    it('shows the PodcastEpisodesList component', () => {
-      expect(wrapper.findComponent(PodcastEpisodesList).exists()).toBe(true);
+    it('shows the TracklistPodcast component', () => {
+      expect(wrapper.findComponent(TracklistPodcast).exists()).toBe(true);
     });
 
     describe.each([
@@ -301,8 +302,8 @@ describe('podcasts', () => {
           .vm.$emit('mediaInformation', podcast);
       });
 
-      it('calls the openPodcastInformationModal function with the correct parameters', () => {
-        expect(openPodcastInformationModalMock).toHaveBeenCalledWith(podcast);
+      it('calls the openPodcastDetailsModal function with the correct parameters', () => {
+        expect(openPodcastDetailsModalMock).toHaveBeenCalledWith(podcast);
       });
     });
 
@@ -330,10 +331,10 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the addToPlaylist event', () => {
+    describe('when the TracklistPodcast component emits the addToPlaylist event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('addToPlaylist', podcastEpisode);
       });
 
@@ -342,10 +343,10 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the addToQueue event', () => {
+    describe('when the TracklistPodcast component emits the addToQueue event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('addToQueue', podcastEpisode);
       });
 
@@ -354,10 +355,10 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the deletePodcastEpisode event', () => {
+    describe('when the TracklistPodcast component emits the deletePodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('deletePodcastEpisode', podcastEpisode);
       });
 
@@ -368,10 +369,10 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the downloadPodcastEpisode event', () => {
+    describe('when the TracklistPodcast component emits the downloadPodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('downloadPodcastEpisode', podcastEpisode);
       });
 
@@ -380,10 +381,10 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the downloadMedia event', () => {
+    describe('when the TracklistPodcast component emits the downloadMedia event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('downloadMedia', podcastEpisode);
       });
 
@@ -392,24 +393,22 @@ describe('podcasts', () => {
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the podcastEpisodeInformation event', () => {
+    describe('when the TracklistPodcast component emits the podcastEpisodeInformation event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('podcastEpisodeInformation', podcastEpisode);
       });
 
-      it('calls the openTrackInformationModal function with the correct parameters', () => {
-        expect(openTrackInformationModalMock).toHaveBeenCalledWith(
-          podcastEpisode,
-        );
+      it('calls the openTrackDetailsModal function with the correct parameters', () => {
+        expect(openTrackDetailsModalMock).toHaveBeenCalledWith(podcastEpisode);
       });
     });
 
-    describe('when the PodcastEpisodesList component emits the playPodcastEpisode event', () => {
+    describe('when the TracklistPodcast component emits the playPodcastEpisode event', () => {
       beforeEach(() => {
         wrapper
-          .findComponent(PodcastEpisodesList)
+          .findComponent(TracklistPodcast)
           .vm.$emit('playPodcastEpisode', podcastEpisode);
       });
 

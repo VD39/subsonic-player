@@ -3,8 +3,8 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
+import PlaylistList from '@/components/playlist/PlaylistList.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 import { getFormattedPlaylistsMock } from '@/test/helpers';
 import { useHeadMock } from '@/test/useHeadMock';
 
@@ -98,10 +98,10 @@ describe('playlists', () => {
     });
   });
 
-  describe('when the PlaylistsList component emits the deletePlaylist event', () => {
+  describe('when the PlaylistList component emits the deletePlaylist event', () => {
     beforeEach(() => {
       wrapper
-        .findComponent(PlaylistsList)
+        .findComponent(PlaylistList)
         .vm.$emit('deletePlaylist', playlist.id);
     });
 
@@ -110,9 +110,9 @@ describe('playlists', () => {
     });
   });
 
-  describe('when the PlaylistsList component emits the editPlaylist event', () => {
+  describe('when the PlaylistList component emits the editPlaylist event', () => {
     beforeEach(() => {
-      wrapper.findComponent(PlaylistsList).vm.$emit('editPlaylist', playlist);
+      wrapper.findComponent(PlaylistList).vm.$emit('editPlaylist', playlist);
     });
 
     it('calls the updatePlaylistModal function with the correct parameters', () => {

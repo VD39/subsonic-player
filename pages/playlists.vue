@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import PlaylistsList from '@/components/Organisms/PlaylistsList.vue';
-import SortControls from '@/components/Organisms/SortControls.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import PlaylistList from '@/components/playlist/PlaylistList.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
+import SortControls from '@/components/ui/SortControls.vue';
 
 const {
   addPlaylistModal,
@@ -76,7 +76,7 @@ useHead({
   <LoadingData :status>
     <SortControls v-bind="sortProps" />
 
-    <PlaylistsList
+    <PlaylistList
       :playlists="sortedPlaylists"
       @deletePlaylist="deletePlaylist"
       @editPlaylist="updatePlaylistModal"

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import GenreList from '@/components/Atoms/GenreList.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import TextClamp from '@/components/Atoms/TextClamp.vue';
-import FavouriteButton from '@/components/Molecules/FavouriteButton.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import AlbumsList from '@/components/Organisms/AlbumsList.vue';
-import ArtistsList from '@/components/Organisms/ArtistsList.vue';
-import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import SortControls from '@/components/Organisms/SortControls.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumList from '@/components/album/AlbumList.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
+import GenreList from '@/components/artist/GenreList.vue';
+import FavouriteButton from '@/components/favourite/FavouriteButton.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import EntryHeader from '@/components/ui/EntryHeader.vue';
+import SortControls from '@/components/ui/SortControls.vue';
+import TextClamp from '@/components/ui/TextClamp.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.artist],
@@ -22,8 +22,7 @@ const { getArtist } = useArtist();
 const { openModal } = useModal();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
-const { openAlbumInformationModal, openTrackInformationModal } =
-  useMediaInformation();
+const { openAlbumDetailsModal, openTrackDetailsModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 
@@ -138,26 +137,26 @@ useHead({
 
       <SortControls v-bind="sortProps" />
 
-      <AlbumsList
+      <AlbumList
         :albums="sortedAlbums"
         hideArtist
         @addToQueue="addAlbumToQueue"
         @dragStart="dragStart"
-        @mediaInformation="openAlbumInformationModal"
+        @mediaInformation="openAlbumDetailsModal"
         @playAlbum="onPlayAlbum"
       />
 
       <template v-if="artistData.topTracks.length">
         <h2>Top Tracks</h2>
 
-        <TracksList
-          ref="topTracksTracksList"
+        <TracklistGeneric
+          ref="topTracksTracklistGeneric"
           :tracks="artistData.topTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
-          @mediaInformation="openTrackInformationModal"
+          @mediaInformation="openTrackDetailsModal"
           @playTrack="playTopTracks"
         />
       </template>
@@ -165,14 +164,14 @@ useHead({
       <template v-if="artistData.similarTracks.length">
         <h2>Similar Tracks</h2>
 
-        <TracksList
-          ref="similarTracksTracksList"
+        <TracklistGeneric
+          ref="similarTracksTracklistGeneric"
           :tracks="artistData.similarTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
-          @mediaInformation="openTrackInformationModal"
+          @mediaInformation="openTrackDetailsModal"
           @playTrack="playFromSimilarTracks"
         />
       </template>
@@ -180,7 +179,7 @@ useHead({
       <template v-if="artistData.similarArtists.length">
         <h2>Similar Artists</h2>
 
-        <ArtistsList :artists="artistData.similarArtists" />
+        <ArtistList :artists="artistData.similarArtists" />
       </template>
     </div>
 

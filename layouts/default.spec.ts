@@ -3,7 +3,7 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import PageNavigation from '@/components/Molecules/PageNavigation.vue';
+import PageNavigation from '@/components/navigation/PageNavigation.vue';
 
 import DefaultLayout from './default.vue';
 

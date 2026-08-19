@@ -4,7 +4,7 @@ import type { RuntimeNuxtHooks } from 'nuxt/app';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import MainLoader from '@/components/Atoms/MainLoader.vue';
+import MainLoader from '@/components/notification/MainLoader.vue';
 import { useRouterMock } from '@/test/useRouterMock';
 
 import App from './app.vue';

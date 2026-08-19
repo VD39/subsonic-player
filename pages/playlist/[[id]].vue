@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import MixedTracksList from '@/components/Organisms/TrackLists/MixedTracksList.vue';
+import DropdownDivider from '@/components/dropdown/DropdownDivider.vue';
+import DropdownItem from '@/components/dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistMixed from '@/components/tracklist/TracklistMixed.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import EntryHeader from '@/components/ui/EntryHeader.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.playlist],
@@ -15,7 +15,7 @@ definePageMeta({
 
 const route = useRoute();
 const { downloadTrack } = useMediaLibrary();
-const { openTrackInformationModal } = useMediaInformation();
+const { openTrackDetailsModal } = useMediaInformation();
 const {
   addToPlaylistModal,
   deletePlaylist,
@@ -168,26 +168,26 @@ useHead({
       </EntryHeader>
 
       <template v-if="playlist.id === RANDOM_PLAYLIST.id">
-        <MixedTracksList
-          ref="mixedTracksListRandomPlaylist"
+        <TracklistMixed
+          ref="mixedTracklistGenericRandomPlaylist"
           :tracks="playlist.tracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
-          @mediaInformation="openTrackInformationModal"
+          @mediaInformation="openTrackDetailsModal"
           @playTrack="onPlayTrack"
         />
       </template>
       <template v-else>
-        <MixedTracksList
-          ref="mixedTracksList"
+        <TracklistMixed
+          ref="mixedTracklistGeneric"
           :tracks="playlist.tracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
-          @mediaInformation="openTrackInformationModal"
+          @mediaInformation="openTrackDetailsModal"
           @playTrack="onPlayTrack"
           @remove="({ index }) => removeTrackFromPlaylist(index)"
           @sortList="onSortList"

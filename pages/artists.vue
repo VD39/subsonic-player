@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import ArtistsList from '@/components/Organisms/ArtistsList.vue';
-import SortControls from '@/components/Organisms/SortControls.vue';
+import ArtistList from '@/components/artist/ArtistList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import SortControls from '@/components/ui/SortControls.vue';
 
 const { getArtists } = useArtist();
 const { viewLayout } = useSettings();
@@ -47,6 +47,6 @@ useHead({
   <LoadingData :class="viewLayout" :status>
     <SortControls v-bind="sortProps" />
 
-    <ArtistsList :artists="sortedArtists" />
+    <ArtistList :artists="sortedArtists" />
   </LoadingData>
 </template>

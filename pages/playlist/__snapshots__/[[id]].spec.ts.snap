@@ -76,7 +76,7 @@ exports[`[[id]] > when loadPlaylistTracksById does return data > matches the sna
         </div>
       </div>
     </section>
-    <mixed-tracks-list-stub tracks="[object Object]"></mixed-tracks-list-stub>
+    <tracklist-mixed-stub tracks="[object Object]"></tracklist-mixed-stub>
   </div>
 </div>"
 `;
@@ -138,7 +138,7 @@ exports[`[[id]] > when loadPlaylistTracksById does return data > when playlist t
         </div>
       </div>
     </section>
-    <mixed-tracks-list-stub tracks=""></mixed-tracks-list-stub>
+    <tracklist-mixed-stub tracks=""></tracklist-mixed-stub>
   </div>
 </div>"
 `;
@@ -206,7 +206,7 @@ exports[`[[id]] > when loadPlaylistTracksById does return data > when playlist.t
         </div>
       </div>
     </section>
-    <mixed-tracks-list-stub tracks="[object Object]"></mixed-tracks-list-stub>
+    <tracklist-mixed-stub tracks="[object Object]"></tracklist-mixed-stub>
   </div>
 </div>"
 `;

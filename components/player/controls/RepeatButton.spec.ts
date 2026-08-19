@@ -1,0 +1,105 @@
+import type { VueWrapper } from '@vue/test-utils';
+
+import { mount } from '@vue/test-utils';
+
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+
+import RepeatButton from './RepeatButton.vue';
+
+const { cycleRepeatMock, repeatMock } = useAudioPlayerMock();
+
+function factory(props = {}) {
+  return mount(RepeatButton, {
+    props: {
+      ...props,
+    },
+  });
+}
+
+const buttonProps = {
+  all: {
+    color: 'var(--theme-color)',
+    icon: ICONS.repeat,
+    text: 'Turn on repeat one',
+    weight: 'fill',
+  },
+  off: {
+    color: 'currentColor',
+    icon: ICONS.repeat,
+    text: 'Turn on repeat all',
+    weight: 'regular',
+  },
+  one: {
+    color: 'var(--theme-color)',
+    icon: ICONS.repeatOnce,
+    text: 'Turn repeat off',
+    weight: 'fill',
+  },
+};
+
+describe('RepeatButton', () => {
+  let wrapper: VueWrapper;
+
+  beforeEach(() => {
+    wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  describe.each([
+    [REPEAT_MODE.off, buttonProps.off],
+    [REPEAT_MODE.one, buttonProps.one],
+    [REPEAT_MODE.all, buttonProps.all],
+  ])('when shuffle is set to %s', (repeat, buttonProps) => {
+    beforeEach(() => {
+      repeatMock.value = repeat;
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('sets the correct icon prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('icon')).toBe(
+        buttonProps.icon,
+      );
+    });
+
+    it('sets the correct iconColor prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('iconColor')).toBe(
+        buttonProps.color,
+      );
+    });
+
+    it('sets the correct iconWeight prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('iconWeight')).toBe(
+        buttonProps.weight,
+      );
+    });
+
+    it('sets the correct title attribute on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).attributes('title')).toBe(
+        buttonProps.text,
+      );
+    });
+
+    it('sets the correct slot data on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).text()).toContain(
+        buttonProps.text,
+      );
+    });
+  });
+
+  describe('when the ButtonLink component is clicked', () => {
+    beforeEach(async () => {
+      await wrapper.findComponent(ButtonLink).trigger('click');
+    });
+
+    it('calls the cycleRepeat function', () => {
+      expect(cycleRepeatMock).toHaveBeenCalled();
+    });
+  });
+});

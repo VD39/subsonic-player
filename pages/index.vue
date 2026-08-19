@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import HeaderWithAction from '@/components/Atoms/HeaderWithAction.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import CarouselSwiper from '@/components/Molecules/CarouselSwiper.vue';
-import HeaderSeeAllLink from '@/components/Molecules/HeaderSeeAllLink.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import AlbumItem from '@/components/Organisms/AlbumItem.vue';
-import ArtistItem from '@/components/Organisms/ArtistItem.vue';
-import TracksList from '@/components/Organisms/TrackLists/TracksList.vue';
+import AlbumItem from '@/components/album/AlbumItem.vue';
+import ArtistItem from '@/components/artist/ArtistItem.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistGeneric from '@/components/tracklist/TracklistGeneric.vue';
+import CarouselSwiper from '@/components/ui/CarouselSwiper.vue';
+import HeaderSeeAllLink from '@/components/ui/HeaderSeeAllLink.vue';
+import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
 
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { favourites, getFavourites } = useFavourite();
-const { openAlbumInformationModal, openTrackInformationModal } =
-  useMediaInformation();
+const { openAlbumDetailsModal, openTrackDetailsModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 const { frequentAlbums, loadDashboardAlbums, newestAlbums, recentAlbums } =
@@ -122,7 +121,7 @@ useHead({
               :album
               @addToQueue="addAlbumToQueue"
               @dragStart="dragStart"
-              @mediaInformation="openAlbumInformationModal"
+              @mediaInformation="openAlbumDetailsModal"
               @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
@@ -152,7 +151,7 @@ useHead({
               :album
               @addToQueue="addAlbumToQueue"
               @dragStart="dragStart"
-              @mediaInformation="openAlbumInformationModal"
+              @mediaInformation="openAlbumDetailsModal"
               @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
@@ -182,7 +181,7 @@ useHead({
               :album
               @addToQueue="addAlbumToQueue"
               @dragStart="dragStart"
-              @mediaInformation="openAlbumInformationModal"
+              @mediaInformation="openAlbumDetailsModal"
               @playAlbum="onPlayAlbum"
             />
           </swiper-slide>
@@ -202,13 +201,13 @@ useHead({
           Favourite Tracks
         </HeaderSeeAllLink>
 
-        <TracksList
+        <TracklistGeneric
           :tracks="favourites.tracks.slice(0, PREVIEW_TRACK_COUNT)"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
           @dragStart="dragStart"
-          @mediaInformation="openTrackInformationModal"
+          @mediaInformation="openTrackDetailsModal"
           @playTrack="onPlayTrack"
         />
       </template>
@@ -236,7 +235,7 @@ useHead({
               :album
               @addToQueue="addAlbumToQueue"
               @dragStart="dragStart"
-              @mediaInformation="openAlbumInformationModal"
+              @mediaInformation="openAlbumDetailsModal"
               @playAlbum="onPlayAlbum"
             />
           </swiper-slide>

@@ -3,9 +3,9 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import AboutApp from '@/components/Molecules/AboutApp.vue';
-import SelectableBadge from '@/components/Molecules/Settings/SelectableBadge.vue';
-import SelectableOption from '@/components/Molecules/Settings/SelectableOption.vue';
+import AboutApp from '@/components/settings/AboutApp.vue';
+import SelectableBadge from '@/components/settings/SelectableBadge.vue';
+import SelectableOption from '@/components/settings/SelectableOption.vue';
 import { appInformationMock, serverInformationMock } from '@/test/fixtures';
 
 import SettingsPage from './settings.vue';

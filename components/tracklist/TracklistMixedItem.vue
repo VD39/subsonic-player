@@ -1,0 +1,292 @@
+<script setup lang="ts">
+import ArtistLinkList from '@/components/artist/ArtistLinkList.vue';
+import DropdownDivider from '@/components/dropdown/DropdownDivider.vue';
+import DropdownItem from '@/components/dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
+import DropdownSubmenu from '@/components/dropdown/DropdownSubmenu.vue';
+import FavouriteButton from '@/components/favourite/FavouriteButton.vue';
+import TrackPlayPause from '@/components/player/controls/TrackPlayPause.vue';
+import TrackPlayPauseDropdownItem from '@/components/player/controls/TrackPlayPauseDropdownItem.vue';
+import TrackMeta from '@/components/track-details/TrackMeta.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import InteractionWrapper from '@/components/ui/InteractionWrapper.vue';
+import LazyLoadContent from '@/components/ui/LazyLoadContent.vue';
+import LinkOrText from '@/components/ui/LinkOrText.vue';
+import MarqueeScroll from '@/components/ui/MarqueeScroll.vue';
+
+const props = defineProps<{
+  index: number;
+  isAddToQueueVisible?: boolean;
+  isDraggable?: boolean;
+  isRemovable?: boolean;
+  isSortable?: boolean;
+  track: PlayableTrack;
+}>();
+
+const emit = defineEmits<{
+  addToPlaylist: [];
+  addToQueue: [];
+  downloadMedia: [];
+  dragStart: [event: DragEvent];
+  mediaInformation: [];
+  playTrack: [];
+  remove: [];
+}>();
+
+const { isCurrentTrack } = useQueue();
+
+const dropdownMenuRef = useTemplateRef('dropdownMenuRef');
+
+function onClick() {
+  if (isCurrentTrack(props.track.id)) {
+    return;
+  }
+
+  emit('playTrack');
+}
+
+function openDropdownMenu(event: MouseEvent | TouchEvent) {
+  dropdownMenuRef.value?.openDropdownMenu(event);
+}
+</script>
+
+<template>
+  <LazyLoadContent class="trackRow trackPlayPauseHover">
+    <InteractionWrapper
+      :draggable="isDraggable"
+      @click="onClick"
+      @contextMenu="openDropdownMenu"
+      @dragStart="$emit('dragStart', $event)"
+    >
+      <div class="trackCell">
+        <div>
+          <TrackPlayPause
+            :image="track.image"
+            :trackId="track.id"
+            :trackNumber="track.trackNumber"
+            @playTrack="$emit('playTrack')"
+          />
+
+          <TrackMeta class="trackMeta" :track />
+
+          <FavouriteButton
+            v-if="'favourite' in track"
+            :id="track.id"
+            class="desktopOnly"
+            :favourite="track.favourite"
+            :type="track.type"
+          />
+        </div>
+      </div>
+
+      <div class="trackCell trackSecondary">
+        <MarqueeScroll
+          v-if="'album' in track && track.album"
+          ref="albumMarqueeScroll"
+        >
+          <LinkOrText
+            :isLink="!!track.albumId"
+            :text="track.album"
+            :to="{
+              name: ROUTE_NAMES.album,
+              params: {
+                [ROUTE_PARAM_KEYS.album.id]: track.albumId,
+              },
+            }"
+          />
+        </MarqueeScroll>
+
+        <MarqueeScroll
+          v-else-if="'podcastName' in track && track.podcastName"
+          ref="podcastNameMarqueeScroll"
+        >
+          <LinkOrText
+            :isLink="!!track.podcastId"
+            :text="track.podcastName"
+            :to="{
+              name: ROUTE_NAMES.podcast,
+              params: {
+                [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                  ROUTE_PODCAST_FILTER_PARAMS.All,
+                [ROUTE_PARAM_KEYS.podcast.id]: track.podcastId,
+              },
+            }"
+          />
+        </MarqueeScroll>
+
+        <p v-else ref="albumElse">{{ EMPTY_DISPLAY_VALUE }}</p>
+      </div>
+
+      <div class="trackCell trackSecondary">
+        <MarqueeScroll
+          v-if="'artists' in track && track.artists.length"
+          ref="artistsMarqueeScroll"
+        >
+          <ArtistLinkList :artists="track.artists" />
+        </MarqueeScroll>
+
+        <MarqueeScroll
+          v-else-if="'author' in track && track.author"
+          ref="authorMarqueeScroll"
+        >
+          <p>{{ track.author }}</p>
+        </MarqueeScroll>
+
+        <p v-else ref="artistsElse">{{ EMPTY_DISPLAY_VALUE }}</p>
+      </div>
+
+      <time class="trackCell trackTime">
+        {{ track.formattedDuration }}
+      </time>
+
+      <div v-if="isAddToQueueVisible" class="trackCell trackOptions">
+        <ButtonLink
+          ref="addToQueueButton"
+          :icon="ICONS.add"
+          title="Add to queue"
+          @click="$emit('addToQueue')"
+        >
+          Add to queue
+        </ButtonLink>
+      </div>
+
+      <div class="trackCell trackOptions desktopOnly">
+        <DropdownMenu ref="dropdownMenuRef">
+          <TrackPlayPauseDropdownItem
+            :trackId="track.id"
+            :type="track.type"
+            @playTrack="$emit('playTrack')"
+          />
+          <DropdownItem
+            v-if="isAddToQueueVisible"
+            ref="addToQueue"
+            @click="$emit('addToQueue')"
+          >
+            Add to queue
+          </DropdownItem>
+          <DropdownItem
+            v-if="track.type !== MEDIA_TYPE.radioStation"
+            ref="addToPlaylist"
+            @click="$emit('addToPlaylist')"
+          >
+            Add to playlist
+          </DropdownItem>
+          <DropdownDivider />
+          <DropdownItem
+            is="nuxt-link"
+            v-if="'albumId' in track && track.albumId"
+            ref="goToAlbum"
+            :to="{
+              name: ROUTE_NAMES.album,
+              params: {
+                [ROUTE_PARAM_KEYS.album.id]: track.albumId,
+              },
+            }"
+          >
+            Go to album
+          </DropdownItem>
+          <DropdownItem
+            is="nuxt-link"
+            v-if="'podcastId' in track && track.podcastId"
+            ref="goToPodcast"
+            :to="{
+              name: ROUTE_NAMES.podcast,
+              params: {
+                [ROUTE_PARAM_KEYS.podcast.sortBy]:
+                  ROUTE_PODCAST_FILTER_PARAMS.All,
+                [ROUTE_PARAM_KEYS.podcast.id]: track.podcastId,
+              },
+            }"
+          >
+            Go to podcast
+          </DropdownItem>
+          <DropdownSubmenu
+            v-if="'artists' in track && track.artists.length"
+            text="Artists"
+          >
+            <DropdownItem
+              is="nuxt-link"
+              v-for="artist in track.artists"
+              :key="artist.id"
+              :to="{
+                name: ROUTE_NAMES.artist,
+                params: {
+                  [ROUTE_PARAM_KEYS.artist.id]: artist.id,
+                },
+              }"
+            >
+              {{ artist.name }}
+            </DropdownItem>
+          </DropdownSubmenu>
+          <DropdownItem
+            is="a"
+            v-if="'homePageUrl' in track && track.homePageUrl"
+            ref="visitStation"
+            :href="track.homePageUrl"
+            target="_blank"
+          >
+            Visit station
+          </DropdownItem>
+          <template v-if="track.type !== MEDIA_TYPE.radioStation">
+            <DropdownDivider />
+            <DropdownItem
+              ref="mediaInformation"
+              @click="$emit('mediaInformation')"
+            >
+              Media information
+            </DropdownItem>
+            <DropdownItem ref="downloadMedia" @click="$emit('downloadMedia')">
+              Download track
+            </DropdownItem>
+          </template>
+          <template v-if="'favourite' in track">
+            <DropdownDivider />
+            <DropdownItem is="span">
+              <FavouriteButton
+                :id="track.id"
+                class="globalLink"
+                :favourite="track.favourite"
+                showText
+                :type="track.type"
+              />
+            </DropdownItem>
+          </template>
+          <template v-if="isRemovable">
+            <DropdownDivider />
+            <DropdownItem ref="dropdownItemRemove" @click="$emit('remove')">
+              Remove track
+            </DropdownItem>
+          </template>
+        </DropdownMenu>
+      </div>
+
+      <div
+        v-if="isRemovable"
+        ref="trackRemoveRow"
+        class="trackCell trackOptions"
+      >
+        <ButtonLink
+          ref="removeButton"
+          :icon="ICONS.close"
+          iconSize="small"
+          iconWeight="bold"
+          title="Remove track"
+          @click="$emit('remove')"
+        >
+          Remove track
+        </ButtonLink>
+      </div>
+
+      <div v-if="isSortable" ref="trackSortRow" class="trackCell trackOptions">
+        <ButtonLink
+          :class="SORTABLE_LIST_CLASS_NAMES.dragHandle"
+          :icon="ICONS.reorder"
+          iconSize="small"
+          title="Drag to reorder"
+        >
+          Drag to reorder
+        </ButtonLink>
+      </div>
+    </InteractionWrapper>
+  </LazyLoadContent>
+</template>

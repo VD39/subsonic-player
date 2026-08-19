@@ -53,11 +53,11 @@ describe('useMediaInformation', () => {
     vi.clearAllMocks();
   });
 
-  describe('when the openAlbumInformationModal function is called', () => {
+  describe('when the openAlbumDetailsModal function is called', () => {
     describe('when getAlbum returns an album', () => {
       beforeEach(async () => {
         getAlbumMock.mockResolvedValue(album);
-        await composable.openAlbumInformationModal(album);
+        await composable.openAlbumDetailsModal(album);
       });
 
       it('does not call the handleError function', () => {
@@ -81,7 +81,7 @@ describe('useMediaInformation', () => {
     describe('when getAlbum returns null', () => {
       beforeEach(async () => {
         getAlbumMock.mockResolvedValue(null);
-        await composable.openAlbumInformationModal(album);
+        await composable.openAlbumDetailsModal(album);
       });
 
       it('calls the handleError function with the correct message', () => {
@@ -96,11 +96,11 @@ describe('useMediaInformation', () => {
     });
   });
 
-  describe('when the openPodcastInformationModal function is called', () => {
+  describe('when the openPodcastDetailsModal function is called', () => {
     describe('when getPodcast returns a podcast', () => {
       beforeEach(async () => {
         getPodcastMock.mockResolvedValue(podcast);
-        await composable.openPodcastInformationModal(podcast);
+        await composable.openPodcastDetailsModal(podcast);
       });
 
       it('does not call the handleError function', () => {
@@ -124,7 +124,7 @@ describe('useMediaInformation', () => {
     describe('when getPodcast returns null', () => {
       beforeEach(async () => {
         getPodcastMock.mockResolvedValue(null);
-        await composable.openPodcastInformationModal(podcast);
+        await composable.openPodcastDetailsModal(podcast);
       });
 
       it('calls the handleError function with the correct message', () => {
@@ -139,7 +139,7 @@ describe('useMediaInformation', () => {
     });
   });
 
-  describe('when the openTrackInformationModal function is called', () => {
+  describe('when the openTrackDetailsModal function is called', () => {
     describe.each([
       [
         podcastEpisode,
@@ -157,7 +157,7 @@ describe('useMediaInformation', () => {
       ],
     ])('when track type is %s', (track, modalType, attrs) => {
       beforeEach(() => {
-        composable.openTrackInformationModal(track);
+        composable.openTrackDetailsModal(track);
       });
 
       it('calls the openModal function with the correct parameters', () => {
@@ -169,7 +169,7 @@ describe('useMediaInformation', () => {
       beforeEach(() => {
         delete (track as Partial<Track>).type;
 
-        composable.openTrackInformationModal(track);
+        composable.openTrackDetailsModal(track);
       });
 
       it('does not call the openModal function', () => {

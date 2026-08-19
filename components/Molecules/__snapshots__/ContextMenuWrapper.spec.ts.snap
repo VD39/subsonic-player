@@ -1,3 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`InteractionWrapper > matches the snapshot 1`] = `"<div class="contextMenuWrapper">Default slot content.</div>"`;

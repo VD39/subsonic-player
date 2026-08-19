@@ -107,7 +107,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
         </div>
       </div>
     </nav>
-    <podcast-episodes-list-stub podcastepisodes="[object Object]" isrecentlist="false"></podcast-episodes-list-stub>
+    <tracklist-podcast-stub podcastepisodes="[object Object]" isrecentlist="false"></tracklist-podcast-stub>
   </div>
 </div>"
 `;
@@ -189,7 +189,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
         </div>
       </div>
     </nav>
-    <podcast-episodes-list-stub podcastepisodes="[object Object]" isrecentlist="false"></podcast-episodes-list-stub>
+    <tracklist-podcast-stub podcastepisodes="[object Object]" isrecentlist="false"></tracklist-podcast-stub>
   </div>
 </div>"
 `;
@@ -266,7 +266,7 @@ exports[`[[id]] > when getPodcast does return data > when podcast has an key wit
         </div>
       </div>
     </nav>
-    <podcast-episodes-list-stub podcastepisodes="" isrecentlist="false"></podcast-episodes-list-stub>
+    <tracklist-podcast-stub podcastepisodes="" isrecentlist="false"></tracklist-podcast-stub>
   </div>
 </div>"
 `;

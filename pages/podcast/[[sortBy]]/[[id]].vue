@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import ButtonLink from '@/components/Atoms/ButtonLink.vue';
-import NoMediaMessage from '@/components/Atoms/NoMediaMessage.vue';
-import TextClamp from '@/components/Atoms/TextClamp.vue';
-import DropdownDivider from '@/components/Molecules/Dropdown/DropdownDivider.vue';
-import DropdownItem from '@/components/Molecules/Dropdown/DropdownItem.vue';
-import DropdownMenu from '@/components/Molecules/Dropdown/DropdownMenu.vue';
-import LoadingData from '@/components/Molecules/LoadingData.vue';
-import PageNavigation from '@/components/Molecules/PageNavigation.vue';
-import RefreshButton from '@/components/Molecules/RefreshButton.vue';
-import EntryHeader from '@/components/Organisms/EntryHeader.vue';
-import PodcastEpisodesList from '@/components/Organisms/TrackLists/PodcastEpisodesList.vue';
+import DropdownDivider from '@/components/dropdown/DropdownDivider.vue';
+import DropdownItem from '@/components/dropdown/DropdownItem.vue';
+import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
+import PageNavigation from '@/components/navigation/PageNavigation.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
+import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
+import TracklistPodcast from '@/components/tracklist/TracklistPodcast.vue';
+import ButtonLink from '@/components/ui/ButtonLink.vue';
+import EntryHeader from '@/components/ui/EntryHeader.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
+import TextClamp from '@/components/ui/TextClamp.vue';
 
 definePageMeta({
   middleware: [MIDDLEWARE_NAMES.podcast],
@@ -21,7 +21,7 @@ const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
 const { deletePodcastEpisodeGlobally, deletePodcastGlobally } =
   usePodcastCleanup();
-const { openTrackInformationModal } = useMediaInformation();
+const { openTrackDetailsModal } = useMediaInformation();
 const { dragStart } = useDragAndDrop();
 const {
   downloadPodcastEpisode,
@@ -200,7 +200,7 @@ useHead({
 
       <PageNavigation :navigation="PODCAST_NAVIGATION" />
 
-      <PodcastEpisodesList
+      <TracklistPodcast
         :podcastEpisodes
         @addToPlaylist="addToPlaylistModal"
         @addToQueue="addTrackToQueue"
@@ -209,7 +209,7 @@ useHead({
         @downloadPodcastEpisode="downloadPodcastEpisode"
         @dragStart="dragStart"
         @playPodcastEpisode="onPlayPodcastEpisode"
-        @podcastEpisodeInformation="openTrackInformationModal"
+        @podcastEpisodeInformation="openTrackDetailsModal"
       />
     </div>
 
