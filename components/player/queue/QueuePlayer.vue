@@ -25,13 +25,7 @@ const {
 </script>
 
 <template>
-  <div
-    aria-label="Queue player"
-    aria-modal="true"
-    class="queueWrapper column"
-    role="dialog"
-    tabindex="-1"
-  >
+  <section class="queueWrapper column">
     <div
       ref="backgroundImage"
       aria-hidden="true"
@@ -215,7 +209,7 @@ const {
     >
       Open queue list
     </ButtonLink>
-  </div>
+  </section>
 </template>
 
 <style module>

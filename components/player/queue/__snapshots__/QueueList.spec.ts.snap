@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`QueueList > matches the snapshot 1`] = `
-"<div aria-label="Queue list" aria-modal="true" class="queueWrapper" role="dialog" tabindex="-1">
+"<section class="queueWrapper">
   <div class="centerAll"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue list">
       <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue list </span>
     </button></div>
@@ -15,5 +15,5 @@ exports[`QueueList > matches the snapshot 1`] = `
     <phmusicnotes size="50"></phmusicnotes>
     <p>No tracks found.</p>
   </div>
-</div>"
+</section>"
 `;

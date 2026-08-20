@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`QueuePlayer > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -71,11 +71,11 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the currentTrack value does not have a favourite key > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -169,11 +169,11 @@ exports[`QueuePlayer > when the currentTrack value does not have a favourite key
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage backgroundImageActive">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -267,11 +267,11 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPodcastEpisode value is true > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -360,11 +360,11 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > matches the sna
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPodcastEpisode value is true > when the currentTrack value contain author > when currentTrack.author is undefined > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -453,11 +453,11 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPodcastEpisode value is true > when the currentTrack value does have a podcastId key > when currentTrack.podcastId is defined > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -550,11 +550,11 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPodcastEpisode value is true > when the currentTrack value does have a podcastId key > when currentTrack.podcastId is undefined > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -643,11 +643,11 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPodcastEpisode value is true > when the currentTrack value does not have an author key > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -740,11 +740,11 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isPodcastEpisode value is true > when the currentTrack value does not have an podcastId key > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -833,11 +833,11 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isRadioStation value is true > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -918,11 +918,11 @@ exports[`QueuePlayer > when the isRadioStation value is true > matches the snaps
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isTrack value is true > when currentTrackMock.album is undefined > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -1002,11 +1002,11 @@ exports[`QueuePlayer > when the isTrack value is true > when currentTrackMock.al
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isTrack value is true > when currentTrackMock.artists is an empty array > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -1081,11 +1081,11 @@ exports[`QueuePlayer > when the isTrack value is true > when currentTrackMock.ar
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isTrack value is true > when the track does not have an album key > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -1165,11 +1165,11 @@ exports[`QueuePlayer > when the isTrack value is true > when the track does not 
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;
 
 exports[`QueuePlayer > when the isTrack value is true > when the track does not have an artists key > matches the snapshot 1`] = `
-"<div aria-label="Queue player" aria-modal="true" class="queueWrapper column" role="dialog" tabindex="-1">
+"<section class="queueWrapper column">
   <div aria-hidden="true" class="backgroundImage">
     <div class="centerAll preloadImage backgroundPreloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue menu">
@@ -1244,5 +1244,5 @@ exports[`QueuePlayer > when the isTrack value is true > when the track does not 
   </div><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Open queue list">
     <phplaylist aria-hidden="true" class="icon" size="24" weight="bold"></phplaylist><span class="clamp text visuallyHidden"> Open queue list </span>
   </button>
-</div>"
+</section>"
 `;

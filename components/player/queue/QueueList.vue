@@ -20,13 +20,7 @@ function clearQueue() {
 </script>
 
 <template>
-  <div
-    aria-label="Queue list"
-    aria-modal="true"
-    class="queueWrapper"
-    role="dialog"
-    tabindex="-1"
-  >
+  <section class="queueWrapper">
     <div class="centerAll">
       <ButtonLink
         ref="closeQueueList"
@@ -66,5 +60,5 @@ function clearQueue() {
       @remove="({ index }) => removeFromQueue(index)"
       @sortList="reorderQueueTrack"
     />
-  </div>
+  </section>
 </template>
