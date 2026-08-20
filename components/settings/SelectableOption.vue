@@ -2,6 +2,7 @@
 defineProps<{
   badge?: string;
   description?: string;
+  name: string;
   selected: boolean;
   title: string;
 }>();
@@ -12,18 +13,16 @@ defineEmits<{
 </script>
 
 <template>
-  <button
-    :aria-checked="selected"
-    :class="[
-      $style.selectableOption,
-      {
-        [$style.selected]: selected,
-      },
-    ]"
-    role="radio"
-    type="button"
-    @click="$emit('click')"
-  >
+  <label ref="labelRef" :class="$style.selectableOption">
+    <input
+      ref="inputRef"
+      :checked="selected"
+      :class="['visuallyHidden', $style.input]"
+      :name
+      type="radio"
+      @change="$emit('click')"
+    />
+
     <div :class="$style.status">
       <component :is="ICONS.check" :size="14" />
     </div>
@@ -31,7 +30,6 @@ defineEmits<{
     <div :class="$style.details">
       <div :class="['smallFont', 'strong', $style.title]">
         {{ title }}
-
         <span v-if="badge" ref="badge" :class="$style.badge">{{ badge }}</span>
       </div>
 
@@ -43,7 +41,7 @@ defineEmits<{
         {{ description }}
       </div>
     </div>
-  </button>
+  </label>
 </template>
 
 <style module>
@@ -61,13 +59,20 @@ defineEmits<{
   &:hover {
     background-color: var(--hover-selected-color);
   }
+
+  &:has(.input:checked) {
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
 
-.selected {
-  cursor: default;
-
-  &:hover {
-    background-color: unset;
+.input {
+  &:checked ~ .status {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -88,11 +93,6 @@ defineEmits<{
   transition:
     opacity var(--transition),
     visibility var(--transition);
-
-  .selected & {
-    visibility: visible;
-    opacity: 1;
-  }
 }
 
 .details {

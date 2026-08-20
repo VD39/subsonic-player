@@ -1,4 +1,4 @@
-export function useHotkeyManager() {
+export function useKeyboardShortcuts() {
   const {
     cycleRepeat,
     fastForwardTrack,
@@ -26,12 +26,15 @@ export function useHotkeyManager() {
   const { toggleFavourite } = useFavourite();
   const { addRadioStationModal } = useRadioStation();
   const { cycleLayout, toggleTheme } = useSettings();
-  const { lockScroll, unlockScroll } = useScrollLock('hotkeyManager');
+  const { lockScroll, unlockScroll } = useScrollLock('keyboardShortcuts');
 
   const pressedKeys = ref(new Set<string>());
   const abortController = ref<AbortController | null>(null);
 
-  const isHotkeyListOpened = useState(STATE_KEYS.hotKeyListOpened, () => false);
+  const isShortcutListOpened = useState(
+    STATE_KEYS.shortcutListOpened,
+    () => false,
+  );
 
   function clickElementById(id: string) {
     const previousActiveElement = document.activeElement;
@@ -59,7 +62,7 @@ export function useHotkeyManager() {
       .join('+');
   }
 
-  // Convert key to be the same as key in HOTKEY_MAPPINGS.
+  // Convert key to be the same as key in KEYBOARD_SHORTCUTS mapping.
   function normaliseKey(eventKey: string) {
     const key = eventKey.trim().toLowerCase();
 
@@ -93,7 +96,9 @@ export function useHotkeyManager() {
   }
 
   function onKeydown(event: KeyboardEvent) {
-    const searchInput = document.getElementById(HOTKEY_ELEMENT_IDS.searchInput);
+    const searchInput = document.getElementById(
+      KEYBOARD_SHORTCUT_ELEMENT_IDS.searchInput,
+    );
 
     // Ignore all key events if focus is on search input or if a modal is visible.
     if (searchInput?.contains(event.target as Node) || modal.value.component) {
@@ -102,8 +107,8 @@ export function useHotkeyManager() {
 
     pressedKeys.value.add(event.key);
 
-    for (const category in HOTKEY_MAPPINGS) {
-      const mappings = HOTKEY_MAPPINGS[category];
+    for (const category in KEYBOARD_SHORTCUTS) {
+      const mappings = KEYBOARD_SHORTCUTS[category];
 
       for (const mapping of mappings) {
         if (isKeysMatchingPressedKeys(mapping.keys)) {
@@ -156,10 +161,10 @@ export function useHotkeyManager() {
     seekTo(time);
   }
 
-  function toggleHotkeyList() {
-    isHotkeyListOpened.value = !isHotkeyListOpened.value;
+  function toggleShortcutList() {
+    isShortcutListOpened.value = !isShortcutListOpened.value;
 
-    if (isHotkeyListOpened.value) {
+    if (isShortcutListOpened.value) {
       lockScroll();
     } else {
       unlockScroll();
@@ -190,18 +195,20 @@ export function useHotkeyManager() {
     abortController.value?.abort();
   });
 
-  const HOTKEY_MAPPINGS: HotkeyMapping = {
+  const KEYBOARD_SHORTCUTS: KeyboardShortcutMapping = {
     Global: [
       {
         action: () => {
-          document.getElementById(HOTKEY_ELEMENT_IDS.searchInput)?.focus();
+          document
+            .getElementById(KEYBOARD_SHORTCUT_ELEMENT_IDS.searchInput)
+            ?.focus();
         },
         description: 'Initiate search functionality.',
         helpText: "Press '/' key to initiate search functionality.",
         keys: ['/'],
       },
       {
-        action: toggleHotkeyList,
+        action: toggleShortcutList,
         description: 'Display all keyboard shortcuts.',
         helpText: "Press 'H' key to display all keyboard shortcuts.",
         keys: ['H'],
@@ -241,7 +248,7 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          clickElementById(HOTKEY_ELEMENT_IDS.refreshDataButton);
+          clickElementById(KEYBOARD_SHORTCUT_ELEMENT_IDS.refreshDataButton);
         },
         description: 'Refresh the data.',
         helpText: "Press 'Shift' and 'R' keys together to refresh the data.",
@@ -249,7 +256,7 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          clickElementById(HOTKEY_ELEMENT_IDS.playAllButton);
+          clickElementById(KEYBOARD_SHORTCUT_ELEMENT_IDS.playAllButton);
         },
         description: 'Play all tracks displayed on the current page.',
         helpText:
@@ -258,7 +265,7 @@ export function useHotkeyManager() {
       },
       {
         action: () => {
-          clickElementById(HOTKEY_ELEMENT_IDS.shuffleAllButton);
+          clickElementById(KEYBOARD_SHORTCUT_ELEMENT_IDS.shuffleAllButton);
         },
         description: 'Shuffle all tracks on the current page and play.',
         helpText:
@@ -438,7 +445,7 @@ export function useHotkeyManager() {
   };
 
   return {
-    HOTKEY_MAPPINGS,
-    isHotkeyListOpened,
+    isShortcutListOpened,
+    KEYBOARD_SHORTCUTS,
   };
 }

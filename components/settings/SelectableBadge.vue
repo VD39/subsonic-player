@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   label: string;
+  name: string;
   selected: boolean;
 }>();
 
@@ -10,24 +11,23 @@ defineEmits<{
 </script>
 
 <template>
-  <button
-    :aria-checked="selected"
-    :class="[
-      $style.selectableBadge,
-      {
-        [$style.selected]: selected,
-      },
-    ]"
-    role="radio"
-    type="button"
-    @click="$emit('click')"
-  >
+  <label :class="$style.selectableBadge">
+    <input
+      ref="inputRef"
+      :checked="selected"
+      :class="['visuallyHidden', $style.input]"
+      :name
+      type="radio"
+      @change="$emit('click')"
+    />
+
     <span :class="['smallFont', 'strong', $style.label]">{{ label }}</span>
-  </button>
+  </label>
 </template>
 
 <style module>
 .selectableBadge {
+  display: flex;
   justify-content: center;
   padding: var(--space-8) var(--space-24);
   text-align: center;
@@ -40,11 +40,14 @@ defineEmits<{
   }
 }
 
-.label {
-  color: var(--secondary-font-color);
-
-  .selected & {
+.input {
+  &:checked ~ .label {
     color: var(--theme-color);
   }
+}
+
+.label {
+  color: var(--secondary-font-color);
+  transition: color var(--transition);
 }
 </style>

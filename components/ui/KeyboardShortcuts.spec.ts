@@ -5,31 +5,29 @@ import { mount } from '@vue/test-utils';
 
 import KeyboardShortcuts from './KeyboardShortcuts.vue';
 
-const isHotkeyListOpenedMock = ref(false);
+const isShortcutListOpenedMock = ref(false);
 
-mockNuxtImport('useHotkeyManager', (original) => () => ({
+mockNuxtImport('useKeyboardShortcuts', (original) => () => ({
   ...original(),
-  HOTKEY_MAPPINGS: [
-    {
-      Test: [
-        {
-          action: vi.fn(),
-          description: 'Description 1',
-          helpText: 'Help text 1',
-          keys: ['Any', 'Key'],
-        },
-      ],
-      Test1: [
-        {
-          action: vi.fn(),
-          description: 'Description 2',
-          helpText: 'Help text 2',
-          keys: ['Key'],
-        },
-      ],
-    },
-  ],
-  isHotkeyListOpened: isHotkeyListOpenedMock,
+  isShortcutListOpened: isShortcutListOpenedMock,
+  KEYBOARD_SHORTCUTS: {
+    Test: [
+      {
+        action: vi.fn(),
+        description: 'Description 1',
+        helpText: 'Help text 1',
+        keys: ['Any', 'Key'],
+      },
+    ],
+    Test1: [
+      {
+        action: vi.fn(),
+        description: 'Description 2',
+        helpText: 'Help text 2',
+        keys: ['Key'],
+      },
+    ],
+  },
 }));
 
 function factory(props = {}) {
@@ -47,13 +45,13 @@ describe('KeyboardShortcuts', () => {
     wrapper = factory();
   });
 
-  describe('when the isHotkeyListOpened value is false', () => {
+  describe('when the isShortcutListOpened value is false', () => {
     it('matches the snapshot', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('does not show  hot key mappings element', () => {
-      expect(wrapper.find({ ref: 'hotkeyMappings' }).exists()).toBe(false);
+      expect(wrapper.find({ ref: 'shortcutList' }).exists()).toBe(false);
     });
 
     it('does not show the fullscreen element', () => {
@@ -61,9 +59,9 @@ describe('KeyboardShortcuts', () => {
     });
   });
 
-  describe('when the isHotkeyListOpened value is true', () => {
+  describe('when the isShortcutListOpened value is true', () => {
     beforeEach(() => {
-      isHotkeyListOpenedMock.value = true;
+      isShortcutListOpenedMock.value = true;
     });
 
     it('matches the snapshot', () => {
@@ -71,7 +69,7 @@ describe('KeyboardShortcuts', () => {
     });
 
     it('shows the hot key mappings element', () => {
-      expect(wrapper.find({ ref: 'hotkeyMappings' }).exists()).toBe(true);
+      expect(wrapper.find({ ref: 'shortcutList' }).exists()).toBe(true);
     });
 
     it('shows the fullscreen element', () => {

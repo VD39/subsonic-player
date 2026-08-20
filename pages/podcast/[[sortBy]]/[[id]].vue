@@ -155,7 +155,7 @@ useHead({
 
         <div class="list">
           <ButtonLink
-            :id="HOTKEY_ELEMENT_IDS.playAllButton"
+            :id="KEYBOARD_SHORTCUT_ELEMENT_IDS.playAllButton"
             ref="playAllPodcastEpisodesButton"
             class="largeThemeHoverButton"
             :disabled="!hasDownloadedPodcastEpisodes"

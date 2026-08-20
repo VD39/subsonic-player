@@ -25,7 +25,7 @@
       <span :class="$style.bar" />
     </span>
 
-    <span class="visuallyHidden" role="status">Loading data</span>
+    <output class="visuallyHidden">Loading data</output>
   </span>
 </template>
 

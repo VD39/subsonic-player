@@ -8,6 +8,7 @@ function factory(props = {}) {
   return mount(SelectableBadge, {
     props: {
       label: 'label',
+      name: 'test',
       selected: false,
       ...props,
     },
@@ -26,16 +27,10 @@ describe('SelectableBadge', () => {
   });
 
   describe('when the selected prop is false', () => {
-    it('sets the correct role attribute on the button element', () => {
-      expect(wrapper.attributes('role')).toBe('radio');
-    });
-
-    it('sets the correct aria-checked attribute on the button element', () => {
-      expect(wrapper.attributes('aria-checked')).toBe('false');
-    });
-
-    it('does not add the selected class to the wrapper element', () => {
-      expect(wrapper.classes()).not.toContain('selected');
+    it('sets the correct checked property on the input element', () => {
+      expect(
+        (wrapper.find({ ref: 'inputRef' }).element as HTMLInputElement).checked,
+      ).toBe(false);
     });
   });
 
@@ -50,18 +45,16 @@ describe('SelectableBadge', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct aria-checked attribute on the button element', () => {
-      expect(wrapper.attributes('aria-checked')).toBe('true');
-    });
-
-    it('adds the selected class to the wrapper element', () => {
-      expect(wrapper.classes()).toContain('selected');
+    it('sets the correct checked property on the input element', () => {
+      expect(
+        (wrapper.find({ ref: 'inputRef' }).element as HTMLInputElement).checked,
+      ).toBe(true);
     });
   });
 
-  describe('when the click event is triggered', () => {
+  describe('when the click is triggered on the input', () => {
     beforeEach(async () => {
-      await wrapper.trigger('click');
+      await wrapper.find({ ref: 'inputRef' }).trigger('change');
     });
 
     it('emits the click event', () => {

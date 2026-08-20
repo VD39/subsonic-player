@@ -5,9 +5,9 @@ import SelectableOption from '@/components/settings/SelectableOption.vue';
 import SettingsField from '@/components/settings/SettingsField.vue';
 import SettingsGroup from '@/components/settings/SettingsGroup.vue';
 import SettingsSection from '@/components/settings/SettingsSection.vue';
+import ToggleSwitch from '@/components/settings/ToggleSwitch.vue';
 import ButtonLink from '@/components/ui/ButtonLink.vue';
 import InputRange from '@/components/ui/InputRange.vue';
-import ToggleSwitch from '@/components/ui/ToggleSwitch.vue';
 
 const {
   crossfadeDuration,
@@ -97,6 +97,7 @@ onMounted(() => {
           v-for="opt in THEME_OPTIONS"
           :key="opt.value"
           :label="opt.label"
+          name="theme"
           :selected="themePreference === opt.value"
           @click="setThemeMode(opt.value)"
         />
@@ -112,6 +113,7 @@ onMounted(() => {
           v-for="opt in LAYOUT_OPTIONS"
           :key="opt.value"
           :description="opt.description"
+          name="layout"
           :selected="viewLayout === opt.value"
           :title="opt.title"
           @click="setViewLayout(opt.value)"
@@ -131,6 +133,7 @@ onMounted(() => {
           :key="opt.value"
           :badge="opt.badge"
           :description="opt.description"
+          name="streamBitrate"
           :selected="streamBitrate === opt.value"
           :title="opt.title"
           @click="setStreamBitrate(opt.value)"
@@ -147,6 +150,7 @@ onMounted(() => {
           v-for="opt in REPLAY_GAIN_OPTIONS"
           :key="opt.value"
           :label="opt.label"
+          name="replayGain"
           :selected="replayGainMode === opt.value"
           @click="setReplayGainMode(opt.value)"
         />

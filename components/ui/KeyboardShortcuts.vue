@@ -1,19 +1,19 @@
 <script setup lang="ts">
-const { HOTKEY_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
+const { isShortcutListOpened, KEYBOARD_SHORTCUTS } = useKeyboardShortcuts();
 </script>
 
 <template>
   <Transition name="slide-up-down">
     <div
-      v-if="isHotkeyListOpened"
-      ref="hotkeyMappings"
-      :class="$style.hotkeyMappings"
+      v-if="isShortcutListOpened"
+      ref="shortcutList"
+      :class="$style.shortcutList"
     >
-      <h2 :class="['mBM', $style.title]">Application Hotkey Mappings</h2>
+      <h2 :class="['mBM', $style.title]">Keyboard Shortcuts</h2>
 
       <div :class="$style.categories">
         <div
-          v-for="(mappings, category) in HOTKEY_MAPPINGS"
+          v-for="(mappings, category) in KEYBOARD_SHORTCUTS"
           :key="category"
           :class="['mBM', $style.category]"
         >
@@ -41,16 +41,17 @@ const { HOTKEY_MAPPINGS, isHotkeyListOpened } = useHotkeyManager();
     </div>
   </Transition>
 
-  <span v-if="isHotkeyListOpened" ref="fullscreen" class="fullscreen" />
+  <span v-if="isShortcutListOpened" ref="fullscreen" class="fullscreen" />
 </template>
 
 <style module>
-.hotkeyMappings {
+.shortcutList {
   position: fixed;
   inset: 0;
   z-index: 99;
   width: var(--width-height-100);
   height: 100svh;
+  max-height: 100svh;
   padding: var(--space-16) 0;
   overflow-y: auto;
   background-color: var(--modal-background-color);

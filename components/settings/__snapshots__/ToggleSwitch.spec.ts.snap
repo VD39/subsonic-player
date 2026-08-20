@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ToggleSwitch > matches the snapshot 1`] = `"<label class="label"><input class="visuallyHidden input" type="checkbox"><span class="visuallyHidden">label</span><span class="track"></span><span class="knob"></span></label>"`;
+
+exports[`ToggleSwitch > when the pressed prop is true > matches the snapshot 1`] = `"<label class="label"><input checked="" class="visuallyHidden input" type="checkbox"><span class="visuallyHidden">label</span><span class="track"></span><span class="knob"></span></label>"`;

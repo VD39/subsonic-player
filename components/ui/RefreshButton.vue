@@ -24,7 +24,7 @@ const buttonProps = computed(() => {
 
 <template>
   <ButtonLink
-    :id="HOTKEY_ELEMENT_IDS.refreshDataButton"
+    :id="KEYBOARD_SHORTCUT_ELEMENT_IDS.refreshDataButton"
     :icon="buttonProps.icon"
     iconSize="large"
     :title="buttonProps.text"

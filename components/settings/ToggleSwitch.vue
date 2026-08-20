@@ -10,45 +10,51 @@ defineEmits<{
 </script>
 
 <template>
-  <button
-    :aria-checked="pressed"
-    :class="[
-      $style.button,
-      {
-        [$style.pressed]: pressed,
-      },
-    ]"
-    role="switch"
-    type="button"
-    @click="$emit('click')"
-  >
-    <span class="visuallyHidden">{{ label }}</span>
+  <label ref="labelRef" :class="$style.label">
+    <input
+      ref="inputRef"
+      :checked="pressed"
+      :class="['visuallyHidden', $style.input]"
+      type="checkbox"
+      @change="$emit('click')"
+    />
 
+    <span class="visuallyHidden">{{ label }}</span>
     <span :class="$style.track" />
     <span :class="$style.knob" />
-  </button>
+  </label>
 </template>
 
 <style module>
-.button {
+.label {
   --toggle-switch-button-height: 24px;
 
   position: relative;
+  display: inline-block;
   flex-shrink: 0;
   width: 44px;
   height: var(--toggle-switch-button-height);
+  cursor: pointer;
+}
+
+.input {
+  &:checked ~ .track {
+    background-color: var(--theme-color);
+  }
+
+  &:checked ~ .knob {
+    left: 0;
+    transform: translateX(20px);
+  }
 }
 
 .track {
+  display: block;
   width: 44px;
   height: var(--toggle-switch-button-height);
   background-color: var(--border-color);
   border-radius: var(--border-radius-large);
   transition: background-color var(--transition);
-
-  .pressed & {
-    background-color: var(--theme-color);
-  }
 }
 
 .knob {
@@ -58,6 +64,7 @@ defineEmits<{
   );
 
   position: absolute;
+  top: calc(var(--toggle-switch-knob-space) / 2);
   left: var(--toggle-switch-knob-space);
   width: var(--toggle-switch-knob-width-height);
   height: var(--toggle-switch-knob-width-height);
@@ -65,11 +72,8 @@ defineEmits<{
   background-color: var(--background-color);
   border-radius: var(--border-radius-round);
   box-shadow: var(--box-shadow-small);
-  transition: transform var(--transition);
-
-  .pressed & {
-    left: 0;
-    transform: translateX(20px);
-  }
+  transition:
+    left var(--transition),
+    transform var(--transition);
 }
 </style>

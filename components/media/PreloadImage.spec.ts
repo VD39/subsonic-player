@@ -3,9 +3,9 @@ import type { VueWrapper } from '@vue/test-utils';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import { mount } from '@vue/test-utils';
 
-import IconImage from '@/components/ui/IconImage.vue';
 import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
+import IconImage from './IconImage.vue';
 import PreloadImage from './PreloadImage.vue';
 
 mockNuxtImport('useAPI', () => () => ({

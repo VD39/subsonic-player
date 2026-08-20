@@ -1,4 +1,4 @@
-export const HOTKEY_ELEMENT_IDS = {
+export const KEYBOARD_SHORTCUT_ELEMENT_IDS = {
   playAllButton: 'play-all-button',
   refreshDataButton: 'refresh-data-button',
   searchInput: 'search-input',

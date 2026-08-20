@@ -9,7 +9,7 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useQueueMock } from '@/test/useQueueMock';
 import { withSetup } from '@/test/withSetup';
 
-import { useHotkeyManager } from './index';
+import { useKeyboardShortcuts } from './index';
 
 const toggleFavouriteMock = vi.hoisted(() => vi.fn());
 
@@ -128,9 +128,9 @@ const ALL_MOCKS = {
   toggleTheme: toggleThemeMock,
 };
 
-describe('useHotkeyManager', () => {
+describe('useKeyboardShortcuts', () => {
   let result: Awaited<
-    ReturnType<typeof withSetup<ReturnType<typeof useHotkeyManager>>>
+    ReturnType<typeof withSetup<ReturnType<typeof useKeyboardShortcuts>>>
   >;
 
   function setEvents(keys: string[]) {
@@ -153,9 +153,9 @@ describe('useHotkeyManager', () => {
   }
 
   function expectGetElementByIdMock(
-    exceptId?: (typeof HOTKEY_ELEMENT_IDS)[keyof typeof HOTKEY_ELEMENT_IDS],
+    exceptId?: (typeof KEYBOARD_SHORTCUT_ELEMENT_IDS)[keyof typeof KEYBOARD_SHORTCUT_ELEMENT_IDS],
   ) {
-    const { searchInput, ...ids } = HOTKEY_ELEMENT_IDS;
+    const { searchInput, ...ids } = KEYBOARD_SHORTCUT_ELEMENT_IDS;
 
     for (const id of Object.values(ids)) {
       if (exceptId === id) {
@@ -172,7 +172,7 @@ describe('useHotkeyManager', () => {
 
   function expectClickElementByIdMock(
     keys: string[],
-    exceptId?: (typeof HOTKEY_ELEMENT_IDS)[keyof typeof HOTKEY_ELEMENT_IDS],
+    exceptId?: (typeof KEYBOARD_SHORTCUT_ELEMENT_IDS)[keyof typeof KEYBOARD_SHORTCUT_ELEMENT_IDS],
   ) {
     const activeElementFocusMock = vi.fn();
 
@@ -288,11 +288,11 @@ describe('useHotkeyManager', () => {
   }
 
   beforeAll(async () => {
-    result = await withSetup(useHotkeyManager);
+    result = await withSetup(useKeyboardShortcuts);
   });
 
-  it('sets the default isHotkeyListOpened value', () => {
-    expect(result.composable.isHotkeyListOpened.value).toEqual(false);
+  it('sets the default isShortcutListOpened value', () => {
+    expect(result.composable.isShortcutListOpened.value).toEqual(false);
   });
 
   it('adds the abort event listener functions', () => {
@@ -384,8 +384,8 @@ describe('useHotkeyManager', () => {
     describe('when H key is pressed', () => {
       setEvents(['H']);
 
-      it('sets the correct isHotkeyListOpened value', () => {
-        expect(result.composable.isHotkeyListOpened.value).toBe(true);
+      it('sets the correct isShortcutListOpened value', () => {
+        expect(result.composable.isShortcutListOpened.value).toBe(true);
       });
 
       expectMockToBeOrNotToBeCalled();
@@ -398,8 +398,8 @@ describe('useHotkeyManager', () => {
       describe('when the same key is pressed again', () => {
         setEvents(['H']);
 
-        it('sets the correct isHotkeyListOpened value', () => {
-          expect(result.composable.isHotkeyListOpened.value).toBe(false);
+        it('sets the correct isShortcutListOpened value', () => {
+          expect(result.composable.isShortcutListOpened.value).toBe(false);
         });
 
         it('calls the unlockScroll function', () => {
@@ -464,9 +464,9 @@ describe('useHotkeyManager', () => {
     });
 
     describe.each([
-      [['Shift', 'R'], HOTKEY_ELEMENT_IDS.refreshDataButton],
-      [['Shift', 'Enter'], HOTKEY_ELEMENT_IDS.playAllButton],
-      [['Shift', 'S'], HOTKEY_ELEMENT_IDS.shuffleAllButton],
+      [['Shift', 'R'], KEYBOARD_SHORTCUT_ELEMENT_IDS.refreshDataButton],
+      [['Shift', 'Enter'], KEYBOARD_SHORTCUT_ELEMENT_IDS.playAllButton],
+      [['Shift', 'S'], KEYBOARD_SHORTCUT_ELEMENT_IDS.shuffleAllButton],
     ])('when %s key is pressed', (keys, exceptId) => {
       setEvents(keys);
 
