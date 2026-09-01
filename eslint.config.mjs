@@ -1,7 +1,7 @@
-import { includeIgnoreFile } from '@eslint/compat';
+import { includeIgnoreFile } from '@eslint/config-helpers';
+import vitest from '@vitest/eslint-plugin';
 import perfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import vitest from 'eslint-plugin-vitest';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -117,6 +117,7 @@ export default withNuxt(
     },
     rules: {
       ...vitest.configs.recommended.rules,
+      'vitest/no-conditional-expect': 'off',
     },
     settings: {
       vitest: {
