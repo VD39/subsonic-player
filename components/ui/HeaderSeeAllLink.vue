@@ -31,9 +31,14 @@ defineProps<{
 
 <style module>
 .header {
+  &:focus-within {
+    .moreIcon {
+      --more-icon-opacity: 1;
+    }
+  }
+
   @media (hover: hover) {
-    &:hover,
-    &:focus {
+    &:hover {
       .moreIcon {
         --more-icon-opacity: 1;
       }

@@ -160,17 +160,17 @@ onUnmounted(() => {
     transparent
   );
 
+  &:not(:focus):focus-within {
+    mask: none;
+
+    .content {
+      animation: none;
+    }
+  }
+
   @media (hover: hover) {
     &:hover {
       --marquee-scroll-animation-play-state: paused;
-    }
-
-    &:not(:focus):focus-within {
-      mask: none;
-
-      .content {
-        animation: none;
-      }
     }
   }
 

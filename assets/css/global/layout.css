@@ -1,10 +1,16 @@
 .layoutItem {
   position: relative;
 
+  &:focus,
+  &:focus-within {
+    .layoutItemHoverActions {
+      --item-hover-actions-opacity: 1;
+      --item-hover-actions-z-index: 10;
+    }
+  }
+
   @media (hover: hover) {
-    &:hover,
-    &:focus,
-    &:focus-within {
+    &:hover {
       .layoutItemHoverActions {
         --item-hover-actions-opacity: 1;
         --item-hover-actions-z-index: 10;

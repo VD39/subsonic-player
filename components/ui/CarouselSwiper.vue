@@ -70,9 +70,15 @@ const swiper = useSwiper(swiperRef, {
   z-index: 0;
   transition: all var(--transition);
 
+  &:focus-within {
+    .next,
+    .previous {
+      --carousel-swiper-button-opacity: 1;
+    }
+  }
+
   @media (hover: hover) {
-    &:hover,
-    &:focus-within {
+    &:hover {
       .next,
       .previous {
         --carousel-swiper-button-opacity: 1;

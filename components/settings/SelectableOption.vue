@@ -60,6 +60,12 @@ defineEmits<{
     background-color: var(--hover-selected-color);
   }
 
+  &:has(.input:focus-visible) {
+    outline: 2px solid var(--theme-color);
+    outline-offset: -2px;
+    background-color: var(--hover-selected-color);
+  }
+
   &:has(.input:checked) {
     cursor: default;
 

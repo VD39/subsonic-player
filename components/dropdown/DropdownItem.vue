@@ -59,9 +59,12 @@ defineEmits<{
 
   background-color: var(--button-hover-color);
 
+  &:focus {
+    --button-hover-color: var(--hover-selected-color);
+  }
+
   @media (hover: hover) {
-    &:hover,
-    &:focus {
+    &:hover {
       --button-hover-color: var(--hover-selected-color);
     }
   }

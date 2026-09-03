@@ -46,6 +46,11 @@ defineEmits<{
     left: 0;
     transform: translateX(20px);
   }
+
+  &:focus-visible ~ .track {
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--theme-color) 40%, transparent);
+  }
 }
 
 .track {

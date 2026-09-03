@@ -12,6 +12,10 @@
   background-color: var(--sidebar-background-color);
   border: 1px solid transparent;
 
+  &:focus {
+    --sidebar-background-color: var(--secondary-background-color);
+  }
+
   @media (hover: hover) {
     &:hover {
       --sidebar-background-color: var(--secondary-background-color);

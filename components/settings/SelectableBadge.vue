@@ -38,6 +38,11 @@ defineEmits<{
   &:last-child {
     border-right: none;
   }
+
+  &:has(.input:focus-visible) {
+    outline: 2px solid var(--theme-color);
+    outline-offset: 2px;
+  }
 }
 
 .input {

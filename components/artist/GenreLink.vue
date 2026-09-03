@@ -33,9 +33,12 @@ defineProps<{
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-small);
 
+  &:focus {
+    --genre-link-background-color: var(--hover-selected-color);
+  }
+
   @media (hover: hover) {
-    &:hover,
-    &:focus {
+    &:hover {
       --genre-link-background-color: var(--hover-selected-color);
     }
   }
