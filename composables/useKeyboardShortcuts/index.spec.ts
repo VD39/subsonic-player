@@ -213,12 +213,7 @@ describe('useKeyboardShortcuts', () => {
 
     describe('when document.getElementById returns null', () => {
       beforeAll(() => {
-        getElementByIdSpy
-          .mockReturnValueOnce({
-            contains: vi.fn(() => false),
-            focus: focusMock,
-          } as never)
-          .mockReturnValue(null);
+        getElementByIdSpy.mockReturnValue(null);
       });
 
       setEvents(keys);
@@ -238,16 +233,12 @@ describe('useKeyboardShortcuts', () => {
 
     describe('when document.getElementById does not return null', () => {
       beforeAll(() => {
-        getElementByIdSpy
-          .mockReturnValueOnce({
-            contains: vi.fn(() => false),
-          } as never)
-          .mockReturnValue({
-            blur: blurMock,
-            click: clickMock,
-            contains: vi.fn(() => false),
-            focus: focusMock,
-          } as never);
+        getElementByIdSpy.mockReturnValue({
+          blur: blurMock,
+          click: clickMock,
+          contains: vi.fn(() => false),
+          focus: focusMock,
+        } as never);
       });
 
       setEvents(keys);
@@ -341,13 +332,7 @@ describe('useKeyboardShortcuts', () => {
     );
   });
 
-  describe('when focus is in the search input', () => {
-    beforeAll(() => {
-      getElementByIdSpy.mockReturnValue({
-        contains: vi.fn(() => true),
-      } as never);
-    });
-
+  describe('when focus is on an interactive element', () => {
     setEvents(['Shift', 'P']);
 
     expectMockToBeOrNotToBeCalled();
@@ -365,18 +350,14 @@ describe('useKeyboardShortcuts', () => {
     expectGetElementByIdMock();
   });
 
-  describe('when focus is not in the search input and modal is not showing', () => {
+  describe('when focus is not on an interactive element and modal is not showing', () => {
     beforeAll(() => {
-      getElementByIdSpy
-        .mockReturnValueOnce({
-          contains: vi.fn(() => false),
-        } as never)
-        .mockReturnValue({
-          blur: blurMock,
-          click: clickMock,
-          contains: vi.fn(() => false),
-          focus: focusMock,
-        } as never);
+      getElementByIdSpy.mockReturnValue({
+        blur: blurMock,
+        click: clickMock,
+        contains: vi.fn(() => false),
+        focus: focusMock,
+      } as never);
 
       modalMock.value.component = null;
     });

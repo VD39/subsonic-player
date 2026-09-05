@@ -96,12 +96,8 @@ export function useKeyboardShortcuts() {
   }
 
   function onKeydown(event: KeyboardEvent) {
-    const searchInput = document.getElementById(
-      KEYBOARD_SHORTCUT_ELEMENT_IDS.searchInput,
-    );
-
-    // Ignore all key events if focus is on search input or if a modal is visible.
-    if (searchInput?.contains(event.target as Node) || modal.value.component) {
+    // Ignore all key events if focus is on an interactive element or a modal is visible.
+    if (isInteractiveElement(event.target) || modal.value.component) {
       return;
     }
 
