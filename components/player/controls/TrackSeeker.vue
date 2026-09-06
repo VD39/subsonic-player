@@ -22,7 +22,6 @@ const ariaValueText = computed(
     commitOnRelease
     :max="currentTrack.duration"
     :min="0"
-    tabindex="0"
     @change="seekTo"
     @keydown.arrow-left.prevent="rewindTrack"
     @keydown.arrow-right.prevent="fastForwardTrack"

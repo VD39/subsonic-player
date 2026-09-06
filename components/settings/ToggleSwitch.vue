@@ -48,8 +48,7 @@ defineEmits<{
   }
 
   &:focus-visible ~ .track {
-    box-shadow: 0 0 0 3px
-      color-mix(in srgb, var(--theme-color) 40%, transparent);
+    box-shadow: var(--box-shadow-focus-control);
   }
 }
 

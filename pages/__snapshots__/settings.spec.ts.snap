@@ -114,14 +114,14 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
             <div class="control"><label class="label"><input class="visuallyHidden input" type="checkbox"><span class="visuallyHidden">Enable crossfade</span><span class="track"></span><span class="knob"></span></label></div>
           </div>
-          <div class="spaceBetween centerItems">
+          <div class="spaceBetween centerItems crossfadeSettingsField">
             <div class="info">
               <div class="sentenceCase smallFont strong title">Duration</div>
               <div class="smallFont description">Tracks shorter than the crossfade duration may not scrobble on some services</div>
             </div>
             <div class="control">
-              <div class="centerAll spaceBetween crossfadeWrapper disabled"><span class="strong">3s</span>
-                <div aria-disabled="true" class="inputRange disabled" style="--input-slider-height: 6px;" aria-label="Crossfade duration">
+              <div class="centerAll spaceBetween crossfadeWrapper disabled"><span class="centerAll strong duration">3s </span>
+                <div aria-disabled="true" aria-valuemax="12" aria-valuemin="1" aria-valuenow="3" class="inputRange disabled crossfadeInputRange" role="slider" style="--input-slider-height: 6px;" aria-label="Crossfade duration">
                   <div class="centerItems slider">
                     <div class="progressWrapper">
                       <div class="progress" style="width: 0px;"></div>
@@ -130,7 +130,7 @@ exports[`settings > matches the snapshot 1`] = `
                     <div class="thumb" style="left: -6px;"></div>
                     <!--v-if-->
                   </div>
-                </div><span class="strong secondaryText">12s </span>
+                </div><span class="centerAll strong duration secondaryText">12s </span>
               </div>
             </div>
           </div>

@@ -172,6 +172,7 @@ onMounted(() => {
         </SettingsField>
 
         <SettingsField
+          :class="$style.crossfadeSettingsField"
           description="Tracks shorter than the crossfade duration may not scrobble on some services"
           title="Duration"
         >
@@ -186,19 +187,29 @@ onMounted(() => {
               },
             ]"
           >
-            <span class="strong">{{ crossfadeDuration }}s</span>
+            <span :class="['centerAll', 'strong', $style.duration]">
+              {{ crossfadeDuration }}s
+            </span>
 
             <InputRange
               ref="crossfadeInputRange"
               v-model="crossfadeDuration"
               aria-label="Crossfade duration"
+              :class="$style.crossfadeInputRange"
               :disabled="!crossfadeEnabled"
               :max="CROSSFADE_DURATION_MAX"
               :min="CROSSFADE_DURATION_MIN"
+              :step="1"
               @change="onCrossfadeDuration"
             />
-
-            <span :class="['strong', $style.secondaryText]">
+            <span
+              :class="[
+                'centerAll',
+                'strong',
+                $style.duration,
+                $style.secondaryText,
+              ]"
+            >
               {{ CROSSFADE_DURATION_MAX }}s
             </span>
           </div>
@@ -319,8 +330,30 @@ onMounted(() => {
   color: var(--secondary-font-color);
 }
 
+.crossfadeSettingsField {
+  @media (--mobile-only) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
 .crossfadeWrapper {
-  width: 200px;
+  --crossfade-wrapper-width: 200px;
+  --crossfade-duration-width: 30px;
+
+  width: var(--crossfade-wrapper-width);
+}
+
+.duration {
+  width: var(--crossfade-duration-width);
+}
+
+.crossfadeInputRange {
+  width: calc(
+    var(--crossfade-wrapper-width) - var(--crossfade-duration-width) * 2
+  );
 }
 
 .disabled {

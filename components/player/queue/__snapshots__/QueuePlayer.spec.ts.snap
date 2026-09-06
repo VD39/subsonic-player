@@ -32,7 +32,7 @@ exports[`QueuePlayer > matches the snapshot 1`] = `
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -127,7 +127,7 @@ exports[`QueuePlayer > when the currentTrack value does not have a favourite key
             </div>
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -225,7 +225,7 @@ exports[`QueuePlayer > when the isPlaying value is true > matches the snapshot 1
             </div>
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -317,7 +317,7 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > matches the sna
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -410,7 +410,7 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -507,7 +507,7 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -600,7 +600,7 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -697,7 +697,7 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -790,7 +790,7 @@ exports[`QueuePlayer > when the isPodcastEpisode value is true > when the curren
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -882,7 +882,7 @@ exports[`QueuePlayer > when the isRadioStation value is true > matches the snaps
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -963,7 +963,7 @@ exports[`QueuePlayer > when the isTrack value is true > when currentTrackMock.al
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -1042,7 +1042,7 @@ exports[`QueuePlayer > when the isTrack value is true > when currentTrackMock.ar
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -1126,7 +1126,7 @@ exports[`QueuePlayer > when the isTrack value is true > when the track does not 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>
@@ -1205,7 +1205,7 @@ exports[`QueuePlayer > when the isTrack value is true > when the track does not 
             <!--v-if-->
           </div>
           <div class="fullWidth">
-            <div aria-disabled="false" class="inputRange fullWidth" style="--input-slider-height: 6px;" aria-label="Seek" aria-valuetext="00:00 of 02:00" tabindex="0">
+            <div aria-disabled="false" aria-valuemax="120" aria-valuemin="0" aria-valuenow="0" class="inputRange fullWidth" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Seek" aria-valuetext="00:00 of 02:00">
               <div class="centerItems slider">
                 <div class="progressWrapper">
                   <div class="progress" style="width: 0px;"></div>

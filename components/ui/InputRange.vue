@@ -8,10 +8,12 @@ const props = withDefaults(
     hideThumb?: boolean;
     max: number;
     min: number;
+    step?: number;
   }>(),
   {
     buffer: undefined,
     height: 6,
+    step: undefined,
   },
 );
 
@@ -36,6 +38,29 @@ const bufferProgress = ref(getProgress(props.buffer));
 const isUnbounded = computed(() => !props.max);
 const hoverProgress = computed(() => getProgress(hoverValue.value));
 const showThumb = computed(() => !props.hideThumb && !isUnbounded.value);
+const isKeyboardOperable = computed(
+  () => !props.disabled && !isUnbounded.value,
+);
+const tabIndex = computed(() => (isKeyboardOperable.value ? 0 : undefined));
+const currentValue = computed(() => internalValue.value ?? props.min);
+const step = computed(() => props.step || (props.max - props.min) / 100);
+const hasKeydownEvent = computed(
+  () => !!getCurrentInstance()?.vnode.props?.onKeydown,
+);
+
+function adjustValueByStep(sign: -1 | 1) {
+  const newValue = Math.min(
+    Math.max(currentValue.value + sign * step.value, props.min),
+    props.max,
+  );
+
+  pendingValue.value = newValue;
+  hoverValue.value = newValue;
+  progress.value = getProgress(newValue);
+
+  // Commit immediately, even with commitOnRelease.
+  updateValue();
+}
 
 function getProgress(newValue = 0) {
   if (!sliderRef.value) {
@@ -96,6 +121,27 @@ function modifyProgress(event: MouseEvent | TouchEvent) {
 function onDragMove(event: MouseEvent | TouchEvent) {
   isHovering.value = false;
   modifyProgress(event);
+}
+
+function onKeydown(event: KeyboardEvent) {
+  if (props.disabled || isUnbounded.value || hasKeydownEvent.value) {
+    return;
+  }
+
+  switch (event.key) {
+    case 'ArrowDown':
+    case 'ArrowLeft':
+      event.preventDefault();
+      adjustValueByStep(-1);
+      break;
+    case 'ArrowRight':
+    case 'ArrowUp':
+      event.preventDefault();
+      adjustValueByStep(1);
+      break;
+    default:
+      break;
+  }
 }
 
 function onPointerUp() {
@@ -184,6 +230,9 @@ onUnmounted(() => {
 <template>
   <div
     :aria-disabled="disabled"
+    :aria-valuemax="max"
+    :aria-valuemin="min"
+    :aria-valuenow="currentValue"
     :class="[
       $style.inputRange,
       {
@@ -192,9 +241,12 @@ onUnmounted(() => {
         [$style.disabled]: disabled,
       },
     ]"
+    role="slider"
     :style="{
       '--input-slider-height': `${height}px`,
     }"
+    :tabindex="tabIndex"
+    @keydown="onKeydown"
   >
     <div
       ref="sliderRef"
@@ -245,6 +297,10 @@ onUnmounted(() => {
   position: relative;
   width: var(--width-height-100);
   padding: var(--default-space) 0;
+
+  &:focus-visible {
+    box-shadow: var(--box-shadow-focus-control);
+  }
 
   @media (hover: hover) {
     &.seeking,

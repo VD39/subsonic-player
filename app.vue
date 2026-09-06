@@ -40,12 +40,14 @@ useHead({
       '--sidebar-bottom': () =>
         hasQueueTracks.value ? 'var(--media-player-height)' : '0px',
       '--sidebar-width': width,
-      '--theme-color': THEME_COLOUR,
     },
   },
   htmlAttrs: {
     class: {
       dark: () => isDarkTheme.value,
+    },
+    style: {
+      '--theme-color': THEME_COLOUR,
     },
   },
 });

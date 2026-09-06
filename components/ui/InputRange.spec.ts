@@ -19,6 +19,8 @@ const { abortControllerConstructorMock, abortMock, signalMock } =
   abortControllerMock();
 HTMLElement.prototype.getBoundingClientRect = () => new DOMRect(0, 0, 100, 0);
 
+let onKeydownMock: ((event: KeyboardEvent) => unknown) | undefined;
+
 function factory(props = {}, slots = {}) {
   return mount(InputRange, {
     attachTo: document.body,
@@ -26,6 +28,7 @@ function factory(props = {}, slots = {}) {
       max: 10,
       min: 0,
       modelValue: 2.5,
+      onKeydown: onKeydownMock,
       ...props,
     },
     slots: {
@@ -56,7 +59,27 @@ describe('InputRange', () => {
     );
   });
 
-  describe('when the model value updates', () => {
+  it('sets the correct role attribute on the wrapper element', () => {
+    expect(wrapper.attributes('role')).toBe('slider');
+  });
+
+  it('sets the correct aria-valuemin attribute on the wrapper element', () => {
+    expect(wrapper.attributes('aria-valuemin')).toBe('0');
+  });
+
+  it('sets the correct aria-valuemax attribute on the wrapper element', () => {
+    expect(wrapper.attributes('aria-valuemax')).toBe('10');
+  });
+
+  it('sets the correct aria-valuenow attribute on the wrapper element', () => {
+    expect(wrapper.attributes('aria-valuenow')).toBe('2.5');
+  });
+
+  it('sets the correct tabindex attribute on the wrapper element', () => {
+    expect(wrapper.attributes('tabindex')).toBe('0');
+  });
+
+  describe('when the modelValue prop updates', () => {
     beforeEach(async () => {
       await wrapper.setProps({ modelValue: 5 });
     });
@@ -66,19 +89,19 @@ describe('InputRange', () => {
     });
 
     it('sets the correct style attribute on the progress bar element', () => {
-      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-        'width: 50px;',
-      );
+      expect(
+        wrapper.find({ ref: 'progressBar' }).attributes('style'),
+      ).toContain('width: 50px;');
     });
   });
 
-  describe('when the bufferLength prop is not set', () => {
+  describe('when the buffer prop is not set', () => {
     it('does not show the buffer bar element', () => {
       expect(wrapper.find({ ref: 'bufferBar' }).exists()).toBe(false);
     });
   });
 
-  describe('when the bufferLength prop is set to true', () => {
+  describe('when the buffer prop is set', () => {
     beforeEach(() => {
       wrapper = factory({
         buffer: 5,
@@ -94,12 +117,12 @@ describe('InputRange', () => {
     });
 
     it('sets the correct style attribute on the buffer bar element', () => {
-      expect(wrapper.find({ ref: 'bufferBar' }).attributes('style')).toBe(
+      expect(wrapper.find({ ref: 'bufferBar' }).attributes('style')).toContain(
         'width: 50px;',
       );
     });
 
-    describe('when buffer duration updates', () => {
+    describe('when the buffer prop updates', () => {
       beforeEach(async () => {
         await wrapper.setProps({ buffer: 7.5 });
       });
@@ -109,14 +132,14 @@ describe('InputRange', () => {
       });
 
       it('sets the correct style attribute on the buffer bar element', () => {
-        expect(wrapper.find({ ref: 'bufferBar' }).attributes('style')).toBe(
-          'width: 75px;',
-        );
+        expect(
+          wrapper.find({ ref: 'bufferBar' }).attributes('style'),
+        ).toContain('width: 75px;');
       });
     });
   });
 
-  describe('when the max prop greater than 0', () => {
+  describe('when the max prop is greater than 0', () => {
     it('does not add the standard class to the wrapper element', () => {
       expect(wrapper.classes()).not.toContain('standard');
     });
@@ -126,13 +149,13 @@ describe('InputRange', () => {
     });
 
     it('sets the correct style attribute on the progress bar element', () => {
-      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-        'width: 25px;',
-      );
+      expect(
+        wrapper.find({ ref: 'progressBar' }).attributes('style'),
+      ).toContain('width: 25px;');
     });
   });
 
-  describe('when the max prop equal to 0', () => {
+  describe('when the max prop is equal to 0', () => {
     beforeEach(() => {
       wrapper = factory({
         max: 0,
@@ -151,10 +174,14 @@ describe('InputRange', () => {
       expect(wrapper.find({ ref: 'thumb' }).exists()).toBe(false);
     });
 
+    it('does not add the tabindex attribute to the wrapper element', () => {
+      expect(wrapper.attributes('tabindex')).toBeUndefined();
+    });
+
     it('sets the correct style attribute on the progress bar element', () => {
-      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-        'width: 100px;',
-      );
+      expect(
+        wrapper.find({ ref: 'progressBar' }).attributes('style'),
+      ).toContain('width: 100px;');
     });
   });
 
@@ -172,9 +199,9 @@ describe('InputRange', () => {
     });
 
     it('sets the correct style attribute on the progress bar element', () => {
-      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-        'width: 0px;',
-      );
+      expect(
+        wrapper.find({ ref: 'progressBar' }).attributes('style'),
+      ).toContain('width: 0px;');
     });
 
     describe('when the modelValue changes to a middle value', () => {
@@ -187,9 +214,9 @@ describe('InputRange', () => {
       });
 
       it('sets the correct style attribute on the progress bar element', () => {
-        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-          'width: 50px;',
-        );
+        expect(
+          wrapper.find({ ref: 'progressBar' }).attributes('style'),
+        ).toContain('width: 50px;');
       });
     });
 
@@ -199,20 +226,20 @@ describe('InputRange', () => {
       });
 
       it('sets the correct style attribute on the progress bar element', () => {
-        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-          'width: 0px;',
-        );
+        expect(
+          wrapper.find({ ref: 'progressBar' }).attributes('style'),
+        ).toContain('width: 0px;');
       });
     });
 
-    describe('when the mousedown on slider is called', () => {
+    describe('when the mousedown is triggered on the slider', () => {
       beforeEach(async () => {
         await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
           pageX: 50,
         });
       });
 
-      it('emits the update:modelValue value with the correct value', () => {
+      it('emits the update:modelValue event with the correct value', () => {
         expect(wrapper.emitted('update:modelValue')).toEqual([[7.5]]);
       });
     });
@@ -220,7 +247,9 @@ describe('InputRange', () => {
 
   describe('when the height prop is not set', () => {
     it('sets the correct style attribute on the wrapper element', () => {
-      expect(wrapper.attributes('style')).toBe('--input-slider-height: 6px;');
+      expect(wrapper.attributes('style')).toContain(
+        '--input-slider-height: 6px;',
+      );
     });
   });
 
@@ -236,7 +265,9 @@ describe('InputRange', () => {
     });
 
     it('sets the correct style attribute on the wrapper element', () => {
-      expect(wrapper.attributes('style')).toBe('--input-slider-height: 10px;');
+      expect(wrapper.attributes('style')).toContain(
+        '--input-slider-height: 10px;',
+      );
     });
   });
 
@@ -291,7 +322,27 @@ describe('InputRange', () => {
       expect(wrapper.attributes('aria-disabled')).toBe('true');
     });
 
-    describe('when the mousedown on slider is called', () => {
+    it('does not add the tabindex attribute to the wrapper element', () => {
+      expect(wrapper.attributes('tabindex')).toBeUndefined();
+    });
+
+    describe('when an arrow key is pressed on the wrapper element', () => {
+      beforeEach(async () => {
+        await wrapper.trigger('keydown', {
+          key: 'ArrowRight',
+        });
+      });
+
+      it('does not emit the update:modelValue event', () => {
+        expect(wrapper.emitted('update:modelValue')).toBeUndefined();
+      });
+
+      it('does not emit the change event', () => {
+        expect(wrapper.emitted('change')).toBeUndefined();
+      });
+    });
+
+    describe('when the mousedown is triggered on the slider', () => {
       beforeEach(async () => {
         await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
           pageX: 60,
@@ -315,7 +366,7 @@ describe('InputRange', () => {
   });
 
   describe('when the default slot is set', () => {
-    describe('when the max prop equal to 0', () => {
+    describe('when the max prop is equal to 0', () => {
       beforeEach(() => {
         wrapper = factory(
           {
@@ -353,11 +404,14 @@ describe('InputRange', () => {
       });
     });
 
-    describe('when the max prop greater than 0', () => {
+    describe('when the max prop is greater than 0', () => {
       beforeEach(() => {
-        wrapper = factory(undefined, {
-          default: '<p>{{ pendingValue }}</p>',
-        });
+        wrapper = factory(
+          {},
+          {
+            default: '<p>{{ pendingValue }}</p>',
+          },
+        );
       });
 
       it('matches the snapshot', () => {
@@ -368,7 +422,7 @@ describe('InputRange', () => {
         expect(wrapper.find({ ref: 'tooltip' }).exists()).toBe(true);
       });
 
-      describe('when the mousemove on slider is called', () => {
+      describe('when the mousemove is triggered on the slider', () => {
         describe('when the mouseover on slider is not called before', () => {
           beforeEach(async () => {
             await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
@@ -381,9 +435,9 @@ describe('InputRange', () => {
           });
 
           it('sets the correct style attribute on the tooltip element', () => {
-            expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
-              'left: 25px;',
-            );
+            expect(
+              wrapper.find({ ref: 'tooltip' }).attributes('style'),
+            ).toContain('left: 25px;');
           });
         });
 
@@ -402,16 +456,16 @@ describe('InputRange', () => {
           });
 
           it('sets the correct style attribute on the tooltip element', () => {
-            expect(wrapper.find({ ref: 'tooltip' }).attributes('style')).toBe(
-              'left: 80px;',
-            );
+            expect(
+              wrapper.find({ ref: 'tooltip' }).attributes('style'),
+            ).toContain('left: 80px;');
           });
         });
       });
     });
   });
 
-  describe('when the mousedown on slider is called', () => {
+  describe('when the mousedown is triggered on the slider', () => {
     beforeEach(async () => {
       await wrapper.find({ ref: 'sliderRef' }).trigger('mousedown', {
         pageX: 60,
@@ -422,7 +476,7 @@ describe('InputRange', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('adds the seeking class to wrapper element', () => {
+    it('adds the seeking class to the wrapper element', () => {
       expect(wrapper.classes()).toContain('seeking');
     });
 
@@ -472,7 +526,7 @@ describe('InputRange', () => {
       );
     });
 
-    describe('when slider mousemove is called', () => {
+    describe('when the mousemove is triggered on the slider', () => {
       beforeEach(async () => {
         await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
           pageX: 30,
@@ -484,19 +538,19 @@ describe('InputRange', () => {
       });
 
       it('sets the correct style attribute on the progress bar element', () => {
-        expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-          'width: 30px;',
-        );
+        expect(
+          wrapper.find({ ref: 'progressBar' }).attributes('style'),
+        ).toContain('width: 30px;');
       });
 
       it('sets the correct style attribute on the thumb element', () => {
-        expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
+        expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toContain(
           'left: 24px;',
         );
       });
     });
 
-    describe('when the mouseup is called', () => {
+    describe('when the mouseup is triggered on document', () => {
       beforeEach(() => {
         document.dispatchEvent(new MouseEvent('mouseup'));
       });
@@ -515,11 +569,11 @@ describe('InputRange', () => {
     });
 
     describe('when the commitOnRelease prop is not set', () => {
-      it('emits the update:modelValue value', () => {
+      it('emits the update:modelValue event', () => {
         expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
       });
 
-      it('emits the change value', () => {
+      it('emits the change event', () => {
         expect(wrapper.emitted('change')).toEqual([[6]]);
       });
     });
@@ -535,17 +589,17 @@ describe('InputRange', () => {
         });
       });
 
-      it('does not emit the update:modelValue value', () => {
+      it('does not emit the update:modelValue event', () => {
         expect(wrapper.emitted('update:modelValue')).toBeUndefined();
       });
 
-      it('does not emit the change value', () => {
+      it('does not emit the change event', () => {
         expect(wrapper.emitted('change')).toBeUndefined();
       });
     });
   });
 
-  describe('when the touchstart on slider is called', () => {
+  describe('when the touchstart is triggered on the slider', () => {
     describe('when touches is not an empty array', () => {
       beforeEach(async () => {
         await wrapper.find({ ref: 'sliderRef' }).trigger('touchstart', {
@@ -557,7 +611,7 @@ describe('InputRange', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('adds the seeking class to wrapper element', () => {
+      it('adds the seeking class to the wrapper element', () => {
         expect(wrapper.classes()).toContain('seeking');
       });
 
@@ -607,7 +661,7 @@ describe('InputRange', () => {
         );
       });
 
-      describe('when slider mousemove is called', () => {
+      describe('when the mousemove is triggered on the slider', () => {
         beforeEach(async () => {
           await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
             pageX: 30,
@@ -619,19 +673,19 @@ describe('InputRange', () => {
         });
 
         it('sets the correct style attribute on the progress bar element', () => {
-          expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-            'width: 30px;',
-          );
+          expect(
+            wrapper.find({ ref: 'progressBar' }).attributes('style'),
+          ).toContain('width: 30px;');
         });
 
         it('sets the correct style attribute on the thumb element', () => {
-          expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
+          expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toContain(
             'left: 24px;',
           );
         });
       });
 
-      describe('when the mouseup is called', () => {
+      describe('when the mouseup is triggered on document', () => {
         beforeEach(() => {
           document.dispatchEvent(new MouseEvent('mouseup'));
         });
@@ -650,11 +704,11 @@ describe('InputRange', () => {
       });
 
       describe('when the commitOnRelease prop is not set', () => {
-        it('emits the update:modelValue value', () => {
+        it('emits the update:modelValue event', () => {
           expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
         });
 
-        it('emits the change value', () => {
+        it('emits the change event', () => {
           expect(wrapper.emitted('change')).toEqual([[6]]);
         });
       });
@@ -670,11 +724,11 @@ describe('InputRange', () => {
           });
         });
 
-        it('does not emit the update:modelValue value', () => {
+        it('does not emit the update:modelValue event', () => {
           expect(wrapper.emitted('update:modelValue')).toBeUndefined();
         });
 
-        it('does not emit the change value', () => {
+        it('does not emit the change event', () => {
           expect(wrapper.emitted('change')).toBeUndefined();
         });
       });
@@ -692,7 +746,7 @@ describe('InputRange', () => {
         expect(wrapper.html()).toMatchSnapshot();
       });
 
-      it('adds the seeking class to wrapper element', () => {
+      it('adds the seeking class to the wrapper element', () => {
         expect(wrapper.classes()).toContain('seeking');
       });
 
@@ -742,7 +796,7 @@ describe('InputRange', () => {
         );
       });
 
-      describe('when slider mousemove is called', () => {
+      describe('when the mousemove is triggered on the slider', () => {
         beforeEach(async () => {
           await wrapper.find({ ref: 'sliderRef' }).trigger('mousemove', {
             pageX: 30,
@@ -754,19 +808,19 @@ describe('InputRange', () => {
         });
 
         it('sets the correct style attribute on the progress bar element', () => {
-          expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-            'width: 30px;',
-          );
+          expect(
+            wrapper.find({ ref: 'progressBar' }).attributes('style'),
+          ).toContain('width: 30px;');
         });
 
         it('sets the correct style attribute on the thumb element', () => {
-          expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toBe(
+          expect(wrapper.find({ ref: 'thumb' }).attributes('style')).toContain(
             'left: 24px;',
           );
         });
       });
 
-      describe('when the mouseup is called', () => {
+      describe('when the mouseup is triggered on document', () => {
         beforeEach(() => {
           document.dispatchEvent(new MouseEvent('mouseup'));
         });
@@ -785,11 +839,11 @@ describe('InputRange', () => {
       });
 
       describe('when the commitOnRelease prop is not set', () => {
-        it('emits the update:modelValue value', () => {
+        it('emits the update:modelValue event', () => {
           expect(wrapper.emitted('update:modelValue')).toEqual([[6]]);
         });
 
-        it('emits the change value', () => {
+        it('emits the change event', () => {
           expect(wrapper.emitted('change')).toEqual([[6]]);
         });
       });
@@ -806,11 +860,11 @@ describe('InputRange', () => {
           });
         });
 
-        it('does not emit the update:modelValue value', () => {
+        it('does not emit the update:modelValue event', () => {
           expect(wrapper.emitted('update:modelValue')).toBeUndefined();
         });
 
-        it('does not emit the change value', () => {
+        it('does not emit the change event', () => {
           expect(wrapper.emitted('change')).toBeUndefined();
         });
       });
@@ -824,12 +878,184 @@ describe('InputRange', () => {
         });
       });
 
-      it('does not emit the update:modelValue value', () => {
+      it('does not emit the update:modelValue event', () => {
         expect(wrapper.emitted('update:modelValue')).toBeUndefined();
       });
 
-      it('does not emit the change value', () => {
+      it('does not emit the change event', () => {
         expect(wrapper.emitted('change')).toBeUndefined();
+      });
+    });
+  });
+
+  describe('when an arrow key is pressed on the wrapper element', () => {
+    describe.each([
+      ['ArrowRight', 2.6, 26],
+      ['ArrowUp', 2.6, 26],
+      ['ArrowLeft', 2.4, 24],
+      ['ArrowDown', 2.4, 24],
+    ])('when the %s key is pressed', (key, expected, expectedWidth) => {
+      let preventDefaultMock: ReturnType<typeof vi.fn>;
+
+      beforeEach(async () => {
+        preventDefaultMock = vi.fn();
+
+        await wrapper.trigger('keydown', {
+          key,
+          preventDefault: preventDefaultMock,
+        });
+      });
+
+      it('calls the preventDefault function on the event', () => {
+        expect(preventDefaultMock).toHaveBeenCalled();
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[expected]]);
+      });
+
+      it('emits the change event with the correct value', () => {
+        expect(wrapper.emitted('change')).toEqual([[expected]]);
+      });
+
+      it('sets the correct style attribute on the progress bar element', () => {
+        expect(
+          wrapper.find({ ref: 'progressBar' }).attributes('style'),
+        ).toContain(`width: ${expectedWidth}px;`);
+      });
+    });
+
+    describe('when a non-arrow key is pressed', () => {
+      beforeEach(async () => {
+        await wrapper.trigger('keydown', {
+          key: 'Enter',
+        });
+      });
+
+      it('does not emit the update:modelValue event', () => {
+        expect(wrapper.emitted('update:modelValue')).toBeUndefined();
+      });
+
+      it('does not emit the change event', () => {
+        expect(wrapper.emitted('change')).toBeUndefined();
+      });
+    });
+
+    describe('when the commitOnRelease prop is set to true', () => {
+      beforeEach(async () => {
+        wrapper = factory({
+          commitOnRelease: true,
+        });
+
+        await wrapper.trigger('keydown', {
+          key: 'ArrowRight',
+        });
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[2.6]]);
+      });
+
+      it('emits the change event with the correct value', () => {
+        expect(wrapper.emitted('change')).toEqual([[2.6]]);
+      });
+    });
+
+    describe('when the step prop is set', () => {
+      beforeEach(async () => {
+        wrapper = factory({
+          step: 2,
+        });
+
+        await wrapper.trigger('keydown', {
+          key: 'ArrowRight',
+        });
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[4.5]]);
+      });
+
+      it('emits the change event with the correct value', () => {
+        expect(wrapper.emitted('change')).toEqual([[4.5]]);
+      });
+    });
+
+    describe('when the new value would be greater than the max value', () => {
+      beforeEach(async () => {
+        wrapper = factory({
+          max: 4,
+          step: 2,
+        });
+
+        await wrapper.trigger('keydown', {
+          key: 'ArrowRight',
+        });
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[4]]);
+      });
+    });
+
+    describe('when the new value would be lower than the min value', () => {
+      beforeEach(async () => {
+        wrapper = factory({
+          min: 2,
+          step: 2,
+        });
+
+        await wrapper.trigger('keydown', {
+          key: 'ArrowLeft',
+        });
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[2]]);
+      });
+    });
+
+    describe('when the onKeydown event is not attached to the component', () => {
+      beforeEach(async () => {
+        onKeydownMock = undefined;
+
+        wrapper = factory();
+
+        await wrapper.trigger('keydown', {
+          key: 'ArrowRight',
+        });
+      });
+
+      it('does not call the keydown listener', () => {
+        expect(onKeydownMock).toBeUndefined();
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[2.6]]);
+      });
+    });
+
+    describe('when the onKeydown event is attached to the component', () => {
+      beforeEach(async () => {
+        onKeydownMock = vi.fn();
+
+        wrapper = factory();
+
+        await wrapper.trigger('keydown', {
+          key: 'ArrowRight',
+        });
+      });
+
+      it('calls the keydown listener', () => {
+        expect(onKeydownMock).toHaveBeenCalledWith(expect.any(KeyboardEvent));
+      });
+
+      it('emits the update:modelValue event with the correct value', () => {
+        expect(wrapper.emitted('update:modelValue')).toEqual([[2.6]]);
+      });
+
+      it('emits the change event with the correct value', () => {
+        expect(wrapper.emitted('change')).toEqual([[2.6]]);
       });
     });
   });
@@ -847,9 +1073,9 @@ describe('InputRange', () => {
     });
 
     it('sets the correct style attribute on the progress bar element', () => {
-      expect(wrapper.find({ ref: 'progressBar' }).attributes('style')).toBe(
-        'width: 50px;',
-      );
+      expect(
+        wrapper.find({ ref: 'progressBar' }).attributes('style'),
+      ).toContain('width: 50px;');
     });
   });
 
