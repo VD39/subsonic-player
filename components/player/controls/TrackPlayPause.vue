@@ -134,16 +134,31 @@ const { isBuffering, isPlaying } = useAudioPlayer();
 }
 
 .playPauseWrapper {
-  --play-pause-visibility: hidden;
+  --play-pause-visibility: visible;
   --play-pause-opacity: 0;
   --play-pause-transform: scale(0);
 
   visibility: var(--play-pause-visibility);
   opacity: var(--play-pause-opacity);
   transform: var(--play-pause-transform);
+
+  &:has(:focus-visible) {
+    --play-pause-opacity: 1;
+    --play-pause-transform: unset;
+  }
+}
+
+.playing {
+  .playPauseButton {
+    --play-pause-button-display: flex;
+
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
 }
 
 .playPauseInner {
+  position: relative;
   width: var(--track-width-height);
   height: var(--track-width-height);
 }
@@ -152,11 +167,24 @@ const { isBuffering, isPlaying } = useAudioPlayer();
 .playPauseButton {
   --play-pause-width-height: calc(var(--track-width-height-default) - 15%);
 
+  flex: 0 0 var(--play-pause-width-height);
   width: var(--play-pause-width-height);
   height: var(--play-pause-width-height);
   aspect-ratio: 1;
+  padding: 0;
   margin: auto;
   transform: unset;
+}
+
+.playPauseButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  --play-pause-button-display: flex;
+
+  display: var(--play-pause-button-display);
+  transform: translate(-50%, -50%);
 
   .large & {
     --play-pause-width-height: calc(var(--track-width-height-default) * 1.25);
@@ -166,13 +194,12 @@ const { isBuffering, isPlaying } = useAudioPlayer();
 .playingLoader {
   --playing-loader-display: flex;
 
+  position: absolute;
+  inset: 0;
   display: var(--playing-loader-display);
-}
-
-.playPauseButton {
-  --play-pause-button-display: flex;
-
-  display: var(--play-pause-button-display);
+  width: var(--track-width-height);
+  min-width: var(--track-width-height);
+  margin: auto;
 }
 
 .currentTrack {
@@ -187,6 +214,19 @@ const { isBuffering, isPlaying } = useAudioPlayer();
         var(--black-color) 65%,
         transparent
       );
+    }
+  }
+
+  &:has(.playPauseButton:focus-visible) {
+    .playing {
+      .playingLoader {
+        --playing-loader-display: none;
+      }
+
+      .playPauseButton {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 }
@@ -221,7 +261,7 @@ const { isBuffering, isPlaying } = useAudioPlayer();
       }
 
       .playPauseButton {
-        --play-pause-button-display: none;
+        --play-pause-button-display: flex;
       }
     }
 
@@ -243,7 +283,8 @@ const { isBuffering, isPlaying } = useAudioPlayer();
         }
 
         .playPauseButton {
-          --play-pause-button-display: flex;
+          opacity: 1;
+          transform: translate(-50%, -50%);
         }
       }
     }
@@ -269,7 +310,7 @@ const { isBuffering, isPlaying } = useAudioPlayer();
       }
 
       .playPauseButton {
-        --play-pause-button-display: none;
+        --play-pause-button-display: flex;
       }
     }
 
