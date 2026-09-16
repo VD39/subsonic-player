@@ -33,7 +33,7 @@ Built with [Nuxt 4][nuxt], a modern [Vue 3][vue] framework, this open-source app
    - MediaSession Integration.
    - Advanced Search capabilities.
    - Dark/Light Mode support.
-   - Keyboard shortcut (Press `h` to see menu).
+   - Keyboard shortcuts (Press `Ctrl` + `/` to open or close the shortcuts modal). Single-key shortcuts do not run while focus is in an input field.
    - Context menu access via right-click (desktop) or long press (mobile) for quick actions on tracks, albums, playlists, and more.
    - Easily drag and drop your favorite tracks, albums, and podcast episodes right into the queue or your playlist in the sidebar (available only on desktop).
 

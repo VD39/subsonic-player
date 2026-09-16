@@ -6,7 +6,6 @@ import SidebarNavigation from '@/components/navigation/SidebarNavigation.vue';
 import UserMenu from '@/components/navigation/UserMenu.vue';
 import MusicPlayerAndQueue from '@/components/player/MusicPlayerAndQueue.vue';
 import SearchForm from '@/components/search/SearchForm.vue';
-import KeyboardShortcuts from '@/components/ui/KeyboardShortcuts.vue';
 
 const {
   mobileNavigation,
@@ -14,6 +13,8 @@ const {
   showPageNavigation,
   sidebarNavigation,
 } = useNavigation();
+
+useKeyboardShortcuts();
 </script>
 
 <template>
@@ -64,7 +65,6 @@ const {
       <ClientOnly>
         <MusicPlayerAndQueue />
       </ClientOnly>
-      <KeyboardShortcuts />
     </div>
   </div>
 </template>

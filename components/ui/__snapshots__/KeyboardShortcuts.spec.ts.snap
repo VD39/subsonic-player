@@ -1,13 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`KeyboardShortcuts > when the isShortcutListOpened value is false > matches the snapshot 1`] = `
-"<!--v-if-->
-<!--v-if-->"
-`;
-
-exports[`KeyboardShortcuts > when the isShortcutListOpened value is true > matches the snapshot 1`] = `
-"<div class="shortcutList slide-up-down-enter-from slide-up-down-enter-active">
-  <h2 class="mBM title">Keyboard Shortcuts</h2>
+exports[`KeyboardShortcuts > matches the snapshot 1`] = `
+"<div class="shortcutList">
+  <p class="note"> Shortcuts are ignored while focus is on an input, button, link, or other control (or while a modal is open). Focus away from any control before using a shortcut. </p>
   <div class="categories">
     <div class="mBM category">
       <h3 class="mBM categoryTitle">Test</h3>
@@ -30,6 +25,5 @@ exports[`KeyboardShortcuts > when the isShortcutListOpened value is true > match
       </ul>
     </div>
   </div>
-</div>
-<span class="fullscreen"></span>"
+</div>"
 `;

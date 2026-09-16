@@ -12,7 +12,8 @@ export function useKeyboardShortcuts() {
     togglePlay,
     toggleShuffle,
   } = useAudioPlayer();
-  const { modal } = useModal();
+  const { closeModal, isKeyboardShortcutsModalOpened, modal, openModal } =
+    useModal();
   const {
     currentTrack,
     hasCurrentTrack,
@@ -26,15 +27,8 @@ export function useKeyboardShortcuts() {
   const { toggleFavourite } = useFavourite();
   const { addRadioStationModal } = useRadioStation();
   const { cycleLayout, toggleTheme } = useSettings();
-  const { lockScroll, unlockScroll } = useScrollLock('keyboardShortcuts');
-
   const pressedKeys = ref(new Set<string>());
   const abortController = ref<AbortController | null>(null);
-
-  const isShortcutListOpened = useState(
-    STATE_KEYS.shortcutListOpened,
-    () => false,
-  );
 
   function clickElementById(id: string) {
     const previousActiveElement = document.activeElement;
@@ -96,12 +90,15 @@ export function useKeyboardShortcuts() {
   }
 
   function onKeydown(event: KeyboardEvent) {
-    // Ignore all key events if focus is on an interactive element or a modal is visible.
-    if (isInteractiveElement(event.target) || modal.value.component) {
+    pressedKeys.value.add(event.key);
+
+    // Ignore all shortcuts while a modal is visible, except Ctrl + / to close the shortcut list.
+    if (
+      (!!modal.value.component && !isKeyboardShortcutsModalOpened.value) ||
+      (isInteractiveElement(event.target) && pressedKeys.value.size === 1)
+    ) {
       return;
     }
-
-    pressedKeys.value.add(event.key);
 
     for (const category in KEYBOARD_SHORTCUTS) {
       const mappings = KEYBOARD_SHORTCUTS[category];
@@ -157,13 +154,11 @@ export function useKeyboardShortcuts() {
     seekTo(time);
   }
 
-  function toggleShortcutList() {
-    isShortcutListOpened.value = !isShortcutListOpened.value;
-
-    if (isShortcutListOpened.value) {
-      lockScroll();
+  function openKeyboardShortcutsModal() {
+    if (isKeyboardShortcutsModalOpened.value) {
+      closeModal();
     } else {
-      unlockScroll();
+      openModal(MODAL_TYPE.keyboardShortcutsModal);
     }
   }
 
@@ -204,10 +199,11 @@ export function useKeyboardShortcuts() {
         keys: ['/'],
       },
       {
-        action: toggleShortcutList,
+        action: openKeyboardShortcutsModal,
         description: 'Display all keyboard shortcuts.',
-        helpText: "Press 'H' key to display all keyboard shortcuts.",
-        keys: ['H'],
+        helpText:
+          "Press 'Ctrl' and '/' keys together to display all keyboard shortcuts.",
+        keys: ['Ctrl', '/'],
       },
       {
         action: addPlaylistModal,
@@ -441,7 +437,6 @@ export function useKeyboardShortcuts() {
   };
 
   return {
-    isShortcutListOpened,
     KEYBOARD_SHORTCUTS,
   };
 }

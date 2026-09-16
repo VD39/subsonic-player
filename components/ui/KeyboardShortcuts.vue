@@ -1,80 +1,59 @@
 <script setup lang="ts">
-const { isShortcutListOpened, KEYBOARD_SHORTCUTS } = useKeyboardShortcuts();
+const { KEYBOARD_SHORTCUTS } = useKeyboardShortcuts();
 </script>
 
 <template>
-  <Transition name="slide-up-down">
-    <div
-      v-if="isShortcutListOpened"
-      ref="shortcutList"
-      :class="$style.shortcutList"
-    >
-      <h2 :class="['mBM', $style.title]">Keyboard Shortcuts</h2>
+  <div ref="shortcutList" :class="$style.shortcutList">
+    <p :class="$style.note">
+      Shortcuts are ignored while focus is on an input, button, link, or other
+      control (or while a modal is open). Focus away from any control before
+      using a shortcut.
+    </p>
 
-      <div :class="$style.categories">
-        <div
-          v-for="(mappings, category) in KEYBOARD_SHORTCUTS"
-          :key="category"
-          :class="['mBM', $style.category]"
-        >
-          <h3 :class="['mBM', $style.categoryTitle]">{{ category }}</h3>
+    <div :class="$style.categories">
+      <div
+        v-for="(mappings, category) in KEYBOARD_SHORTCUTS"
+        :key="category"
+        :class="['mBM', $style.category]"
+      >
+        <h3 :class="['mBM', $style.categoryTitle]">{{ category }}</h3>
 
-          <ul :class="$style.list">
-            <li
-              v-for="mapping in mappings"
-              :key="mapping.description"
-              :class="['spaceBetween', $style.item]"
-            >
-              <p>{{ mapping.description }}</p>
+        <ul :class="$style.list">
+          <li
+            v-for="mapping in mappings"
+            :key="mapping.description"
+            :class="['spaceBetween', $style.item]"
+          >
+            <p>{{ mapping.description }}</p>
 
-              <p class="visuallyHidden">{{ mapping.helpText }}</p>
+            <p class="visuallyHidden">{{ mapping.helpText }}</p>
 
-              <div :class="$style.keys" :title="mapping.helpText">
-                <code v-for="key in mapping.keys" :key :class="$style.key">
-                  {{ key }}
-                </code>
-              </div>
-            </li>
-          </ul>
-        </div>
+            <div :class="$style.keys" :title="mapping.helpText">
+              <code v-for="key in mapping.keys" :key :class="$style.key">
+                {{ key }}
+              </code>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-  </Transition>
-
-  <span v-if="isShortcutListOpened" ref="fullscreen" class="fullscreen" />
+  </div>
 </template>
 
 <style module>
 .shortcutList {
-  position: fixed;
-  inset: 0;
-  z-index: 99;
-  width: var(--width-height-100);
-  height: 100svh;
-  max-height: 100svh;
-  padding: var(--space-16) 0;
-  overflow-y: auto;
-  background-color: var(--modal-background-color);
-  box-shadow: var(--box-shadow-large);
-
-  @media (--tablet-up) {
-    top: auto;
-    left: auto;
-    max-width: 1000px;
-    height: auto;
-  }
-}
-
-.title {
-  padding: var(--space-16);
-  text-align: center;
-  border-bottom: 2px solid #e0e0e0;
+  max-width: 1000px;
 }
 
 .categories {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
+}
+
+.note {
+  margin: var(--space-24);
+  text-align: center;
 }
 
 .category {

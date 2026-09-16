@@ -8,12 +8,17 @@ import PodcastEpisodeDetails from '@/components/podcast/PodcastEpisodeDetails.vu
 import AddRadioStationForm from '@/components/radio/RadioStationForm.vue';
 import AppUpdate from '@/components/settings/AppUpdate.vue';
 import TrackDetails from '@/components/track-details/TrackDetails.vue';
+import KeyboardShortcuts from '@/components/ui/KeyboardShortcuts.vue';
 import ReadMore from '@/components/ui/ReadMore.vue';
 
 export function useModal() {
   const { lockScroll, unlockScroll } = useScrollLock('modal');
 
   const modal = useState<ModalProps>(STATE_KEYS.modal, () => DEFAULT_STATE);
+
+  const isKeyboardShortcutsModalOpened = computed(
+    () => modal.value.component === KeyboardShortcuts,
+  );
 
   function onKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
@@ -111,6 +116,14 @@ export function useModal() {
     };
   }
 
+  function openKeyboardShortcutsModal(attrs: ModalProps['attrs']) {
+    modal.value = {
+      attrs,
+      component: markRaw(KeyboardShortcuts),
+      title: 'Keyboard shortcuts',
+    };
+  }
+
   function openAddToPlaylistFormModal(attrs: ModalProps['attrs']) {
     modal.value = {
       attrs,
@@ -141,6 +154,9 @@ export function useModal() {
         break;
       case MODAL_TYPE.confirmDialog:
         openConfirmDialog(attrs);
+        break;
+      case MODAL_TYPE.keyboardShortcutsModal:
+        openKeyboardShortcutsModal(attrs);
         break;
       case MODAL_TYPE.podcastEpisodeInformationModal:
         openPodcastEpisodeDetailsModal(attrs);
@@ -182,6 +198,7 @@ export function useModal() {
 
   return {
     closeModal,
+    isKeyboardShortcutsModalOpened,
     modal,
     openModal,
   };

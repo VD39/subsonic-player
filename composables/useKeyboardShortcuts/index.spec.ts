@@ -9,7 +9,7 @@ import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
 import { useQueueMock } from '@/test/useQueueMock';
 import { withSetup } from '@/test/withSetup';
 
-import { useKeyboardShortcuts } from './index';
+import type { useKeyboardShortcuts as useKeyboardShortcutsType } from './index';
 
 const toggleFavouriteMock = vi.hoisted(() => vi.fn());
 
@@ -53,21 +53,18 @@ mockNuxtImport('useSettings', (original) => () => ({
 const modalMock = ref<ModalProps>({
   component: null,
 });
+const isKeyboardShortcutsModalOpenedMock = ref(false);
+const { closeModalMock, openModalMock } = vi.hoisted(() => ({
+  closeModalMock: vi.fn(),
+  openModalMock: vi.fn(),
+}));
 
 mockNuxtImport('useModal', (original) => () => ({
   ...original(),
+  closeModal: closeModalMock,
+  isKeyboardShortcutsModalOpened: isKeyboardShortcutsModalOpenedMock,
   modal: modalMock,
-}));
-
-const { lockScrollMock, unlockScrollMock } = vi.hoisted(() => ({
-  lockScrollMock: vi.fn(),
-  unlockScrollMock: vi.fn(),
-}));
-
-mockNuxtImport('useScrollLock', (original) => () => ({
-  ...original(),
-  lockScroll: lockScrollMock,
-  unlockScroll: unlockScrollMock,
+  openModal: openModalMock,
 }));
 
 Object.defineProperty(document, 'visibilityState', {
@@ -111,9 +108,11 @@ const ALL_MOCKS = {
   addPlaylistModal: addPlaylistModalMock,
   addPodcastModal: addPodcastModalMock,
   addRadioStationModal: addRadioStationModalMock,
+  closeModal: closeModalMock,
   cycleLayout: cycleLayoutMock,
   cycleRepeat: cycleRepeatMock,
   fastForwardTrack: fastForwardTrackMock,
+  openModal: openModalMock,
   playNextTrack: playNextTrackMock,
   playPreviousTrack: playPreviousTrackMock,
   rewindTrack: rewindTrackMock,
@@ -130,7 +129,7 @@ const ALL_MOCKS = {
 
 describe('useKeyboardShortcuts', () => {
   let result: Awaited<
-    ReturnType<typeof withSetup<ReturnType<typeof useKeyboardShortcuts>>>
+    ReturnType<typeof withSetup<ReturnType<typeof useKeyboardShortcutsType>>>
   >;
 
   function setEvents(keys: string[]) {
@@ -279,11 +278,10 @@ describe('useKeyboardShortcuts', () => {
   }
 
   beforeAll(async () => {
-    result = await withSetup(useKeyboardShortcuts);
-  });
+    vi.resetModules();
 
-  it('sets the default isShortcutListOpened value', () => {
-    expect(result.composable.isShortcutListOpened.value).toEqual(false);
+    const { useKeyboardShortcuts } = await import('./index');
+    result = await withSetup(useKeyboardShortcuts);
   });
 
   it('adds the abort event listener functions', () => {
@@ -362,29 +360,33 @@ describe('useKeyboardShortcuts', () => {
       modalMock.value.component = null;
     });
 
-    describe('when H key is pressed', () => {
-      setEvents(['H']);
-
-      it('sets the correct isShortcutListOpened value', () => {
-        expect(result.composable.isShortcutListOpened.value).toBe(true);
-      });
-
-      expectMockToBeOrNotToBeCalled();
-      expectGetElementByIdMock();
-
-      it('calls the lockScroll function', () => {
-        expect(lockScrollMock).toHaveBeenCalled();
-      });
-
-      describe('when the same key is pressed again', () => {
-        setEvents(['H']);
-
-        it('sets the correct isShortcutListOpened value', () => {
-          expect(result.composable.isShortcutListOpened.value).toBe(false);
+    describe('when Ctrl+/ key is pressed', () => {
+      describe('when the keyboard shortcuts modal is not opened', () => {
+        beforeAll(() => {
+          isKeyboardShortcutsModalOpenedMock.value = false;
         });
 
-        it('calls the unlockScroll function', () => {
-          expect(unlockScrollMock).toHaveBeenCalled();
+        setEvents(['Ctrl', '/']);
+
+        expectGetElementByIdMock();
+        expectMockToBeOrNotToBeCalled(
+          'openModal',
+          MODAL_TYPE.keyboardShortcutsModal,
+        );
+      });
+
+      describe('when the keyboard shortcuts modal is opened', () => {
+        beforeAll(() => {
+          isKeyboardShortcutsModalOpenedMock.value = true;
+        });
+
+        setEvents(['Ctrl', '/']);
+
+        expectGetElementByIdMock();
+        expectMockToBeOrNotToBeCalled('closeModal');
+
+        afterAll(() => {
+          isKeyboardShortcutsModalOpenedMock.value = false;
         });
       });
     });

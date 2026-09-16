@@ -10,6 +10,7 @@ import PodcastEpisodeDetails from '@/components/podcast/PodcastEpisodeDetails.vu
 import AddRadioStationForm from '@/components/radio/RadioStationForm.vue';
 import AppUpdate from '@/components/settings/AppUpdate.vue';
 import TrackDetails from '@/components/track-details/TrackDetails.vue';
+import KeyboardShortcuts from '@/components/ui/KeyboardShortcuts.vue';
 import ReadMore from '@/components/ui/ReadMore.vue';
 import { documentEventListenerMock } from '@/test/eventListenersMock';
 
@@ -43,6 +44,10 @@ describe('useModal', () => {
 
   it('sets the default modal value', () => {
     expect(composable.modal.value).toEqual(DEFAULT_STATE);
+  });
+
+  it('sets the default isKeyboardShortcutsModalOpened value', () => {
+    expect(composable.isKeyboardShortcutsModalOpened.value).toBe(false);
   });
 
   describe('when the openModal function is called', () => {
@@ -144,6 +149,15 @@ describe('useModal', () => {
         },
       ],
       [
+        MODAL_TYPE.keyboardShortcutsModal,
+        KeyboardShortcuts,
+        'Keyboard shortcuts',
+        {
+          attrs: 'attrs',
+        },
+        true,
+      ],
+      [
         MODAL_TYPE.addToPlaylistModal,
         AddToPlaylistForm,
         'Add to playlist',
@@ -151,90 +165,101 @@ describe('useModal', () => {
           attrs: 'attrs',
         },
       ],
-    ])('when the modalType is %s', (modalType, component, title, attrs) => {
-      beforeAll(() => {
-        vi.clearAllMocks();
-        composable.openModal(modalType);
-      });
-
-      it('adds the keydown event listener function', () => {
-        expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
-          'keydown',
-          expect.any(Function),
-        );
-      });
-
-      it('calls the lockScroll function', () => {
-        expect(lockScrollMock).toHaveBeenCalled();
-      });
-
-      describe('when the attrs are not set', () => {
-        it('sets the correct modal value', () => {
-          expect(composable.modal.value).toEqual({
-            attrs: {},
-            component: markRaw(component),
-            title,
-          });
-        });
-      });
-
-      describe('when the attrs are set', () => {
+    ])(
+      'when the modalType is %s',
+      (modalType, component, title, attrs, shortcutModalOpen = false) => {
         beforeAll(() => {
-          composable.openModal(modalType, attrs);
+          vi.clearAllMocks();
+          composable.openModal(modalType);
         });
 
-        it('sets the correct modal value', () => {
-          expect(composable.modal.value).toEqual({
-            attrs,
-            component: markRaw(component),
-            title,
-          });
-        });
-      });
-
-      describe('when a non esc key is pressed', () => {
-        beforeAll(() => {
-          documentEvents.keydown({ key: 'Shift' });
-        });
-
-        it('does not remove the keydown event listener function', () => {
-          expect(documentRemoveEventListenerSpy).not.toHaveBeenCalled();
-        });
-
-        it('does not reset the modal value', () => {
-          expect(composable.modal.value).toEqual({
-            attrs,
-            component: markRaw(component),
-            title,
-          });
-        });
-
-        it('does not call the unlockScroll function', () => {
-          expect(unlockScrollMock).not.toHaveBeenCalled();
-        });
-      });
-
-      describe('when the esc key is pressed', () => {
-        beforeAll(() => {
-          documentEvents.keydown({ key: 'Escape' });
-        });
-
-        it('removes the keydown event listener function', () => {
-          expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
+        it('adds the keydown event listener function', () => {
+          expect(documentAddEventListenerSpy).toHaveBeenCalledWith(
             'keydown',
             expect.any(Function),
           );
         });
 
-        it('resets modal value to default state', () => {
-          expect(composable.modal.value).toEqual(DEFAULT_STATE);
+        it('calls the lockScroll function', () => {
+          expect(lockScrollMock).toHaveBeenCalled();
         });
 
-        it('calls the unlockScroll function', () => {
-          expect(unlockScrollMock).toHaveBeenCalled();
+        describe('when the attrs are not set', () => {
+          it('sets the correct modal value', () => {
+            expect(composable.modal.value).toEqual({
+              attrs: {},
+              component: markRaw(component),
+              title,
+            });
+          });
         });
-      });
-    });
+
+        describe('when the keyboard shortcuts modal is open', () => {
+          it('sets the correct isKeyboardShortcutsModalOpened value', () => {
+            expect(composable.isKeyboardShortcutsModalOpened.value).toBe(
+              shortcutModalOpen,
+            );
+          });
+        });
+
+        describe('when the attrs are set', () => {
+          beforeAll(() => {
+            composable.openModal(modalType, attrs);
+          });
+
+          it('sets the correct modal value', () => {
+            expect(composable.modal.value).toEqual({
+              attrs,
+              component: markRaw(component),
+              title,
+            });
+          });
+        });
+
+        describe('when a non esc key is pressed', () => {
+          beforeAll(() => {
+            documentEvents.keydown({ key: 'Shift' });
+          });
+
+          it('does not remove the keydown event listener function', () => {
+            expect(documentRemoveEventListenerSpy).not.toHaveBeenCalled();
+          });
+
+          it('does not reset the modal value', () => {
+            expect(composable.modal.value).toEqual({
+              attrs,
+              component: markRaw(component),
+              title,
+            });
+          });
+
+          it('does not call the unlockScroll function', () => {
+            expect(unlockScrollMock).not.toHaveBeenCalled();
+          });
+        });
+
+        describe('when the esc key is pressed', () => {
+          beforeAll(() => {
+            documentEvents.keydown({ key: 'Escape' });
+          });
+
+          it('removes the keydown event listener function', () => {
+            expect(documentRemoveEventListenerSpy).toHaveBeenCalledWith(
+              'keydown',
+              expect.any(Function),
+            );
+          });
+
+          it('resets modal value to default state', () => {
+            expect(composable.modal.value).toEqual(DEFAULT_STATE);
+          });
+
+          it('calls the unlockScroll function', () => {
+            expect(unlockScrollMock).toHaveBeenCalled();
+          });
+        });
+      },
+    );
   });
 
   describe('when the openModal function is called with an model type undefined', () => {

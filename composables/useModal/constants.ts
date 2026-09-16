@@ -12,6 +12,7 @@ export const MODAL_TYPE = {
   albumDetailsModal: 'albumDetailsModal',
   appUpdateModal: 'appUpdateModal',
   confirmDialog: 'confirmDialog',
+  keyboardShortcutsModal: 'keyboardShortcutsModal',
   podcastEpisodeInformationModal: 'podcastEpisodeInformationModal',
   podcastInformationModal: 'podcastInformationModal',
   readMoreModal: 'readMoreModal',
