@@ -23,7 +23,7 @@
     "@playwright/test": "^1.62.1",
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^26.4.0",
-    "@vite-pwa/assets-generator": "^1.0.2",
+    "@vite-pwa/assets-generator": "^2.0.0",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vitest/coverage-istanbul": "^4.1.11",
     "@vitest/eslint-plugin": "^1.6.27",
