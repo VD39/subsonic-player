@@ -3,18 +3,19 @@ import { configDefaults, coverageConfigDefaults } from 'vitest/config';
 
 export default defineVitestConfig({
   test: {
+    clearMocks: false,
     coverage: {
       enabled: true,
       exclude: [
         '.nuxt/**',
+        '**/CarouselSwiper.vue',
         '**/config/**',
         '**/constants/**',
         '**/docs/**',
+        '**/error.vue',
         '**/navigations/**',
+        '**/nuxt.config.ts',
         '**/test/**',
-        'components/ui/CarouselSwiper.vue',
-        'error.vue',
-        'nuxt.config.ts',
         ...coverageConfigDefaults.exclude,
       ],
       provider: 'istanbul',

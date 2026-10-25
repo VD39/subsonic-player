@@ -10,14 +10,24 @@ mockNuxtImport('useAPI', () => () => ({
 const setActionHandlerMock = vi.fn();
 const setPositionStateMock = vi.fn();
 
-Object.defineProperty(globalThis.navigator, 'mediaSession', {
-  configurable: true,
-  value: {
-    setActionHandler: setActionHandlerMock,
-    setPositionState: setPositionStateMock,
-  },
-  writable: true,
-});
+function setMediaSessionAvailable(isAvailable: boolean) {
+  if (!isAvailable) {
+    Reflect.deleteProperty(globalThis.navigator, 'mediaSession');
+
+    return;
+  }
+
+  Object.defineProperty(globalThis.navigator, 'mediaSession', {
+    configurable: true,
+    value: {
+      setActionHandler: setActionHandlerMock,
+      setPositionState: setPositionStateMock,
+    },
+    writable: true,
+  });
+}
+
+setMediaSessionAvailable(true);
 
 globalThis.MediaMetadata = vi.fn().mockImplementation(function (data) {
   return data;
@@ -58,22 +68,13 @@ describe('useMediaSession', () => {
   });
 
   afterEach(() => {
-    (globalThis.navigator as unknown) = {};
-
-    Object.defineProperty(globalThis.navigator, 'mediaSession', {
-      configurable: true,
-      value: {
-        setActionHandler: setActionHandlerMock,
-        setPositionState: setPositionStateMock,
-      },
-      writable: true,
-    });
+    setMediaSessionAvailable(true);
   });
 
   describe('when the setMediaSessionMetadata function is called', () => {
     describe('when mediaSession is undefined', () => {
       beforeEach(() => {
-        (globalThis.navigator as unknown) = undefined;
+        setMediaSessionAvailable(false);
 
         composable = useMediaSession(mediaSessionActionsMock);
 
@@ -162,7 +163,7 @@ describe('useMediaSession', () => {
   describe('when the setMediaSessionPlaybackState function is called', () => {
     describe('when mediaSession is undefined', () => {
       beforeEach(() => {
-        (globalThis.navigator as unknown) = undefined;
+        setMediaSessionAvailable(false);
       });
 
       it('does not set the navigator.mediaSession.playbackState', () => {
@@ -188,7 +189,7 @@ describe('useMediaSession', () => {
   describe('when the setMediaSessionPositionState function is called', () => {
     describe('when mediaSession is undefined', () => {
       beforeEach(() => {
-        (globalThis.navigator as unknown) = undefined;
+        setMediaSessionAvailable(false);
       });
 
       it('does not call the setPositionState function', () => {
@@ -243,7 +244,7 @@ describe('useMediaSession', () => {
   describe('when the setupMediaSessionHandlers function is called', () => {
     describe('when mediaSession is undefined', () => {
       beforeEach(() => {
-        (globalThis.navigator as unknown) = undefined;
+        setMediaSessionAvailable(false);
 
         composable = useMediaSession(mediaSessionActionsMock);
 
