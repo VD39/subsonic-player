@@ -685,11 +685,12 @@ describe('useAudioPlayer', () => {
 
         describe('when the onPlay event is called', () => {
           beforeAll(() => {
+            vi.clearAllMocks();
             onPlayCb();
           });
 
-          it('calls the pause function', () => {
-            expect(pauseMock).toHaveBeenCalled();
+          it('does not call the pause function', () => {
+            expect(pauseMock).not.toHaveBeenCalled();
           });
 
           it('calls the play function', () => {
@@ -748,8 +749,8 @@ describe('useAudioPlayer', () => {
           onPauseCb();
         });
 
-        it('calls the pause function 2 times', () => {
-          expect(pauseMock).toHaveBeenCalledTimes(2);
+        it('calls the pause function 1 time', () => {
+          expect(pauseMock).toHaveBeenCalledTimes(1);
         });
 
         describe('when the pending play promise resolves', () => {

@@ -723,7 +723,6 @@ export function useAudioPlayer() {
     audioPlayer.value.onPlay(async () => {
       if (pausedExternally.value) {
         pausedExternally.value = false;
-        audioPlayer.value?.pause();
         await resumePlayback();
       }
     });

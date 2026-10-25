@@ -223,11 +223,34 @@ describe('AudioPlayer', () => {
 
     beforeAll(() => {
       player.onPause(onPauseCallbackMock);
-      fireEvent('pause');
     });
 
-    it('calls the onPause callback', () => {
-      expect(onPauseCallbackMock).toHaveBeenCalled();
+    describe('when the pause event is fired', () => {
+      describe('when the audio ended value is false', () => {
+        beforeAll(() => {
+          fireEvent('pause');
+        });
+
+        it('calls the onPause callback', () => {
+          expect(onPauseCallbackMock).toHaveBeenCalled();
+        });
+      });
+
+      describe('when the audio ended value is true', () => {
+        beforeAll(() => {
+          onPauseCallbackMock.mockClear();
+          audioMock.ended = true;
+          fireEvent('pause');
+        });
+
+        afterAll(() => {
+          audioMock.ended = false;
+        });
+
+        it('does not call the onPause callback', () => {
+          expect(onPauseCallbackMock).not.toHaveBeenCalled();
+        });
+      });
     });
   });
 

@@ -46,6 +46,12 @@ export class AudioPlayer {
   };
 
   private readonly handlePause = () => {
+    // Browsers fire `pause` just before `ended`,
+    // let the ended handler deal with it.
+    if (this.currentTrack?.element.ended) {
+      return;
+    }
+
     this.pauseCallback();
   };
 

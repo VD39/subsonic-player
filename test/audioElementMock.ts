@@ -39,6 +39,7 @@ const audioMock = {
   } as unknown as TimeRanges,
   currentTime: 0,
   duration: 0,
+  ended: false,
   error: null as MediaError | null,
   load: audioLoadMock,
   pause: pauseMock,
