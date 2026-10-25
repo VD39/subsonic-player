@@ -4,11 +4,8 @@ export function convertToQueryString(params: Record<string, any>) {
     .filter(([, value]) => value)
     .flatMap(([key, value]) =>
       Array.isArray(value)
-        ? value.map((value) => [
-            encodeURIComponent(key),
-            encodeURIComponent(value),
-          ])
-        : [[encodeURIComponent(key), encodeURIComponent(value)]],
+        ? value.map((value) => [key, String(value)])
+        : [[key, String(value)]],
     );
 
   return new URLSearchParams(list).toString();
@@ -20,5 +17,5 @@ export function isUrl(url: string) {
 
 /* istanbul ignore next -- @preserve */
 export function parseQueryString(query = '') {
-  return new URLSearchParams(safeDecodeURIComponent(query));
+  return new URLSearchParams(query);
 }

@@ -29,6 +29,12 @@ export const authDataMock = {
 export const cookieMock =
   'token=token&salt=salt&server=https://www.server.com&username=username';
 
+export const legacyCookieMock =
+  'authMethod=legacy&password=enc:70617373776f7264&server=https://www.server.com&username=username';
+
+export const apiKeyCookieMock =
+  'apiKey=apiKey&authMethod=apiKey&server=https://www.server.com&username=username';
+
 export const apiDateMock = new Date(2000, 0, 1);
 
 export const trackBlobMock = new Blob(['track content'], { type: 'audio/mp3' });

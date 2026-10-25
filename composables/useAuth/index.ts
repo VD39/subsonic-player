@@ -1,5 +1,3 @@
-import MD5 from 'crypto-js/md5';
-
 export function useAuth() {
   const { fetchData } = useAPI();
   const { clearUser, setUser, user } = useUser();
@@ -40,29 +38,17 @@ export function useAuth() {
     loading.value = true;
     error.value = null;
 
-    const { password, server, username } = auth;
-
-    const saltValue = generateRandomString();
-    const hashValue = MD5(`${password}${saltValue}`).toString();
-
-    const params = {
-      salt: saltValue,
-      server,
-      token: hashValue,
-      username,
+    const params = buildSessionParams(auth);
+    const requestOptions = {
+      baseURL: params.server,
+      query: getAuthParams(params),
+      skipSessionAuth: true,
+      suppressErrorSnack: true,
     };
 
     const { data: pingResponse, error: loginError } = await fetchData(
       '/rest/ping',
-      {
-        baseURL: server,
-        query: {
-          s: params.salt,
-          t: params.token,
-          u: params.username,
-        },
-        suppressErrorSnack: true,
-      },
+      requestOptions,
     );
 
     if (loginError?.message) {
@@ -74,12 +60,32 @@ export function useAuth() {
     }
 
     if (pingResponse) {
-      authCookie.value = convertToQueryString(params);
+      const username =
+        params.authMethod === 'apiKey'
+          ? await fetchTokenUsername(requestOptions)
+          : params.username;
+
+      authCookie.value = convertToQueryString({
+        ...params,
+        username,
+      });
+
       setUser(authCookie.value);
       isAuthenticated.value = true;
     }
 
     loading.value = false;
+  }
+
+  async function fetchTokenUsername(
+    requestOptions: Parameters<typeof fetchData>[1],
+  ) {
+    const { data } = await fetchData('/rest/tokenInfo', {
+      ...requestOptions,
+      transform: (response: SubsonicResponse) => response.tokenInfo?.username,
+    });
+
+    return data;
   }
 
   // Reset all user-related states.
@@ -92,6 +98,11 @@ export function useAuth() {
     clearNuxtData();
 
     resetAllState();
+
+    // Cached /rest URLs contain credentials.
+    if (import.meta.client && 'caches' in window) {
+      await caches.delete(PWA_CACHE_NAMES.api);
+    }
 
     await navigateTo({
       name: ROUTE_NAMES.login,

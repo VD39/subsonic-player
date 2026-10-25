@@ -2,6 +2,19 @@ export const COOKIE_NAMES = {
   auth: 'subsonic_auth_params',
 } as const;
 
+export const AUTH_METHODS = ['apiKey', 'legacy', 'token'] as const;
+
+export const LOGIN_MODE_OPTIONS = [
+  {
+    label: 'Password',
+    value: 'password',
+  },
+  {
+    label: 'API key',
+    value: 'apiKey',
+  },
+] as const;
+
 export const DAYS_COOKIE_EXPIRES = 60;
 
 export const STATES_TO_CLEAR = [

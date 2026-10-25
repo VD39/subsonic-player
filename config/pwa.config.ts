@@ -1,6 +1,7 @@
 import type { Asset } from '@vite-pwa/assets-generator/config';
 import type { NuxtConfig } from 'nuxt/schema';
 
+import { PWA_CACHE_NAMES } from '../constants/pwa';
 import { THEME_COLOUR } from '../constants/theme';
 
 const DEFAULT_PRESET = {
@@ -194,7 +195,7 @@ export function createPWAConfig(
               cacheableResponse: {
                 statuses: [200],
               },
-              cacheName: 'api-cache',
+              cacheName: PWA_CACHE_NAMES.api,
               expiration: {
                 maxAgeSeconds: 60 * 60 * 24,
                 maxEntries: 100,

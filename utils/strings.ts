@@ -59,3 +59,9 @@ export function replaceSpaceWithCharacter(str: string, replaceCharacter = '-') {
 export function splitCamelCase(str: string) {
   return str.replaceAll(/([A-Z])/g, ' $1');
 }
+
+export function toHex(value: string) {
+  return Array.from(new TextEncoder().encode(value), (byte) =>
+    byte.toString(16).padStart(2, '0'),
+  ).join('');
+}

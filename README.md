@@ -36,6 +36,7 @@ Built with [Nuxt 4][nuxt], a modern [Vue 3][vue] framework, this open-source app
    - Keyboard shortcuts (Press `Ctrl` + `/` to open or close the shortcuts modal). Single-key shortcuts do not run while focus is in an input field.
    - Context menu access via right-click (desktop) or long press (mobile) for quick actions on tracks, albums, playlists, and more.
    - Easily drag and drop your favorite tracks, albums, and podcast episodes right into the queue or your playlist in the sidebar (available only on desktop).
+   - Multiple login methods: password (token), legacy password, and OpenSubsonic [API key][api-key-auth] authentication.
 
 4. Progressive Web App (PWA) Feature
    - Seamlessly download the app icon to the home screen, providing the convenience of launching the app just like a traditional native application.
@@ -218,6 +219,7 @@ This project is licensed under the GPL-3.0 license. Full license details availab
 [airsonic]: https://github.com/airsonic-advanced/airsonic-advanced/
 [navidrome]: https://github.com/navidrome/navidrome/
 [subsonic]: https://github.com/topics/subsonic/
+[api-key-auth]: https://opensubsonic.netlify.app/docs/extensions/apikeyauth/
 [docker]: https://www.docker.com/
 [nodejs]: https://nodejs.org/
 [npm]: https://www.npmjs.com/

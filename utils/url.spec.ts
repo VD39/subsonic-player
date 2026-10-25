@@ -25,7 +25,18 @@ describe('convertToQueryString', () => {
             param: 'Param',
             param1: 'Param 1',
           }),
-        ).toBe('param=Param&param1=Param%25201');
+        ).toBe('param=Param&param1=Param+1');
+      });
+    });
+
+    describe('when params has a key with special characters', () => {
+      it('returns the correct response', () => {
+        expect(
+          convertToQueryString({
+            apiKey: 'a+b/c=&d',
+            password: 'enc:70617373776f7264',
+          }),
+        ).toBe('apiKey=a%2Bb%2Fc%3D%26d&password=enc%3A70617373776f7264');
       });
     });
 
@@ -47,9 +58,7 @@ describe('convertToQueryString', () => {
             param1: ['Param', 'Param 1'],
             param2: 'Param 12',
           }),
-        ).toBe(
-          'param=Param&param1=Param&param1=Param%25201&param2=Param%252012',
-        );
+        ).toBe('param=Param&param1=Param&param1=Param+1&param2=Param+12');
       });
     });
   });

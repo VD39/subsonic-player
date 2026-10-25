@@ -2,6 +2,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import type { DataMock } from '@/test/types';
 
+import { cachesMock } from '@/test/browserMocks';
 import { cookieMock } from '@/test/fixtures';
 import { withSetup } from '@/test/withSetup';
 
@@ -55,6 +56,8 @@ const navigateToMock = vi.hoisted(() => vi.fn());
 
 mockNuxtImport('navigateTo', () => navigateToMock);
 
+const { deleteMock, restore: restoreCachesMock } = cachesMock();
+
 describe('useAuth', () => {
   let result: Awaited<ReturnType<typeof withSetup<ReturnType<typeof useAuth>>>>;
 
@@ -64,6 +67,7 @@ describe('useAuth', () => {
 
   afterEach(() => {
     vi.clearAllMocks();
+    restoreCachesMock();
   });
 
   describe('when cookie is undefined', () => {
@@ -169,36 +173,88 @@ describe('useAuth', () => {
   });
 
   describe('when the login function is called', () => {
-    describe('when fetchData response returns is not successful', () => {
-      beforeEach(async () => {
-        fetchDataMock.mockResolvedValue({
-          data: null,
-          error: new Error('Error message.'),
+    describe('when authMethod is not set', () => {
+      describe('when fetchData response returns is not successful', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+            error: new Error('Error message.'),
+          });
+
+          result = await withSetup(useAuth);
+
+          result.composable.login({
+            password: 'password',
+            server: 'https://www.server.com',
+            username: 'username',
+          });
         });
 
-        result = await withSetup(useAuth);
+        it('sets the correct useCookie value', () => {
+          expect(useCookieMock.value).toBeNull();
+        });
 
-        result.composable.login({
-          password: 'password',
-          server: 'https://www.server.com',
-          username: 'username',
+        it('sets the correct error value', () => {
+          expect(result.composable.error.value).toBe('Error message.');
+        });
+
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(false);
         });
       });
 
-      it('sets the correct useCookie value', () => {
-        expect(useCookieMock.value).toBeNull();
-      });
+      describe('when fetchData response returns is successful', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: {},
+            error: null,
+          });
 
-      it('sets the correct error value', () => {
-        expect(result.composable.error.value).toBe('Error message.');
-      });
+          result = await withSetup(useAuth);
 
-      it('sets the correct isAuthenticated value', () => {
-        expect(result.composable.isAuthenticated.value).toBe(false);
+          result.composable.login({
+            password: 'password',
+            server: 'https://www.server.com',
+            username: 'username',
+          });
+        });
+
+        it('calls the fetchData function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith('/rest/ping', {
+            baseURL: 'https://www.server.com',
+            query: {
+              s: 'randomString',
+              t: 'MD5',
+              u: 'username',
+            },
+            skipSessionAuth: true,
+            suppressErrorSnack: true,
+          });
+        });
+
+        it('sets the correct useCookie value', () => {
+          expect(useCookieMock.value).toBe(
+            'authMethod=token&salt=randomString&server=https%3A%2F%2Fwww.server.com&token=MD5&username=username',
+          );
+        });
+
+        it('calls the setUser function with the cookie value', () => {
+          expect(setUserMock).toHaveBeenCalledWith(
+            'authMethod=token&salt=randomString&server=https%3A%2F%2Fwww.server.com&token=MD5&username=username',
+          );
+        });
+
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(true);
+        });
+
+        it('sets the correct error value', () => {
+          expect(result.composable.error.value).toBeNull();
+        });
       });
     });
 
-    describe('when fetchData response returns is successful', () => {
+    describe('when authMethod is legacy', () => {
       beforeEach(async () => {
         fetchDataMock.mockResolvedValue({
           data: {},
@@ -207,31 +263,160 @@ describe('useAuth', () => {
 
         result = await withSetup(useAuth);
 
-        result.composable.login({
+        await result.composable.login({
+          authMethod: 'legacy',
           password: 'password',
           server: 'https://www.server.com',
           username: 'username',
         });
       });
 
-      it('sets the correct useCookie value', () => {
-        expect(useCookieMock.value).toBe(
-          'salt=randomString&server=https%253A%252F%252Fwww.server.com&token=MD5&username=username',
-        );
+      it('calls the fetchData function with the correct parameters', () => {
+        expect(fetchDataMock).toHaveBeenCalledWith('/rest/ping', {
+          baseURL: 'https://www.server.com',
+          query: {
+            p: 'enc:70617373776f7264',
+            u: 'username',
+          },
+          skipSessionAuth: true,
+          suppressErrorSnack: true,
+        });
       });
 
-      it('calls the setUser function with the cookie value', () => {
-        expect(setUserMock).toHaveBeenCalledWith(
-          'salt=randomString&server=https%253A%252F%252Fwww.server.com&token=MD5&username=username',
+      it('sets the correct useCookie value', () => {
+        expect(useCookieMock.value).toBe(
+          'authMethod=legacy&password=enc%3A70617373776f7264&server=https%3A%2F%2Fwww.server.com&username=username',
         );
       });
 
       it('sets the correct isAuthenticated value', () => {
         expect(result.composable.isAuthenticated.value).toBe(true);
       });
+    });
 
-      it('sets the correct error value', () => {
-        expect(result.composable.error.value).toBeNull();
+    describe('when authMethod is apiKey', () => {
+      describe('when fetchData response returns is not successful', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+            error: new Error('Error message.'),
+          });
+
+          result = await withSetup(useAuth);
+
+          await result.composable.login({
+            apiKey: 'apiKey',
+            authMethod: 'apiKey',
+            server: 'https://www.server.com',
+          });
+        });
+
+        it('calls the fetchData function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith('/rest/ping', {
+            baseURL: 'https://www.server.com',
+            query: {
+              apiKey: 'apiKey',
+            },
+            skipSessionAuth: true,
+            suppressErrorSnack: true,
+          });
+        });
+
+        it('sets the correct error value', () => {
+          expect(result.composable.error.value).toBe('Error message.');
+        });
+
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(false);
+        });
+      });
+
+      describe('when fetchData response returns is successful', () => {
+        beforeEach(async () => {
+          fetchDataMock
+            .mockResolvedValueOnce({
+              data: {},
+              error: null,
+            })
+            .mockResolvedValueOnce({
+              data: 'tokenUsername',
+              error: null,
+            });
+
+          result = await withSetup(useAuth);
+
+          await result.composable.login({
+            apiKey: 'apiKey',
+            authMethod: 'apiKey',
+            server: 'https://www.server.com',
+          });
+        });
+
+        it('calls the fetchData function with the correct parameters', () => {
+          expect(fetchDataMock).toHaveBeenCalledWith('/rest/ping', {
+            baseURL: 'https://www.server.com',
+            query: {
+              apiKey: 'apiKey',
+            },
+            skipSessionAuth: true,
+            suppressErrorSnack: true,
+          });
+          expect(fetchDataMock).toHaveBeenCalledWith('/rest/tokenInfo', {
+            baseURL: 'https://www.server.com',
+            query: {
+              apiKey: 'apiKey',
+            },
+            skipSessionAuth: true,
+            suppressErrorSnack: true,
+            transform: expect.any(Function),
+          });
+        });
+
+        it('sets the correct useCookie value', () => {
+          expect(useCookieMock.value).toBe(
+            'apiKey=apiKey&authMethod=apiKey&server=https%3A%2F%2Fwww.server.com&username=tokenUsername',
+          );
+        });
+
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(true);
+        });
+      });
+
+      describe('when tokenInfo fetchData response returns null', () => {
+        beforeEach(async () => {
+          fetchDataMock
+            .mockResolvedValueOnce({
+              data: {},
+              error: null,
+            })
+            .mockResolvedValueOnce({
+              data: null,
+              error: new Error('Error message.'),
+            });
+
+          result = await withSetup(useAuth);
+
+          await result.composable.login({
+            apiKey: 'apiKey',
+            authMethod: 'apiKey',
+            server: 'https://www.server.com',
+          });
+        });
+
+        it('sets the correct useCookie value', () => {
+          expect(useCookieMock.value).toBe(
+            'apiKey=apiKey&authMethod=apiKey&server=https%3A%2F%2Fwww.server.com',
+          );
+        });
+
+        it('sets the correct isAuthenticated value', () => {
+          expect(result.composable.isAuthenticated.value).toBe(true);
+        });
+
+        it('sets the correct error value', () => {
+          expect(result.composable.error.value).toBeNull();
+        });
       });
     });
   });
@@ -264,6 +449,29 @@ describe('useAuth', () => {
     it('calls the navigateTo function with the correct parameters', () => {
       expect(navigateToMock).toHaveBeenCalledWith({
         name: ROUTE_NAMES.login,
+      });
+    });
+
+    it('calls the caches.delete function with the correct parameters', () => {
+      expect(deleteMock).toHaveBeenCalledWith(PWA_CACHE_NAMES.api);
+    });
+
+    describe('when the caches API is not available', () => {
+      beforeEach(async () => {
+        vi.clearAllMocks();
+        delete (globalThis as Record<string, unknown>).caches;
+
+        await result.composable.logoutAndRedirect();
+      });
+
+      it('does not call the caches.delete function', () => {
+        expect(deleteMock).not.toHaveBeenCalled();
+      });
+
+      it('calls the navigateTo function with the correct parameters', () => {
+        expect(navigateToMock).toHaveBeenCalledWith({
+          name: ROUTE_NAMES.login,
+        });
       });
     });
   });

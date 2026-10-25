@@ -1,6 +1,10 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
-import { cookieMock } from '@/test/fixtures';
+import {
+  apiKeyCookieMock,
+  cookieMock,
+  legacyCookieMock,
+} from '@/test/fixtures';
 import { useRouterMock } from '@/test/useRouterMock';
 
 import { useAPI } from './index';
@@ -28,7 +32,9 @@ mockNuxtImport('useSettings', (original) => () => ({
   streamBitrate: ref(30),
 }));
 
-mockNuxtImport('useCookie', () => () => ref(cookieMock));
+const cookieValueMock = ref(cookieMock);
+
+mockNuxtImport('useCookie', () => () => ref(cookieValueMock.value));
 
 describe('useAPI', () => {
   let composable: ReturnType<typeof useAPI>;
@@ -38,6 +44,8 @@ describe('useAPI', () => {
   });
 
   afterEach(() => {
+    cookieValueMock.value = cookieMock;
+
     vi.clearAllMocks();
   });
 
@@ -63,6 +71,38 @@ describe('useAPI', () => {
         it('returns the correct response', () => {
           expect(composable.getImageUrl('id', '250')).toBe(
             'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id&size=250',
+          );
+        });
+      });
+
+      describe('when authMethod is not set', () => {
+        it('returns the correct response', () => {
+          expect(composable.getImageUrl('id')).toBe(
+            'https://www.server.com/rest/getCoverArt?s=salt&t=token&u=username&c=web&f=json&v=1.16.1&id=id&size=500',
+          );
+        });
+      });
+
+      describe('when authMethod is legacy', () => {
+        beforeEach(() => {
+          cookieValueMock.value = legacyCookieMock;
+        });
+
+        it('returns the correct response', () => {
+          expect(composable.getImageUrl('id')).toBe(
+            'https://www.server.com/rest/getCoverArt?p=enc%3A70617373776f7264&u=username&c=web&f=json&v=1.16.1&id=id&size=500',
+          );
+        });
+      });
+
+      describe('when authMethod is apiKey', () => {
+        beforeEach(() => {
+          cookieValueMock.value = apiKeyCookieMock;
+        });
+
+        it('returns the correct response', () => {
+          expect(composable.getImageUrl('id')).toBe(
+            'https://www.server.com/rest/getCoverArt?apiKey=apiKey&c=web&f=json&v=1.16.1&id=id&size=500',
           );
         });
       });
@@ -129,6 +169,62 @@ describe('useAPI', () => {
           '/path',
           expect.objectContaining({
             baseURL: 'https://www.baseUrl.com',
+          }),
+        );
+      });
+    });
+
+    describe('when skipSessionAuth is not set', () => {
+      beforeEach(async () => {
+        $apiMock.mockResolvedValue({});
+
+        result = await composable.fetchData('/path', {
+          query: {
+            id: 'id',
+          },
+        });
+      });
+
+      it('calls the $api function with the correct parameters', () => {
+        expect($apiMock).toHaveBeenCalledWith(
+          '/path',
+          expect.objectContaining({
+            query: {
+              c: 'web',
+              f: 'json',
+              id: 'id',
+              s: 'salt',
+              t: 'token',
+              u: 'username',
+              v: '1.16.1',
+            },
+          }),
+        );
+      });
+    });
+
+    describe('when skipSessionAuth is set to true', () => {
+      beforeEach(async () => {
+        $apiMock.mockResolvedValue({});
+
+        result = await composable.fetchData('/path', {
+          query: {
+            apiKey: 'apiKey',
+          },
+          skipSessionAuth: true,
+        });
+      });
+
+      it('calls the $api function with the correct parameters', () => {
+        expect($apiMock).toHaveBeenCalledWith(
+          '/path',
+          expect.objectContaining({
+            query: {
+              apiKey: 'apiKey',
+              c: 'web',
+              f: 'json',
+              v: '1.16.1',
+            },
           }),
         );
       });

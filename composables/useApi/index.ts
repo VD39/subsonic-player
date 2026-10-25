@@ -58,10 +58,10 @@ export function useAPI() {
 
   async function fetchData<DataT = SubsonicResponse>(
     url: string,
-    options: { suppressErrorSnack?: boolean } & UseFetchOptions<
-      SubsonicResponse,
-      DataT
-    > = {},
+    options: {
+      skipSessionAuth?: boolean;
+      suppressErrorSnack?: boolean;
+    } & UseFetchOptions<SubsonicResponse, DataT> = {},
   ) {
     try {
       const { $api } = useNuxtApp();
@@ -70,11 +70,15 @@ export function useAPI() {
 
       const { baseParams, baseURL } = getBaseOptions(authCookie.value!);
 
+      const configParams = options.skipSessionAuth
+        ? getConfigParams()
+        : baseParams;
+
       const response = await $api(url, {
         ...options,
         baseURL: options.baseURL ?? baseURL,
         query: {
-          ...baseParams,
+          ...configParams,
           ...options.query,
         },
       } as never);

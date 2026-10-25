@@ -18,6 +18,7 @@ async function onLogout() {
 }
 
 const username = computed(() => user.value?.username);
+const displayName = computed(() => username.value || 'Unknown user');
 
 watchEffect(async () => {
   if (!username.value) {
@@ -39,7 +40,7 @@ watchEffect(async () => {
     </template>
 
     <DropdownTitle>
-      {{ username }}
+      {{ displayName }}
     </DropdownTitle>
 
     <DropdownItem

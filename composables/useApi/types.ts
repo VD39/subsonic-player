@@ -450,6 +450,7 @@ export interface SubsonicResponse {
   starred: Starred;
   starred2: Starred2;
   status: ResponseStatus;
+  tokenInfo: TokenInfo;
   topSongs: TopSongs;
   type: string;
   user: CurrentUser;
@@ -457,6 +458,10 @@ export interface SubsonicResponse {
   version: string;
   videoInfo: VideoInfo;
   videos: Videos;
+}
+
+export interface TokenInfo {
+  username: string;
 }
 
 export interface TopSongs {

@@ -12,13 +12,7 @@ const route = useRoute();
 const { error, isAuthenticated, loading, login } = useAuth();
 
 async function onFormSubmit(fields: AuthData) {
-  const { password, server, username } = fields;
-
-  await login({
-    password,
-    server,
-    username,
-  });
+  await login(fields);
 
   await redirectIfAuthenticated();
 }

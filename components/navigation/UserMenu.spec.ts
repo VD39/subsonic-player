@@ -86,7 +86,7 @@ describe('UserMenu', () => {
     });
 
     it('shows the correct username in the DropdownTitle component', () => {
-      expect(wrapper.findComponent(DropdownTitle).text()).toBe('');
+      expect(wrapper.findComponent(DropdownTitle).text()).toBe('Unknown user');
     });
   });
 

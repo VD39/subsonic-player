@@ -6,6 +6,7 @@ import {
   replaceCharacterWithSpace,
   replaceSpaceWithCharacter,
   splitCamelCase,
+  toHex,
 } from './strings';
 
 describe('generateRandomString', () => {
@@ -128,6 +129,18 @@ describe('convertToTitleCase', () => {
   ])('when is string %s', (input, output) => {
     it('returns the correct response', () => {
       expect(convertToTitleCase(input)).toBe(output);
+    });
+  });
+});
+
+describe('toHex', () => {
+  describe.each([
+    ['', ''],
+    ['password', '70617373776f7264'],
+    ['pässwörd', '70c3a4737377c3b67264'],
+  ])('when the value is %o', (value, expected) => {
+    it('returns the correct response', () => {
+      expect(toHex(value)).toBe(expected);
     });
   });
 });

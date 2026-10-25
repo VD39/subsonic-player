@@ -131,6 +131,9 @@ describe('useUser', () => {
 
     it('sets the correct user value', () => {
       expect(composable.user.value).toEqual({
+        apiKey: null,
+        authMethod: 'token',
+        password: null,
         salt: 'salt',
         server: 'https://www.server.com',
         token: 'token',
