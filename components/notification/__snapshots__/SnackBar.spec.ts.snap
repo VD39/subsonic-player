@@ -41,7 +41,7 @@ exports[`SnackBar > when snacks values are set > when snacks values are more tha
 </teleport-stub>"
 `;
 
-exports[`SnackBar > when snacks values are set > when value is { content: 'content', id: 'id', type: 'error' } > matches the snapshot 1`] = `
+exports[`SnackBar > when snacks values are set > when value is { content: 'content', id: 'id', …(1) } > matches the snapshot 1`] = `
 "<teleport-stub to="#teleports">
   <div class="wrapper slide-left-right-enter-from slide-left-right-enter-active">
     <div class="mBM snackbar">
@@ -55,11 +55,11 @@ exports[`SnackBar > when snacks values are set > when value is { content: 'conte
 </teleport-stub>"
 `;
 
-exports[`SnackBar > when snacks values are set > when value is { content: 'content', id: 'id', type: 'info' } > matches the snapshot 1`] = `
+exports[`SnackBar > when snacks values are set > when value is { content: 'content', id: 'id', …(1) } > matches the snapshot 2`] = `
 "<teleport-stub to="#teleports">
   <div class="wrapper slide-left-right-enter-from slide-left-right-enter-active">
     <div class="mBM snackbar">
-      <div class="strong smallFont centerItems spaceBetween info messageBar" role="status">
+      <div class="strong smallFont centerItems spaceBetween success messageBar" role="status">
         <p class="sentenceCase">content</p><button class="centerItems buttonLink" draggable="false" type="button" title="Clear snack">
           <phx aria-hidden="true" class="icon" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>
@@ -69,11 +69,11 @@ exports[`SnackBar > when snacks values are set > when value is { content: 'conte
 </teleport-stub>"
 `;
 
-exports[`SnackBar > when snacks values are set > when value is { content: 'content', id: 'id', type: 'success' } > matches the snapshot 1`] = `
+exports[`SnackBar > when snacks values are set > when value is { content: 'content', id: 'id', …(1) } > matches the snapshot 3`] = `
 "<teleport-stub to="#teleports">
   <div class="wrapper slide-left-right-enter-from slide-left-right-enter-active">
     <div class="mBM snackbar">
-      <div class="strong smallFont centerItems spaceBetween success messageBar" role="status">
+      <div class="strong smallFont centerItems spaceBetween info messageBar" role="status">
         <p class="sentenceCase">content</p><button class="centerItems buttonLink" draggable="false" type="button" title="Clear snack">
           <phx aria-hidden="true" class="icon" size="24" weight="regular"></phx><span class="clamp text visuallyHidden"> Clear snack </span>
         </button>

@@ -3,6 +3,7 @@ import { configDefaults, coverageConfigDefaults } from 'vitest/config';
 
 export default defineVitestConfig({
   test: {
+    clearMocks: false,
     coverage: {
       enabled: true,
       exclude: [
