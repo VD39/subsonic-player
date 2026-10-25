@@ -6,6 +6,20 @@ updates:
       interval: monthly
     open-pull-requests-limit: 10
     groups:
+      vitest:
+        patterns:
+          - "*vitest*"
+        update-types:
+          - major
+          - minor
+          - patch
+      playwright:
+        patterns:
+          - "*playwright*"
+        update-types:
+          - major
+          - minor
+          - patch
       non-breaking:
         patterns:
           - "*"
