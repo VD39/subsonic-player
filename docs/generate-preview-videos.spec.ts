@@ -102,7 +102,9 @@ async function login(page: Page, isDark = false) {
 
   await page.getByLabel('server').fill(TEST_SETTINGS.loginDetails.server);
   await page.getByLabel('username').fill(TEST_SETTINGS.loginDetails.username);
-  await page.getByLabel('password').fill(TEST_SETTINGS.loginDetails.password);
+  await page
+    .getByPlaceholder('Enter your password')
+    .fill(TEST_SETTINGS.loginDetails.password);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.waitForURL('/', { waitUntil: 'load' });
 }
@@ -168,8 +170,10 @@ async function setLayoutViaSettings(
 
   await page.waitForTimeout(5000);
   await page
-    .getByRole('button', {
-      name: layout === 'gridLayout' ? /^Grid / : /^List /,
+    .locator('label', {
+      has: page.getByRole('radio', {
+        name: layout === 'gridLayout' ? /^Grid/ : /^List/,
+      }),
     })
     .click();
   await page.waitForTimeout(10000);

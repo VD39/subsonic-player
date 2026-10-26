@@ -76,7 +76,7 @@
     "clean": "rm -rf .nuxt dist .output node_modules/.vite node_modules/.cache",
     "dev": "npm run postinstall && nuxt dev --open",
     "generate": "nuxt generate",
-    "generate:preview-videos": "npm run playwright install && npm run build && playwright test docs/generate-preview-videos.spec.ts",
+    "generate:preview-videos": "npx playwright install && npm run build && playwright test docs/generate-preview-videos.spec.ts",
     "lint": "npm run postinstall && npm run lint:scripts && npm run lint:styles",
     "lint:fix": "npm run postinstall && npm run lint:scripts:fix && npm run lint:styles:fix",
     "lint:scripts": "eslint .",

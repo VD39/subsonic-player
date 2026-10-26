@@ -44,10 +44,24 @@ export default defineConfig<ConfigOptions>({
       },
     },
   ],
-  reporter: 'html',
+  reporter: [
+    [
+      'list',
+      {
+        printSteps: true,
+      },
+    ],
+    [
+      'html',
+      {
+        open: 'never',
+      },
+    ],
+  ],
   retries: process.env.CI ? 2 : 0,
   timeout,
   use: {
+    actionTimeout: 15000,
     nuxt: {
       host: 'http://localhost:3000',
       rootDir: fileURLToPath(new URL('.', import.meta.url)),
