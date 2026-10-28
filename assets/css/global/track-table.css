@@ -128,3 +128,33 @@
 
   overflow: unset;
 }
+
+/* Keep desktop navigation, but give track titles room on narrow desktops. */
+@media (769px <= width < 900px) {
+  .trackTable .trackSecondary,
+  .trackTable .trackTime {
+    display: none !important;
+  }
+
+  .trackTable .trackMeta .mobileOnly {
+    display: block !important;
+  }
+
+  .trackTable .trackCell:first-child {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .trackTable .trackCell:first-child > * {
+    min-width: 0;
+  }
+
+  .trackTable .trackCell:first-child .desktopOnly {
+    display: none !important;
+  }
+
+  .trackTable .trackOptions {
+    flex: 0 0 var(--track-width-height-default);
+  }
+}
