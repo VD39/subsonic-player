@@ -59,9 +59,10 @@ export function useAPI() {
   async function fetchData<DataT = SubsonicResponse>(
     url: string,
     options: {
+      method?: RequestInit['method'];
       skipSessionAuth?: boolean;
       suppressErrorSnack?: boolean;
-    } & UseFetchOptions<SubsonicResponse, DataT> = {},
+    } & Omit<UseFetchOptions<SubsonicResponse, DataT>, 'method'> = {},
   ) {
     try {
       const { $api } = useNuxtApp();

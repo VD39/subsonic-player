@@ -12,38 +12,63 @@ export function useArtist() {
     return artistsData || [];
   }
 
-  function getArtist(id: string) {
-    const route = useRoute();
-    const config = useRuntimeConfig();
-
-    if (config.public.SPA_MODE) {
-      /* istanbul ignore next -- @preserve */
-      return useAsyncData(
-        route.fullPath,
-        () => fetchAndMergeArtistData(id, fetchData),
-        {
-          default: () => null,
-          getCachedData: (key, nuxtApp) =>
-            nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  async function getArtist(id: string) {
+    const [
+      { data: artistInfoData },
+      { data: artistData },
+      { data: similarSongsData },
+    ] = await Promise.all([
+      fetchData('/getArtistInfo2', {
+        query: {
+          id,
         },
-      );
+      }),
+      fetchData('/getArtist', {
+        query: {
+          id,
+        },
+      }),
+      fetchData('/getSimilarSongs2', {
+        query: {
+          count: PREVIEW_TRACK_COUNT,
+          id,
+        },
+      }),
+    ]);
+
+    if (!artistInfoData || !artistData) {
+      return null;
     }
 
-    /* istanbul ignore next -- @preserve */
-    return useFetch('/api/artist', {
-      default: () => null,
-      getCachedData: (key, nuxtApp) =>
-        nuxtApp.payload.data[key] || nuxtApp.static.data[key],
-      key: route.fullPath,
-      query: {
-        id,
-      },
-      transform: (response) => response.data,
+    return formatArtist({
+      ...artistInfoData.artistInfo2,
+      ...artistData.artist,
+      similarSongs: similarSongsData?.similarSongs2?.song,
     });
+  }
+
+  async function getTopSongs(artist: string) {
+    if (!artist) {
+      return [];
+    }
+
+    const { data: topSongsData } = await fetchData('/getTopSongs', {
+      query: {
+        artist,
+        count: PREVIEW_TRACK_COUNT,
+      },
+      transform: /* istanbul ignore next -- @preserve */ (response) =>
+        (response.topSongs.song || []).map((track, index) =>
+          formatTrack(track, index),
+        ),
+    });
+
+    return topSongsData || [];
   }
 
   return {
     getArtist,
     getArtists,
+    getTopSongs,
   };
 }

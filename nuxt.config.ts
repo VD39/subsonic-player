@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { defineNuxtConfig } from 'nuxt/config';
 
-import { createPWAConfig } from './config/pwa.config';
+import { createPWAConfig } from './config/pwa.config.ts';
 
 const IMPORT_DIRECTORIES = [
   'components/**',
@@ -41,6 +41,9 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
+  experimental: {
+    typedPages: false,
+  },
   future: {
     compatibilityVersion: 5,
   },
@@ -68,8 +71,8 @@ export default defineNuxtConfig({
     plugins: {
       '@csstools/postcss-global-data': {
         files: [
-          resolve(__dirname, 'assets/css/breakpoints.css'),
-          resolve(__dirname, 'assets/css/main.css'),
+          resolve(import.meta.dirname, 'assets/css/breakpoints.css'),
+          resolve(import.meta.dirname, 'assets/css/main.css'),
         ],
       },
       autoprefixer: {},

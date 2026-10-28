@@ -83,4 +83,5 @@ export const ASYNC_DATA_KEYS = {
   podcasts: 'podcasts',
   queue: 'queue',
   radioStations: 'radio-stations',
+  topTracks: 'top-tracks',
 } as const;

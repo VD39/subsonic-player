@@ -2,14 +2,11 @@ import { includeIgnoreFile } from '@eslint/config-helpers';
 import vitest from '@vitest/eslint-plugin';
 import perfectionist from 'eslint-plugin-perfectionist';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
 import withNuxt from './.nuxt/eslint.config.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const gitignorePath = resolve(__dirname, '.gitignore');
+const gitignorePath = resolve(import.meta.dirname, '.gitignore');
 
 export default withNuxt(
   includeIgnoreFile(gitignorePath),
