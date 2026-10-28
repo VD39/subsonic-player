@@ -18,7 +18,7 @@ definePageMeta({
 const route = useRoute();
 const { viewLayout } = useSettings();
 const { getMediaTracks } = useMediaTracks();
-const { getArtist } = useArtist();
+const { getArtist, getTopSongs } = useArtist();
 const { openModal } = useModal();
 const { downloadTrack } = useMediaLibrary();
 const { addToPlaylistModal } = usePlaylist();
@@ -26,12 +26,52 @@ const { openAlbumDetailsModal, openTrackDetailsModal } = useMediaInformation();
 const { addTracksToQueue, addTrackToQueue, playTracks } = useAudioPlayer();
 const { dragStart } = useDragAndDrop();
 
-const { data: artistData, status } = getArtist(
-  route.params[ROUTE_PARAM_KEYS.artist.id] as string,
+const { data: artistData, status } = useAsyncData(
+  route.fullPath,
+  async () => {
+    const artist = await getArtist(
+      route.params[ROUTE_PARAM_KEYS.artist.id] as string,
+    );
+
+    return {
+      artist,
+    };
+  },
+  {
+    default: () => ({
+      artist: null,
+    }),
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+  },
+);
+
+const artistName = computed(() => artistData.value.artist?.name || '');
+
+const { data: topSongsData } = useAsyncData(
+  () => `${route.fullPath}-${ASYNC_DATA_KEYS.topTracks}`,
+  async () => {
+    const tracks = await getTopSongs(artistName.value);
+
+    return {
+      tracks,
+    };
+  },
+  {
+    default: () => ({
+      tracks: [],
+    }),
+    enabled: () => !!artistName.value,
+    getCachedData: (key, nuxtApp) =>
+      nuxtApp.payload.data[key] || nuxtApp.static.data[key],
+    lazy: true,
+    server: false,
+    watch: [artistName],
+  },
 );
 
 const { sortedItems: sortedAlbums, sortProps } = useLocalSort<Album>({
-  items: computed(() => artistData.value?.albums || []),
+  items: computed(() => artistData.value.artist?.albums || []),
   options: [
     {
       defaultDirection: 'desc',
@@ -59,63 +99,67 @@ async function onPlayAlbum(album: Album) {
 
 function openArtistBiographyModal() {
   openModal(MODAL_TYPE.readMoreModal, {
-    text: artistData.value!.biography,
+    text: artistData.value.artist!.biography,
     title: 'Artist biography',
   });
 }
 
 function playFromSimilarTracks(index: number) {
-  playTracks(artistData.value!.similarTracks, index);
+  playTracks(artistData.value.artist!.similarTracks, index);
 }
 
 function playTopTracks(index: number) {
-  playTracks(artistData.value!.topTracks, index);
+  playTracks(topSongsData.value.tracks, index);
 }
 
 useHead({
-  title: () => [artistData.value?.name, 'Artist'].filter(Boolean).join(' - '),
+  title: () =>
+    [artistData.value.artist?.name, 'Artist'].filter(Boolean).join(' - '),
 });
 </script>
 
 <template>
   <LoadingData :class="viewLayout" :status>
-    <div v-if="artistData" ref="artistContent">
-      <EntryHeader :images="[artistData.image]" :title="artistData.name">
+    <div v-if="artistData.artist" ref="artistContent">
+      <EntryHeader
+        :images="[artistData.artist.image]"
+        :title="artistData.artist.name"
+      >
         <TextClamp
-          v-if="artistData.biography"
+          v-if="artistData.artist.biography"
           :maxLines="2"
-          :text="artistData.biography"
+          :text="artistData.artist.biography"
           @expand="openArtistBiographyModal"
         />
 
         <GenreList
-          v-if="artistData.genres.length"
-          :genres="artistData.genres"
+          v-if="artistData.artist.genres.length"
+          :genres="artistData.artist.genres"
         />
 
         <ul class="bulletList">
           <li ref="albumCount">
-            <span class="strong">{{ artistData.totalAlbums }}</span>
-            {{ artistData.totalAlbums > 1 ? 'Albums' : 'Album' }}
+            <span class="strong">{{ artistData.artist.totalAlbums }}</span>
+            {{ artistData.artist.totalAlbums > 1 ? 'Albums' : 'Album' }}
           </li>
           <li ref="trackCount">
-            <span class="strong">{{ artistData.totalTracks }}</span>
-            {{ artistData.totalTracks > 1 ? 'Tracks' : 'Track' }}
+            <span class="strong">{{ artistData.artist.totalTracks }}</span>
+            {{ artistData.artist.totalTracks > 1 ? 'Tracks' : 'Track' }}
           </li>
         </ul>
 
         <div class="list">
           <FavouriteButton
-            :id="artistData.id"
-            :favourite="artistData.favourite"
+            :id="artistData.artist.id"
+            :favourite="artistData.artist.favourite"
             type="artist"
           />
 
           <ButtonLink
             is="a"
-            v-if="artistData.lastFmUrl"
+            v-if="artistData.artist.lastFmUrl"
             ref="lastFmButton"
-            :href="artistData.lastFmUrl"
+            :href="artistData.artist.lastFmUrl"
             :icon="ICONS.lastFm"
             target="_blank"
             title="LastFm"
@@ -123,9 +167,9 @@ useHead({
 
           <ButtonLink
             is="a"
-            v-if="artistData.musicBrainzUrl"
+            v-if="artistData.artist.musicBrainzUrl"
             ref="musicBrainzButton"
-            :href="artistData.musicBrainzUrl"
+            :href="artistData.artist.musicBrainzUrl"
             :icon="ICONS.musicBrainz"
             target="_blank"
             title="MusicBrainz"
@@ -146,12 +190,12 @@ useHead({
         @playAlbum="onPlayAlbum"
       />
 
-      <template v-if="artistData.topTracks.length">
+      <template v-if="topSongsData.tracks.length">
         <h2>Top Tracks</h2>
 
         <TracklistGeneric
           ref="topTracksTracklistGeneric"
-          :tracks="artistData.topTracks"
+          :tracks="topSongsData.tracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
@@ -161,12 +205,12 @@ useHead({
         />
       </template>
 
-      <template v-if="artistData.similarTracks.length">
+      <template v-if="artistData.artist.similarTracks.length">
         <h2>Similar Tracks</h2>
 
         <TracklistGeneric
           ref="similarTracksTracklistGeneric"
-          :tracks="artistData.similarTracks"
+          :tracks="artistData.artist.similarTracks"
           @addToPlaylist="addToPlaylistModal"
           @addToQueue="addTrackToQueue"
           @downloadMedia="downloadTrack"
@@ -176,10 +220,10 @@ useHead({
         />
       </template>
 
-      <template v-if="artistData.similarArtists.length">
+      <template v-if="artistData.artist.similarArtists.length">
         <h2>Similar Artists</h2>
 
-        <ArtistList :artists="artistData.similarArtists" />
+        <ArtistList :artists="artistData.artist.similarArtists" />
       </template>
     </div>
 

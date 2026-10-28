@@ -6,6 +6,7 @@ import { mount } from '@vue/test-utils';
 import AlbumList from '@/components/album/AlbumList.vue';
 import ArtistList from '@/components/artist/ArtistList.vue';
 import GenreList from '@/components/artist/GenreList.vue';
+import LoadingData from '@/components/notification/LoadingData.vue';
 import NoMediaMessage from '@/components/notification/NoMediaMessage.vue';
 import TextClamp from '@/components/ui/TextClamp.vue';
 import {
@@ -18,7 +19,9 @@ import { useHeadMock } from '@/test/useHeadMock';
 import ArtistPage from './[[id]].vue';
 
 mockNuxtImport('useAPI', () => () => ({
-  fetchData: vi.fn(),
+  fetchData: vi.fn(() => ({
+    data: null,
+  })),
   getImageUrl: vi.fn((path) => path),
 }));
 
@@ -70,14 +73,23 @@ mockNuxtImport('useDragAndDrop', (original) => () => ({
   dragStart: dragStartMock,
 }));
 
-const artistDataMock = ref<Artist | null>(null);
+const artistDataMock = ref<{
+  artist: Artist | null;
+}>({
+  artist: null,
+});
+const topSongsDataMock = ref<{
+  tracks: Track[];
+}>({
+  tracks: [],
+});
+const topSongsStatusMock = ref('success');
 
-mockNuxtImport('useArtist', (original) => () => ({
-  ...original(),
-  getArtist: vi.fn().mockReturnValue({
-    data: artistDataMock,
-    status: ref('success'),
-  }),
+mockNuxtImport('useAsyncData', () => (key: (() => string) | string) => ({
+  data: typeof key === 'function' ? topSongsDataMock : artistDataMock,
+  error: ref(null),
+  pending: ref(false),
+  status: typeof key === 'function' ? topSongsStatusMock : ref('success'),
 }));
 
 const { useHeadTitleMock } = useHeadMock();
@@ -121,10 +133,6 @@ describe('[[id]]', () => {
   });
 
   describe('when getArtist does not return any data', () => {
-    beforeEach(() => {
-      wrapper = factory();
-    });
-
     it('sets the useHead function with correct title', () => {
       expect(useHeadTitleMock.value).toBe('Artist');
     });
@@ -138,10 +146,23 @@ describe('[[id]]', () => {
     });
   });
 
-  describe('when getArtist does returns data', () => {
+  describe('when getArtist does return data', () => {
     beforeEach(() => {
-      artistDataMock.value = getFormattedArtistsMock()[0];
+      artistDataMock.value = {
+        artist: getFormattedArtistsMock()[0],
+      };
+
       wrapper = factory();
+    });
+
+    afterAll(() => {
+      artistDataMock.value = {
+        artist: null,
+      };
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('sets the useHead function with correct title', () => {
@@ -156,17 +177,40 @@ describe('[[id]]', () => {
       expect(wrapper.find({ ref: 'artistContent' }).exists()).toBe(true);
     });
 
-    describe('when artistData.biography is not set', () => {
+    describe('when the topSongsStatus value is pending', () => {
+      beforeEach(() => {
+        topSongsStatusMock.value = 'pending';
+        wrapper = factory();
+      });
+
+      afterAll(() => {
+        topSongsStatusMock.value = 'success';
+      });
+
+      it('sets the correct status prop on the LoadingData component', () => {
+        expect(wrapper.findComponent(LoadingData).props('status')).toBe(
+          'success',
+        );
+      });
+
+      it('shows the artistContent element', () => {
+        expect(wrapper.find({ ref: 'artistContent' }).isVisible()).toBe(true);
+      });
+    });
+
+    describe('when artist.biography is not set', () => {
       it('does not show the TextClamp component', () => {
         expect(wrapper.findComponent(TextClamp).exists()).toBe(false);
       });
     });
 
-    describe('when artistData.biography is set', () => {
+    describe('when artist.biography is set', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          biography: 'biography',
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            biography: 'biography',
+          })[0],
+        };
 
         wrapper = factory();
       });
@@ -179,25 +223,27 @@ describe('[[id]]', () => {
         expect(wrapper.findComponent(TextClamp).exists()).toBe(true);
       });
 
-      describe('when the TextClamp component emits the more event', () => {
+      describe('when the TextClamp component emits the expand event', () => {
         beforeEach(() => {
           wrapper.findComponent(TextClamp).vm.$emit('expand');
         });
 
         it('calls the openModal function with the correct parameters', () => {
           expect(openModalMock).toHaveBeenCalledWith(MODAL_TYPE.readMoreModal, {
-            text: artistDataMock.value!.biography,
+            text: artistDataMock.value.artist!.biography,
             title: 'Artist biography',
           });
         });
       });
     });
 
-    describe('when artistData.genres is an empty array', () => {
+    describe('when artist.genres is an empty array', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          genres: [],
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            genres: [],
+          })[0],
+        };
 
         wrapper = factory();
       });
@@ -211,23 +257,25 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.genres is not an empty array', () => {
+    describe('when artist.genres is not an empty array', () => {
       it('shows the GenreList component', () => {
         expect(wrapper.findComponent(GenreList).exists()).toBe(true);
       });
     });
 
-    describe('when artistData.totalAlbums is 1', () => {
+    describe('when artist.totalAlbums is 1', () => {
       it('shows the correct album count text', () => {
         expect(wrapper.find({ ref: 'albumCount' }).text()).toBe('1 Album');
       });
     });
 
-    describe('when artistData.totalAlbums is greater than 1', () => {
+    describe('when artist.totalAlbums is greater than 1', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          totalAlbums: 5,
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            totalAlbums: 5,
+          })[0],
+        };
 
         wrapper = factory();
       });
@@ -241,17 +289,19 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.totalTracks is 1', () => {
+    describe('when artist.totalTracks is 1', () => {
       it('shows the correct track count text', () => {
         expect(wrapper.find({ ref: 'trackCount' }).text()).toBe('1 Track');
       });
     });
 
-    describe('when artistData.totalTracks is greater than 1', () => {
+    describe('when artist.totalTracks is greater than 1', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          totalTracks: 10,
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            totalTracks: 10,
+          })[0],
+        };
 
         wrapper = factory();
       });
@@ -265,7 +315,7 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.lastFmUrl is not set', () => {
+    describe('when artist.lastFmUrl is not set', () => {
       it('does not show the LastFm ButtonLink component', () => {
         expect(wrapper.findComponent({ ref: 'lastFmButton' }).exists()).toBe(
           false,
@@ -273,11 +323,13 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.lastFmUrl is set', () => {
+    describe('when artist.lastFmUrl is set', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          lastFmUrl: 'lastFmUrl',
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            lastFmUrl: 'lastFmUrl',
+          })[0],
+        };
 
         wrapper = factory();
       });
@@ -293,7 +345,7 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.musicBrainzUrl is not set', () => {
+    describe('when artist.musicBrainzUrl is not set', () => {
       it('does not show the MusicBrainz ButtonLink component', () => {
         expect(
           wrapper.findComponent({ ref: 'musicBrainzButton' }).exists(),
@@ -301,11 +353,13 @@ describe('[[id]]', () => {
       });
     });
 
-    describe('when artistData.musicBrainzUrl is set', () => {
+    describe('when artist.musicBrainzUrl is set', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          musicBrainzUrl: 'musicBrainzUrl',
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            musicBrainzUrl: 'musicBrainzUrl',
+          })[0],
+        };
 
         wrapper = factory();
       });
@@ -322,108 +376,127 @@ describe('[[id]]', () => {
     });
 
     describe.each([
-      ['top', 'topTracks', 'topTracksTracklistGeneric'],
-      ['similar', 'similarTracks', 'similarTracksTracklistGeneric'],
-    ])('_', (component, key, ref) => {
-      describe(`when artistData.${key} is an empty array`, () => {
-        it(`does not show the ${component} tracks TracklistGeneric component`, () => {
-          expect(wrapper.findComponent({ ref }).exists()).toBe(false);
+      ['topSongsData.tracks', 'top', 'topTracksTracklistGeneric'],
+      ['artist.similarTracks', 'similar', 'similarTracksTracklistGeneric'],
+    ])('when %s is an empty array', (_key, component, ref) => {
+      it(`does not show the ${component} tracks TracklistGeneric component`, () => {
+        expect(wrapper.findComponent({ ref }).exists()).toBe(false);
+      });
+    });
+
+    describe.each([
+      ['topSongsData.tracks', 'top', 'topTracksTracklistGeneric'],
+      ['artist.similarTracks', 'similar', 'similarTracksTracklistGeneric'],
+    ])('when %s is not an empty array', (_key, component, ref) => {
+      beforeEach(() => {
+        if (component === 'top') {
+          topSongsDataMock.value = {
+            tracks: getFormattedTracksMock(5),
+          };
+        } else {
+          artistDataMock.value = {
+            artist: getFormattedArtistsMock(1, {
+              similarTracks: getFormattedTracksMock(3),
+            })[0],
+          };
+        }
+
+        wrapper = factory();
+      });
+
+      afterEach(() => {
+        topSongsDataMock.value = {
+          tracks: [],
+        };
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+      });
+
+      it(`shows the ${component} tracks TracklistGeneric component`, () => {
+        expect(wrapper.findComponent({ ref }).exists()).toBe(true);
+      });
+
+      describe(`when the ${component} TracklistGeneric component emits the addToPlaylist event`, () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('addToPlaylist', track);
+        });
+
+        it('calls the addToPlaylistModal function with the correct parameters', () => {
+          expect(addToPlaylistModalMock).toHaveBeenCalledWith(track);
         });
       });
 
-      describe(`when artistData.${key} is not an empty array`, () => {
+      describe(`when the ${component} TracklistGeneric component emits the addToQueue event`, () => {
         beforeEach(() => {
-          artistDataMock.value = getFormattedArtistsMock(1, {
-            [key]: getFormattedTracksMock(5),
-          })[0];
-
-          wrapper = factory();
+          wrapper.findComponent({ ref }).vm.$emit('addToQueue', track);
         });
 
-        it('matches the snapshot', () => {
-          expect(wrapper.html()).toMatchSnapshot();
+        it('calls the addTrackToQueue function with the correct parameters', () => {
+          expect(addTrackToQueueMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe(`when the ${component} TracklistGeneric component emits the downloadMedia event`, () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('downloadMedia', track);
         });
 
-        it(`shows the ${component} tracks TracklistGeneric component`, () => {
-          expect(wrapper.findComponent({ ref }).exists()).toBe(true);
+        it('calls the downloadTrack function with the correct parameters', () => {
+          expect(downloadTrackMock).toHaveBeenCalledWith(track);
+        });
+      });
+
+      describe(`when the ${component} TracklistGeneric component emits the dragStart event`, () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('dragStart', track);
         });
 
-        describe(`when the ${component} TracklistGeneric component emits the addToPlaylist event`, () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('addToPlaylist', track);
-          });
+        it('calls the dragStart function with the correct parameters', () => {
+          expect(dragStartMock).toHaveBeenCalledWith(track);
+        });
+      });
 
-          it('calls the addToPlaylistModal function with the correct parameters', () => {
-            expect(addToPlaylistModalMock).toHaveBeenCalledWith(track);
-          });
+      describe(`when the ${component} TracklistGeneric component emits the playTrack event`, () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('playTrack', 2);
         });
 
-        describe(`when the ${component} TracklistGeneric component emits the addToQueue event`, () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('addToQueue', track);
-          });
+        it('calls the playTracks function with the correct parameters', () => {
+          expect(playTracksMock).toHaveBeenCalledWith(
+            component === 'top'
+              ? topSongsDataMock.value.tracks
+              : artistDataMock.value.artist!.similarTracks,
+            2,
+          );
+        });
+      });
 
-          it('calls the addTrackToQueue function with the correct parameters', () => {
-            expect(addTrackToQueueMock).toHaveBeenCalledWith(track);
-          });
+      describe(`when the ${component} TracklistGeneric component emits the mediaInformation event`, () => {
+        beforeEach(() => {
+          wrapper.findComponent({ ref }).vm.$emit('mediaInformation', track);
         });
 
-        describe(`when the ${component} TracklistGeneric component emits the downloadMedia event`, () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('downloadMedia', track);
-          });
-
-          it('calls the downloadTrack function with the correct parameters', () => {
-            expect(downloadTrackMock).toHaveBeenCalledWith(track);
-          });
-        });
-
-        describe(`when the ${component} TracklistGeneric component emits the dragStart event`, () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('dragStart', track);
-          });
-
-          it('calls the dragStart function with the correct parameters', () => {
-            expect(dragStartMock).toHaveBeenCalledWith(track);
-          });
-        });
-
-        describe(`when the ${component} TracklistGeneric component emits the playTrack event`, () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('playTrack', 2);
-          });
-
-          it('calls the playTracks function with the correct parameters', () => {
-            expect(playTracksMock).toHaveBeenCalledWith(
-              artistDataMock.value![key as keyof Artist],
-              2,
-            );
-          });
-        });
-
-        describe(`when the ${component} TracklistGeneric component emits the favouriteTrack event`, () => {
-          beforeEach(() => {
-            wrapper.findComponent({ ref }).vm.$emit('mediaInformation', track);
-          });
-
-          it('calls the openTrackDetailsModal function with the correct parameters', () => {
-            expect(openTrackDetailsModalMock).toHaveBeenCalledWith(track);
-          });
+        it('calls the openTrackDetailsModal function with the correct parameters', () => {
+          expect(openTrackDetailsModalMock).toHaveBeenCalledWith(track);
         });
       });
     });
 
-    describe('when artistData.similarArtists is an empty array', () => {
+    describe('when artist.similarArtists is an empty array', () => {
       it('does not show the ArtistList component', () => {
         expect(wrapper.findComponent(ArtistList).exists()).toBe(false);
       });
     });
 
-    describe('when artistData.similarArtists is not an empty array', () => {
+    describe('when artist.similarArtists is not an empty array', () => {
       beforeEach(() => {
-        artistDataMock.value = getFormattedArtistsMock(1, {
-          similarArtists: [artist],
-        })[0];
+        artistDataMock.value = {
+          artist: getFormattedArtistsMock(1, {
+            similarArtists: [artist],
+          })[0],
+        };
 
         wrapper = factory();
       });
