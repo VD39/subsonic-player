@@ -20,7 +20,7 @@
     "@nuxt/eslint": "^1.16.0",
     "@nuxt/test-utils": "^4.2.0",
     "@nuxtjs/stylelint-module": "^5.2.1",
-    "@playwright/test": "^1.62.1",
+    "@playwright/test": "^1.64.1",
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^26.6.6",
     "@vite-pwa/assets-generator": "^1.0.2",
