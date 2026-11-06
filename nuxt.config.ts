@@ -99,7 +99,7 @@ export default defineNuxtConfig({
         '@vue/devtools-core',
         '@vue/devtools-kit',
         '@phosphor-icons/vue',
-        'crypto-js/md5',
+        'js-md5',
       ],
     },
   },

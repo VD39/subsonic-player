@@ -1,4 +1,4 @@
-import MD5 from 'crypto-js/md5';
+import { md5 } from 'js-md5';
 
 export function buildSessionParams(auth: AuthData) {
   const {
@@ -30,7 +30,7 @@ export function buildSessionParams(auth: AuthData) {
         authMethod,
         salt,
         server,
-        token: MD5(`${password}${salt}`).toString(),
+        token: md5(`${password}${salt}`),
         username,
       };
     }

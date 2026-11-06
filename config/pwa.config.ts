@@ -115,7 +115,9 @@ export function createPWAConfig(
         globPatterns,
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         navigationPreload: !spaMode,
-        ...(spaMode && { navigateFallback: '/' }),
+        ...(spaMode && {
+          navigateFallback: '/',
+        }),
         runtimeCaching: [
           {
             handler: 'CacheFirst',

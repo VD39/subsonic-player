@@ -15,8 +15,8 @@ globalThis.MutationObserver = vi.fn().mockImplementation(function () {
   };
 });
 
-vi.mock('crypto-js/md5', () => ({
-  default: vi.fn().mockReturnValue('MD5'),
+vi.mock('js-md5', () => ({
+  md5: vi.fn().mockReturnValue('MD5'),
 }));
 
 config.global.stubs = {
