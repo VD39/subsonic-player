@@ -1,0 +1,172 @@
+import type { DataMock } from '@@/test/types';
+
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import { useGenre } from './index';
+
+const fetchDataMock = vi.hoisted(() =>
+  vi.fn<() => DataMock>(() => ({
+    data: null,
+  })),
+);
+
+mockNuxtImport('useAPI', (original) => () => ({
+  ...original(),
+  fetchData: fetchDataMock,
+}));
+
+const getAlbumsMock = vi.hoisted(() => vi.fn().mockReturnValue(['albums']));
+
+mockNuxtImport('useAlbum', (original) => () => ({
+  ...original(),
+  getAlbums: getAlbumsMock,
+}));
+
+describe('useGenre', () => {
+  let composable: ReturnType<typeof useGenre>;
+
+  beforeAll(() => {
+    composable = useGenre();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  describe('when the getGenres function is called', () => {
+    describe('when fetchData response returns non array value', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: null,
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await composable.getGenres()).toEqual([]);
+      });
+    });
+
+    describe('when fetchData response returns an array', () => {
+      beforeEach(() => {
+        fetchDataMock.mockResolvedValue({
+          data: [
+            {
+              name: 'name',
+            },
+          ],
+        });
+      });
+
+      it('returns the correct response', async () => {
+        expect(await composable.getGenres()).toEqual([
+          {
+            name: 'name',
+          },
+        ]);
+      });
+    });
+  });
+
+  describe('when the getMediaByGenre function is called', () => {
+    let result: Awaited<ReturnType<typeof composable.getMediaByGenre>>;
+
+    describe(`when route media type is ${ROUTE_MEDIA_TYPE_PARAMS.Albums}`, () => {
+      beforeEach(async () => {
+        result = await composable.getMediaByGenre({
+          genre: 'soundtrack',
+          mediaType: ROUTE_MEDIA_TYPE_PARAMS.Albums,
+        });
+      });
+
+      it('calls the getAlbums function', () => {
+        expect(getAlbumsMock).toHaveBeenCalled();
+      });
+
+      it('returns the correct response', () => {
+        expect(result).toEqual(['albums']);
+      });
+    });
+
+    describe(`when route media type is ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
+      describe('when fetchData response returns a value', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: ['tracks'],
+          });
+
+          result = await composable.getMediaByGenre({
+            genre: 'soundtrack',
+            mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+          });
+        });
+
+        it('returns the correct response', () => {
+          expect(result).toEqual(['tracks']);
+        });
+
+        describe('when offset is not set', () => {
+          it('calls the fetchData function with the correct parameters', () => {
+            expect(fetchDataMock).toHaveBeenCalledWith('/getSongsByGenre', {
+              query: {
+                count: 50,
+                genre: 'soundtrack',
+                mediaType: 'tracks',
+                offset: 0,
+              },
+              transform: expect.any(Function),
+            });
+          });
+        });
+
+        describe('when offset is set', () => {
+          describe('when offset is greater than 1', () => {
+            beforeEach(() => {
+              composable.getMediaByGenre({
+                genre: 'soundtrack',
+                mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+                offset: 1,
+              });
+            });
+
+            it('calls the fetchData function with the correct parameters', () => {
+              expect(fetchDataMock).toHaveBeenCalledWith('/getSongsByGenre', {
+                query: {
+                  count: 50,
+                  genre: 'soundtrack',
+                  mediaType: 'tracks',
+                  offset: 1,
+                },
+                transform: expect.any(Function),
+              });
+            });
+          });
+        });
+      });
+
+      describe('when fetchData response returns null', () => {
+        beforeEach(async () => {
+          fetchDataMock.mockResolvedValue({
+            data: null,
+          });
+
+          result = await composable.getMediaByGenre({
+            genre: 'soundtrack',
+            mediaType: ROUTE_MEDIA_TYPE_PARAMS.Tracks,
+          });
+        });
+
+        it('returns the correct response', () => {
+          expect(result).toEqual([]);
+        });
+      });
+    });
+
+    describe(`when route media type is not ${ROUTE_MEDIA_TYPE_PARAMS.Albums} or ${ROUTE_MEDIA_TYPE_PARAMS.Tracks}`, () => {
+      it('returns the correct response', async () => {
+        expect(
+          await composable.getMediaByGenre({} as MediaByGenreParams),
+        ).toEqual([]);
+      });
+    });
+  });
+});

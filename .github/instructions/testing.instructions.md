@@ -104,11 +104,11 @@ mockNuxtImport('useRuntimeConfig', (original) => {
 
 `[NUXT_E1005]` on stderr means "Error caught during app initialization". The nuxt vitest environment (with `@nuxt/test-utils` 4) runs the real Nuxt app setup — plugins, global middleware, and the initial navigation — in a `beforeAll` for every spec file. An error thrown there is caught and logged as `[NUXT_E1005]`; tests still pass, but the noise signals a real setup bug. Common causes and fixes:
 
-- **Incomplete `useRouter` mock** — Nuxt client plugins (`chunk-reload`, `navigation-repaint`, `restore-state`, `view-transitions`) call `router.beforeEach`, `router.beforeResolve`, `router.afterEach`, `router.onError`, `router.replace`, and `router.resolve` during app init. Mock a complete router with `useRouterMock` from `@/test/useRouterMock` (see `app.spec.ts`).
+- **Incomplete `useRouter` mock** — Nuxt client plugins (`chunk-reload`, `navigation-repaint`, `restore-state`, `view-transitions`) call `router.beforeEach`, `router.beforeResolve`, `router.afterEach`, `router.onError`, `router.replace`, and `router.resolve` during app init. Mock a complete router with `useRouterMock` from `@@/test/useRouterMock` (see `app.spec.ts`).
 - **`useNuxtApp` mock missing `$router`** — `navigateTo` calls `useRouter().resolve(...)` internally, and `useRouter` reads `$router` off the nuxtApp. `$router` is a non-enumerable getter on the real nuxtApp, so the `...original()` spread does not carry it over — add `$router: routerMock` explicitly.
 - **`useNuxtApp` mock clobbering `payload`** — do not override `payload` with `{}`; the global middleware's `callOnce` reads `nuxtApp.payload.once`. Spread the real `...original()` payload (or ensure `payload.once` is a `Set`).
-- **Shallow `matchMedia` mock** — `plugins/settings.client.ts` runs during app init and calls `matchMedia(...).addEventListener(...)`. If a spec stubs `matchMedia` with only `{ matches }`, the plugin throws. Use `matchMediaMock` from `@/test/matchMediaMock`, which includes `addEventListener`.
-- **`$fetch` mock missing `create`** — `plugins/api.ts` calls `$fetch.create(...)` during app init. When a spec mocks `$fetch` (e.g. `server/api/artist.spec.ts`), the mock must expose a `create` function: `Object.assign(vi.fn(), { create: vi.fn() })`.
+- **Shallow `matchMedia` mock** — `plugins/settings.client.ts` runs during app init and calls `matchMedia(...).addEventListener(...)`. If a spec stubs `matchMedia` with only `{ matches }`, the plugin throws. Use `matchMediaMock` from `@@/test/matchMediaMock`, which includes `addEventListener`.
+- **`$fetch` mock missing `create`** — `plugins/api.ts` calls `$fetch.create(...)` during app init. When a spec mocks `$fetch`, the mock must expose a `create` function: `Object.assign(vi.fn(), { create: vi.fn() })`.
 - **Real `autoLogin` running with an `undefined`-returning `fetchData` mock** — the global middleware (`app.global.ts`) calls `autoLogin()` at app init, and the real `autoLogin` destructures `{ data, error }` from `fetchData(...)`. When a spec mocks `useAPI` with `fetchData: vi.fn()` (returns `undefined`) while `useUser` provides a truthy `server` (so `autoLogin` does not bail early), app init throws. Either mock `autoLogin: vi.fn()` in the `useAuth` mock, or give `fetchData` a default return like `vi.fn(() => ({ data: null }))`.
 
 ## Mock data conventions
@@ -128,7 +128,7 @@ Never explicitly import types, constants, composables, or utilities that are aut
 
 Only import from:
 
-- `@/test/helpers` and `@/test/withSetup` (test utilities)
+- `@@/test/helpers` and `@@/test/withSetup` (test utilities)
 - The file under test itself (e.g. `import { useLocalSort } from './index'`)
 
 ```ts
@@ -143,7 +143,7 @@ import { SORT_NAME_OPTIONS, SORT_RANDOM_OPTIONS } from './constants';
 
 ### Use helpers and fixtures for mock data
 
-Always reach for an existing helper from `@/test/helpers` or a fixture from `@/test/fixtures` before defining mock data inline. If neither covers the case, add to the appropriate file and import it.
+Always reach for an existing helper from `@@/test/helpers` or a fixture from `@@/test/fixtures` before defining mock data inline. If neither covers the case, add to the appropriate file and import it.
 
 The `params` argument on all helpers overrides individual fields per call. All helpers support `name` as an overridable param:
 
@@ -177,10 +177,10 @@ const tracks = [
 
 | Data                                                  | Where it lives                        |
 | ----------------------------------------------------- | ------------------------------------- |
-| Reusable mock objects (shared across spec files)      | `@/test/fixtures` or `@/test/helpers` |
+| Reusable mock objects (shared across spec files)      | `@@/test/fixtures` or `@@/test/helpers` |
 | Test-specific config (e.g. options for a single spec) | Inline in the spec file               |
 
-If a mock constant cannot be derived from an existing helper or fixture, add it to `@/test/fixtures` (static value) or `@/test/helpers` (factory function), then import it. Do not define reusable mocks inline in spec files.
+If a mock constant cannot be derived from an existing helper or fixture, add it to `@@/test/fixtures` (static value) or `@@/test/helpers` (factory function), then import it. Do not define reusable mocks inline in spec files.
 
 ### Type annotations on inline mock constants
 
@@ -854,10 +854,10 @@ Composables that use `onMounted`, watchers, or `onBeforeUnmount` must be mounted
 
 ### withSetup (lifecycle required)
 
-Use `withSetup` when the composable calls `onMounted`, registers watchers, or calls `onBeforeUnmount`. Import from `@/test/withSetup`:
+Use `withSetup` when the composable calls `onMounted`, registers watchers, or calls `onBeforeUnmount`. Import from `@@/test/withSetup`:
 
 ```ts
-import { withSetup } from '@/test/withSetup';
+import { withSetup } from '@@/test/withSetup';
 
 let result: Awaited<
   ReturnType<typeof withSetup<ReturnType<typeof useAudioPlayer>>>
@@ -1255,14 +1255,14 @@ await nextTick();
 
 ## Centralized test utilities (test/ folder)
 
-Import from `@/test/...`. Each utility stubs a global and returns its internal mocks for assertions.
+Import from `@@/test/...`. Each utility stubs a global and returns its internal mocks for assertions.
 
 ### abortControllerMock
 
 Stubs `globalThis.AbortController`. Returns `{ abortControllerConstructorMock, abortMock, signalMock }`:
 
 ```ts
-import { abortControllerMock } from '@/test/abortControllerMock';
+import { abortControllerMock } from '@@/test/abortControllerMock';
 
 const { abortControllerConstructorMock, abortMock, signalMock } =
   abortControllerMock();
@@ -1283,7 +1283,7 @@ Stubs browser APIs that are not available in the test environment via `Object.de
 **`cachesMock()`** — Stubs `globalThis.caches` for PWA cache testing. Returns `{ deleteMock, keysMock, restore }`:
 
 ```ts
-import { cachesMock } from '@/test/browserMocks';
+import { cachesMock } from '@@/test/browserMocks';
 
 const { deleteMock, keysMock } = cachesMock();
 
@@ -1313,7 +1313,7 @@ describe('when the caches API is not available', () => {
 **`navigatorStorageMock()`** — Stubs `globalThis.navigator.storage` for storage estimate testing. Returns `{ estimateMock, restore }`:
 
 ```ts
-import { navigatorStorageMock } from '@/test/browserMocks';
+import { navigatorStorageMock } from '@@/test/browserMocks';
 
 const { estimateMock } = navigatorStorageMock();
 ```
@@ -1334,7 +1334,7 @@ afterEach(() => {
 Stubs `HTMLElement.prototype.classList`. Returns `{ addClassMock, containsClassMock, removeClassMock }`:
 
 ```ts
-import { classListMock } from '@/test/classListMock';
+import { classListMock } from '@@/test/classListMock';
 
 const { addClassMock, removeClassMock } = classListMock();
 
@@ -1351,7 +1351,7 @@ Captures event callbacks registered on `document` and `window`. Returns `{ docum
 import {
   documentEventListenerMock,
   windowEventListenerMock,
-} from '@/test/eventListenersMock';
+} from '@@/test/eventListenersMock';
 
 const { documentAddEventListenerSpy, documentEvents } =
   documentEventListenerMock();
@@ -1377,7 +1377,7 @@ windowEvents.click(new MouseEvent('click'));
 Stubs `globalThis.matchMedia` with a `MediaQueryList`-shaped object and captures the `change` callback. Returns `{ matchMediaSpy, matchesMock, triggerChangeEvent }`:
 
 ```ts
-import { matchMediaMock } from '@/test/matchMediaMock';
+import { matchMediaMock } from '@@/test/matchMediaMock';
 
 const { matchesMock, triggerChangeEvent } = matchMediaMock();
 
@@ -1392,10 +1392,10 @@ The mock object includes `addEventListener`/`removeEventListener`. This is requi
 
 ### fixtures
 
-Static mock data objects used as building blocks for tests. Import from `@/test/fixtures`. Each fixture represents a real entity shape used across the project:
+Static mock data objects used as building blocks for tests. Import from `@@/test/fixtures`. Each fixture represents a real entity shape used across the project:
 
 ```ts
-import { albumMock, trackMock, settingsMock } from '@/test/fixtures';
+import { albumMock, trackMock, settingsMock } from '@@/test/fixtures';
 ```
 
 Available fixtures are split into two categories:
@@ -1413,10 +1413,10 @@ These are the single-instance defaults. Use `helpers` factory functions when you
 
 ### helpers
 
-Factory functions that generate arrays of mock objects with auto-incrementing IDs. Import from `@/test/helpers`. Each factory accepts a `length` (default `1`) and optional `params` override:
+Factory functions that generate arrays of mock objects with auto-incrementing IDs. Import from `@@/test/helpers`. Each factory accepts a `length` (default `1`) and optional `params` override:
 
 ```ts
-import { getFormattedTracksMock, getFormattedAlbumsMock } from '@/test/helpers';
+import { getFormattedTracksMock, getFormattedAlbumsMock } from '@@/test/helpers';
 
 // Single item
 const track = getFormattedTracksMock()[0];
@@ -1437,10 +1437,10 @@ The `params` argument on all helpers overrides individual fields per call. All h
 
 ### types
 
-Shared TypeScript types used across test utilities. Import from `@/test/types`:
+Shared TypeScript types used across test utilities. Import from `@@/test/types`:
 
 ```ts
-import type { DataMock, EventCallback, EventHandler } from '@/test/types';
+import type { DataMock, EventCallback, EventHandler } from '@@/test/types';
 ```
 
 - `DataMock` — Object with `data: unknown` and optional `error` field, used as a generic API response shape
@@ -1452,7 +1452,7 @@ import type { DataMock, EventCallback, EventHandler } from '@/test/types';
 Stubs `globalThis.IntersectionObserver` (also called globally in `vitest.setup.ts` with `isIntersecting: true`). Call locally to override or capture refs. Returns `{ observeMock, disconnectMock }`:
 
 ```ts
-import { intersectionObserverMock } from '@/test/intersectionObserverMock';
+import { intersectionObserverMock } from '@@/test/intersectionObserverMock';
 
 const { observeMock, disconnectMock } = intersectionObserverMock();
 ```
@@ -1462,7 +1462,7 @@ const { observeMock, disconnectMock } = intersectionObserverMock();
 Overrides the basic `vitest.setup.ts` stub with a full implementation that captures the observer callback. Returns `{ observeMock, disconnectMock, triggerMutationObserver }`:
 
 ```ts
-import { mutationObserverMock } from '@/test/mutationObserverMock';
+import { mutationObserverMock } from '@@/test/mutationObserverMock';
 
 const { observeMock, triggerMutationObserver } = mutationObserverMock();
 
@@ -1479,7 +1479,7 @@ triggerMutationObserver();
 Returns a `ref<HTMLElement>` pre-loaded with spy methods. Returns `{ refMock, containsMock, getBoundingClientRectMock }`:
 
 ```ts
-import { refElementMock } from '@/test/refElementMock';
+import { refElementMock } from '@@/test/refElementMock';
 
 const dropdownMenuRef = refElementMock();
 const dropdownListRef = refElementMock();
@@ -1497,7 +1497,7 @@ result = await withSetup(() =>
 Replaces `globalThis.requestAnimationFrame` with a controllable version. Returns `{ requestAnimationFrameSpy, cancelAnimationFrameSpy, triggerAnimationFrame }`:
 
 ```ts
-import { requestAnimationFrameMock } from '@/test/requestAnimationFrameMock';
+import { requestAnimationFrameMock } from '@@/test/requestAnimationFrameMock';
 
 const { triggerAnimationFrame, requestAnimationFrameSpy } =
   requestAnimationFrameMock();
@@ -1511,7 +1511,7 @@ triggerAnimationFrame();
 Globally mocks `useAudioPlayer` for component specs. Call at module scope and destructure only the refs and functions needed by the tests:
 
 ```ts
-import { useAudioPlayerMock } from '@/test/useAudioPlayerMock';
+import { useAudioPlayerMock } from '@@/test/useAudioPlayerMock';
 
 const { currentTrackMock, isPlayingMock, togglePlayMock } =
   useAudioPlayerMock();
@@ -1522,7 +1522,7 @@ const { currentTrackMock, isPlayingMock, togglePlayMock } =
 Globally mocks `useHead` and exposes `useHeadTitleMock` — a reactive ref that receives the title string set by the component:
 
 ```ts
-import { useHeadMock } from '@/test/useHeadMock';
+import { useHeadMock } from '@@/test/useHeadMock';
 
 const { useHeadTitleMock } = useHeadMock();
 
@@ -1536,7 +1536,7 @@ it('sets the useHead function with correct title', () => {
 Globally mocks `useQueue` for component specs via `mockNuxtImport`. Call at module scope and destructure only the refs and mocks needed by the test:
 
 ```ts
-import { useQueueMock } from '@/test/useQueueMock';
+import { useQueueMock } from '@@/test/useQueueMock';
 
 const { addTracksMock, currentTrackMock, queueListMock, resetQueueMock } =
   useQueueMock();
@@ -1551,7 +1551,7 @@ Pre-populated defaults: `queueListMock.value` starts with 5 formatted queue trac
 Globally mocks `useRouter` for component specs via `mockNuxtImport`. Call at module scope; returns the composed `routerMock` plus one mock per router method:
 
 ```ts
-import { useRouterMock } from '@/test/useRouterMock';
+import { useRouterMock } from '@@/test/useRouterMock';
 
 const { routerMock } = useRouterMock();
 

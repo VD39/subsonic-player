@@ -1,0 +1,193 @@
+import { cachesMock, navigatorStorageMock } from '@@/test/browserMocks';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+
+import { useMaintenance } from './index';
+
+const { clearServerQueueMock, restoreQueueStateFromLocalMock } = vi.hoisted(
+  () => ({
+    clearServerQueueMock: vi.fn(),
+    restoreQueueStateFromLocalMock: vi.fn(),
+  }),
+);
+
+mockNuxtImport('useQueue', (original) => () => ({
+  ...original(),
+  clearServerQueue: clearServerQueueMock,
+  restoreQueueStateFromLocal: restoreQueueStateFromLocalMock,
+}));
+
+const deleteLocalStorageMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('deleteLocalStorage', () => deleteLocalStorageMock);
+
+const logErrorMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useErrorHandler', (original) => () => ({
+  ...original(),
+  logError: logErrorMock,
+}));
+
+const { deleteMock, keysMock, restore: restoreCachesMock } = cachesMock();
+const { estimateMock, restore: restoreStorageMock } = navigatorStorageMock();
+
+describe('useMaintenance', () => {
+  let composable: ReturnType<typeof useMaintenance>;
+
+  beforeAll(() => {
+    composable = useMaintenance();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+    restoreCachesMock();
+    restoreStorageMock();
+  });
+
+  it('sets the default cacheEstimate value', () => {
+    expect(composable.cacheEstimate.value).toBe('');
+  });
+
+  describe('when the fetchCacheEstimate function is called', () => {
+    describe('when navigator.storage.estimate returns a value', () => {
+      beforeEach(async () => {
+        estimateMock.mockResolvedValue({
+          quota: 1073741824,
+          usage: 5242880,
+        });
+
+        await composable.fetchCacheEstimate();
+      });
+
+      it('sets the correct cacheEstimate value', () => {
+        expect(composable.cacheEstimate.value).toBe(
+          '5.0 MB used of 1024.0 MB available',
+        );
+      });
+    });
+
+    describe('when the storage estimate returns undefined usage and quota', () => {
+      beforeEach(async () => {
+        estimateMock.mockResolvedValue({});
+
+        await composable.fetchCacheEstimate();
+      });
+
+      it('sets the correct cacheEstimate value', () => {
+        expect(composable.cacheEstimate.value).toBe(
+          '0.0 MB used of 0.0 MB available',
+        );
+      });
+    });
+
+    describe('when navigator.storage.estimate throws an error', () => {
+      beforeEach(async () => {
+        estimateMock.mockRejectedValue(new Error('error'));
+
+        await composable.fetchCacheEstimate();
+      });
+
+      it('sets the correct cacheEstimate value', () => {
+        expect(composable.cacheEstimate.value).toBe('Unavailable');
+      });
+    });
+
+    describe('when navigator.storage is not available', () => {
+      beforeEach(async () => {
+        delete (globalThis.navigator as unknown as Record<string, unknown>)
+          .storage;
+        await composable.fetchCacheEstimate();
+      });
+
+      it('sets the correct cacheEstimate value', () => {
+        expect(composable.cacheEstimate.value).toBe('Unavailable');
+      });
+    });
+  });
+
+  describe('when the clearAllAppStorage function is called', () => {
+    beforeEach(async () => {
+      clearServerQueueMock.mockResolvedValue(undefined);
+      await composable.clearAllAppStorage();
+    });
+
+    it('calls the deleteLocalStorage function with the correct parameters', () => {
+      expect(deleteLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.player,
+      );
+      expect(deleteLocalStorageMock).toHaveBeenCalledWith(
+        LOCAL_STORAGE_KEYS.queue,
+      );
+    });
+
+    it('calls the clearServerQueue function', () => {
+      expect(clearServerQueueMock).toHaveBeenCalled();
+    });
+
+    it('calls the restoreQueueStateFromLocal function', () => {
+      expect(restoreQueueStateFromLocalMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the clearPwaCaches function is called', () => {
+    describe('when the caches API is available', () => {
+      beforeEach(async () => {
+        keysMock.mockResolvedValue([
+          ...CACHE_NAMES,
+          'workbox-precache-v2',
+          'other-cache',
+        ]);
+
+        await composable.clearPwaCaches();
+      });
+
+      it('calls the caches.delete function with the correct parameters', () => {
+        CACHE_NAMES.forEach((name) => {
+          expect(deleteMock).toHaveBeenCalledWith(name);
+        });
+
+        expect(deleteMock).toHaveBeenCalledWith('workbox-precache-v2');
+        expect(deleteMock).not.toHaveBeenCalledWith('other-cache');
+      });
+
+      it('calls the caches.delete function 5 times', () => {
+        expect(deleteMock).toHaveBeenCalledTimes(5);
+      });
+
+      it('calls the fetchCacheEstimate function', () => {
+        expect(estimateMock).toHaveBeenCalled();
+      });
+    });
+
+    describe('when the caches API is not available', () => {
+      beforeEach(async () => {
+        delete (globalThis as Record<string, unknown>).caches;
+        await composable.clearPwaCaches();
+      });
+
+      it('does not attempt to fetch cache keys', () => {
+        expect(keysMock).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when caches.keys rejects', () => {
+      beforeEach(async () => {
+        restoreCachesMock();
+        restoreStorageMock();
+        keysMock.mockRejectedValue(new Error('error'));
+        await composable.clearPwaCaches();
+      });
+
+      it('does not call the caches.delete function', () => {
+        expect(deleteMock).not.toHaveBeenCalled();
+      });
+
+      it('does not call the fetchCacheEstimate function', () => {
+        expect(estimateMock).not.toHaveBeenCalled();
+      });
+
+      it('calls the logError function with the correct parameters', () => {
+        expect(logErrorMock).toHaveBeenCalledWith(new Error('error'), 'caches');
+      });
+    });
+  });
+});

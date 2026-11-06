@@ -1,7 +1,6 @@
+import { intersectionObserverMock } from '@@/test/intersectionObserverMock';
 import { config, RouterLinkStub } from '@vue/test-utils';
 import { vi } from 'vitest';
-
-import { intersectionObserverMock } from '@/test/intersectionObserverMock';
 
 intersectionObserverMock([
   {
@@ -24,9 +23,3 @@ config.global.stubs = {
   RouterLink: RouterLinkStub,
   teleport: true,
 };
-
-vi.stubGlobal('defineEventHandler', (handler: unknown) => handler);
-
-vi.stubGlobal('getQuery', () => ({
-  id: 'id',
-}));

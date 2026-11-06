@@ -1,8 +1,8 @@
 import type { Asset } from '@vite-pwa/assets-generator/config';
 import type { NuxtConfig } from 'nuxt/schema';
 
-import { PWA_CACHE_NAMES } from '../constants/pwa.ts';
-import { THEME_COLOUR } from '../constants/theme.ts';
+import { PWA_CACHE_NAMES } from '../app/constants/pwa.ts';
+import { THEME_COLOUR } from '../app/constants/theme.ts';
 
 const DEFAULT_PRESET = {
   padding: 0.1,

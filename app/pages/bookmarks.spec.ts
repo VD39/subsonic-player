@@ -1,0 +1,206 @@
+import type { VueWrapper } from '@vue/test-utils';
+
+import { getFormattedBookmarksMock } from '@@/test/helpers';
+import { useAudioPlayerMock } from '@@/test/useAudioPlayerMock';
+import { useHeadMock } from '@@/test/useHeadMock';
+import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import { mount } from '@vue/test-utils';
+
+import TracklistBookmark from '@/components/tracklist/TracklistBookmark.vue';
+import RefreshButton from '@/components/ui/RefreshButton.vue';
+
+import BookmarksPage from './bookmarks.vue';
+
+mockNuxtImport('useAPI', () => () => ({
+  fetchData: vi.fn(),
+  getImageUrl: vi.fn((path) => path),
+}));
+
+const addToPlaylistModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('usePlaylist', (original) => () => ({
+  ...original(),
+  addToPlaylistModal: addToPlaylistModalMock,
+}));
+
+const downloadTrackMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useMediaLibrary', (original) => () => ({
+  ...original(),
+  downloadTrack: downloadTrackMock,
+}));
+
+const openTrackDetailsModalMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useMediaInformation', (original) => () => ({
+  ...original(),
+  openTrackDetailsModal: openTrackDetailsModalMock,
+}));
+
+const { deleteBookmarkMock, getBookmarksMock } = vi.hoisted(() => ({
+  deleteBookmarkMock: vi.fn(),
+  getBookmarksMock: vi.fn(),
+}));
+const bookmarksMock = ref<Bookmark[]>([]);
+
+mockNuxtImport('useBookmark', (original) => () => ({
+  ...original(),
+  bookmarks: bookmarksMock,
+  deleteBookmark: deleteBookmarkMock,
+  getBookmarks: getBookmarksMock,
+}));
+
+const refreshMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useAsyncData', () => () => ({
+  error: ref(null),
+  pending: ref(false),
+  refresh: refreshMock,
+  status: ref('success'),
+}));
+
+const dragStartMock = vi.hoisted(() => vi.fn());
+
+mockNuxtImport('useDragAndDrop', (original) => () => ({
+  ...original(),
+  dragStart: dragStartMock,
+}));
+
+const { useHeadTitleMock } = useHeadMock();
+const { addTrackToQueueMock, playTracksMock } = useAudioPlayerMock();
+
+const bookmark = getFormattedBookmarksMock()[0];
+
+function factory(props = {}) {
+  return mount(BookmarksPage, {
+    props: {
+      ...props,
+    },
+  });
+}
+
+describe('bookmarks', () => {
+  let wrapper: VueWrapper;
+
+  beforeEach(() => {
+    wrapper = factory();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('matches the snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it('sets the useHead function with correct title', () => {
+    expect(useHeadTitleMock.value).toBe('Bookmarks');
+  });
+
+  describe('when getBookmarks does not return data', () => {
+    it('displays zero bookmark count in the title', () => {
+      expect(wrapper.find({ ref: 'title' }).text()).toBe('Bookmarks (0)');
+    });
+  });
+
+  describe('when getBookmarks does return data', () => {
+    beforeEach(() => {
+      bookmarksMock.value = getFormattedBookmarksMock(2);
+    });
+
+    it('matches the snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+
+    it('displays the correct bookmark count in the title', () => {
+      expect(wrapper.find({ ref: 'title' }).text()).toBe('Bookmarks (2)');
+    });
+  });
+
+  describe('when the RefreshButton emits the refresh event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(RefreshButton).vm.$emit('refresh');
+    });
+
+    it('calls the refresh function', () => {
+      expect(refreshMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the addToPlaylist event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(TracklistBookmark)
+        .vm.$emit('addToPlaylist', bookmark.id, 1);
+    });
+
+    it('calls the addToPlaylistModal function with the correct parameters', () => {
+      expect(addToPlaylistModalMock).toHaveBeenCalledWith(bookmark.id, 1);
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the addToQueue event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(TracklistBookmark).vm.$emit('addToQueue', bookmark);
+    });
+
+    it('calls the addTrackToQueue function with the correct parameters', () => {
+      expect(addTrackToQueueMock).toHaveBeenCalledWith(bookmark);
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the dragStart event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(TracklistBookmark).vm.$emit('dragStart', DragEvent);
+    });
+
+    it('calls the dragStart function with the correct parameters', () => {
+      expect(dragStartMock).toHaveBeenCalledWith(DragEvent);
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the downloadMedia event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(TracklistBookmark)
+        .vm.$emit('downloadMedia', bookmark);
+    });
+
+    it('calls the downloadTrack function with the correct parameters', () => {
+      expect(downloadTrackMock).toHaveBeenCalledWith(bookmark);
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the mediaInformation event', () => {
+    beforeEach(() => {
+      wrapper
+        .findComponent(TracklistBookmark)
+        .vm.$emit('mediaInformation', bookmark);
+    });
+
+    it('calls the openTrackDetailsModal function with the correct parameters', () => {
+      expect(openTrackDetailsModalMock).toHaveBeenCalledWith(bookmark);
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the playTrack event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(TracklistBookmark).vm.$emit('playTrack', 0);
+    });
+
+    it('calls the playTracks function with correct bookmark', () => {
+      expect(playTracksMock).toHaveBeenCalledWith([bookmarksMock.value[0]]);
+    });
+  });
+
+  describe('when the TracklistBookmark component emits the remove event', () => {
+    beforeEach(() => {
+      wrapper.findComponent(TracklistBookmark).vm.$emit('remove', bookmark.id);
+    });
+
+    it('calls the deleteBookmark function with the correct parameters', () => {
+      expect(deleteBookmarkMock).toHaveBeenCalledWith(bookmark.id);
+    });
+  });
+});

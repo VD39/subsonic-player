@@ -47,7 +47,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 5,
   },
-  ignore: ['coverage/**', 'docs/**', '**/*.spec.ts'],
+  ignore: ['**/*.spec.ts'],
   imports: {
     dirs: IMPORT_DIRECTORIES,
   },
@@ -57,22 +57,12 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@nuxt/test-utils/module',
   ],
-  nitro: {
-    imports: {
-      dirs: IMPORT_DIRECTORIES,
-    },
-    ...(ENVIRONMENT_VARIABLES.SPA_MODE && {
-      prerender: {
-        routes: ['/'],
-      },
-    }),
-  },
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {
         files: [
-          resolve(import.meta.dirname, 'assets/css/breakpoints.css'),
-          resolve(import.meta.dirname, 'assets/css/main.css'),
+          resolve(import.meta.dirname, 'app/assets/css/breakpoints.css'),
+          resolve(import.meta.dirname, 'app/assets/css/main.css'),
         ],
       },
       autoprefixer: {},
@@ -99,6 +89,7 @@ export default defineNuxtConfig({
       compilerOptions: {
         noUncheckedIndexedAccess: false,
       },
+      include: ['../test/**/*', '../config/**/*', '../docs/**/*', '../*.ts'],
     },
     typeCheck: 'build',
   },
