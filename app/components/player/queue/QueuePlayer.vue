@@ -48,7 +48,6 @@ const {
       class="queueAction"
       fullWidth
       :icon="ICONS.queueClose"
-      iconWeight="bold"
       title="Close queue menu"
       @click="toggleQueuePlayer"
     >
@@ -203,7 +202,6 @@ const {
       class="queueAction"
       fullWidth
       :icon="ICONS.playlist"
-      iconWeight="bold"
       title="Open queue list"
       @click="toggleQueueList"
     >

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 defineProps<{
   icon: Icon;
   message: string;
@@ -7,7 +9,7 @@ defineProps<{
 
 <template>
   <div :class="['column', 'centerAll', $style.noMediaMessage]">
-    <component :is="icon" size="50" />
+    <BaseIcon :icon :size="50" />
 
     <p>{{ message }}</p>
   </div>

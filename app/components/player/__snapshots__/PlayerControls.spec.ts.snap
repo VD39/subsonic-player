@@ -2,19 +2,19 @@
 
 exports[`PlayerControls > matches the snapshot 1`] = `
 "<div class="centerItems playerControls"><button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
-    <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
+    <iconarrowsshuffle color="currentColor" fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconarrowsshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
   </button>
   <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
-      <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+      <iconplayerskipback fill="currentColor" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerskipback><span class="clamp text visuallyHidden"> Previous track </span>
     </button>
     <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
-      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+      <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
     <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
-      <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+      <iconplayerskipforward fill="currentColor" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerskipforward><span class="clamp text visuallyHidden"> Next track </span>
     </button>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Turn on repeat all">
-    <phrepeat aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
+    <iconrepeat color="currentColor" fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconrepeat><span class="clamp text visuallyHidden">Turn on repeat all</span>
   </button>
 </div>"
 `;
@@ -23,13 +23,13 @@ exports[`PlayerControls > when the isRadioStation value is true > matches the sn
 "<div class="centerItems playerControls">
   <!--v-if-->
   <div class="centerItems spaceBetween"><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Previous track">
-      <phskipback aria-hidden="true" class="icon" size="24" weight="fill"></phskipback><span class="clamp text visuallyHidden"> Previous track </span>
+      <iconplayerskipback fill="currentColor" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerskipback><span class="clamp text visuallyHidden"> Previous track </span>
     </button>
     <!--v-if--><button class="centerItems buttonLink playPauseButton playPauseButton" draggable="false" type="button" title="Play current track">
-      <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play current track</span>
+      <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play current track</span>
     </button>
     <!--v-if--><button class="centerItems buttonLink disabled" disabled="" draggable="false" type="button" title="Next track">
-      <phskipforward aria-hidden="true" class="icon" size="24" weight="fill"></phskipforward><span class="clamp text visuallyHidden"> Next track </span>
+      <iconplayerskipforward fill="currentColor" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerskipforward><span class="clamp text visuallyHidden"> Next track </span>
     </button>
   </div>
   <!--v-if-->

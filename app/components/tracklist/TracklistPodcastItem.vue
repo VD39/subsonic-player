@@ -5,6 +5,7 @@ import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
 import TrackPlayPause from '@/components/player/controls/TrackPlayPause.vue';
 import TrackPlayPauseDropdownItem from '@/components/player/controls/TrackPlayPauseDropdownItem.vue';
 import DownloadPodcastEpisode from '@/components/podcast/DownloadPodcastEpisode.vue';
+import BaseIcon from '@/components/ui/BaseIcon.vue';
 import ButtonLink from '@/components/ui/ButtonLink.vue';
 import InteractionWrapper from '@/components/ui/InteractionWrapper.vue';
 import LazyLoadContent from '@/components/ui/LazyLoadContent.vue';
@@ -152,7 +153,7 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
               :class="['centerItems', $style.downloaded]"
               title="Downloaded"
             >
-              <component :is="ICONS.downloaded" :size="ICON_SIZE.medium" />
+              <BaseIcon :icon="ICONS.downloaded" :size="ICON_SIZE.medium" />
             </div>
 
             <ButtonLink

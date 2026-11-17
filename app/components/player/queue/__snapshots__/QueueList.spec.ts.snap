@@ -3,16 +3,16 @@
 exports[`QueueList > matches the snapshot 1`] = `
 "<section class="queueWrapper">
   <div class="centerAll"><button class="centerItems buttonLink centerAll fullWidth queueAction queueAction" draggable="false" type="button" title="Close queue list">
-      <phcaretdown aria-hidden="true" class="icon" size="24" weight="bold"></phcaretdown><span class="clamp text visuallyHidden"> Close queue list </span>
+      <iconchevrondown fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevrondown><span class="clamp text visuallyHidden"> Close queue list </span>
     </button></div>
   <div class="spaceBetween">
     <div></div><button class="centerItems buttonLink" draggable="false" type="button" title="Clear queue">
-      <phtrash aria-hidden="true" class="icon" size="24" weight="regular"></phtrash><span class="clamp text visuallyHidden"> Clear queue </span>
+      <icontrash fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icontrash><span class="clamp text visuallyHidden"> Clear queue </span>
     </button>
   </div>
   <h2>Queue (0)</h2>
   <div class="column centerAll noMediaMessage mBXL">
-    <phmusicnotes size="50"></phmusicnotes>
+    <iconmusic fill="none" size="50" strokewidth="1"></iconmusic>
     <p>No tracks found.</p>
   </div>
 </section>"

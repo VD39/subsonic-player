@@ -16,7 +16,7 @@ exports[`FileListItem > matches the snapshot 1`] = `
       </div>
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>

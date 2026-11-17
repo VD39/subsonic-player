@@ -8,8 +8,7 @@ const buttonProps = computed<ButtonProps>(() => {
 
   return {
     icon: repeat.value === REPEAT_MODE.one ? ICONS.repeatOnce : ICONS.repeat,
-    iconColor: noRepeat ? 'currentColor' : 'var(--theme-color)',
-    iconWeight: noRepeat ? 'regular' : 'fill',
+    iconStroke: noRepeat ? 'currentColor' : 'var(--theme-color)',
   };
 });
 
@@ -28,8 +27,7 @@ const title = computed(() => {
 <template>
   <ButtonLink
     :icon="buttonProps.icon"
-    :iconColor="buttonProps.iconColor"
-    :iconWeight="buttonProps.iconWeight"
+    :iconStroke="buttonProps.iconStroke"
     :title
     @click="cycleRepeat"
   >

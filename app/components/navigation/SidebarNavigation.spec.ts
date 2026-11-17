@@ -50,7 +50,7 @@ describe('SidebarNavigation', () => {
 
     it('sets the correct icon prop on the toggle ButtonLink component', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
-        'PhTextOutdent',
+        ICONS.sidebarExpanded,
       );
     });
 
@@ -83,7 +83,7 @@ describe('SidebarNavigation', () => {
 
     it('sets the correct icon prop on the toggle ButtonLink component', () => {
       expect(wrapper.findComponent({ ref: 'toggleButton' }).props('icon')).toBe(
-        'PhTextIndent',
+        ICONS.sidebarCollapsed,
       );
     });
 

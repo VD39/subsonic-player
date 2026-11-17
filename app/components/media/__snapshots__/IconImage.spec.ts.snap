@@ -2,6 +2,6 @@
 
 exports[`IconImage > matches the snapshot 1`] = `
 "<div class="iconImage">
-  <phpluscircle class="icon"></phpluscircle>
+  <iconcircleplus fill="none" strokewidth="1" class="icon"></iconcircleplus>
 </div>"
 `;

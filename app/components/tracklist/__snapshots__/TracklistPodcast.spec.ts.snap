@@ -14,7 +14,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -38,11 +38,11 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -62,7 +62,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -79,7 +79,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">2</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -103,11 +103,11 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -127,7 +127,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -144,7 +144,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">3</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -168,11 +168,11 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -192,7 +192,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -209,7 +209,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">4</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -233,11 +233,11 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -257,7 +257,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -274,7 +274,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">5</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -298,11 +298,11 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -322,7 +322,7 @@ exports[`TracklistPodcast > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -348,7 +348,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -372,11 +372,11 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -396,7 +396,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -413,7 +413,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">2</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -437,11 +437,11 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -461,7 +461,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -478,7 +478,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">3</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -502,11 +502,11 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -526,7 +526,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -543,7 +543,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">4</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -567,11 +567,11 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -591,7 +591,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -608,7 +608,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">5</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="column">
@@ -632,11 +632,11 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
         <div class="centerItems podcastOptions">
           <div class="centerItems">
             <div class="centerItems downloaded" title="Downloaded">
-              <phcheckcircle size="24"></phcheckcircle>
+              <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
             </div><button class="centerItems buttonLink" draggable="false" type="button" title="Podcast episode information">
-              <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Podcast episode information </span>
+              <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Podcast episode information </span>
             </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-              <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+              <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
             </button>
           </div>
           <div class="marqueeScroll">
@@ -656,7 +656,7 @@ exports[`TracklistPodcast > when the podcastEpisodes prop is not an empty array 
       </div>
       <div class="trackCell trackOptions trackPodcastEpisode">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->

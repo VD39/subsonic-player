@@ -33,7 +33,7 @@ exports[`TracklistGenericItem > matches the snapshot 1`] = `
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -58,7 +58,7 @@ exports[`TracklistGenericItem > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -74,7 +74,7 @@ exports[`TracklistGenericItem > matches the snapshot 1`] = `
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -86,7 +86,7 @@ exports[`TracklistGenericItem > matches the snapshot 1`] = `
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
       </div>
     </div>
   </div>
@@ -126,7 +126,7 @@ exports[`TracklistGenericItem > when track.album is undefined > matches the snap
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -147,7 +147,7 @@ exports[`TracklistGenericItem > when track.album is undefined > matches the snap
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -163,7 +163,7 @@ exports[`TracklistGenericItem > when track.album is undefined > matches the snap
             <!--v-if--><span class="clamp text"> Go to album </span>
           </a></li>
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -175,7 +175,7 @@ exports[`TracklistGenericItem > when track.album is undefined > matches the snap
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
       </div>
     </div>
   </div>
@@ -210,7 +210,7 @@ exports[`TracklistGenericItem > when track.artists is an empty array > matches t
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -226,7 +226,7 @@ exports[`TracklistGenericItem > when track.artists is an empty array > matches t
     </div>
     <div class="trackCell trackTime"><time>02:00</time></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -250,7 +250,7 @@ exports[`TracklistGenericItem > when track.artists is an empty array > matches t
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
       </div>
     </div>
   </div>

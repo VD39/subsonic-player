@@ -4,7 +4,7 @@ exports[`library > matches the snapshot 1`] = `
 "<div class="column centerAll loadingData" style="display: none;"><span class="mainLoader"><span class="headphones"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg"><path d="M4 13.5V13c0-4.97 3.582-9 8-9s8 4.03 8 9v.5"></path><path d="M2 17.439v-1.877a2 2 0 0 1 1.515-1.94L4 13.5l1.254-.314a.6.6 0 0 1 .746.582v5.464a.6.6 0 0 1-.746.582l-1.74-.435A2 2 0 0 1 2 17.439ZM22 17.439v-1.877a2 2 0 0 0-1.515-1.94L20 13.5l-1.255-.314a.6.6 0 0 0-.745.582v5.464a.6.6 0 0 0 .745.582l1.74-.435A2 2 0 0 0 22 17.439Z"></path></svg></span><span class="centerItems loader"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></span><output class="visuallyHidden">Loading data</output></span></div>
 <div class="mainContent">
   <div class="column centerAll noMediaMessage">
-    <phwaveformslash size="50"></phwaveformslash>
+    <iconmusicoff fill="none" size="50" strokewidth="1"></iconmusicoff>
     <p>No media found.</p>
   </div>
 </div>"
@@ -15,7 +15,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
 <div class="mainContent">
   <h1 class="visuallyHidden">Library</h1>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Albums <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -28,11 +28,11 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -45,7 +45,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -62,11 +62,11 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-1</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -79,7 +79,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -89,13 +89,13 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Artists <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -107,7 +107,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -115,7 +115,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -131,7 +131,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -139,7 +139,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -155,7 +155,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -163,7 +163,7 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -173,13 +173,13 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Genres <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Genres <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -187,13 +187,13 @@ exports[`library > when data returns a value > matches the snapshot 1`] = `
       <swiper-slide data-test-id="random-genre-item" style="order: 0; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Playlist <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Playlist <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <playlist-list-stub playlists="[object Object],[object Object]"></playlist-list-stub>
@@ -205,7 +205,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
 <div class="mainContent">
   <h1 class="visuallyHidden">Library</h1>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Albums <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -218,11 +218,11 @@ exports[`library > when data returns a value > when artists is an empty array > 
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -235,7 +235,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -252,11 +252,11 @@ exports[`library > when data returns a value > when artists is an empty array > 
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-1</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -269,7 +269,7 @@ exports[`library > when data returns a value > when artists is an empty array > 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -279,14 +279,14 @@ exports[`library > when data returns a value > when artists is an empty array > 
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <!--v-if-->
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Genres <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Genres <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -294,13 +294,13 @@ exports[`library > when data returns a value > when artists is an empty array > 
       <swiper-slide data-test-id="random-genre-item" style="order: 0; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Playlist <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Playlist <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <playlist-list-stub playlists="[object Object],[object Object]"></playlist-list-stub>
@@ -312,7 +312,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
 <div class="mainContent">
   <h1 class="visuallyHidden">Library</h1>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Albums <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -325,11 +325,11 @@ exports[`library > when data returns a value > when genres is an empty array > m
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -342,7 +342,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -359,11 +359,11 @@ exports[`library > when data returns a value > when genres is an empty array > m
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-1</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -376,7 +376,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -386,13 +386,13 @@ exports[`library > when data returns a value > when genres is an empty array > m
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Artists <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -404,7 +404,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -412,7 +412,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -428,7 +428,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -436,7 +436,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -452,7 +452,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -460,7 +460,7 @@ exports[`library > when data returns a value > when genres is an empty array > m
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -470,14 +470,14 @@ exports[`library > when data returns a value > when genres is an empty array > m
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <!--v-if-->
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Playlist <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Playlist <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <playlist-list-stub playlists="[object Object],[object Object]"></playlist-list-stub>
@@ -489,7 +489,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
 <div class="mainContent">
   <h1 class="visuallyHidden">Library</h1>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Albums <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -502,11 +502,11 @@ exports[`library > when data returns a value > when playlists is an empty array 
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -519,7 +519,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -536,11 +536,11 @@ exports[`library > when data returns a value > when playlists is an empty array 
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-1</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -553,7 +553,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -563,13 +563,13 @@ exports[`library > when data returns a value > when playlists is an empty array 
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Artists <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -581,7 +581,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -589,7 +589,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -605,7 +605,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -613,7 +613,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -629,7 +629,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -637,7 +637,7 @@ exports[`library > when data returns a value > when playlists is an empty array 
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -647,13 +647,13 @@ exports[`library > when data returns a value > when playlists is an empty array 
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Genres <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Genres <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -661,9 +661,9 @@ exports[`library > when data returns a value > when playlists is an empty array 
       <swiper-slide data-test-id="random-genre-item" style="order: 0; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <!--v-if-->
@@ -675,7 +675,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
 <div class="mainContent">
   <h1 class="visuallyHidden">Library</h1>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Albums <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Albums <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -688,11 +688,11 @@ exports[`library > when data returns a value > when playlists is not an empty ar
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -705,7 +705,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -722,11 +722,11 @@ exports[`library > when data returns a value > when playlists is not an empty ar
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
               <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-1">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-1</span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-1</span>
                 </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-                  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+                  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
                 </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
               </button>
             </div>
           </div>
@@ -739,7 +739,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -749,13 +749,13 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Artists <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -767,7 +767,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -775,7 +775,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -791,7 +791,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -799,7 +799,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -815,7 +815,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -823,7 +823,7 @@ exports[`library > when data returns a value > when playlists is not an empty ar
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -833,13 +833,13 @@ exports[`library > when data returns a value > when playlists is not an empty ar
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Genres <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Genres <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -847,13 +847,13 @@ exports[`library > when data returns a value > when playlists is not an empty ar
       <swiper-slide data-test-id="random-genre-item" style="order: 0; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Playlist <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Playlist <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <playlist-list-stub playlists="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></playlist-list-stub>
@@ -866,7 +866,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
   <h1 class="visuallyHidden">Library</h1>
   <!--v-if-->
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Artists <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Artists <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -878,7 +878,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -886,7 +886,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -902,7 +902,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -910,7 +910,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -926,7 +926,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
                 <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
               </a></figure>
             <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-                <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+                <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
               </button></div>
           </div>
           <div class="layoutContent">
@@ -934,7 +934,7 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
           </div>
           <div class="layoutDropdownMenu layoutItemHoverActions">
             <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-                <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+                <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
               </button>
               <teleport-stub disabled="false" to="#teleports">
                 <!--v-if-->
@@ -944,13 +944,13 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
         </article>
       </swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Genres <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Genres <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <div class="mBL carouselSwiper">
@@ -958,13 +958,13 @@ exports[`library > when data returns a value > when randomAlbums is an empty arr
       <swiper-slide data-test-id="random-genre-item" style="order: 0; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="1 / 2" class="swiper-slide-active"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
       <swiper-slide data-test-id="random-genre-item" style="order: 1; height: calc((100% - 15px) / 2); margin-right: 15px;" role="group" aria-label="2 / 2" class="swiper-slide-next"><a aria-label="View all albums with Rock genre" class="centerAll genreLink" draggable="false">Rock</a></swiper-slide>
     </swiper-container><button class="centerItems buttonLink previous previous" draggable="false" type="button" title="Previous slide">
-      <phcaretdoubleleft aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleleft><span class="clamp text visuallyHidden"> Previous slide </span>
+      <iconchevronsleft fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsleft><span class="clamp text visuallyHidden"> Previous slide </span>
     </button><button class="centerItems buttonLink next next" draggable="false" type="button" title="Next slide">
-      <phcaretdoubleright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdoubleright><span class="clamp text visuallyHidden"> Next slide </span>
+      <iconchevronsright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronsright><span class="clamp text visuallyHidden"> Next slide </span>
     </button>
   </div>
   <div class="centerItems spaceBetween">
-    <h2 class="header"><a draggable="false"> Playlist <phcaretdoubleright class="moreIcon" size="18" weight="regular"></phcaretdoubleright></a></h2>
+    <h2 class="header"><a draggable="false"> Playlist <iconchevronsright fill="none" size="18" strokewidth="1" class="moreIcon"></iconchevronsright></a></h2>
     <div class="centerItems"><a class="mobileOnly link" draggable="false"> See all </a></div>
   </div>
   <playlist-list-stub playlists="[object Object],[object Object]"></playlist-list-stub>

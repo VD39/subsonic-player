@@ -4,7 +4,7 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
 "<div class="centerAll playerOptions">
   <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
-      <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+      <iconvolume fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconvolume><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
       <div aria-disabled="false" aria-valuemax="1" aria-valuemin="0" aria-valuenow="1" class="inputRange" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Volume" aria-valuetext="1 of 1">
@@ -22,11 +22,11 @@ exports[`PlayerOptions > matches the snapshot 1`] = `
     </div>
   </div>
   <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
-    <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+    <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Media information </span>
   </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
-    <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+    <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
-    <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
+    <iconlistdetails fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconlistdetails><span class="clamp text visuallyHidden"> Open queue </span>
   </button>
 </div>"
 `;
@@ -35,7 +35,7 @@ exports[`PlayerOptions > when the currentTrack value does not have a favourite k
 "<div class="centerAll playerOptions">
   <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
-      <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+      <iconvolume fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconvolume><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
       <div aria-disabled="false" aria-valuemax="1" aria-valuemin="0" aria-valuenow="1" class="inputRange" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Volume" aria-valuetext="1 of 1">
@@ -53,16 +53,16 @@ exports[`PlayerOptions > when the currentTrack value does not have a favourite k
     </div>
   </div>
   <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-      <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
+      <iconsettings fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconsettings><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub disabled="false" to="#teleports">
       <!--v-if-->
     </teleport-stub>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
-    <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+    <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Media information </span>
   </button>
   <!--v-if--><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
-    <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
+    <iconlistdetails fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconlistdetails><span class="clamp text visuallyHidden"> Open queue </span>
   </button>
 </div>"
 `;
@@ -71,7 +71,7 @@ exports[`PlayerOptions > when the isPodcastEpisode value is true > matches the s
 "<div class="centerAll playerOptions">
   <p class="smallFont time">00:00 / 02:00</p>
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
-      <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+      <iconvolume fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconvolume><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
       <div aria-disabled="false" aria-valuemax="1" aria-valuemin="0" aria-valuenow="1" class="inputRange" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Volume" aria-valuetext="1 of 1">
@@ -89,17 +89,17 @@ exports[`PlayerOptions > when the isPodcastEpisode value is true > matches the s
     </div>
   </div>
   <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-      <phgear aria-hidden="true" class="icon" size="24" weight="regular"></phgear><span class="clamp text visuallyHidden"> More</span>
+      <iconsettings fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconsettings><span class="clamp text visuallyHidden"> More</span>
     </button>
     <teleport-stub disabled="false" to="#teleports">
       <!--v-if-->
     </teleport-stub>
   </div><button class="centerItems buttonLink" draggable="false" type="button" title="Media information">
-    <phinfo aria-hidden="true" class="icon" size="24" weight="regular"></phinfo><span class="clamp text visuallyHidden"> Media information </span>
+    <iconinfocircle fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconinfocircle><span class="clamp text visuallyHidden"> Media information </span>
   </button><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
-    <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+    <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
-    <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
+    <iconlistdetails fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconlistdetails><span class="clamp text visuallyHidden"> Open queue </span>
   </button>
 </div>"
 `;
@@ -108,7 +108,7 @@ exports[`PlayerOptions > when the isRadioStation value is true > matches the sna
 "<div class="centerAll playerOptions">
   <!--v-if-->
   <div class="centerItems volumeControl"><button class="centerItems buttonLink" draggable="false" type="button" title="Mute">
-      <phspeakerhigh aria-hidden="true" class="icon" size="24" weight="regular"></phspeakerhigh><span class="clamp text visuallyHidden">Mute</span>
+      <iconvolume fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconvolume><span class="clamp text visuallyHidden">Mute</span>
     </button>
     <div class="centerItems smallFont volumeInputWrapper">
       <div aria-disabled="false" aria-valuemax="1" aria-valuemin="0" aria-valuenow="1" class="inputRange" role="slider" style="--input-slider-height: 6px;" tabindex="0" aria-label="Volume" aria-valuetext="1 of 1">
@@ -127,9 +127,9 @@ exports[`PlayerOptions > when the isRadioStation value is true > matches the sna
   </div>
   <!--v-if-->
   <!--v-if--><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Like track">
-    <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+    <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
   </button><button class="centerItems buttonLink" draggable="false" type="button" title="Open queue">
-    <phqueue aria-hidden="true" class="icon" size="24" weight="regular"></phqueue><span class="clamp text visuallyHidden"> Open queue </span>
+    <iconlistdetails fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconlistdetails><span class="clamp text visuallyHidden"> Open queue </span>
   </button>
 </div>"
 `;

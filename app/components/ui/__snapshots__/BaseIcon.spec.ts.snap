@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseIcon > matches the snapshot 1`] = `
+"<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+</svg>"
+`;
+
+exports[`BaseIcon > when the fill prop is set > matches the snapshot 1`] = `
+"<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+</svg>"
+`;
+
+exports[`BaseIcon > when the icon prop is a component > matches the snapshot 1`] = `"<span class="centerItems spinningLoader" fill="red" strokewidth="1"><iconloader2 fill="none" size="32" strokewidth="1" class="icon"></iconloader2><span class="visuallyHidden">Loading...</span></span>"`;
+
+exports[`BaseIcon > when the size prop is set > matches the snapshot 1`] = `
+"<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+</svg>"
+`;
+
+exports[`BaseIcon > when the stroke prop is set > matches the snapshot 1`] = `
+"<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-heart">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+</svg>"
+`;

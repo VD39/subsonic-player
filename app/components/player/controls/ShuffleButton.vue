@@ -4,8 +4,7 @@ import ButtonLink from '@/components/ui/ButtonLink.vue';
 const { shuffle, toggleShuffle } = useAudioPlayer();
 
 const buttonProps = computed<ButtonProps>(() => ({
-  iconColor: shuffle.value ? 'var(--theme-color)' : 'currentColor',
-  iconWeight: shuffle.value ? 'fill' : 'regular',
+  iconStroke: shuffle.value ? 'var(--theme-color)' : 'currentColor',
   text: `Switch shuffle ${shuffle.value ? 'off' : 'on'}`,
 }));
 </script>
@@ -13,8 +12,7 @@ const buttonProps = computed<ButtonProps>(() => ({
 <template>
   <ButtonLink
     :icon="ICONS.shuffle"
-    :iconColor="buttonProps.iconColor"
-    :iconWeight="buttonProps.iconWeight"
+    :iconStroke="buttonProps.iconStroke"
     :title="buttonProps.text"
     @click="toggleShuffle"
   >

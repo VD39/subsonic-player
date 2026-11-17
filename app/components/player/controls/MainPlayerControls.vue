@@ -19,7 +19,7 @@ const { isPodcastEpisode } = useQueue();
       ref="previousTrack"
       :disabled="!canPlayPrevious"
       :icon="ICONS.skipBack"
-      iconWeight="fill"
+      iconFill="currentColor"
       title="Previous track"
       @click="playPreviousTrack"
     >
@@ -52,7 +52,7 @@ const { isPodcastEpisode } = useQueue();
       ref="nextTrack"
       :disabled="!canPlayNext"
       :icon="ICONS.skipForward"
-      iconWeight="fill"
+      iconFill="currentColor"
       title="Next track"
       @click="playNextTrack"
     >

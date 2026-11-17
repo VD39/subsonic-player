@@ -2,7 +2,7 @@
 
 exports[`NoMediaMessage > matches the snapshot 1`] = `
 "<div class="column centerAll noMediaMessage">
-  <phpluscircle size="50"></phpluscircle>
+  <iconcircleplus fill="none" size="50" strokewidth="1"></iconcircleplus>
   <p>Message</p>
 </div>"
 `;

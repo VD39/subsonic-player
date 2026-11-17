@@ -4,7 +4,7 @@ exports[`UserMenu > matches the snapshot 1`] = `
 "<div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu" title="View details">
     <div class="centerAll preloadImage avatar">
       <div class="iconImage">
-        <phusercircle class="icon"></phusercircle>
+        <iconusercircle fill="none" strokewidth="1" class="icon"></iconusercircle>
       </div>
     </div><span class="clamp text visuallyHidden"> More</span>
   </button>
@@ -26,7 +26,7 @@ exports[`UserMenu > matches the snapshot 1`] = `
           </a></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <phsignout aria-hidden="true" class="icon" size="24" weight="regular"></phsignout><span class="clamp text"> Log out </span>
+            <iconlogout fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconlogout><span class="clamp text"> Log out </span>
           </button></li>
       </ul>
     </div>
@@ -56,7 +56,7 @@ exports[`UserMenu > when the user username value is defined > matches the snapsh
           </a></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
-            <phsignout aria-hidden="true" class="icon" size="24" weight="regular"></phsignout><span class="clamp text"> Log out </span>
+            <iconlogout fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconlogout><span class="clamp text"> Log out </span>
           </button></li>
       </ul>
     </div>

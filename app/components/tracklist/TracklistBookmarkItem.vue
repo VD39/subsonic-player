@@ -162,7 +162,6 @@ function openDropdownMenu(event: MouseEvent | TouchEvent) {
           ref="removeButton"
           :icon="ICONS.close"
           iconSize="small"
-          iconWeight="bold"
           title="Remove track from bookmarks"
           @click="$emit('remove')"
         >

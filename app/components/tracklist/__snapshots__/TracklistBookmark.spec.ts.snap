@@ -19,7 +19,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -64,11 +64,11 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -76,7 +76,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -88,7 +88,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -133,11 +133,11 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -145,7 +145,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -157,7 +157,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -202,11 +202,11 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -214,7 +214,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -226,7 +226,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -271,11 +271,11 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -283,7 +283,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -295,7 +295,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -340,11 +340,11 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -352,7 +352,7 @@ exports[`TracklistBookmark > matches the snapshot 1`] = `
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -378,7 +378,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -423,11 +423,11 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -435,7 +435,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -447,7 +447,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -492,11 +492,11 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -504,7 +504,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -516,7 +516,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -561,11 +561,11 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -573,7 +573,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -585,7 +585,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -630,11 +630,11 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -642,7 +642,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>
@@ -654,7 +654,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -699,11 +699,11 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
       </div>
       <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -711,7 +711,7 @@ exports[`TracklistBookmark > when the bookmarks prop is not an empty array > mat
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-          <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+          <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
         </button></div>
     </div>
   </div>

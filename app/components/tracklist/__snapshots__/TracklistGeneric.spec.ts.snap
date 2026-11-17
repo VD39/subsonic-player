@@ -18,7 +18,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -48,7 +48,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -73,11 +73,11 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -94,7 +94,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -124,7 +124,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -149,11 +149,11 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -170,7 +170,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -200,7 +200,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -225,11 +225,11 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -246,7 +246,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -276,7 +276,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -301,11 +301,11 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -322,7 +322,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -352,7 +352,7 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -377,11 +377,11 @@ exports[`TracklistGeneric > matches the snapshot 1`] = `
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -411,7 +411,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -441,7 +441,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -466,11 +466,11 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -487,7 +487,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -517,7 +517,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -542,11 +542,11 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -563,7 +563,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -593,7 +593,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -618,11 +618,11 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -639,7 +639,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -669,7 +669,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -694,11 +694,11 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -715,7 +715,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="noTouchEvents trackMeta">
@@ -745,7 +745,7 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
               </div>
             </div>
           </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-            <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+            <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
           </button>
         </div>
       </div>
@@ -770,11 +770,11 @@ exports[`TracklistGeneric > when the tracks prop is not an empty array > matches
       </div>
       <div class="trackCell trackTime"><time>02:00</time></div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->

@@ -2,7 +2,7 @@
 
 exports[`PlaylistList > matches the snapshot 1`] = `
 "<div class="column centerAll noMediaMessage">
-  <phplaylist size="50"></phplaylist>
+  <iconplaylist fill="none" size="50" strokewidth="1"></iconplaylist>
   <p>No playlists found.</p>
 </div>"
 `;
@@ -14,7 +14,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
       <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-0">
           <div class="centerAll preloadImage">
             <div class="iconImage">
-              <phplaylist class="icon"></phplaylist>
+              <iconplaylist fill="none" strokewidth="1" class="icon"></iconplaylist>
             </div>
           </div>
         </a></figure>
@@ -27,7 +27,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
           </ul>
         </div>
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -41,7 +41,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
       <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-1">
           <div class="centerAll preloadImage">
             <div class="iconImage">
-              <phplaylist class="icon"></phplaylist>
+              <iconplaylist fill="none" strokewidth="1" class="icon"></iconplaylist>
             </div>
           </div>
         </a></figure>
@@ -54,7 +54,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
           </ul>
         </div>
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -68,7 +68,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
       <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-2">
           <div class="centerAll preloadImage">
             <div class="iconImage">
-              <phplaylist class="icon"></phplaylist>
+              <iconplaylist fill="none" strokewidth="1" class="icon"></iconplaylist>
             </div>
           </div>
         </a></figure>
@@ -81,7 +81,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
           </ul>
         </div>
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -95,7 +95,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
       <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-3">
           <div class="centerAll preloadImage">
             <div class="iconImage">
-              <phplaylist class="icon"></phplaylist>
+              <iconplaylist fill="none" strokewidth="1" class="icon"></iconplaylist>
             </div>
           </div>
         </a></figure>
@@ -108,7 +108,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
           </ul>
         </div>
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -122,7 +122,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
       <figure class="imageLink"><a class="interactionWrapperLink" draggable="false" title="Go to playlist playlist-4">
           <div class="centerAll preloadImage">
             <div class="iconImage">
-              <phplaylist class="icon"></phplaylist>
+              <iconplaylist fill="none" strokewidth="1" class="icon"></iconplaylist>
             </div>
           </div>
         </a></figure>
@@ -135,7 +135,7 @@ exports[`PlaylistList > when the playlists prop is not an empty array > matches 
           </ul>
         </div>
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->

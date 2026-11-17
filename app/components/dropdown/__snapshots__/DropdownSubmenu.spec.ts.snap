@@ -2,7 +2,7 @@
 
 exports[`DropdownSubmenu > matches the snapshot 1`] = `
 "<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-    <phcaretdown aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdown><span class="clamp text">Test Submenu</span>
+    <iconchevrondown fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevrondown><span class="clamp text">Test Submenu</span>
   </button>
   <!--v-if-->
 </li>"
@@ -10,7 +10,7 @@ exports[`DropdownSubmenu > matches the snapshot 1`] = `
 
 exports[`DropdownSubmenu > when the isHoverDevice value is false > matches the snapshot 1`] = `
 "<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu">
-    <phcaretup aria-hidden="true" class="icon" size="24" weight="regular"></phcaretup><span class="clamp text">Test Submenu</span>
+    <iconchevronup fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronup><span class="clamp text">Test Submenu</span>
   </button>
   <div class="inlineSubmenu" style="left: 20px; top: 10px;">
     <ul class="dropdownList">Default slot content.</ul>
@@ -20,7 +20,7 @@ exports[`DropdownSubmenu > when the isHoverDevice value is false > matches the s
 
 exports[`DropdownSubmenu > when the isHoverDevice value is false > when the isOpen value is true > matches the snapshot 1`] = `
 "<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu">
-    <phcaretup aria-hidden="true" class="icon" size="24" weight="regular"></phcaretup><span class="clamp text">Test Submenu</span>
+    <iconchevronup fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronup><span class="clamp text">Test Submenu</span>
   </button>
   <div class="inlineSubmenu" style="left: 20px; top: 10px;">
     <ul class="dropdownList">Default slot content.</ul>
@@ -30,7 +30,7 @@ exports[`DropdownSubmenu > when the isHoverDevice value is false > when the isOp
 
 exports[`DropdownSubmenu > when the isHoverDevice value is true > matches the snapshot 1`] = `
 "<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu">
-    <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Test Submenu</span>
+    <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Test Submenu</span>
   </button>
   <div class="dropdownOverlay slide-in-right-enter-from slide-in-right-enter-active" style="left: 20px; top: 10px;">
     <ul class="dropdownList dropdownContent">Default slot content.</ul>
@@ -40,7 +40,7 @@ exports[`DropdownSubmenu > when the isHoverDevice value is true > matches the sn
 
 exports[`DropdownSubmenu > when the isOpen value changes to true > matches the snapshot 1`] = `
 "<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="true" aria-haspopup="menu">
-    <phcaretup aria-hidden="true" class="icon" size="24" weight="regular"></phcaretup><span class="clamp text">Test Submenu</span>
+    <iconchevronup fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronup><span class="clamp text">Test Submenu</span>
   </button>
   <div class="inlineSubmenu -enter-from -enter-active">
     <ul class="dropdownList">Default slot content.</ul>
@@ -50,7 +50,7 @@ exports[`DropdownSubmenu > when the isOpen value changes to true > matches the s
 
 exports[`DropdownSubmenu > when the isOpen value changes to true > when the isOpen value changes to false > matches the snapshot 1`] = `
 "<li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-    <phcaretdown aria-hidden="true" class="icon" size="24" weight="regular"></phcaretdown><span class="clamp text">Test Submenu</span>
+    <iconchevrondown fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevrondown><span class="clamp text">Test Submenu</span>
   </button>
   <div class="inlineSubmenu -leave-from -leave-active">
     <ul class="dropdownList">Default slot content.</ul>

@@ -48,7 +48,7 @@ exports[`TracklistBookmarkItem > matches the snapshot 1`] = `
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -77,7 +77,7 @@ exports[`TracklistBookmarkItem > matches the snapshot 1`] = `
       </div>
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+        <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
 </div>"
@@ -125,7 +125,7 @@ exports[`TracklistBookmarkItem > when bookmark.author is undefined > matches the
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -154,7 +154,7 @@ exports[`TracklistBookmarkItem > when bookmark.author is undefined > matches the
       </div>
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+        <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
 </div>"
@@ -212,7 +212,7 @@ exports[`TracklistBookmarkItem > when bookmark.podcastId is undefined > matches 
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -239,7 +239,7 @@ exports[`TracklistBookmarkItem > when bookmark.podcastId is undefined > matches 
       </div>
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+        <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
 </div>"
@@ -289,7 +289,7 @@ exports[`TracklistBookmarkItem > when bookmark.podcastName is undefined > matche
     </div>
     <div class="trackCell trackTime withPosition"><span><time>1</time><span>/</span><time>00:19</time></span></div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions">
       <div>
@@ -318,7 +318,7 @@ exports[`TracklistBookmarkItem > when bookmark.podcastName is undefined > matche
       </div>
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track from bookmarks">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
+        <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track from bookmarks </span>
       </button></div>
   </div>
 </div>"

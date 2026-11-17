@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 const props = withDefaults(
   defineProps<{
     disabled?: boolean;
     fullWidth?: boolean;
     icon?: Component | Icon;
-    iconColor?: string;
+    iconFill?: string;
     iconPosition?: 'left' | 'right';
     iconSize?: IconSize;
-    iconWeight?: IconWeight;
+    iconStroke?: string;
     is?: ButtonOrLinkType;
     showText?: boolean;
     type?: string;
@@ -15,10 +17,10 @@ const props = withDefaults(
   {
     disabled: undefined,
     icon: undefined,
-    iconColor: undefined,
+    iconFill: undefined,
     iconPosition: 'left',
     iconSize: 'medium',
-    iconWeight: 'regular',
+    iconStroke: undefined,
     is: 'button',
     type: 'button',
   },
@@ -47,15 +49,14 @@ const isComponent =
     v-bind="$attrs"
   >
     <slot name="icon">
-      <component
-        :is="icon"
+      <BaseIcon
         v-if="icon"
-        ref="iconComponent"
         aria-hidden="true"
         :class="$style.icon"
-        :color="iconColor"
+        :fill="iconFill"
+        :icon
         :size="ICON_SIZE[iconSize]"
-        :weight="iconWeight"
+        :stroke="iconStroke"
       />
     </slot>
 
@@ -93,11 +94,6 @@ const isComponent =
 
 .icon {
   flex-shrink: 0;
-
-  [opacity='0.2'] {
-    opacity: 0.4;
-    fill: var(--secondary-font-color);
-  }
 }
 
 .text {

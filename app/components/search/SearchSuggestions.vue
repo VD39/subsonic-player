@@ -29,7 +29,6 @@ defineEmits<{
           <ButtonLink
             ref="closeButton"
             :icon="ICONS.close"
-            iconWeight="bold"
             title="Close search suggestions"
             @click="$emit('close')"
           >

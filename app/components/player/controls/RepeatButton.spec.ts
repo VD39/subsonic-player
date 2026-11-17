@@ -19,22 +19,19 @@ function factory(props = {}) {
 
 const buttonProps = {
   all: {
-    color: 'var(--theme-color)',
     icon: ICONS.repeat,
+    stroke: 'var(--theme-color)',
     text: 'Turn on repeat one',
-    weight: 'fill',
   },
   off: {
-    color: 'currentColor',
     icon: ICONS.repeat,
+    stroke: 'currentColor',
     text: 'Turn on repeat all',
-    weight: 'regular',
   },
   one: {
-    color: 'var(--theme-color)',
     icon: ICONS.repeatOnce,
+    stroke: 'var(--theme-color)',
     text: 'Turn repeat off',
-    weight: 'fill',
   },
 };
 
@@ -68,15 +65,9 @@ describe('RepeatButton', () => {
       );
     });
 
-    it('sets the correct iconColor prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('iconColor')).toBe(
-        buttonProps.color,
-      );
-    });
-
-    it('sets the correct iconWeight prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('iconWeight')).toBe(
-        buttonProps.weight,
+    it('sets the correct iconStroke prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('iconStroke')).toBe(
+        buttonProps.stroke,
       );
     });
 

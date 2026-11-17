@@ -7,7 +7,7 @@ exports[`PodcastItem > matches the snapshot 1`] = `
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to podcast title" class="image" draggable="false" src="image"></div>
       </a></figure>
     <div class="hideOnListLayout layoutItemActions layoutItemHoverActions"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play podcast title">
-        <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play podcast title</span>
+        <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play podcast title</span>
       </button></div>
   </div>
   <div class="layoutContent">

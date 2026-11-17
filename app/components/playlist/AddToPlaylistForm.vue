@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
 import ButtonLink from '@/components/ui/ButtonLink.vue';
 import InputField from '@/components/ui/InputField.vue';
 import SubmitButton from '@/components/ui/SubmitButton.vue';
@@ -123,7 +124,7 @@ watch(
           </NuxtLink>
 
           <div>
-            <component :is="ICONS.playlist" />
+            <BaseIcon :icon="ICONS.playlist" />
 
             {{ playlist.trackCount }}
           </div>

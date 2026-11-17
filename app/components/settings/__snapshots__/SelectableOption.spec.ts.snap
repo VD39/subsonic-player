@@ -3,7 +3,7 @@
 exports[`SelectableOption > matches the snapshot 1`] = `
 "<label class="selectableOption"><input class="visuallyHidden input" name="test" type="radio">
   <div class="status">
-    <phcheck size="14"></phcheck>
+    <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
   </div>
   <div class="details">
     <div class="smallFont strong title">title
@@ -17,7 +17,7 @@ exports[`SelectableOption > matches the snapshot 1`] = `
 exports[`SelectableOption > when the selected prop is true > matches the snapshot 1`] = `
 "<label class="selectableOption"><input checked="" class="visuallyHidden input" name="test" type="radio">
   <div class="status">
-    <phcheck size="14"></phcheck>
+    <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
   </div>
   <div class="details">
     <div class="smallFont strong title">title

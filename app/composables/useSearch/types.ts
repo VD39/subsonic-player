@@ -9,7 +9,7 @@ export type SearchResultByType = Album | Artist | Track;
 
 export interface SearchSuggestion {
   artists: BaseArtist[];
-  icon: string;
+  icon: Icon;
   id: string;
   name: string;
   route: ToProp;

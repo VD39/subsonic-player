@@ -39,7 +39,7 @@ exports[`PodcastEpisodeDetails > matches the snapshot 1`] = `
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Downloaded</div>
     <div class="trackCell">
-      <phcheckcircle size="24"></phcheckcircle>
+      <iconcirclecheck fill="none" size="24" strokewidth="1"></iconcirclecheck>
     </div>
   </div>
 </div>"
@@ -84,7 +84,7 @@ exports[`PodcastEpisodeDetails > when episode is not downloaded > matches the sn
   <div class="trackRow trackBorder">
     <div class="trackCell trackMeta title">Downloaded</div>
     <div class="trackCell">
-      <phxcircle size="24"></phxcircle>
+      <iconcirclex fill="none" size="24" strokewidth="1"></iconcirclex>
     </div>
   </div>
 </div>"

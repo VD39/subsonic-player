@@ -33,7 +33,7 @@ exports[`TracklistMixedItem > matches the snapshot 1`] = `
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -70,7 +70,7 @@ exports[`TracklistMixedItem > matches the snapshot 1`] = `
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -83,7 +83,7 @@ exports[`TracklistMixedItem > matches the snapshot 1`] = `
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -126,7 +126,7 @@ exports[`TracklistMixedItem > when the isAddToQueueVisible prop is true > matche
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -150,7 +150,7 @@ exports[`TracklistMixedItem > when the isAddToQueueVisible prop is true > matche
       </div>
     </div><time class="trackCell trackTime">02:00</time>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-        <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+        <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
       </button></div>
     <div class="trackCell trackOptions desktopOnly">
       <div>
@@ -167,7 +167,7 @@ exports[`TracklistMixedItem > when the isAddToQueueVisible prop is true > matche
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -180,7 +180,7 @@ exports[`TracklistMixedItem > when the isAddToQueueVisible prop is true > matche
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -223,7 +223,7 @@ exports[`TracklistMixedItem > when the isRemovable prop is true > matches the sn
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -260,7 +260,7 @@ exports[`TracklistMixedItem > when the isRemovable prop is true > matches the sn
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -273,7 +273,7 @@ exports[`TracklistMixedItem > when the isRemovable prop is true > matches the sn
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <li aria-hidden="true" class="divider"></li>
         <li class="centerItems dropdownItem"><button class="centerItems buttonLink centerAll fullWidth spaceBetween item spaceBetween item" draggable="false" type="button">
             <!--v-if--><span class="clamp text"> Remove track </span>
@@ -281,7 +281,7 @@ exports[`TracklistMixedItem > when the isRemovable prop is true > matches the sn
       </div>
     </div>
     <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
-        <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+        <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track </span>
       </button></div>
     <!--v-if-->
   </div>
@@ -321,7 +321,7 @@ exports[`TracklistMixedItem > when the isSortable prop is true > matches the sna
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -358,7 +358,7 @@ exports[`TracklistMixedItem > when the isSortable prop is true > matches the sna
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -371,13 +371,13 @@ exports[`TracklistMixedItem > when the isSortable prop is true > matches the sna
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
     <!--v-if-->
     <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
-        <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+        <iconlist fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
       </button></div>
   </div>
 </div>"
@@ -556,7 +556,7 @@ exports[`TracklistMixedItem > when the track does have an album key > when track
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -589,7 +589,7 @@ exports[`TracklistMixedItem > when the track does have an album key > when track
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -602,7 +602,7 @@ exports[`TracklistMixedItem > when the track does have an album key > when track
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -876,7 +876,7 @@ exports[`TracklistMixedItem > when the track does have an albumId key > when tra
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -913,7 +913,7 @@ exports[`TracklistMixedItem > when the track does have an albumId key > when tra
         <!--v-if-->
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -926,7 +926,7 @@ exports[`TracklistMixedItem > when the track does have an albumId key > when tra
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -964,7 +964,7 @@ exports[`TracklistMixedItem > when the track does have an artists key > when tra
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -1001,7 +1001,7 @@ exports[`TracklistMixedItem > when the track does have an artists key > when tra
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -1305,7 +1305,7 @@ exports[`TracklistMixedItem > when the track does not have a favourite key > mat
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -1500,7 +1500,7 @@ exports[`TracklistMixedItem > when the track does not have an album key > matche
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -1533,7 +1533,7 @@ exports[`TracklistMixedItem > when the track does not have an album key > matche
           </a></li>
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -1546,7 +1546,7 @@ exports[`TracklistMixedItem > when the track does not have an album key > matche
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -1591,7 +1591,7 @@ exports[`TracklistMixedItem > when the track does not have an albumId key > matc
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -1628,7 +1628,7 @@ exports[`TracklistMixedItem > when the track does not have an albumId key > matc
         <!--v-if-->
         <!--v-if-->
         <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-            <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artists</span>
+            <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artists</span>
           </button>
           <!--v-if-->
         </li>
@@ -1641,7 +1641,7 @@ exports[`TracklistMixedItem > when the track does not have an albumId key > matc
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>
@@ -1679,7 +1679,7 @@ exports[`TracklistMixedItem > when the track does not have an artists key > matc
             </div>
           </div>
         </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-          <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+          <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
         </button>
       </div>
     </div>
@@ -1716,7 +1716,7 @@ exports[`TracklistMixedItem > when the track does not have an artists key > matc
             <!--v-if--><span class="clamp text"> Download track </span>
           </button></li>
         <li aria-hidden="true" class="divider"></li>
-        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text">Like track</span></button></span></li>
+        <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Like track"><iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Like track</span></button></span></li>
         <!--v-if-->
       </div>
     </div>

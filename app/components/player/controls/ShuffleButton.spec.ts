@@ -19,14 +19,12 @@ function factory(props = {}) {
 
 const buttonProps = {
   false: {
-    color: 'currentColor',
+    stroke: 'currentColor',
     text: 'Switch shuffle on',
-    weight: 'regular',
   },
   true: {
-    color: 'var(--theme-color)',
+    stroke: 'var(--theme-color)',
     text: 'Switch shuffle off',
-    weight: 'fill',
   },
 };
 
@@ -49,15 +47,9 @@ describe('ShuffleButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct iconColor prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('iconColor')).toBe(
-        buttonProps.color,
-      );
-    });
-
-    it('sets the correct iconWeight prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('iconWeight')).toBe(
-        buttonProps.weight,
+    it('sets the correct iconStroke prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('iconStroke')).toBe(
+        buttonProps.stroke,
       );
     });
 

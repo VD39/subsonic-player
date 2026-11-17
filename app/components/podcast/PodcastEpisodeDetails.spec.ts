@@ -3,6 +3,8 @@ import type { VueWrapper } from '@vue/test-utils';
 import { getFormattedPodcastEpisodesMock } from '@@/test/helpers';
 import { mount } from '@vue/test-utils';
 
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 import PodcastEpisodeDetails from './PodcastEpisodeDetails.vue';
 
 function factory(props = {}) {
@@ -27,9 +29,9 @@ describe('PodcastEpisodeDetails', () => {
 
   describe('when episode is downloaded', () => {
     it('shows the correct icon', () => {
-      expect(
-        (wrapper.find({ ref: 'iconComponent' }).element as HTMLElement).tagName,
-      ).toBe(ICONS.downloaded.toUpperCase());
+      expect(wrapper.findComponent(BaseIcon).props('icon')).toBe(
+        ICONS.downloaded,
+      );
     });
   });
 
@@ -47,9 +49,9 @@ describe('PodcastEpisodeDetails', () => {
     });
 
     it('shows the correct icon', () => {
-      expect(
-        (wrapper.find({ ref: 'iconComponent' }).element as HTMLElement).tagName,
-      ).toBe(ICONS.notDownloaded.toUpperCase());
+      expect(wrapper.findComponent(BaseIcon).props('icon')).toBe(
+        ICONS.notDownloaded,
+      );
     });
   });
 });

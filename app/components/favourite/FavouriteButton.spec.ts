@@ -36,14 +36,14 @@ function factory(props = {}) {
 
 const buttonProps = {
   false: {
-    color: undefined,
+    fill: undefined,
+    stroke: undefined,
     text: 'Like album',
-    weight: 'regular',
   },
   true: {
-    color: 'var(--error-color)',
+    fill: 'var(--error-color)',
+    stroke: 'var(--error-color)',
     text: 'Unlike album',
-    weight: 'fill',
   },
 };
 
@@ -114,15 +114,15 @@ describe('FavouriteButton', () => {
       expect(wrapper.html()).toMatchSnapshot();
     });
 
-    it('sets the correct iconColor prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('iconColor')).toBe(
-        currentProps.color,
+    it('sets the correct iconStroke prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('iconStroke')).toBe(
+        currentProps.stroke,
       );
     });
 
-    it('sets the correct iconWeight prop on the ButtonLink component', () => {
-      expect(wrapper.findComponent(ButtonLink).props('iconWeight')).toBe(
-        currentProps.weight,
+    it('sets the correct iconFill prop on the ButtonLink component', () => {
+      expect(wrapper.findComponent(ButtonLink).props('iconFill')).toBe(
+        currentProps.fill,
       );
     });
 

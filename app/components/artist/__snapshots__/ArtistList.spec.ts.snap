@@ -2,7 +2,7 @@
 
 exports[`ArtistList > matches the snapshot 1`] = `
 "<div class="column centerAll noMediaMessage">
-  <phusersthree size="50"></phusersthree>
+  <iconusers fill="none" size="50" strokewidth="1"></iconusers>
   <p>No artists found.</p>
 </div>"
 `;
@@ -15,7 +15,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -23,7 +23,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -37,7 +37,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -45,7 +45,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -59,7 +59,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -67,7 +67,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -81,7 +81,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -89,7 +89,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -103,7 +103,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -111,7 +111,7 @@ exports[`ArtistList > when the artists prop is not an empty array > matches the 
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -130,7 +130,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -138,7 +138,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -152,7 +152,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -160,7 +160,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -174,7 +174,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -182,7 +182,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -196,7 +196,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -204,7 +204,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -218,7 +218,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -226,7 +226,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -245,7 +245,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -253,7 +253,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -267,7 +267,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-1" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -275,7 +275,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -289,7 +289,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-2" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -297,7 +297,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -311,7 +311,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-3" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -319,7 +319,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->
@@ -333,7 +333,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
           <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-4" class="image" draggable="false" src="image"></div>
         </a></figure>
       <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-          <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+          <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
         </button></div>
     </div>
     <div class="layoutContent">
@@ -341,7 +341,7 @@ exports[`ArtistList > when the artists prop is not an empty array > when viewLay
     </div>
     <div class="layoutDropdownMenu layoutItemHoverActions">
       <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-          <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+          <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
         </button>
         <teleport-stub disabled="false" to="#teleports">
           <!--v-if-->

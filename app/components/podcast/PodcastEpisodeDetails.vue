@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
 import LinkOrText from '@/components/ui/LinkOrText.vue';
 
 const props = defineProps<{
@@ -80,11 +81,7 @@ const downloadedIcon = computed(() =>
       <div :class="['trackCell', 'trackMeta', $style.title]">Downloaded</div>
 
       <div class="trackCell">
-        <component
-          :is="downloadedIcon"
-          ref="iconComponent"
-          :size="ICON_SIZE.medium"
-        />
+        <BaseIcon :icon="downloadedIcon" :size="ICON_SIZE.medium" />
       </div>
     </div>
   </div>

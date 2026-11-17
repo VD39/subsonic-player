@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DropdownItem from '@/components/dropdown/DropdownItem.vue';
 import DropdownMenu from '@/components/dropdown/DropdownMenu.vue';
+import BaseIcon from '@/components/ui/BaseIcon.vue';
 import ButtonLink from '@/components/ui/ButtonLink.vue';
 
 defineProps<{
@@ -43,18 +44,16 @@ const emit = defineEmits<{
 
       <template #icon>
         <span>
-          <component
-            :is="ICONS.refresh"
+          <BaseIcon
             v-if="sortDirection === 'random'"
             aria-hidden="true"
             data-test-id="sort-icon-refresh"
+            :icon="ICONS.refresh"
             :size="ICON_SIZE.small"
-            weight="bold"
           />
 
           <template v-else>
-            <component
-              :is="option.icon"
+            <BaseIcon
               v-for="option in SORT_BUTTONS"
               :key="option.key"
               aria-hidden="true"
@@ -65,8 +64,8 @@ const emit = defineEmits<{
                 },
               ]"
               :data-test-id="`sort-icon-${option.key}`"
+              :icon="option.icon"
               :size="ICON_SIZE.small"
-              weight="bold"
             />
           </template>
         </span>

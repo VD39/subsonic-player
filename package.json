@@ -7,7 +7,7 @@
     "url": "https://github.com/VD39/subsonic-player/issues"
   },
   "dependencies": {
-    "@phosphor-icons/vue": "^2.2.1",
+    "@tabler/icons-vue": "^3.51.0",
     "js-md5": "^0.9.2",
     "nuxt": "^4.6.3",
     "nuxt-swiper": "^2.0.2",

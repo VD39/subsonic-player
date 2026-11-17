@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 defineProps<{
   badge?: string;
   description?: string;
@@ -24,7 +26,7 @@ defineEmits<{
     />
 
     <div :class="$style.status">
-      <component :is="ICONS.check" :size="14" />
+      <BaseIcon :icon="ICONS.check" :size="14" />
     </div>
 
     <div :class="$style.details">

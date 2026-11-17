@@ -38,13 +38,13 @@ exports[`ButtonLink > when the fullWidth prop is set to true > matches the snaps
 
 exports[`ButtonLink > when the icon prop is set > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button">
-  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
+  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden">Default slot content.</span>
 </button>"
 `;
 
 exports[`ButtonLink > when the icon prop is set > when the iconPosition prop is set to right > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink alignRight" draggable="false" type="button">
-  <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden">Default slot content.</span>
+  <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden">Default slot content.</span>
 </button>"
 `;
 

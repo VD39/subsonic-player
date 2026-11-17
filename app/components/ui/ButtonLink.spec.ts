@@ -2,6 +2,8 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 import ButtonLink from './ButtonLink.vue';
 
 function factory(props = {}, slots = {}) {
@@ -21,6 +23,28 @@ describe('ButtonLink', () => {
 
   beforeEach(() => {
     wrapper = factory();
+  });
+
+  describe('when the iconFill prop is set', () => {
+    beforeEach(() => {
+      wrapper = factory({
+        icon: ICONS.favourite,
+        iconFill: 'var(--error-color)',
+        iconStroke: 'var(--error-color)',
+      });
+    });
+
+    it('sets the correct fill prop on the BaseIcon component', () => {
+      expect(wrapper.findComponent(BaseIcon).props('fill')).toBe(
+        'var(--error-color)',
+      );
+    });
+
+    it('sets the correct stroke prop on the BaseIcon component', () => {
+      expect(wrapper.findComponent(BaseIcon).props('stroke')).toBe(
+        'var(--error-color)',
+      );
+    });
   });
 
   it('matches the snapshot', () => {
@@ -75,7 +99,7 @@ describe('ButtonLink', () => {
 
   describe('when the icon prop is not set', () => {
     it('does not show the icon component', () => {
-      expect(wrapper.find({ ref: 'iconComponent' }).exists()).toBe(false);
+      expect(wrapper.findComponent(BaseIcon).exists()).toBe(false);
     });
   });
 
@@ -91,7 +115,7 @@ describe('ButtonLink', () => {
     });
 
     it('shows the icon component', () => {
-      expect(wrapper.find({ ref: 'iconComponent' }).exists()).toBe(true);
+      expect(wrapper.findComponent(BaseIcon).exists()).toBe(true);
     });
 
     describe('when the iconPosition prop is not set', () => {
@@ -133,7 +157,7 @@ describe('ButtonLink', () => {
     });
 
     it('does not show the icon component', () => {
-      expect(wrapper.find({ ref: 'iconComponent' }).exists()).toBe(false);
+      expect(wrapper.findComponent(BaseIcon).exists()).toBe(false);
     });
 
     describe('when the iconPosition prop is not set', () => {

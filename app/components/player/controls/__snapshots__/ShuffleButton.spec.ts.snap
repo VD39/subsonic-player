@@ -2,12 +2,12 @@
 
 exports[`ShuffleButton > when shuffle is set to false > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle on">
-  <phshuffle aria-hidden="true" class="icon" color="currentColor" size="24" weight="regular"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
+  <iconarrowsshuffle color="currentColor" fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconarrowsshuffle><span class="clamp text visuallyHidden">Switch shuffle on</span>
 </button>"
 `;
 
 exports[`ShuffleButton > when shuffle is set to true > matches the snapshot 1`] = `
 "<button class="centerItems buttonLink" draggable="false" type="button" title="Switch shuffle off">
-  <phshuffle aria-hidden="true" class="icon" color="var(--theme-color)" size="24" weight="fill"></phshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
+  <iconarrowsshuffle color="var(--theme-color)" fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconarrowsshuffle><span class="clamp text visuallyHidden">Switch shuffle off</span>
 </button>"
 `;

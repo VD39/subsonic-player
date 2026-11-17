@@ -5,8 +5,8 @@ export type Bitrate = (typeof BITRATE_OPTIONS)[number]['value'];
 export type ButtonOrLinkType = 'button' | LinkIs;
 export interface ButtonProps {
   icon?: Component | Icon;
-  iconColor?: string;
-  iconWeight?: IconWeight;
+  iconFill?: string;
+  iconStroke?: string;
   text?: string;
 }
 
@@ -16,8 +16,6 @@ export type FallbackIcon =
 export type Icon = TypeofIcons[keyof TypeofIcons];
 
 export type IconSize = keyof typeof ICON_SIZE;
-
-export type IconWeight = 'bold' | 'duotone' | 'fill' | 'regular';
 
 export type Layout = (typeof LAYOUT_OPTIONS)[number]['value'];
 

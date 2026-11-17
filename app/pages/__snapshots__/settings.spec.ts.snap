@@ -20,7 +20,7 @@ exports[`settings > matches the snapshot 1`] = `
         </div>
         <div class="list"><label class="selectableOption"><input checked="" class="visuallyHidden input" name="layout" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">Grid
@@ -30,7 +30,7 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
           </label><label class="selectableOption"><input class="visuallyHidden input" name="layout" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">List
@@ -52,7 +52,7 @@ exports[`settings > matches the snapshot 1`] = `
         </div>
         <div class="list"><label class="selectableOption"><input class="visuallyHidden input" name="streamBitrate" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">Source
@@ -62,7 +62,7 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
           </label><label class="selectableOption"><input class="visuallyHidden input" name="streamBitrate" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">High <span class="badge">320 kbps</span></div>
@@ -70,7 +70,7 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
           </label><label class="selectableOption"><input class="visuallyHidden input" name="streamBitrate" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">Medium <span class="badge">256 kbps</span></div>
@@ -78,7 +78,7 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
           </label><label class="selectableOption"><input checked="" class="visuallyHidden input" name="streamBitrate" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">Low <span class="badge">192 kbps</span></div>
@@ -86,7 +86,7 @@ exports[`settings > matches the snapshot 1`] = `
             </div>
           </label><label class="selectableOption"><input class="visuallyHidden input" name="streamBitrate" type="radio">
             <div class="status">
-              <phcheck size="14"></phcheck>
+              <iconcheck fill="none" size="14" strokewidth="1"></iconcheck>
             </div>
             <div class="details">
               <div class="smallFont strong title">Minimal <span class="badge">128 kbps</span></div>

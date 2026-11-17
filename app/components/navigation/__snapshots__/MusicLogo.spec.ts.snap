@@ -2,6 +2,6 @@
 
 exports[`MusicLogo > matches the snapshot 1`] = `
 "<a class="centerItems buttonLink" draggable="false" title="Home">
-  <phwavesine aria-hidden="true" class="icon" size="32" weight="regular"></phwavesine><span class="clamp text visuallyHidden"> Home </span>
+  <iconwaveform fill="none" size="32" strokewidth="1" aria-hidden="true" class="icon"></iconwaveform><span class="clamp text visuallyHidden"> Home </span>
 </a>"
 `;

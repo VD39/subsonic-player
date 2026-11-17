@@ -42,7 +42,6 @@ function focusFirstInput() {
               <ButtonLink
                 :icon="ICONS.close"
                 iconSize="large"
-                iconWeight="bold"
                 title="Close modal"
                 @click="closeModal"
               >

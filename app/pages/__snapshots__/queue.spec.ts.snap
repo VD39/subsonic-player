@@ -4,11 +4,11 @@ exports[`queue > matches the snapshot 1`] = `
 "<div class="centerItems spaceBetween">
   <h1>Queue (0)</h1>
   <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Clear queue">
-      <phtrash aria-hidden="true" class="icon" size="24" weight="regular"></phtrash><span class="clamp text visuallyHidden"> Clear queue </span>
+      <icontrash fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icontrash><span class="clamp text visuallyHidden"> Clear queue </span>
     </button></div>
 </div>
 <div class="column centerAll noMediaMessage">
-  <phmusicnotes size="50"></phmusicnotes>
+  <iconmusic fill="none" size="50" strokewidth="1"></iconmusic>
   <p>No tracks found.</p>
 </div>"
 `;
@@ -17,7 +17,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
 "<div class="centerItems spaceBetween">
   <h1>Queue (2)</h1>
   <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Clear queue">
-      <phtrash aria-hidden="true" class="icon" size="24" weight="regular"></phtrash><span class="clamp text visuallyHidden"> Clear queue </span>
+      <icontrash fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icontrash><span class="clamp text visuallyHidden"> Clear queue </span>
     </button></div>
 </div>
 <div class="trackTable withPreview">
@@ -40,7 +40,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
               <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0"></div>
               <p class="overlap trackNumber visuallyHidden">1</p>
               <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
                 </button></div>
             </div>
             <div class="noTouchEvents trackMeta">
@@ -70,7 +70,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
                 </div>
               </div>
             </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
           </div>
         </div>
@@ -96,7 +96,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
           <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+              <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
               <!--v-if-->
@@ -104,10 +104,10 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
           </div>
         </div>
         <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
-            <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+            <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track </span>
           </button></div>
         <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
-            <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+            <iconlist fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
           </button></div>
       </div>
     </div>
@@ -119,7 +119,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
               <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1"></div>
               <p class="overlap trackNumber visuallyHidden">1</p>
               <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                  <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                  <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
                 </button></div>
             </div>
             <div class="noTouchEvents trackMeta">
@@ -149,7 +149,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
                 </div>
               </div>
             </div><button class="centerItems buttonLink alignRight desktopOnly desktopOnly" draggable="false" type="button" title="Like track">
-              <phheart aria-hidden="true" class="icon" size="24" weight="regular"></phheart><span class="clamp text visuallyHidden">Like track</span>
+              <iconheart fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Like track</span>
             </button>
           </div>
         </div>
@@ -175,7 +175,7 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
         <!--v-if-->
         <div class="trackCell trackOptions desktopOnly">
           <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-              <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+              <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
             </button>
             <teleport-stub disabled="false" to="#teleports">
               <!--v-if-->
@@ -183,10 +183,10 @@ exports[`queue > when queueList is not an empty array > matches the snapshot 1`]
           </div>
         </div>
         <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Remove track">
-            <phx aria-hidden="true" class="icon" size="18" weight="bold"></phx><span class="clamp text visuallyHidden"> Remove track </span>
+            <iconx fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Remove track </span>
           </button></div>
         <div class="trackCell trackOptions"><button class="centerItems buttonLink sortableDragHandle sortableDragHandle" draggable="false" type="button" title="Drag to reorder">
-            <phlist aria-hidden="true" class="icon" size="18" weight="regular"></phlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
+            <iconlist fill="none" size="18" strokewidth="1" aria-hidden="true" class="icon"></iconlist><span class="clamp text visuallyHidden"> Drag to reorder </span>
           </button></div>
       </div>
     </div>

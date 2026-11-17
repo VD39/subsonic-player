@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 withDefaults(
   defineProps<{
     size?: number;
@@ -11,12 +13,7 @@ withDefaults(
 
 <template>
   <span :class="['centerItems', $style.spinningLoader]">
-    <component
-      :is="ICONS.spinner"
-      ref="spinnerIcon"
-      :class="$style.icon"
-      :size
-    />
+    <BaseIcon :class="$style.icon" :icon="ICONS.spinner" :size />
 
     <span class="visuallyHidden">Loading...</span>
   </span>

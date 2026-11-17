@@ -8,7 +8,7 @@ exports[`FileList > matches the snapshot 1`] = `
       <div>
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
-            <phinfo class="icon"></phinfo>
+            <iconinfocircle fill="none" strokewidth="1" class="icon"></iconinfocircle>
           </div>
         </div>
         <p>No folders/files found.</p>
@@ -24,7 +24,7 @@ exports[`FileList > when route params does have an Id > matches the snapshot 1`]
     <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
-            <pharrowurightup class="icon"></pharrowurightup>
+            <iconfolderup fill="none" strokewidth="1" class="icon"></iconfolderup>
           </div>
         </div> ... <p class="visuallyHidden">Go back</p>
       </a></div>
@@ -34,7 +34,7 @@ exports[`FileList > when route params does have an Id > matches the snapshot 1`]
       <div>
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
-            <phinfo class="icon"></phinfo>
+            <iconinfocircle fill="none" strokewidth="1" class="icon"></iconinfocircle>
           </div>
         </div>
         <p>No folders/files found.</p>
@@ -50,7 +50,7 @@ exports[`FileList > when the folders prop is not an empty array > matches the sn
     <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
-            <pharrowurightup class="icon"></pharrowurightup>
+            <iconfolderup fill="none" strokewidth="1" class="icon"></iconfolderup>
           </div>
         </div> ... <p class="visuallyHidden">Go back</p>
       </a></div>
@@ -115,7 +115,7 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
     <div class="trackCell"><a draggable="false">
         <div class="centerAll preloadImage trackImage">
           <div class="iconImage">
-            <pharrowurightup class="icon"></pharrowurightup>
+            <iconfolderup fill="none" strokewidth="1" class="icon"></iconfolderup>
           </div>
         </div> ... <p class="visuallyHidden">Go back</p>
       </a></div>
@@ -129,7 +129,7 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-0"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="marqueeScroll mBXS" inert="">
@@ -142,11 +142,11 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -163,7 +163,7 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-1"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="marqueeScroll mBXS" inert="">
@@ -176,11 +176,11 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -197,7 +197,7 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-2"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="marqueeScroll mBXS" inert="">
@@ -210,11 +210,11 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -231,7 +231,7 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-3"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="marqueeScroll mBXS" inert="">
@@ -244,11 +244,11 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->
@@ -265,7 +265,7 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
             <div class="centerAll preloadImage overlap preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Image" class="image" draggable="false" src="image-4"></div>
             <p class="overlap trackNumber visuallyHidden">1</p>
             <div class="overlap playPauseWrapper"><button class="centerItems buttonLink centerAll themeHoverButton buttonLink centerAll themeHoverButton buttonLink" draggable="false" type="button" title="Play track">
-                <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden"> Play track </span>
+                <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden"> Play track </span>
               </button></div>
           </div>
           <div class="marqueeScroll mBXS" inert="">
@@ -278,11 +278,11 @@ exports[`FileList > when the tracks prop is not an empty array > matches the sna
         </div>
       </div>
       <div class="trackCell trackOptions"><button class="centerItems buttonLink" draggable="false" type="button" title="Add to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add to queue </span>
         </button></div>
       <div class="trackCell trackOptions">
         <div class="centerItems dropdownWrapper"><button class="centerItems buttonLink alignRight buttonLink buttonLink" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu" title="More">
-            <phdotsthreevertical aria-hidden="true" class="icon" size="24" weight="regular"></phdotsthreevertical><span class="clamp text visuallyHidden"> More</span>
+            <icondotsvertical fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></icondotsvertical><span class="clamp text visuallyHidden"> More</span>
           </button>
           <teleport-stub disabled="false" to="#teleports">
             <!--v-if-->

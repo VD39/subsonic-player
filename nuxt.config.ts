@@ -98,7 +98,7 @@ export default defineNuxtConfig({
       include: [
         '@vue/devtools-core',
         '@vue/devtools-kit',
-        '@phosphor-icons/vue',
+        '@tabler/icons-vue',
         'js-md5',
       ],
     },

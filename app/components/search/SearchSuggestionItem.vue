@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArtistLinkList from '@/components/artist/ArtistLinkList.vue';
+import BaseIcon from '@/components/ui/BaseIcon.vue';
 
 defineProps<{
   item: SearchSuggestion;
@@ -17,7 +18,7 @@ defineEmits<{
     @click="$emit('close')"
   >
     <span class="centerItems searchIcon">
-      <component :is="item.icon" :size="ICON_SIZE.small" />
+      <BaseIcon :icon="item.icon" :size="ICON_SIZE.small" />
     </span>
 
     <span class="clamp searchName">{{ item.name }}</span>

@@ -12,7 +12,7 @@ exports[`ModalWindow > when modal values are set > matches the snapshot 1`] = `
     <div class="modalContent">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
-            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <iconx fill="none" size="32" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -29,7 +29,7 @@ exports[`ModalWindow > when modal values are set > when modal container is click
     <div class="modalContent">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
-            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <iconx fill="none" size="32" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -47,7 +47,7 @@ exports[`ModalWindow > when modal values are set > when modal content is clicked
     <div class="modalContent">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
-            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <iconx fill="none" size="32" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -64,7 +64,7 @@ exports[`ModalWindow > when modal values are set > when the ButtonLink component
     <div class="modalContent">
       <div class="centerItems spaceBetween headerWithAction">
         <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
-            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <iconx fill="none" size="32" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">
@@ -83,7 +83,7 @@ exports[`ModalWindow > when modal values are set > when title is set > matches t
       <div class="centerItems spaceBetween headerWithAction">
         <h3 id="modal-title" class="title">Title</h3>
         <div class="centerItems"><button class="centerItems buttonLink" draggable="false" type="button" title="Close modal">
-            <phx aria-hidden="true" class="icon" size="32" weight="bold"></phx><span class="clamp text visuallyHidden"> Close modal </span>
+            <iconx fill="none" size="32" strokewidth="1" aria-hidden="true" class="icon"></iconx><span class="clamp text visuallyHidden"> Close modal </span>
           </button></div>
       </div>
       <div class="main body">

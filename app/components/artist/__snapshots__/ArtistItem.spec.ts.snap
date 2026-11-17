@@ -7,7 +7,7 @@ exports[`ArtistItem > matches the snapshot 1`] = `
         <div class="centerAll preloadImage"><span class="skeletonLoader"><span class="visuallyHidden">Loading image</span></span><img alt="Go to artist artist-0" class="image" draggable="false" src="image"></div>
       </a></figure>
     <div class="hideOnListLayout layoutItemActions layoutItemActionsEnd layoutItemHoverActions"><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike artist">
-        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike artist</span>
+        <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike artist</span>
       </button></div>
   </div>
   <div class="layoutContent">
@@ -19,7 +19,7 @@ exports[`ArtistItem > matches the snapshot 1`] = `
           <!--v-if--><span class="clamp text"> Go to artist </span>
         </a></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike artist"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike artist</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike artist"><iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Unlike artist</span></button></span></li>
     </div>
   </div>
 </article>"

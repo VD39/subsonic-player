@@ -1,105 +1,105 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhApplePodcastsLogo > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconBrandApplePodcast > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phapplepodcastslogo class="icon"></phapplepodcastslogo>
+    <iconbrandapplepodcast fill="none" strokewidth="1" class="icon"></iconbrandapplepodcast>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhApplePodcastsLogo > matches the snapshot 2`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconBrandApplePodcast > matches the snapshot 2`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phapplepodcastslogo class="icon"></phapplepodcastslogo>
+    <iconbrandapplepodcast fill="none" strokewidth="1" class="icon"></iconbrandapplepodcast>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhArrowURightUp > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconDisc > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <pharrowurightup class="icon"></pharrowurightup>
+    <icondisc fill="none" strokewidth="1" class="icon"></icondisc>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhFolder > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconFolder > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phfolder class="icon"></phfolder>
+    <iconfolder fill="none" strokewidth="1" class="icon"></iconfolder>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhInfo > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconFolderUp > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phinfo class="icon"></phinfo>
+    <iconfolderup fill="none" strokewidth="1" class="icon"></iconfolderup>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhMusicNotes > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconInfoCircle > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phmusicnotes class="icon"></phmusicnotes>
+    <iconinfocircle fill="none" strokewidth="1" class="icon"></iconinfocircle>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhPlaylist > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconMusic > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phplaylist class="icon"></phplaylist>
+    <iconmusic fill="none" strokewidth="1" class="icon"></iconmusic>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhRadio > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconMusicOff > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phradio class="icon"></phradio>
+    <iconmusicoff fill="none" strokewidth="1" class="icon"></iconmusicoff>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhUserCircle > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconPlaylist > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phusercircle class="icon"></phusercircle>
+    <iconplaylist fill="none" strokewidth="1" class="icon"></iconplaylist>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhUsersThree > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconRadio > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phusersthree class="icon"></phusersthree>
+    <iconradio fill="none" strokewidth="1" class="icon"></iconradio>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhVinylRecord > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconUserCircle > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phvinylrecord class="icon"></phvinylrecord>
+    <iconusercircle fill="none" strokewidth="1" class="icon"></iconusercircle>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhWaveform > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconUsers > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phwaveform class="icon"></phwaveform>
+    <iconusers fill="none" strokewidth="1" class="icon"></iconusers>
   </div>
 </div>"
 `;
 
-exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to PhWaveformSlash > matches the snapshot 1`] = `
+exports[`PreloadImage > when the image prop is set to a FALLBACK_ICON_BY_TYPE icon > when the image prop is set to IconWaveform > matches the snapshot 1`] = `
 "<div class="centerAll preloadImage">
   <div class="iconImage">
-    <phwaveformslash class="icon"></phwaveformslash>
+    <iconwaveform fill="none" strokewidth="1" class="icon"></iconwaveform>
   </div>
 </div>"
 `;

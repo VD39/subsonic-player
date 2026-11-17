@@ -13,8 +13,8 @@ const { favouriteIds, setFavouriteId, toggleFavourite } = useFavourite();
 const isFavourite = computed(() => !!favouriteIds.value[props.id]);
 
 const buttonProps = computed<ButtonProps>(() => ({
-  iconColor: isFavourite.value ? 'var(--error-color)' : undefined,
-  iconWeight: isFavourite.value ? 'fill' : 'regular',
+  iconFill: isFavourite.value ? 'var(--error-color)' : undefined,
+  iconStroke: isFavourite.value ? 'var(--error-color)' : undefined,
   text: `${isFavourite.value ? 'Unlike' : 'Like'} ${props.type}`,
 }));
 
@@ -44,8 +44,8 @@ watch(
 <template>
   <ButtonLink
     :icon="ICONS.favourite"
-    :iconColor="buttonProps.iconColor"
-    :iconWeight="buttonProps.iconWeight"
+    :iconFill="buttonProps.iconFill"
+    :iconStroke="buttonProps.iconStroke"
     iconPosition="right"
     :showText
     :title="buttonProps.text"

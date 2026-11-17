@@ -8,11 +8,11 @@ exports[`AlbumItem > matches the snapshot 1`] = `
       </a></figure>
     <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
       <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+          <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
         </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
       </button>
     </div>
   </div>
@@ -36,7 +36,7 @@ exports[`AlbumItem > matches the snapshot 1`] = `
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
       <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-          <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artist</span>
+          <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artist</span>
         </button>
         <!--v-if-->
       </li>
@@ -45,7 +45,7 @@ exports[`AlbumItem > matches the snapshot 1`] = `
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Unlike album</span></button></span></li>
     </div>
   </div>
 </article>"
@@ -59,11 +59,11 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
       </a></figure>
     <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
       <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+          <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
         </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
       </button>
     </div>
   </div>
@@ -89,7 +89,7 @@ exports[`AlbumItem > when album artists is an empty array > matches the snapshot
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Unlike album</span></button></span></li>
     </div>
   </div>
 </article>"
@@ -103,11 +103,11 @@ exports[`AlbumItem > when album artists is not an empty array > when the hideArt
       </a></figure>
     <div class="hideOnListLayout layoutItemActions layoutItemHoverActions">
       <div class="centerItems actionsLeft"><button class="centerItems buttonLink themeHoverButton themeHoverButton" draggable="false" type="button" title="Play album album-0">
-          <phplay aria-hidden="true" class="icon" size="24" weight="regular"></phplay><span class="clamp text visuallyHidden">Play album album-0</span>
+          <iconplayerplay fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconplayerplay><span class="clamp text visuallyHidden">Play album album-0</span>
         </button><button class="centerItems buttonLink" draggable="false" type="button" title="Add album to queue">
-          <phpluscircle aria-hidden="true" class="icon" size="24" weight="regular"></phpluscircle><span class="clamp text visuallyHidden"> Add album to queue </span>
+          <iconcircleplus fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconcircleplus><span class="clamp text visuallyHidden"> Add album to queue </span>
         </button></div><button class="centerItems buttonLink alignRight" draggable="false" type="button" title="Unlike album">
-        <phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text visuallyHidden">Unlike album</span>
+        <iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text visuallyHidden">Unlike album</span>
       </button>
     </div>
   </div>
@@ -128,7 +128,7 @@ exports[`AlbumItem > when album artists is not an empty array > when the hideArt
           <!--v-if--><span class="clamp text"> Go to album </span>
         </a></li>
       <li class="dropdownWrapper"><button class="centerItems buttonLink alignRight centerAll fullWidth spaceBetween spaceBetween" draggable="false" type="button" aria-expanded="false" aria-haspopup="menu">
-          <phcaretright aria-hidden="true" class="icon" size="24" weight="regular"></phcaretright><span class="clamp text">Artist</span>
+          <iconchevronright fill="none" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconchevronright><span class="clamp text">Artist</span>
         </button>
         <!--v-if-->
       </li>
@@ -137,7 +137,7 @@ exports[`AlbumItem > when album artists is not an empty array > when the hideArt
           <!--v-if--><span class="clamp text"> Media information </span>
         </button></li>
       <li aria-hidden="true" class="divider"></li>
-      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><phheart aria-hidden="true" class="icon" color="var(--error-color)" size="24" weight="fill"></phheart><span class="clamp text">Unlike album</span></button></span></li>
+      <li class="centerItems dropdownItem"><span class="spanItem item"><button class="centerItems buttonLink alignRight globalLink globalLink" draggable="false" type="button" title="Unlike album"><iconheart color="var(--error-color)" fill="var(--error-color)" size="24" strokewidth="1" aria-hidden="true" class="icon"></iconheart><span class="clamp text">Unlike album</span></button></span></li>
     </div>
   </div>
 </article>"

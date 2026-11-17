@@ -2,6 +2,8 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 import SpinningLoader from './SpinningLoader.vue';
 
 function factory(props = {}) {
@@ -25,8 +27,8 @@ describe('SpinningLoader', () => {
 
   describe('when the size prop is not set', () => {
     it('sets the correct size attribute on the icon component', () => {
-      expect(wrapper.find({ ref: 'spinnerIcon' }).attributes('size')).toBe(
-        ICON_SIZE.medium.toString(),
+      expect(wrapper.findComponent(BaseIcon).props('size')).toBe(
+        ICON_SIZE.medium,
       );
     });
   });
@@ -43,8 +45,8 @@ describe('SpinningLoader', () => {
     });
 
     it('sets the correct size attribute on the icon component', () => {
-      expect(wrapper.find({ ref: 'spinnerIcon' }).attributes('size')).toBe(
-        ICON_SIZE.large.toString(),
+      expect(wrapper.findComponent(BaseIcon).props('size')).toBe(
+        ICON_SIZE.large,
       );
     });
   });

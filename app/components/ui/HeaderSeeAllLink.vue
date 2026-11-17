@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
 import HeaderWithAction from '@/components/ui/HeaderWithAction.vue';
 
 defineProps<{
@@ -12,11 +13,10 @@ defineProps<{
       <NuxtLink draggable="false" :to>
         <slot />
 
-        <component
-          :is="ICONS.more"
+        <BaseIcon
           :class="$style.moreIcon"
+          :icon="ICONS.more"
           :size="ICON_SIZE.small"
-          weight="regular"
         />
       </NuxtLink>
     </h2>

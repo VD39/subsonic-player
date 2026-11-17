@@ -27,7 +27,6 @@ function clearQueue() {
         class="queueAction"
         fullWidth
         :icon="ICONS.queueClose"
-        iconWeight="bold"
         title="Close queue list"
         @click="toggleQueueList"
       >

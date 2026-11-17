@@ -2,6 +2,8 @@ import type { VueWrapper } from '@vue/test-utils';
 
 import { mount } from '@vue/test-utils';
 
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 import IconImage from './IconImage.vue';
 
 function factory(props = {}) {
@@ -25,8 +27,6 @@ describe('IconImage', () => {
   });
 
   it('shows the correct icon', () => {
-    expect(
-      (wrapper.find({ ref: 'iconComponent' }).element as HTMLElement).tagName,
-    ).toBe(ICONS.add.toUpperCase());
+    expect(wrapper.findComponent(BaseIcon).props('icon')).toBe(ICONS.add);
   });
 });

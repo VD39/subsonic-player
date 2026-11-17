@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseIcon from '@/components/ui/BaseIcon.vue';
+
 defineProps<{
   icon: Icon;
 }>();
@@ -6,7 +8,7 @@ defineProps<{
 
 <template>
   <div :class="$style.iconImage">
-    <component :is="icon" ref="iconComponent" :class="$style.icon" />
+    <BaseIcon :class="$style.icon" :icon />
   </div>
 </template>
 
